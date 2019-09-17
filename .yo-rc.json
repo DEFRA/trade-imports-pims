@@ -1,0 +1,11 @@
+{
+  "@capgemini/generator-cdspackage": {
+    "promptValues": {
+      "adoUrl": "https://defradev.visualstudio.com",
+      "client": "Defra",
+      "package": "Imports",
+      "ciUrl": "https://defra-custmstr-eue-int-imp.crm4.dynamics.com",
+      "serviceAccountUsername": "mike.andrews@defradev.onmicrosoft.com"
+    }
+  }
+}

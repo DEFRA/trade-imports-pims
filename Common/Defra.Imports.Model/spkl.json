@@ -1,0 +1,14 @@
+{
+  "earlyboundtypes": [
+    {
+      "entities": "",
+      "actions": "",
+      "generateOptionsetEnums": true,
+      "generateStateEnums": true,
+      "generateGlobalOptionsets": true,
+      "filename": "ImportsContext.cs",
+      "classNamespace": "Defra.Imports.Model",
+      "serviceContextName": "ImportsContext"
+    }
+  ]
+}
