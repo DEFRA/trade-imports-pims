@@ -5,7 +5,9 @@
       "client": "Defra",
       "package": "Imports",
       "ciUrl": "https://defra-custmstr-eue-int-imp.crm4.dynamics.com",
-      "serviceAccountUsername": "mike.andrews@defradev.onmicrosoft.com"
+      "serviceAccountUsername": "mike.andrews@defradev.onmicrosoft.com",
+      "prefix": "defraimp",
+      "solution": "Core"
     }
   }
 }

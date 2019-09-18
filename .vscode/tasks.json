@@ -115,6 +115,7 @@
       "description": "The solution to execute the task for.",
       "type": "pickString",
       "options": [
+        "defraimp_Imports_Core"
       ]
     },
     {
