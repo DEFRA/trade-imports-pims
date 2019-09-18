@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cake.Xrm.Sdk</name>
+    </assembly>
+    <members>
+        <member name="T:Cake.Xrm.Sdk.Solutions.ImportJobData">
+            <summary>
+            The result of a solution import job.
+            </summary>
+        </member>
+        <member name="P:Cake.Xrm.Sdk.Solutions.ImportJobData.ImportResult">
+            <summary>
+            Gets the result of the import.
+            </summary>
+        </member>
+        <member name="P:Cake.Xrm.Sdk.Solutions.ImportJobData.ErrorText">
+            <summary>
+            Gets the error text.
+            </summary>
+        </member>
+        <member name="P:Cake.Xrm.Sdk.Solutions.ImportJobData.Status">
+            <summary>
+            Gets the status of the import.
+            </summary>
+        </member>
+        <member name="M:Cake.Xrm.Sdk.Solutions.ImportJobData.ParseXml(System.String)">
+            <summary>
+            Parses the data string returned by and import job.
+            </summary>
+            <param name="dataXml">The data XML string.</param>
+            <returns>An intance of <see cref="T:Cake.Xrm.Sdk.Solutions.ImportJobData"/>.</returns>
+        </member>
+        <member name="T:Cake.Xrm.Sdk.Solutions.ImportResult">
+            <summary>
+            Possible results from a solution import.
+            </summary>
+        </member>
+        <member name="F:Cake.Xrm.Sdk.Solutions.ImportResult.Success">
+            <summary>
+            The solution import succeded.
+            </summary>
+        </member>
+        <member name="F:Cake.Xrm.Sdk.Solutions.ImportResult.Failure">
+            <summary>
+            The solution import failed.
+            </summary>
+        </member>
+        <member name="T:Cake.Xrm.Sdk.Solutions.SolutionImportSettings">
+            <summary>
+            Settings for importing solutions.
+            </summary>
+        </member>
+        <member name="P:Cake.Xrm.Sdk.Solutions.SolutionImportSettings.ConvertToManaged">
+            <summary>
+            Gets or sets a value indicating whether or not to convert unmanaged components to managed.
+            </summary>
+        </member>
+        <member name="P:Cake.Xrm.Sdk.Solutions.SolutionImportSettings.HoldingSolution">
+            <summary>
+            Gets or sets a value indicating whether or not to use a holding solution.
+            </summary>
+        </member>
+        <member name="P:Cake.Xrm.Sdk.Solutions.SolutionImportSettings.OverwriteUnmanagedCustomisations">
+            <summary>
+            Gets or sets a value indicating whether or not to overwrite unmanaged customisations.
+            </summary>
+        </member>
+        <member name="P:Cake.Xrm.Sdk.Solutions.SolutionImportSettings.ActivePlugins">
+            <summary>
+            Gets or sets a value indicating whether or not to activate plugins.
+            </summary>
+        </member>
+        <member name="P:Cake.Xrm.Sdk.Solutions.SolutionImportSettings.SkipProductUpdateDependencies">
+            <summary>
+            Gets or sets a value indicating whether or not to skip product update dependencies.
+            </summary>
+        </member>
+        <member name="M:Cake.Xrm.Sdk.Solutions.SolutionImportSettings.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cake.Xrm.Sdk.Solutions.SolutionManager">
+            <summary>
+            Manages Dynamics 365 solutions.
+            </summary>
+        </member>
+        <member name="M:Cake.Xrm.Sdk.Solutions.SolutionManager.#ctor(Microsoft.Xrm.Tooling.Connector.CrmServiceClient,Cake.Core.Diagnostics.ICakeLog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Xrm.Sdk.Solutions.SolutionManager"/> class.
+            </summary>
+            <param name="crmServiceClient">An instance of <see cref="T:Microsoft.Xrm.Tooling.Connector.CrmServiceClient"/>.</param>
+            <param name="log">Cake log.</param>
+        </member>
+        <member name="M:Cake.Xrm.Sdk.Solutions.SolutionManager.ExportSolution(System.String,Cake.Core.IO.DirectoryPath,System.Boolean)">
+            <summary>
+            Exports a solution from Dynamics 365.
+            </summary>
+            <param name="solutionUniqueName">The unique name of the solution.</param>
+            <param name="exportDirectory">The directory to export to.</param>
+            <param name="isManaged">Whether or not the solution is to be exported as managed.</param>
+            <returns>The path to the exported solution.</returns>
+        </member>
+        <member name="M:Cake.Xrm.Sdk.Solutions.SolutionManager.ImportSolution(Cake.Core.IO.FilePath,Cake.Xrm.Sdk.Solutions.SolutionImportSettings)">
+            <summary>
+            Imports a solution into Dynamics 365.
+            </summary>
+            <param name="solution">Path to the solution zip file.</param>
+            <param name="settings">The solution import settings.</param>
+        </member>
+        <member name="M:Cake.Xrm.Sdk.Solutions.SolutionManager.UpdateSolutionVersion(System.String,System.String)">
+            <summary>
+            Updates the version of a solution.
+            </summary>
+            <param name="solutionUniqueName">The unique name of the solution.</param>
+            <param name="version">The version.</param>
+        </member>
+        <member name="T:Cake.Xrm.Sdk.SolutionsAliases">
+            <summary>
+            Aliases related to the Dynamics SDK.
+            </summary>
+        </member>
+        <member name="M:Cake.Xrm.Sdk.SolutionsAliases.XrmExportSolution(Cake.Core.ICakeContext,System.String,System.String,Cake.Core.IO.DirectoryPath,System.Int32,System.Boolean)">
+            <summary>
+            Exports a solution as managed or unmanaged.
+            </summary>
+            <param name="ctx">Cake context.</param>
+            <param name="connectionString">Connection string.</param>
+            <param name="solutionUniqueName">Unique name of the solution to export.</param>
+            <param name="exportDirectory">The directory to export to.</param>
+            <param name="timeoutInMinutes">The timeout to apply.</param>
+            <param name="isManaged">Whether to export the solution as a managed solution. Defaults to unmanaged.</param>
+            <returns>The path of the exported solution zip.</returns>
+        </member>
+        <member name="M:Cake.Xrm.Sdk.SolutionsAliases.XrmImportSolution(Cake.Core.ICakeContext,System.String,Cake.Core.IO.FilePath,Cake.Xrm.Sdk.Solutions.SolutionImportSettings,System.Int32)">
+            <summary>
+            Imports a solution.
+            </summary>
+            <param name="ctx">Cake context.</param>
+            <param name="connectionString">Connection string.</param>
+            <param name="solution">File path to the solution zip to import.</param>
+            <param name="settings">Solution import settings.</param>
+            <param name="timeoutInMinutes">The timeout to apply.</param>
+        </member>
+        <member name="M:Cake.Xrm.Sdk.SolutionsAliases.XrmUpdateSolutionVersion(Cake.Core.ICakeContext,System.String,System.String,System.String)">
+            <summary>
+            Updates the version of an unmanaged solution.
+            </summary>
+            <param name="ctx">Cake context.</param>
+            <param name="connectionString">Connection string.</param>
+            <param name="solutionUniqueName">Unique name of the solution.</param>
+            <param name="version">The version to set.</param>
+        </member>
+    </members>
+</doc>
