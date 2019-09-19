@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{ff471698-b1f0-4205-95ab-1046d083348b}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_importnotificationid">
+          <cell name="defraimp_dateofimport" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_countryoforiginid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_commoditytypeid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_importrisklevelid" width="100" />
+          <cell name="defraimp_notificationtype" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_referencenumber" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_importername" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_importertelephone" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_importeremail" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_pointofentry" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="statuscode" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="defraimp_importnotification">
+          <order attribute="defraimp_dateofimport" descending="true" />
+          <order attribute="defraimp_countryoforiginid" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="defraimp_pointofentry" />
+          <attribute name="defraimp_notificationtype" />
+          <attribute name="defraimp_importername" />
+          <attribute name="defraimp_dateofimport" />
+          <attribute name="defraimp_referencenumber" />
+          <attribute name="statuscode" />
+          <attribute name="defraimp_importertelephone" />
+          <attribute name="defraimp_importeremail" />
+          <attribute name="defraimp_importrisklevelid" />
+          <attribute name="defraimp_countryoforiginid" />
+          <attribute name="defraimp_commoditytypeid" />
+          <attribute name="defraimp_importnotificationid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Import Notifications" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

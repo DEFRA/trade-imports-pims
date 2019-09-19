@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" />
+  <EntityRelationship Name="lk_defraimp_importapplicationbusinessprocessflow_activestageid" />
+  <EntityRelationship Name="lk_defraimp_importapplicationbusinessprocessflow_createdby" />
+  <EntityRelationship Name="lk_defraimp_importapplicationbusinessprocessflow_modifiedby" />
+  <EntityRelationship Name="lk_defraimp_importapplicationbusinessprocessflow_processid" />
+  <EntityRelationship Name="organization_defraimp_importapplicationbusinessprocessflow" />
+</EntityRelationships>

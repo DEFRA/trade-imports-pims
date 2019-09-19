@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{abd73f62-b777-4672-b66e-e2eed645d8cc}" Name="Import Application - Business Process Flow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ImportApplication-BusinessProcessFlow-ABD73F62-B777-4672-B66E-E2EED645D8CC.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
+  <processorder>100</processorder>
+  <processroleassignment>&lt;DisplayConditions&gt;&lt;Role Id="{627090ff-40a3-4053-8790-584edc5be201}" /&gt;&lt;Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" /&gt;&lt;/DisplayConditions&gt;</processroleassignment>
+  <RunAs>1</RunAs>
+  <UniqueName>defraimp_importapplicationbusinessprocessflow</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>0.0.0.1</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Import Application - Business Process Flow" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{1c16277f-6754-4aa9-a45b-dcbc4eef7125}">
+      <label languagecode="1033" description="Compliance" />
+    </steplabels>
+    <steplabels id="{e3390cce-de7c-437e-9e5e-2640de67c773}">
+      <label languagecode="1033" description="Import Notification" />
+    </steplabels>
+    <steplabels id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}">
+      <label languagecode="1033" description="Risk Assesment" />
+    </steplabels>
+    <steplabels id="{5d2860c0-04c8-4a24-a08d-ac7b57fede2e}">
+      <label languagecode="1033" description="Import Risk Level" />
+    </steplabels>
+    <steplabels id="{25f63313-40fc-43c2-aece-0741e8edb199}">
+      <label languagecode="1033" description="Inspection" />
+    </steplabels>
+    <steplabels id="{07673af0-b00c-4f99-9605-3b35b81abd8d}">
+      <label languagecode="1033" description="Destination Name" />
+    </steplabels>
+  </labels>
+  <ProcessTriggers />
+</Workflow>

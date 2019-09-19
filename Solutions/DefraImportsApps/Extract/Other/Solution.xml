@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.1.0.8425" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>DefraImportsApps</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Defra.Imports.Apps" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>0.0.0.1</Version>
+    <Managed>2</Managed>
+    <Publisher>
+      <UniqueName>defraimports</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="DEFRA IMPORTS" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>defraimp</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>71410</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="80" schemaName="defraimp_EUImportsApp" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required key="0" type="1" schemaName="defraexp_country" displayName="Country" solution="defraexports (0.0.0.37)" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="2" type="1" schemaName="defraexp_commoditytype" displayName="Commodity Type" solution="defraexports (0.0.0.37)" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="3" type="1" schemaName="defraimp_countryoftransit" displayName="Country of Transit" solution="Active" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="4" type="1" schemaName="defraimp_importapplication" displayName="Import Application" solution="Active" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="5" type="1" schemaName="defraexp_configurationparameter" displayName="Configuration Parameter" solution="defraexports (0.0.0.37)" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="6" type="1" schemaName="defraimp_importrisklevel" displayName="Import Risk Level" solution="Active" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="7" type="1" schemaName="defraimp_importnotification" displayName="Import Notification" solution="Active" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="8" type="1" schemaName="defraimp_importcountrycommodityrisklevel" displayName="Import Country Commodity Risk Level" solution="Active" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="9" type="60" displayName="Import Applications - Caseworker Dashboard" solution="Active" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="10" type="62" schemaName="defraimp_EUImportsApp" solution="Active" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="11" type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

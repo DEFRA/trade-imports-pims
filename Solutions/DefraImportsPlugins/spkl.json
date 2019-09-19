@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    {
+      "assemblypath": "PluginAssemblies\\Defra..\\bin\\Deploy\\Defra...dll",
+      "solution": "DefraImportsPlugins__"
+    }
+  ]
+}
