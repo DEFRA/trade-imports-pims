@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Mapping>
-  <FileToFile map="Defra.dll" to="..\PluginAssemblies\Defra..\bin\Deploy\Defra...dll"/>
+  <FileToFile map="Defra.dll" to="..\PluginAssemblies\Defra.Imports.Plugins\bin\Deploy\Defra.Imports.Plugins.dll"/>
 </Mapping>
