@@ -130,9 +130,9 @@
     </ProjectReference>
   </ItemGroup>
   <!--Target the shared projects for a Dynamics 365 compatible build-->
-  <Import Condition="'$(Configuration)'=='Deploy'" Project="..\..\..\..\Common\Defra.Imports.BusinessLogic\Defra..BusinessLogic.projitems" Label="Shared" />
-  <Import Condition="'$(Configuration)'=='Deploy'" Project="..\..\..\..\Common\Defra.Imports.Repositories\Defra..Repositories.projitems" Label="Shared" />
-  <Import Condition="'$(Configuration)'=='Deploy'" Project="..\..\..\..\Common\Defra.Imports.Model\Defra..Model.projitems" Label="Shared" />
+  <Import Condition="'$(Configuration)'=='Deploy'" Project="..\..\..\..\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems" Label="Shared" />
+  <Import Condition="'$(Configuration)'=='Deploy'" Project="..\..\..\..\Common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems" Label="Shared" />
+  <Import Condition="'$(Configuration)'=='Deploy'" Project="..\..\..\..\Common\Defra.Imports.Model\Defra.Imports.Model.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
