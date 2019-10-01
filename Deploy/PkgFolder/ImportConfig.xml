@@ -5,7 +5,7 @@
     <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsWorkflows_managed.zip" useAsync="true" />
     <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsPlugins_managed.zip" useAsync="true" />
     <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsAnalytics_managed.zip" useAsync="true" />
-    <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsSecurity_managed.zip" useAsync="true" />
+    <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsSecurityModel_managed.zip" useAsync="true" />
     <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsApps_managed.zip" useAsync="true" />
     <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsWebResources_managed.zip" useAsync="true" />
   </solutions>
