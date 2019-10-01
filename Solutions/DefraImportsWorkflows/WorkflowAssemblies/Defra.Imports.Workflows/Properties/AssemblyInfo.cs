@@ -1,19 +1,16 @@
-// <copyright file="AssemblyInfo.cs" company="Scottish Water">
-// Copyright (c) Scottish Water. All rights reserved.
-// </copyright>
-
-using System.Reflection;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Defra.Imports.Plugins")]
+[assembly: AssemblyTitle("Defra.Imports.Workflows")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Capgemini")]
-[assembly: AssemblyProduct("Defra.Imports.Plugins")]
-[assembly: AssemblyCopyright("Copyright © Capgemini 2018")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Defra.Imports.Workflows")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -23,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6cc71506-c2b3-4b52-847d-3234dec6e481")]
+[assembly: Guid("b70ccc0b-2cb8-44f5-9a4a-80669bf0cbb8")]
 
 // Version information for an assembly consists of the following four values:
 //

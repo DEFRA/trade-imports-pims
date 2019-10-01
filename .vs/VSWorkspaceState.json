@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Solutions",
+    "\\Solutions\\DefraImportsPlugins\\Extract",
+    "\\Solutions\\DefraImportsPlugins\\Extract\\Other",
+    "\\Solutions\\DefraImportsWorkflows",
+    "\\Solutions\\DefraImportsWorkflows\\WorkflowAssemblies",
+    "\\Solutions\\DefraImportsWorkflows\\WorkflowAssemblies\\Defra.Imports.Workflows"
   ],
-  "SelectedNode": "\\Defra.Imports.sln",
+  "SelectedNode": "\\Solutions\\DefraImportsPlugins",
   "PreviewInSolutionExplorer": false
 }

@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CrmPluginRegistrationAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)defraimp_Autonumber\defraimp_AutonumberService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\InArgumentExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IRepositoryFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ConsoleLogWriter.cs" />
@@ -17,6 +18,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Logging\Severity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\TracingServiceLogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IAutonumberRespoitory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IConfigurationParameterRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IImportApplicationRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IImportRiskLevelRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RepositoryFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivity.cs" />
   </ItemGroup>

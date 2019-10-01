@@ -1,14 +1,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29306.81
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FD3CAA3F-296C-4ECB-A6E9-A4A8CA3E15B6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solutions", "Solutions", "{0F585759-A22A-4564-AD05-11924B6B1DDF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{2AD54360-54F9-4CCD-8261-2ED80D5E8F4C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defra.Imports.Tests.Ui", "Tests\Defra.Imports.Tests.Ui\Defra.Imports.Tests.Ui.csproj", "{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{66632694-4D0C-4007-B7AC-059E9BCC5932}"
 	ProjectSection(SolutionItems) = preProject
@@ -34,11 +32,41 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defra.Imports.Container", "
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Defra.Imports.Model", "Common\Defra.Imports.Model\Defra.Imports.Model.shproj", "{70363B14-5D32-4BD6-AA74-A1CA3373C087}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefraImportsPlugins", "DefraImportsPlugins", "{9E2594F2-3FCF-44AD-997F-45AA6898CE7D}"
+	ProjectSection(SolutionItems) = preProject
+		Solutions\DefraImportsPlugins\env.json = Solutions\DefraImportsPlugins\env.json
+		Solutions\DefraImportsPlugins\MappingFile.xml = Solutions\DefraImportsPlugins\MappingFile.xml
+		Solutions\DefraImportsPlugins\spkl.json = Solutions\DefraImportsPlugins\spkl.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginAssemblies", "PluginAssemblies", "{5E9E4508-446B-4D2F-80BD-C30212F5E2F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defra.Imports.Plugins", "Solutions\DefraImportsPlugins\PluginAssemblies\Defra.Imports.Plugins\Defra.Imports.Plugins.csproj", "{143ED2D6-36C2-67E4-3DC2-4EC3E3D7FB7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefraImportsWorkflows", "DefraImportsWorkflows", "{082B405E-DE84-455F-A00D-D2042623C4C8}"
+	ProjectSection(SolutionItems) = preProject
+		Solutions\DefraImportsWorkflows\env.json = Solutions\DefraImportsWorkflows\env.json
+		Solutions\DefraImportsWorkflows\MappingFile.xml = Solutions\DefraImportsWorkflows\MappingFile.xml
+		Solutions\DefraImportsWorkflows\spkl.json = Solutions\DefraImportsWorkflows\spkl.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkflowAssemblies", "WorkflowAssemblies", "{F1F3247C-214F-4A66-BEAF-E251B0723C97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defra.Imports.Workflows", "Solutions\DefraImportsWorkflows\WorkflowAssemblies\Defra.Imports.Workflows\Defra.Imports.Workflows.csproj", "{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defra.Imports.Tests.Ui", "Tests\Defra.Imports.Tests.Ui\Defra.Imports.Tests.Ui.csproj", "{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{143ed2d6-36c2-67e4-3dc2-4ec3e3d7fb7f}*SharedItemsImports = 4
+		Common\Defra.Imports.Model\Defra.Imports.Model.projitems*{143ed2d6-36c2-67e4-3dc2-4ec3e3d7fb7f}*SharedItemsImports = 4
+		Common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{143ed2d6-36c2-67e4-3dc2-4ec3e3d7fb7f}*SharedItemsImports = 4
 		Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{2b1ef6de-63cc-4b7e-9bf6-5d9b4c0afded}*SharedItemsImports = 13
 		Common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{56d657e2-2db7-4489-ad26-ca2e147836c6}*SharedItemsImports = 13
 		Common\Defra.Imports.Model\Defra.Imports.Model.projitems*{70363b14-5d32-4bd6-aa74-a1ca3373c087}*SharedItemsImports = 13
+		Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{b70ccc0b-2cb8-44f5-9a4a-80669bf0cbb8}*SharedItemsImports = 4
+		Common\Defra.Imports.Model\Defra.Imports.Model.projitems*{b70ccc0b-2cb8-44f5-9a4a-80669bf0cbb8}*SharedItemsImports = 4
+		Common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{b70ccc0b-2cb8-44f5-9a4a-80669bf0cbb8}*SharedItemsImports = 4
 		Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{f9e5ef62-5bdf-4e36-8027-d265754b56c7}*SharedItemsImports = 4
 		Common\Defra.Imports.Model\Defra.Imports.Model.projitems*{f9e5ef62-5bdf-4e36-8027-d265754b56c7}*SharedItemsImports = 4
 		Common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{f9e5ef62-5bdf-4e36-8027-d265754b56c7}*SharedItemsImports = 4
@@ -49,12 +77,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Deploy|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Deploy|Any CPU.Build.0 = Debug|Any CPU
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E0FEC5A-48CA-423F-B581-86B12F3A0E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E0FEC5A-48CA-423F-B581-86B12F3A0E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E0FEC5A-48CA-423F-B581-86B12F3A0E7B}.Deploy|Any CPU.ActiveCfg = Debug|Any CPU
@@ -77,12 +99,29 @@ Global
 		{F9E5EF62-5BDF-4E36-8027-D265754B56C7}.Deploy|Any CPU.Build.0 = Debug|Any CPU
 		{F9E5EF62-5BDF-4E36-8027-D265754B56C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9E5EF62-5BDF-4E36-8027-D265754B56C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{143ED2D6-36C2-67E4-3DC2-4EC3E3D7FB7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{143ED2D6-36C2-67E4-3DC2-4EC3E3D7FB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{143ED2D6-36C2-67E4-3DC2-4EC3E3D7FB7F}.Deploy|Any CPU.ActiveCfg = Deploy|Any CPU
+		{143ED2D6-36C2-67E4-3DC2-4EC3E3D7FB7F}.Deploy|Any CPU.Build.0 = Deploy|Any CPU
+		{143ED2D6-36C2-67E4-3DC2-4EC3E3D7FB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{143ED2D6-36C2-67E4-3DC2-4EC3E3D7FB7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}.Deploy|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}.Deploy|Any CPU.Build.0 = Debug|Any CPU
+		{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Deploy|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Deploy|Any CPU.Build.0 = Debug|Any CPU
+		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA} = {FD3CAA3F-296C-4ECB-A6E9-A4A8CA3E15B6}
 		{66632694-4D0C-4007-B7AC-059E9BCC5932} = {D0CD09F0-8603-4099-B6E1-A65C77BC7459}
 		{2B1EF6DE-63CC-4B7E-9BF6-5D9B4C0AFDED} = {2AD54360-54F9-4CCD-8261-2ED80D5E8F4C}
 		{56D657E2-2DB7-4489-AD26-CA2E147836C6} = {2AD54360-54F9-4CCD-8261-2ED80D5E8F4C}
@@ -91,6 +130,13 @@ Global
 		{FD08C829-9610-4141-8C8F-0CDB7DCDDB57} = {FD3CAA3F-296C-4ECB-A6E9-A4A8CA3E15B6}
 		{F9E5EF62-5BDF-4E36-8027-D265754B56C7} = {2AD54360-54F9-4CCD-8261-2ED80D5E8F4C}
 		{70363B14-5D32-4BD6-AA74-A1CA3373C087} = {2AD54360-54F9-4CCD-8261-2ED80D5E8F4C}
+		{9E2594F2-3FCF-44AD-997F-45AA6898CE7D} = {0F585759-A22A-4564-AD05-11924B6B1DDF}
+		{5E9E4508-446B-4D2F-80BD-C30212F5E2F3} = {9E2594F2-3FCF-44AD-997F-45AA6898CE7D}
+		{143ED2D6-36C2-67E4-3DC2-4EC3E3D7FB7F} = {5E9E4508-446B-4D2F-80BD-C30212F5E2F3}
+		{082B405E-DE84-455F-A00D-D2042623C4C8} = {0F585759-A22A-4564-AD05-11924B6B1DDF}
+		{F1F3247C-214F-4A66-BEAF-E251B0723C97} = {082B405E-DE84-455F-A00D-D2042623C4C8}
+		{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8} = {F1F3247C-214F-4A66-BEAF-E251B0723C97}
+		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA} = {FD3CAA3F-296C-4ECB-A6E9-A4A8CA3E15B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3D6A7645-2C64-4610-BC84-6AD17AA98B71}
