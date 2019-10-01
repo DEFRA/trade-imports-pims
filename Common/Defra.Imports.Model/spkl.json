@@ -1,7 +1,7 @@
 {
   "earlyboundtypes": [
     {
-      "entities": "",
+      "entities": "contact,defraimp_autonumber,defraimp_countryoftransit,defraimp_importnotification,defraimp_importrisklevel,defraimp_importcountrycommodityrisklevel,defraimp_itac",
       "actions": "",
       "generateOptionsetEnums": true,
       "generateStateEnums": true,
