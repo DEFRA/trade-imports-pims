@@ -11,8 +11,8 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-  <StateCode>0</StateCode>
-  <StatusCode>1</StatusCode>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
   <processorder>100</processorder>
   <processroleassignment>&lt;DisplayConditions&gt;&lt;Role Id="{627090ff-40a3-4053-8790-584edc5be201}" /&gt;&lt;Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" /&gt;&lt;/DisplayConditions&gt;</processroleassignment>
   <RunAs>1</RunAs>
@@ -27,23 +27,70 @@
   </LocalizedNames>
   <labels>
     <steplabels id="{1c16277f-6754-4aa9-a45b-dcbc4eef7125}">
-      <label languagecode="1033" description="Compliance" />
+      <label languagecode="1033" description="Triage" />
     </steplabels>
     <steplabels id="{e3390cce-de7c-437e-9e5e-2640de67c773}">
-      <label languagecode="1033" description="Import Notification" />
+      <label languagecode="1033" description="Primary Import Notification" />
+    </steplabels>
+    <steplabels id="{7c7b066a-ede8-4322-b68a-a4b2ca96fbca}">
+      <label languagecode="1033" description="Primary ITAHC" />
+    </steplabels>
+    <steplabels id="{10603858-6d3f-4e9d-bfc6-44902d6efd81}">
+      <label languagecode="1033" description="Matching Validated?" />
     </steplabels>
     <steplabels id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}">
-      <label languagecode="1033" description="Risk Assesment" />
+      <label languagecode="1033" description="Risk Assessment" />
     </steplabels>
     <steplabels id="{5d2860c0-04c8-4a24-a08d-ac7b57fede2e}">
       <label languagecode="1033" description="Import Risk Level" />
     </steplabels>
-    <steplabels id="{25f63313-40fc-43c2-aece-0741e8edb199}">
+    <steplabels id="{9ff7cab4-7681-47fd-9b34-e7adc397bdbc}">
+      <label languagecode="1033" description="Certificate Verified?" />
+    </steplabels>
+    <steplabels id="{5f26f0c4-b821-49d9-b307-12c14b41ea2e}">
+      <label languagecode="1033" description="Risk Level Verified?" />
+    </steplabels>
+    <steplabels id="{9c7440a2-b506-4003-b740-90fb7ec36275}">
+      <label languagecode="1033" description="Inspection Required?" />
+    </steplabels>
+    <steplabels id="{bd15a35a-0f2d-465b-80da-6b693fc12413}">
+      <label languagecode="1033" description="Inspection Not Required Reason" />
+    </steplabels>
+    <steplabels id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}">
+      <label languagecode="1033" description="Completion" />
+    </steplabels>
+    <steplabels id="{a927b17e-d768-4293-98bc-600c493db897}">
+      <label languagecode="1033" description="Completion Summary" />
+    </steplabels>
+    <steplabels id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}">
       <label languagecode="1033" description="Inspection" />
     </steplabels>
-    <steplabels id="{07673af0-b00c-4f99-9605-3b35b81abd8d}">
-      <label languagecode="1033" description="Destination Name" />
+    <steplabels id="{686aefca-a4ed-42f8-9387-18cba32419bb}">
+      <label languagecode="1033" description="Inspection Completed?" />
+    </steplabels>
+    <steplabels id="{37a66be7-96dd-4680-8a79-db34e72ed7a6}">
+      <label languagecode="1033" description="Inspection Outcome Received?" />
+    </steplabels>
+    <steplabels id="{a93019bd-ad43-4c14-ace5-d5ec371cd926}">
+      <label languagecode="1033" description="Move to Completion?" />
+    </steplabels>
+    <steplabels id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}">
+      <label languagecode="1033" description="Completion" />
+    </steplabels>
+    <steplabels id="{674fe31f-a72f-4493-9433-4b1bd2d0a2ca}">
+      <label languagecode="1033" description="Completion Summary" />
     </steplabels>
   </labels>
-  <ProcessTriggers />
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{8137bfac-b5de-e911-a854-000d3ab0d976}">
+      <controltype>1</controltype>
+      <methodid>{735dbc53-a795-4524-8bb5-7eb1c32a25d9}</methodid>
+      <scope>1</scope>
+      <controlname>defraimp_inspectionrequired</controlname>
+      <event>change</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
 </Workflow>
