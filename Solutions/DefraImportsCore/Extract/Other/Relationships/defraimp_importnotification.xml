@@ -14,7 +14,7 @@
     <CascadeUnshare>NoCascade</CascadeUnshare>
     <CascadeRollupView>NoCascade</CascadeRollupView>
     <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
-    <ReferencingAttributeName>defraimp_ImportNotificationId</ReferencingAttributeName>
+    <ReferencingAttributeName>defraimp_PrimaryImportNotificationId</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
         <Description description="Unique identifier for Import Notification associated with Import Application." languagecode="1033" />
@@ -25,7 +25,7 @@
         <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
         <NavPaneArea>Details</NavPaneArea>
         <NavPaneOrder>10000</NavPaneOrder>
-        <NavigationPropertyName>defraimp_ImportNotificationId</NavigationPropertyName>
+        <NavigationPropertyName>defraimp_PrimaryImportNotificationId</NavigationPropertyName>
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
