@@ -50,17 +50,6 @@
     },
     {
       "type": "shell",
-      "label": "Extract Core Solution",
-      "command": [
-        "powershell",
-        "-ExecutionPolicy ByPass",
-        "-File build.ps1",
-        "-Target \"ExtractCoreSolution\"",
-      ],
-      "problemMatcher": []
-    },
-    {
-      "type": "shell",
       "label": "Pack Solution",
       "command": [
         "powershell",

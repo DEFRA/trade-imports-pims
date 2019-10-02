@@ -63,14 +63,6 @@ Task("ExtractSolution")
       Directory($"{SolutionsFolder}/{solution}").Path.Combine("Extract"));
   });
 
-Task("ExtractCoreSolution")
-  .Does(() => {
-    ExtractSolution(
-      GetConnectionString("DefraImportsCore", true), 
-      "DefraImportsCore", 
-      Directory($"{SolutionsFolder}/DefraImportsCore").Path.Combine("Extract"));
-  });
-
 // build targets 
 Task("BuildTestProjects")
   .Does(() => {
