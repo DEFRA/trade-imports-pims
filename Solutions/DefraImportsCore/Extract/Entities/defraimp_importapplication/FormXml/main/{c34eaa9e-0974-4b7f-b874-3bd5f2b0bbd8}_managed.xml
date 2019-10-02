@@ -14,46 +14,88 @@
           <columns>
             <column width="50%">
               <sections>
-                <section name="Importer_Section" showlabel="false" showbar="false" locklevel="0" id="{3c3abe61-64b4-bd1d-6023-653be7bbe24c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <section name="TriggerDocuments_Section" showlabel="false" showbar="false" locklevel="0" id="{3c3abe61-64b4-bd1d-6023-653be7bbe24c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
-                    <label description="Importer" languagecode="1033" />
+                    <label description="Trigger Documents" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{a0eaea60-94a4-d6da-28e0-259822244419}" showlabel="true" locklevel="0">
+                      <cell id="{c745516d-73e3-a53c-6385-07071529ebe9}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_importerorganisationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importerorganisationid" disabled="false" />
+                        <control id="defraimp_primaryitahcid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_primaryitahcid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5c51e45d-45d0-6be1-a87b-2dd44b537b1c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_primaryimportnotificationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_primaryimportnotificationid" disabled="false" />
                       </cell>
                     </row>
                   </rows>
                 </section>
-                <section name="tab_2_section_2" showlabel="false" showbar="false" locklevel="0" id="{7833d14a-1b87-010c-1693-b3bc60bc1440}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                <section name="Importer_Section" showlabel="false" showbar="false" locklevel="0" id="{7833d14a-1b87-010c-1693-b3bc60bc1440}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
-                    <label description="Section" languagecode="1033" />
+                    <label description="Importer Details" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{9577911d-123c-da9e-cba9-9908c33685c8}" showlabel="true" locklevel="0">
+                      <cell id="{b808e494-0a26-e457-027d-7dd38a5bc418}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_importercontactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importercontactid" disabled="false" />
+                        <control id="defraimp_importerorganisation" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_importerorganisation" disabled="false" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{752de6e2-5940-2e74-d897-924b70bcd5e6}" showlabel="false" colspan="1" auto="false">
+                      <cell id="{12e3dcb5-8333-80eb-56d3-b77520382a4b}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Imported Contact Quick View" languagecode="1033" />
+                          <label description="" languagecode="1033" />
                         </labels>
-                        <control id="ImporterContactQuickView" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="defraimp_importercontactid" disabled="false">
-                          <parameters>
-                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="contact"&gt;720f3949-90c9-4b22-afc5-89dcd1625b41&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
-                            <ControlMode>Edit</ControlMode>
-                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
-                          </parameters>
-                        </control>
+                        <control id="defraimp_importercontactname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_importercontactname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{22ae6e00-5dd9-1460-e74b-1b783b6b528b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_importeraddress1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_importeraddress1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cc018220-d68d-72b7-5cbd-414918020d59}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_importeraddress2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_importeraddress2" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d18822ca-b200-03ac-42e5-31e4b964791d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_importeraddress3" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_importeraddress3" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{48e81d99-137e-6eae-4195-b3a3cbadad04}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_importeraddresscity" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_importeraddresscity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{37aa3235-a184-5920-9385-c3eee5c6b188}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_importeraddresspostcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_importeraddresspostcode" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -482,32 +524,122 @@
             </column>
           </columns>
         </tab>
+        <tab name="AdditionalITAHCIV66_Tab" id="{3aac944e-cdb5-88dd-c8e3-5e70a7087ab6}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Additional ITAHC / IV66" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_5_section_1" showlabel="false" showbar="false" locklevel="0" id="{9c26446b-c5a3-338c-2587-22394c54db5a}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{21e3db3e-e832-90e0-a2da-a1bcb356d42a}" showlabel="true" colspan="1" auto="false" rowspan="11">
+                        <labels>
+                          <label description="Additional Import Notifications" languagecode="1033" />
+                        </labels>
+                        <control id="AdditionalImportNotifications_SubGrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{c8cd648a-07a9-9431-a47b-0638b3b50a91}">
+                          <parameters>
+                            <ViewId>{FF471698-B1F0-4205-95AB-1046D083348B}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>defraimp_defraimp_importapplication_defraimp_impor</RelationshipName>
+                            <TargetEntityType>defraimp_importnotification</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{FF471698-B1F0-4205-95AB-1046D083348B}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>8</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <RelationshipRoleOrdinal>1</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="AdditionalITAHCIV66_Tab_section_2" showlabel="false" showbar="false" locklevel="0" id="{03ab28d0-12ac-6219-5aee-1b7d7dbdb685}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{75516a1d-0a2d-29b5-a91b-0330122eb4aa}" showlabel="true" colspan="1" auto="false" rowspan="11">
+                        <labels>
+                          <label description="Additional ITAHCs" languagecode="1033" />
+                        </labels>
+                        <control id="AdditionalITAHC_SubGrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{29cde761-aa51-8b35-1b03-16b652e70d64}">
+                          <parameters>
+                            <ViewId>{3FB99214-367E-4AD7-8091-92290D4EB3EF}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>defraimp_defraimp_importapplication_defraimp_itahc</RelationshipName>
+                            <TargetEntityType>defraimp_itahc</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{3FB99214-367E-4AD7-8091-92290D4EB3EF}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>8</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <RelationshipRoleOrdinal>1</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
       </tabs>
       <header id="{9c68e5ce-39b7-4825-abce-0f062b447838}" columns="111">
         <rows>
           <row>
-            <cell id="{d827e5d5-8171-c6c3-c4c8-b8123d05ab72}" showlabel="true" locklevel="0">
+            <cell id="{0ce57524-0b14-9610-c6a5-a8188838578d}" showlabel="true" locklevel="0">
               <labels>
                 <label description="" languagecode="1033" />
               </labels>
-              <control id="header_defraimp_importrisklevelid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importrisklevelid" disabled="false" uniqueid="{2b844beb-940d-b1d9-5299-515d0e4d81a8}">
-                <parameters>
-                  <AutoResolve>true</AutoResolve>
-                  <DisableMru>false</DisableMru>
-                  <DisableQuickFind>false</DisableQuickFind>
-                  <DisableViewPicker>false</DisableViewPicker>
-                  <DefaultViewId>{1231EBC2-F9ED-46CD-9B8F-028E7ABD8697}</DefaultViewId>
-                  <AllowFilterOff>false</AllowFilterOff>
-                </parameters>
-              </control>
+              <control id="header_defraimp_registrantorganisationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_registrantorganisationid" disabled="false" />
             </cell>
-            <cell id="{3bb49297-15b4-b813-0947-bd3a14276ea2}" showlabel="true" locklevel="0">
+            <cell id="{4e243b23-a951-4854-0261-ecd0383d081e}" showlabel="true" locklevel="0">
               <labels>
                 <label description="" languagecode="1033" />
               </labels>
-              <control id="header_defraimp_importnotificationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importnotificationid" disabled="false" />
+              <control id="header_defraimp_registrantcontactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_registrantcontactid" disabled="false" />
             </cell>
-            <cell id="{c9c9304a-6cbe-00b8-d66d-601d3d3a2313}" showlabel="false">
+            <cell id="{7409405e-096a-6950-7e47-c1322eb01769}" showlabel="false">
               <labels>
                 <label description="" languagecode="1033" />
               </labels>

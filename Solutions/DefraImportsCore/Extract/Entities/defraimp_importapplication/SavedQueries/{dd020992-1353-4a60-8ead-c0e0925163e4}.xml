@@ -10,7 +10,7 @@
     <layoutxml>
       <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
         <row name="result" id="defraimp_importapplicationid">
-          <cell name="defraimp_importerorganisationid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_registrantorganisationid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_commoditytypeid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_countryoforiginid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_importrisklevelid" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
@@ -27,10 +27,10 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="defraimp_importerorganisationid" />
           <attribute name="defraimp_importrisklevelid" />
           <attribute name="defraimp_countryoforiginid" />
           <attribute name="defraimp_commoditytypeid" />
+          <attribute name="defraimp_registrantorganisationid" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>
