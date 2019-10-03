@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{f9e6fead-cada-e911-a863-000d3ab0da57}" name="Imports Caseworker Admin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsCustomizable>1</IsCustomizable>
+  <RolePrivileges>
+    <RolePrivilege name="prvAppenddefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_importrisklevel" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvDeletedefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvReaddefraexp_configurationparameter" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_autonumber" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_importrisklevel" level="Global" />
+    <RolePrivilege name="prvReadPluginAssembly" level="Global" />
+    <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadSdkMessage" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvWritedefraexp_configurationparameter" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_importnotification" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+  </RolePrivileges>
+</Role>

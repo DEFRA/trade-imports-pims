@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.8425" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.8627" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsApps</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Apps" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.1</Version>
+    <Version>0.0.0.2</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -86,43 +86,67 @@
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="2" type="1" schemaName="defraexp_commoditytype" displayName="Commodity Type" solution="defraexports (0.0.0.37)" />
+        <Required key="2" type="1" schemaName="defraexp_autonumber" displayName="Exports Auto Number" solution="defraexports (0.0.0.37)" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="3" type="1" schemaName="defraimp_countryoftransit" displayName="Country of Transit" solution="Active" />
+        <Required key="3" type="1" schemaName="defraexp_commoditytype" displayName="Commodity Type" solution="defraexports (0.0.0.37)" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="4" type="1" schemaName="defraimp_importapplication" displayName="Import Application" solution="Active" />
+        <Required key="4" type="1" schemaName="defraimp_countryoftransit" displayName="Country of Transit" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="5" type="1" schemaName="defraexp_configurationparameter" displayName="Configuration Parameter" solution="defraexports (0.0.0.37)" />
+        <Required key="5" type="1" schemaName="defraimp_importapplication" displayName="Import Application" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="6" type="1" schemaName="defraimp_importrisklevel" displayName="Import Risk Level" solution="Active" />
+        <Required key="6" type="1" schemaName="defraexp_configurationparameter" displayName="Configuration Parameter" solution="defraexports (0.0.0.37)" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="7" type="1" schemaName="defraimp_importnotification" displayName="Import Notification" solution="Active" />
+        <Required key="7" type="1" schemaName="defraimp_importrisklevel" displayName="Import Risk Level" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="8" type="1" schemaName="defraimp_importcountrycommodityrisklevel" displayName="Import Country Commodity Risk Level" solution="Active" />
+        <Required key="8" type="1" schemaName="defraimp_itahc" displayName="ITAHC" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="9" type="60" displayName="Import Applications - Caseworker Dashboard" solution="Active" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+        <Required key="9" type="1" schemaName="defraimp_autonumber" displayName="Autonumber" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="10" type="62" schemaName="defraimp_EUImportsApp" solution="Active" />
+        <Required key="10" type="1" schemaName="defraimp_importcountrycommodityrisklevel" displayName="Import Country Commodity Risk Level" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="11" type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
+        <Required key="11" type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.54)" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="12" type="1" schemaName="defraimp_importnotification" displayName="Import Notification" solution="Active" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="13" type="20" displayName="Imports Caseworker" solution="Active" id="{b1d76a5b-c7da-e911-a863-000d3ab0da57}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="14" type="20" displayName="Imports Caseworker Admin" solution="Active" id="{f9e6fead-cada-e911-a863-000d3ab0da57}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="15" type="60" displayName="Import Applications - Caseworker Dashboard" solution="Active" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="16" type="62" schemaName="defraimp_EUImportsApp" solution="Active" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="17" type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
     </MissingDependencies>

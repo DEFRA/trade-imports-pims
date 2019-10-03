@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform unmodified="1">
+    <formid>{c5a39912-9753-47dc-a7aa-7c431f185dc0}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{06f939cf-d79e-4993-941a-01ea46d22397}" IsUserDefined="1" name="{06f939cf-d79e-4993-941a-01ea46d22397}" locklevel="0" expanded="true" showlabel="true">
+          <labels>
+            <label description="GENERAL" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{6c1f6239-02d5-40a5-b436-bdb62622905c}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{9eeb3e33-3de0-0da9-29bb-400ec2783be2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="ISO Code Alpha 2" languagecode="1033" />
+                        </labels>
+                        <control id="defra_isocodealpha2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defra_isocodealpha2" disabled="false" uniqueid="{64028cc1-d99c-e15a-9c44-20c304048935}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1344b742-6421-c309-b6da-8354c67beb48}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="ISO Code Alpha 3" languagecode="1033" />
+                        </labels>
+                        <control id="defra_isocodealpha3" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defra_isocodealpha3" disabled="false" uniqueid="{d4bedac9-e333-b27d-13dc-b3be2127bae9}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e657170e-cae9-eea2-c40b-7e40bd1c1849}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="ISO Numeric Code" languagecode="1033" />
+                        </labels>
+                        <control id="defra_isonumericcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defra_isonumericcode" disabled="false" uniqueid="{5b7c9ba2-06b9-6ae0-d212-a620db5a5485}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{51a56103-c3c9-9761-eb4b-94ee62e05ad1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="ISO 3166-2 Subdivision Codes" languagecode="1033" />
+                        </labels>
+                        <control id="defra_iso31662subdivisioncodes" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defra_iso31662subdivisioncodes" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3e6afdd8-c02b-4a17-b59b-6f76314c0a67}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Official Country Name" languagecode="1033" />
+                        </labels>
+                        <control id="defra_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defra_name" uniqueid="{290292c3-4057-62de-db4e-c1d2c1da246b}" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d1bc5041-5c9c-c404-8462-a106ec9177d1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Independent" languagecode="1033" />
+                        </labels>
+                        <control id="defra_independent" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defra_independent" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a5640e77-088b-6a1a-727a-cb0413a9bea2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Also Known As" languagecode="1033" />
+                        </labels>
+                        <control id="defra_aka" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defra_aka" disabled="false" uniqueid="{553bddd5-20ac-8025-26ca-6776dd4e7dd0}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e3b28a9c-422b-c7d2-1a24-d733997082b4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Citizen Demonym" languagecode="1033" />
+                        </labels>
+                        <control id="defra_citizenemonym" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defra_citizenemonym" disabled="false" uniqueid="{9e2d7c43-ac5e-6664-6ac6-1c076ee39412}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d9b34ad0-319a-0646-ca2a-13e4005de174}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Code Assignment Type" languagecode="1033" />
+                        </labels>
+                        <control id="defra_codeassignmenttype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defra_codeassignmenttype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{51053433-a54b-1172-d90a-460542074291}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Start Date" languagecode="1033" />
+                        </labels>
+                        <control id="defra_startdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defra_startdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0a46c9dc-daca-3d72-5d78-3a5038c3962c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="End Date" languagecode="1033" />
+                        </labels>
+                        <control id="defra_enddate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defra_enddate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{85c1eb51-e5a3-c0a0-dad3-bc53b3a62d5c}" showlabel="true" locklevel="0" rowspan="4">
+                        <labels>
+                          <label description="Notes" languagecode="1033" />
+                        </labels>
+                        <control id="defra_notes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defra_notes" disabled="false" uniqueid="{ea0e859d-a0c5-5d8a-4751-908624242884}" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{8524d343-2188-4e60-8953-4013b41c5173}" columns="1111" labelwidth="130" celllabelalignment="Left" celllabelposition="Top">
+        <rows>
+          <row>
+            <cell id="{2629b1a0-e081-caec-ac84-ae08125bd26a}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Start Date" languagecode="1033" />
+              </labels>
+              <control id="header_defra_startdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defra_startdate" disabled="false" uniqueid="{a6012e43-4912-00b4-a39c-d6e745d708ca}" />
+            </cell>
+            <cell id="{14b62526-7bdd-67a0-8272-1cb78d5a2e42}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="End Date" languagecode="1033" />
+              </labels>
+              <control id="header_defra_enddate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defra_enddate" disabled="false" uniqueid="{d56b804a-ca61-405d-4cd1-82d42134da52}" />
+            </cell>
+            <cell id="{bb696c14-6438-8b06-4e01-0ce0a97da526}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+            </cell>
+            <cell id="{40ad5c84-9389-27cd-319e-4719e0d8337d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{bc3bf55e-2f94-43eb-aa17-8586abc687c9}" columns="1111" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+        <rows>
+          <row>
+            <cell id="{04d4d29b-77a9-18ca-5ac1-79c04c11ccb6}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Created On" languagecode="1033" />
+              </labels>
+              <control id="footer_createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" />
+            </cell>
+            <cell id="{8ab9dc4b-7a54-a192-6ca0-9d1e05922769}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Created By" languagecode="1033" />
+              </labels>
+              <control id="footer_createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="true" />
+            </cell>
+            <cell id="{45edbc99-63c7-3e19-752a-8c7955102d0d}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Modified On" languagecode="1033" />
+              </labels>
+              <control id="footer_modifiedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="true" />
+            </cell>
+            <cell id="{5cb80e67-dced-8196-31b8-05358bb29cac}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Modified By" languagecode="1033" />
+              </labels>
+              <control id="footer_modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="true" />
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="defra_/scripts/shared/form_telemetry.js" libraryUniqueId="{ed504051-4035-5a67-2eb0-3b1c3cba902a}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="logCustomerD365FrontEndVisitToAppInsights" libraryName="defra_/scripts/shared/form_telemetry.js" handlerUniqueId="{de874dbc-c849-86bb-9052-d68b7b128625}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions FallbackForm="true" Order="2">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Defra.Cust Mstr" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="The main form for the entity for the Defra Customer Master" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

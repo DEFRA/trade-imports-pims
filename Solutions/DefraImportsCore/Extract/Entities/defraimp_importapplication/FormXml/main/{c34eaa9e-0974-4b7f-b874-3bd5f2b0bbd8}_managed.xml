@@ -188,6 +188,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{eed20c34-5ee4-a0d5-14d9-17baa021a069}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforigin" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeoforigin" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{78ea7656-beb1-0573-d0db-6de40bcc89db}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="" languagecode="1033" />
