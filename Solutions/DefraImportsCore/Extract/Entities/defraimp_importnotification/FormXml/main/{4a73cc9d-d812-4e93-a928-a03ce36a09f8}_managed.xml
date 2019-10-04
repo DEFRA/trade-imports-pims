@@ -44,14 +44,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{3048b948-11dc-4208-9a98-b05c09550348}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                        <control disabled="false" id="defraimp_notificationtype" datafieldname="defraimp_notificationtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{0c7408ed-d15c-06eb-a558-c700beaab108}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="" languagecode="1033" />
