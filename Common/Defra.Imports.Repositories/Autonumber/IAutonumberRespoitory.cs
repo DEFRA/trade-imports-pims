@@ -4,7 +4,7 @@ namespace Defra.Imports.BusinessLogic.RepoInterfaces
     using System;
     using Defra.Imports.Model;
 
-    interface IAutonumberRepository
+    public interface IAutonumberRepository
 {
 
         defraimp_autonumber GetAutonumberWithKey(string key);
