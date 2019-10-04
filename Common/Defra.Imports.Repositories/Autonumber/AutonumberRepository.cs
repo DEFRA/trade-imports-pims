@@ -11,10 +11,9 @@
         private readonly IOrganizationService orgSvc;
         private readonly ITracingService tracingService;
 
-        public AutonumberRepository(IOrganizationService svc, ITracingService service)
+        public AutonumberRepository(IOrganizationService svc)
         {
             this.orgSvc = svc;
-            this.tracingService = service;
         }
 
         public defraimp_autonumber GetAutonumberWithKey(string key)

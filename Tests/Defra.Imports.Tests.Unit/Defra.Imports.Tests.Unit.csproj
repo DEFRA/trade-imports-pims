@@ -157,7 +157,9 @@
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WorkflowActivityTests.cs" />
+    <Compile Include="Workflows\Autonumber\IncrementAutonumberTests.cs" />
+    <Compile Include="Workflows\Autonumber\ResetAutonumberTests.cs" />
+    <Compile Include="Workflows\WorkflowActivityTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -183,9 +185,9 @@
     <Analyzer Include="..\..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Defra.Imports.Container\Defra.Imports.Container.csproj">
-      <Project>{F9E5EF62-5BDF-4E36-8027-D265754B56C7}</Project>
-      <Name>Defra.Imports.Container</Name>
+    <ProjectReference Include="..\..\Solutions\DefraImportsWorkflows\WorkflowAssemblies\Defra.Imports.Workflows\Defra.Imports.Workflows.csproj">
+      <Project>{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}</Project>
+      <Name>Defra.Imports.Workflows</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
