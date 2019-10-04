@@ -77,13 +77,13 @@ namespace Defra.Imports.Xrm.Workflows
 
         int GetCurrentNumberOfRecords(IOrganizationService service, ITracingService tracingService)
         {
-            AutonumberRepository autonumberRepository = new AutonumberRepository(service, tracingService);
+            AutonumberRepository autonumberRepository = new AutonumberRepository(service);
             return autonumberRepository.GetAutonumberValue(autonumberKey);
         }
 
         void ResetRecordCount(IOrganizationService service, ITracingService tracingService)
         {
-            AutonumberRepository autonumberRepository = new AutonumberRepository(service, tracingService);
+            AutonumberRepository autonumberRepository = new AutonumberRepository(service);
             autonumberRepository.SetAutonumberValue(autonumberKey, 0);
         }
 

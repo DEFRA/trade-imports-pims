@@ -10,7 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CrmPluginRegistrationAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)defraimp_Autonumber\defraimp_AutonumberService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\InArgumentExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IRepositoryFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ConsoleLogWriter.cs" />
