@@ -7,9 +7,9 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.Factories
 {
     public class DetermineInspectionFactory : DetermineInspectionAbstractFatory
     {
-        public override IDetermineInspection GetDetermineInspection(string riskLevel)
+        public override AbstractDetermineInspection GetDetermineInspection(string riskLevel)
         {
-            switch(riskLevel.ToLower())
+            switch (riskLevel.ToLower())
             {
                 case "p1":
                     return null;
@@ -18,7 +18,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.Factories
                 case "p3":
                     return new P3DetermineInspection();
                 default:
-                    return null;
+                    return new UnknownDetermineInspection();
             }
         }
     }

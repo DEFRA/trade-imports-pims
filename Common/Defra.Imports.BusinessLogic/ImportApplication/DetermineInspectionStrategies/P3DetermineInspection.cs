@@ -5,14 +5,16 @@ using System.Text;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
 using Defra.Imports.Model;
 using Defra.Imports.Repositories;
+using Microsoft.Xrm.Sdk;
 
 namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies
 {
-    public class P3DetermineInspection : IDetermineInspection
+    public class P3DetermineInspection : AbstractDetermineInspection
     {
-        public void ExecuteInspection(defraimp_importapplication importApplication, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autoNumberRepo)
+
+        public override void ExecuteInspection(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importApplicationRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autoNumberRepo)
         {
-            // Counter is incremented for all so has already been increased
+            // Counter is incremented for all so has already been increased and doesn't need to be incremented
 
             // Retrieve the count of the current value
             int currentCount = autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
@@ -22,15 +24,35 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 rule => rule.defraimp_RiskLevelId.Id.Equals(importApplication.defraimp_importrisklevelid.Id),
                 e => new defraimp_inspectioncoveragerule()
                 {
-                    Id = e.Id,
                     defraimp_name = e.defraimp_name,
                     defraimp_inspectioncoverageruleId = e.defraimp_inspectioncoverageruleId,
                     defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection
                 }
             ).ToList().First();
 
-            // Check whether the counter has reached the threshold
 
+            // Check whether the counter has reached the threshold
+            if (currentCount >= coverageRule.defraimp_NumberOfRecordsUntilInspection)
+            {
+                // Reset the counter
+                autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME, 0);
+
+                PerformInspectionRequiredUpdate(
+                    importApplication,
+                    importApplicationRepo,
+                    defraimp_importapplication_defraimp_inspectionrequired.Yes,
+                    defraimp_importapplication_defraimp_inspectionrequiredreason.RandomP3Inspection
+                );
+            }
+            else
+            {
+                PerformInspectionRequiredUpdate(
+                    importApplication,
+                    importApplicationRepo,
+                    defraimp_importapplication_defraimp_inspectionrequired.No,
+                    defraimp_importapplication_defraimp_inspectionrequiredreason.NoInspectionRequired
+                );
+            }
         }
     }
 }

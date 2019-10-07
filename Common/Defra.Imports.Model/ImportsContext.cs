@@ -1326,6 +1326,12 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityAnalyticsConfiguration = 430,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AttributeImageConfiguration = 431,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EntityImageConfiguration = 432,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -9241,14 +9247,53 @@ namespace Defra.Imports.Model
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_importapplication_defraimp_inspectionoutcome
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AwaitingInspection = 714100000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InspectionSuccessful = 714100001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InspectionFailed = 714100002,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
 	public enum defraimp_importapplication_defraimp_inspectionrequired
 	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Undetermined = 714100002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Yes = 714100000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		No = 714100001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_importapplication_defraimp_inspectionrequiredreason
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskLevelUnknown = 714100000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RandomP1Inspection = 714100001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RandomP2Inspection = 714100002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RandomP3Inspection = 714100003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NoInspectionRequired = 714100004,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -9273,6 +9318,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Inactive = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ApplicationComplete = 714100000,
 	}
 	
 	/// <summary>
@@ -9715,6 +9763,39 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_inspectionoutcome")]
+		public System.Nullable<Defra.Imports.Model.defraimp_importapplication_defraimp_inspectionoutcome> defraimp_InspectionOutcome
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("defraimp_inspectionoutcome");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_importapplication_defraimp_inspectionoutcome)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_importapplication_defraimp_inspectionoutcome), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_InspectionOutcome");
+				if ((value == null))
+				{
+					this.SetAttributeValue("defraimp_inspectionoutcome", null);
+				}
+				else
+				{
+					this.SetAttributeValue("defraimp_inspectionoutcome", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("defraimp_InspectionOutcome");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_inspectionoutcomereceived")]
 		public System.Nullable<bool> defraimp_InspectionOutcomeReceived
 		{
@@ -9760,6 +9841,39 @@ namespace Defra.Imports.Model
 					this.SetAttributeValue("defraimp_inspectionrequired", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
 				}
 				this.OnPropertyChanged("defraimp_InspectionRequired");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_inspectionrequiredreason")]
+		public System.Nullable<Defra.Imports.Model.defraimp_importapplication_defraimp_inspectionrequiredreason> defraimp_InspectionRequiredReason
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("defraimp_inspectionrequiredreason");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_importapplication_defraimp_inspectionrequiredreason)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_importapplication_defraimp_inspectionrequiredreason), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_InspectionRequiredReason");
+				if ((value == null))
+				{
+					this.SetAttributeValue("defraimp_inspectionrequiredreason", null);
+				}
+				else
+				{
+					this.SetAttributeValue("defraimp_inspectionrequiredreason", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("defraimp_InspectionRequiredReason");
 			}
 		}
 		

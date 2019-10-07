@@ -7,6 +7,6 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.Factories
 {
     public abstract class DetermineInspectionAbstractFatory
     {
-        public abstract IDetermineInspection GetDetermineInspection(string riskLevel);
+        public abstract AbstractDetermineInspection GetDetermineInspection(string riskLevel);
     }
 }

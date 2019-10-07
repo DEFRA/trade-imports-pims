@@ -27,30 +27,55 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         public void RunLogic()
         {
-            if(IsInitialUpdate())
+
+            if (IsInitialUpdate())
             {
                 // This logic occurs when the initial update has happened (~ when the record has been "created")
                 // Increment the "2% All-Case-Random" counter
-                _autoNumberRepo.IncrementAutonumber("p3_record_count");
+                _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
 
-                // Get the risk level from the Import Risk Level and then retrieve the correct determine inspection for the risk level
-                DetermineInspectionAbstractFatory determineInspectionFactory = new DetermineInspectionFactory();
-                string riskLevel = _importApplication.defraimp_importrisklevelid.Name;
-                IDetermineInspection determineInspection = determineInspectionFactory.GetDetermineInspection(riskLevel);
-
-                // Execute the determine inspection logic for the specific risk level
-                determineInspection.ExecuteInspection(_importApplication, _coverageRulesRepo, _autoNumberRepo);
             }
             else
             {
+                var currentRiskLevel = _importApplication.defraimp_importrisklevelid.Name;
+                var previousRiskLevel = _importApplication.defraimp_PreviousImportRiskLevelId.Name;
+                var inspectionRequired = _importApplication.defraimp_InspectionRequired;
 
+                if (currentRiskLevel.ToLower() != "p2" && previousRiskLevel.ToLower() == "p2")
+                {
+
+                    if (inspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.Yes)
+                    {
+                        _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME);
+                    }
+                    else
+                    {
+                        _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME);
+                    }
+                }
             }
+
+            DealWithDeterminingInspection();
         }
 
         private bool IsInitialUpdate()
         {
             // Check if the previous risk level is populated
             return _importApplication.defraimp_PreviousImportRiskLevelId == null;
+        }
+
+        private void DealWithDeterminingInspection()
+        {
+            // Get the risk level from the Import Risk Level and then retrieve the correct determine inspection for the risk level
+            DetermineInspectionAbstractFatory determineInspectionFactory = new DetermineInspectionFactory();
+            string riskLevel = _importApplication.defraimp_importrisklevelid.Name;
+            AbstractDetermineInspection determineInspection = determineInspectionFactory.GetDetermineInspection(riskLevel);
+
+            if (determineInspection != null)
+            {
+                // Execute the determine inspection logic for the specific risk level
+                determineInspection.ExecuteInspection(_importApplication, _importApplicationRepo, _coverageRulesRepo, _autoNumberRepo);
+            }
         }
 
     }

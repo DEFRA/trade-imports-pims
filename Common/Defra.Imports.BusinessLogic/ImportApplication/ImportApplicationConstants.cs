@@ -8,7 +8,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
     {
         public const string P1_COUNTER_NAME = "p1_record_count";
         public const string P2_COUNTER_NAME = "p2_record_count";
+        public const string P2_QUOTA_COUNTER_NAME = "p2_quota_record_count";
         public const string P3_COUNTER_NAME = "p3_record_count";
-
     }
 }
