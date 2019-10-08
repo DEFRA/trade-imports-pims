@@ -16,6 +16,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
         private ICrmRepository<defraimp_importapplication> _importApplicationRepo;
         private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
         private IAutonumberRepository _autoNumberRepo;
+        private ILogWriter _logWriter;
 
         public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importAppRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autonumberRepo, ILogWriter logWriter)
         {
@@ -23,6 +24,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             _importApplicationRepo = importAppRepo;
             _coverageRulesRepo = coverageRulesRepo;
             _autoNumberRepo = autonumberRepo;
+            _logWriter = logWriter; 
         }
 
         public void RunLogic()
@@ -33,15 +35,20 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 // This logic occurs when the initial update has happened (~ when the record has been "created")
                 // Increment the "2% All-Case-Random" counter
                 _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
-
             }
             else
             {
-                var currentRiskLevel = _importApplication.defraimp_importrisklevelid.Name;
-                var previousRiskLevel = _importApplication.defraimp_PreviousImportRiskLevelId.Name;
+                var currentRiskLevel = "";
+                if(_importApplication.defraimp_importrisklevelid != null)
+                    currentRiskLevel =_importApplication.defraimp_importrisklevelid.Name;
+
+                var previousRiskLevel = "";
+                if(_importApplication.defraimp_PreviousImportRiskLevelId != null)
+                    previousRiskLevel =_importApplication.defraimp_PreviousImportRiskLevelId.Name;
+
                 var inspectionRequired = _importApplication.defraimp_InspectionRequired;
 
-                if (currentRiskLevel.ToLower() != "p2" && previousRiskLevel.ToLower() == "p2")
+                if (currentRiskLevel.ToLower() != ImportApplicationConstants.P2_RISK_LEVEL_NAME && previousRiskLevel.ToLower() == ImportApplicationConstants.P2_RISK_LEVEL_NAME)
                 {
 
                     if (inspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.Yes)
@@ -66,15 +73,18 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         private void DealWithDeterminingInspection()
         {
-            // Get the risk level from the Import Risk Level and then retrieve the correct determine inspection for the risk level
-            DetermineInspectionAbstractFatory determineInspectionFactory = new DetermineInspectionFactory();
-            string riskLevel = _importApplication.defraimp_importrisklevelid.Name;
-            AbstractDetermineInspection determineInspection = determineInspectionFactory.GetDetermineInspection(riskLevel);
-
-            if (determineInspection != null)
+            if(_importApplication.defraimp_importrisklevelid != null)
             {
-                // Execute the determine inspection logic for the specific risk level
-                determineInspection.ExecuteInspection(_importApplication, _importApplicationRepo, _coverageRulesRepo, _autoNumberRepo);
+                // Get the risk level from the Import Risk Level and then retrieve the correct determine inspection for the risk level
+                DetermineInspectionAbstractFatory determineInspectionFactory = new DetermineInspectionFactory();
+                string riskLevel = _importApplication.defraimp_importrisklevelid.Name;
+                AbstractDetermineInspection determineInspection = determineInspectionFactory.GetDetermineInspection(riskLevel);
+
+                if (determineInspection != null)
+                {
+                    // Execute the determine inspection logic for the specific risk level
+                    determineInspection.ExecuteInspection(_importApplication, _importApplicationRepo, _coverageRulesRepo, _autoNumberRepo);
+                }
             }
         }
 
