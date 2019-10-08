@@ -1,4 +1,5 @@
-﻿using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies;
+﻿using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
+using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies;
 using Defra.Imports.BusinessLogic.ImportApplication.Factories;
 using Defra.Imports.BusinessLogic.Logging;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
@@ -17,6 +18,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
         private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
         private IAutonumberRepository _autoNumberRepo;
         private ILogWriter _logWriter;
+        private DetermineInspectionContext _determineInspectionContext;
 
         public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importAppRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autonumberRepo, ILogWriter logWriter)
         {
@@ -24,7 +26,15 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             _importApplicationRepo = importAppRepo;
             _coverageRulesRepo = coverageRulesRepo;
             _autoNumberRepo = autonumberRepo;
-            _logWriter = logWriter; 
+            _logWriter = logWriter;
+
+            _determineInspectionContext = new DetermineInspectionContext()
+            {
+                ImportApplication = _importApplication,
+                ImportApplicationRepo = _importApplicationRepo,
+                CoverageRulesRepo = _coverageRulesRepo,
+                AutoNumberRepo = _autoNumberRepo,
+            };
         }
 
         public void RunLogic()
@@ -83,7 +93,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 if (determineInspection != null)
                 {
                     // Execute the determine inspection logic for the specific risk level
-                    determineInspection.ExecuteInspection(_importApplication, _importApplicationRepo, _coverageRulesRepo, _autoNumberRepo);
+                    determineInspection.ExecuteInspection(_determineInspectionContext);
                 }
             }
         }

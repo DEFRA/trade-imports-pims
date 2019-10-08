@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
 using Defra.Imports.Model;
 using Defra.Imports.Repositories;
@@ -9,8 +10,11 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
 {
     public class UnknownDetermineInspection : AbstractDetermineInspection
     {
-        public override void ExecuteInspection(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importApplicationRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autoNumberRepo)
+        public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
+            var importApplication = determineInspectionContext.ImportApplication;
+            var importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
+
             PerformInspectionRequiredUpdate(
                 importApplication,
                 importApplicationRepo,

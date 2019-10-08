@@ -31,7 +31,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             SetupCoverageRulesRepoToReturnRules();
 
             // Act
-            _p2DetermineInspection.ExecuteInspection(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object);
+            _p2DetermineInspection.ExecuteInspection(_determineInspectionContext);
 
             // Assert
             _mockAutoNumberRepo.Verify(r => r.IncrementAutonumber(ImportApplicationConstants.P2_COUNTER_NAME), Times.Once);
@@ -46,7 +46,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             SetupAutoNumberRepoToReturnValue(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME, 1);
  
             // Act
-            _p2DetermineInspection.ExecuteInspection(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object);
+            _p2DetermineInspection.ExecuteInspection(_determineInspectionContext);
 
 
             // Assert
@@ -62,7 +62,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _importApplication.defraimp_importapplicationId = Guid.NewGuid();
 
             // Act
-            _p2DetermineInspection.ExecuteInspection(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object);
+            _p2DetermineInspection.ExecuteInspection(_determineInspectionContext);
 
             // Assert
             _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => e.defraimp_InspectionRequired.Value == defraimp_importapplication_defraimp_inspectionrequired.Yes)));
@@ -77,7 +77,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             SetupAutoNumberRepoToReturnValue(ImportApplicationConstants.P2_COUNTER_NAME, 3);
 
             // Act
-            _p2DetermineInspection.ExecuteInspection(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object);
+            _p2DetermineInspection.ExecuteInspection(_determineInspectionContext);
 
             // Assert
             _mockAutoNumberRepo.Verify(r => r.SetAutonumberValue(ImportApplicationConstants.P2_COUNTER_NAME, 0), Times.Once);
@@ -92,7 +92,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _importApplication.defraimp_importapplicationId = Guid.NewGuid();
 
             // Act
-            _p2DetermineInspection.ExecuteInspection(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object);
+            _p2DetermineInspection.ExecuteInspection(_determineInspectionContext);
 
             // Assert
             _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => e.defraimp_InspectionRequired.Value == defraimp_importapplication_defraimp_inspectionrequired.Yes)));
@@ -108,7 +108,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _importApplication.defraimp_importapplicationId = Guid.NewGuid();
 
             // Act
-            _p2DetermineInspection.ExecuteInspection(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object);
+            _p2DetermineInspection.ExecuteInspection(_determineInspectionContext);
 
             // Assert
             _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => e.defraimp_InspectionRequired.Value == defraimp_importapplication_defraimp_inspectionrequired.No)));

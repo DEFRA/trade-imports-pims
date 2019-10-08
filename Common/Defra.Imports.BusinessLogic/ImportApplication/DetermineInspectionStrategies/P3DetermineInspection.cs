@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
 using Defra.Imports.Model;
 using Defra.Imports.Repositories;
@@ -12,8 +13,13 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
     public class P3DetermineInspection : AbstractDetermineInspection
     {
 
-        public override void ExecuteInspection(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importApplicationRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autoNumberRepo)
+        public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
+            var importApplication = determineInspectionContext.ImportApplication;
+            var importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
+            var autoNumberRepo = determineInspectionContext.AutoNumberRepo;
+            var coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
+
             // Counter is incremented for all so has already been increased and doesn't need to be incremented
 
             // Retrieve the count of the current value
@@ -29,7 +35,6 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                     defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection
                 }
             ).ToList().First();
-
 
             // Check whether the counter has reached the threshold
             if (currentCount >= coverageRule.defraimp_NumberOfRecordsUntilInspection)

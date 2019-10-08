@@ -1,4 +1,5 @@
-﻿using Defra.Imports.BusinessLogic.RepoInterfaces;
+﻿using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
+using Defra.Imports.BusinessLogic.RepoInterfaces;
 using Defra.Imports.Model;
 using Defra.Imports.Repositories;
 using System;
@@ -9,7 +10,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
 {
     public abstract class AbstractDetermineInspection
     {
-        public abstract void ExecuteInspection(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importApplicationRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autoNumberRepo);
+        public abstract void ExecuteInspection(DetermineInspectionContext determineInspectionContext);
 
         protected void PerformInspectionRequiredUpdate(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importApplicationRepo, defraimp_importapplication_defraimp_inspectionrequired required, defraimp_importapplication_defraimp_inspectionrequiredreason reason)
         {

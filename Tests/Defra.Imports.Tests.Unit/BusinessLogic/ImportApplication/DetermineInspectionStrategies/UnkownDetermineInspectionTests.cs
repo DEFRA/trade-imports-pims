@@ -28,7 +28,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _importApplication.defraimp_importapplicationId = Guid.NewGuid();
 
             // Act
-            _unknownDetermineInspection.ExecuteInspection(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object);
+            _unknownDetermineInspection.ExecuteInspection(_determineInspectionContext);
 
             // Assert
             _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => e.defraimp_InspectionRequired.Value == defraimp_importapplication_defraimp_inspectionrequired.Undetermined)));

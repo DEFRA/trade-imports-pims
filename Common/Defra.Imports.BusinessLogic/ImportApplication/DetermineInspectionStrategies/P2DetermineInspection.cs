@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
 using Defra.Imports.Model;
 using Defra.Imports.Repositories;
@@ -10,8 +11,13 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
 {
     public class P2DetermineInspection : AbstractDetermineInspection
     {
-        public override void ExecuteInspection(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importApplicationRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autoNumberRepo)
+        public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
+            var importApplication = determineInspectionContext.ImportApplication;
+            var importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
+            var autoNumberRepo = determineInspectionContext.AutoNumberRepo;
+            var coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
+
             // Increment the counter and get the value
             autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P2_COUNTER_NAME);
             int currentCount = autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P2_COUNTER_NAME);

@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CrmPluginRegistrationAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\InArgumentExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionRequirementBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\AbstractDetermineInspection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\P2DetermineInspection.cs" />

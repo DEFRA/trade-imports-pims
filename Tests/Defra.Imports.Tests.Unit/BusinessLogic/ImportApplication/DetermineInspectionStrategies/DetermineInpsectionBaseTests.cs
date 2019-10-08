@@ -1,4 +1,5 @@
-﻿using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies;
+﻿using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
+using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
 using Defra.Imports.Model;
 using Defra.Imports.Repositories;
@@ -18,6 +19,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
         protected Mock<ICrmRepository<defraimp_importapplication>> _mockImportApplicationRepo;
         protected Mock<ICrmRepository<defraimp_inspectioncoveragerule>> _mockCoverageRulesRepo;
         protected Mock<IAutonumberRepository> _mockAutoNumberRepo;
+        protected DetermineInspectionContext _determineInspectionContext;
 
         public DetermineInpsectionBaseTests()
         {
@@ -26,6 +28,13 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _mockCoverageRulesRepo = new Mock<ICrmRepository<defraimp_inspectioncoveragerule>>();
             _mockAutoNumberRepo = new Mock<IAutonumberRepository>();
 
+            _determineInspectionContext = new DetermineInspectionContext()
+            {
+                ImportApplication = _importApplication,
+                ImportApplicationRepo = _mockImportApplicationRepo.Object,
+                CoverageRulesRepo = _mockCoverageRulesRepo.Object,
+                AutoNumberRepo = _mockAutoNumberRepo.Object,
+            };
         }
 
         protected void SetupCoverageRulesRepoToReturnRules()
