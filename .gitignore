@@ -261,3 +261,6 @@ Log*.txt
 
 # Include Data Release Folder
 !Data/Release
+
+# misc
+.suo

@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Autonumber\AutonumberRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Autonumber\IAutonumberRespoitory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConfigurationParameter\ConfigurationParameterRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CrmRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CrmRepository{TContext,TEntity}.cs" />

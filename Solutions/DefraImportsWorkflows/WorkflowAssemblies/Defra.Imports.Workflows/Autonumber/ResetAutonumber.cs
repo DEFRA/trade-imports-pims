@@ -13,7 +13,7 @@ using Microsoft.Xrm.Sdk.Workflow;
 namespace Defra.Imports.Workflows.Autonumber
 {
     [CrmPluginRegistration(
-    nameof(IncrementAutonumber),
+    nameof(ResetAutonumber),
     "Reset the specified autonumber attribute",
     "Reset the auto number counter for a specific record to 0",
     "Defra.Imports.Workflows.Autonumber",
