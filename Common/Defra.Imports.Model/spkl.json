@@ -1,7 +1,7 @@
 {
   "earlyboundtypes": [
     {
-      "entities": "contact,defraimp_autonumber,defraimp_countryoftransit,defraimp_importnotification,defraimp_importrisklevel,defraimp_importcountrycommodityrisklevel,defraexp_configurationparameter,defraimp_importapplication",
+      "entities": "contact,defraimp_autonumber,defraimp_countryoftransit,defraimp_importnotification,defraimp_importrisklevel,defraimp_importcountrycommodityrisklevel,defraexp_configurationparameter,defraimp_importapplication,defraimp_inspectioncoveragerule,defraimp_itahc",
       "actions": "",
       "generateOptionsetEnums": true,
       "generateStateEnums": true,

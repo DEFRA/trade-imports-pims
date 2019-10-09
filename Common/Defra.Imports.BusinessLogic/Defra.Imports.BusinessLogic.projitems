@@ -11,13 +11,21 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CrmPluginRegistrationAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\InArgumentExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionRequirementBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\AbstractDetermineInspection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\P2DetermineInspection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\P3DetermineInspection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\UnknownDetermineInspection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Factories\DetermineInspectionAbstractFatory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Factories\DetermineInspectionFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\ImportApplicationConstants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IRepositoryFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ConsoleLogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ILogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\Severity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\TracingServiceLogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugin.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IAutonumberRespoitory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IConfigurationParameterRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IImportApplicationRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IImportRiskLevelRepository.cs" />
