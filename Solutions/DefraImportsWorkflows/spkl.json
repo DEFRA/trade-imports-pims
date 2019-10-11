@@ -4,5 +4,17 @@
       "assemblypath": "bin\\Deploy\\Defra.Imports.Workflows.dll",
       "solution": "DefraImportsWorkflows"
     }
+  ],
+  "earlyboundtypes": [
+    {
+      "entities": "contact,defraimp_autonumber,defraimp_countryoftransit,defraimp_importnotification,defraimp_importrisklevel,defraimp_importcountrycommodityrisklevel,defraexp_configurationparameter,defraimp_importapplication,defraimp_inspectioncoveragerule,defraimp_itahc,defraimp_placeoforigin,defraimp_goldbronzecommodity",
+      "actions": "",
+      "generateOptionsetEnums": true,
+      "generateStateEnums": true,
+      "generateGlobalOptionsets": true,
+      "filename": "ImportsContext.cs",
+      "classNamespace": "Defra.Imports.Model",
+      "serviceContextName": "ImportsContext"
+    }
   ]
 }

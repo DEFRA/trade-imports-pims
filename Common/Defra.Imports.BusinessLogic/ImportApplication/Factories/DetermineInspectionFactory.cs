@@ -9,10 +9,11 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.Factories
     {
         public override AbstractDetermineInspection GetDetermineInspection(string riskLevel)
         {
+            
             switch (riskLevel.ToLower())
             {
                 case "p1":
-                    return null;
+                    return new P1DetermineInspection();
                 case "p2":
                     return new P2DetermineInspection();
                 case "p3":

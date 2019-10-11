@@ -17,15 +17,17 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
         private ICrmRepository<defraimp_importapplication> _importApplicationRepo;
         private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
         private IAutonumberRepository _autoNumberRepo;
+        private IRepositoryFactory _repositoryFactory;
         private ILogWriter _logWriter;
         private DetermineInspectionContext _determineInspectionContext;
 
-        public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importAppRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autonumberRepo, ILogWriter logWriter)
+        public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importAppRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autonumberRepo, IRepositoryFactory repositoryFactory, ILogWriter logWriter)
         {
             _importApplication = importApplication;
             _importApplicationRepo = importAppRepo;
             _coverageRulesRepo = coverageRulesRepo;
             _autoNumberRepo = autonumberRepo;
+            _repositoryFactory = repositoryFactory;
             _logWriter = logWriter;
 
             _determineInspectionContext = new DetermineInspectionContext()
@@ -34,6 +36,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 ImportApplicationRepo = _importApplicationRepo,
                 CoverageRulesRepo = _coverageRulesRepo,
                 AutoNumberRepo = _autoNumberRepo,
+                RepositoryFactory = _repositoryFactory
             };
         }
 
