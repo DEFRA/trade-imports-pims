@@ -22,11 +22,6 @@
             "Value": 1
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
-        },
-        {
-          "AttributeName": "defraimp_currentnumber",
-          "AttributeValue": 5,
-          "AttributeType": "System.Int32"
         }
       ]
     },
@@ -51,11 +46,6 @@
             "Value": 1
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
-        },
-        {
-          "AttributeName": "defraimp_currentnumber",
-          "AttributeValue": 0,
-          "AttributeType": "System.Int32"
         }
       ]
     },
@@ -80,11 +70,6 @@
             "Value": 1
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
-        },
-        {
-          "AttributeName": "defraimp_currentnumber",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
         }
       ]
     },
@@ -109,11 +94,6 @@
             "Value": 1
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
-        },
-        {
-          "AttributeName": "defraimp_currentnumber",
-          "AttributeValue": 0,
-          "AttributeType": "System.Int32"
         }
       ]
     },
@@ -138,11 +118,6 @@
             "Value": 1
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
-        },
-        {
-          "AttributeName": "defraimp_currentnumber",
-          "AttributeValue": 0,
-          "AttributeType": "System.Int32"
         }
       ]
     }
