@@ -1,5 +1,7 @@
 {
-  "CrmMigrationToolSchemaPaths": ["PostDeploymentDataSchema.xml"],
+  "CrmMigrationToolSchemaPaths": [
+    "PostDeploymentDataSchema.xml"
+  ],
   "CrmMigrationToolSchemaFilters": {},
   "PageSize": 1000,
   "BatchSize": 1000,
@@ -11,8 +13,14 @@
   "SeperateFilesPerEntity": true,
   "LookupMapping": {
     "teamroles": {
-      "roleid": ["name", "businessunitid"],
-      "teamid": ["name", "businessunitid"]
+      "roleid": [
+        "name",
+        "businessunitid"
+      ],
+      "teamid": [
+        "name",
+        "businessunitid"
+      ]
     }
   }
 }

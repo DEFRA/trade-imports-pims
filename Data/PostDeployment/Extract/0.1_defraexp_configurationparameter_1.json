@@ -1,0 +1,44 @@
+{
+  "RecordsCount": 1,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraexp_configurationparameter",
+      "Id": "01cd59c3-fad9-e911-a863-000d3ab0da57",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Inspection Coverage Count",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_additionalnotes",
+          "AttributeValue": "If a case worker overrides a random inspection then the record received will be attempted to be flagged for a random inspection.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_key",
+          "AttributeValue": "defraimp_inspectionCoverageCount",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_description",
+          "AttributeValue": "How often the system should set an Import Application risk level to P1 and flag it for inspection. Every X records. Change the value to adjust frequency of inspections.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "statuscode",
+          "AttributeValue": {
+            "Value": 1
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defraexp_value",
+          "AttributeValue": "50",
+          "AttributeType": "System.String"
+        }
+      ]
+    }
+  ]
+}
