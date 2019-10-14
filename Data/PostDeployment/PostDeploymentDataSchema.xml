@@ -1,0 +1,35 @@
+<entities >
+  <entity name="defraimp_inspectioncoveragerule" displayname="Inspection Coverage Rule" etc="10119" primaryidfield="defraimp_inspectioncoverageruleid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Rule Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Number Of Records Until Inspection" name="defraimp_numberofrecordsuntilinspection" type="integer" primaryKey="false" customfield="false" />
+      <field displayname="Status Reason" name="statuscode" type="status" primaryKey="false" customfield="false" />
+      <field displayname="Risk Level" name="defraimp_risklevelid" type="entityreference" primaryKey="false" lookupType="defraimp_importrisklevel" customfield="false" />
+      <field displayname="Inspection Coverage Rule" name="defraimp_inspectioncoverageruleid" type="guid" primaryKey="true" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraimp_autonumber" displayname="Autonumber" etc="10114" primaryidfield="defraimp_autonumberid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Related Record Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Key" name="defraimp_key" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Autonumber" name="defraimp_autonumberid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Status Reason" name="statuscode" type="status" primaryKey="false" customfield="false" />
+      <field displayname="Current Number" name="defraimp_currentnumber" type="integer" primaryKey="false" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraexp_configurationparameter" displayname="Configuration Parameter" etc="10099" primaryidfield="defraexp_configurationparameterid" primarynamefield="defraexp_name" disableplugins="false">
+    <fields>
+      <field displayname="Value" name="defraexp_value" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Key" name="defraexp_key" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Description" name="defraexp_description" type="memo" primaryKey="false" customfield="false" />
+      <field displayname="Configuration Parameter" name="defraexp_configurationparameterid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Status Reason" name="statuscode" type="status" primaryKey="false" customfield="false" />
+      <field displayname="Additional Notes" name="defraexp_additionalnotes" type="memo" primaryKey="false" customfield="false" />
+      <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Number of Days" name="defraexp_numberofdays" type="integer" primaryKey="false" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+</entities>

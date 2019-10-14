@@ -104,7 +104,9 @@ Task("ExportData")
     var dataType = Argument<string>("dataType");
     ExportData(
       Directory(DataFolder).Path.Combine($"{dataType}\\Extract"),
-      Directory(DataFolder).Path.MakeAbsolute(Context.Environment).CombineWithFilePath($"{dataType}\\{dataType}DataExport.json"));
+      Directory(DataFolder).Path.CombineWithFilePath($"{dataType}\\{dataType}DataExport.json")
+      //Directory(DataFolder).Path.MakeAbsolute(Context.Environment).CombineWithFilePath($"{dataType}\\{dataType}DataExport.json")
+      );
   });
 
 Task("StageData")
