@@ -17,7 +17,6 @@
             this.orgSvc = svc;
         }
 
-<<<<<<< HEAD
         public int GetApplicationCounterValue(Guid placeOfOriginId)
         {
             defraimp_placeoforigin placeOfOriginRecord = Find(placeOfOriginId);
