@@ -35,7 +35,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 {
                     defraimp_name = e.defraimp_name,
                     defraimp_inspectioncoverageruleId = e.defraimp_inspectioncoverageruleId,
-                    defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection
+                    defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection,
                 }
             ).ToList().First();
 
