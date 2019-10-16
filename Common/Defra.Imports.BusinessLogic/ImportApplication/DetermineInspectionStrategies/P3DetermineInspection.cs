@@ -12,7 +12,6 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
 {
     public class P3DetermineInspection : AbstractDetermineInspection
     {
-
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
             var importApplication = determineInspectionContext.ImportApplication;

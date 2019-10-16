@@ -1,6 +1,5 @@
-namespace Defra.Imports.BusinessLogic
+namespace Defra.Imports.Repositories
 {
-    using Defra.Imports.Repositories;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Client;
 

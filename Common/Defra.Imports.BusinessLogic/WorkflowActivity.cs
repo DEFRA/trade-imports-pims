@@ -27,7 +27,6 @@ namespace Defra.Imports.BusinessLogic
             var workflowContext = context.GetExtension<IWorkflowContext>();
             var serviceFactory = context.GetExtension<IOrganizationServiceFactory>();
             var orgSvc = serviceFactory.CreateOrganizationService(workflowContext.UserId);
-            var repositoryFactory = new RepositoryFactory(orgSvc);
             var logWriter = new TracingServiceLogWriter(tracingSvc, true);
 
             this.ExecuteWorkflowActivity(context, workflowContext, orgSvc, logWriter, repositoryFactory);

@@ -11,29 +11,22 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
     class P1DetermineInspection : AbstractDetermineInspection
     {
         private IRepositoryFactory repositoryFactory;
-
         private defraimp_importapplication importApplication;
         private ICrmRepository<defraimp_importapplication> importApplicationRepo;
+        private IAutonumberRepository autoNumberRepo;
         private IPlaceOfOriginRepository placeOfOriginRepo;
         private ICrmRepository <defraimp_goldbronzecommodity>goldBronzeCommodityRepo;
         private ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo;
 
-        public P1DetermineInspection(DetermineInspectionContext determineInspectionContext)
+        public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
             repositoryFactory = determineInspectionContext.RepositoryFactory;
             importApplication = determineInspectionContext.ImportApplication;
             importApplicationRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_importapplication>();
-            placeOfOriginRepo = new PlaceOfOriginRepository(determineInspectionContext.PlaceOfOriginRepo);
+            placeOfOriginRepo = determineInspectionContext.PlaceOfOriginRepo;
             goldBronzeCommodityRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_goldbronzecommodity>();
             coverageRulesRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_inspectioncoveragerule>();
-        }
-
-        public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
-        {
-
-            var autoNumberRepo = determineInspectionContext.AutoNumberRepo;
-            int currentCount;
-            int quotaCount;
+            autoNumberRepo = determineInspectionContext.AutoNumberRepo;
 
             // Get the gold/bronze quota rule
             defraimp_inspectioncoveragerule coverageRule = coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
@@ -58,8 +51,9 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                     // Do we have a place of origin?
                     if (placeOfOrigin != null)
                     {
-                        //Increment the application counter
-                        Increment application here?
+                        //Increment the gold/bronze application counter
+                        placeOfOriginRepo.IncrementApplicationCounter(placeOfOrigin.Id);
+
                         if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Gold)
                         {
                             GoldInspection(placeOfOrigin, (int)coverageRule.defraimp_NumberOfRecordsUntilInspection);
