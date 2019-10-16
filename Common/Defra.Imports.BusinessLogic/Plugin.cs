@@ -2,6 +2,7 @@ namespace Defra.Imports.BusinessLogic
 {
     using System;
     using Defra.Imports.BusinessLogic.Logging;
+    using Defra.Imports.Repositories;
     using Microsoft.Xrm.Sdk;
 
     /// <summary>
