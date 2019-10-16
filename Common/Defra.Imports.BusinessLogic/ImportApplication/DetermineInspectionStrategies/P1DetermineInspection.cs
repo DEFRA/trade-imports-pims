@@ -8,7 +8,7 @@ using Defra.Imports.Model;
 using Defra.Imports.Repositories;
 namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies
 {
-    class P1DetermineInspection : AbstractDetermineInspection
+    public class P1DetermineInspection : AbstractDetermineInspection
     {
         private IRepositoryFactory repositoryFactory;
         private defraimp_importapplication importApplication;
