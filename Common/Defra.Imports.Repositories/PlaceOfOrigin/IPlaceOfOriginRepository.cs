@@ -4,16 +4,22 @@
     using System;
     using Defra.Imports.Model;
 
-    interface IPlaceOfOriginRepository
+    public interface IPlaceOfOriginRepository
     {
-        defraimp_placeoforigin GetPlaceOfOrigin(Guid placeOfOriginId);
+        int GetApplicationCounterValue(Guid placeOfOriginId);
 
-        int GetCounterValue(Guid placeOfOriginId);
+        int GetQuotaCounterValue(Guid placeOfOriginId);
 
-        void IncrementCounter(Guid placeOfOriginId);
+        defraimp_placeoforigin Find(Guid placeOfOriginId);
 
-        void DecrementCounter(Guid placeOfOriginId);
+        void IncrementApplicationCounter(Guid placeOfOriginId);
 
-        void SetCounterValue(Guid placeOfOriginId);
+        void SetApplicationCounter(Guid placeOfOriginId, int value);
+
+        void IncrementQuotaCounter(Guid placeOfOriginId);
+
+        void DecrementQuotaCounter(Guid placeOfOriginId);
+
+        void SetQuotaCounter(Guid placeOfOriginId, int value);
     }
 }

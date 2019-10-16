@@ -17,16 +17,18 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
         private ICrmRepository<defraimp_importapplication> _importApplicationRepo;
         private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
         private IAutonumberRepository _autoNumberRepo;
+        private IPlaceOfOriginRepository _placeOfOriginRepo;
         private IRepositoryFactory _repositoryFactory;
         private ILogWriter _logWriter;
         private DetermineInspectionContext _determineInspectionContext;
 
-        public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importAppRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autonumberRepo, IRepositoryFactory repositoryFactory, ILogWriter logWriter)
+        public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importAppRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, IAutonumberRepository autonumberRepo, IPlaceOfOriginRepository placeoforiginRepo, IRepositoryFactory repositoryFactory, ILogWriter logWriter)
         {
             _importApplication = importApplication;
             _importApplicationRepo = importAppRepo;
             _coverageRulesRepo = coverageRulesRepo;
             _autoNumberRepo = autonumberRepo;
+            _placeOfOriginRepo = placeoforiginRepo;
             _repositoryFactory = repositoryFactory;
             _logWriter = logWriter;
 
@@ -36,6 +38,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 ImportApplicationRepo = _importApplicationRepo,
                 CoverageRulesRepo = _coverageRulesRepo,
                 AutoNumberRepo = _autoNumberRepo,
+                PlaceOfOriginRepo = _placeOfOriginRepo,
                 RepositoryFactory = _repositoryFactory
             };
         }

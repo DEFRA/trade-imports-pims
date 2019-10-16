@@ -23,7 +23,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
             repositoryFactory = determineInspectionContext.RepositoryFactory;
             importApplication = determineInspectionContext.ImportApplication;
             importApplicationRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_importapplication>();
-            placeOfOriginRepo = new PlaceOfOriginRepository(determineInspectionContext.y)
+            placeOfOriginRepo = new PlaceOfOriginRepository(determineInspectionContext.PlaceOfOriginRepo);
             goldBronzeCommodityRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_goldbronzecommodity>();
             coverageRulesRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_inspectioncoveragerule>();
         }
@@ -58,6 +58,8 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                     // Do we have a place of origin?
                     if (placeOfOrigin != null)
                     {
+                        //Increment the application counter
+                        Increment application here?
                         if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Gold)
                         {
                             GoldInspection(placeOfOrigin, (int)coverageRule.defraimp_NumberOfRecordsUntilInspection);
@@ -120,17 +122,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
         {
             if (importApplication.defraimp_PlaceofOriginid != null)
             {
-                defraimp_placeoforigin placeOfOrigin = placeOfOriginRepo.Find<defraimp_placeoforigin>(
-                rule => rule.defraimp_placeoforiginId.Equals(importApplication.defraimp_PlaceofOriginid.Id),
-                e => new defraimp_placeoforigin()
-                {
-                    defraimp_name = e.defraimp_name,
-                    defraimp_TrustLevel = e.defraimp_TrustLevel,
-                    defraimp_LocktoBronze = e.defraimp_LocktoBronze,
-                    defraimp_ApplicationCounter = e.defraimp_ApplicationCounter, //Get counter that we will reset
-                    defraimp_InspectionQuotaCounter = e.defraimp_InspectionQuotaCounter, //Get outstanding applications counter
-                }
-                ).ToList().First();
+                defraimp_placeoforigin placeOfOrigin = placeOfOriginRepo.Find(importApplication.defraimp_PlaceofOriginid.Id);
 
                 return placeOfOrigin;
             }
@@ -142,19 +134,26 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
 
         private void GoldInspection(defraimp_placeoforigin placeOfOrigin, int coverageRuleValue)
         {
+            // We want a local copy of the quota counter so we can adjust it and not have to keep retrieving the record.
+            int inspectionQuotaCounter = (int)placeOfOrigin.defraimp_InspectionQuotaCounter;
             // Check if the number of applications counter is over the coverage rule value
-            if (placeOfOrigin.defraimp_ApplicationCounter > coverageRuleValue)
+            if (placeOfOrigin.defraimp_ApplicationCounter >= coverageRuleValue)
             {
-                //+1 to quota
-                
-                //Counter = 0
+                // +1 to quota
+                inspectionQuotaCounter++;
+                placeOfOriginRepo.IncrementQuotaCounter(placeOfOrigin.Id);
+
+                // Reset the application counter
+                placeOfOriginRepo.SetApplicationCounter(placeOfOrigin.Id, 0);
             }
 
             // Check the outstanding inspection counter, see if we need to apply an inspection
-            if (placeOfOrigin.defraimp_InspectionQuotaCounter > 0)
+            if (inspectionQuotaCounter > 0)
             {
-                //Inspect
-                //-1 from quota
+                // -1 from quota
+                inspectionQuotaCounter--;
+                placeOfOriginRepo.DecrementQuotaCounter(placeOfOrigin.Id);
+
                 // Set to inspect
                 PerformInspectionRequiredUpdate(
                 importApplication,
@@ -165,8 +164,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
             }
             else
             {
-                //Don't inspect
-                // Set to inspect
+                // Don't inspect
                 PerformInspectionRequiredUpdate(
                 importApplication,
                 importApplicationRepo,

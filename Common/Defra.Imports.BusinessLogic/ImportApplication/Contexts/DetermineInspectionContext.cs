@@ -13,7 +13,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.Contexts
         public ICrmRepository<defraimp_importapplication> ImportApplicationRepo { get; set; }
         public ICrmRepository<defraimp_inspectioncoveragerule> CoverageRulesRepo { get; set; }
         public IAutonumberRepository AutoNumberRepo { get; set; }
-
+        public IPlaceOfOriginRepository PlaceOfOriginRepo { get; set; }
         public IRepositoryFactory RepositoryFactory { get; set; }
     }
 }

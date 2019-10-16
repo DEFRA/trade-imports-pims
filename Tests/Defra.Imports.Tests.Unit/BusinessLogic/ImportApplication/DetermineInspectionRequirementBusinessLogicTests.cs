@@ -21,6 +21,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
         private Mock<ICrmRepository<defraimp_importapplication>> _mockImportApplicationRepo;
         private Mock<ICrmRepository<defraimp_inspectioncoveragerule>> _mockCoverageRulesRepo;
         private Mock<IAutonumberRepository> _mockAutoNumberRepo;
+        private Mock<IPlaceOfOriginRepository> _mockPlaceOfOriginRepo;
         private Mock<ILogWriter> _logWriter;
         private DetermineInspectionRequirementBusinessLogic _determineInspectionRequirementBusinessLogic;
 
@@ -30,9 +31,10 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
             _mockImportApplicationRepo = new Mock<ICrmRepository<defraimp_importapplication>>();
             _mockCoverageRulesRepo = new Mock<ICrmRepository<defraimp_inspectioncoveragerule>>();
             _mockAutoNumberRepo = new Mock<IAutonumberRepository>();
+            _mockPlaceOfOriginRepo = new Mock<IPlaceOfOriginRepository>();
             _logWriter = new Mock<ILogWriter>();
 
-            _determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object, _logWriter.Object); 
+            _determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object, _mockPlaceOfOriginRepo.Object, _logWriter.Object); 
         }
 
         [Fact]
