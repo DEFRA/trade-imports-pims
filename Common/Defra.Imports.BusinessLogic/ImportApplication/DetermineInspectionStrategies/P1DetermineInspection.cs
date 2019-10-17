@@ -128,8 +128,8 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
 
         private void GoldInspection(defraimp_placeoforigin placeOfOrigin, int coverageRuleValue)
         {
-            // We want a local copy of the quota counter so we can adjust it and not have to keep retrieving the record.
-            int inspectionQuotaCounter = (int)placeOfOrigin.defraimp_InspectionQuotaCounter;
+            // We want a local copy of the quota     so we can adjust it and not have to keep retrieving the record.
+            int inspectionQuotaCounter = placeOfOrigin.defraimp_InspectionQuotaCounter ?? 0;
             // Check if the number of applications counter is over the coverage rule value
             if (placeOfOrigin.defraimp_ApplicationCounter >= coverageRuleValue)
             {

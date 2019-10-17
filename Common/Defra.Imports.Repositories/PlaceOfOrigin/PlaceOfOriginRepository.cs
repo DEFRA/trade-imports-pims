@@ -20,25 +20,49 @@
         public int GetApplicationCounterValue(Guid placeOfOriginId)
         {
             defraimp_placeoforigin placeOfOriginRecord = Find(placeOfOriginId);
-            return (int)placeOfOriginRecord.defraimp_ApplicationCounter;
+            if (placeOfOriginRecord != null)
+            {
+                int value = placeOfOriginRecord.defraimp_ApplicationCounter ?? 0;
+                return value;
+            }
+            else
+            {
+                return 0;
+            }
+
         }
 
         public int GetQuotaCounterValue(Guid placeOfOriginId)
         {
             defraimp_placeoforigin placeOfOriginRecord = Find(placeOfOriginId);
-            return (int)placeOfOriginRecord.defraimp_InspectionQuotaCounter;
+            if (placeOfOriginRecord != null)
+            {
+                int value = placeOfOriginRecord.defraimp_InspectionQuotaCounter ?? 0;
+                return value;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public defraimp_placeoforigin Find(Guid placeOfOriginId)
         {
-            QueryExpression query = new QueryExpression(defraimp_placeoforigin.EntityLogicalName);
-            query.ColumnSet = new ColumnSet(true);
-            ConditionExpression keyCondition = new ConditionExpression("defraimp_placeoforiginid", ConditionOperator.Equal, placeOfOriginId);
-            query.Criteria.AddCondition(keyCondition);
+            if (orgSvc != null)
+            {
+                QueryExpression query = new QueryExpression(defraimp_placeoforigin.EntityLogicalName);
+                query.ColumnSet = new ColumnSet(true);
+                ConditionExpression keyCondition = new ConditionExpression("defraimp_placeoforiginid", ConditionOperator.Equal, placeOfOriginId);
+                query.Criteria.AddCondition(keyCondition);
 
-            defraimp_placeoforigin placeOfOrigin = orgSvc.RetrieveMultiple(query).Entities.FirstOrDefault() as defraimp_placeoforigin;
+                defraimp_placeoforigin placeOfOrigin = orgSvc.RetrieveMultiple(query).Entities.FirstOrDefault() as defraimp_placeoforigin;
 
-            return placeOfOrigin;
+                return placeOfOrigin;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public void IncrementApplicationCounter(Guid placeOfOriginId)

@@ -31,7 +31,16 @@
         public int GetAutonumberValue(string key)
         {
             defraimp_autonumber autonumberRecord = GetAutonumberWithKey(key);
-            return (int)autonumberRecord.defraimp_CurrentNumber;
+
+            if (autonumberRecord != null)
+            {
+                int value = autonumberRecord.defraimp_CurrentNumber ?? 0;
+                return value;
+            }
+            else
+            {
+                throw new InvalidPluginExecutionException("Autonumber record key not found.");
+            }
         }
 
         public void IncrementAutonumber(string key)
