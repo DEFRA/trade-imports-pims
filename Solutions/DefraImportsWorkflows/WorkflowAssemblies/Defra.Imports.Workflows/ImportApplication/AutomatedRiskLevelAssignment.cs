@@ -16,6 +16,13 @@ using Microsoft.Xrm.Sdk.Workflow;
 
 namespace Defra.Imports.Workflows.ImportApplication
 {
+    [CrmPluginRegistration(
+nameof(AutomatedRiskLevelAssignment),
+"Automated Risk Level Assessment",
+"Automatically assesses the risk level of an import application based on a given commodity and country",
+"Defra.Imports.Workflows.ImportApplication",
+IsolationModeEnum.Sandbox)] 
+
     public class AutomatedRiskLevelAssignment : WorkflowActivity
     {
         #region Input/Output
@@ -31,7 +38,7 @@ namespace Defra.Imports.Workflows.ImportApplication
         {
             Guid importApplicationId = ImportApplication.Get(context).Id; //Get the import application we're working with
             ICrmRepository<defraimp_importapplication> importApplicationRepo = new CrmRepository<ImportsContext, defraimp_importapplication>(orgSvc);
-            defraimp_importapplication importApplication = importApplicationRepo.Retrieve(importApplicationId, new string[] { "defraimp_countryoforiginid", "defraimp_commodityid" });
+            defraimp_importapplication importApplication = importApplicationRepo.Retrieve(importApplicationId, new string[] { "defraimp_countryoforiginid", "defraimp_commoditytypeid" });
 
             if (importApplication != null)
             {
