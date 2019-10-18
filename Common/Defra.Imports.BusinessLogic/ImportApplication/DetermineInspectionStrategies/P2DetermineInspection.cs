@@ -11,21 +11,66 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
 {
     public class P2DetermineInspection : AbstractDetermineInspection
     {
+        private defraimp_importapplication _importApplication;
+        private IAutonumberRepository _autoNumberRepo;
+        private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
+        private ICrmRepository<defraimp_importapplication> _importApplicationRepo;
+
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
-            var importApplication = determineInspectionContext.ImportApplication;
-            var importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
-            var autoNumberRepo = determineInspectionContext.AutoNumberRepo;
-            var coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
+            _importApplication = determineInspectionContext.ImportApplication;
+            _importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
+            _autoNumberRepo = determineInspectionContext.AutoNumberRepo;
+            _coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
+
+            int quotaCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME);
+
+            if(quotaCount > 0)
+            {
+                DealWithP2QuotaInspection();
+            }
+            else
+            {
+                DealWithNormalP2Inspection();
+            }
+        }
+
+        private void DealWithP2QuotaInspection()
+        {
+            // Decrement the quota counter list
+            _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME);
+
+            // Flag the application for inspection
+            UpdateToP2InspectionRequired();
+        }
+
+        private void DealWithNormalP2Inspection()
+        {
+            // Get the threashold
+            defraimp_inspectioncoveragerule coverageRule = GetP2CoverageRule();
 
             // Increment the counter and get the value
-            autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P2_COUNTER_NAME);
-            int currentCount = autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P2_COUNTER_NAME);
-            int quotaCount = autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME);
+            _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P2_COUNTER_NAME);
 
+            int currentCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P2_COUNTER_NAME);
+            if (currentCount >= coverageRule.defraimp_NumberOfRecordsUntilInspection)
+            {
+                // Reset the counter
+                _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P2_COUNTER_NAME, 0);
+
+                UpdateToP2InspectionRequired();
+            }
+            else
+            {
+                UpdateToNoInspectionRequired();
+            }
+        }
+
+        private defraimp_inspectioncoveragerule GetP2CoverageRule()
+        {
             // Get the threashold
-            defraimp_inspectioncoveragerule coverageRule = coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
-                rule => rule.defraimp_RiskLevelId.Id.Equals(importApplication.defraimp_importrisklevelid.Id),
+            defraimp_inspectioncoveragerule coverageRule = _coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
+                rule => rule.defraimp_RiskLevelId.Id.Equals(_importApplication.defraimp_importrisklevelid.Id),
                 e => new defraimp_inspectioncoveragerule()
                 {
                     defraimp_name = e.defraimp_name,
@@ -34,44 +79,27 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 }
             ).ToList().First();
 
-            if(quotaCount > 0)
-            {
-                // Decrement the quota counter list
-                autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME);
+            return coverageRule;
+        }
 
-                // Flag the application for inspection
-                PerformInspectionRequiredUpdate(
-                    importApplication,
-                    importApplicationRepo,
-                    defraimp_importapplication_defraimp_inspectionrequired.Yes,
-                    defraimp_importapplication_defraimp_inspectionrequiredreason.RandomP2Inspection
-                );
+        private void UpdateToP2InspectionRequired()
+        {
+            PerformInspectionRequiredUpdate(
+                _importApplication,
+                _importApplicationRepo,
+                defraimp_importapplication_defraimp_inspectionrequired.Yes,
+                defraimp_importapplication_defraimp_inspectionrequiredreason.RandomP2Inspection
+            );
+        }
 
-            }
-            else
-            {
-                if (currentCount >= coverageRule.defraimp_NumberOfRecordsUntilInspection)
-                {
-                    // Reset the counter
-                    autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P2_COUNTER_NAME, 0);
-
-                    PerformInspectionRequiredUpdate(
-                        importApplication,
-                        importApplicationRepo,
-                        defraimp_importapplication_defraimp_inspectionrequired.Yes,
-                        defraimp_importapplication_defraimp_inspectionrequiredreason.RandomP2Inspection
-                    );
-                }
-                else
-                {
-                    PerformInspectionRequiredUpdate(
-                        importApplication,
-                        importApplicationRepo,
-                        defraimp_importapplication_defraimp_inspectionrequired.No,
-                        defraimp_importapplication_defraimp_inspectionrequiredreason.NoInspectionRequired
-                    );
-                }
-            }
+        private void UpdateToNoInspectionRequired()
+        {
+            PerformInspectionRequiredUpdate(
+                _importApplication,
+                _importApplicationRepo,
+                defraimp_importapplication_defraimp_inspectionrequired.No,
+                defraimp_importapplication_defraimp_inspectionrequiredreason.NoInspectionRequired
+            );
         }
     }
 }

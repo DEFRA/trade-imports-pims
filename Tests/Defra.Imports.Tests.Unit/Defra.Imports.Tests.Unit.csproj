@@ -160,10 +160,12 @@
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\P2DetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\P3DetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\UnkownDetermineInspectionTests.cs" />
+    <Compile Include="BusinessLogic\ImportApplication\Factories\DetermineInspectionFactoryTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Workflows\Autonumber\IncrementAutonumberTests.cs" />
     <Compile Include="Workflows\Autonumber\ResetAutonumberTests.cs" />
+    <Compile Include="Workflows\ImportApplication\DetermineInspectionRequirementTests.cs" />
     <Compile Include="Workflows\WorkflowActivityTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,9 +197,7 @@
       <Name>Defra.Imports.Workflows</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Workflows\ImportApplication\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

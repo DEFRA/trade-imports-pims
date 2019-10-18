@@ -50,6 +50,13 @@
             orgSvc.Update(autonumberRecord);
         }
 
+        public void IncrementAutonumber(string key, int amountToIncrementBy)
+        {
+            defraimp_autonumber autonumberRecord = GetAutonumberWithKey(key);
+            autonumberRecord.defraimp_CurrentNumber += amountToIncrementBy;
+            orgSvc.Update(autonumberRecord);
+        }
+
         public void DecrementAutonumber(string key)
         {
             defraimp_autonumber autonumberRecord = GetAutonumberWithKey(key);
