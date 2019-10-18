@@ -19,6 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Import Application\ImportApplicationRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Import Risk Level\ImportRiskLevelRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OrganizationServiceExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlaceOfOrigin\IPlaceOfOriginRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlaceOfOrigin\PlaceOfOriginRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SandboxWebClient.cs" />
   </ItemGroup>
 </Project>

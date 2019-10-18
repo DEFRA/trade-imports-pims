@@ -1,4 +1,5 @@
-﻿using Defra.Imports.BusinessLogic.ImportApplication;
+﻿using Defra.Imports.BusinessLogic;
+using Defra.Imports.BusinessLogic.ImportApplication;
 using Defra.Imports.BusinessLogic.Logging;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
 using Defra.Imports.Model;
@@ -21,6 +22,8 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
         private Mock<ICrmRepository<defraimp_importapplication>> _mockImportApplicationRepo;
         private Mock<ICrmRepository<defraimp_inspectioncoveragerule>> _mockCoverageRulesRepo;
         private Mock<IAutonumberRepository> _mockAutoNumberRepo;
+        private Mock<IPlaceOfOriginRepository> _mockPlaceOfOriginRepo;
+        private Mock<IRepositoryFactory> _mockRepositoryFactory;
         private Mock<ILogWriter> _logWriter;
         private DetermineInspectionRequirementBusinessLogic _determineInspectionRequirementBusinessLogic;
 
@@ -30,9 +33,11 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
             _mockImportApplicationRepo = new Mock<ICrmRepository<defraimp_importapplication>>();
             _mockCoverageRulesRepo = new Mock<ICrmRepository<defraimp_inspectioncoveragerule>>();
             _mockAutoNumberRepo = new Mock<IAutonumberRepository>();
+            _mockPlaceOfOriginRepo = new Mock<IPlaceOfOriginRepository>();
+            _mockRepositoryFactory = new Mock<IRepositoryFactory>();
             _logWriter = new Mock<ILogWriter>();
 
-            _determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object, _logWriter.Object); 
+            _determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object, _mockPlaceOfOriginRepo.Object, _mockRepositoryFactory.Object, _logWriter.Object); 
         }
 
         [Fact]
@@ -48,7 +53,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
         }
 
         [Fact]
-        public void RunLogic_PreviousRiskLevelP2AndCurrentRiskLevelNotP2AndNotFlaggedForInspection_DecrementsTheP2QuotaCounter()
+        public void RunLogic_PreviousRiskLevelP2AndCurrentRiskLevelNotP2AndNotFlaggedForInspection_DecrementsTheP2Counter()
         {
             // Arrange
             _importApplication.defraimp_PreviousImportRiskLevelId = new EntityReference(defraimp_importrisklevel.EntityLogicalName, Guid.NewGuid());
@@ -58,8 +63,59 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
             _determineInspectionRequirementBusinessLogic.RunLogic();
 
             // Assert
-            _mockAutoNumberRepo.Verify(r => r.DecrementAutonumber(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME));
+            _mockAutoNumberRepo.Verify(r => r.DecrementAutonumber(ImportApplicationConstants.P2_COUNTER_NAME));
 
+        }
+
+        [Fact]
+        public void RunLogic_PreviousRiskLevelP2QuotaMoreThanZeroCounterNegativeByMoreThan_ShouldDecreaseTheQuotaAndIncreaseTheCounterByThreshold()
+        {
+            // Arrange
+            _importApplication.defraimp_PreviousImportRiskLevelId = new EntityReference(defraimp_importrisklevel.EntityLogicalName, Guid.NewGuid());
+            _importApplication.defraimp_PreviousImportRiskLevelId.Name = "P2";
+
+            int threshold = 10;
+
+            SetupCoverageRulesMock(threshold);
+            SetupAutonumberMock(ImportApplicationConstants.P2_COUNTER_NAME, -threshold);
+            SetupAutonumberMock(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME, 1);
+
+            // Act
+            _determineInspectionRequirementBusinessLogic.RunLogic();
+
+            // Assert
+            _mockAutoNumberRepo.Verify(r => r.DecrementAutonumber(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME), Times.Once);
+            _mockAutoNumberRepo.Verify(r => r.IncrementAutonumber(ImportApplicationConstants.P2_COUNTER_NAME, threshold + 1), Times.Once);
+        }
+
+        private void SetupCoverageRulesMock(int counterThreshold)
+        {
+            List<defraimp_inspectioncoveragerule> stubbedCoverageRules = GetDummyCoverageRules(10);
+
+            _mockCoverageRulesRepo.Setup(r =>
+                r.Find(
+                    It.IsAny<Expression<Func<defraimp_inspectioncoveragerule, bool>>>(),
+                    It.IsAny<Expression<Func<defraimp_inspectioncoveragerule, defraimp_inspectioncoveragerule>>>()))
+                    .Returns(() => stubbedCoverageRules.AsQueryable());
+        }
+
+        private List<defraimp_inspectioncoveragerule> GetDummyCoverageRules(int counterThreshold)
+        {
+            List<defraimp_inspectioncoveragerule> stubbedCoverageRules = new List<defraimp_inspectioncoveragerule>();
+
+            defraimp_inspectioncoveragerule stubbedCoverageRule = new defraimp_inspectioncoveragerule()
+            {
+                defraimp_NumberOfRecordsUntilInspection = counterThreshold
+            };
+
+            stubbedCoverageRules.Add(stubbedCoverageRule);
+
+            return stubbedCoverageRules;
+        }
+
+        private void SetupAutonumberMock(string autoNumberName, int autoNumberReturnValue)
+        {
+            _mockAutoNumberRepo.Setup(r => r.GetAutonumberValue(autoNumberName)).Returns(() => autoNumberReturnValue);
         }
 
         [Fact]

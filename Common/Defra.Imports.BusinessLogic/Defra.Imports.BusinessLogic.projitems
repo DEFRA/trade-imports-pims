@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionRequirementBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\AbstractDetermineInspection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\P1DetermineInspection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\P2DetermineInspection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\P3DetermineInspection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\UnknownDetermineInspection.cs" />
