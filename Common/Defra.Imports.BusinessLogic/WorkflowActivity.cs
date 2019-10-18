@@ -18,7 +18,7 @@ namespace Defra.Imports.BusinessLogic
         /// <param name="orgSvc">Organization service.</param>
         /// <param name="logWriter">Log writer.</param>
         /// <param name="repoFactory">Repository factory.</param>
-        protected abstract void ExecuteWorkflowActivity(CodeActivityContext context, IWorkflowContext workflowContext, IOrganizationService orgSvc, ILogWriter logWriter, IRepositoryFactory repoFactory);
+        protected abstract void ExecuteWorkflowActivity(CodeActivityContext context, IWorkflowContext workflowContext, IOrganizationService orgSvc, ILogWriter logWriter);
 
         /// <inheritdoc/>
         protected override void Execute(CodeActivityContext context)
@@ -27,10 +27,9 @@ namespace Defra.Imports.BusinessLogic
             var workflowContext = context.GetExtension<IWorkflowContext>();
             var serviceFactory = context.GetExtension<IOrganizationServiceFactory>();
             var orgSvc = serviceFactory.CreateOrganizationService(workflowContext.UserId);
-            var repositoryFactory = new RepositoryFactory(orgSvc);
             var logWriter = new TracingServiceLogWriter(tracingSvc, true);
 
-            this.ExecuteWorkflowActivity(context, workflowContext, orgSvc, logWriter, repositoryFactory);
+            this.ExecuteWorkflowActivity(context, workflowContext, orgSvc, logWriter);
         }
     }
 }

@@ -40,8 +40,10 @@ namespace Defra.Imports.Workflows.ImportApplication
             ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo = new CrmRepository<ImportsContext, defraimp_inspectioncoveragerule>(orgSvc);
             IAutonumberRepository autoNumberRepo = new AutonumberRepository(orgSvc);
             ICrmRepository<defraimp_importapplication> importApplicationRepo = new CrmRepository<ImportsContext, defraimp_importapplication>(orgSvc);
-            defraimp_importapplication importApplication = importApplicationRepo.Retrieve(importApplicationId, new string[] { "defraimp_importrisklevelid", "defraimp_previousimportrisklevelid", "defraimp_inspectionrequired" });
-            DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(importApplication, importApplicationRepo, coverageRulesRepo, autoNumberRepo, logWriter);
+            IPlaceOfOriginRepository placeOfOriginRepo = new PlaceOfOriginRepository(orgSvc);
+            IRepositoryFactory repositoryFactory = new RepositoryFactory(orgSvc);
+            defraimp_importapplication importApplication = importApplicationRepo.Retrieve(importApplicationId, new string[] { "defraimp_importrisklevelid", "defraimp_previousimportrisklevelid", "defraimp_inspectionrequired", "defraimp_placeoforiginid","defraimp_commoditytypeid" });
+            DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(importApplication, importApplicationRepo, coverageRulesRepo, autoNumberRepo,placeOfOriginRepo, repositoryFactory, logWriter);
 
             determineInspectionRequirementBusinessLogic.RunLogic();
         }
