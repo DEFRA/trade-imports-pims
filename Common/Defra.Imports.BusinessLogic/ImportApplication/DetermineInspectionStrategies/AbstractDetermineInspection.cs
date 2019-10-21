@@ -21,6 +21,11 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 defraimp_InspectionRequiredReason = reason,
             };
 
+            if (required == defraimp_importapplication_defraimp_inspectionrequired.No)
+            {
+                importApplicationUpdate.defraimp_InspectionDeclinedReason = "The system has determined that an inspection is not required";
+            }
+
             importApplicationRepo.Update(importApplicationUpdate);
         }
     }
