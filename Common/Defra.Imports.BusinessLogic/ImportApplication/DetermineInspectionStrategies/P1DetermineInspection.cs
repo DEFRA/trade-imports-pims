@@ -90,19 +90,40 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 rule => rule.defraimp_CommodityTypeid.Id.Equals(importApplication.defraimp_CommodityTypeId.Id) && rule.statecode.Value == defraimp_goldbronzecommodityState.Active,
                 e => new defraimp_goldbronzecommodity()
                 {
+                    Id = (Guid)e.defraimp_goldbronzecommodityId,
                     defraimp_name = e.defraimp_name,
                     defraimp_CommodityTypeid = e.defraimp_CommodityTypeid,
                 }
-                 ).ToList();
+                ).ToList();
 
                 // Check if we found rules
                 if (goldBronzeCommodityList.Count > 0)
                 {
-                    return true;
+                    // Do these rules apply to the country of origin?
+                    defraimp_goldbronzecommodity goldBronzeCommodity = goldBronzeCommodityList.FirstOrDefault();
+                    ICrmRepository<defraimp_goldbronzecountriesnn> goldBronzeCommodityCountriesRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_goldbronzecountriesnn>();
+
+                    // Find the N:N relationship record between gold/bronze commodity and the country of origin.
+                    defraimp_goldbronzecountriesnn goldBronzeCommodityCountry = goldBronzeCommodityCountriesRepo.Find(
+                    rule => rule.defra_countryid.Equals(importApplication.defraimp_CountryofOriginId.Id) && rule.defraimp_goldbronzecommodityid.Equals(goldBronzeCommodity.Id),
+                    e => new defraimp_goldbronzecountriesnn()
+                    ).FirstOrDefault();
+
+                    // Check to see if we have found a valid country/gold bronze commodity combination
+                    if (goldBronzeCommodityCountry != null)
+                    {
+                        // The given gold bronze commodity and country of origin place this inspection requirement under the gold/bronze rule.
+                        return true;
+                    }
+                    else
+                    {
+                        // We did find a rule, but the country of origin was not included on the rule and thus G/B logic should not apply.
+                        return false;
+                    }
                 }
                 else
                 {
-                    // We did not find a valid rule
+                    // We did not find a valid rule with the given commodity
                     return false;
                 }
             }
@@ -178,7 +199,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 importApplication,
                 importApplicationRepo,
                 defraimp_importapplication_defraimp_inspectionrequired.Yes,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.GoldPlaceofOriginLockedtoBronze
+                defraimp_importapplication_defraimp_inspectionrequiredreason.PlaceofOriginLockedtoBronze
                 );
             }
             else

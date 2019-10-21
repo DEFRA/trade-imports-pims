@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+
 [assembly: Microsoft.Xrm.Sdk.Client.ProxyTypesAssemblyAttribute()]
 
 namespace Defra.Imports.Model
@@ -24,6 +26,21 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Gold = 714100001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_importregions
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Southern = 714100000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Northern = 714100001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Western = 714100002,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -4564,6 +4581,42 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("Business2");
 				this.SetAttributeValue("business2", value);
 				this.OnPropertyChanged("Business2");
+			}
+		}
+		
+		/// <summary>
+		/// Stores Image of the Business Card
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("businesscard")]
+		public string BusinessCard
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("businesscard");
+			}
+			set
+			{
+				this.OnPropertyChanging("BusinessCard");
+				this.SetAttributeValue("businesscard", value);
+				this.OnPropertyChanged("BusinessCard");
+			}
+		}
+		
+		/// <summary>
+		/// Stores Business Card Control Properties.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("businesscardattributes")]
+		public string BusinessCardAttributes
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("businesscardattributes");
+			}
+			set
+			{
+				this.OnPropertyChanging("BusinessCardAttributes");
+				this.SetAttributeValue("businesscardattributes", value);
+				this.OnPropertyChanged("BusinessCardAttributes");
 			}
 		}
 		
@@ -9644,6 +9697,128 @@ namespace Defra.Imports.Model
 		}
 	}
 	
+	/// <summary>
+	/// 
+	/// </summary>
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_goldbronzecountriesnn")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public partial class defraimp_goldbronzecountriesnn : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	{
+		
+		/// <summary>
+		/// Default Constructor.
+		/// </summary>
+		public defraimp_goldbronzecountriesnn() : 
+				base(EntityLogicalName)
+		{
+		}
+		
+		public const string EntityLogicalName = "defraimp_goldbronzecountriesnn";
+		
+		public const int EntityTypeCode = 10128;
+        internal Guid? defraimp_goldbronzecommodityId;
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+		
+		public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
+		
+		private void OnPropertyChanged(string propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void OnPropertyChanging(string propertyName)
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs(propertyName));
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defra_countryid")]
+		public System.Nullable<System.Guid> defra_countryid
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("defra_countryid");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_goldbronzecommodityid")]
+		public System.Nullable<System.Guid> defraimp_goldbronzecommodityid
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("defraimp_goldbronzecommodityid");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_goldbronzecountriesnnid")]
+		public System.Nullable<System.Guid> defraimp_goldbronzecountriesnnId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("defraimp_goldbronzecountriesnnid");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_goldbronzecountriesnnid")]
+		public override System.Guid Id
+		{
+			get
+			{
+				return base.Id;
+			}
+			set
+			{
+				base.Id = value;
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("versionnumber")]
+		public System.Nullable<long> VersionNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+		
+		/// <summary>
+		/// N:N defraimp_goldbronzecountriesnn
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_goldbronzecountriesnn")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_goldbronzecommodity> defraimp_goldbronzecountriesnn1
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_goldbronzecommodity>("defraimp_goldbronzecountriesnn", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_goldbronzecountriesnn1");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_goldbronzecommodity>("defraimp_goldbronzecountriesnn", null, value);
+				this.OnPropertyChanged("defraimp_goldbronzecountriesnn1");
+			}
+		}
+	}
+	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
 	public enum defraimp_importapplication_defraimp_importrisklevelstatus
@@ -9716,7 +9891,7 @@ namespace Defra.Imports.Model
 		BronzePlaceofOrigin = 714100005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GoldPlaceofOriginLockedtoBronze = 714100007,
+		PlaceofOriginLockedtoBronze = 714100007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		GoldPlaceofOrigin10thConsignment = 714100006,
@@ -15627,6 +15802,17 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.CreateQuery<Defra.Imports.Model.defraimp_goldbronzecommodity>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_goldbronzecountriesnn"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_goldbronzecountriesnn> defraimp_goldbronzecountriesnnSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_goldbronzecountriesnn>();
 			}
 		}
 		
