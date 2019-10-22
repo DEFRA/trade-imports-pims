@@ -54,9 +54,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
         public void ExecuteInspection_CurrentCountMoreThanTheCoverageRule_UpdatesImportApplicationInspectionRequiredToYes()
         {
             // Arrange
-            SetupCoverageRulesRepoToReturnRules();
-            SetupAutoNumberRepoToReturnValue(ImportApplicationConstants.P3_COUNTER_NAME, 3);
-            _importApplication.defraimp_importapplicationId = Guid.NewGuid();
+            SetupCurrentCountMoreThanCoverageRule();
 
             // Act
             _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
@@ -68,12 +66,30 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
         }
 
         [Fact]
+        public void ExecuteInspection_CurrentCountLessThanTheCoverageRule_DoesntSetTheInspectionDeclinedReason()
+        {
+            // Arrange
+            SetupCurrentCountMoreThanCoverageRule();
+
+            // Act
+            _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
+
+            // Assert
+            _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => string.IsNullOrEmpty(e.defraimp_InspectionDeclinedReason))), Times.Once);
+        }
+
+        private void SetupCurrentCountMoreThanCoverageRule()
+        {
+            SetupCoverageRulesRepoToReturnRules();
+            SetupAutoNumberRepoToReturnValue(ImportApplicationConstants.P3_COUNTER_NAME, 3);
+            _importApplication.defraimp_importapplicationId = Guid.NewGuid();
+        }
+
+        [Fact]
         public void ExecuteInspection_CurrentCountLessThanTheCoverageRule_UpdatesImportApplicationInspectionRequiredToNo()
         {
             // Arrange
-            SetupCoverageRulesRepoToReturnRules();
-            SetupAutoNumberRepoToReturnValue(ImportApplicationConstants.P3_COUNTER_NAME, 0);
-            _importApplication.defraimp_importapplicationId = Guid.NewGuid();
+            SetupCurrentCountLessThanCoverageRule();
 
             // Act
             _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
@@ -82,6 +98,26 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => e.defraimp_importapplicationId == _importApplication.defraimp_importapplicationId)), Times.Once);
             _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => e.defraimp_InspectionRequired.Value == defraimp_importapplication_defraimp_inspectionrequired.No)), Times.Once);
 
+        }
+
+        [Fact]
+        public void ExecuteInspection_CurrentCountLessThanTheCoverageRule_SetsTheInspectionDeclinedReason()
+        {
+            // Arrange
+            SetupCurrentCountLessThanCoverageRule();
+
+            // Act
+            _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
+
+            // Assert
+            _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => !string.IsNullOrEmpty(e.defraimp_InspectionDeclinedReason))), Times.Once);
+        }
+
+        private void SetupCurrentCountLessThanCoverageRule()
+        {
+            SetupCoverageRulesRepoToReturnRules();
+            SetupAutoNumberRepoToReturnValue(ImportApplicationConstants.P3_COUNTER_NAME, 0);
+            _importApplication.defraimp_importapplicationId = Guid.NewGuid();
         }
 
     }
