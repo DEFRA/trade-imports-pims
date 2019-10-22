@@ -13456,6 +13456,13 @@
             Gets or sets a value indicating whether to show copyright information at the start of the program.
             </summary>
         </member>
+        <member name="P:Cake.Common.Tools.MSBuild.MSBuildSettings.NoImplicitTarget">
+            <summary>
+            Gets or sets a value indicating whether implicit target should be passed to MSBuild.
+            If set to true, no targets will be specified.
+            If set to false, and no targets specified, Build target will be passed by default.
+            </summary>
+        </member>
         <member name="P:Cake.Common.Tools.MSBuild.MSBuildSettings.Verbosity">
             <summary>
             Gets or sets the amount of information to display in the build log.
@@ -13612,6 +13619,14 @@
             </summary>
             <param name="settings">The settings.</param>
             <param name="noLogo"><c>true</c> if no copyright information at the start of the program should be shown; otherwise <c>false</c>.</param>
+            <returns>The same <see cref="T:Cake.Common.Tools.MSBuild.MSBuildSettings"/> instance so that multiple calls can be chained.</returns>
+        </member>
+        <member name="M:Cake.Common.Tools.MSBuild.MSBuildSettingsExtensions.SetNoImplicitTarget(Cake.Common.Tools.MSBuild.MSBuildSettings,System.Boolean)">
+            <summary>
+            Sets whether or not any targets should be passed to MSBuild.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="noImplicitTarget"><c>true</c> if no implicit target should be passed to MSBuild; otherwise <c>false</c>.</param>
             <returns>The same <see cref="T:Cake.Common.Tools.MSBuild.MSBuildSettings"/> instance so that multiple calls can be chained.</returns>
         </member>
         <member name="M:Cake.Common.Tools.MSBuild.MSBuildSettingsExtensions.SetVerbosity(Cake.Common.Tools.MSBuild.MSBuildSettings,Cake.Core.Diagnostics.Verbosity)">
@@ -14342,10 +14357,37 @@
             </summary>
             <value>The package tags.</value>
         </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuGetPackSettings.Serviceable">
+            <summary>
+            Gets or sets a value indicating whether this package should be marked as a serviceable.
+            </summary>
+            <value>
+              <c>true</c> if serviceable; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="P:Cake.Common.Tools.NuGet.Pack.NuGetPackSettings.Repository">
             <summary>
-            Gets or sets the package repository data
+            Gets or sets the package repository data.
             </summary>
+            <value>The package repository data.</value>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuGetPackSettings.License">
+            <summary>
+            Gets or sets the package license.
+            </summary>
+            <value>The package license.</value>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuGetPackSettings.PackageTypes">
+            <summary>
+            Gets or sets the package types.
+            </summary>
+            <value>The package types.</value>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuGetPackSettings.FrameworkAssemblies">
+            <summary>
+            Gets or sets the package framework assemblies.
+            </summary>
+            <value>The package framework assemblies.</value>
         </member>
         <member name="P:Cake.Common.Tools.NuGet.Pack.NuGetPackSettings.DevelopmentDependency">
             <summary>
@@ -14362,6 +14404,24 @@
             <value>
             <c>true</c> if users has to accept the package license; otherwise, <c>false</c>.
             </value>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuGetPackSettings.References">
+            <summary>
+            Gets or sets the package references.
+            </summary>
+            <value>The package references.</value>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuGetPackSettings.ContentFiles">
+            <summary>
+            Gets or sets the package content files.
+            </summary>
+            <value>The package content files.</value>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuGetPackSettings.MinClientVersion">
+            <summary>
+            Gets or sets the package minimum client version.
+            </summary>
+            <value>The package minimum client version.</value>
         </member>
         <member name="P:Cake.Common.Tools.NuGet.Pack.NuGetPackSettings.Files">
             <summary>
@@ -14472,9 +14532,53 @@
             Using a double wildcard - <c>**</c> - implies a recursive exclude pattern.
             </summary>
         </member>
+        <member name="T:Cake.Common.Tools.NuGet.Pack.NuSpecContentFile">
+            <summary>
+            Specifies the package's content to identify the exact files that are included in the package.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecContentFile.Include">
+            <summary>
+            Gets or sets the location of the file or files to include.
+            The wildcard character - <c>*</c> - is allowed.
+            Using a double wildcard - <c>**</c> implies a recursive directory search.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecContentFile.Exclude">
+            <summary>
+            Gets or sets files or file patterns to exclude from <c>src</c> location.
+            The wildcard character - <c>*</c> - is allowed.
+            Using a double wildcard - <c>**</c> implies a recursive directory search.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecContentFile.BuildAction">
+            <summary>
+            Gets or sets the build action to assign to the content item for MSBuild, e.g. Compile.
+            Defaults to <c>Compile</c>.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecContentFile.CopyToOutput">
+            <summary>
+            Gets or sets a value indicating whether to copy content items to the build (or publish) output folder.
+            Defaults to <c>false</c>.
+            </summary>
+            <value>
+              <c>true</c> if content items should be copied to the output folder; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecContentFile.Flatten">
+            <summary>
+            Gets or sets a value indicating whether to copy content items to a single folder in the build output
+            or to preserve the folder structure in the package. This flag only works when <c>copyToOutput</c>
+            flag is set to true. Defaults to <c>false</c>.
+            </summary>
+            <value>
+              <c>true</c> if content items should be copied to a single folder; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="T:Cake.Common.Tools.NuGet.Pack.NuSpecDependency">
             <summary>
-            Represents a NuGet nuspec dependency
+            Represents a NuGet nuspec dependency.
             </summary>
         </member>
         <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecDependency.Id">
@@ -14489,11 +14593,91 @@
             </summary>
             <value>The dependency's version.</value>
         </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecDependency.Include">
+            <summary>
+            Gets or sets a list of include/exclude tags indicating of the dependency to
+            include in the final package. The default value is <c>all</c>.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecDependency.Exclude">
+            <summary>
+            Gets or sets a list of include/exclude tags indicating of the dependency to
+            exclude in the final package. The default value is <c>build,analyzers</c> which can
+            be over-written.
+            </summary>
+        </member>
         <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecDependency.TargetFramework">
             <summary>
             Gets or sets the target framework for the dependency.
             </summary>
             <value>The target framework for the dependency.</value>
+        </member>
+        <member name="T:Cake.Common.Tools.NuGet.Pack.NuSpecFrameworkAssembly">
+            <summary>
+            Specifies framework assemblies to ensure that required references are added to a project.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecFrameworkAssembly.AssemblyName">
+            <summary>
+            Gets or sets the fully qualified assembly name.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecFrameworkAssembly.TargetFramework">
+            <summary>
+            Gets or sets the target framework to which this reference applies. If omitted,
+            indicates that the reference applies to all frameworks.
+            </summary>
+        </member>
+        <member name="T:Cake.Common.Tools.NuGet.Pack.NuSpecLicense">
+            <summary>
+            Specifies the package's SPDX license expression or path to a license file.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecLicense.Type">
+            <summary>
+            Gets or sets the license type.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecLicense.Version">
+            <summary>
+            Gets or sets the license version.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecLicense.Value">
+            <summary>
+            Gets or sets SPDX license identifier.
+            </summary>
+        </member>
+        <member name="T:Cake.Common.Tools.NuGet.Pack.NuSpecPackageType">
+            <summary>
+            Specifies the package's package type that indicates its intended use.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecPackageType.Name">
+            <summary>
+            Gets or sets the package type, e.g <c>DotnetCliTool</c>
+            Defaults to <c>Dependency</c>.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecPackageType.Version">
+            <summary>
+            Gets or sets the version of the package type.
+            </summary>
+        </member>
+        <member name="T:Cake.Common.Tools.NuGet.Pack.NuSpecReference">
+            <summary>
+            Specifies the package's assemblies that the target project should reference when being used.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecReference.File">
+            <summary>
+            Gets or sets file for the reference.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Pack.NuSpecReference.TargetFramework">
+            <summary>
+            Gets or sets the target framework for the reference.
+            </summary>
         </member>
         <member name="T:Cake.Common.Tools.NuGet.Push.NamespaceDoc">
             <summary>
@@ -14571,6 +14755,16 @@
             Gets or sets the NuGet configuration file.
             </summary>
             <value>The NuGet configuration file.</value>
+        </member>
+        <member name="P:Cake.Common.Tools.NuGet.Push.NuGetPushSettings.SkipDuplicate">
+            <summary>
+            Gets or sets a value indicating whether to skip a package and continue with
+            the next package in the push, if any when a package with the same version
+            already exists.
+            </summary>
+            <value>
+            <c>true</c> if skipping duplicates; otherwise, <c>false</c>.
+            </value>
         </member>
         <member name="T:Cake.Common.Tools.NuGet.Restore.NamespaceDoc">
             <summary>
@@ -17055,7 +17249,7 @@
         </member>
         <member name="T:Cake.Common.Tools.OctopusDeploy.DeploymentQueryResultParser">
             <summary>
-            Parses the Console Output of the octo.exe call when called with list-deployments
+            Parses the Console Output of the Octo.exe call when called with list-deployments
             </summary>
         </member>
         <member name="M:Cake.Common.Tools.OctopusDeploy.DeploymentQueryResultParser.#ctor">
@@ -23102,6 +23296,11 @@
             Gets or sets the specific framework to compile.
             </summary>
         </member>
+        <member name="P:Cake.Common.Tools.DotNetCore.Clean.DotNetCoreCleanSettings.Runtime">
+            <summary>
+            Gets or sets the target runtime.
+            </summary>
+        </member>
         <member name="P:Cake.Common.Tools.DotNetCore.Clean.DotNetCoreCleanSettings.MSBuildSettings">
             <summary>
             Gets or sets additional arguments to be passed to MSBuild.
@@ -24799,6 +24998,11 @@
             For more information, see https://aka.ms/nupkgservicing
             </remarks>
         </member>
+        <member name="P:Cake.Common.Tools.DotNetCore.Pack.DotNetCorePackSettings.Runtime">
+            <summary>
+            Gets or sets the target runtime.
+            </summary>
+        </member>
         <member name="P:Cake.Common.Tools.DotNetCore.Pack.DotNetCorePackSettings.MSBuildSettings">
             <summary>
             Gets or sets additional arguments to be passed to MSBuild.
@@ -25086,6 +25290,11 @@
             This makes run faster, but requires build to be done before run is executed.
             </summary>
         </member>
+        <member name="P:Cake.Common.Tools.DotNetCore.Run.DotNetCoreRunSettings.Runtime">
+            <summary>
+            Gets or sets the target runtime.
+            </summary>
+        </member>
         <member name="T:Cake.Common.Tools.DotNetCore.Test.DotNetCoreTester">
             <summary>
             .NET Core project tester.
@@ -25177,6 +25386,11 @@
         <member name="P:Cake.Common.Tools.DotNetCore.Test.DotNetCoreTestSettings.VSTestReportPath">
             <summary>
             Gets or sets the file path to write VSTest reports to.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Tools.DotNetCore.Test.DotNetCoreTestSettings.Runtime">
+            <summary>
+            Gets or sets the target runtime to test for. This setting is only available from .NET Core 3.x upward.
             </summary>
         </member>
         <member name="T:Cake.Common.Tools.DotNetCore.Tool.DotNetCoreToolRunner">
@@ -27442,22 +27656,22 @@
         </member>
         <member name="F:Cake.Common.Tools.GitVersion.GitVersionVerbosity.Error">
             <summary>
-            Only log error messages.
+            Log error messages.
             </summary>
         </member>
         <member name="F:Cake.Common.Tools.GitVersion.GitVersionVerbosity.Warn">
             <summary>
-            Only log wanring messages.
+            Log error and warning messages.
             </summary>
         </member>
         <member name="F:Cake.Common.Tools.GitVersion.GitVersionVerbosity.Info">
             <summary>
-            Only log info messages.
+            Log error, warning and info messages.
             </summary>
         </member>
         <member name="F:Cake.Common.Tools.GitVersion.GitVersionVerbosity.Debug">
             <summary>
-            Only log debug messages.
+            Log error, warning, info and debug messages (log all).
             </summary>
         </member>
         <member name="T:Cake.Common.Tools.ILRepack.ILRepackAliases">
@@ -30703,6 +30917,24 @@
         <member name="P:Cake.Common.Xml.XmlPokeSettings.DtdProcessing">
             <summary>
             Gets or sets a value that determines the processing of DTDs.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Xml.XmlPokeSettings.NewLineOnAttributes">
+            <summary>
+            Gets or sets a value indicating whether to write attributes on a new line.
+            This setting is used when <see cref="P:Cake.Common.Xml.XmlPokeSettings.Indent"/> is set to true.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Xml.XmlPokeSettings.IndentChars">
+            <summary>
+            Gets or sets the character string to use when indenting.
+            This setting is used when <see cref="P:Cake.Common.Xml.XmlPokeSettings.Indent"/> is set to true.
+            The default is two spaces.
+            </summary>
+        </member>
+        <member name="P:Cake.Common.Xml.XmlPokeSettings.Indent">
+            <summary>
+            Gets or sets a value indicating whether to indent elements.
             </summary>
         </member>
         <member name="M:Cake.Common.Xml.XmlPokeSettings.#ctor">

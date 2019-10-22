@@ -33,7 +33,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                     defraimp_inspectioncoverageruleId = e.defraimp_inspectioncoverageruleId,
                     defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection
                 }
-            ).ToList().First();
+            ).FirstOrDefault();
 
             // Check whether the counter has reached the threshold
             if (currentCount >= coverageRule.defraimp_NumberOfRecordsUntilInspection)

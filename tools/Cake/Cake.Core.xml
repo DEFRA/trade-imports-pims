@@ -5722,6 +5722,12 @@
             <param name="root">The root to where to find Cake related assemblies.</param>
             <returns>A list containing all default assemblies.</returns>
         </member>
+        <member name="M:Cake.Core.Scripting.IScriptConventions.GetDefaultDefines">
+            <summary>
+            Gets the default defines.
+            </summary>
+            <returns>A list containing all default defines.</returns>
+        </member>
         <member name="T:Cake.Core.Scripting.IScriptEngine">
             <summary>
             Represents a script engine.
@@ -6042,12 +6048,13 @@
             The script conventions used by Cake.
             </summary>
         </member>
-        <member name="M:Cake.Core.Scripting.ScriptConventions.#ctor(Cake.Core.IO.IFileSystem,Cake.Core.Reflection.IAssemblyLoader)">
+        <member name="M:Cake.Core.Scripting.ScriptConventions.#ctor(Cake.Core.IO.IFileSystem,Cake.Core.Reflection.IAssemblyLoader,Cake.Core.ICakeRuntime)">
             <summary>
             Initializes a new instance of the <see cref="T:Cake.Core.Scripting.ScriptConventions"/> class.
             </summary>
             <param name="fileSystem">The file system.</param>
             <param name="loader">The assembly loader.</param>
+            <param name="runtime">The Cake runtime.</param>
         </member>
         <member name="M:Cake.Core.Scripting.ScriptConventions.GetDefaultNamespaces">
             <summary>
@@ -6061,6 +6068,12 @@
             </summary>
             <param name="root">The root to where to find Cake related assemblies.</param>
             <returns>A list containing all default assemblies.</returns>
+        </member>
+        <member name="M:Cake.Core.Scripting.ScriptConventions.GetDefaultDefines">
+            <summary>
+            Gets the default defines.
+            </summary>
+            <returns>A list containing all default defines.</returns>
         </member>
         <member name="T:Cake.Core.Scripting.ScriptHost">
             <summary>

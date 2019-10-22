@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-
 [assembly: Microsoft.Xrm.Sdk.Client.ProxyTypesAssemblyAttribute()]
 
 namespace Defra.Imports.Model
@@ -9717,9 +9715,8 @@ namespace Defra.Imports.Model
 		public const string EntityLogicalName = "defraimp_goldbronzecountriesnn";
 		
 		public const int EntityTypeCode = 10128;
-        internal Guid? defraimp_goldbronzecommodityId;
-
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+		
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
 		
 		public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
 		
@@ -9865,6 +9862,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		No = 714100001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Discretionary = 714100003,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -9894,7 +9894,13 @@ namespace Defra.Imports.Model
 		PlaceofOriginLockedtoBronze = 714100007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GoldPlaceofOrigin10thConsignment = 714100006,
+		GoldPlaceofOriginInspectionCoverage = 714100006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NoInspectionRequiredGoldPlaceofOrigin = 714100008,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		VerifiedPlaceofOriginMissing = 714100009,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
