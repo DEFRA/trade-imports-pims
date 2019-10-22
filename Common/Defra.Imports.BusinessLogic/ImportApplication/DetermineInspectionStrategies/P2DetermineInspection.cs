@@ -77,7 +77,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                     defraimp_inspectioncoverageruleId = e.defraimp_inspectioncoverageruleId,
                     defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection
                 }
-            ).ToList().First();
+            ).FirstOrDefault();
 
             return coverageRule;
         }

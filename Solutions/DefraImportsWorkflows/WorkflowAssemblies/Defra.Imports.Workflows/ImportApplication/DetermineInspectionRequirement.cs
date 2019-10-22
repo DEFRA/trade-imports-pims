@@ -42,7 +42,7 @@ namespace Defra.Imports.Workflows.ImportApplication
             ICrmRepository<defraimp_importapplication> importApplicationRepo = new CrmRepository<ImportsContext, defraimp_importapplication>(orgSvc);
             IPlaceOfOriginRepository placeOfOriginRepo = new PlaceOfOriginRepository(orgSvc);
             IRepositoryFactory repositoryFactory = new RepositoryFactory(orgSvc);
-            defraimp_importapplication importApplication = importApplicationRepo.Retrieve(importApplicationId, new string[] { "defraimp_importrisklevelid", "defraimp_previousimportrisklevelid", "defraimp_inspectionrequired", "defraimp_placeoforiginid","defraimp_commoditytypeid" });
+            defraimp_importapplication importApplication = importApplicationRepo.Retrieve(importApplicationId, new string[] { "defraimp_importrisklevelid", "defraimp_previousimportrisklevelid", "defraimp_inspectionrequired", "defraimp_placeoforiginid","defraimp_commoditytypeid", "defraimp_countryoforiginid" });
             DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(importApplication, importApplicationRepo, coverageRulesRepo, autoNumberRepo,placeOfOriginRepo, repositoryFactory, logWriter);
 
             determineInspectionRequirementBusinessLogic.RunLogic();
