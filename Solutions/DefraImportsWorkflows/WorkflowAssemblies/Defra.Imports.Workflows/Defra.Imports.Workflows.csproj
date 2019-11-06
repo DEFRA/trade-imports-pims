@@ -95,6 +95,7 @@
     <Compile Include="ImportApplication\AutomatedRiskLevelAssignment.cs" />
     <Compile Include="ImportApplication\DetermineInspectionRequirement.cs" />
     <Compile Include="ImportApplication\RandomRiskAssessment.cs" />
+    <Compile Include="ImportApplication\DecrementPlaceOfOriginCounters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkflowActivity.cs" />
     <Compile Include="WorkflowActivityBase.cs" />
