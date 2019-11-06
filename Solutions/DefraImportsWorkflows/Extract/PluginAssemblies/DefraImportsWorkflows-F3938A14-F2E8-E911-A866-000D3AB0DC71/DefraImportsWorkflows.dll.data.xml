@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginAssemblyId="f3938a14-f2e8-e911-a866-000d3ab0dc71" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/DefraImportsWorkflows-F3938A14-F2E8-E911-A866-000D3AB0DC71/DefraImportsWorkflows.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.Autonumber.ResetAutonumber, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="2ab46013-f2e8-e911-a854-000d3ab0d976" Name="ResetAutonumber">
+      <Description>Reset the auto number counter for a specific record to 0</Description>
+      <FriendlyName>Reset the specified autonumber attribute</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.Autonumber</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.AutomatedRiskLevelAssignment, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="c77bedae-e4f0-e911-a812-000d3ab4de89" Name="AutomatedRiskLevelAssignment">
+      <Description>Automatically assesses the risk level of an import application based on a given commodity and country</Description>
+      <FriendlyName>Automated Risk Level Assessment</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.DecrementPlaceOfOriginCounters, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="d6cb5c34-daf4-e911-a813-000d3ab55801" Name="DecrementPlaceOfOriginCounters">
+      <Description>Safely manages decrement of counter fields on Place of Origin related to the import application</Description>
+      <FriendlyName>Decrement Counters on the Import Application's Place of Origin</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.DetermineInspectionRequirement, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="6f948a14-f2e8-e911-a866-000d3ab0dc71" Name="DetermineInspectionRequirement">
+      <Description>Determines whether a particular application should be inspected</Description>
+      <FriendlyName>Determine Inspection for Import Application</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.IncrementAutonumber, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="38257f11-f2e8-e911-a857-000d3ab0d388" Name="IncrementAutonumber">
+      <Description>Increments the auto number counter for a specific record</Description>
+      <FriendlyName>Increment the specified autonumber attribute</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.Autonumber</WorkflowActivityGroupName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

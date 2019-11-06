@@ -23,7 +23,7 @@
       <fetch version="1.0" mapping="logical">
         <entity name="defraimp_importapplication">
           <attribute name="createdon" />
-          <order attribute="createdon" descending="false" />
+          <order attribute="createdon" descending="true" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>

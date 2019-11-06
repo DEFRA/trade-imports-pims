@@ -47,7 +47,7 @@
                 <mxswa:ActivityReference.Properties>
                   <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                   <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                    <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="CustomActivityStep3: Run the automated Risk Level Assignment logic">
+                    <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="CustomActivityStep3: Run the automated Risk Assessment">
                       <mxswa:ActivityReference.Properties>
                         <sco:Collection x:TypeArguments="Variable" x:Key="Variables">
                           <Variable x:TypeArguments="x:Object" Name="CustomActivityStep3_1" />
@@ -81,7 +81,7 @@
                               <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep3_1_converted]</OutArgument>
                             </mxswa:ActivityReference.Arguments>
                           </mxswa:ActivityReference>
-                          <mxswa:ActivityReference AssemblyQualifiedName="Defra.Imports.Xrm.Workflows.AutomatedRiskLevelAssignment, Defra.Imports.Xrm.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a8e349874a72aac7" DisplayName="CustomActivityStep3: Run the automated Risk Level Assignment logic">
+                          <mxswa:ActivityReference AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.AutomatedRiskLevelAssignment, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" DisplayName="CustomActivityStep3: Run the automated Risk Assessment">
                             <mxswa:ActivityReference.Arguments>
                               <InArgument x:TypeArguments="mxs:EntityReference" x:Key="ImportApplication">[DirectCast(CustomActivityStep3_1_converted, Microsoft.Xrm.Sdk.EntityReference)]</InArgument>
                             </mxswa:ActivityReference.Arguments>

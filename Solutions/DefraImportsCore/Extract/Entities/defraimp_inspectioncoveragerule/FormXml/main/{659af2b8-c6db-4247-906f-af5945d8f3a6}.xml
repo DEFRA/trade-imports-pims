@@ -28,19 +28,19 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{c59e0dc9-ed78-4461-d018-106264bbb29e}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Risk Level" languagecode="1033" />
-                        </labels>
-                        <control disabled="false" id="defraimp_risklevel" datafieldname="defraimp_risklevel" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{69ca0aba-4756-1c5e-4769-8d1d46270d0e}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Number Of Records Until Inspection" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_numberofrecordsuntilinspection" datafieldname="defraimp_numberofrecordsuntilinspection" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0cdca71c-b850-d8ed-3a4b-8ead32248494}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Risk Level" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="defraimp_risklevelid" datafieldname="defraimp_risklevelid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
                     </row>
                     <row>

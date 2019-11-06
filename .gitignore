@@ -264,3 +264,9 @@ Log*.txt
 
 # misc
 .suo
+
+# tools - Cake
+tools/**/*
+tools/*.md5sum
+!tools/packages.config
+**/*_temp.config
