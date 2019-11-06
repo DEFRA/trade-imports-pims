@@ -43,6 +43,57 @@ namespace Defra.Imports.Model
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_placeofdestinationtype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Holding = 714100000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AssemblyCentre = 714100001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DealersPremise = 714100002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ApprovedBody = 714100003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SemenCentre = 714100004,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ApprovedAquacultureHolding = 714100005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EmbryoTeam = 714100006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Establishment = 714100007,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Other = 714100008,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_ukcountries
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		England = 714100000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Scotland = 714100001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Wales = 714100002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NorthernIreland = 714100003,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
 	public enum goal_fiscalperiod
 	{
 		
@@ -1407,6 +1458,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AdditionalCheck = 10088,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ImportQuery = 10129,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1848,6 +1902,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AdditionalCheck = 10088,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ImportQuery = 10129,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -7817,6 +7874,24 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N contact_defraimp_importqueries
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("contact_defraimp_importqueries")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_importquery> contact_defraimp_importqueries
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_importquery>("contact_defraimp_importqueries", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("contact_defraimp_importqueries");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_importquery>("contact_defraimp_importqueries", null, value);
+				this.OnPropertyChanged("contact_defraimp_importqueries");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N contact_master_contact
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("contact_master_contact", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
@@ -9001,6 +9076,24 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_itahc")]
+		public Microsoft.Xrm.Sdk.EntityReference defraimp_ITAHC
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_itahc");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_ITAHC");
+				this.SetAttributeValue("defraimp_itahc", value);
+				this.OnPropertyChanged("defraimp_ITAHC");
+			}
+		}
+		
+		/// <summary>
 		/// The name of the custom entity.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_name")]
@@ -9274,6 +9367,25 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_defraimp_importapplication_defraimp_countryoftransit_ImportApplication");
 				this.SetRelatedEntity<Defra.Imports.Model.defraimp_importapplication>("defraimp_defraimp_importapplication_defraimp_countryoftransit_ImportApplication", null, value);
 				this.OnPropertyChanged("defraimp_defraimp_importapplication_defraimp_countryoftransit_ImportApplication");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_itahc")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC")]
+		public Defra.Imports.Model.defraimp_itahc defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_itahc>("defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC");
+				this.SetRelatedEntity<Defra.Imports.Model.defraimp_itahc>("defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC");
 			}
 		}
 	}
@@ -9840,13 +9952,13 @@ namespace Defra.Imports.Model
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AwaitingInspection = 714100000,
+		AwaitingResultofChecks = 714100000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InspectionSuccessful = 714100001,
+		Satisfactory = 714100001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InspectionFailed = 714100002,
+		Unsatisfactory = 714100002,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -11607,6 +11719,47 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplic" +
+			"ation")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_importinspection> defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplic" +
+						"ation", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplic" +
+						"ation");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplic" +
+						"ation", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplic" +
+						"ation");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N defraimp_importapplication_defraimp_importqueries
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_importapplication_defraimp_importqueries")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_importquery> defraimp_importapplication_defraimp_importqueries
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_importquery>("defraimp_importapplication_defraimp_importqueries", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_importapplication_defraimp_importqueries");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_importquery>("defraimp_importapplication_defraimp_importqueries", null, value);
+				this.OnPropertyChanged("defraimp_importapplication_defraimp_importqueries");
+			}
+		}
+		
+		/// <summary>
 		/// N:N defraimp_defraimp_importapplication_defraimp_impor
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importapplication_defraimp_impor")]
@@ -12217,6 +12370,926 @@ namespace Defra.Imports.Model
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_importinspection_defraimp_inspectionoutcome
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AwaitingOutcome = 714100000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Satisfactory = 714100001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NonCompliant = 714100002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ResolvedNotRequired = 714100003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Cancelled = 714100004,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AdditionalInspectionRequired = 714100005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Quarantined = 714100006,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_importinspectionState
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Active = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Inactive = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_importinspection_statuscode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AwaitingOutcome = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Cancelled = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ResolvedNotRequired = 714100000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Satisfactory = 714100001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NonCompliant = 714100002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AdditionalInspectionRequired = 714100003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Quarantined = 714100004,
+	}
+	
+	/// <summary>
+	/// 
+	/// </summary>
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_importinspection")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public partial class defraimp_importinspection : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	{
+		
+		/// <summary>
+		/// Default Constructor.
+		/// </summary>
+		public defraimp_importinspection() : 
+				base(EntityLogicalName)
+		{
+		}
+		
+		public const string EntityLogicalName = "defraimp_importinspection";
+		
+		public const int EntityTypeCode = 10123;
+		
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+		
+		public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
+		
+		private void OnPropertyChanged(string propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void OnPropertyChanging(string propertyName)
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs(propertyName));
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user who created the record.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdby");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when the record was created.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdon")]
+		public System.Nullable<System.DateTime> CreatedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("createdon");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the delegate user who created the record.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedOnBehalfBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_additionalinfo")]
+		public string defraimp_AdditionalInfo
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_additionalinfo");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_AdditionalInfo");
+				this.SetAttributeValue("defraimp_additionalinfo", value);
+				this.OnPropertyChanged("defraimp_AdditionalInfo");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_comments")]
+		public string defraimp_Comments
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_comments");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_Comments");
+				this.SetAttributeValue("defraimp_comments", value);
+				this.OnPropertyChanged("defraimp_Comments");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_datecompleted")]
+		public System.Nullable<System.DateTime> defraimp_DateCompleted
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("defraimp_datecompleted");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DateCompleted");
+				this.SetAttributeValue("defraimp_datecompleted", value);
+				this.OnPropertyChanged("defraimp_DateCompleted");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_datestartedworking")]
+		public System.Nullable<System.DateTime> defraimp_DateStartedWorking
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("defraimp_datestartedworking");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DateStartedWorking");
+				this.SetAttributeValue("defraimp_datestartedworking", value);
+				this.OnPropertyChanged("defraimp_DateStartedWorking");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier for entity instances
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importinspectionid")]
+		public System.Nullable<System.Guid> defraimp_importinspectionId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("defraimp_importinspectionid");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_importinspectionId");
+				this.SetAttributeValue("defraimp_importinspectionid", value);
+				if (value.HasValue)
+				{
+					base.Id = value.Value;
+				}
+				else
+				{
+					base.Id = System.Guid.Empty;
+				}
+				this.OnPropertyChanged("defraimp_importinspectionId");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importinspectionid")]
+		public override System.Guid Id
+		{
+			get
+			{
+				return base.Id;
+			}
+			set
+			{
+				this.defraimp_importinspectionId = value;
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_initial")]
+		public string defraimp_Initial
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_initial");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_Initial");
+				this.SetAttributeValue("defraimp_initial", value);
+				this.OnPropertyChanged("defraimp_Initial");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_inspectionoutcome")]
+		public System.Nullable<Defra.Imports.Model.defraimp_importinspection_defraimp_inspectionoutcome> defraimp_InspectionOutcome
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("defraimp_inspectionoutcome");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_importinspection_defraimp_inspectionoutcome)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_importinspection_defraimp_inspectionoutcome), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_InspectionOutcome");
+				if ((value == null))
+				{
+					this.SetAttributeValue("defraimp_inspectionoutcome", null);
+				}
+				else
+				{
+					this.SetAttributeValue("defraimp_inspectionoutcome", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("defraimp_InspectionOutcome");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_inspectionoutcomereason")]
+		public string defraimp_InspectionOutcomeReason
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_inspectionoutcomereason");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_InspectionOutcomeReason");
+				this.SetAttributeValue("defraimp_inspectionoutcomereason", value);
+				this.OnPropertyChanged("defraimp_InspectionOutcomeReason");
+			}
+		}
+		
+		/// <summary>
+		/// The name of the custom entity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_name")]
+		public string defraimp_name
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_name");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_name");
+				this.SetAttributeValue("defraimp_name", value);
+				this.OnPropertyChanged("defraimp_name");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_newvisittoallocate")]
+		public System.Nullable<bool> defraimp_NewVisitToAllocate
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("defraimp_newvisittoallocate");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_NewVisitToAllocate");
+				this.SetAttributeValue("defraimp_newvisittoallocate", value);
+				this.OnPropertyChanged("defraimp_NewVisitToAllocate");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_nextinspection")]
+		public Microsoft.Xrm.Sdk.EntityReference defraimp_NextInspection
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_nextinspection");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_NextInspection");
+				this.SetAttributeValue("defraimp_nextinspection", value);
+				this.OnPropertyChanged("defraimp_NextInspection");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_previousinspection")]
+		public Microsoft.Xrm.Sdk.EntityReference defraimp_PreviousInspection
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_previousinspection");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_PreviousInspection");
+				this.SetAttributeValue("defraimp_previousinspection", value);
+				this.OnPropertyChanged("defraimp_PreviousInspection");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_reasontimeframemissed")]
+		public string defraimp_ReasonTimeframeMissed
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_reasontimeframemissed");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_ReasonTimeframeMissed");
+				this.SetAttributeValue("defraimp_reasontimeframemissed", value);
+				this.OnPropertyChanged("defraimp_ReasonTimeframeMissed");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_region")]
+		public System.Nullable<Defra.Imports.Model.defraimp_importregions> defraimp_Region
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("defraimp_region");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_importregions)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_importregions), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_Region");
+				if ((value == null))
+				{
+					this.SetAttributeValue("defraimp_region", null);
+				}
+				else
+				{
+					this.SetAttributeValue("defraimp_region", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("defraimp_Region");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_relatedimportapplication")]
+		public Microsoft.Xrm.Sdk.EntityReference defraimp_RelatedImportApplication
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_relatedimportapplication");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_RelatedImportApplication");
+				this.SetAttributeValue("defraimp_relatedimportapplication", value);
+				this.OnPropertyChanged("defraimp_RelatedImportApplication");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_relateditahc")]
+		public Microsoft.Xrm.Sdk.EntityReference defraimp_RelatedITAHC
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_relateditahc");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_RelatedITAHC");
+				this.SetAttributeValue("defraimp_relateditahc", value);
+				this.OnPropertyChanged("defraimp_RelatedITAHC");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_replyfromahodue")]
+		public System.Nullable<System.DateTime> defraimp_ReplyfromAHODue
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("defraimp_replyfromahodue");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_ReplyfromAHODue");
+				this.SetAttributeValue("defraimp_replyfromahodue", value);
+				this.OnPropertyChanged("defraimp_ReplyfromAHODue");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_samworkschedulenumber")]
+		public string defraimp_SAMWorkScheduleNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_samworkschedulenumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_SAMWorkScheduleNumber");
+				this.SetAttributeValue("defraimp_samworkschedulenumber", value);
+				this.OnPropertyChanged("defraimp_SAMWorkScheduleNumber");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_visitwithinrequiredtimescale")]
+		public System.Nullable<bool> defraimp_VisitWithinRequiredTimescale
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("defraimp_visitwithinrequiredtimescale");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_VisitWithinRequiredTimescale");
+				this.SetAttributeValue("defraimp_visitwithinrequiredtimescale", value);
+				this.OnPropertyChanged("defraimp_VisitWithinRequiredTimescale");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_wsno")]
+		public string defraimp_WSNO
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_wsno");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_WSNO");
+				this.SetAttributeValue("defraimp_wsno", value);
+				this.OnPropertyChanged("defraimp_WSNO");
+			}
+		}
+		
+		/// <summary>
+		/// Sequence number of the import that created this record.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("importsequencenumber")]
+		public System.Nullable<int> ImportSequenceNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("importsequencenumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("ImportSequenceNumber");
+				this.SetAttributeValue("importsequencenumber", value);
+				this.OnPropertyChanged("ImportSequenceNumber");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user who modified the record.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when the record was modified.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedon")]
+		public System.Nullable<System.DateTime> ModifiedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("modifiedon");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the delegate user who modified the record.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedOnBehalfBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time that the record was migrated.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("overriddencreatedon")]
+		public System.Nullable<System.DateTime> OverriddenCreatedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("overriddencreatedon");
+			}
+			set
+			{
+				this.OnPropertyChanging("OverriddenCreatedOn");
+				this.SetAttributeValue("overriddencreatedon", value);
+				this.OnPropertyChanged("OverriddenCreatedOn");
+			}
+		}
+		
+		/// <summary>
+		/// Owner Id
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ownerid")]
+		public Microsoft.Xrm.Sdk.EntityReference OwnerId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ownerid");
+			}
+			set
+			{
+				this.OnPropertyChanging("OwnerId");
+				this.SetAttributeValue("ownerid", value);
+				this.OnPropertyChanged("OwnerId");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier for the business unit that owns the record
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
+		public Microsoft.Xrm.Sdk.EntityReference OwningBusinessUnit
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("owningbusinessunit");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier for the team that owns the record.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		public Microsoft.Xrm.Sdk.EntityReference OwningTeam
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("owningteam");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier for the user that owns the record.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
+		public Microsoft.Xrm.Sdk.EntityReference OwningUser
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("owninguser");
+			}
+		}
+		
+		/// <summary>
+		/// Status of the Import Inspection
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
+		public System.Nullable<Defra.Imports.Model.defraimp_importinspectionState> statecode
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_importinspectionState)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_importinspectionState), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("statecode");
+				if ((value == null))
+				{
+					this.SetAttributeValue("statecode", null);
+				}
+				else
+				{
+					this.SetAttributeValue("statecode", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("statecode");
+			}
+		}
+		
+		/// <summary>
+		/// Reason for the status of the Import Inspection
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statuscode")]
+		public System.Nullable<Defra.Imports.Model.defraimp_importinspection_statuscode> statuscode
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statuscode");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_importinspection_statuscode)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_importinspection_statuscode), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("statuscode");
+				if ((value == null))
+				{
+					this.SetAttributeValue("statuscode", null);
+				}
+				else
+				{
+					this.SetAttributeValue("statuscode", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("statuscode");
+			}
+		}
+		
+		/// <summary>
+		/// For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezoneruleversionnumber")]
+		public System.Nullable<int> TimeZoneRuleVersionNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezoneruleversionnumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("TimeZoneRuleVersionNumber");
+				this.SetAttributeValue("timezoneruleversionnumber", value);
+				this.OnPropertyChanged("TimeZoneRuleVersionNumber");
+			}
+		}
+		
+		/// <summary>
+		/// Time zone code that was in use when the record was created.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("utcconversiontimezonecode")]
+		public System.Nullable<int> UTCConversionTimeZoneCode
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("utcconversiontimezonecode");
+			}
+			set
+			{
+				this.OnPropertyChanging("UTCConversionTimeZoneCode");
+				this.SetAttributeValue("utcconversiontimezonecode", value);
+				this.OnPropertyChanged("UTCConversionTimeZoneCode");
+			}
+		}
+		
+		/// <summary>
+		/// Version Number
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("versionnumber")]
+		public System.Nullable<long> VersionNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_importinspection> Referenceddefraimp_defraimp_importinspection_defraimp_importinspection_NextInspection
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+			}
+			set
+			{
+				this.OnPropertyChanging("Referenceddefraimp_defraimp_importinspection_defraimp_importinspection_NextInspec" +
+						"tion");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.OnPropertyChanged("Referenceddefraimp_defraimp_importinspection_defraimp_importinspection_NextInspec" +
+						"tion");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_importinspection> Referenceddefraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+			}
+			set
+			{
+				this.OnPropertyChanging("Referenceddefraimp_defraimp_importinspection_defraimp_importinspection_PreviousIn" +
+						"spection");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.OnPropertyChanged("Referenceddefraimp_defraimp_importinspection_defraimp_importinspection_PreviousIn" +
+						"spection");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_relatedimportapplication")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplic" +
+			"ation")]
+		public Defra.Imports.Model.defraimp_importapplication defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_importapplication>("defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplic" +
+						"ation", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplic" +
+						"ation");
+				this.SetRelatedEntity<Defra.Imports.Model.defraimp_importapplication>("defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplic" +
+						"ation", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplic" +
+						"ation");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_nextinspection")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
+		public Defra.Imports.Model.defraimp_importinspection Referencingdefraimp_defraimp_importinspection_defraimp_importinspection_NextInspection
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+			}
+			set
+			{
+				this.OnPropertyChanging("Referencingdefraimp_defraimp_importinspection_defraimp_importinspection_NextInspe" +
+						"ction");
+				this.SetRelatedEntity<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
+				this.OnPropertyChanged("Referencingdefraimp_defraimp_importinspection_defraimp_importinspection_NextInspe" +
+						"ction");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_previousinspection")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
+		public Defra.Imports.Model.defraimp_importinspection Referencingdefraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+			}
+			set
+			{
+				this.OnPropertyChanging("Referencingdefraimp_defraimp_importinspection_defraimp_importinspection_PreviousI" +
+						"nspection");
+				this.SetRelatedEntity<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
+				this.OnPropertyChanged("Referencingdefraimp_defraimp_importinspection_defraimp_importinspection_PreviousI" +
+						"nspection");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_relateditahc")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC")]
+		public Defra.Imports.Model.defraimp_itahc defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_itahc>("defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC");
+				this.SetRelatedEntity<Defra.Imports.Model.defraimp_itahc>("defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC");
+			}
+		}
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
 	public enum defraimp_importnotificationState
 	{
 		
@@ -12541,6 +13614,42 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_cphnumber")]
+		public string defraimp_CPHNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_cphnumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_CPHNumber");
+				this.SetAttributeValue("defraimp_cphnumber", value);
+				this.OnPropertyChanged("defraimp_CPHNumber");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_datenotificationreceived")]
+		public System.Nullable<System.DateTime> defraimp_DateNotificationReceived
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("defraimp_datenotificationreceived");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DateNotificationReceived");
+				this.SetAttributeValue("defraimp_datenotificationreceived", value);
+				this.OnPropertyChanged("defraimp_DateNotificationReceived");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_dateofimport")]
 		public System.Nullable<System.DateTime> defraimp_DateofImport
 		{
@@ -12760,24 +13869,6 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importrisklevelid")]
-		public Microsoft.Xrm.Sdk.EntityReference defraimp_importrisklevelid
-		{
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_importrisklevelid");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_importrisklevelid");
-				this.SetAttributeValue("defraimp_importrisklevelid", value);
-				this.OnPropertyChanged("defraimp_importrisklevelid");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_ins")]
 		public string defraimp_INS
 		{
@@ -12808,6 +13899,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_name");
 				this.SetAttributeValue("defraimp_name", value);
 				this.OnPropertyChanged("defraimp_name");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_notificationreceivedintimeframe")]
+		public System.Nullable<bool> defraimp_NotificationReceivedinTimeframe
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("defraimp_notificationreceivedintimeframe");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_NotificationReceivedinTimeframe");
+				this.SetAttributeValue("defraimp_notificationreceivedintimeframe", value);
+				this.OnPropertyChanged("defraimp_NotificationReceivedinTimeframe");
 			}
 		}
 		
@@ -13672,23 +14781,1482 @@ namespace Defra.Imports.Model
 						"cesid");
 			}
 		}
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_importquery_instancetypecode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NotRecurring = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurringMaster = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurringInstance = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurringException = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurringFutureException = 4,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_importquery_prioritycode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Low = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Normal = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		High = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_importqueryState
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Open = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Completed = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Canceled = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Scheduled = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public enum defraimp_importquery_statuscode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Open = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Completed = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Canceled = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Scheduled = 4,
+	}
+	
+	/// <summary>
+	/// 
+	/// </summary>
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_importquery")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	public partial class defraimp_importquery : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	{
 		
 		/// <summary>
-		/// N:1 defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid
+		/// Default Constructor.
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importrisklevelid")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid")]
-		public Defra.Imports.Model.defraimp_importrisklevel defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid
+		public defraimp_importquery() : 
+				base(EntityLogicalName)
+		{
+		}
+		
+		public const string EntityLogicalName = "defraimp_importquery";
+		
+		public const int EntityTypeCode = 10129;
+		
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+		
+		public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
+		
+		private void OnPropertyChanged(string propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void OnPropertyChanging(string propertyName)
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs(propertyName));
+			}
+		}
+		
+		/// <summary>
+		/// Additional information provided by the external application as JSON. For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("activityadditionalparams")]
+		public string ActivityAdditionalParams
 		{
 			get
 			{
-				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_importrisklevel>("defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid", null);
+				return this.GetAttributeValue<string>("activityadditionalparams");
 			}
 			set
 			{
-				this.OnPropertyChanging("defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid");
-				this.SetRelatedEntity<Defra.Imports.Model.defraimp_importrisklevel>("defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid", null, value);
-				this.OnPropertyChanged("defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid");
+				this.OnPropertyChanging("ActivityAdditionalParams");
+				this.SetAttributeValue("activityadditionalparams", value);
+				this.OnPropertyChanged("ActivityAdditionalParams");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("activityid")]
+		public System.Nullable<System.Guid> ActivityId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("activityid");
+			}
+			set
+			{
+				this.OnPropertyChanging("ActivityId");
+				this.SetAttributeValue("activityid", value);
+				if (value.HasValue)
+				{
+					base.Id = value.Value;
+				}
+				else
+				{
+					base.Id = System.Guid.Empty;
+				}
+				this.OnPropertyChanged("ActivityId");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("activityid")]
+		public override System.Guid Id
+		{
+			get
+			{
+				return base.Id;
+			}
+			set
+			{
+				this.ActivityId = value;
+			}
+		}
+		
+		/// <summary>
+		/// Type of activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("activitytypecode")]
+		public string ActivityTypeCode
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("activitytypecode");
+			}
+		}
+		
+		/// <summary>
+		/// Actual duration of the activity in minutes.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("actualdurationminutes")]
+		public System.Nullable<int> ActualDurationMinutes
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("actualdurationminutes");
+			}
+			set
+			{
+				this.OnPropertyChanging("ActualDurationMinutes");
+				this.SetAttributeValue("actualdurationminutes", value);
+				this.OnPropertyChanged("ActualDurationMinutes");
+			}
+		}
+		
+		/// <summary>
+		/// Actual end time of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("actualend")]
+		public System.Nullable<System.DateTime> ActualEnd
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("actualend");
+			}
+			set
+			{
+				this.OnPropertyChanging("ActualEnd");
+				this.SetAttributeValue("actualend", value);
+				this.OnPropertyChanged("ActualEnd");
+			}
+		}
+		
+		/// <summary>
+		/// Actual start time of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("actualstart")]
+		public System.Nullable<System.DateTime> ActualStart
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("actualstart");
+			}
+			set
+			{
+				this.OnPropertyChanging("ActualStart");
+				this.SetAttributeValue("actualstart", value);
+				this.OnPropertyChanged("ActualStart");
+			}
+		}
+		
+		/// <summary>
+		/// Blind Carbon-copy (bcc) recipients of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("bcc")]
+		public System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity> Bcc
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.EntityCollection collection = this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityCollection>("bcc");
+				if (((collection != null) 
+							&& (collection.Entities != null)))
+				{
+					return System.Linq.Enumerable.Cast<Microsoft.Xrm.Sdk.Entity>(collection.Entities);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("Bcc");
+				if ((value == null))
+				{
+					this.SetAttributeValue("bcc", value);
+				}
+				else
+				{
+					this.SetAttributeValue("bcc", new Microsoft.Xrm.Sdk.EntityCollection(new System.Collections.Generic.List<Microsoft.Xrm.Sdk.Entity>(value)));
+				}
+				this.OnPropertyChanged("Bcc");
+			}
+		}
+		
+		/// <summary>
+		/// Carbon-copy (cc) recipients of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("cc")]
+		public System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity> Cc
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.EntityCollection collection = this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityCollection>("cc");
+				if (((collection != null) 
+							&& (collection.Entities != null)))
+				{
+					return System.Linq.Enumerable.Cast<Microsoft.Xrm.Sdk.Entity>(collection.Entities);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("Cc");
+				if ((value == null))
+				{
+					this.SetAttributeValue("cc", value);
+				}
+				else
+				{
+					this.SetAttributeValue("cc", new Microsoft.Xrm.Sdk.EntityCollection(new System.Collections.Generic.List<Microsoft.Xrm.Sdk.Entity>(value)));
+				}
+				this.OnPropertyChanged("Cc");
+			}
+		}
+		
+		/// <summary>
+		/// Shows how contact about the social activity originated, such as from Twitter or Facebook. This field is read-only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("community")]
+		public System.Nullable<Defra.Imports.Model.socialprofile_community> Community
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("community");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.socialprofile_community)(System.Enum.ToObject(typeof(Defra.Imports.Model.socialprofile_community), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("Community");
+				if ((value == null))
+				{
+					this.SetAttributeValue("community", null);
+				}
+				else
+				{
+					this.SetAttributeValue("community", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("Community");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user who created the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdby");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when the activity was created.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdon")]
+		public System.Nullable<System.DateTime> CreatedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("createdon");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the delegate user who created the activitypointer.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedOnBehalfBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// Customer with which the activity is associated.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("customers")]
+		public System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity> Customers
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.EntityCollection collection = this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityCollection>("customers");
+				if (((collection != null) 
+							&& (collection.Entities != null)))
+				{
+					return System.Linq.Enumerable.Cast<Microsoft.Xrm.Sdk.Entity>(collection.Entities);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("Customers");
+				if ((value == null))
+				{
+					this.SetAttributeValue("customers", value);
+				}
+				else
+				{
+					this.SetAttributeValue("customers", new Microsoft.Xrm.Sdk.EntityCollection(new System.Collections.Generic.List<Microsoft.Xrm.Sdk.Entity>(value)));
+				}
+				this.OnPropertyChanged("Customers");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when the delivery of the activity was last attempted.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("deliverylastattemptedon")]
+		public System.Nullable<System.DateTime> DeliveryLastAttemptedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("deliverylastattemptedon");
+			}
+		}
+		
+		/// <summary>
+		/// Priority of delivery of the activity to the email server.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("deliveryprioritycode")]
+		public System.Nullable<Defra.Imports.Model.activitypointer_deliveryprioritycode> DeliveryPriorityCode
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("deliveryprioritycode");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.activitypointer_deliveryprioritycode)(System.Enum.ToObject(typeof(Defra.Imports.Model.activitypointer_deliveryprioritycode), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("DeliveryPriorityCode");
+				if ((value == null))
+				{
+					this.SetAttributeValue("deliveryprioritycode", null);
+				}
+				else
+				{
+					this.SetAttributeValue("deliveryprioritycode", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("DeliveryPriorityCode");
+			}
+		}
+		
+		/// <summary>
+		/// Description of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("description")]
+		public string Description
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("description");
+			}
+			set
+			{
+				this.OnPropertyChanging("Description");
+				this.SetAttributeValue("description", value);
+				this.OnPropertyChanged("Description");
+			}
+		}
+		
+		/// <summary>
+		/// The message id of activity which is returned from Exchange Server.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("exchangeitemid")]
+		public string ExchangeItemId
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("exchangeitemid");
+			}
+			set
+			{
+				this.OnPropertyChanging("ExchangeItemId");
+				this.SetAttributeValue("exchangeitemid", value);
+				this.OnPropertyChanged("ExchangeItemId");
+			}
+		}
+		
+		/// <summary>
+		/// Exchange rate for the currency associated with the activitypointer with respect to the base currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("exchangerate")]
+		public System.Nullable<decimal> ExchangeRate
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<decimal>>("exchangerate");
+			}
+		}
+		
+		/// <summary>
+		/// Shows the web link of Activity of type email.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("exchangeweblink")]
+		public string ExchangeWebLink
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("exchangeweblink");
+			}
+			set
+			{
+				this.OnPropertyChanging("ExchangeWebLink");
+				this.SetAttributeValue("exchangeweblink", value);
+				this.OnPropertyChanged("ExchangeWebLink");
+			}
+		}
+		
+		/// <summary>
+		/// Person who the activity is from.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("from")]
+		public System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity> From
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.EntityCollection collection = this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityCollection>("from");
+				if (((collection != null) 
+							&& (collection.Entities != null)))
+				{
+					return System.Linq.Enumerable.Cast<Microsoft.Xrm.Sdk.Entity>(collection.Entities);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("From");
+				if ((value == null))
+				{
+					this.SetAttributeValue("from", value);
+				}
+				else
+				{
+					this.SetAttributeValue("from", new Microsoft.Xrm.Sdk.EntityCollection(new System.Collections.Generic.List<Microsoft.Xrm.Sdk.Entity>(value)));
+				}
+				this.OnPropertyChanged("From");
+			}
+		}
+		
+		/// <summary>
+		/// Sequence number of the import that created this record.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("importsequencenumber")]
+		public System.Nullable<int> ImportSequenceNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("importsequencenumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("ImportSequenceNumber");
+				this.SetAttributeValue("importsequencenumber", value);
+				this.OnPropertyChanged("ImportSequenceNumber");
+			}
+		}
+		
+		/// <summary>
+		/// Type of instance of a recurring series.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("instancetypecode")]
+		public System.Nullable<Defra.Imports.Model.defraimp_importquery_instancetypecode> InstanceTypeCode
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("instancetypecode");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_importquery_instancetypecode)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_importquery_instancetypecode), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Information regarding whether the activity was billed as part of resolving a case.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isbilled")]
+		public System.Nullable<bool> IsBilled
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isbilled");
+			}
+			set
+			{
+				this.OnPropertyChanging("IsBilled");
+				this.SetAttributeValue("isbilled", value);
+				this.OnPropertyChanged("IsBilled");
+			}
+		}
+		
+		/// <summary>
+		/// For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ismapiprivate")]
+		public System.Nullable<bool> IsMapiPrivate
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("ismapiprivate");
+			}
+			set
+			{
+				this.OnPropertyChanging("IsMapiPrivate");
+				this.SetAttributeValue("ismapiprivate", value);
+				this.OnPropertyChanged("IsMapiPrivate");
+			}
+		}
+		
+		/// <summary>
+		/// Information regarding whether the activity is a regular activity type or event type.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isregularactivity")]
+		public System.Nullable<bool> IsRegularActivity
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isregularactivity");
+			}
+		}
+		
+		/// <summary>
+		/// Information regarding whether the activity was created from a workflow rule.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isworkflowcreated")]
+		public System.Nullable<bool> IsWorkflowCreated
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isworkflowcreated");
+			}
+			set
+			{
+				this.OnPropertyChanging("IsWorkflowCreated");
+				this.SetAttributeValue("isworkflowcreated", value);
+				this.OnPropertyChanged("IsWorkflowCreated");
+			}
+		}
+		
+		/// <summary>
+		/// Contains the date and time stamp of the last on hold time.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("lastonholdtime")]
+		public System.Nullable<System.DateTime> LastOnHoldTime
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("lastonholdtime");
+			}
+			set
+			{
+				this.OnPropertyChanging("LastOnHoldTime");
+				this.SetAttributeValue("lastonholdtime", value);
+				this.OnPropertyChanged("LastOnHoldTime");
+			}
+		}
+		
+		/// <summary>
+		/// Left the voice mail
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("leftvoicemail")]
+		public System.Nullable<bool> LeftVoiceMail
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("leftvoicemail");
+			}
+			set
+			{
+				this.OnPropertyChanging("LeftVoiceMail");
+				this.SetAttributeValue("leftvoicemail", value);
+				this.OnPropertyChanged("LeftVoiceMail");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of user who last modified the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when activity was last modified.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedon")]
+		public System.Nullable<System.DateTime> ModifiedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("modifiedon");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the delegate user who last modified the activitypointer.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedOnBehalfBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// Shows how long, in minutes, that the record was on hold.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("onholdtime")]
+		public System.Nullable<int> OnHoldTime
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("onholdtime");
+			}
+		}
+		
+		/// <summary>
+		/// List of optional attendees for the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("optionalattendees")]
+		public System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity> OptionalAttendees
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.EntityCollection collection = this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityCollection>("optionalattendees");
+				if (((collection != null) 
+							&& (collection.Entities != null)))
+				{
+					return System.Linq.Enumerable.Cast<Microsoft.Xrm.Sdk.Entity>(collection.Entities);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("OptionalAttendees");
+				if ((value == null))
+				{
+					this.SetAttributeValue("optionalattendees", value);
+				}
+				else
+				{
+					this.SetAttributeValue("optionalattendees", new Microsoft.Xrm.Sdk.EntityCollection(new System.Collections.Generic.List<Microsoft.Xrm.Sdk.Entity>(value)));
+				}
+				this.OnPropertyChanged("OptionalAttendees");
+			}
+		}
+		
+		/// <summary>
+		/// Person who organized the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("organizer")]
+		public System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity> Organizer
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.EntityCollection collection = this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityCollection>("organizer");
+				if (((collection != null) 
+							&& (collection.Entities != null)))
+				{
+					return System.Linq.Enumerable.Cast<Microsoft.Xrm.Sdk.Entity>(collection.Entities);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("Organizer");
+				if ((value == null))
+				{
+					this.SetAttributeValue("organizer", value);
+				}
+				else
+				{
+					this.SetAttributeValue("organizer", new Microsoft.Xrm.Sdk.EntityCollection(new System.Collections.Generic.List<Microsoft.Xrm.Sdk.Entity>(value)));
+				}
+				this.OnPropertyChanged("Organizer");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time that the record was migrated.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("overriddencreatedon")]
+		public System.Nullable<System.DateTime> OverriddenCreatedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("overriddencreatedon");
+			}
+			set
+			{
+				this.OnPropertyChanging("OverriddenCreatedOn");
+				this.SetAttributeValue("overriddencreatedon", value);
+				this.OnPropertyChanged("OverriddenCreatedOn");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user or team who owns the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ownerid")]
+		public Microsoft.Xrm.Sdk.EntityReference OwnerId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ownerid");
+			}
+			set
+			{
+				this.OnPropertyChanging("OwnerId");
+				this.SetAttributeValue("ownerid", value);
+				this.OnPropertyChanged("OwnerId");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the business unit that owns the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
+		public Microsoft.Xrm.Sdk.EntityReference OwningBusinessUnit
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("owningbusinessunit");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the team that owns the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		public Microsoft.Xrm.Sdk.EntityReference OwningTeam
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("owningteam");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user that owns the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
+		public Microsoft.Xrm.Sdk.EntityReference OwningUser
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("owninguser");
+			}
+		}
+		
+		/// <summary>
+		/// Outsource vendor with which activity is associated.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("partners")]
+		public System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity> Partners
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.EntityCollection collection = this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityCollection>("partners");
+				if (((collection != null) 
+							&& (collection.Entities != null)))
+				{
+					return System.Linq.Enumerable.Cast<Microsoft.Xrm.Sdk.Entity>(collection.Entities);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("Partners");
+				if ((value == null))
+				{
+					this.SetAttributeValue("partners", value);
+				}
+				else
+				{
+					this.SetAttributeValue("partners", new Microsoft.Xrm.Sdk.EntityCollection(new System.Collections.Generic.List<Microsoft.Xrm.Sdk.Entity>(value)));
+				}
+				this.OnPropertyChanged("Partners");
+			}
+		}
+		
+		/// <summary>
+		/// For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("postponeactivityprocessinguntil")]
+		public System.Nullable<System.DateTime> PostponeActivityProcessingUntil
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("postponeactivityprocessinguntil");
+			}
+		}
+		
+		/// <summary>
+		/// Priority of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("prioritycode")]
+		public System.Nullable<Defra.Imports.Model.defraimp_importquery_prioritycode> PriorityCode
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("prioritycode");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_importquery_prioritycode)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_importquery_prioritycode), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("PriorityCode");
+				if ((value == null))
+				{
+					this.SetAttributeValue("prioritycode", null);
+				}
+				else
+				{
+					this.SetAttributeValue("prioritycode", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("PriorityCode");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the Process.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("processid")]
+		public System.Nullable<System.Guid> ProcessId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("processid");
+			}
+			set
+			{
+				this.OnPropertyChanging("ProcessId");
+				this.SetAttributeValue("processid", value);
+				this.OnPropertyChanged("ProcessId");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the object with which the activity is associated.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("regardingobjectid")]
+		public Microsoft.Xrm.Sdk.EntityReference RegardingObjectId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("regardingobjectid");
+			}
+			set
+			{
+				this.OnPropertyChanging("RegardingObjectId");
+				this.SetAttributeValue("regardingobjectid", value);
+				this.OnPropertyChanged("RegardingObjectId");
+			}
+		}
+		
+		/// <summary>
+		/// List of required attendees for the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("requiredattendees")]
+		public System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity> RequiredAttendees
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.EntityCollection collection = this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityCollection>("requiredattendees");
+				if (((collection != null) 
+							&& (collection.Entities != null)))
+				{
+					return System.Linq.Enumerable.Cast<Microsoft.Xrm.Sdk.Entity>(collection.Entities);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("RequiredAttendees");
+				if ((value == null))
+				{
+					this.SetAttributeValue("requiredattendees", value);
+				}
+				else
+				{
+					this.SetAttributeValue("requiredattendees", new Microsoft.Xrm.Sdk.EntityCollection(new System.Collections.Generic.List<Microsoft.Xrm.Sdk.Entity>(value)));
+				}
+				this.OnPropertyChanged("RequiredAttendees");
+			}
+		}
+		
+		/// <summary>
+		/// Users or facility/equipment that are required for the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("resources")]
+		public System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity> Resources
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.EntityCollection collection = this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityCollection>("resources");
+				if (((collection != null) 
+							&& (collection.Entities != null)))
+				{
+					return System.Linq.Enumerable.Cast<Microsoft.Xrm.Sdk.Entity>(collection.Entities);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("Resources");
+				if ((value == null))
+				{
+					this.SetAttributeValue("resources", value);
+				}
+				else
+				{
+					this.SetAttributeValue("resources", new Microsoft.Xrm.Sdk.EntityCollection(new System.Collections.Generic.List<Microsoft.Xrm.Sdk.Entity>(value)));
+				}
+				this.OnPropertyChanged("Resources");
+			}
+		}
+		
+		/// <summary>
+		/// Scheduled duration of the activity, specified in minutes.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("scheduleddurationminutes")]
+		public System.Nullable<int> ScheduledDurationMinutes
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("scheduleddurationminutes");
+			}
+			set
+			{
+				this.OnPropertyChanging("ScheduledDurationMinutes");
+				this.SetAttributeValue("scheduleddurationminutes", value);
+				this.OnPropertyChanged("ScheduledDurationMinutes");
+			}
+		}
+		
+		/// <summary>
+		/// Scheduled end time of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("scheduledend")]
+		public System.Nullable<System.DateTime> ScheduledEnd
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("scheduledend");
+			}
+			set
+			{
+				this.OnPropertyChanging("ScheduledEnd");
+				this.SetAttributeValue("scheduledend", value);
+				this.OnPropertyChanged("ScheduledEnd");
+			}
+		}
+		
+		/// <summary>
+		/// Scheduled start time of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("scheduledstart")]
+		public System.Nullable<System.DateTime> ScheduledStart
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("scheduledstart");
+			}
+			set
+			{
+				this.OnPropertyChanging("ScheduledStart");
+				this.SetAttributeValue("scheduledstart", value);
+				this.OnPropertyChanged("ScheduledStart");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the mailbox associated with the sender of the email message.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("sendermailboxid")]
+		public Microsoft.Xrm.Sdk.EntityReference SenderMailboxId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("sendermailboxid");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when the activity was sent.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("senton")]
+		public System.Nullable<System.DateTime> SentOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("senton");
+			}
+		}
+		
+		/// <summary>
+		/// Uniqueidentifier specifying the id of recurring series of an instance.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("seriesid")]
+		public System.Nullable<System.Guid> SeriesId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("seriesid");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of an associated service.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("serviceid")]
+		public Microsoft.Xrm.Sdk.EntityReference ServiceId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("serviceid");
+			}
+			set
+			{
+				this.OnPropertyChanging("ServiceId");
+				this.SetAttributeValue("serviceid", value);
+				this.OnPropertyChanged("ServiceId");
+			}
+		}
+		
+		/// <summary>
+		/// Choose the service level agreement (SLA) that you want to apply to the case record.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("slaid")]
+		public Microsoft.Xrm.Sdk.EntityReference SLAId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("slaid");
+			}
+			set
+			{
+				this.OnPropertyChanging("SLAId");
+				this.SetAttributeValue("slaid", value);
+				this.OnPropertyChanged("SLAId");
+			}
+		}
+		
+		/// <summary>
+		/// Last SLA that was applied to this case. This field is for internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("slainvokedid")]
+		public Microsoft.Xrm.Sdk.EntityReference SLAInvokedId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("slainvokedid");
+			}
+		}
+		
+		/// <summary>
+		/// Shows the date and time by which the activities are sorted.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("sortdate")]
+		public System.Nullable<System.DateTime> SortDate
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("sortdate");
+			}
+			set
+			{
+				this.OnPropertyChanging("SortDate");
+				this.SetAttributeValue("sortdate", value);
+				this.OnPropertyChanged("SortDate");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the Stage.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("stageid")]
+		public System.Nullable<System.Guid> StageId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("stageid");
+			}
+			set
+			{
+				this.OnPropertyChanging("StageId");
+				this.SetAttributeValue("stageid", value);
+				this.OnPropertyChanged("StageId");
+			}
+		}
+		
+		/// <summary>
+		/// Status of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
+		public System.Nullable<Defra.Imports.Model.defraimp_importqueryState> StateCode
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_importqueryState)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_importqueryState), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("StateCode");
+				if ((value == null))
+				{
+					this.SetAttributeValue("statecode", null);
+				}
+				else
+				{
+					this.SetAttributeValue("statecode", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("StateCode");
+			}
+		}
+		
+		/// <summary>
+		/// Reason for the status of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statuscode")]
+		public System.Nullable<Defra.Imports.Model.defraimp_importquery_statuscode> StatusCode
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statuscode");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_importquery_statuscode)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_importquery_statuscode), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("StatusCode");
+				if ((value == null))
+				{
+					this.SetAttributeValue("statuscode", null);
+				}
+				else
+				{
+					this.SetAttributeValue("statuscode", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("StatusCode");
+			}
+		}
+		
+		/// <summary>
+		/// Subject associated with the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("subject")]
+		public string Subject
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("subject");
+			}
+			set
+			{
+				this.OnPropertyChanging("Subject");
+				this.SetAttributeValue("subject", value);
+				this.OnPropertyChanged("Subject");
+			}
+		}
+		
+		/// <summary>
+		/// For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezoneruleversionnumber")]
+		public System.Nullable<int> TimeZoneRuleVersionNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezoneruleversionnumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("TimeZoneRuleVersionNumber");
+				this.SetAttributeValue("timezoneruleversionnumber", value);
+				this.OnPropertyChanged("TimeZoneRuleVersionNumber");
+			}
+		}
+		
+		/// <summary>
+		/// Person who is the receiver of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("to")]
+		public System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity> To
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.EntityCollection collection = this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityCollection>("to");
+				if (((collection != null) 
+							&& (collection.Entities != null)))
+				{
+					return System.Linq.Enumerable.Cast<Microsoft.Xrm.Sdk.Entity>(collection.Entities);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("To");
+				if ((value == null))
+				{
+					this.SetAttributeValue("to", value);
+				}
+				else
+				{
+					this.SetAttributeValue("to", new Microsoft.Xrm.Sdk.EntityCollection(new System.Collections.Generic.List<Microsoft.Xrm.Sdk.Entity>(value)));
+				}
+				this.OnPropertyChanged("To");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the currency associated with the activitypointer.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("transactioncurrencyid")]
+		public Microsoft.Xrm.Sdk.EntityReference TransactionCurrencyId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("transactioncurrencyid");
+			}
+			set
+			{
+				this.OnPropertyChanging("TransactionCurrencyId");
+				this.SetAttributeValue("transactioncurrencyid", value);
+				this.OnPropertyChanged("TransactionCurrencyId");
+			}
+		}
+		
+		/// <summary>
+		/// For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("traversedpath")]
+		public string TraversedPath
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("traversedpath");
+			}
+			set
+			{
+				this.OnPropertyChanging("TraversedPath");
+				this.SetAttributeValue("traversedpath", value);
+				this.OnPropertyChanged("TraversedPath");
+			}
+		}
+		
+		/// <summary>
+		/// Time zone code that was in use when the record was created.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("utcconversiontimezonecode")]
+		public System.Nullable<int> UTCConversionTimeZoneCode
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("utcconversiontimezonecode");
+			}
+			set
+			{
+				this.OnPropertyChanging("UTCConversionTimeZoneCode");
+				this.SetAttributeValue("utcconversiontimezonecode", value);
+				this.OnPropertyChanged("UTCConversionTimeZoneCode");
+			}
+		}
+		
+		/// <summary>
+		/// Version number of the activity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("versionnumber")]
+		public System.Nullable<long> VersionNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 contact_defraimp_importqueries
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("regardingobjectid")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("contact_defraimp_importqueries")]
+		public Defra.Imports.Model.Contact contact_defraimp_importqueries
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Contact>("contact_defraimp_importqueries", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("contact_defraimp_importqueries");
+				this.SetRelatedEntity<Defra.Imports.Model.Contact>("contact_defraimp_importqueries", null, value);
+				this.OnPropertyChanged("contact_defraimp_importqueries");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 defraimp_importapplication_defraimp_importqueries
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("regardingobjectid")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_importapplication_defraimp_importqueries")]
+		public Defra.Imports.Model.defraimp_importapplication defraimp_importapplication_defraimp_importqueries
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_importapplication>("defraimp_importapplication_defraimp_importqueries", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_importapplication_defraimp_importqueries");
+				this.SetRelatedEntity<Defra.Imports.Model.defraimp_importapplication>("defraimp_importapplication_defraimp_importqueries", null, value);
+				this.OnPropertyChanged("defraimp_importapplication_defraimp_importqueries");
 			}
 		}
 	}
@@ -14110,24 +16678,6 @@ namespace Defra.Imports.Model
 						"velid", null, value);
 				this.OnPropertyChanged("defraimp_defraimp_importrisklevel_defraimp_importcountrycommodityrisklevel_riskle" +
 						"velid");
-			}
-		}
-		
-		/// <summary>
-		/// 1:N defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid
-		/// </summary>
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid")]
-		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_importnotification> defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid
-		{
-			get
-			{
-				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_importnotification>("defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid", null);
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid");
-				this.SetRelatedEntities<Defra.Imports.Model.defraimp_importnotification>("defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid", null, value);
-				this.OnPropertyChanged("defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid");
 			}
 		}
 		
@@ -14706,6 +17256,327 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_animalspeciesproduct")]
+		public string defraimp_AnimalSpeciesProduct
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_animalspeciesproduct");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_AnimalSpeciesProduct");
+				this.SetAttributeValue("defraimp_animalspeciesproduct", value);
+				this.OnPropertyChanged("defraimp_AnimalSpeciesProduct");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_certifiedfor")]
+		public string defraimp_CertifiedFor
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_certifiedfor");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_CertifiedFor");
+				this.SetAttributeValue("defraimp_certifiedfor", value);
+				this.OnPropertyChanged("defraimp_CertifiedFor");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_commoditytypeid")]
+		public Microsoft.Xrm.Sdk.EntityReference defraimp_CommodityTypeId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_commoditytypeid");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_CommodityTypeId");
+				this.SetAttributeValue("defraimp_commoditytypeid", value);
+				this.OnPropertyChanged("defraimp_CommodityTypeId");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_countryoforigin")]
+		public Microsoft.Xrm.Sdk.EntityReference defraimp_CountryofOrigin
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_countryoforigin");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_CountryofOrigin");
+				this.SetAttributeValue("defraimp_countryoforigin", value);
+				this.OnPropertyChanged("defraimp_CountryofOrigin");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_datecertificatereceived")]
+		public System.Nullable<System.DateTime> defraimp_DateCertificateReceived
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("defraimp_datecertificatereceived");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DateCertificateReceived");
+				this.SetAttributeValue("defraimp_datecertificatereceived", value);
+				this.OnPropertyChanged("defraimp_DateCertificateReceived");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_datetimeofdeparture")]
+		public System.Nullable<System.DateTime> defraimp_DateTimeofDeparture
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("defraimp_datetimeofdeparture");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DateTimeofDeparture");
+				this.SetAttributeValue("defraimp_datetimeofdeparture", value);
+				this.OnPropertyChanged("defraimp_DateTimeofDeparture");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_destinationaddresscity")]
+		public string defraimp_DestinationAddressCity
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_destinationaddresscity");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DestinationAddressCity");
+				this.SetAttributeValue("defraimp_destinationaddresscity", value);
+				this.OnPropertyChanged("defraimp_DestinationAddressCity");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_destinationaddresscounty")]
+		public string defraimp_DestinationAddressCounty
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_destinationaddresscounty");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DestinationAddressCounty");
+				this.SetAttributeValue("defraimp_destinationaddresscounty", value);
+				this.OnPropertyChanged("defraimp_DestinationAddressCounty");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_destinationaddressline1")]
+		public string defraimp_DestinationAddressLine1
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_destinationaddressline1");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DestinationAddressLine1");
+				this.SetAttributeValue("defraimp_destinationaddressline1", value);
+				this.OnPropertyChanged("defraimp_DestinationAddressLine1");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_destinationaddressline2")]
+		public string defraimp_DestinationAddressLine2
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_destinationaddressline2");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DestinationAddressLine2");
+				this.SetAttributeValue("defraimp_destinationaddressline2", value);
+				this.OnPropertyChanged("defraimp_DestinationAddressLine2");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_destinationaddressline3")]
+		public string defraimp_DestinationAddressLine3
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_destinationaddressline3");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DestinationAddressLine3");
+				this.SetAttributeValue("defraimp_destinationaddressline3", value);
+				this.OnPropertyChanged("defraimp_DestinationAddressLine3");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_destinationaddresspostcode")]
+		public string defraimp_DestinationAddressPostcode
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_destinationaddresspostcode");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DestinationAddressPostcode");
+				this.SetAttributeValue("defraimp_destinationaddresspostcode", value);
+				this.OnPropertyChanged("defraimp_DestinationAddressPostcode");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_destinationcountry")]
+		public System.Nullable<Defra.Imports.Model.defraimp_ukcountries> defraimp_DestinationCountry
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("defraimp_destinationcountry");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_ukcountries)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_ukcountries), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_DestinationCountry");
+				if ((value == null))
+				{
+					this.SetAttributeValue("defraimp_destinationcountry", null);
+				}
+				else
+				{
+					this.SetAttributeValue("defraimp_destinationcountry", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("defraimp_DestinationCountry");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_estimatedjourneytimedays")]
+		public System.Nullable<int> defraimp_EstimatedJourneyTimeDays
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("defraimp_estimatedjourneytimedays");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_EstimatedJourneyTimeDays");
+				this.SetAttributeValue("defraimp_estimatedjourneytimedays", value);
+				this.OnPropertyChanged("defraimp_EstimatedJourneyTimeDays");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_estimatedjourneytimehours")]
+		public System.Nullable<decimal> defraimp_EstimatedJourneyTimeHours
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<decimal>>("defraimp_estimatedjourneytimehours");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_EstimatedJourneyTimeHours");
+				this.SetAttributeValue("defraimp_estimatedjourneytimehours", value);
+				this.OnPropertyChanged("defraimp_EstimatedJourneyTimeHours");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_healthcertificatenumber")]
+		public string defraimp_HealthCertificateNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_healthcertificatenumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_HealthCertificateNumber");
+				this.SetAttributeValue("defraimp_healthcertificatenumber", value);
+				this.OnPropertyChanged("defraimp_HealthCertificateNumber");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_identificationofanimals")]
+		public string defraimp_IdentificationofAnimals
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_identificationofanimals");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_IdentificationofAnimals");
+				this.SetAttributeValue("defraimp_identificationofanimals", value);
+				this.OnPropertyChanged("defraimp_IdentificationofAnimals");
+			}
+		}
+		
+		/// <summary>
 		/// Unique identifier for entity instances
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_itahcid")]
@@ -14745,6 +17616,42 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_localveterinaryunit")]
+		public string defraimp_LocalVeterinaryUnit
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_localveterinaryunit");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_LocalVeterinaryUnit");
+				this.SetAttributeValue("defraimp_localveterinaryunit", value);
+				this.OnPropertyChanged("defraimp_LocalVeterinaryUnit");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_lvuno")]
+		public string defraimp_LVUNo
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_lvuno");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_LVUNo");
+				this.SetAttributeValue("defraimp_lvuno", value);
+				this.OnPropertyChanged("defraimp_LVUNo");
+			}
+		}
+		
+		/// <summary>
 		/// The name of the custom entity.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_name")]
@@ -14759,6 +17666,273 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_name");
 				this.SetAttributeValue("defraimp_name", value);
 				this.OnPropertyChanged("defraimp_name");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_numberofpackages")]
+		public System.Nullable<int> defraimp_NumberofPackages
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("defraimp_numberofpackages");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_NumberofPackages");
+				this.SetAttributeValue("defraimp_numberofpackages", value);
+				this.OnPropertyChanged("defraimp_NumberofPackages");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_ovname")]
+		public string defraimp_OVName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_ovname");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_OVName");
+				this.SetAttributeValue("defraimp_ovname", value);
+				this.OnPropertyChanged("defraimp_OVName");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_placeofdestinationapprovalnumber")]
+		public string defraimp_PlaceofDestinationApprovalNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_placeofdestinationapprovalnumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_PlaceofDestinationApprovalNumber");
+				this.SetAttributeValue("defraimp_placeofdestinationapprovalnumber", value);
+				this.OnPropertyChanged("defraimp_PlaceofDestinationApprovalNumber");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_placeofdestinationtype")]
+		public System.Nullable<Defra.Imports.Model.defraimp_placeofdestinationtype> defraimp_PlaceofDestinationType
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("defraimp_placeofdestinationtype");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_placeofdestinationtype)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_placeofdestinationtype), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_PlaceofDestinationType");
+				if ((value == null))
+				{
+					this.SetAttributeValue("defraimp_placeofdestinationtype", null);
+				}
+				else
+				{
+					this.SetAttributeValue("defraimp_placeofdestinationtype", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("defraimp_PlaceofDestinationType");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_placeoforiginaddresscity")]
+		public string defraimp_PlaceofOriginAddressCity
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_placeoforiginaddresscity");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_PlaceofOriginAddressCity");
+				this.SetAttributeValue("defraimp_placeoforiginaddresscity", value);
+				this.OnPropertyChanged("defraimp_PlaceofOriginAddressCity");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_placeoforiginaddressline1")]
+		public string defraimp_PlaceofOriginAddressLine1
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_placeoforiginaddressline1");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_PlaceofOriginAddressLine1");
+				this.SetAttributeValue("defraimp_placeoforiginaddressline1", value);
+				this.OnPropertyChanged("defraimp_PlaceofOriginAddressLine1");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_placeoforiginaddressline2")]
+		public string defraimp_PlaceofOriginAddressLine2
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_placeoforiginaddressline2");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_PlaceofOriginAddressLine2");
+				this.SetAttributeValue("defraimp_placeoforiginaddressline2", value);
+				this.OnPropertyChanged("defraimp_PlaceofOriginAddressLine2");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_placeoforiginaddressline3")]
+		public string defraimp_PlaceofOriginAddressLine3
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_placeoforiginaddressline3");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_PlaceofOriginAddressLine3");
+				this.SetAttributeValue("defraimp_placeoforiginaddressline3", value);
+				this.OnPropertyChanged("defraimp_PlaceofOriginAddressLine3");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_placeoforiginaddresspostcode")]
+		public string defraimp_PlaceofOriginAddressPostcode
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_placeoforiginaddresspostcode");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_PlaceofOriginAddressPostcode");
+				this.SetAttributeValue("defraimp_placeoforiginaddresspostcode", value);
+				this.OnPropertyChanged("defraimp_PlaceofOriginAddressPostcode");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_placeoforiginname")]
+		public string defraimp_PlaceofOriginName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_placeoforiginname");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_PlaceofOriginName");
+				this.SetAttributeValue("defraimp_placeoforiginname", value);
+				this.OnPropertyChanged("defraimp_PlaceofOriginName");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_purpose")]
+		public string defraimp_Purpose
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_purpose");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_Purpose");
+				this.SetAttributeValue("defraimp_purpose", value);
+				this.OnPropertyChanged("defraimp_Purpose");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_quantity")]
+		public System.Nullable<int> defraimp_Quantity
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("defraimp_quantity");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_Quantity");
+				this.SetAttributeValue("defraimp_quantity", value);
+				this.OnPropertyChanged("defraimp_Quantity");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_regionoforigin")]
+		public string defraimp_RegionofOrigin
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_regionoforigin");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_RegionofOrigin");
+				this.SetAttributeValue("defraimp_regionoforigin", value);
+				this.OnPropertyChanged("defraimp_RegionofOrigin");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_unit")]
+		public string defraimp_Unit
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_unit");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_Unit");
+				this.SetAttributeValue("defraimp_unit", value);
+				this.OnPropertyChanged("defraimp_Unit");
 			}
 		}
 		
@@ -15003,6 +18177,24 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_countryoftransit> defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_countryoftransit>("defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_countryoftransit>("defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_itahc_defraimp_countryoftransit_ITAHC");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N defraimp_defraimp_itahc_defraimp_importapplication
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_itahc_defraimp_importapplication")]
@@ -15017,6 +18209,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_defraimp_itahc_defraimp_importapplication");
 				this.SetRelatedEntities<Defra.Imports.Model.defraimp_importapplication>("defraimp_defraimp_itahc_defraimp_importapplication", null, value);
 				this.OnPropertyChanged("defraimp_defraimp_itahc_defraimp_importapplication");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_importinspection> defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_importinspection>("defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC");
 			}
 		}
 		
@@ -15845,6 +19055,17 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_importinspection"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_importinspection> defraimp_importinspectionSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_importinspection>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_importnotification"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_importnotification> defraimp_importnotificationSet
@@ -15852,6 +19073,17 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.CreateQuery<Defra.Imports.Model.defraimp_importnotification>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_importquery"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_importquery> defraimp_importquerySet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_importquery>();
 			}
 		}
 		

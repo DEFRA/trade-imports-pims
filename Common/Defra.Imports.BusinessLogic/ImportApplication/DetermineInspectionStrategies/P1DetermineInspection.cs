@@ -87,7 +87,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
             try
             {
                 defraimp_goldbronzecommodity goldBronzeCommodity = goldBronzeCommodityRepo.Find<defraimp_goldbronzecommodity>(
-                rule => rule.defraimp_CommodityTypeid.Id.Equals(importApplication.defraimp_CommodityTypeId.Id) && rule.statecode.Value == defraimp_goldbronzecommodityState.Active,
+                rule => rule.defraimp_CommodityTypeid.Id.Equals(importApplication.defraimp_CommodityTypeId.Id) && rule.statecode.Value.Equals(defraimp_goldbronzecommodityState.Active),
                 e => new defraimp_goldbronzecommodity()
                 {
                     defraimp_goldbronzecommodityId = e.defraimp_goldbronzecommodityId,

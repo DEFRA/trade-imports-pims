@@ -157,6 +157,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionRequirementBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\DetermineInpsectionBaseTests.cs" />
+    <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\P1DetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\P2DetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\P3DetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\UnkownDetermineInspectionTests.cs" />

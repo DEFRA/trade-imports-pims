@@ -98,13 +98,5 @@ IsolationModeEnum.Sandbox)]
                 orgSvc.Update(updatedImportApplication);
             }
         }
-
-
-        defraimp_importapplication GetImportApplication(Guid id, IOrganizationService service, ITracingService tracingService)
-        {
-            ImportApplicationRepository importApplicationRepo = new ImportApplicationRepository(service, tracingService);
-            ColumnSet columnSet = new ColumnSet(new string[] { "defraimp_importrisklevelid", "defraimp_countryoforiginid", "defraimp_commoditytypeid" });
-            return importApplicationRepo.GetImportApplicationWithID(id, columnSet);
-        }
     }
 }
