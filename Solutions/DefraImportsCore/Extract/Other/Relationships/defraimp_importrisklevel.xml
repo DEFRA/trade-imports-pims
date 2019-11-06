@@ -34,6 +34,40 @@
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
   </EntityRelationship>
+  <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_importapplication_PreviousImportRiskLevelId">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>0.0.0.2</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>defraimp_importapplication</ReferencingEntityName>
+    <ReferencedEntityName>defraimp_importrisklevel</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>RemoveLink</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <CascadeRollupView>NoCascade</CascadeRollupView>
+    <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
+    <ReferencingAttributeName>defraimp_PreviousImportRiskLevelId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </RelationshipDescription>
+    <EntityRelationshipRoles>
+      <EntityRelationshipRole>
+        <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
+        <NavPaneArea>Details</NavPaneArea>
+        <NavPaneOrder>10000</NavPaneOrder>
+        <NavigationPropertyName>defraimp_PreviousImportRiskLevelId</NavigationPropertyName>
+        <RelationshipRoleType>1</RelationshipRoleType>
+      </EntityRelationshipRole>
+      <EntityRelationshipRole>
+        <NavigationPropertyName>defraimp_defraimp_importrisklevel_defraimp_importapplication_PreviousImportRiskLevelId</NavigationPropertyName>
+        <RelationshipRoleType>0</RelationshipRoleType>
+      </EntityRelationshipRole>
+    </EntityRelationshipRoles>
+  </EntityRelationship>
   <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_importcountrycommodityrisklevel_risklevelid">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
@@ -68,44 +102,10 @@
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
   </EntityRelationship>
-  <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid">
+  <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_inspectioncoveragerule_RiskLevelId">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>0.0.0.1</IntroducedVersion>
-    <IsHierarchical>0</IsHierarchical>
-    <ReferencingEntityName>defraimp_importnotification</ReferencingEntityName>
-    <ReferencedEntityName>defraimp_importrisklevel</ReferencedEntityName>
-    <CascadeAssign>NoCascade</CascadeAssign>
-    <CascadeDelete>RemoveLink</CascadeDelete>
-    <CascadeReparent>NoCascade</CascadeReparent>
-    <CascadeShare>NoCascade</CascadeShare>
-    <CascadeUnshare>NoCascade</CascadeUnshare>
-    <CascadeRollupView>NoCascade</CascadeRollupView>
-    <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
-    <ReferencingAttributeName>defraimp_importrisklevelid</ReferencingAttributeName>
-    <RelationshipDescription>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </RelationshipDescription>
-    <EntityRelationshipRoles>
-      <EntityRelationshipRole>
-        <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
-        <NavPaneArea>Details</NavPaneArea>
-        <NavPaneOrder>10000</NavPaneOrder>
-        <NavigationPropertyName>defraimp_importrisklevelid</NavigationPropertyName>
-        <RelationshipRoleType>1</RelationshipRoleType>
-      </EntityRelationshipRole>
-      <EntityRelationshipRole>
-        <NavigationPropertyName>defraimp_defraimp_importrisklevel_defraimp_importnotification_importrisklevelid</NavigationPropertyName>
-        <RelationshipRoleType>0</RelationshipRoleType>
-      </EntityRelationshipRole>
-    </EntityRelationshipRoles>
-  </EntityRelationship>
-  <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_inspectioncoveragerule_RiskLevel">
-    <EntityRelationshipType>OneToMany</EntityRelationshipType>
-    <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>0.0.0.1</IntroducedVersion>
+    <IntroducedVersion>0.0.0.2</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>defraimp_inspectioncoveragerule</ReferencingEntityName>
     <ReferencedEntityName>defraimp_importrisklevel</ReferencedEntityName>
@@ -116,7 +116,7 @@
     <CascadeUnshare>NoCascade</CascadeUnshare>
     <CascadeRollupView>NoCascade</CascadeRollupView>
     <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
-    <ReferencingAttributeName>defraimp_RiskLevel</ReferencingAttributeName>
+    <ReferencingAttributeName>defraimp_RiskLevelId</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
         <Description description="" languagecode="1033" />
@@ -127,11 +127,11 @@
         <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
         <NavPaneArea>Details</NavPaneArea>
         <NavPaneOrder>10000</NavPaneOrder>
-        <NavigationPropertyName>defraimp_RiskLevel</NavigationPropertyName>
+        <NavigationPropertyName>defraimp_RiskLevelId</NavigationPropertyName>
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
-        <NavigationPropertyName>defraimp_defraimp_importrisklevel_defraimp_inspectioncoveragerule_RiskLevel</NavigationPropertyName>
+        <NavigationPropertyName>defraimp_defraimp_importrisklevel_defraimp_inspectioncoveragerule_RiskLevelId</NavigationPropertyName>
         <RelationshipRoleType>0</RelationshipRoleType>
       </EntityRelationshipRole>
     </EntityRelationshipRoles>

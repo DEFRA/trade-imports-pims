@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.8627" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.9832" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsSecurityModel</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.SecurityModel" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.2</Version>
+    <Version>0.0.0.3</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -78,6 +78,8 @@
       </Addresses>
     </Publisher>
     <RootComponents>
+      <RootComponent type="20" id="{25129d52-5df6-e911-a813-000d3ab5d511}" behavior="0" />
+      <RootComponent type="20" id="{69e3969a-e8fb-e911-a813-000d3ab4de89}" behavior="0" />
       <RootComponent type="20" id="{b1d76a5b-c7da-e911-a863-000d3ab0da57}" behavior="0" />
       <RootComponent type="20" id="{f9e6fead-cada-e911-a863-000d3ab0da57}" behavior="0" />
     </RootComponents>

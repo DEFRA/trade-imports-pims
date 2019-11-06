@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.8425" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.9832" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsPlugins</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Plugins" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.1</Version>
+    <Version>0.0.0.2</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -77,52 +77,7 @@
         </Address>
       </Addresses>
     </Publisher>
-    <RootComponents>
-      <RootComponent type="91" id="{114ae253-455c-49b9-acf6-730b5aa50d53}" schemaName="Defra.Imports.Xrm.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=12b0cff0608222c0" behavior="0" />
-      <RootComponent type="92" id="{1f741a6a-e2d3-e911-a855-000d3ab0d388}" behavior="0" />
-      <RootComponent type="92" id="{5f2890af-d2d3-e911-a855-000d3ab0d388}" behavior="0" />
-    </RootComponents>
-    <MissingDependencies>
-      <MissingDependency>
-        <Required key="0" type="1" schemaName="defraimp_importnotification" displayName="Import Notification" solution="Active" />
-        <Dependent key="1" type="93" id="{8fe44776-e2d3-e911-a855-000d3ab0d388}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="0" type="1" schemaName="defraimp_importnotification" displayName="Import Notification" solution="Active" />
-        <Dependent key="2" type="93" id="{494b75f2-d2d3-e911-a855-000d3ab0d388}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="3" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importnotification" parentDisplayName="Import Notification" solution="Active" />
-        <Dependent key="2" type="93" id="{494b75f2-d2d3-e911-a855-000d3ab0d388}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="4" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importnotification" parentDisplayName="Import Notification" solution="Active" />
-        <Dependent key="2" type="93" id="{494b75f2-d2d3-e911-a855-000d3ab0d388}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="3" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importnotification" parentDisplayName="Import Notification" solution="Active" />
-        <Dependent key="1" type="93" id="{8fe44776-e2d3-e911-a855-000d3ab0d388}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="4" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importnotification" parentDisplayName="Import Notification" solution="Active" />
-        <Dependent key="1" type="93" id="{8fe44776-e2d3-e911-a855-000d3ab0d388}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="0" type="1" schemaName="defraimp_importnotification" displayName="Import Notification" solution="Active" />
-        <Dependent key="5" type="92" displayName="Defra.Imports.Xrm.Plugins.RiskAssignment: Create of defraimp_importapplication" id="{5f2890af-d2d3-e911-a855-000d3ab0d388}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="0" type="1" schemaName="defraimp_importnotification" displayName="Import Notification" solution="Active" />
-        <Dependent key="6" type="92" displayName="Defra.Imports.Xrm.Plugins.RiskAssignment: Update of defraimp_importnotification" id="{1f741a6a-e2d3-e911-a855-000d3ab0d388}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="3" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importnotification" parentDisplayName="Import Notification" solution="Active" />
-        <Dependent key="6" type="92" displayName="Defra.Imports.Xrm.Plugins.RiskAssignment: Update of defraimp_importnotification" id="{1f741a6a-e2d3-e911-a855-000d3ab0d388}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="4" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importnotification" parentDisplayName="Import Notification" solution="Active" />
-        <Dependent key="6" type="92" displayName="Defra.Imports.Xrm.Plugins.RiskAssignment: Update of defraimp_importnotification" id="{1f741a6a-e2d3-e911-a855-000d3ab0d388}" />
-      </MissingDependency>
-    </MissingDependencies>
+    <RootComponents />
+    <MissingDependencies />
   </SolutionManifest>
 </ImportExportXml>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.8425" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.9832" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsAnalytics</UniqueName>
     <LocalizedNames>
@@ -97,6 +97,18 @@
       <MissingDependency>
         <Required key="5" type="26" schemaName="Active Import Applications" displayName="Active Import Applications" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Application" solution="Active" id="{dd020992-1353-4a60-8ead-c0e0925163e4}" />
         <Dependent key="4" type="60" displayName="Import Applications - Caseworker Dashboard" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="6" type="61" schemaName="defraimp_/png/icon.importapplication.32.png" displayName="defraimp_/png/icon.importapplication.32.png" solution="Active" />
+        <Dependent key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Application" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="7" type="61" schemaName="defraimp_/svg/icon.importapplication.svg" displayName="defraimp_/svg/icon.importapplication.svg" solution="Active" />
+        <Dependent key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Application" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="8" type="61" schemaName="defraimp_/png/icon.importapplication.16.png" displayName="defraimp_/png/icon.importapplication.16.png" solution="Active" />
+        <Dependent key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Application" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

@@ -90,6 +90,40 @@
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
   </EntityRelationship>
+  <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>0.0.0.2</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>defraimp_importinspection</ReferencingEntityName>
+    <ReferencedEntityName>defraimp_importapplication</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>RemoveLink</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <CascadeRollupView>NoCascade</CascadeRollupView>
+    <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
+    <ReferencingAttributeName>defraimp_RelatedImportApplication</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </RelationshipDescription>
+    <EntityRelationshipRoles>
+      <EntityRelationshipRole>
+        <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
+        <NavPaneArea>Details</NavPaneArea>
+        <NavPaneOrder>10000</NavPaneOrder>
+        <NavigationPropertyName>defraimp_RelatedImportApplication</NavigationPropertyName>
+        <RelationshipRoleType>1</RelationshipRoleType>
+      </EntityRelationshipRole>
+      <EntityRelationshipRole>
+        <NavigationPropertyName>defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication</NavigationPropertyName>
+        <RelationshipRoleType>0</RelationshipRoleType>
+      </EntityRelationshipRole>
+    </EntityRelationshipRoles>
+  </EntityRelationship>
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_itahc">
     <EntityRelationshipType>ManyToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
@@ -111,6 +145,25 @@
         <AssociationRoleOrdinal>2</AssociationRoleOrdinal>
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
+  </EntityRelationship>
+  <EntityRelationship Name="defraimp_importapplication_defraimp_importqueries">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>0.0.0.2</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>defraimp_importquery</ReferencingEntityName>
+    <ReferencedEntityName>defraimp_importapplication</ReferencedEntityName>
+    <CascadeAssign>Cascade</CascadeAssign>
+    <CascadeDelete>Cascade</CascadeDelete>
+    <CascadeReparent>Cascade</CascadeReparent>
+    <CascadeShare>Cascade</CascadeShare>
+    <CascadeUnshare>Cascade</CascadeUnshare>
+    <ReferencingAttributeName>RegardingObjectId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Unique identifier of the object with which the activity is associated." languagecode="1033" />
+      </Descriptions>
+    </RelationshipDescription>
   </EntityRelationship>
   <EntityRelationship Name="defraimp_importapplication_ProcessSession">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>

@@ -13,7 +13,6 @@
           <cell name="defraimp_dateofimport" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_countryoforiginid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_commoditytypeid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="defraimp_importrisklevelid" width="100" />
           <cell name="defraimp_referencenumber" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_importername" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_importertelephone" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
@@ -39,7 +38,6 @@
           <attribute name="statuscode" />
           <attribute name="defraimp_importertelephone" />
           <attribute name="defraimp_importeremail" />
-          <attribute name="defraimp_importrisklevelid" />
           <attribute name="defraimp_countryoforiginid" />
           <attribute name="defraimp_commoditytypeid" />
           <attribute name="defraimp_importnotificationid" />

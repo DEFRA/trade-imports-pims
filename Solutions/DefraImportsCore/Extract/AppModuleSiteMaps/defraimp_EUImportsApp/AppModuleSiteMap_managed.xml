@@ -2,26 +2,28 @@
 <AppModuleSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SiteMapUniqueName>defraimp_EUImportsApp</SiteMapUniqueName>
   <SiteMap IntroducedVersion="7.0.0.0">
-    <Area Id="New_Area" ResourceId="SitemapDesigner.NewArea" DescriptionResourceId="SitemapDesigner.NewArea" ShowGroups="true" IntroducedVersion="7.0.0.0">
+    <Area IntroducedVersion="7.0.0.0" Id="New_Area" ResourceId="SitemapDesigner.NewArea" DescriptionResourceId="SitemapDesigner.NewArea" ShowGroups="true">
       <Titles>
         <Title LCID="1033" Title="Case Management" />
       </Titles>
-      <Group Id="New_Group" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+      <Group IntroducedVersion="7.0.0.0" Id="New_Group" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
           <Title LCID="1033" Title="Case Management" />
         </Titles>
-        <SubArea Id="New_SubArea" IntroducedVersion="7.0.0.0" Entity="defraimp_importapplication" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea IntroducedVersion="7.0.0.0" Id="New_SubArea" Entity="defraimp_importapplication" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="NewSubArea_2dab5ed2" Entity="defraimp_importnotification" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="NewSubArea_3f63fd65" Entity="defraimp_itahc" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="NewSubArea_764b3553" Entity="defraimp_countryoftransit" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="NewSubArea_eb03825a" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_placeoforigin" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_eb03825a" Entity="defraimp_placeoforigin" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
       <Group Id="NewGroup_96fc7e81" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
-          <Title LCID="1033" Title="Risk Levels" />
+          <Title LCID="1033" Title="Risk Management" />
         </Titles>
         <SubArea Id="NewSubArea_3702f34d" Entity="defraimp_importcountrycommodityrisklevel" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="NewSubArea_b892216e" Entity="defraimp_importrisklevel" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_a29c5e35" Entity="defraimp_inspectioncoveragerule" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_ed460e1e" Entity="defraimp_goldbronzecommodity" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
     </Area>
     <Area Id="NewArea_ea0aeeb1" ResourceId="SitemapDesigner.NewArea" ShowGroups="false">

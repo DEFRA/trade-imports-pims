@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{2152e3cd-0fb3-4708-8ee3-de3754018b3f}" Name="Import Application - Set Previous Risk Level" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ImportApplication-SetPreviousRiskLevel-2152E3CD-0FB3-4708-8EE3-DE3754018B3F.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>0</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnUpdateAttributeList>defraimp_importrisklevelid</TriggerOnUpdateAttributeList>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <CreateStage>40</CreateStage>
+  <UpdateStage>20</UpdateStage>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>0.0.0.1</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Import Application - Set Previous Risk Level" />
+  </LocalizedNames>
+</Workflow>
