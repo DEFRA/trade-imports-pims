@@ -97,12 +97,14 @@
     <Compile Include="ImportApplication\RandomRiskAssessment.cs" />
     <Compile Include="ImportApplication\DecrementPlaceOfOriginCounters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\CountRecordsByFetchXml.cs" />
     <Compile Include="WorkflowActivity.cs" />
     <Compile Include="WorkflowActivityBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Defra.Imports.Workflows.snk" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\..\..\..\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems" Label="Shared" />
   <Import Project="..\..\..\..\Common\Defra.Imports.Model\Defra.Imports.Model.projitems" Label="Shared" />
   <Import Project="..\..\..\..\Common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems" Label="Shared" />
