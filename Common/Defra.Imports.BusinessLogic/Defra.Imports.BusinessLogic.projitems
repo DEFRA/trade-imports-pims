@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CrmPluginRegistrationAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\InArgumentExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionRequirementBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspectionStrategies\AbstractDetermineInspection.cs" />
@@ -31,6 +32,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IImportApplicationRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IImportRiskLevelRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RepositoryFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\FetchService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\FetchTemplateParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\IFetchService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\IFetchTemplateParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivity.cs" />
   </ItemGroup>
 </Project>
