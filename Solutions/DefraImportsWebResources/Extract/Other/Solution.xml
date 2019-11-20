@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.10125" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.10329" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsWebResources</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.WebResources" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.3</Version>
+    <Version>0.0.0.5</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -90,6 +90,8 @@
       <RootComponent type="61" schemaName="defraimp_/png/icon.importcountrycommodityrisklevel.32.png" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/png/icon.importnotfication.16.png" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/png/icon.importnotification.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importquery.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importquery.32.png" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/png/icon.importrisklevel.16.png" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/png/icon.importrisklevel.32.png" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/png/icon.inspection.16.png" behavior="0" />
@@ -100,17 +102,21 @@
       <RootComponent type="61" schemaName="defraimp_/png/icon.itahc.32.png" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/png/icon.placeoforigin.16.png" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/png/icon.placeoforigin.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.postimportcheck.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.postimportcheck.32.png" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/svg/icon.apharegion.svg" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/svg/icon.countryoftransit.svg" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/svg/icon.goldbronzecommodity.svg" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/svg/icon.importapplication.svg" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/svg/icon.importcountrycommodityrisklevel.svg" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/svg/icon.importnotification.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.importquery.svg" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/svg/icon.importrisklevel.svg" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/svg/icon.inspection.svg" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/svg/icon.inspectioncoveragerule.svg" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/svg/icon.itahc.svg" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/svg/icon.placeoforigin.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.postimportcheck.svg" behavior="0" />
     </RootComponents>
     <MissingDependencies />
   </SolutionManifest>
