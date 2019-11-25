@@ -76,12 +76,20 @@ IsolationModeEnum.Sandbox)]
                     {
                         //Take the first or default entity
                         Entity countryCommodityRiskLevel = countryCommodityRiskLevelCollection.Entities.FirstOrDefault();
-                        EntityReference riskLevel = (EntityReference)countryCommodityRiskLevel["defraimp_importrisklevelid"];
 
-                        //If we get a null value it will clear the field
-                        updatedImportApplication.defraimp_importrisklevelid = riskLevel;
-                        updatedImportApplication.defraimp_ImportRiskLevelStatus = defraimp_importapplication_defraimp_importrisklevelstatus.AutomaticallyRiskAssessed;
+                        if (countryCommodityRiskLevel.Contains("defraimp_importrisklevelid"))
+                        {
+                            EntityReference riskLevel = (EntityReference)countryCommodityRiskLevel["defraimp_importrisklevelid"];
 
+                            //If we get a null value it will clear the field
+                            updatedImportApplication.defraimp_importrisklevelid = riskLevel;
+                            updatedImportApplication.defraimp_ImportRiskLevelStatus = defraimp_importapplication_defraimp_importrisklevelstatus.AutomaticallyRiskAssessed;
+                        }
+                        else //If the country commodity risk level record does not have a risk level (this can happen due to a bad data import)
+                        {
+                            updatedImportApplication.defraimp_importrisklevelid = null;
+                            updatedImportApplication.defraimp_ImportRiskLevelStatus = defraimp_importapplication_defraimp_importrisklevelstatus.UnabletoAutomaticallyRiskAssessNoCorrespondingRiskLevel;
+                        }
                     }
                     else //Ensure the value is empty if we do not find an appropriate risk level
                     {
