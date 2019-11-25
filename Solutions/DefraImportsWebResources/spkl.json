@@ -1,3 +1,16 @@
 {
+  "webresources": [
+    {
+      "root": "WebResources/Scripts/dist",
+      "solution": "DefraImportsWebResources",
+      "files": [
+        {
+          "uniquename": "defraimp_/js/postimportcheck.form.js",
+          "file": "postimportcheck.form.js",
+          "description": ""
+        }
+      ]
+    }
+  ],
   "plugins": []
 }

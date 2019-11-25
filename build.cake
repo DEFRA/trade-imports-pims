@@ -55,6 +55,11 @@ Task("GenerateModel")
       GetConnectionString(solution, false));
   });
 
+Task("GenerateTypes")
+  .Does(() => {
+    XrmDefinitelyTypedGenerate(Directory($"{SolutionsFolder}/{solution}").Path.CombineWithFilePath("XrmDefinitelyTyped.exe.config"), GetConnectionString($"{solution}", false));
+  });
+
 Task("ExtractSolution")
   .Does(() => {
     ExtractSolution(
@@ -118,6 +123,11 @@ Task("StageData")
   });
   
 // deploy targets
+Task("DeployWebResources")
+  .Does(() => {
+    SpklDeployWebResources(Directory($"{SolutionsFolder}/{solution}").Path.CombineWithFilePath("spkl.json"), GetConnectionString(solution, false));
+  });
+
 Task("DeployPlugins")
   .DoesForEach(
     GetFiles($"{Directory($"{SolutionsFolder}/{solution}")}/**/*.csproj"),

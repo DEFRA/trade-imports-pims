@@ -38,6 +38,18 @@
     },
     {
       "type": "shell",
+      "label": "Generate Types",
+      "command": [
+        "powershell",
+        "-ExecutionPolicy ByPass",
+        "-File build.ps1",
+        "-Target \"GenerateTypes\"",
+        "-ScriptArgs \"--solution=${input:solution}\""
+      ],
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
       "label": "Extract Solution",
       "command": [
         "powershell",
@@ -81,6 +93,18 @@
         "-File build.ps1",
         "-Target \"StageData\"",
         "-ScriptArgs \"--dataType=${input:dataType}\",\"--solution=${input:solution}\""
+      ],
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "label": "Deploy WebResources",
+      "command": [
+        "powershell",
+        "-ExecutionPolicy ByPass",
+        "-File build.ps1",
+        "-Target \"DeployWebResources\"",
+        "-ScriptArgs \"--solution=${input:solution}\""
       ],
       "problemMatcher": []
     },

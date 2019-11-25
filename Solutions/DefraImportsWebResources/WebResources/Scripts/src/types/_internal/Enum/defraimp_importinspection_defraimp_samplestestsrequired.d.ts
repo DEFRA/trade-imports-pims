@@ -1,0 +1,18 @@
+declare const enum defraimp_importinspection_defraimp_samplestestsrequired {
+  AfricanHorseSickness = 714100000,
+  AfricanSwineFever = 714100001,
+  Aujeskeys = 714100002,
+  AvianInfluenza = 714100003,
+  BAbortus = 714100004,
+  BMelintensis = 714100005,
+  Bluetongue = 714100006,
+  BrucellaOvis = 714100007,
+  ClassicalSwineFever = 714100008,
+  ContagiousAgalactia = 714100009,
+  Dourine = 714100010,
+  EBL = 714100011,
+  EquineInfectionsAnaemia = 714100012,
+  LumpySkin = 714100013,
+  SwineVesticularDisease = 714100014,
+  TB = 714100015,
+}
