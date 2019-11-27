@@ -8,30 +8,42 @@
     <isdefault>0</isdefault>
     <savedqueryid>{5cbabd21-bccb-4fd0-8424-ef07d2292504}</savedqueryid>
     <layoutxml>
-      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
-        <row name="result" id="defraimp_importapplicationid">
-          <cell name="defraimp_name" width="300" />
+      <grid name="resultset" preview="1" icon="1" select="1" jump="defraimp_name">
+        <row id="defraimp_importapplicationid" name="result">
+          <cell name="defraimp_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_primaryitahcid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_commoditytypeid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
+          <cell name="defraimp_countryoforiginid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
+          <cell name="defraimp_importrisklevelid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="100" />
+          <cell name="defraimp_placeoforiginorganisation" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeofdestinationorganisation" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
     <querytype>0</querytype>
     <fetchxml>
-      <fetch version="1.0" mapping="logical">
+      <fetch mapping="logical" version="1.0">
         <entity name="defraimp_importapplication">
-          <attribute name="defraimp_importapplicationid" />
-          <attribute name="defraimp_name" />
           <attribute name="createdon" />
-          <order attribute="defraimp_name" descending="false" />
           <filter type="and">
-            <condition attribute="statecode" operator="eq" value="1" />
+            <condition attribute="statecode" value="1" operator="eq" />
           </filter>
+          <attribute name="defraimp_placeoforiginorganisation" />
+          <attribute name="defraimp_placeofdestinationorganisation" />
+          <attribute name="defraimp_commoditytypeid" />
+          <attribute name="defraimp_countryoforiginid" />
+          <attribute name="defraimp_importrisklevelid" />
+          <attribute name="defraimp_primaryitahcid" />
+          <attribute name="defraimp_name" />
+          <order descending="true" attribute="createdon" />
+          <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>0.0.0.1</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Inactive Import Applications" languagecode="1033" />
+      <LocalizedName description="Inactive Import Records" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

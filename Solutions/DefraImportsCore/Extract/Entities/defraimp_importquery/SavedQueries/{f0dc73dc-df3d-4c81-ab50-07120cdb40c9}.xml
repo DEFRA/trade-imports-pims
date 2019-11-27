@@ -10,8 +10,17 @@
     <layoutxml>
       <grid name="resultset" jump="subject" select="1" icon="1" preview="1">
         <row name="result" id="activityid">
+          <cell name="defraimp_querynumber" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="regardingobjectid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_itahc" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_querysentto" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="subject" width="300" />
-          <cell name="createdon" width="125" />
+          <cell name="ownerid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdby" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_duedate" width="100" />
+          <cell name="statuscode" width="100" />
+          <cell name="defraimp_dateresolved" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -19,13 +28,25 @@
     <fetchxml>
       <fetch version="1.0" mapping="logical">
         <entity name="defraimp_importquery">
-          <attribute name="activityid" />
           <attribute name="subject" />
           <attribute name="createdon" />
           <order attribute="subject" descending="false" />
           <filter type="or" isquickfindfields="1">
-            <condition attribute="subject" operator="like" value="{0}" />
+            <condition attribute="defraimp_querysentto" operator="like" value="{0}" />
+            <condition attribute="defraimp_querynumber" operator="like" value="{0}" />
+            <condition attribute="defraimp_itahc" operator="like" value="{0}" />
+            <condition attribute="description" operator="like" value="{0}" />
           </filter>
+          <attribute name="defraimp_querysentto" />
+          <attribute name="createdby" />
+          <attribute name="defraimp_querynumber" />
+          <attribute name="statuscode" />
+          <attribute name="regardingobjectid" />
+          <attribute name="defraimp_itahc" />
+          <attribute name="defraimp_duedate" />
+          <attribute name="defraimp_dateresolved" />
+          <attribute name="ownerid" />
+          <attribute name="activityid" />
         </entity>
       </fetch>
     </fetchxml>

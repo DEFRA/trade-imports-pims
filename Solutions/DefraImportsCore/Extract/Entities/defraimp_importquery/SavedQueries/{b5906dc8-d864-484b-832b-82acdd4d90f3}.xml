@@ -10,7 +10,8 @@
     <layoutxml>
       <grid name="defraimp_importqueries" jump="subject" select="1" icon="1" preview="0">
         <row name="defraimp_importquery" id="activityid">
-          <cell name="subject" width="300" />
+          <cell name="subject" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_querynumber" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -28,6 +29,8 @@
               <value>3</value>
             </condition>
           </filter>
+          <order attribute="defraimp_querynumber" descending="true" />
+          <attribute name="defraimp_querynumber" />
         </entity>
       </fetch>
     </fetchxml>

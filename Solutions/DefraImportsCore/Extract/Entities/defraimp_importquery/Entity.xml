@@ -199,7 +199,7 @@
           <CanChangeDateTimeBehavior>0</CanChangeDateTimeBehavior>
           <Behavior>1</Behavior>
           <displaynames>
-            <displayname description="Date Resolved" languagecode="1033" />
+            <displayname description="Actual End" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Actual end time of the activity." languagecode="1033" />
@@ -400,7 +400,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
+          <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <LookupStyle>single</LookupStyle>
           <LookupTypes>
@@ -533,6 +533,205 @@
             <Description description="Customer with which the activity is associated." languagecode="1033" />
           </Descriptions>
         </attribute>
+        <attribute PhysicalName="defraimp_DateResolved">
+          <Type>datetime</Type>
+          <Name>defraimp_dateresolved</Name>
+          <LogicalName>defraimp_dateresolved</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>0.0.0.4</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>1</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>date</Format>
+          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
+          <Behavior>1</Behavior>
+          <displaynames>
+            <displayname description="Date Resolved" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="defraimp_DueDate">
+          <Type>datetime</Type>
+          <Name>defraimp_duedate</Name>
+          <LogicalName>defraimp_duedate</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>0.0.0.4</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>1</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>date</Format>
+          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
+          <Behavior>1</Behavior>
+          <displaynames>
+            <displayname description="Due Date" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="defraimp_ITAHC">
+          <Type>lookup</Type>
+          <Name>defraimp_itahc</Name>
+          <LogicalName>defraimp_itahc</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>0.0.0.4</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>1</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>1</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <LookupStyle>single</LookupStyle>
+          <LookupTypes />
+          <displaynames>
+            <displayname description="ITAHC" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="defraimp_QueryNumber">
+          <Type>nvarchar</Type>
+          <Name>defraimp_querynumber</Name>
+          <LogicalName>defraimp_querynumber</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ReadOnlyInUI|ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>0.0.0.4</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat>RMQ{DATETIMEUTC:yy}-{SEQNUM:4}</AutoNumberFormat>
+          <IsSearchable>1</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>1</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Query Number" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="defraimp_QuerySentTo">
+          <Type>nvarchar</Type>
+          <Name>defraimp_querysentto</Name>
+          <LogicalName>defraimp_querysentto</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>0.0.0.4</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>1</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>1</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>email</Format>
+          <MaxLength>255</MaxLength>
+          <Length>510</Length>
+          <displaynames>
+            <displayname description="Query Sent To" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
         <attribute PhysicalName="DeliveryLastAttemptedOn">
           <Type>datetime</Type>
           <Name>deliverylastattemptedon</Name>
@@ -635,7 +834,7 @@
           <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
           <IsDataSourceSecret>0</IsDataSourceSecret>
           <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
+          <IsSearchable>1</IsSearchable>
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
@@ -1507,8 +1706,8 @@
           <IsDataSourceSecret>0</IsDataSourceSecret>
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
-          <IsFilterable>1</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <LookupStyle>single</LookupStyle>
           <LookupTypes>
@@ -1848,7 +2047,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
+          <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <LookupStyle>single</LookupStyle>
           <displaynames>
@@ -2014,7 +2213,7 @@
           <CanChangeDateTimeBehavior>0</CanChangeDateTimeBehavior>
           <Behavior>1</Behavior>
           <displaynames>
-            <displayname description="Resolution Due Date" languagecode="1033" />
+            <displayname description="Scheduled End" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Scheduled end time of the activity." languagecode="1033" />
@@ -2427,7 +2626,7 @@
             </states>
           </optionset>
           <displaynames>
-            <displayname description="Activity Status" languagecode="1033" />
+            <displayname description="Query Status" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Status of the activity." languagecode="1033" />
@@ -2461,7 +2660,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
+          <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <optionset Name="defraimp_importquery_statuscode">
             <OptionSetType>status</OptionSetType>
@@ -2474,22 +2673,22 @@
               <Description description="Reason for the status of the activity." languagecode="1033" />
             </Descriptions>
             <statuses>
-              <status value="1" state="0">
+              <status value="1" state="0" TransitionData="" Color="#0000ff">
                 <labels>
-                  <label description="Open" languagecode="1033" />
+                  <label description="Ongoing" languagecode="1033" />
                 </labels>
               </status>
-              <status value="2" state="1">
+              <status value="2" state="1" TransitionData="" Color="#0000ff">
                 <labels>
                   <label description="Completed" languagecode="1033" />
                 </labels>
               </status>
-              <status value="3" state="2">
+              <status value="3" state="2" TransitionData="" Color="#0000ff">
                 <labels>
                   <label description="Canceled" languagecode="1033" />
                 </labels>
               </status>
-              <status value="4" state="3">
+              <status value="4" state="3" TransitionData="" Color="#0000ff">
                 <labels>
                   <label description="Scheduled" languagecode="1033" />
                 </labels>
@@ -2497,7 +2696,7 @@
             </statuses>
           </optionset>
           <displaynames>
-            <displayname description="Status Reason" languagecode="1033" />
+            <displayname description="Status Code" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Reason for the status of the activity." languagecode="1033" />
@@ -2529,7 +2728,7 @@
           <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
           <IsDataSourceSecret>0</IsDataSourceSecret>
           <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>1</IsSearchable>
+          <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
@@ -2739,7 +2938,7 @@
       <MobileOfflineFilters></MobileOfflineFilters>
       <IsMapiGridEnabled>1</IsMapiGridEnabled>
       <IsReadingPaneEnabled>1</IsReadingPaneEnabled>
-      <IsQuickCreateEnabled>0</IsQuickCreateEnabled>
+      <IsQuickCreateEnabled>1</IsQuickCreateEnabled>
       <SyncToExternalSearchIndex>0</SyncToExternalSearchIndex>
       <IntroducedVersion>5.0.0.0</IntroducedVersion>
       <IsCustomizable>1</IsCustomizable>
@@ -2760,9 +2959,13 @@
       <CanCreateViews>1</CanCreateViews>
       <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
       <CanEnableSyncToExternalSearchIndex>1</CanEnableSyncToExternalSearchIndex>
+      <IconMediumName>defraimp_/png/icon.importquery.32.png</IconMediumName>
+      <IconSmallName>defraimp_/png/icon.importquery.16.png</IconSmallName>
+      <IconVectorName>defraimp_/svg/icon.importquery.svg</IconVectorName>
       <EnforceStateTransitions>0</EnforceStateTransitions>
       <CanChangeHierarchicalRelationship>1</CanChangeHierarchicalRelationship>
       <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>
+      <EntityHelpUrl></EntityHelpUrl>
       <ChangeTrackingEnabled>0</ChangeTrackingEnabled>
       <CanChangeTrackingBeEnabled>1</CanChangeTrackingBeEnabled>
       <IsEnabledForExternalChannels>0</IsEnabledForExternalChannels>
@@ -2773,5 +2976,6 @@
   </EntityInfo>
   <FormXml />
   <SavedQueries />
+  <Visualizations />
   <RibbonDiffXml />
 </Entity>

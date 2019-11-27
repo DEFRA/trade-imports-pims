@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{221a0585-ca0a-ea11-a811-000d3ab5d511}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" icon="1" preview="1" select="1" jump="defraimp_name">
+        <row id="defraimp_importapplicationid" name="result">
+          <cell name="defraimp_name" width="150" />
+          <cell name="defraimp_primaryitahcid" width="100" />
+          <cell name="defraimp_primarydocomid" width="100" />
+          <cell name="defraimp_importercontactname" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+          <cell name="defraimp_importercphnumber" width="100" />
+          <cell name="defraimp_importeraddress1" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+          <cell name="defraimp_importeraddress2" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+          <cell name="defraimp_importeraddress3" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+          <cell name="defraimp_importeraddresscity" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+          <cell name="defraimp_importeraddresscountryid" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+          <cell name="defraimp_importeraddresspostcode" width="125" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+          <cell name="defraimp_importeremail" width="100" />
+          <cell name="defraimp_importerorganisation" width="100" />
+          <cell name="defraimp_importertelephone" width="100" />
+          <cell name="defraimp_countryoforiginid" width="100" />
+          <cell name="defraimp_placeofdestinationcontactname" width="100" />
+          <cell name="defraimp_placeofdestinationorganisation" width="100" />
+          <cell name="defraimp_placeofdestinationaddressline1" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+          <cell name="defraimp_placeofdestinationaddressline2" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+          <cell name="defraimp_placeofdestinationaddressline3" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+          <cell name="defraimp_placeofdestinationaddresscity" width="100" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+          <cell name="defraimp_destinationaddresscountryid" width="100" />
+          <cell name="defraimp_placeofdestinationaddresspostcode" width="100" />
+          <cell name="defraimp_placeofdestinationtelephone" width="100" />
+          <cell name="defraimp_placeofdestinationemail" width="100" />
+          <cell name="defraimp_permanentdestinationaddressline1" width="100" />
+          <cell name="defraimp_permanentdestinationaddressline2" width="100" />
+          <cell name="defraimp_permanentdestinationaddressline3" width="100" />
+          <cell name="defraimp_permanentdestinationaddresscity" width="100" />
+          <cell name="defraimp_permanentdestinationaddresspostcode" width="100" />
+          <cell name="defraimp_permanentdestinationaddresscounid" width="100" />
+          <cell name="defraimp_permanentdestinationcontactname" width="100" />
+          <cell name="defraimp_permanentdestinationorganisation" width="100" />
+          <cell name="defraimp_permanentdestinationemail" width="100" />
+          <cell name="defraimp_permanentdestinationtelephone" width="100" />
+          <cell name="defraimp_iv65sent" width="100" />
+          <cell name="defraimp_iv65sentdate" width="100" />
+          <cell name="defraimp_iv65responseduedate" width="100" />
+          <cell name="defraimp_iv65responsereceiveddate" width="100" />
+          <cell name="a_b5f1eec6aae6e911a866000d3ab0dc71.defraimp_name" width="100" disableSorting="1" />
+          <cell name="defraimp_placeoforigincontactname" width="100" />
+          <cell name="defraimp_placeoforiginorganisation" width="100" />
+          <cell name="defraimp_placeoforiginaddressline1" width="100" />
+          <cell name="defraimp_placeoforiginaddressline2" width="100" />
+          <cell name="defraimp_placeoforiginaddressline3" width="100" />
+          <cell name="defraimp_placeoforiginaddresscity" width="100" />
+          <cell name="defraimp_placeoforigincountryid" width="100" />
+          <cell name="defraimp_placeoforiginaddresspostcode" width="100" />
+          <cell name="defraimp_commoditytypeid" width="100" />
+          <cell name="defraimp_transportername" width="100" />
+          <cell name="defraimp_transporteraddressline1" width="100" />
+          <cell name="defraimp_transporteraddressline2" width="100" />
+          <cell name="defraimp_transporteraddressline3" width="100" />
+          <cell name="defraimp_transporteraddresscity" width="100" />
+          <cell name="defraimp_transporteraddresspostcode" width="100" />
+          <cell name="defraimp_transporteremail" width="100" />
+          <cell name="defraimp_transportertelephone" width="100" />
+          <cell name="defraimp_commoditynotes" width="100" disableSorting="1" />
+          <cell name="defraimp_quantity" width="100" />
+          <cell name="defraimp_unit" width="100" />
+          <cell name="defraimp_pointofentry" width="100" />
+          <cell name="defraimp_dateofimport" width="100" />
+          <cell name="defraimp_devolvedofficeid" width="100" />
+          <cell name="defraimp_importrisklevelid" width="100" />
+          <cell name="a_b5f1eec6aae6e911a866000d3ab0dc71.defraimp_trustlevel" width="100" disableSorting="1" />
+          <cell name="defraimp_healthcertificatenumber" width="100" />
+          <cell name="defraimp_warbleflytreatmentdeclarationrequired" width="100" />
+          <cell name="defraimp_warbleflytreatmentdeclarationreceiveddate" width="100" />
+          <cell name="defraimp_dateconfirmedontraces" width="100" />
+          <cell name="defraimp_dateconsignmentreceived" width="100" />
+          <cell name="defraimp_dateimportercontacted" width="100" />
+          <cell name="defraimp_inspectiondeclinedreason" width="100" disableSorting="1" />
+          <cell name="defraimp_inspectioncompleted" width="100" />
+          <cell name="defraimp_inspectionoutcome" width="100" />
+          <cell name="defraimp_inspectionoutcomereceived" width="100" />
+          <cell name="defraimp_inspectionrequested" width="100" />
+          <cell name="defraimp_inspectionrequiredreason" width="100" />
+          <cell name="defraimp_inspectionrequired" width="100" />
+          <cell name="defraimp_samcustomernumber" width="100" />
+          <cell name="defraimp_samwsnumber" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch mapping="logical" output-format="xml-platform" version="1.0">
+        <entity name="defraimp_importapplication">
+          <attribute name="defraimp_name" />
+          <order descending="false" attribute="defraimp_name" />
+          <attribute name="defraimp_primaryitahcid" />
+          <attribute name="defraimp_primarydocomid" />
+          <attribute name="defraimp_importertelephone" />
+          <attribute name="defraimp_importerorganisation" />
+          <attribute name="defraimp_importeremail" />
+          <attribute name="defraimp_importercphnumber" />
+          <attribute name="defraimp_importercontactname" />
+          <attribute name="defraimp_importeraddresspostcode" />
+          <attribute name="defraimp_importeraddress3" />
+          <attribute name="defraimp_importeraddress2" />
+          <attribute name="defraimp_importeraddress1" />
+          <attribute name="defraimp_importeraddresscountryid" />
+          <attribute name="defraimp_importeraddresscity" />
+          <attribute name="defraimp_countryoforiginid" />
+          <attribute name="defraimp_placeofdestinationtelephone" />
+          <attribute name="defraimp_placeofdestinationorganisation" />
+          <attribute name="defraimp_placeofdestinationemail" />
+          <attribute name="defraimp_placeofdestinationcontactname" />
+          <attribute name="defraimp_placeofdestinationaddressline3" />
+          <attribute name="defraimp_placeofdestinationaddressline2" />
+          <attribute name="defraimp_placeofdestinationaddressline1" />
+          <attribute name="defraimp_placeofdestinationaddresscity" />
+          <attribute name="defraimp_permanentdestinationtelephone" />
+          <attribute name="defraimp_permanentdestinationorganisation" />
+          <attribute name="defraimp_permanentdestinationemail" />
+          <attribute name="defraimp_permanentdestinationaddresscounid" />
+          <attribute name="defraimp_permanentdestinationcontactname" />
+          <attribute name="defraimp_permanentdestinationaddresscity" />
+          <attribute name="defraimp_permanentdestinationaddresspostcode" />
+          <attribute name="defraimp_permanentdestinationaddressline3" />
+          <attribute name="defraimp_permanentdestinationaddressline2" />
+          <attribute name="defraimp_permanentdestinationaddressline1" />
+          <attribute name="defraimp_iv65sent" />
+          <attribute name="defraimp_iv65sentdate" />
+          <attribute name="defraimp_iv65responsereceiveddate" />
+          <attribute name="defraimp_iv65responseduedate" />
+          <attribute name="defraimp_unit" />
+          <attribute name="defraimp_quantity" />
+          <attribute name="defraimp_commoditytypeid" />
+          <attribute name="defraimp_commoditynotes" />
+          <attribute name="defraimp_pointofentry" />
+          <attribute name="defraimp_placeoforiginorganisation" />
+          <attribute name="defraimp_placeoforigincontactname" />
+          <attribute name="defraimp_placeoforigincountryid" />
+          <attribute name="defraimp_placeoforiginaddresspostcode" />
+          <attribute name="defraimp_placeoforiginaddressline3" />
+          <attribute name="defraimp_placeoforiginaddressline2" />
+          <attribute name="defraimp_placeoforiginaddressline1" />
+          <attribute name="defraimp_placeoforiginaddresscity" />
+          <attribute name="defraimp_dateofimport" />
+          <attribute name="defraimp_importrisklevelid" />
+          <attribute name="defraimp_transportertelephone" />
+          <attribute name="defraimp_transportername" />
+          <attribute name="defraimp_transporteremail" />
+          <attribute name="defraimp_transporteraddresspostcode" />
+          <attribute name="defraimp_transporteraddressline3" />
+          <attribute name="defraimp_transporteraddressline2" />
+          <attribute name="defraimp_transporteraddressline1" />
+          <attribute name="defraimp_transporteraddresscity" />
+          <attribute name="defraimp_devolvedofficeid" />
+          <link-entity name="defraimp_placeoforigin" visible="false" link-type="outer" to="defraimp_placeoforiginid" from="defraimp_placeoforiginid" alias="a_b5f1eec6aae6e911a866000d3ab0dc71">
+            <attribute name="defraimp_name" />
+            <attribute name="defraimp_trustlevel" />
+          </link-entity>
+          <attribute name="defraimp_healthcertificatenumber" />
+          <attribute name="defraimp_warbleflytreatmentdeclarationrequired" />
+          <attribute name="defraimp_warbleflytreatmentdeclarationreceiveddate" />
+          <attribute name="defraimp_samwsnumber" />
+          <attribute name="defraimp_samcustomernumber" />
+          <attribute name="defraimp_inspectionrequired" />
+          <attribute name="defraimp_inspectionrequiredreason" />
+          <attribute name="defraimp_inspectionrequested" />
+          <attribute name="defraimp_inspectionoutcomereceived" />
+          <attribute name="defraimp_inspectionoutcome" />
+          <attribute name="defraimp_inspectioncompleted" />
+          <attribute name="defraimp_inspectiondeclinedreason" />
+          <attribute name="defraimp_dateimportercontacted" />
+          <attribute name="defraimp_dateconsignmentreceived" />
+          <attribute name="defraimp_dateconfirmedontraces" />
+          <attribute name="defraimp_destinationaddresscountryid" />
+          <attribute name="defraimp_placeofdestinationaddresspostcode" />
+          <attribute name="defraimp_importapplicationid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.4</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Export to Excel View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

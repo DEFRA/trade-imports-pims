@@ -7,48 +7,64 @@
     <FormActivationState>1</FormActivationState>
     <form>
       <tabs>
-        <tab verticallayout="true" id="{1c16277f-6754-4aa9-a45b-dcbc4eef7125}" name="StageStep3" locklevel="0" expanded="true" visible="false">
+        <tab verticallayout="true" id="{1c16277f-6754-4aa9-a45b-dcbc4eef7125}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{9b0c783e-102f-4290-ba11-72f019836fcc}">
           <labels>
-            <label description="" languagecode="1033" />
+            <label description="Triage" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{1c16277f-6754-4aa9-a45b-dcbc4eef7125}" name="StageStep3_section1">
+                <section showbar="false" columns="1" id="{1c16277f-6754-4aa9-a45b-dcbc4eef7125}" name="StageStep3_section1" labelid="{3224fd1f-1793-460e-aa0d-6c804cda7fb5}">
                   <labels>
-                    <label description="" languagecode="1033" />
+                    <label description="Triage" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{e3390cce-de7c-437e-9e5e-2640de67c773}" showlabel="true" visible="true">
+                      <cell id="{93e56c3c-ed2b-4fc2-b618-0507fb7f6246}" showlabel="true" visible="true" labelid="{7ef6e241-bd48-4d63-b444-a4272e7a2bef}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Commodity Type" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_primaryimportnotificationid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_primaryimportnotificationid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_commoditytypeid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_commoditytypeid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{7c7b066a-ede8-4322-b68a-a4b2ca96fbca}" showlabel="true" visible="true">
+                      <cell id="{fbecea24-1d69-44a7-bea8-e78717ef4940}" showlabel="true" visible="true" labelid="{7e240f2b-8728-428a-82a6-3d6a0f8df1c2}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Country of Origin" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_primaryitahcid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_primaryitahcid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_countryoforiginid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_countryoforiginid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{10603858-6d3f-4e9d-bfc6-44902d6efd81}" showlabel="true" visible="true">
+                      <cell id="{7c7b066a-ede8-4322-b68a-a4b2ca96fbca}" showlabel="true" visible="true" labelid="{78f61c67-5a7a-45a1-8530-9fd718d26d11}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Primary ITAHC" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_matchingvalidated" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_matchingvalidated" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_primaryitahcid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_primaryitahcid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{2102c8d6-217c-4d92-ab16-9e05bb3b7e8c}" showlabel="true" visible="true">
+                      <cell id="{52e7aef7-f4ca-4585-b941-eb1b921593db}" showlabel="true" visible="true" labelid="{857dbc65-adf4-4a91-a0a6-cefcdca2bbe1}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Region / Area Allocated to" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:ownerid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="ownerid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_regionareaallocatedtoid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_regionareaallocatedtoid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2102c8d6-217c-4d92-ab16-9e05bb3b7e8c}" showlabel="true" visible="true" labelid="{145c6ea6-4431-4dca-9521-c3969c843af4}">
+                        <labels>
+                          <label description="Assigned To" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:ownerid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="ownerid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="false" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{10603858-6d3f-4e9d-bfc6-44902d6efd81}" showlabel="true" visible="true" labelid="{f5eb2990-e6c9-452a-b4d6-cff426193ea2}">
+                        <labels>
+                          <label description="Matching Validated?" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_matchingvalidated" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_matchingvalidated" uniqueid="{622d6437-2984-51c8-a384-c30306a8b673}" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -57,56 +73,56 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}" name="StageStep14" locklevel="0" expanded="true" visible="false">
+        <tab verticallayout="true" id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}" name="StageStep19" locklevel="0" expanded="true" visible="false" labelid="{782dce25-dacf-4def-b57e-b32cad9ca5ba}">
           <labels>
-            <label description="" languagecode="1033" />
+            <label description="Risk Assessment" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}" name="StageStep14_section1">
+                <section showbar="false" columns="1" id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}" name="StageStep19_section1" labelid="{a48f2a87-a211-43f0-b80c-c394210773c1}">
                   <labels>
-                    <label description="" languagecode="1033" />
+                    <label description="Risk Assessment" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{5d2860c0-04c8-4a24-a08d-ac7b57fede2e}" showlabel="true" visible="true">
+                      <cell id="{5d2860c0-04c8-4a24-a08d-ac7b57fede2e}" showlabel="true" visible="true" labelid="{2c12e421-b5a3-4498-924b-9df385483018}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Import Risk Level" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_importrisklevelid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_importrisklevelid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_importrisklevelid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_importrisklevelid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{5f26f0c4-b821-49d9-b307-12c14b41ea2e}" showlabel="true" visible="true">
+                      <cell id="{5f26f0c4-b821-49d9-b307-12c14b41ea2e}" showlabel="true" visible="true" labelid="{239871da-1e42-4057-846a-d3d237211d5d}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Risk Level Verified?" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_risklevelverified" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_risklevelverified" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_risklevelverified" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_risklevelverified" uniqueid="{622d6437-2984-51c8-a384-c30306a8b598}" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{9ff7cab4-7681-47fd-9b34-e7adc397bdbc}" showlabel="true" visible="true">
+                      <cell id="{9ff7cab4-7681-47fd-9b34-e7adc397bdbc}" showlabel="true" visible="true" labelid="{9a398c77-a61a-48b1-899d-f9798562cd88}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Certificate Verified?" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_certificateverified" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_certificateverified" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_certificateverified" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_certificateverified" uniqueid="{622d6437-2984-51c8-a384-c30306a8a737}" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{9c7440a2-b506-4003-b740-90fb7ec36275}" showlabel="true" visible="true">
+                      <cell id="{9c7440a2-b506-4003-b740-90fb7ec36275}" showlabel="true" visible="true" labelid="{46e3ca5b-7725-4a2a-8315-8a08160f41c4}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Post Import Checks Required?" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_inspectionrequired" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="defraimp_inspectionrequired" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_inspectionrequired" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="defraimp_inspectionrequired" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{e63a2475-5030-4730-a45f-199ef5f95604}" showlabel="true" visible="true">
+                      <cell id="{e63a2475-5030-4730-a45f-199ef5f95604}" showlabel="true" visible="true" labelid="{867e0e32-1d0c-4e0e-8917-1c3e142b49da}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Post Import Checks Declined Reason" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_inspectiondeclinedreason" classid="{e0dece4b-6fc8-4a8f-a065-082708572369}" datafieldname="defraimp_inspectiondeclinedreason" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_inspectiondeclinedreason" classid="{e0dece4b-6fc8-4a8f-a065-082708572369}" datafieldname="defraimp_inspectiondeclinedreason" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="false" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -115,24 +131,40 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep26" locklevel="0" expanded="true" visible="false">
+        <tab verticallayout="true" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep32" locklevel="0" expanded="true" visible="false" labelid="{41f0f2d9-6132-4c4d-bbf8-c5e86f93f37d}">
           <labels>
-            <label description="" languagecode="1033" />
+            <label description="Completion" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep26_section1">
+                <section showbar="false" columns="1" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep32_section1" labelid="{66d1709b-368b-4849-9609-69fcac8d317e}">
                   <labels>
-                    <label description="" languagecode="1033" />
+                    <label description="Completion" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{a927b17e-d768-4293-98bc-600c493db897}" showlabel="true" visible="true">
+                      <cell id="{13b576ae-93dc-41dc-8ee0-a0ff0f90f52f}" showlabel="true" visible="true" labelid="{53b8a3b1-807b-4b15-97c4-8edef53525f0}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Move to Completion?" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_completionsummary" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="defraimp_completionsummary" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_movetocompletion" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_movetocompletion" uniqueid="{622d6437-2984-51c8-a384-c30306a8a380}" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ac711d36-f162-4ba9-92d3-cbeb3835bd5a}" showlabel="true" visible="true" labelid="{2ba6db54-1683-4456-8e00-6d5d6bfc769a}">
+                        <labels>
+                          <label description="Moved to Completion Date" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_movedtocompletiondate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="defraimp_movedtocompletiondate" uniqueid="{65cce8be-9927-82bb-e856-628595167360}" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a927b17e-d768-4293-98bc-600c493db897}" showlabel="true" visible="true" labelid="{d74b8456-0369-4305-aced-ba272b2955d8}">
+                        <labels>
+                          <label description="Completion Summary" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_completionsummary" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="defraimp_completionsummary" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -141,56 +173,24 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep30" locklevel="0" expanded="true" visible="false">
+        <tab verticallayout="true" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep41" locklevel="0" expanded="true" visible="false" labelid="{30308977-3baa-4218-8101-78ca5d1b8b94}">
           <labels>
-            <label description="" languagecode="1033" />
+            <label description="Post Import Check" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep30_section1">
+                <section showbar="false" columns="1" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep41_section1" labelid="{36ac3987-a277-45e6-a3ab-9ccb260343d6}">
                   <labels>
-                    <label description="" languagecode="1033" />
+                    <label description="Post Import Check" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{ab0739a9-bc5d-427e-a912-c156b25c7857}" showlabel="true" visible="true">
+                      <cell id="{ab0739a9-bc5d-427e-a912-c156b25c7857}" showlabel="true" visible="true" labelid="{20a8b860-19cc-4489-91d2-6bb62d205727}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Post Import Checks Requested?" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_inspectionrequested" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_inspectionrequested" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{6a4eb92c-938d-435d-9fa5-edf2a8d3480a}" showlabel="true" visible="true">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_samcustomernumber" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="defraimp_samcustomernumber" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{06fe26fd-829d-4638-a534-00f7dd367053}" showlabel="true" visible="true">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_samwsnumber" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="defraimp_samwsnumber" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{5843c93c-69bf-4933-92ff-7962bb39ba91}" showlabel="true" visible="true">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_inspectionoutcome" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="defraimp_inspectionoutcome" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{a93019bd-ad43-4c14-ace5-d5ec371cd926}" showlabel="true" visible="true">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_movetocompletion" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_movetocompletion" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_inspectionrequested" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_inspectionrequested" uniqueid="{622d6437-2984-51c8-a384-c30306a8d666}" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -199,24 +199,40 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep42" locklevel="0" expanded="true" visible="false">
+        <tab verticallayout="true" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep46" locklevel="0" expanded="true" visible="false" labelid="{a686457d-dcfd-465f-82b1-08e22b7bf1e5}">
           <labels>
-            <label description="" languagecode="1033" />
+            <label description="Completion" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep42_section1">
+                <section showbar="false" columns="1" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep46_section1" labelid="{8cf182be-cc35-45ce-9bfb-7a139512a98d}">
                   <labels>
-                    <label description="" languagecode="1033" />
+                    <label description="Completion" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{674fe31f-a72f-4493-9433-4b1bd2d0a2ca}" showlabel="true" visible="true">
+                      <cell id="{9d684bf9-d794-4e35-9866-747a828b2d8c}" showlabel="true" visible="true" labelid="{d9fad996-5fa6-460a-96b5-65503c4984ed}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Move to Completion?" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_completionsummary" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="defraimp_completionsummary" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_movetocompletion" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_movetocompletion" uniqueid="{622d6437-2984-51c8-a384-c30306a8a380}" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{632c5b6c-ff03-4c98-9767-cc5767015893}" showlabel="true" visible="true" labelid="{9105b32f-7e48-4ed5-8185-3d03522e9eab}">
+                        <labels>
+                          <label description="Moved to Completion Date" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_movedtocompletiondate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="defraimp_movedtocompletiondate" uniqueid="{4c059d57-5976-54b8-7809-c471e23de777}" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{674fe31f-a72f-4493-9433-4b1bd2d0a2ca}" showlabel="true" visible="true" labelid="{50b8c640-e25e-4d8f-85b7-f28400606b66}">
+                        <labels>
+                          <label description="Completion Summary" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_completionsummary" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="defraimp_completionsummary" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -226,6 +242,118 @@
           </columns>
         </tab>
       </tabs>
+      <controlDescriptions>
+        <controlDescription forControl="{622d6437-2984-51c8-a384-c30306a8b673}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>defraimp_matchingvalidated</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_matchingvalidated</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_matchingvalidated</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_matchingvalidated</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{622d6437-2984-51c8-a384-c30306a8b598}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>defraimp_risklevelverified</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_risklevelverified</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_risklevelverified</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_risklevelverified</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{622d6437-2984-51c8-a384-c30306a8a737}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>defraimp_certificateverified</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_certificateverified</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_certificateverified</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_certificateverified</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{622d6437-2984-51c8-a384-c30306a8d666}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>defraimp_inspectionrequested</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_inspectionrequested</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_inspectionrequested</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_inspectionrequested</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{622d6437-2984-51c8-a384-c30306a8a380}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>defraimp_movetocompletion</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_movetocompletion</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_movetocompletion</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_movetocompletion</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

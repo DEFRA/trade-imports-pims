@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.9832" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.10535" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsAnalytics</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Analytics" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.1</Version>
+    <Version>0.0.0.3</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -79,36 +79,218 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="1" schemaName="defraimp_importapplication" behavior="2" />
+      <RootComponent type="1" schemaName="defraimp_importinspection" behavior="2" />
+      <RootComponent type="60" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" behavior="0" />
+      <RootComponent type="60" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="60" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" behavior="0" />
+      <RootComponent type="60" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="60" id="{a5086809-3f10-ea11-a811-000d3ab55801}" behavior="0" />
       <RootComponent type="60" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
-        <Required key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Application" solution="Active" />
-        <Dependent key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Application" />
+        <Required key="0" type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="Active" />
+        <Dependent key="1" type="60" displayName="EU Imports - Import Queries" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="1" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Application" solution="Active" />
-        <Dependent key="2" type="59" schemaName="Import Risk Level by Import Risk Level" displayName="Import Risk Level by Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Application" id="{058d7e1c-f2d2-e911-a9a2-000d3ab6e833}" />
+        <Required key="2" type="1" schemaName="defraimp_itahc" displayName="ITAHC" solution="Active" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="3" type="26" schemaName="Active Import Applications - P1" displayName="Active Import Applications - P1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Application" solution="Active" id="{ed6ca788-efd2-e911-a9a2-000d3ab6e833}" />
-        <Dependent key="4" type="60" displayName="Import Applications - Caseworker Dashboard" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+        <Required key="4" type="1" schemaName="defraimp_importnotification" displayName="Import Notification" solution="Active" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="5" type="26" schemaName="Active Import Applications" displayName="Active Import Applications" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Application" solution="Active" id="{dd020992-1353-4a60-8ead-c0e0925163e4}" />
-        <Dependent key="4" type="60" displayName="Import Applications - Caseworker Dashboard" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+        <Required key="0" type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="Active" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="6" type="61" schemaName="defraimp_/png/icon.importapplication.32.png" displayName="defraimp_/png/icon.importapplication.32.png" solution="Active" />
-        <Dependent key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Application" />
+        <Required key="4" type="1" schemaName="defraimp_importnotification" displayName="Import Notification" solution="Active" />
+        <Dependent key="5" type="60" displayName="EU Imports - Daily IRMS Stats" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="7" type="61" schemaName="defraimp_/svg/icon.importapplication.svg" displayName="defraimp_/svg/icon.importapplication.svg" solution="Active" />
-        <Dependent key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Application" />
+        <Required key="2" type="1" schemaName="defraimp_itahc" displayName="ITAHC" solution="Active" />
+        <Dependent key="5" type="60" displayName="EU Imports - Daily IRMS Stats" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="8" type="61" schemaName="defraimp_/png/icon.importapplication.16.png" displayName="defraimp_/png/icon.importapplication.16.png" solution="Active" />
-        <Dependent key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Application" />
+        <Required key="6" type="1" schemaName="defraimp_importinspection" displayName="Post Import Check" solution="Active" />
+        <Dependent key="6" type="1" schemaName="defraimp_importinspection" displayName="Post Import Check" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="7" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
+        <Dependent key="7" type="1" schemaName="defraimp_importapplication" displayName="Import Record" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="8" type="2" schemaName="statuscode" displayName="Status Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="9" type="59" schemaName="No. of Import Records Completed Yesterday" displayName="No. of Import Records Completed Yesterday" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" id="{6063a957-5410-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="10" type="2" schemaName="defraimp_importapplicationid" displayName="Import Record" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="9" type="59" schemaName="No. of Import Records Completed Yesterday" displayName="No. of Import Records Completed Yesterday" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" id="{6063a957-5410-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="11" type="2" schemaName="defraimp_datestartedworking" displayName="Date Started Working on IV17" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" />
+        <Dependent key="12" type="59" schemaName="Post Import Checks By Date Started Working on IV17" displayName="Post Import Checks By Date Started Working on IV17" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" id="{797f8770-5a10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="13" type="2" schemaName="defraimp_importinspectionid" displayName="Post Import Check" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" />
+        <Dependent key="12" type="59" schemaName="Post Import Checks By Date Started Working on IV17" displayName="Post Import Checks By Date Started Working on IV17" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" id="{797f8770-5a10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="14" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="15" type="59" schemaName="No. of Import Records By Import Risk Level (Pie Chart)" displayName="No. of Import Records By Import Risk Level (Pie Chart)" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" id="{dae469dd-7b0f-ea11-a811-000d3ab4de89}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="14" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="16" type="59" schemaName="No. of Import Records by Import Risk Level" displayName="No. of Import Records by Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" id="{058d7e1c-f2d2-e911-a9a2-000d3ab6e833}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="17" type="26" schemaName="Import Records Completed Yesterday" displayName="Import Records Completed Yesterday" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{f84fbfa6-780f-ea11-a811-000d3ab4de89}" />
+        <Dependent key="18" type="60" displayName="EU Imports - Daily Huddle Stats" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="19" type="26" schemaName="Live Western Import Records" displayName="Live Western Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{5d538f1a-720f-ea11-a811-000d3ab4de89}" />
+        <Dependent key="18" type="60" displayName="EU Imports - Daily Huddle Stats" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="20" type="26" schemaName="Open Post Import Checks" displayName="Open Post Import Checks" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{48aa2550-5910-ea11-a811-000d3ab55801}" />
+        <Dependent key="18" type="60" displayName="EU Imports - Daily Huddle Stats" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="21" type="26" schemaName="Live Northern Import Records" displayName="Live Northern Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{36485154-710f-ea11-a811-000d3ab4de89}" />
+        <Dependent key="18" type="60" displayName="EU Imports - Daily Huddle Stats" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="22" type="26" schemaName="Live Import Records" displayName="Live Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{dd020992-1353-4a60-8ead-c0e0925163e4}" />
+        <Dependent key="18" type="60" displayName="EU Imports - Daily Huddle Stats" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="23" type="26" schemaName="Live Southern Import Records" displayName="Live Southern Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{6f7069b4-710f-ea11-a811-000d3ab4de89}" />
+        <Dependent key="18" type="60" displayName="EU Imports - Daily Huddle Stats" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="24" type="26" schemaName="All Import Queries" displayName="All Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" solution="Active" id="{30c69233-1e70-4b0f-adfb-f22a3850b2e2}" />
+        <Dependent key="1" type="60" displayName="EU Imports - Import Queries" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="25" type="26" schemaName="Open Import Queries" displayName="Open Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" solution="Active" id="{61573969-de0a-ea11-a811-000d3ab5d511}" />
+        <Dependent key="1" type="60" displayName="EU Imports - Import Queries" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="26" type="26" schemaName="Post Import Checks Received Today" displayName="Post Import Checks Received Today" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{5eec871d-5d10-ea11-a811-000d3ab55801}" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="27" type="26" schemaName="ITAHCs Received Today" displayName="ITAHCs Received Today" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" id="{26038162-5c10-ea11-a811-000d3ab55801}" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="28" type="26" schemaName="Import Notifications Received Today" displayName="Import Notifications Received Today" parentSchemaName="defraimp_importnotification" parentDisplayName="Import Notification" solution="Active" id="{e1878097-7c0f-ea11-a811-000d3ab4de89}" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="29" type="26" schemaName="Live Import Records - IV65 Response Overdue" displayName="Live Import Records - IV65 Response Overdue" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{1276685f-6a05-ea11-a811-000d3ab5d511}" />
+        <Dependent key="30" type="60" displayName="EU Imports - Caseworker" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="22" type="26" schemaName="Live Import Records" displayName="Live Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{dd020992-1353-4a60-8ead-c0e0925163e4}" />
+        <Dependent key="30" type="60" displayName="EU Imports - Caseworker" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="31" type="26" schemaName="Import Queries Received Today" displayName="Import Queries Received Today" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" solution="Active" id="{576c3e3a-5f10-ea11-a811-000d3ab55801}" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="32" type="26" schemaName="My Open Import Queries" displayName="My Open Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" solution="Active" id="{87b519a5-3ddc-4f62-b6ea-a8cee98be537}" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="27" type="26" schemaName="ITAHCs Received Today" displayName="ITAHCs Received Today" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" id="{26038162-5c10-ea11-a811-000d3ab55801}" />
+        <Dependent key="5" type="60" displayName="EU Imports - Daily IRMS Stats" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="28" type="26" schemaName="Import Notifications Received Today" displayName="Import Notifications Received Today" parentSchemaName="defraimp_importnotification" parentDisplayName="Import Notification" solution="Active" id="{e1878097-7c0f-ea11-a811-000d3ab4de89}" />
+        <Dependent key="5" type="60" displayName="EU Imports - Daily IRMS Stats" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="33" type="26" schemaName="Post Import Check 2% Checks Required Within the Month (Excluding Cats and Dogs)" displayName="Post Import Check 2% Checks Required Within the Month (Excluding Cats and Dogs)" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{c10901d2-4510-ea11-a811-000d3ab55801}" />
+        <Dependent key="34" type="60" displayName="EU Imports - Border Control Metrics" id="{a5086809-3f10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="35" type="26" schemaName="Import Records Arriving In England During the Month" displayName="Import Records Arriving In England During the Month" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{5291f093-3f10-ea11-a811-000d3ab55801}" />
+        <Dependent key="34" type="60" displayName="EU Imports - Border Control Metrics" id="{a5086809-3f10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="36" type="59" schemaName="No. ITAHC's Received Today" displayName="No. ITAHC's Received Today" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" id="{97ee0e9f-5c10-ea11-a811-000d3ab55801}" />
+        <Dependent key="5" type="60" displayName="EU Imports - Daily IRMS Stats" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="37" type="59" schemaName="No. of Post Import Checks 2% Required Withing the Month (Excluding Cats and Dogs)" displayName="No. of Post Import Checks 2% Required Withing the Month (Excluding Cats and Dogs)" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{d26a167f-6310-ea11-a811-000d3ab55801}" />
+        <Dependent key="34" type="60" displayName="EU Imports - Border Control Metrics" id="{a5086809-3f10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="38" type="59" schemaName="No. Import Notifications Received Today" displayName="No. Import Notifications Received Today" parentSchemaName="defraimp_importnotification" parentDisplayName="Import Notification" solution="Active" id="{e503ad96-5b10-ea11-a811-000d3ab55801}" />
+        <Dependent key="5" type="60" displayName="EU Imports - Daily IRMS Stats" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="39" type="59" schemaName="No. of Import Queries Received Today" displayName="No. of Import Queries Received Today" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" solution="Active" id="{7e1f0b8e-5f10-ea11-a811-000d3ab55801}" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="40" type="59" schemaName="No. of Import Records Arriving in England During the Month" displayName="No. of Import Records Arriving in England During the Month" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{d2292bdd-6210-ea11-a811-000d3ab55801}" />
+        <Dependent key="34" type="60" displayName="EU Imports - Border Control Metrics" id="{a5086809-3f10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="38" type="59" schemaName="No. Import Notifications Received Today" displayName="No. Import Notifications Received Today" parentSchemaName="defraimp_importnotification" parentDisplayName="Import Notification" solution="Active" id="{e503ad96-5b10-ea11-a811-000d3ab55801}" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="36" type="59" schemaName="No. ITAHC's Received Today" displayName="No. ITAHC's Received Today" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" id="{97ee0e9f-5c10-ea11-a811-000d3ab55801}" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="41" type="59" schemaName="No. Post Import Checks Received Today" displayName="No. Post Import Checks Received Today" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{f23d5b47-5d10-ea11-a811-000d3ab55801}" />
+        <Dependent key="3" type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="42" type="59" schemaName="No. of New Queries by Day" displayName="No. of New Queries by Day" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" solution="Active" id="{05a6aa79-8a0b-ea11-a811-000d3ab5d511}" />
+        <Dependent key="1" type="60" displayName="EU Imports - Import Queries" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="43" type="59" schemaName="No. of Open Import Queries by Person" displayName="No. of Open Import Queries by Person" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" solution="Active" id="{eacba18b-8a0b-ea11-a811-000d3ab5d511}" />
+        <Dependent key="1" type="60" displayName="EU Imports - Import Queries" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="44" type="59" schemaName="No. of Open Import Queries" displayName="No. of Open Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" solution="Active" id="{e64e98a3-8a0b-ea11-a811-000d3ab5d511}" />
+        <Dependent key="1" type="60" displayName="EU Imports - Import Queries" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="45" type="59" schemaName="Primary Import Notification by Status" displayName="Primary Import Notification by Status" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{a12274a9-480d-ea11-a811-000d3ab5d037}" />
+        <Dependent key="18" type="60" displayName="EU Imports - Daily Huddle Stats" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="46" type="61" schemaName="defraimp_/png/icon.importapplication.32.png" displayName="defraimp_/png/icon.importapplication.32.png" solution="Active" />
+        <Dependent key="7" type="1" schemaName="defraimp_importapplication" displayName="Import Record" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="47" type="61" schemaName="defraimp_/svg/icon.importapplication.svg" displayName="defraimp_/svg/icon.importapplication.svg" solution="Active" />
+        <Dependent key="7" type="1" schemaName="defraimp_importapplication" displayName="Import Record" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="48" type="61" schemaName="defraimp_/png/icon.importapplication.16.png" displayName="defraimp_/png/icon.importapplication.16.png" solution="Active" />
+        <Dependent key="7" type="1" schemaName="defraimp_importapplication" displayName="Import Record" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="49" type="61" schemaName="defraimp_/png/icon.postimportcheck.32.png" displayName="defraimp_/png/icon.postimportcheck.32.png" solution="Active" />
+        <Dependent key="6" type="1" schemaName="defraimp_importinspection" displayName="Post Import Check" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="50" type="61" schemaName="defraimp_/png/icon.postimportcheck.16.png" displayName="defraimp_/png/icon.postimportcheck.16.png" solution="Active" />
+        <Dependent key="6" type="1" schemaName="defraimp_importinspection" displayName="Post Import Check" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="51" type="61" schemaName="defraimp_/svg/icon.postimportcheck.svg" displayName="defraimp_/svg/icon.postimportcheck.svg" solution="Active" />
+        <Dependent key="6" type="1" schemaName="defraimp_importinspection" displayName="Post Import Check" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

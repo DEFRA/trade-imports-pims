@@ -37,7 +37,7 @@
     <ReferencingAttributeName>defraimp_RegistrantContactId</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="Unique identifier for Contact associated with Import Application." languagecode="1033" />
+        <Description description="Unique identifier for Contact associated with Import Record." languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>

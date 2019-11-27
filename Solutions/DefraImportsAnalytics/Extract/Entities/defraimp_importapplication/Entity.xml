@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name LocalizedName="Import Application" OriginalName="Import Application">defraimp_importapplication</Name>
+  <Name LocalizedName="Import Record" OriginalName="Import Application">defraimp_importapplication</Name>
   <Visualizations />
   <RibbonDiffXml />
 </Entity>

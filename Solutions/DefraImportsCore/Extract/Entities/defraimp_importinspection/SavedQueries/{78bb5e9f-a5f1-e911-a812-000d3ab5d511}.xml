@@ -8,35 +8,41 @@
     <isdefault>0</isdefault>
     <savedqueryid>{78bb5e9f-a5f1-e911-a812-000d3ab5d511}</savedqueryid>
     <layoutxml>
-      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
-        <row name="result" id="defraimp_importinspectionid">
-          <cell name="defraimp_name" width="300" />
-          <cell name="defraimp_wsno" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="statuscode" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="defraimp_relateditahc" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="defraimp_datestartedworking" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="defraimp_datecompleted" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+      <grid name="resultset" preview="1" icon="1" select="1" jump="defraimp_name">
+        <row id="defraimp_importinspectionid" name="result">
+          <cell name="defraimp_relatedimportapplication" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_relateditahc" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="200" />
+          <cell name="defraimp_samworkschedulenumber" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="150" />
+          <cell name="defraimp_customernumber" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_cphnumber" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_dateofvisit" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_replyfromahodue" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_inspectionoutcome" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
         </row>
       </grid>
     </layoutxml>
     <querytype>0</querytype>
     <fetchxml>
-      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">
         <entity name="defraimp_importinspection">
-          <attribute name="defraimp_name" />
-          <order attribute="defraimp_name" descending="false" />
-          <attribute name="defraimp_wsno" />
-          <attribute name="statuscode" />
+          <order descending="true" attribute="createdon" />
           <attribute name="defraimp_relateditahc" />
-          <attribute name="defraimp_datestartedworking" />
-          <attribute name="defraimp_datecompleted" />
+          <attribute name="defraimp_samworkschedulenumber" />
+          <attribute name="defraimp_relatedimportapplication" />
+          <attribute name="createdon" />
+          <attribute name="defraimp_customernumber" />
+          <attribute name="defraimp_cphnumber" />
+          <attribute name="defraimp_inspectionoutcome" />
+          <attribute name="defraimp_replyfromahodue" />
+          <attribute name="defraimp_dateofvisit" />
           <attribute name="defraimp_importinspectionid" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>0.0.0.2</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Post Import Checks" languagecode="1033" />
+      <LocalizedName description="All Post Import Checks" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

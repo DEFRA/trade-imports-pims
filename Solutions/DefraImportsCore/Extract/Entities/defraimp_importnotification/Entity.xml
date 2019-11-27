@@ -2971,7 +2971,7 @@
       <MobileOfflineFilters></MobileOfflineFilters>
       <IsMapiGridEnabled>1</IsMapiGridEnabled>
       <IsReadingPaneEnabled>1</IsReadingPaneEnabled>
-      <IsQuickCreateEnabled>0</IsQuickCreateEnabled>
+      <IsQuickCreateEnabled>1</IsQuickCreateEnabled>
       <SyncToExternalSearchIndex>0</SyncToExternalSearchIndex>
       <IntroducedVersion>0.0.0.1</IntroducedVersion>
       <IsCustomizable>1</IsCustomizable>
@@ -2998,6 +2998,7 @@
       <EnforceStateTransitions>0</EnforceStateTransitions>
       <CanChangeHierarchicalRelationship>1</CanChangeHierarchicalRelationship>
       <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>
+      <EntityHelpUrl></EntityHelpUrl>
       <ChangeTrackingEnabled>0</ChangeTrackingEnabled>
       <CanChangeTrackingBeEnabled>1</CanChangeTrackingBeEnabled>
       <IsEnabledForExternalChannels>0</IsEnabledForExternalChannels>
@@ -3006,5 +3007,6 @@
   </EntityInfo>
   <FormXml />
   <SavedQueries />
+  <Visualizations />
   <RibbonDiffXml />
 </Entity>

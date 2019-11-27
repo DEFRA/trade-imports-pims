@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{7b4ef9ae-d53b-4835-b181-70f7a3223e2b}</formid>
+    <IntroducedVersion>0.0.0.4</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="Low">
+      <tabs>
+        <tab id="{59797b3e-d531-4054-908f-f1ed643910c4}" verticallayout="true" IsUserDefined="1">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{1f6771fe-ce4e-441d-b048-3ce9ae74df9c}" IsUserDefined="0" showlabel="false" showbar="false">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b7d7bfd7-dd81-4c64-97c8-db8d525b1926}">
+                        <labels>
+                          <label description="Certificate Reference Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{36867c1f-c749-4b1c-b210-7a73d909d9de}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Local Reference Number" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="defraimp_localreferencenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_localreferencenumber" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{339d62be-a830-435a-aa01-175bac11645b}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a791578f-adb0-4c41-b4c6-08ac0db87bbd}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Receiving Category" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="defraimp_receivingcategory" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_receivingcategory" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3add8e1d-3532-4aa0-97dc-e0f4cc74918d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Purpose" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="defraimp_purpose" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_purpose" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dffe73c7-a015-4d68-b97e-0eaf39f0b34e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Seal Number" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="defraimp_sealnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_sealnumber" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2485d763-7ec2-47b3-9558-75a2d154f6e3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Container Number" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="defraimp_containernumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_containernumber" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true" />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

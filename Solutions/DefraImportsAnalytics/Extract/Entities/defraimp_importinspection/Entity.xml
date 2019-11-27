@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name LocalizedName="Post Import Check" OriginalName="Import Inspection">defraimp_importinspection</Name>
+  <Visualizations />
+  <RibbonDiffXml />
+</Entity>

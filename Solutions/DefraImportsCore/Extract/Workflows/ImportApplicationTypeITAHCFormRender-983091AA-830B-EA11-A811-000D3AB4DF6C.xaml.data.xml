@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{983091aa-830b-ea11-a811-000d3ab4df6c}" Name="Import Application Type = ITAHC Form Render" Description="Click to add description" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ImportApplicationTypeITAHCFormRender-983091AA-830B-EA11-A811-000D3AB4DF6C.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>0.0.0.4</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Import Application Type = ITAHC Form Render" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="Click to add description" />
+  </Descriptions>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{77b5c72d-8f0b-ea11-a811-000d3ab35da5}">
+      <controltype>1</controltype>
+      <scope>1</scope>
+      <controlname>defraimp_importapplicationtype</controlname>
+      <event>change</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{78b5c72d-8f0b-ea11-a811-000d3ab35da5}">
+      <scope>1</scope>
+      <event>load</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

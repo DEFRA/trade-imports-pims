@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{3cbfd938-1cb8-48f5-9c89-c5ecf10d8f9e}" Name="[To be deleted] Import Application - Auto Risk Assessment on Update" Description="Runs automatic risk assessment if the Origin country or commodity type change." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/TobedeletedImportApplication-AutoRiskAssessmentonU-3CBFD938-1CB8-48F5-9C89-C5ECF10D8F9E.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>0</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnUpdateAttributeList>defraimp_countryoforiginid,defraimp_commoditytypeid</TriggerOnUpdateAttributeList>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
+  <CreateStage>40</CreateStage>
+  <UpdateStage>40</UpdateStage>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>0.0.0.1</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="[To be deleted] Import Application - Auto Risk Assessment on Update" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="Runs automatic risk assessment if the Origin country or commodity type change." />
+  </Descriptions>
+</Workflow>

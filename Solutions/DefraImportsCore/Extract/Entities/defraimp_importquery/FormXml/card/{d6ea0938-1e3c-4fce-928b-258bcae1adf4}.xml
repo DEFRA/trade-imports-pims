@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{1a9c45c8-b202-4511-8d7a-2b70c27274fe}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Status Reason" languagecode="1033" />
+                          <label description="Status Code" languagecode="1033" />
                         </labels>
                         <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
                       </cell>
@@ -47,7 +47,7 @@
                       </cell>
                       <cell id="{111f9988-2a12-4fb7-8fda-b16e6a0ee58d}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Resolution Due Date" languagecode="1033" />
+                          <label description="Scheduled End" languagecode="1033" />
                         </labels>
                         <control id="scheduledend" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledend" disabled="false" />
                       </cell>

@@ -82,22 +82,6 @@
                         <control id="defraimp_numberofsuccessfulapplications" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofsuccessfulapplications" disabled="true" uniqueid="{0bed3670-79e4-d84a-b189-b156b9840dbc}" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{dc632954-8e6a-d0c0-a28d-2e1e226ea917}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Application Counter" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_applicationcounter" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_applicationcounter" disabled="false" uniqueid="{ed761147-57e4-da58-8227-e292c8e445a1}" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{e70c16ea-b511-bdc1-4836-4cd5a215bca7}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Inspection Quota Counter" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_inspectionquotacounter" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_inspectionquotacounter" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>

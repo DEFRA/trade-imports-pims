@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{144314d6-3905-ea11-a811-000d3ab5d511}" Name="Show/Hide Warble Fly Treatment Received Date" Description="Shows/Hides the Treatment Received Date depending on whether Warble Fly Treatment Declaration is required" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ShowHideWarbleFlyTreatmentReceivedDate-144314D6-3905-EA11-A811-000D3AB5D511.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>0.0.0.4</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Show/Hide Warble Fly Treatment Received Date" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="Shows/Hides the Treatment Received Date depending on whether Warble Fly Treatment Declaration is required" />
+  </Descriptions>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{fd1637b3-3f05-ea11-a811-000d3ab5d511}">
+      <controltype>1</controltype>
+      <scope>1</scope>
+      <controlname>defraimp_warbleflytreatmentdeclarationrequired</controlname>
+      <event>change</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{fe1637b3-3f05-ea11-a811-000d3ab5d511}">
+      <scope>1</scope>
+      <event>load</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

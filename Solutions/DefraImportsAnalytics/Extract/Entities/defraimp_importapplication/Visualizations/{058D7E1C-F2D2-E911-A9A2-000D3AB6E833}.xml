@@ -46,7 +46,7 @@
   </presentationdescription>
   <isdefault>0</isdefault>
   <LocalizedNames>
-    <LocalizedName description="Import Risk Level by Import Risk Level" languagecode="1033" />
+    <LocalizedName description="No. of Import Records by Import Risk Level" languagecode="1033" />
   </LocalizedNames>
   <IsCustomizable>1</IsCustomizable>
   <IntroducedVersion>0.0.0.1</IntroducedVersion>

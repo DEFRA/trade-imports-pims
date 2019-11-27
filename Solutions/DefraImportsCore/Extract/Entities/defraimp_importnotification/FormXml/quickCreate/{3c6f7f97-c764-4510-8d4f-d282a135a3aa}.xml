@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3c6f7f97-c764-4510-8d4f-d282a135a3aa}</formid>
+    <IntroducedVersion>0.0.0.3</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1920">
+      <tabs>
+        <tab id="{f32cd8b6-2fec-445d-8ee3-8cfe8e1b7627}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{a2305c80-5a65-483a-bd27-330892f53580}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{47b69be1-c44c-c14a-c019-5128d379b9e4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="INS" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_ins" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_ins" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a4b79185-e455-c04a-375b-c098091e7b1d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Reference Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_referencenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_referencenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{50540456-586e-71ac-33ea-527511432a36}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date Notification Received" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_datenotificationreceived" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_datenotificationreceived" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{70b9233e-6d8e-86de-9936-174275dbab70}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Notification Received in Required Timeframe?" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_notificationreceivedintimeframe" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_notificationreceivedintimeframe" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{a8a9e578-b64a-402c-b762-319b101dbb9b}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e3dc47e0-e069-4b2a-910f-7df9a8402417}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{f54a5aef-ffa7-44ba-a277-f00447e2f224}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{57dd55ce-393e-496a-b9f6-4e9603379473}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Quick Create Import Notification" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{e506f939-8b2a-48b2-8b6c-b30ce46385e7}">
                         <labels>
-                          <label description="Activity Status" languagecode="1033" />
+                          <label description="Query Status" languagecode="1033" />
                         </labels>
                         <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
                       </cell>
@@ -61,7 +61,7 @@
                     <row>
                       <cell id="{eae00675-b3ef-492a-abe7-187c5e7e065b}">
                         <labels>
-                          <label description="Resolution Due Date" languagecode="1033" />
+                          <label description="Scheduled End" languagecode="1033" />
                         </labels>
                         <control id="scheduledend" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledend" />
                       </cell>

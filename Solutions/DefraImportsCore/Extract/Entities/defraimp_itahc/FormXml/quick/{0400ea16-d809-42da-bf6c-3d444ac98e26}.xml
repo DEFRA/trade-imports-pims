@@ -20,19 +20,32 @@
                   </labels>
                   <rows>
                     <row>
+                      <cell id="{92e410d2-8738-3c78-46ee-17c7704075b4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Local Reference" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_healthcertificatenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_healthcertificatenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{19732805-5109-43a8-b8c4-79df37fba11d}">
                         <labels>
-                          <label description="Local Reference Number" languagecode="1033" />
+                          <label description="Certificate Reference Number" languagecode="1033" />
                         </labels>
                         <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{188612f3-3d6b-4c75-bdbe-0400d15d465c}">
+                      <cell id="{188612f3-3d6b-4c75-bdbe-0400d15d465c}" showlabel="true" locklevel="1" visible="false">
                         <labels>
                           <label description="Owner" languagecode="1033" />
                         </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{d66511c0-81b2-ec76-d867-ab6dc9a18148}" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                   </rows>

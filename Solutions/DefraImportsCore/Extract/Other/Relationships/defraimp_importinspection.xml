@@ -68,4 +68,26 @@
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
   </EntityRelationship>
+  <EntityRelationship Name="defraimp_defraimp_importinspection_defraimp_sample">
+    <EntityRelationshipType>ManyToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>0.0.0.4</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <FirstEntityName>defraimp_importinspection</FirstEntityName>
+    <SecondEntityName>defraimp_sampletest</SecondEntityName>
+    <IntersectEntityName>defraimp_defraimp_importinspection_defraimp_samp</IntersectEntityName>
+    <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
+    <EntityRelationshipRoles>
+      <EntityRelationshipRole>
+        <NavPaneDisplayOption>DoNotDisplay</NavPaneDisplayOption>
+        <NavigationPropertyName>defraimp_defraimp_importinspection_defraimp_sample</NavigationPropertyName>
+        <AssociationRoleOrdinal>1</AssociationRoleOrdinal>
+      </EntityRelationshipRole>
+      <EntityRelationshipRole>
+        <NavPaneDisplayOption>DoNotDisplay</NavPaneDisplayOption>
+        <NavigationPropertyName>defraimp_defraimp_importinspection_defraimp_sample</NavigationPropertyName>
+        <AssociationRoleOrdinal>2</AssociationRoleOrdinal>
+      </EntityRelationshipRole>
+    </EntityRelationshipRoles>
+  </EntityRelationship>
 </EntityRelationships>

@@ -51,7 +51,7 @@
     <ReferencingAttributeName>defraimp_CommodityTypeId</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="Unique identifier for Commodity Type associated with Import Application." languagecode="1033" />
+        <Description description="Unique identifier for Commodity Type associated with Import Record." languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>

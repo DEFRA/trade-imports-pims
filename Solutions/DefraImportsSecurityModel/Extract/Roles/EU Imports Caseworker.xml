@@ -4,15 +4,17 @@
   <RolePrivileges>
     <RolePrivilege name="prvActivateSynchronousWorkflow" level="Basic" />
     <RolePrivilege name="prvAppendActivity" level="Global" />
+    <RolePrivilege name="prvAppenddefra_country" level="Global" />
     <RolePrivilege name="prvAppenddefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvAppenddefraexp_exportapplicationlifecycle" level="Global" />
-    <RolePrivilege name="prvAppenddefraimp_countryoftransit" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_docom" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importnotification" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_sampletest" level="Global" />
     <RolePrivilege name="prvAppendExpiredProcess" level="Global" />
     <RolePrivilege name="prvAppendLeadToOpportunitySalesProcess" level="Global" />
     <RolePrivilege name="prvAppendNewProcess" level="Global" />
@@ -29,7 +31,8 @@
     <RolePrivilege name="prvAppendTodefraexp_commodityname" level="Global" />
     <RolePrivilege name="prvAppendTodefraexp_commoditytype" level="Global" />
     <RolePrivilege name="prvAppendTodefraexp_exportapplicationlifecycle" level="Global" />
-    <RolePrivilege name="prvAppendTodefraimp_countryoftransit" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_apharegion" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_docom" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importapplicationbusinessprocessflow" level="Global" />
@@ -38,6 +41,7 @@
     <RolePrivilege name="prvAppendTodefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_sampletest" level="Global" />
     <RolePrivilege name="prvAppendToExpiredProcess" level="Global" />
     <RolePrivilege name="prvAppendToLeadToOpportunitySalesProcess" level="Global" />
     <RolePrivilege name="prvAppendToNewProcess" level="Global" />
@@ -53,6 +57,7 @@
     <RolePrivilege name="prvAppendWorkflow" level="Local" />
     <RolePrivilege name="prvAppendWorkflowSession" level="Basic" />
     <RolePrivilege name="prvAssignActivity" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_docom" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importnotification" level="Global" />
@@ -66,7 +71,7 @@
     <RolePrivilege name="prvCreateContact" level="Basic" />
     <RolePrivilege name="prvCreatedefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvCreatedefraexp_exportapplicationlifecycle" level="Global" />
-    <RolePrivilege name="prvCreatedefraimp_countryoftransit" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_docom" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importinspection" level="Global" />
@@ -88,7 +93,6 @@
     <RolePrivilege name="prvCreateWorkflowSession" level="Basic" />
     <RolePrivilege name="prvDeletedefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvDeletedefraexp_exportapplicationlifecycle" level="Global" />
-    <RolePrivilege name="prvDeletedefraimp_countryoftransit" level="Global" />
     <RolePrivilege name="prvDeletedefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvDeleteExpiredProcess" level="Global" />
     <RolePrivilege name="prvDeleteLeadToOpportunitySalesProcess" level="Global" />
@@ -119,8 +123,9 @@
     <RolePrivilege name="prvReaddefraexp_deliverymethod" level="Global" />
     <RolePrivilege name="prvReaddefraexp_ehctemplate" level="Global" />
     <RolePrivilege name="prvReaddefraexp_exportapplicationlifecycle" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_apharegion" level="Global" />
     <RolePrivilege name="prvReaddefraimp_autonumber" level="Global" />
-    <RolePrivilege name="prvReaddefraimp_countryoftransit" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_docom" level="Global" />
     <RolePrivilege name="prvReaddefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importapplicationbusinessprocessflow" level="Global" />
@@ -131,6 +136,7 @@
     <RolePrivilege name="prvReaddefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvReaddefraimp_itahc" level="Global" />
     <RolePrivilege name="prvReaddefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_sampletest" level="Global" />
     <RolePrivilege name="prvReadEntity" level="Global" />
     <RolePrivilege name="prvReadEntityDataSource" level="Global" />
     <RolePrivilege name="prvReadEntityKey" level="Global" />
@@ -138,6 +144,7 @@
     <RolePrivilege name="prvReadExpiredProcess" level="Global" />
     <RolePrivilege name="prvReadHierarchyRule" level="Global" />
     <RolePrivilege name="prvReadLeadToOpportunitySalesProcess" level="Global" />
+    <RolePrivilege name="prvReadmsdyn_attachmentprocessrecords" level="Global" />
     <RolePrivilege name="prvReadNewProcess" level="Global" />
     <RolePrivilege name="prvReadNote" level="Global" />
     <RolePrivilege name="prvReadOpportunitySalesProcess" level="Global" />
@@ -158,6 +165,7 @@
     <RolePrivilege name="prvReadSharePointDocument" level="Global" />
     <RolePrivilege name="prvReadSystemApplicationMetadata" level="Global" />
     <RolePrivilege name="prvReadSystemForm" level="Global" />
+    <RolePrivilege name="prvReadTeam" level="Local" />
     <RolePrivilege name="prvReadTransactionCurrency" level="Global" />
     <RolePrivilege name="prvReadTranslationProcess" level="Global" />
     <RolePrivilege name="prvReadUser" level="Local" />
@@ -167,6 +175,7 @@
     <RolePrivilege name="prvReadWorkflow" level="Local" />
     <RolePrivilege name="prvReadWorkflowSession" level="Global" />
     <RolePrivilege name="prvShareActivity" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_docom" level="Global" />
     <RolePrivilege name="prvSharedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvSharedefraimp_importnotification" level="Global" />
     <RolePrivilege name="prvSharedefraimp_itahc" level="Global" />
@@ -180,7 +189,7 @@
     <RolePrivilege name="prvWritedefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvWritedefraexp_exportapplicationlifecycle" level="Global" />
     <RolePrivilege name="prvWritedefraimp_autonumber" level="Global" />
-    <RolePrivilege name="prvWritedefraimp_countryoftransit" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_docom" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importinspection" level="Global" />

@@ -10,8 +10,17 @@
     <layoutxml>
       <grid name="defraimp_importqueries" jump="subject" select="1" icon="1" preview="1">
         <row name="defraimp_importquery" id="activityid">
-          <cell name="subject" width="300" />
-          <cell name="createdon" width="125" />
+          <cell name="defraimp_querynumber" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="regardingobjectid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_itahc" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_querysentto" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="subject" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="ownerid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdby" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_duedate" width="100" />
+          <cell name="statuscode" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_dateresolved" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -19,16 +28,24 @@
     <fetchxml>
       <fetch version="1.0" mapping="logical">
         <entity name="defraimp_importquery">
-          <attribute name="activityid" />
           <attribute name="subject" />
           <attribute name="createdon" />
-          <order attribute="subject" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="in">
               <value>0</value>
               <value>3</value>
             </condition>
           </filter>
+          <attribute name="statuscode" />
+          <attribute name="defraimp_querynumber" />
+          <attribute name="createdby" />
+          <attribute name="defraimp_querysentto" />
+          <attribute name="defraimp_itahc" />
+          <attribute name="ownerid" />
+          <attribute name="defraimp_dateresolved" />
+          <attribute name="defraimp_duedate" />
+          <attribute name="regardingobjectid" />
+          <order attribute="defraimp_querynumber" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{e1878097-7c0f-ea11-a811-000d3ab4de89}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" icon="1" preview="1" select="1" jump="defraimp_name">
+        <row id="defraimp_importnotificationid" name="result">
+          <cell name="defraimp_name" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch mapping="logical" output-format="xml-platform" version="1.0" distinct="false">
+        <entity name="defraimp_importnotification">
+          <attribute name="defraimp_name" />
+          <order descending="false" attribute="defraimp_name" />
+          <filter type="and">
+            <condition attribute="defraimp_datenotificationreceived" operator="today" />
+          </filter>
+          <attribute name="defraimp_importnotificationid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.5</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Import Notifications Received Today" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
