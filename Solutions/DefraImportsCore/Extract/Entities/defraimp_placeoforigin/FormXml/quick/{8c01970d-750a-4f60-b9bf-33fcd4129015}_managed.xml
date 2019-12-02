@@ -60,6 +60,22 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{42e08a1a-e327-1b45-96b3-8b61b147a747}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_postcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_postcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c13b8d07-b185-6481-3e86-319b35a93c3d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_addresscountry" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_addresscountry" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{3011da24-3792-3080-dc8a-c95191c8e382}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="" languagecode="1033" />

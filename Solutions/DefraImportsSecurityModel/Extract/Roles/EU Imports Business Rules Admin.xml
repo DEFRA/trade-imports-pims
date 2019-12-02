@@ -23,7 +23,6 @@
     <RolePrivilege name="prvCreatedefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
-    <RolePrivilege name="prvDeletedefraimp_importcountrycommodityrisklevel" level="Global" />
     <RolePrivilege name="prvReadAuditPartitions" level="Global" />
     <RolePrivilege name="prvReadAuditSummary" level="Global" />
     <RolePrivilege name="prvReaddefraexp_configurationparameter" level="Global" />

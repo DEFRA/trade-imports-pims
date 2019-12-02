@@ -162,21 +162,21 @@
                           </labels>
                           <control id="Component9236609" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{d32b1111-7974-b17a-9e99-aa0510dc3d9c}">
                             <parameters>
-                              <ViewId>{DD020992-1353-4A60-8EAD-C0E0925163E4}</ViewId>
+                              <ViewId>{BBD564FF-CC11-EA11-A811-000D3AB5D511}</ViewId>
                               <IsUserView>false</IsUserView>
                               <RelationshipName />
                               <TargetEntityType>defraimp_importapplication</TargetEntityType>
                               <AutoExpand>Fixed</AutoExpand>
                               <EnableQuickFind>false</EnableQuickFind>
                               <EnableViewPicker>false</EnableViewPicker>
-                              <ViewIds />
+                              <ViewIds>{DD020992-1353-4A60-8EAD-C0E0925163E4},{BBD564FF-CC11-EA11-A811-000D3AB5D511}</ViewIds>
                               <EnableJumpBar>false</EnableJumpBar>
                               <ChartGridMode>Chart</ChartGridMode>
                               <VisualizationId>{A12274A9-480D-EA11-A811-000D3AB5D037}</VisualizationId>
                               <IsUserChart>false</IsUserChart>
                               <EnableChartPicker>false</EnableChartPicker>
-                              <RecordsPerPage>8</RecordsPerPage>
-                              <HeaderColorCode />
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
                             </parameters>
                           </control>
                         </cell>

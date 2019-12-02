@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{0428e5a6-32a0-4519-9a6b-bb6861e61e8c}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_certificatereferencenumber" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_cvedid">
+          <cell name="defraimp_certificatereferencenumber" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="defraimp_cved">
+          <attribute name="defraimp_certificatereferencenumber" />
+          <attribute name="createdon" />
+          <order attribute="createdon" descending="true" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="defraimp_cvedid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.6</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive CVEDs" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

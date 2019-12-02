@@ -6,6 +6,7 @@
   <EntityRelationship Name="bookableresourcebookingheader_defraimp_importqueries" />
   <EntityRelationship Name="bulkoperation_defraimp_importqueries" />
   <EntityRelationship Name="business_unit_defraimp_apharegion" />
+  <EntityRelationship Name="business_unit_defraimp_cved" />
   <EntityRelationship Name="business_unit_defraimp_docom" />
   <EntityRelationship Name="business_unit_defraimp_goldbronzecommodity" />
   <EntityRelationship Name="business_unit_defraimp_importapplication" />
@@ -44,6 +45,7 @@
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityTypeId" />
   <EntityRelationship Name="defraimp_defraimp_apharegion_defraimp_importapplic" />
   <EntityRelationship Name="defraimp_defraimp_apharegion_defraimp_importinspection_RegionAreaAllocatedtoID" />
+  <EntityRelationship Name="defraimp_defraimp_cved_defraimp_importapplication_PrimaryCVEDId" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defra_country" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_impor" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication" />
@@ -95,6 +97,8 @@
   <EntityRelationship Name="lk_defraimp_apharegion_modifiedby" />
   <EntityRelationship Name="lk_defraimp_autonumber_createdby" />
   <EntityRelationship Name="lk_defraimp_autonumber_modifiedby" />
+  <EntityRelationship Name="lk_defraimp_cved_createdby" />
+  <EntityRelationship Name="lk_defraimp_cved_modifiedby" />
   <EntityRelationship Name="lk_defraimp_docom_createdby" />
   <EntityRelationship Name="lk_defraimp_docom_modifiedby" />
   <EntityRelationship Name="lk_defraimp_goldbronzecommodity_createdby" />
@@ -124,6 +128,7 @@
   <EntityRelationship Name="organization_defraimp_importcountrycommodityrisklevel" />
   <EntityRelationship Name="organization_defraimp_importrisklevel" />
   <EntityRelationship Name="owner_defraimp_apharegion" />
+  <EntityRelationship Name="owner_defraimp_cved" />
   <EntityRelationship Name="owner_defraimp_docom" />
   <EntityRelationship Name="owner_defraimp_goldbronzecommodity" />
   <EntityRelationship Name="owner_defraimp_importapplication" />
@@ -137,6 +142,7 @@
   <EntityRelationship Name="salesorder_defraimp_importqueries" />
   <EntityRelationship Name="site_defraimp_importqueries" />
   <EntityRelationship Name="team_defraimp_apharegion" />
+  <EntityRelationship Name="team_defraimp_cved" />
   <EntityRelationship Name="team_defraimp_docom" />
   <EntityRelationship Name="team_defraimp_goldbronzecommodity" />
   <EntityRelationship Name="team_defraimp_importapplication" />
@@ -147,6 +153,7 @@
   <EntityRelationship Name="team_defraimp_placeoforigin" />
   <EntityRelationship Name="team_defraimp_sampletest" />
   <EntityRelationship Name="user_defraimp_apharegion" />
+  <EntityRelationship Name="user_defraimp_cved" />
   <EntityRelationship Name="user_defraimp_docom" />
   <EntityRelationship Name="user_defraimp_goldbronzecommodity" />
   <EntityRelationship Name="user_defraimp_importapplication" />

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{a3c2d49a-bd12-ea11-a811-000d3ab5d037}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" preview="1" icon="1">
+        <row name="result" id="defraimp_importapplicationid">
+          <cell name="defraimp_name" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="defraimp_importapplication">
+          <attribute name="defraimp_name" />
+          <order attribute="defraimp_name" descending="false" />
+          <filter type="and">
+            <condition attribute="defraimp_importrisklevelid" operator="eq" uiname="P3" uitype="defraimp_importrisklevel" value="{48C4149E-B2D3-E911-A84E-000D3AB0D281}" />
+            <condition attribute="defraimp_commoditytypeid" operator="not-in">
+              <value uiname="DOG" uitype="defraexp_commoditytype">{195545A7-BBD3-E911-A870-000D3AB1DCDD}</value>
+              <value uiname="CAT" uitype="defraexp_commoditytype">{035545A7-BBD3-E911-A870-000D3AB1DCDD}</value>
+            </condition>
+            <condition attribute="createdon" operator="this-month" />
+            <condition attribute="defraimp_inspectionrequired" operator="eq" value="714100000" />
+          </filter>
+          <attribute name="defraimp_importapplicationid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.6</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="2% Scanning Checks Required" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

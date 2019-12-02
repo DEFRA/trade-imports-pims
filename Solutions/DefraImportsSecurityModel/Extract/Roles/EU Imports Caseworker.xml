@@ -7,6 +7,7 @@
     <RolePrivilege name="prvAppenddefra_country" level="Global" />
     <RolePrivilege name="prvAppenddefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvAppenddefraexp_exportapplicationlifecycle" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_cved" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_docom" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importapplicationbusinessprocessflow" level="Global" />
@@ -32,6 +33,7 @@
     <RolePrivilege name="prvAppendTodefraexp_commoditytype" level="Global" />
     <RolePrivilege name="prvAppendTodefraexp_exportapplicationlifecycle" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_apharegion" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_cved" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_docom" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importapplication" level="Global" />
@@ -57,6 +59,7 @@
     <RolePrivilege name="prvAppendWorkflow" level="Local" />
     <RolePrivilege name="prvAppendWorkflowSession" level="Basic" />
     <RolePrivilege name="prvAssignActivity" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_cved" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_docom" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importinspection" level="Global" />
@@ -71,6 +74,7 @@
     <RolePrivilege name="prvCreateContact" level="Basic" />
     <RolePrivilege name="prvCreatedefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvCreatedefraexp_exportapplicationlifecycle" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_cved" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_docom" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importapplicationbusinessprocessflow" level="Global" />
@@ -109,6 +113,8 @@
     <RolePrivilege name="prvReadAsyncOperation" level="Basic" />
     <RolePrivilege name="prvReadAttribute" level="Global" />
     <RolePrivilege name="prvReadAttributeMap" level="Global" />
+    <RolePrivilege name="prvReadAuditPartitions" level="Global" />
+    <RolePrivilege name="prvReadAuditSummary" level="Global" />
     <RolePrivilege name="prvReadCalendar" level="Global" />
     <RolePrivilege name="prvReadComplexControl" level="Global" />
     <RolePrivilege name="prvReadContact" level="Global" />
@@ -125,6 +131,7 @@
     <RolePrivilege name="prvReaddefraexp_exportapplicationlifecycle" level="Global" />
     <RolePrivilege name="prvReaddefraimp_apharegion" level="Global" />
     <RolePrivilege name="prvReaddefraimp_autonumber" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_cved" level="Global" />
     <RolePrivilege name="prvReaddefraimp_docom" level="Global" />
     <RolePrivilege name="prvReaddefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importapplication" level="Global" />
@@ -156,6 +163,7 @@
     <RolePrivilege name="prvReadPost" level="Global" />
     <RolePrivilege name="prvReadQuery" level="Global" />
     <RolePrivilege name="prvReadQueue" level="Global" />
+    <RolePrivilege name="prvReadRecordAuditHistory" level="Global" />
     <RolePrivilege name="prvReadRelationship" level="Global" />
     <RolePrivilege name="prvReadSavedQueryVisualizations" level="Global" />
     <RolePrivilege name="prvReadSdkMessage" level="Global" />
@@ -175,6 +183,7 @@
     <RolePrivilege name="prvReadWorkflow" level="Local" />
     <RolePrivilege name="prvReadWorkflowSession" level="Global" />
     <RolePrivilege name="prvShareActivity" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_cved" level="Global" />
     <RolePrivilege name="prvSharedefraimp_docom" level="Global" />
     <RolePrivilege name="prvSharedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvSharedefraimp_importnotification" level="Global" />
@@ -189,6 +198,7 @@
     <RolePrivilege name="prvWritedefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvWritedefraexp_exportapplicationlifecycle" level="Global" />
     <RolePrivilege name="prvWritedefraimp_autonumber" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_cved" level="Global" />
     <RolePrivilege name="prvWritedefraimp_docom" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importapplicationbusinessprocessflow" level="Global" />

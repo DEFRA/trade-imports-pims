@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <visualization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <savedqueryvisualizationid>{797F8770-5A10-EA11-A811-000D3AB55801}</savedqueryvisualizationid>
+  <savedqueryvisualizationid>{72486864-1715-EA11-A811-000D3AB35DA5}</savedqueryvisualizationid>
   <datadescription>
     <datadefinition>
       <fetchcollection>
         <fetch mapping="logical" aggregate="true">
           <entity name="defraimp_importinspection">
-            <attribute name="defraimp_datestartedworking" groupby="true" alias="_CRMAutoGen_groupby_column_Num_0" dategrouping="year" />
-            <attribute name="defraimp_importinspectionid" aggregate="count" alias="_CRMAutoGen_aggregate_column_Num_0" />
+            <attribute name="createdon" groupby="true" alias="_CRMAutoGen_groupby_column_Num_0" dategrouping="day" />
+            <attribute name="createdon" aggregate="count" alias="_CRMAutoGen_aggregate_column_Num_0" />
           </entity>
         </fetch>
       </fetchcollection>
@@ -46,9 +46,9 @@
   </presentationdescription>
   <isdefault>0</isdefault>
   <LocalizedNames>
-    <LocalizedName description="Post Import Checks By Date Started Working on IV17" languagecode="1033" />
+    <LocalizedName description="Post Import Checks Due by Day" languagecode="1033" />
   </LocalizedNames>
   <IsCustomizable>1</IsCustomizable>
-  <IntroducedVersion>0.0.0.2</IntroducedVersion>
+  <IntroducedVersion>0.0.0.6</IntroducedVersion>
   <CanBeDeleted>1</CanBeDeleted>
 </visualization>

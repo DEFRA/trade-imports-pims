@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{5af5bf33-8f0b-ea11-a811-000d3ab35da5}" Name="Import Application Type = CVEDA Form Render" Description="Click to add description" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/ImportApplicationTypeCVEDAFormRender-5AF5BF33-8F0B-EA11-A811-000D3AB35DA5.xaml</XamlFileName>
+<Workflow WorkflowId="{5af5bf33-8f0b-ea11-a811-000d3ab35da5}" Name="Import Application Type = CVED Form Render" Description="Click to add description" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ImportApplicationTypeCVEDFormRender-5AF5BF33-8F0B-EA11-A811-000D3AB35DA5.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>2</Category>
@@ -20,13 +20,13 @@
   <BusinessProcessType>0</BusinessProcessType>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Import Application Type = CVEDA Form Render" />
+    <LocalizedName languagecode="1033" description="Import Application Type = CVED Form Render" />
   </LocalizedNames>
   <Descriptions>
     <Description languagecode="1033" description="Click to add description" />
   </Descriptions>
   <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{d0aab475-8f0b-ea11-a811-000d3ab35da5}">
+    <ProcessTrigger processtriggerid="{5b8d9c0d-f214-ea11-a811-000d3ab55801}">
       <controltype>1</controltype>
       <scope>1</scope>
       <controlname>defraimp_importapplicationtype</controlname>
@@ -35,7 +35,7 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{d1aab475-8f0b-ea11-a811-000d3ab35da5}">
+    <ProcessTrigger processtriggerid="{5c8d9c0d-f214-ea11-a811-000d3ab55801}">
       <scope>1</scope>
       <event>load</event>
       <pipelinestage>0</pipelinestage>

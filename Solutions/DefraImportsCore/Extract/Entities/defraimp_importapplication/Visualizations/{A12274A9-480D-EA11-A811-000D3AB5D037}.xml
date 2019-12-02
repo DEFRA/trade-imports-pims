@@ -7,7 +7,7 @@
         <fetch mapping="logical" aggregate="true">
           <entity name="defraimp_importapplication">
             <attribute name="statuscode" groupby="true" alias="_CRMAutoGen_groupby_column_Num_0" />
-            <attribute name="defraimp_primaryimportnotificationid" aggregate="countcolumn" alias="_CRMAutoGen_aggregate_column_Num_0" />
+            <attribute name="defraimp_importapplicationid" aggregate="count" alias="_CRMAutoGen_aggregate_column_Num_0" />
           </entity>
         </fetch>
       </fetchcollection>
@@ -42,7 +42,7 @@
   </presentationdescription>
   <isdefault>0</isdefault>
   <LocalizedNames>
-    <LocalizedName description="Primary Import Notification by Status" languagecode="1033" />
+    <LocalizedName description="No. Of Import Records By Status" languagecode="1033" />
   </LocalizedNames>
   <IsCustomizable>1</IsCustomizable>
   <IntroducedVersion>0.0.0.5</IntroducedVersion>

@@ -21,7 +21,7 @@
           <attribute name="defraimp_name" />
           <order attribute="defraimp_name" descending="false" />
           <filter type="and">
-            <condition attribute="defraimp_importrisklevelid" operator="eq" uiname="P2" uitype="defraimp_importrisklevel" value="{A4C3149E-B2D3-E911-A84E-000D3AB0D281}" />
+            <condition attribute="defraimp_importrisklevelid" operator="eq" uiname="P3" uitype="defraimp_importrisklevel" value="{48C4149E-B2D3-E911-A84E-000D3AB0D281}" />
             <condition attribute="defraimp_devolvedofficeid" operator="eq" uiname="IRMS - CIT" uitype="team" value="{A8E19BEE-0106-EA11-A811-000D3AB5D511}" />
             <condition attribute="createdon" operator="this-month" />
           </filter>
@@ -31,7 +31,7 @@
     </fetchxml>
     <IntroducedVersion>0.0.0.5</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Import Records CSC RIsk Level 3 This Month" languagecode="1033" />
+      <LocalizedName description="Import Records CSC Risk Level 3 This Month" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

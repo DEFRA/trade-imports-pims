@@ -25,7 +25,7 @@
                       <row>
                         <cell colspan="1" rowspan="24" showlabel="true" id="{971172e4-0a85-4669-81bd-08d03840189b}" auto="false">
                           <labels>
-                            <label description="Live Import Applications" languagecode="1033" />
+                            <label description="Live Import Records" languagecode="1033" />
                           </labels>
                           <control id="LiveImportApplications" uniqueid="{050d0637-d2dc-8209-48c5-92e77a241eee}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -49,7 +49,7 @@
                         </cell>
                         <cell colspan="1" rowspan="12" showlabel="true" id="{e2e8d7c2-3929-4cfe-b36d-1c5476ea2d5e}" auto="false">
                           <labels>
-                            <label description="Import Applications - IV65 Overdue" languagecode="1033" />
+                            <label description="Import Records - IV65 Overdue" languagecode="1033" />
                           </labels>
                           <control id="ImportApplicationsIV65Overdue" uniqueid="{7a763ee4-2994-2314-b409-0e48b3ece157}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>

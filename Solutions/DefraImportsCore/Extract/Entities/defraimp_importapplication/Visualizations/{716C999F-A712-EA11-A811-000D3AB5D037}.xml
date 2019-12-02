@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <visualization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <savedqueryvisualizationid>{058D7E1C-F2D2-E911-A9A2-000D3AB6E833}</savedqueryvisualizationid>
+  <savedqueryvisualizationid>{716C999F-A712-EA11-A811-000D3AB5D037}</savedqueryvisualizationid>
   <datadescription>
     <datadefinition>
       <fetchcollection>
         <fetch mapping="logical" aggregate="true">
           <entity name="defraimp_importapplication">
-            <attribute name="defraimp_importrisklevelid" groupby="true" alias="_CRMAutoGen_groupby_column_Num_0" />
-            <attribute name="defraimp_importrisklevelid" aggregate="count" alias="_CRMAutoGen_aggregate_column_Num_0" />
+            <attribute name="createdon" groupby="true" alias="_CRMAutoGen_groupby_column_Num_0" dategrouping="month" />
+            <attribute name="defraimp_importapplicationid" aggregate="count" alias="_CRMAutoGen_aggregate_column_Num_0" />
           </entity>
         </fetch>
       </fetchcollection>
@@ -46,9 +46,9 @@
   </presentationdescription>
   <isdefault>0</isdefault>
   <LocalizedNames>
-    <LocalizedName description="No. of Import Records by Import Risk Level" languagecode="1033" />
+    <LocalizedName description="APHA Checks" languagecode="1033" />
   </LocalizedNames>
   <IsCustomizable>1</IsCustomizable>
-  <IntroducedVersion>0.0.0.1</IntroducedVersion>
+  <IntroducedVersion>0.0.0.3</IntroducedVersion>
   <CanBeDeleted>1</CanBeDeleted>
 </visualization>

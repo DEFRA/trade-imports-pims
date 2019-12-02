@@ -8,8 +8,10 @@
   <NavigationType>0</NavigationType>
   <AppModuleComponents>
     <AppModuleComponent type="62" schemaName="defraimp_EUImportsApp" />
+    <AppModuleComponent type="60" id="{f97149d6-b312-ea11-a811-000d3ab5d037}" />
     <AppModuleComponent type="60" id="{a5086809-3f10-ea11-a811-000d3ab55801}" />
     <AppModuleComponent type="60" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+    <AppModuleComponent type="60" id="{7721a0e0-3911-ea11-a811-000d3ab35da5}" />
     <AppModuleComponent type="60" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
     <AppModuleComponent type="60" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" />
     <AppModuleComponent type="60" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
@@ -19,12 +21,13 @@
     <AppModuleComponent type="1" schemaName="defraexp_commoditytype" />
     <AppModuleComponent type="1" schemaName="defraexp_configurationparameter" />
     <AppModuleComponent type="1" schemaName="defra_country" />
+    <AppModuleComponent type="1" schemaName="defraimp_cved" />
     <AppModuleComponent type="1" schemaName="defraimp_docom" />
     <AppModuleComponent type="1" schemaName="defraimp_goldbronzecommodity" />
-    <AppModuleComponent type="1" schemaName="defraimp_importapplication" />
     <AppModuleComponent type="1" schemaName="defraimp_importcountrycommodityrisklevel" />
     <AppModuleComponent type="1" schemaName="defraimp_importnotification" />
     <AppModuleComponent type="1" schemaName="defraimp_importquery" />
+    <AppModuleComponent type="1" schemaName="defraimp_importapplication" />
     <AppModuleComponent type="1" schemaName="defraimp_importrisklevel" />
     <AppModuleComponent type="1" schemaName="defraimp_inspectioncoveragerule" />
     <AppModuleComponent type="1" schemaName="defraimp_itahc" />

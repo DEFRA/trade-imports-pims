@@ -64,6 +64,9 @@
                     <Sequence DisplayName="SetVisibilityStep2: Hide Primary ITAHC">
                       <mcwc:SetVisibility ControlId="defraimp_primaryitahcid" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="False" />
                     </Sequence>
+                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep2_7: Hide Primary CVED">
+                      <mcwc:SetVisibility ControlId="defraimp_primarycvedid" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="False" />
+                    </Sequence>
                     <Sequence DisplayName="SetVisibilityStep3: Show Date Importer Contacted">
                       <mcwc:SetVisibility ControlId="defraimp_dateimportercontacted" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="True" />
                     </Sequence>
@@ -73,20 +76,36 @@
                     <Sequence DisplayName="SetVisibilityStep5: Show Date Confirmed on Traces">
                       <mcwc:SetVisibility ControlId="defraimp_dateconfirmedontraces" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="True" />
                     </Sequence>
-                    <Sequence DisplayName="SetAttributeValueStep_SetVisibilityStep5_6: Clear ITAHC">
+                    <Sequence DisplayName="SetAttributeValueStep6: Clear ITAHC">
                       <Sequence.Variables>
-                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep_SetVisibilityStep5_6_1" />
+                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep6_1" />
                       </Sequence.Variables>
                       <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importapplication&quot;)]" />
                       <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
-                      <mxswa:SetEntityProperty Attribute="defraimp_primaryitahcid" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[SetAttributeValueStep_SetVisibilityStep5_6_1]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_primaryitahcid" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[SetAttributeValueStep6_1]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep_SetVisibilityStep5_6" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importapplication" />
+                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep6" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importapplication" />
+                      <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;primaryEntity&quot;)]" Value="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" />
+                    </Sequence>
+                    <Sequence DisplayName="SetAttributeValueStep_SetAttributeValueStep6_8: Clear CVED">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep_SetAttributeValueStep6_8_1" />
+                      </Sequence.Variables>
+                      <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importapplication&quot;)]" />
+                      <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
+                      <mxswa:SetEntityProperty Attribute="defraimp_primarycvedid" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[SetAttributeValueStep_SetAttributeValueStep6_8_1]">
+                        <mxswa:SetEntityProperty.TargetType>
+                          <InArgument x:TypeArguments="s:Type">
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                          </InArgument>
+                        </mxswa:SetEntityProperty.TargetType>
+                      </mxswa:SetEntityProperty>
+                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep_SetAttributeValueStep6_8" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importapplication" />
                       <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;primaryEntity&quot;)]" Value="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" />
                     </Sequence>
                   </sco:Collection>

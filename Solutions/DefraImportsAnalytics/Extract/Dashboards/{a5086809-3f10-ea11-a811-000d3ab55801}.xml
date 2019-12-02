@@ -49,9 +49,33 @@
                         </cell>
                         <cell colspan="1" rowspan="12" showlabel="false" id="{ded09d37-c342-43b9-a6dc-7a9ade5a0077}" auto="false">
                           <labels>
-                            <label description="Post Import Checks" languagecode="1033" />
+                            <label description="Import Records" languagecode="1033" />
                           </labels>
                           <control id="Componentb1ccc10" uniqueid="{b33b9b53-ead3-c753-11d8-b3159e348d50}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>defraimp_importapplication</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{A3C2D49A-BD12-EA11-A811-000D3AB5D037}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{A3C2D49A-BD12-EA11-A811-000D3AB5D037},{DD020992-1353-4A60-8EAD-C0E0925163E4}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{716C999F-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="false" id="{7e6fe77a-f18b-4119-9b5c-3dd66f76ebfc}" auto="false">
+                          <labels>
+                            <label description="Post Import Checks" languagecode="1033" />
+                          </labels>
+                          <control id="Component3404fc3" uniqueid="{4d940634-c5c2-78b5-c724-d81a4131e241}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
                               <TargetEntityType>defraimp_importinspection</TargetEntityType>
                               <ChartGridMode>Chart</ChartGridMode>
@@ -60,22 +84,17 @@
                               <EnableJumpBar>false</EnableJumpBar>
                               <RecordsPerPage>10</RecordsPerPage>
                               <HeaderColorCode />
-                              <ViewId>{C10901D2-4510-EA11-A811-000D3AB55801}</ViewId>
+                              <ViewId>{E6DD7FE9-BD12-EA11-A811-000D3AB5D037}</ViewId>
                               <IsUserView>false</IsUserView>
                               <ViewIds />
                               <AutoExpand>Fixed</AutoExpand>
-                              <VisualizationId>{D26A167F-6310-EA11-A811-000D3AB55801}</VisualizationId>
+                              <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
                               <IsUserChart>false</IsUserChart>
                               <EnableChartPicker>false</EnableChartPicker>
                               <RelationshipName />
                             </parameters>
                           </control>
                         </cell>
-                        <cell colspan="1" rowspan="12" showlabel="false" ispreviewcell="true" id="{7e6fe77a-f18b-4119-9b5c-3dd66f76ebfc}">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
                       </row>
                       <row />
                       <row />
@@ -89,154 +108,90 @@
                       <row />
                       <row />
                       <row>
-                        <cell id="{2a46d908-0673-a353-2ca6-8c88074c6e41}" showlabel="false">
+                        <cell id="{7ac33675-1932-3b50-7c5a-c14aa04aa459}" showlabel="true" colspan="1" auto="false" rowspan="12">
                           <labels>
-                            <label description="" languagecode="1033" />
+                            <label description="Cat/Dog/Ferret Checks Due Today" languagecode="1033" />
                           </labels>
+                          <control id="Component2283017" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{cbe4c89e-4e27-8307-aed8-2744bcd45d7c}">
+                            <parameters>
+                              <ViewId>{FF0A73D6-B812-EA11-A811-000D3AB5D037}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
                         </cell>
-                        <cell id="{d43b72aa-cb0d-90d6-e860-105c6d657892}" showlabel="false">
+                        <cell id="{c79170ad-7100-7119-e7d0-9b0738c699e5}" showlabel="true" colspan="1" auto="false" rowspan="12">
                           <labels>
-                            <label description="" languagecode="1033" />
+                            <label description="Cat/Dog/Ferret Checks Due This Week" languagecode="1033" />
                           </labels>
+                          <control id="Component6194870" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{cc27e367-800a-7cd5-e2ad-260cc8eca733}">
+                            <parameters>
+                              <ViewId>{3C293F6D-1815-EA11-A811-000D3AB35DA5}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
                         </cell>
-                        <cell colspan="1" rowspan="12" showlabel="false" ispreviewcell="true" id="{c0935a24-211e-432d-b606-2187824f3198}">
+                        <cell id="{4526b873-bed8-213b-738d-c6594886acd7}" showlabel="true" colspan="1" auto="false" rowspan="12">
                           <labels>
-                            <label description="" languagecode="1033" />
+                            <label description="Cat/Dog/Ferret Checks Due (30 Days)" languagecode="1033" />
                           </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{3a7e929e-0ac4-ab2d-b27c-305d633784e9}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{cecd947d-6db4-8ad0-bc71-b0038d4cc063}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{7181085b-88ce-4b23-66b7-0a2edb3676ed}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{c06a6457-1e81-81dc-2d6a-72ec2236901b}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{9b816d62-5e28-e25e-4759-9a516c83b825}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{866a4166-e050-13c0-0e4e-7a4d8c24a037}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{5b6c4756-c709-591b-7de7-42262aca4db3}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{37eaa1d7-17b9-7c20-149b-4056adc36ea5}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{e8d94d3a-eab7-9b2a-cd34-89a22cea1a55}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{1175377a-a5de-5eca-27ba-8e8667a16029}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
+                          <control id="Component4881130" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{a950a523-7da8-ae62-97a5-4144407e4dac}">
+                            <parameters>
+                              <ViewId>{EFB07300-B912-EA11-A811-000D3AB5D037}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
                         </cell>
                       </row>
-                      <row>
-                        <cell id="{32c12735-8474-ce31-dccc-038e42704c18}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{18d4de93-5cdb-d493-36d1-8b64a35d9d45}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{3714ac25-6ee0-c087-c79e-cc40bbcb0367}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{eae24b14-3871-b668-b937-136b409810ca}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{4c562c07-24d1-ac5e-7b53-09106d80aaae}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{889b2018-7a1c-8712-6d96-5e5656eb81a3}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{d4c64d03-139c-514c-6c5d-4e635960053a}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{0878d4d8-1a8e-8117-3054-5486c40606ac}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{ea7a07d9-5326-8433-7cc3-6909b3ba63c6}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{c27a5a99-7b5b-cd5c-ea39-b8ad783b0cde}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{78db832d-b2d1-3541-06e6-d1c6d8e9ddd7}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{0aadc918-b967-3c63-3e3c-008489566db9}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
                     </rows>
                   </section>
                 </sections>
@@ -244,7 +199,83 @@
             </columns>
           </tab>
         </tabs>
-        <controlDescriptions />
+        <controlDescriptions>
+          <controlDescription forControl="{cbe4c89e-4e27-8307-aed8-2744bcd45d7c}">
+            <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="0">
+              <parameters>
+                <ViewId>{FF0A73D6-B812-EA11-A811-000D3AB5D037}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName />
+                <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                <AutoExpand>Fixed</AutoExpand>
+                <EnableQuickFind>true</EnableQuickFind>
+                <EnableViewPicker>false</EnableViewPicker>
+                <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                <EnableJumpBar>true</EnableJumpBar>
+                <ChartGridMode>Grid</ChartGridMode>
+                <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                <IsUserChart>false</IsUserChart>
+                <EnableChartPicker>false</EnableChartPicker>
+                <RecordsPerPage>8</RecordsPerPage>
+                <HeaderColorCode>#F3F3F3</HeaderColorCode>
+              </parameters>
+            </customControl>
+            <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="1">
+              <parameters>
+                <ViewId>{FF0A73D6-B812-EA11-A811-000D3AB5D037}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName />
+                <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                <AutoExpand>Fixed</AutoExpand>
+                <EnableQuickFind>true</EnableQuickFind>
+                <EnableViewPicker>false</EnableViewPicker>
+                <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                <EnableJumpBar>true</EnableJumpBar>
+                <ChartGridMode>Grid</ChartGridMode>
+                <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                <IsUserChart>false</IsUserChart>
+                <EnableChartPicker>false</EnableChartPicker>
+                <RecordsPerPage>8</RecordsPerPage>
+                <HeaderColorCode>#F3F3F3</HeaderColorCode>
+              </parameters>
+            </customControl>
+            <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="2">
+              <parameters>
+                <ViewId>{FF0A73D6-B812-EA11-A811-000D3AB5D037}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName />
+                <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                <AutoExpand>Fixed</AutoExpand>
+                <EnableQuickFind>true</EnableQuickFind>
+                <EnableViewPicker>false</EnableViewPicker>
+                <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                <EnableJumpBar>true</EnableJumpBar>
+                <ChartGridMode>Grid</ChartGridMode>
+                <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                <IsUserChart>false</IsUserChart>
+                <EnableChartPicker>false</EnableChartPicker>
+                <RecordsPerPage>8</RecordsPerPage>
+                <HeaderColorCode>#F3F3F3</HeaderColorCode>
+              </parameters>
+            </customControl>
+            <customControl name="MscrmControls.Grid.ReadOnlyGrid" formFactor="-1">
+              <parameters>
+                <data-set name="Grid">
+                  <ViewId>{FF0A73D6-B812-EA11-A811-000D3AB5D037}</ViewId>
+                  <IsUserView>false</IsUserView>
+                  <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                  <EnableViewPicker>false</EnableViewPicker>
+                  <FilteredViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</FilteredViewIds>
+                </data-set>
+                <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+                <CardForm static="true" type="Form.Card">f1cad891-fe93-442c-a26c-5eeb2e87c4f1:Card|defraimp_importinspection|00000000-0000-0000-0000-000000000000</CardForm>
+                <EnableEditing static="true" type="Enum">no</EnableEditing>
+                <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+                <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              </parameters>
+            </customControl>
+          </controlDescription>
+        </controlDescriptions>
       </form>
     </forms>
   </FormXml>
