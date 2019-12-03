@@ -30,15 +30,11 @@
               </condition>
               <condition attribute="createdon" operator="last-x-months" value="1" />
               <condition attribute="defraimp_inspectionrequired" operator="eq" value="714100000" />
-            </filter>
-            <link-entity name="defraimp_placeoforigin" from="defraimp_placeoforiginid" to="defraimp_placeoforiginid" alias="ab">
-              <filter type="and">
-                <filter type="or">
-                  <condition attribute="defraimp_trustlevel" operator="eq" value="714100000" />
-                  <condition attribute="defraimp_placeoforiginid" operator="null" uihidden="1" />
-                </filter>
+              <filter type="or">
+                <condition attribute="defraimp_placeoforigintrustlevel" operator="eq" value="714100000" />
+                <condition attribute="defraimp_placeoforiginid" operator="null" />
               </filter>
-            </link-entity>
+            </filter>
           </link-entity>
           <attribute name="defraimp_importinspectionid" />
         </entity>

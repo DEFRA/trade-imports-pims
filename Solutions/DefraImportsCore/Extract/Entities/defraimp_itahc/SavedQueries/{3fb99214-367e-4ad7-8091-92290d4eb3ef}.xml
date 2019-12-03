@@ -5,7 +5,7 @@
     <CanBeDeleted>0</CanBeDeleted>
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
-    <isdefault>1</isdefault>
+    <isdefault>0</isdefault>
     <savedqueryid>{3fb99214-367e-4ad7-8091-92290d4eb3ef}</savedqueryid>
     <layoutxml>
       <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
@@ -15,6 +15,8 @@
           <cell name="defraimp_ovname" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_localveterinaryunit" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_lvuno" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_replacedbyid" width="100" />
+          <cell name="defraimp_replacesid" width="100" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -25,7 +27,6 @@
         <entity name="defraimp_itahc">
           <attribute name="defraimp_name" />
           <attribute name="createdon" />
-          <order attribute="createdon" descending="true" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
@@ -34,6 +35,9 @@
           <attribute name="defraimp_lvuno" />
           <attribute name="defraimp_localveterinaryunit" />
           <attribute name="defraimp_itahcid" />
+          <attribute name="defraimp_replacesid" />
+          <attribute name="defraimp_replacedbyid" />
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

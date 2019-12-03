@@ -28,6 +28,7 @@
   <EntityRelationship Name="defraimp_defra_country_defraimp_importapplication" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importapplication_ImporterAddressCountryID" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importapplication_PlaceofOriginCountryID" />
+  <EntityRelationship Name="defraimp_defra_country_defraimp_importapplication_transporteraddresscountryid" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importapppermdest" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importappplacedest" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importcountrycommodityrisklevel_countryid" />
