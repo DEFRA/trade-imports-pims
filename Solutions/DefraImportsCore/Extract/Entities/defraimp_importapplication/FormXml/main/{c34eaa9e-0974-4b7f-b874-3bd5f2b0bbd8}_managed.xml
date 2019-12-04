@@ -20,6 +20,14 @@
                   </labels>
                   <rows>
                     <row>
+                      <cell id="{aeda1100-2d4d-902c-c25c-238817a430ad}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_devolvedofficeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_devolvedofficeid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{3026ae31-5225-bcea-8dae-57208374374a}" locklevel="0" showlabel="true">
                         <labels>
                           <label description="" languagecode="1033" />
@@ -43,7 +51,7 @@
                         <control disabled="false" id="defraimp_commoditynotes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commoditynotes" uniqueid="{034cdbb1-ae15-2422-db89-7c5708ed6dc3}" />
                       </cell>
                     </row>
-                    <row />
+                    <row></row>
                     <row>
                       <cell id="{4a20d1c3-8208-1145-0487-d58594a3a92d}" locklevel="0" showlabel="true">
                         <labels>
@@ -133,6 +141,14 @@
                           <label description="Point of Entry" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_pointofentry" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_pointofentry" uniqueid="{7eec5796-c02b-0eb0-1dde-c866c13d9219}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c289bb7a-c49e-d97b-967c-18d0ca453055}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_regionareaallocatedtoid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_regionareaallocatedtoid" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -1260,17 +1276,15 @@
               </labels>
               <control disabled="true" id="header_statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" uniqueid="{d2d76461-4ee9-0782-4e23-36b9a35d73eb}" />
             </cell>
-            <cell id="{036e0b97-97b7-d73d-3de0-5806be672b05}" locklevel="0" showlabel="true">
+            <cell id="{c7340d30-558d-7d80-57a2-2b10db4b65d2}" showlabel="false">
               <labels>
                 <label description="" languagecode="1033" />
               </labels>
-              <control disabled="false" id="header_defraimp_regionareaallocatedtoid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_regionareaallocatedtoid" />
             </cell>
-            <cell id="{ca96c36c-a800-57bc-d405-8e49a0e4a2e1}" locklevel="0" showlabel="true">
+            <cell id="{2249eb4b-592e-c700-5048-d8437bb2d558}" showlabel="false">
               <labels>
                 <label description="" languagecode="1033" />
               </labels>
-              <control disabled="false" id="header_defraimp_devolvedofficeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_devolvedofficeid" />
             </cell>
           </row>
           <row>
@@ -1280,12 +1294,12 @@
               </labels>
               <control disabled="false" id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>
-            <cell id="{c7340d30-558d-7d80-57a2-2b10db4b65d2}" showlabel="false">
+            <cell id="{0db97d4e-b012-ccc2-a530-d773b81bd21d}" showlabel="false">
               <labels>
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
-            <cell id="{cb84e33c-a48a-966d-8053-87233ac7514d}" showlabel="false">
+            <cell id="{ebcd7e89-6398-796d-d204-06c33a251981}" showlabel="false">
               <labels>
                 <label description="" languagecode="1033" />
               </labels>

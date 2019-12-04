@@ -26,7 +26,7 @@
     <Description languagecode="1033" description="Click to add description" />
   </Descriptions>
   <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{de88eeec-f214-ea11-a811-000d3ab55801}">
+    <ProcessTrigger processtriggerid="{bc887de7-8e16-ea11-a811-000d3ab4de89}">
       <controltype>1</controltype>
       <scope>1</scope>
       <controlname>defraimp_importapplicationtype</controlname>
@@ -35,7 +35,7 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{df88eeec-f214-ea11-a811-000d3ab55801}">
+    <ProcessTrigger processtriggerid="{bd887de7-8e16-ea11-a811-000d3ab4de89}">
       <scope>1</scope>
       <event>load</event>
       <pipelinestage>0</pipelinestage>

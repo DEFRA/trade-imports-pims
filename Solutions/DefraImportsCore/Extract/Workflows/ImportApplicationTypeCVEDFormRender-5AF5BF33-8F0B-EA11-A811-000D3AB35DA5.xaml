@@ -84,7 +84,7 @@
                     <Sequence DisplayName="SetVisibilityStep5: Hide Primary ITAHC">
                       <mcwc:SetVisibility ControlId="defraimp_primaryitahcid" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="False" />
                     </Sequence>
-                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep5_11: Show Primary CVED">
+                    <Sequence DisplayName="SetVisibilityStep11: Show Primary CVED">
                       <mcwc:SetVisibility ControlId="defraimp_primarycvedid" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="True" />
                     </Sequence>
                     <Sequence DisplayName="SetAttributeValueStep6: Clear Date Importer Contacted">

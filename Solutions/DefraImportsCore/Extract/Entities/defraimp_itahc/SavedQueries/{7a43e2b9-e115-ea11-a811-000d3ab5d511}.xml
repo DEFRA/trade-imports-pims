@@ -12,9 +12,10 @@
         <row name="result" id="defraimp_itahcid">
           <cell name="defraimp_healthcertificatenumber" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_tracesreceiveddate" width="100" />
           <cell name="defraimp_ovname" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_localveterinaryunit" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="defraimp_lvuno" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_lvuno" width="100" />
           <cell name="defraimp_replacedbyid" width="100" />
           <cell name="defraimp_replacesid" width="100" />
           <cell name="createdon" width="125" />
@@ -29,12 +30,13 @@
           <attribute name="createdon" />
           <attribute name="defraimp_healthcertificatenumber" />
           <attribute name="defraimp_ovname" />
-          <attribute name="defraimp_lvuno" />
           <attribute name="defraimp_localveterinaryunit" />
-          <order attribute="createdon" descending="true" />
           <attribute name="defraimp_replacesid" />
           <attribute name="defraimp_replacedbyid" />
           <attribute name="defraimp_itahcid" />
+          <attribute name="defraimp_tracesreceiveddate" />
+          <attribute name="defraimp_lvuno" />
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

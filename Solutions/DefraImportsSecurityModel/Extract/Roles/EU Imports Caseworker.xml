@@ -23,6 +23,7 @@
     <RolePrivilege name="prvAppendOpportunitySalesProcess" level="Global" />
     <RolePrivilege name="prvAppendPhoneToCaseProcess" level="Global" />
     <RolePrivilege name="prvAppendPost" level="Global" />
+    <RolePrivilege name="prvAppendTeam" level="Local" />
     <RolePrivilege name="prvAppendToAccount" level="Global" />
     <RolePrivilege name="prvAppendToActivity" level="Global" />
     <RolePrivilege name="prvAppendToContact" level="Global" />
@@ -50,12 +51,15 @@
     <RolePrivilege name="prvAppendToOpportunitySalesProcess" level="Global" />
     <RolePrivilege name="prvAppendToPhoneToCaseProcess" level="Global" />
     <RolePrivilege name="prvAppendToPost" level="Global" />
+    <RolePrivilege name="prvAppendToTeam" level="Local" />
     <RolePrivilege name="prvAppendToTransactionCurrency" level="Global" />
     <RolePrivilege name="prvAppendToTranslationProcess" level="Global" />
+    <RolePrivilege name="prvAppendToUser" level="Local" />
     <RolePrivilege name="prvAppendToWorkflow" level="Global" />
     <RolePrivilege name="prvAppendToWorkflowSession" level="Basic" />
     <RolePrivilege name="prvAppendTransactionCurrency" level="Global" />
     <RolePrivilege name="prvAppendTranslationProcess" level="Global" />
+    <RolePrivilege name="prvAppendUser" level="Local" />
     <RolePrivilege name="prvAppendWorkflow" level="Local" />
     <RolePrivilege name="prvAppendWorkflowSession" level="Basic" />
     <RolePrivilege name="prvAssignActivity" level="Global" />

@@ -53,18 +53,18 @@
                           </labels>
                           <control id="Component6348839" uniqueid="{2586c42c-cbbb-4b22-385a-cb6b560b78c2}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
-                              <TargetEntityType>defraimp_importnotification</TargetEntityType>
+                              <TargetEntityType>defraimp_importapplication</TargetEntityType>
                               <ChartGridMode>Chart</ChartGridMode>
                               <EnableQuickFind>false</EnableQuickFind>
                               <EnableViewPicker>false</EnableViewPicker>
                               <EnableJumpBar>false</EnableJumpBar>
-                              <RecordsPerPage>10</RecordsPerPage>
-                              <HeaderColorCode />
-                              <ViewId>{E1878097-7C0F-EA11-A811-000D3AB4DE89}</ViewId>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{7E5E2D4C-950F-EA11-A811-000D3AB5D511}</ViewId>
                               <IsUserView>false</IsUserView>
-                              <ViewIds />
+                              <ViewIds>{7E5E2D4C-950F-EA11-A811-000D3AB5D511},{DD020992-1353-4A60-8EAD-C0E0925163E4}</ViewIds>
                               <AutoExpand>Fixed</AutoExpand>
-                              <VisualizationId>{E503AD96-5B10-EA11-A811-000D3AB55801}</VisualizationId>
+                              <VisualizationId>{B541443A-7E16-EA11-A811-000D3AB5D511}</VisualizationId>
                               <IsUserChart>false</IsUserChart>
                               <EnableChartPicker>false</EnableChartPicker>
                               <RelationshipName />
