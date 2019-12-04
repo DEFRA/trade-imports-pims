@@ -6,7 +6,7 @@
       <LocalizedName description="Defra.Imports.Apps" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.6</Version>
+    <Version>0.0.0.7</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -82,23 +82,23 @@
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
-        <Required key="0" type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="Active" />
+        <Required key="0" type="1" schemaName="defraimp_cved" displayName="CVED" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="2" type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Required key="2" type="1" schemaName="defraimp_placeoforigin" displayName="Place of Origin" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="3" type="1" schemaName="defraimp_importnotification" displayName="Import Notification" solution="Active" />
+        <Required key="3" type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="4" type="1" schemaName="defraimp_cved" displayName="CVED" solution="Active" />
+        <Required key="4" type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="5" type="1" schemaName="defraimp_placeoforigin" displayName="Place of Origin" solution="Active" />
+        <Required key="5" type="1" schemaName="defraimp_importnotification" displayName="Import Notification" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
@@ -158,43 +158,163 @@
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="20" type="60" displayName="EU Imports - Daily Stats" solution="Active" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+        <Required key="20" type="26" schemaName="Import Record Associated View" displayName="Import Record Associated View" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{64249029-2d3c-41ed-853b-4dca8a8190b5}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="21" type="60" displayName="EU Imports - Caseworker" solution="Active" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+        <Required key="21" type="26" schemaName="Live DOCOM Import Records" displayName="Live DOCOM Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{6cfd9361-8a0b-ea11-a811-000d3ab55801}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="22" type="60" displayName="EU Imports - Import Queries" solution="Active" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" />
+        <Required key="22" type="26" schemaName="Post Import Check Lookup View" displayName="Post Import Check Lookup View" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{06febc84-1a13-4084-9094-ec7d8d42c782}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="23" type="60" displayName="EU Imports - CSC Capacity and Demand" solution="Active" id="{7721a0e0-3911-ea11-a811-000d3ab35da5}" />
+        <Required key="23" type="26" schemaName="Live Import Records - P3" displayName="Live Import Records - P3" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{46984e7a-f411-ea11-a811-000d3ab35da5}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="24" type="60" displayName="EU Imports - Daily IRMS Stats" solution="Active" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" />
+        <Required key="24" type="26" schemaName="Export to Excel View" displayName="Export to Excel View" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{221a0585-ca0a-ea11-a811-000d3ab5d511}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="25" type="60" displayName="EU Imports - Daily Huddle Stats" solution="Active" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
+        <Required key="25" type="26" schemaName="Closed Post Import Checks" displayName="Closed Post Import Checks" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{ec89082a-ae0b-ea11-a811-000d3ab4df6c}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="26" type="60" displayName="EU Imports - Border Control Metrics" solution="Active" id="{a5086809-3f10-ea11-a811-000d3ab55801}" />
+        <Required key="26" type="26" schemaName="My Open Post Import Checks" displayName="My Open Post Import Checks" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{baf149ab-ad0b-ea11-a811-000d3ab4df6c}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="27" type="60" displayName="EU Imports - APHA Border Control Metrics" solution="Active" id="{f97149d6-b312-ea11-a811-000d3ab5d037}" />
+        <Required key="27" type="26" schemaName="Live Import Records With a Primary ITAHC" displayName="Live Import Records With a Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{a0b6d326-d511-ea11-a811-000d3ab5d511}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="28" type="62" schemaName="defraimp_EUImportsApp" solution="Active" />
+        <Required key="28" type="26" schemaName="Live Northern Import Records" displayName="Live Northern Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{36485154-710f-ea11-a811-000d3ab4de89}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="29" type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
+        <Required key="29" type="26" schemaName="My Live Import Records" displayName="My Live Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{053650de-a816-ea11-a811-000d3ab4df6c}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="30" type="26" schemaName="Post Import Check Advanced Find View" displayName="Post Import Check Advanced Find View" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{969ea508-7960-4405-a44f-fdfedacb221b}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="31" type="26" schemaName="Overdue Post Import Checks" displayName="Overdue Post Import Checks" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{ccee9e5a-ae0b-ea11-a811-000d3ab4df6c}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="32" type="26" schemaName="All Post Import Checks" displayName="All Post Import Checks" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{78bb5e9f-a5f1-e911-a812-000d3ab5d511}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="33" type="26" schemaName="Live Import Records - IV65 Response Overdue" displayName="Live Import Records - IV65 Response Overdue" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{1276685f-6a05-ea11-a811-000d3ab5d511}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="34" type="26" schemaName="Inactive Post Import Checks" displayName="Inactive Post Import Checks" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{7ff0c069-fd13-4d62-a19e-0415a58490e6}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="35" type="26" schemaName="Live Southern Import Records" displayName="Live Southern Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{6f7069b4-710f-ea11-a811-000d3ab4de89}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="36" type="26" schemaName="Live Western Import Records" displayName="Live Western Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{5d538f1a-720f-ea11-a811-000d3ab4de89}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="37" type="26" schemaName="All Import Records" displayName="All Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{673f82f9-4b0c-ea11-a811-000d3ab55801}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="38" type="26" schemaName="Import Record Lookup View" displayName="Import Record Lookup View" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{1442277e-c668-416e-9b3d-52c480c4f58c}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="39" type="26" schemaName="Live Import Records - P1" displayName="Live Import Records - P1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{458c2f4a-f411-ea11-a811-000d3ab35da5}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="40" type="26" schemaName="IRMS - CIT - Unassigned Work" displayName="IRMS - CIT - Unassigned Work" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{ee3d598a-9e16-ea11-a811-000d3ab4de89}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="41" type="26" schemaName="Active Post Import Checks" displayName="Active Post Import Checks" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{fa4ff63f-0f18-4e95-8ae3-d5b2601a544f}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="42" type="26" schemaName="Open Post Import Checks" displayName="Open Post Import Checks" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{48aa2550-5910-ea11-a811-000d3ab55801}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="43" type="26" schemaName="Live Import Records With a Primary Notification" displayName="Live Import Records With a Primary Notification" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{bbd564ff-cc11-ea11-a811-000d3ab5d511}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="44" type="26" schemaName="Live Import Records - TB" displayName="Live Import Records - TB" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{4ffe36fa-f411-ea11-a811-000d3ab35da5}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="45" type="26" schemaName="Import Record Advanced Find View" displayName="Import Record Advanced Find View" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{97554b84-6131-4f2c-8065-4ea52031b520}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="46" type="26" schemaName="Post Import Check Associated View" displayName="Post Import Check Associated View" parentSchemaName="defraimp_importinspection" parentDisplayName="Post Import Check" solution="Active" id="{56899b2a-b7ee-4e06-a66f-3d9e88a03714}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="47" type="26" schemaName="Live Import Records" displayName="Live Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{dd020992-1353-4a60-8ead-c0e0925163e4}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="48" type="26" schemaName="Inactive Import Records" displayName="Inactive Import Records" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{5cbabd21-bccb-4fd0-8424-ef07d2292504}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="49" type="26" schemaName="Live Import Records - P2" displayName="Live Import Records - P2" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" id="{c9235568-f411-ea11-a811-000d3ab35da5}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="50" type="60" displayName="EU Imports - Daily IRMS Stats" solution="Active" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="51" type="60" displayName="EU Imports - APHA Border Control Metrics" solution="Active" id="{f97149d6-b312-ea11-a811-000d3ab5d037}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="52" type="60" displayName="EU Imports - Border Control Metrics" solution="Active" id="{a5086809-3f10-ea11-a811-000d3ab55801}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="53" type="60" displayName="EU Imports - Daily Huddle Stats" solution="Active" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="54" type="60" displayName="EU Imports - CSC Capacity and Demand" solution="Active" id="{7721a0e0-3911-ea11-a811-000d3ab35da5}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="55" type="60" displayName="EU Imports - Daily Stats" solution="Active" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="56" type="60" displayName="EU Imports - Import Queries" solution="Active" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="57" type="60" displayName="EU Imports - Caseworker" solution="Active" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="58" type="62" schemaName="defraimp_EUImportsApp" solution="Active" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="59" type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
     </MissingDependencies>
