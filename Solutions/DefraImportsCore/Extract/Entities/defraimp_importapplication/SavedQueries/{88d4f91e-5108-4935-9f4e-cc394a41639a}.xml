@@ -18,6 +18,18 @@
           <cell name="defraimp_placeoforiginorganisation" width="100" />
           <cell name="defraimp_placeofdestinationorganisation" width="100" />
           <cell name="createdon" width="125" />
+          <cell name="defraimp_commodityidentifiers" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_importeremail" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_importertelephone" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_permanentdestinationaddresspostcode" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_permanentdestinationcontactname" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_permanentdestinationemail" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_permanentdestinationorganisation" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_permanentdestinationtelephone" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeofdestinationcontactname" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeofdestinationemail" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeofdestinationtelephone" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeofdestinationaddresspostcode" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
         </row>
       </grid>
     </layoutxml>
@@ -30,13 +42,28 @@
             <condition value="0" operator="eq" attribute="statecode" />
           </filter>
           <filter type="or" isquickfindfields="1">
-            <condition value="{0}" operator="like" attribute="defraimp_name" />
-            <condition value="{0}" operator="like" attribute="defraimp_importercontactname" />
-            <condition value="{3}" operator="on" attribute="defraimp_dateofimport" />
-            <condition value="{0}" operator="like" attribute="defraimp_placeoforiginorganisation" />
-            <condition value="{0}" operator="like" attribute="defraimp_primaryitahcid" />
-            <condition value="{0}" operator="like" attribute="defraimp_primaryimportnotificationid" />
-            <condition value="{0}" operator="like" attribute="defraimp_primarydocomid" />
+            <condition attribute="defraimp_primaryitahcid" operator="like" value="{0}" />
+            <condition attribute="defraimp_primaryimportnotificationid" operator="like" value="{0}" />
+            <condition attribute="defraimp_primarydocomid" operator="like" value="{0}" />
+            <condition attribute="defraimp_placeoforiginorganisation" operator="like" value="{0}" />
+            <condition attribute="defraimp_placeofdestinationtelephone" operator="like" value="{0}" />
+            <condition attribute="defraimp_placeofdestinationorganisation" operator="like" value="{0}" />
+            <condition attribute="defraimp_placeofdestinationemail" operator="like" value="{0}" />
+            <condition attribute="defraimp_placeofdestinationaddresspostcode" operator="like" value="{0}" />
+            <condition attribute="defraimp_placeofdestinationcontactname" operator="like" value="{0}" />
+            <condition attribute="defraimp_permanentdestinationtelephone" operator="like" value="{0}" />
+            <condition attribute="defraimp_permanentdestinationorganisation" operator="like" value="{0}" />
+            <condition attribute="defraimp_permanentdestinationemail" operator="like" value="{0}" />
+            <condition attribute="defraimp_permanentdestinationcontactname" operator="like" value="{0}" />
+            <condition attribute="defraimp_permanentdestinationaddresspostcode" operator="like" value="{0}" />
+            <condition attribute="defraimp_name" operator="like" value="{0}" />
+            <condition attribute="defraimp_importertelephone" operator="like" value="{0}" />
+            <condition attribute="defraimp_importeremail" operator="like" value="{0}" />
+            <condition attribute="defraimp_importercontactname" operator="like" value="{0}" />
+            <condition attribute="defraimp_dateofimport" operator="on" value="{3}" />
+            <condition attribute="defraimp_countryoforiginid" operator="like" value="{0}" />
+            <condition attribute="defraimp_commoditytypeid" operator="like" value="{0}" />
+            <condition attribute="defraimp_commodityidentifiers" operator="like" value="{0}" />
           </filter>
           <attribute name="defraimp_placeoforiginorganisation" />
           <attribute name="defraimp_placeofdestinationorganisation" />
@@ -46,6 +73,18 @@
           <attribute name="defraimp_importrisklevelid" />
           <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_name" />
+          <attribute name="defraimp_placeofdestinationtelephone" />
+          <attribute name="defraimp_placeofdestinationemail" />
+          <attribute name="defraimp_placeofdestinationcontactname" />
+          <attribute name="defraimp_permanentdestinationtelephone" />
+          <attribute name="defraimp_permanentdestinationorganisation" />
+          <attribute name="defraimp_permanentdestinationemail" />
+          <attribute name="defraimp_permanentdestinationcontactname" />
+          <attribute name="defraimp_permanentdestinationaddresspostcode" />
+          <attribute name="defraimp_importertelephone" />
+          <attribute name="defraimp_importeremail" />
+          <attribute name="defraimp_commodityidentifiers" />
+          <attribute name="defraimp_placeofdestinationaddresspostcode" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>

@@ -11,6 +11,8 @@
       <grid name="resultset" icon="1" preview="1" select="1" jump="defraimp_name">
         <row id="defraimp_importapplicationid" name="result">
           <cell name="defraimp_name" width="150" />
+          <cell name="createdby" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_primaryitahcid" width="100" />
           <cell name="defraimp_primarydocomid" width="100" />
           <cell name="defraimp_importercontactname" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
@@ -88,8 +90,6 @@
           <cell name="defraimp_inspectionrequested" width="100" />
           <cell name="defraimp_inspectionrequiredreason" width="100" />
           <cell name="defraimp_inspectionrequired" width="100" />
-          <cell name="defraimp_samcustomernumber" width="100" />
-          <cell name="defraimp_samwsnumber" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -166,8 +166,6 @@
           <attribute name="defraimp_healthcertificatenumber" />
           <attribute name="defraimp_warbleflytreatmentdeclarationrequired" />
           <attribute name="defraimp_warbleflytreatmentdeclarationreceiveddate" />
-          <attribute name="defraimp_samwsnumber" />
-          <attribute name="defraimp_samcustomernumber" />
           <attribute name="defraimp_inspectionrequired" />
           <attribute name="defraimp_inspectionrequiredreason" />
           <attribute name="defraimp_inspectionrequested" />
@@ -180,6 +178,8 @@
           <attribute name="defraimp_dateconfirmedontraces" />
           <attribute name="defraimp_destinationaddresscountryid" />
           <attribute name="defraimp_placeofdestinationaddresspostcode" />
+          <attribute name="createdby" />
+          <attribute name="createdon" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>

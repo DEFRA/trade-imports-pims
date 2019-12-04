@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{b3fe0250-c22c-4dec-b22f-4efdb0f3c488}</formid>
+    <IntroducedVersion>0.0.0.9</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1920">
+      <tabs>
+        <tab id="{b7114fa5-5e4a-4abe-bb4d-ed8bd92553b2}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{2a4f2c93-b63e-4879-a287-3f08d55ca736}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4abe5670-91e5-0684-186c-286a5cb4ea2e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Primary ITAHC" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_primaryitahcid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_primaryitahcid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{19393a90-412b-aa0d-0665-8eebc4d348d4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytypeid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{58666ed7-8187-553a-02cc-09ec9b499d18}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Country of Origin" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_countryoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_countryoforiginid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{86e60442-c23d-e2b2-5252-18a59c59b855}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Region / Area Allocated to" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_regionareaallocatedtoid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_regionareaallocatedtoid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d10488a6-de90-e61a-ba09-01b1837c1c90}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{82c2c92f-e44c-49c9-811d-c1abbf64eaaa}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d211f210-8767-4ad8-9100-2ef2cf735b0d}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{b6449103-56d2-470b-a937-5d8f86c305c7}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{428bc8a4-dc52-4126-99b9-00702475b6ac}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Import Record - Quick Create" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

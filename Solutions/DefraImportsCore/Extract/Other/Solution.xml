@@ -6,7 +6,7 @@
       <LocalizedName description="Defra.Imports.Core" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.9</Version>
+    <Version>0.0.0.10</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -103,6 +103,7 @@
       <RootComponent type="9" schemaName="defraimp_trustlevel" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_ukcountries" behavior="0" />
       <RootComponent type="29" id="{144314d6-3905-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="29" id="{167be187-a216-ea11-a811-000d3ab4de89}" behavior="0" />
       <RootComponent type="29" id="{1b17a35b-2906-ea11-a811-000d3ab4df6c}" behavior="0" />
       <RootComponent type="29" id="{2330d4bc-ff0a-ea11-a811-000d3ab5d037}" behavior="0" />
       <RootComponent type="29" id="{27112bad-000b-ea11-a811-000d3ab5d037}" behavior="0" />
@@ -139,6 +140,7 @@
       <RootComponent type="60" id="{a7ea8a43-9871-477b-8831-db9a187c4b93}" behavior="0" />
       <RootComponent type="60" id="{ad159648-4a2e-4312-bc5f-9d55aa754ff6}" behavior="0" />
       <RootComponent type="60" id="{b0b59f07-ed50-4d0c-ad4d-64d442c3491a}" behavior="0" />
+      <RootComponent type="60" id="{b3fe0250-c22c-4dec-b22f-4efdb0f3c488}" behavior="0" />
       <RootComponent type="60" id="{bcc20b21-6257-4197-b953-771e0ab55605}" behavior="0" />
       <RootComponent type="60" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" behavior="0" />
       <RootComponent type="60" id="{c7a38b2c-7a34-40a6-9062-e37e878fd92d}" behavior="0" />
@@ -233,15 +235,15 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="19" type="2" schemaName="defraexp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
-        <Dependent key="14" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" displayName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="19" type="2" schemaName="defraexp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
         <Dependent key="13" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityTypeId" displayName="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityTypeId" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
       </MissingDependency>
       <MissingDependency>
         <Required key="19" type="2" schemaName="defraexp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
         <Dependent key="16" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_importapp" displayName="defraimp_defraexp_commoditytype_defraimp_importapp" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="19" type="2" schemaName="defraexp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
+        <Dependent key="14" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" displayName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
       </MissingDependency>
       <MissingDependency>
         <Required key="20" type="2" schemaName="defra_name" displayName="Official Country Name" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
@@ -261,11 +263,11 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="22" type="2" schemaName="defraexp_name" displayName="Name" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
-        <Dependent key="13" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityTypeId" displayName="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityTypeId" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
+        <Dependent key="14" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" displayName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
       </MissingDependency>
       <MissingDependency>
         <Required key="22" type="2" schemaName="defraexp_name" displayName="Name" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
-        <Dependent key="14" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" displayName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
+        <Dependent key="13" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityTypeId" displayName="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityTypeId" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
       </MissingDependency>
       <MissingDependency>
         <Required key="22" type="2" schemaName="defraexp_name" displayName="Name" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />

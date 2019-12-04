@@ -51,7 +51,7 @@
                         <control disabled="false" id="defraimp_commoditynotes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commoditynotes" uniqueid="{034cdbb1-ae15-2422-db89-7c5708ed6dc3}" />
                       </cell>
                     </row>
-                    <row></row>
+                    <row />
                     <row>
                       <cell id="{4a20d1c3-8208-1145-0487-d58594a3a92d}" locklevel="0" showlabel="true">
                         <labels>
@@ -149,6 +149,29 @@
                           <label description="" languagecode="1033" />
                         </labels>
                         <control id="defraimp_regionareaallocatedtoid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_regionareaallocatedtoid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="IV66" showlabel="true" showbar="false" locklevel="0" id="{256027dd-2b6b-0450-042e-0860e3e06bb6}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="IV66" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c7652426-a98e-4e78-d90e-633b85282649}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_dateiv66received" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateiv66received" disabled="false" uniqueid="{43d4631b-0dbe-a7a0-11ca-be68e1186b65}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a963aa9b-dc23-a6d7-7ba6-a88c1c7d2145}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_iv66receivedinrequiredtimescale" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_iv66receivedinrequiredtimescale" disabled="false" uniqueid="{98079d9a-dab1-5396-6345-9074d165db8c}" />
                       </cell>
                     </row>
                   </rows>
@@ -1480,6 +1503,28 @@
               <ReflowBehavior static="true" type="Enum">GridOnly</ReflowBehavior>
               <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
               <HideNestedGridColumnHeader static="true" type="Enum">no</HideNestedGridColumnHeader>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{98079d9a-dab1-5396-6345-9074d165db8c}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>defraimp_iv66receivedinrequiredtimescale</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_iv66receivedinrequiredtimescale</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_iv66receivedinrequiredtimescale</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_iv66receivedinrequiredtimescale</value>
             </parameters>
           </customControl>
         </controlDescription>
