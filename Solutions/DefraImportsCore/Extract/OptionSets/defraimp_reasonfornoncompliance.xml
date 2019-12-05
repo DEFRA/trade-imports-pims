@@ -12,46 +12,6 @@
     <Description description="" languagecode="1033" />
   </Descriptions>
   <options>
-    <option value="714100000" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="EHC Incorrectly Completed" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100001" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="Health Conditions Not Met" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100002" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="Vet Signed Out With Date Range" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100003" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="No Importer Notification" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100004" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="No Health Certificate" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
     <option value="714100005" ExternalValue="" Color="#0000ff">
       <labels>
         <label description="Documentary Check Not Satisfied-post Visit" languagecode="1033" />

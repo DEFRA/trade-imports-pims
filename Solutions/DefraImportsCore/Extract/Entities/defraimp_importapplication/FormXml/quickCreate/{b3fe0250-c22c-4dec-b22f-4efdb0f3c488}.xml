@@ -14,17 +14,33 @@
           <columns>
             <column width="33%">
               <sections>
-                <section id="{2a4f2c93-b63e-4879-a287-3f08d55ca736}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                <section id="{2a4f2c93-b63e-4879-a287-3f08d55ca736}" name="tab_1_column_1_section_1" showlabel="false" IsUserDefined="0" showbar="false" columns="1">
                   <labels>
                     <label description="section" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
+                      <cell id="{91d8cc91-e9b7-8c96-4904-0be4e4a90d66}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Import Record Type" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="defraimp_importapplicationtype" datafieldname="defraimp_importapplicationtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ee2a71c6-93c7-a224-7b76-123bb0802a76}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Devolved Office" languagecode="1033" />
+                        </labels>
+                        <control disabled="false" id="defraimp_devolvedofficeid" datafieldname="defraimp_devolvedofficeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{4abe5670-91e5-0684-186c-286a5cb4ea2e}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Primary ITAHC" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_primaryitahcid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_primaryitahcid" disabled="false" />
+                        <control disabled="false" id="defraimp_primaryitahcid" datafieldname="defraimp_primaryitahcid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
                     </row>
                     <row>
@@ -32,7 +48,7 @@
                         <labels>
                           <label description="Commodity Type" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytypeid" disabled="false" />
+                        <control disabled="false" id="defraimp_commoditytypeid" datafieldname="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
                     </row>
                     <row>
@@ -40,7 +56,7 @@
                         <labels>
                           <label description="Country of Origin" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_countryoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_countryoforiginid" disabled="false" />
+                        <control disabled="false" id="defraimp_countryoforiginid" datafieldname="defraimp_countryoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
                     </row>
                     <row>
@@ -48,7 +64,7 @@
                         <labels>
                           <label description="Region / Area Allocated to" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_regionareaallocatedtoid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_regionareaallocatedtoid" disabled="false" />
+                        <control disabled="false" id="defraimp_regionareaallocatedtoid" datafieldname="defraimp_regionareaallocatedtoid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
                     </row>
                     <row>
@@ -56,7 +72,7 @@
                         <labels>
                           <label description="Owner" languagecode="1033" />
                         </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                        <control disabled="false" id="ownerid" datafieldname="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
                     </row>
                   </rows>
@@ -65,7 +81,7 @@
             </column>
             <column width="33%">
               <sections>
-                <section id="{82c2c92f-e44c-49c9-811d-c1abbf64eaaa}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                <section id="{82c2c92f-e44c-49c9-811d-c1abbf64eaaa}" name="tab_1_column_2_section_1" showlabel="false" IsUserDefined="0" showbar="false" columns="1">
                   <labels>
                     <label description="section" languagecode="1033" />
                   </labels>
@@ -83,7 +99,7 @@
             </column>
             <column width="33%">
               <sections>
-                <section id="{b6449103-56d2-470b-a937-5d8f86c305c7}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                <section id="{b6449103-56d2-470b-a937-5d8f86c305c7}" name="tab_1_column_3_section_1" showlabel="false" IsUserDefined="0" showbar="false" columns="1">
                   <labels>
                     <label description="section" languagecode="1033" />
                   </labels>

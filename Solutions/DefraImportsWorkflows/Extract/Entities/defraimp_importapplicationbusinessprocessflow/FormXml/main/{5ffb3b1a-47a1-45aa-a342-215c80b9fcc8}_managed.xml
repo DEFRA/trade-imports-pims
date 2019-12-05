@@ -110,6 +110,30 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{b0fc50f4-dbe1-4678-ba99-018db5240808}" showlabel="true" visible="true" labelid="{18f9cd73-8d7c-4053-a254-0122a1ec2630}">
+                        <labels>
+                          <label description="Certificate Compliant First Time?" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_certificatecompliantfirsttime" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_certificatecompliantfirsttime" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b261e263-241a-4f62-8874-d6ebcbb325cc}" showlabel="true" visible="true" labelid="{8a76f292-b74f-42a1-81d6-652e50b0eadf}">
+                        <labels>
+                          <label description="Certificate Non Compliance Reason" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_certificatenoncompliancereason" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="defraimp_certificatenoncompliancereason" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="false" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d6226f31-7036-4a85-bd10-8288f5e6d79b}" showlabel="true" visible="true" labelid="{4a35167c-8b83-484b-8236-edc3d64d566e}">
+                        <labels>
+                          <label description="Certificate Non Compliance Reason - Other" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_certificatenoncompliancereasonother" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="defraimp_certificatenoncompliancereasonother" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="false" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{9c7440a2-b506-4003-b740-90fb7ec36275}" showlabel="true" visible="true" labelid="{46e3ca5b-7725-4a2a-8315-8a08160f41c4}">
                         <labels>
                           <label description="Post Import Checks Required?" languagecode="1033" />
@@ -131,14 +155,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep32" locklevel="0" expanded="true" visible="false" labelid="{41f0f2d9-6132-4c4d-bbf8-c5e86f93f37d}">
+        <tab verticallayout="true" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep38" locklevel="0" expanded="true" visible="false" labelid="{41f0f2d9-6132-4c4d-bbf8-c5e86f93f37d}">
           <labels>
             <label description="Completion" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep32_section1" labelid="{66d1709b-368b-4849-9609-69fcac8d317e}">
+                <section showbar="false" columns="1" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep38_section1" labelid="{8531434a-60a9-4e22-b30d-719f1264b7c2}">
                   <labels>
                     <label description="Completion" languagecode="1033" />
                   </labels>
@@ -173,14 +197,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep41" locklevel="0" expanded="true" visible="false" labelid="{30308977-3baa-4218-8101-78ca5d1b8b94}">
+        <tab verticallayout="true" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep47" locklevel="0" expanded="true" visible="false" labelid="{30308977-3baa-4218-8101-78ca5d1b8b94}">
           <labels>
             <label description="Post Import Check" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep41_section1" labelid="{36ac3987-a277-45e6-a3ab-9ccb260343d6}">
+                <section showbar="false" columns="1" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep47_section1" labelid="{264c85fd-7605-4372-8ad2-1db76727fae1}">
                   <labels>
                     <label description="Post Import Check" languagecode="1033" />
                   </labels>
@@ -199,14 +223,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep46" locklevel="0" expanded="true" visible="false" labelid="{a686457d-dcfd-465f-82b1-08e22b7bf1e5}">
+        <tab verticallayout="true" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep52" locklevel="0" expanded="true" visible="false" labelid="{a686457d-dcfd-465f-82b1-08e22b7bf1e5}">
           <labels>
             <label description="Completion" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep46_section1" labelid="{8cf182be-cc35-45ce-9bfb-7a139512a98d}">
+                <section showbar="false" columns="1" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep52_section1" labelid="{c7c3b30e-c44a-4df2-a448-2b4f6f8cc8c5}">
                   <labels>
                     <label description="Completion" languagecode="1033" />
                   </labels>

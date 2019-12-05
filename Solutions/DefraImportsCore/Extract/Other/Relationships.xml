@@ -37,13 +37,11 @@
   <EntityRelationship Name="defraimp_defra_country_defraimp_importnotification_ImporterAddressCountryid" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importnotification_PermanentDestinationAddressCountryid" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importnotification_PlaceofDestinationAddressCountryid" />
-  <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_CountryofOrigin" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_placeoforigin_AddressCountry" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_importapp" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_importnotification_CommodityTypeId" />
-  <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityTypeId" />
   <EntityRelationship Name="defraimp_defraimp_apharegion_defraimp_importapplic" />
   <EntityRelationship Name="defraimp_defraimp_apharegion_defraimp_importinspection_RegionAreaAllocatedtoID" />
   <EntityRelationship Name="defraimp_defraimp_cved_defraimp_importapplication_PrimaryCVEDId" />
