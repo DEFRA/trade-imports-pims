@@ -1,0 +1,168 @@
+{
+  "RecordsCount": 4,
+  "ExportedEntities": [
+    {
+      "LogicalName": "team",
+      "Id": "dfa3493b-79c0-e911-a9ab-000d3ab20be2",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "description",
+          "AttributeValue": "Default team for the parent business unit. The name and membership for default team are inherited from their parent business unit.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "queueid",
+          "AttributeValue": {
+            "Id": "e0a3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "queue",
+            "Name": "<defra-custmstr-eue-dev-imp>",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "administratorid",
+          "AttributeValue": {
+            "Id": "28ba6322-c39e-4055-88cc-605397fa8ecf",
+            "LogicalName": "systemuser",
+            "Name": "Bilal Rehman",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "name",
+          "AttributeValue": "defra-custmstr-eue-dev-imp",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "a8e19bee-0106-ea11-a811-000d3ab5d511",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "transactioncurrencyid",
+          "AttributeValue": {
+            "Id": "fa693202-8fc0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "transactioncurrency",
+            "Name": "Pound Sterling",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "queueid",
+          "AttributeValue": {
+            "Id": "d1e19bee-0106-ea11-a811-000d3ab5d511",
+            "LogicalName": "queue",
+            "Name": "<CIT>",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "administratorid",
+          "AttributeValue": {
+            "Id": "28ba6322-c39e-4055-88cc-605397fa8ecf",
+            "LogicalName": "systemuser",
+            "Name": "Bilal Rehman",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "name",
+          "AttributeValue": "IRMS - CIT",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "6bdc7830-0206-ea11-a811-000d3ab5d511",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "transactioncurrencyid",
+          "AttributeValue": {
+            "Id": "fa693202-8fc0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "transactioncurrency",
+            "Name": "Pound Sterling",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "queueid",
+          "AttributeValue": {
+            "Id": "6cdc7830-0206-ea11-a811-000d3ab5d511",
+            "LogicalName": "queue",
+            "Name": "<EU Imports - Scotland>",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "administratorid",
+          "AttributeValue": {
+            "Id": "28ba6322-c39e-4055-88cc-605397fa8ecf",
+            "LogicalName": "systemuser",
+            "Name": "Bilal Rehman",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "name",
+          "AttributeValue": "IRMS - Scotland",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "d2e55f54-0206-ea11-a811-000d3ab5d511",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "transactioncurrencyid",
+          "AttributeValue": {
+            "Id": "fa693202-8fc0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "transactioncurrency",
+            "Name": "Pound Sterling",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "queueid",
+          "AttributeValue": {
+            "Id": "dfe55f54-0206-ea11-a811-000d3ab5d511",
+            "LogicalName": "queue",
+            "Name": "<EU Imports - Wales>",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "administratorid",
+          "AttributeValue": {
+            "Id": "28ba6322-c39e-4055-88cc-605397fa8ecf",
+            "LogicalName": "systemuser",
+            "Name": "Bilal Rehman",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "name",
+          "AttributeValue": "IRMS - Wales",
+          "AttributeType": "System.String"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "RecordsCount": 9,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraexp_commoditygroup",
+      "Id": "c6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "EQUINE",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditygroup",
+      "Id": "c8f1235a-b1d3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "FISH & FISH PRODUCTS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditygroup",
+      "Id": "caf1235a-b1d3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "GERMPLASM",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditygroup",
+      "Id": "ccf1235a-b1d3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "LIVE ANIMALS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditygroup",
+      "Id": "cef1235a-b1d3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "LIVESTOCK",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditygroup",
+      "Id": "d0f1235a-b1d3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "MEAT & DAIRY",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditygroup",
+      "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "MISCELLANEOUS PRODUCTS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditygroup",
+      "Id": "d4f1235a-b1d3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "PETS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditygroup",
+      "Id": "d6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "POULTRY",
+          "AttributeType": "System.String"
+        }
+      ]
+    }
+  ]
+}

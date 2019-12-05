@@ -1,0 +1,1277 @@
+{
+  "RecordsCount": 61,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "f05445a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "AGRIGULTURAL",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "f35445a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "ANIMAL FEED",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "f55445a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "ANIMAL HAIR",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "f75445a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "ccf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "LIVE ANIMALS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "BIRDS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "f95445a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "BONE ASH",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "fb5445a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "caf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "GERMPLASM",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "BOVINE",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "fd5445a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "POULTRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "BREEDING/PRODUCTION",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "ff5445a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "caf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "GERMPLASM",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "CANINE",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "015545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "caf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "GERMPLASM",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "CAPRINE",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "035545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d4f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "PETS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "CAT",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "055545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "cef1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "LIVESTOCK",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "CATTLE",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Cattle Production",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Cattle Slaughter",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "0b5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "caf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "GERMPLASM",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "CERVINE",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "0d5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "ccf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "LIVE ANIMALS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "CIRCUS ACT",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "0f5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "COLLAGEN/GELATIN",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "115545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d0f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MEAT & DAIRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "COLLAGEN/GELATINE",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "135545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d0f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MEAT & DAIRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "COMPOSITE FOOD",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "155545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d0f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MEAT & DAIRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "DAIRY",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "175545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "POULTRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "DAY OLDS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "195545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d4f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "PETS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "DOG",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "1b5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d0f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MEAT & DAIRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "EGG PRODUCTS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "1d5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "caf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "GERMPLASM",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "ELEPHANT",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "caf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "GERMPLASM",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "EQUINE",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "215545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "FEATHERS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "235545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d4f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "PETS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "FERRET",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "265545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "FOAM",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "285545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "cef1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "LIVESTOCK",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "GOATS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "2a5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "POULTRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "HATCHING EGGS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "2c5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "HIDES/SKINS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "2e5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "HONEY",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "305545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d4f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "PETS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "INSECT",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "325545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "ccf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "LIVE ANIMALS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "LAB ANIMALS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "345545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "LABORATORY",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "365545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "c8f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "FISH & FISH PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "LIVE TEAM",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "385545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "POULTRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "LOTS UNDER 20",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "3a5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d0f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MEAT & DAIRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "MEAT",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Non-Domestic Ungulates",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Other mammals, Insects, Reptiles",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "405545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "caf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "GERMPLASM",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "OVINE",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "425545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "PET FOOD",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "445545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "PHARMACEUTICALS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "cef1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "LIVESTOCK",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "PIGS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "485545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "caf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "GERMPLASM",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "PORCINE",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Poultry/Hatching eggs",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "4c5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "c8f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "FISH & FISH PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "PRODUCT TEAM",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "4e5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d4f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "PETS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "RABBIT",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "505545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "c6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "EQUINE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "REGISTERED",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "525545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d4f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "PETS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "REPTILE",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "545545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "POULTRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "RESTOCKING",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "565545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d4f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "PETS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "RODENT",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "585545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "SEMEN",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "cef1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "LIVESTOCK",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "SHEEP",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "5c5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d0f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MEAT & DAIRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "SHIP STORES",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "5e5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "ccf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "LIVE ANIMALS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "SMALL ANIMALS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "SPF Eggs",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "625545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "TROPHY",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "645545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "ccf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "LIVE ANIMALS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "UNGULATES",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "665545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "c6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "EQUINE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "UNREGISTERED",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "685545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d2f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "MISCELLANEOUS PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "WOOL/LANOLIN",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "6a5545a7-bbd3-e911-a870-000d3ab1dcdd",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "ccf1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "LIVE ANIMALS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "ZOO ANIMALS",
+          "AttributeType": "System.String"
+        }
+      ]
+    }
+  ]
+}

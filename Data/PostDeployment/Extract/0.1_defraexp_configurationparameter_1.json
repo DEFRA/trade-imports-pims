@@ -7,13 +7,8 @@
       "IsManyToMany": false,
       "Attributes": [
         {
-          "AttributeName": "defraexp_name",
-          "AttributeValue": "Inspection Coverage Count",
-          "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraexp_additionalnotes",
-          "AttributeValue": "If a case worker overrides a random inspection then the record received will be attempted to be flagged for a random inspection.",
+          "AttributeName": "defraexp_value",
+          "AttributeValue": "50",
           "AttributeType": "System.String"
         },
         {
@@ -27,15 +22,13 @@
           "AttributeType": "System.String"
         },
         {
-          "AttributeName": "statuscode",
-          "AttributeValue": {
-            "Value": 1
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+          "AttributeName": "defraexp_additionalnotes",
+          "AttributeValue": "If a case worker overrides a random inspection then the record received will be attempted to be flagged for a random inspection.",
+          "AttributeType": "System.String"
         },
         {
-          "AttributeName": "defraexp_value",
-          "AttributeValue": "50",
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Inspection Coverage Count",
           "AttributeType": "System.String"
         }
       ]

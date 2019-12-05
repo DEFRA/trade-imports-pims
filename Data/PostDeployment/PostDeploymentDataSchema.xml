@@ -1,21 +1,25 @@
-<entities >
-  <entity name="defraimp_inspectioncoveragerule" displayname="Inspection Coverage Rule" etc="10119" primaryidfield="defraimp_inspectioncoverageruleid" primarynamefield="defraimp_name" disableplugins="false">
+<?xml version="1.0" encoding="utf-8"?>
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <entity name="defraexp_commoditygroup" displayname="Commodity Group" etc="10096" primaryidfield="defraexp_commoditygroupid" primarynamefield="defraexp_name" disableplugins="false">
     <fields>
-      <field displayname="Rule Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
-      <field displayname="Number Of Records Until Inspection" name="defraimp_numberofrecordsuntilinspection" type="integer" primaryKey="false" customfield="false" />
-      <field displayname="Status Reason" name="statuscode" type="status" primaryKey="false" customfield="false" />
-      <field displayname="Risk Level" name="defraimp_risklevelid" type="entityreference" primaryKey="false" lookupType="defraimp_importrisklevel" customfield="false" />
-      <field displayname="Inspection Coverage Rule" name="defraimp_inspectioncoverageruleid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Commodity Group" name="defraexp_commoditygroupid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
     </fields>
     <relationships />
   </entity>
-  <entity name="defraimp_autonumber" displayname="Autonumber" etc="10114" primaryidfield="defraimp_autonumberid" primarynamefield="defraimp_name" disableplugins="false">
+  <entity name="defraexp_commodityname" displayname="Commodity Name" etc="10097" primaryidfield="defraexp_commoditynameid" primarynamefield="defraexp_name" disableplugins="false">
     <fields>
-      <field displayname="Related Record Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
-      <field displayname="Key" name="defraimp_key" type="string" primaryKey="false" customfield="false" />
-      <field displayname="Autonumber" name="defraimp_autonumberid" type="guid" primaryKey="true" customfield="false" />
-      <field displayname="Status Reason" name="statuscode" type="status" primaryKey="false" customfield="false" />
-      <field displayname="Current Number" name="defraimp_currentnumber" type="integer" primaryKey="false" customfield="false" />
+      <field displayname="Commodity Type" name="defraexp_commodity_type" type="entityreference" primaryKey="false" lookupType="defraexp_commoditytype" customfield="false" />
+      <field displayname="Commodity Name" name="defraexp_commoditynameid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraexp_commoditytype" displayname="Commodity Type" etc="10098" primaryidfield="defraexp_commoditytypeid" primarynamefield="defraexp_name" disableplugins="false">
+    <fields>
+      <field displayname="Commodity Group" name="defraexp_commoditygroupid" type="entityreference" primaryKey="false" lookupType="defraexp_commoditygroup" customfield="false" />
+      <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Commodity Type" name="defraexp_commoditytypeid" type="guid" primaryKey="true" customfield="false" />
     </fields>
     <relationships />
   </entity>
@@ -25,10 +29,90 @@
       <field displayname="Key" name="defraexp_key" type="string" primaryKey="false" customfield="false" />
       <field displayname="Description" name="defraexp_description" type="memo" primaryKey="false" customfield="false" />
       <field displayname="Configuration Parameter" name="defraexp_configurationparameterid" type="guid" primaryKey="true" customfield="false" />
-      <field displayname="Status Reason" name="statuscode" type="status" primaryKey="false" customfield="false" />
       <field displayname="Additional Notes" name="defraexp_additionalnotes" type="memo" primaryKey="false" customfield="false" />
       <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
       <field displayname="Number of Days" name="defraexp_numberofdays" type="integer" primaryKey="false" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraexp_country" displayname="Country" etc="10100" primaryidfield="defraexp_countryid" primarynamefield="defraexp_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Country" name="defraexp_countryid" type="guid" primaryKey="true" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraimp_apharegion" displayname="APHA Region" etc="10134" primaryidfield="defraimp_apharegionid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="APHA Region" name="defraimp_apharegionid" type="guid" primaryKey="true" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraimp_autonumber" displayname="Autonumber" etc="10114" primaryidfield="defraimp_autonumberid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Key" name="defraimp_key" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Autonumber" name="defraimp_autonumberid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Related Record Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Current Number" name="defraimp_currentnumber" type="integer" primaryKey="false" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraimp_goldbronzecommodity" displayname="Gold/Bronze Commodity" etc="10120" primaryidfield="defraimp_goldbronzecommodityid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Commodity Type" name="defraimp_commoditytypeid" type="entityreference" primaryKey="false" lookupType="defraexp_commoditytype" customfield="false" />
+      <field displayname="Gold/Bronze Commodity" name="defraimp_goldbronzecommodityid" type="guid" primaryKey="true" customfield="false" />
+    </fields>
+    <relationships>
+      <relationship name="defraimp_goldbronzecountriesnn" manyToMany="true" isreflexive="true" relatedEntityName="defraimp_goldbronzecountriesnn" m2mTargetEntity="defra_country" m2mTargetEntityPrimaryKey="defra_countryid" />
+    </relationships>
+  </entity>
+  <entity name="defraimp_importcountrycommodityrisklevel" displayname="Import Country Commodity Risk Level" etc="10110" primaryidfield="defraimp_importcountrycommodityrisklevelid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Country" name="defraimp_countryid" type="entityreference" primaryKey="false" lookupType="defra_country" customfield="false" />
+      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Risk Level Comments" name="defraimp_risklevelnotes" type="memo" primaryKey="false" customfield="false" />
+      <field displayname="Commodity Type" name="defraimp_commoditytypeid" type="entityreference" primaryKey="false" lookupType="defraexp_commoditytype" customfield="false" />
+      <field displayname="Risk Level" name="defraimp_importrisklevelid" type="entityreference" primaryKey="false" lookupType="defraimp_importrisklevel" customfield="false" />
+      <field displayname="Import Country Commodity Risk Level" name="defraimp_importcountrycommodityrisklevelid" type="guid" primaryKey="true" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraimp_importrisklevel" displayname="Import Risk Level" etc="10112" primaryidfield="defraimp_importrisklevelid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Import Risk Level" name="defraimp_importrisklevelid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraimp_inspectioncoveragerule" displayname="Inspection Coverage Rule" etc="10119" primaryidfield="defraimp_inspectioncoverageruleid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Rule Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Number Of Records Until Inspection" name="defraimp_numberofrecordsuntilinspection" type="integer" primaryKey="false" customfield="false" />
+      <field displayname="Risk Level" name="defraimp_risklevelid" type="entityreference" primaryKey="false" lookupType="defraimp_importrisklevel" customfield="false" />
+      <field displayname="Inspection Coverage Rule" name="defraimp_inspectioncoverageruleid" type="guid" primaryKey="true" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraimp_sampletest" displayname="Sample / Test" etc="10136" primaryidfield="defraimp_sampletestid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Test Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Sample / Test" name="defraimp_sampletestid" type="guid" primaryKey="true" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="team" displayname="Team" etc="9" primaryidfield="teamid" primarynamefield="name" disableplugins="false">
+    <fields>
+      <field displayname="Default Queue" name="queueid" type="entityreference" primaryKey="false" lookupType="queue" customfield="false" />
+      <field displayname="Administrator" name="administratorid" type="entityreference" primaryKey="false" lookupType="systemuser" customfield="false" />
+      <field displayname="Description" name="description" type="memo" primaryKey="false" customfield="false" />
+      <field displayname="Currency" name="transactioncurrencyid" type="entityreference" primaryKey="false" lookupType="transactioncurrency" customfield="false" />
+      <field displayname="Team" name="teamid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Team Name" name="name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Email" name="emailaddress" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Process" name="processid" type="guid" primaryKey="false" customfield="false" />
+      <field displayname="Yomi Name" name="yominame" type="string" primaryKey="false" customfield="false" />
     </fields>
     <relationships />
   </entity>
