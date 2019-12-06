@@ -112,7 +112,7 @@
             </column>
           </columns>
         </tab>
-        <tab id="{833bee03-aa2a-c324-4e8c-17bc7e2d3aae}" name="tab_2" IsUserDefined="0" locklevel="0" expanded="true" showlabel="true">
+        <tab id="{833bee03-aa2a-c324-4e8c-17bc7e2d3aae}" name="tab_2" IsUserDefined="0" locklevel="0" expanded="true" showlabel="true" visible="false">
           <labels>
             <label description="Files and Attachments" languagecode="1033" />
           </labels>
