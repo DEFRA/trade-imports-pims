@@ -33,14 +33,15 @@ steps:
     env:
       CAPGEMINI_UK_PACKAGE_READ_KEY: $(capgeminiUkPackageReadKey)
       CAKE_DYNAMICS_PASSWORD: $(dynamicsPassword)
-  - task: VSTest@2
-    displayName: 'Test Assemblies'
-    inputs:
-      testAssemblyVer2: |
-        **\*Tests.Unit*.dll
-        !**\*TestAdapter.dll
-        !**\obj\**
-      codeCoverageEnabled: true
+      
+  # - task: VSTest@2
+  #   displayName: 'Test Assemblies'
+  #   inputs:
+  #     testAssemblyVer2: |
+  #       **\*Tests.Unit*.dll
+  #       !**\*TestAdapter.dll
+  #       !**\obj\**
+  #     codeCoverageEnabled: true
   - task: CopyFiles@2
     displayName: "Copy package to artifact staging directory"
     inputs:
