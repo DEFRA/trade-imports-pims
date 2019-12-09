@@ -8,6 +8,11 @@
           "uniquename": "defraimp_/js/postimportcheck.form.js",
           "file": "postimportcheck.form.js",
           "description": ""
+        },
+        {
+          "uniquename": "defraimp_/js/importrecord.form.js",
+          "file": "importrecord.form.js",
+          "description": ""
         }
       ]
     }
