@@ -1059,8 +1059,22 @@
           </Descriptions>
         </attribute>
       </attributes>
+      <EntityKeys>
+        <EntityKey>
+          <Name>defraimp_CertificateReferenceNumber</Name>
+          <LogicalName>defraimp_certificatereferencenumber</LogicalName>
+          <IntroducedVersion>0.0.0.14</IntroducedVersion>
+          <IsCustomizable>0</IsCustomizable>
+          <EntityKeyAttributes>
+            <AttributeName>defraimp_name</AttributeName>
+          </EntityKeyAttributes>
+          <displaynames>
+            <displayname description="Certificate Reference Number" languagecode="1033" />
+          </displaynames>
+        </EntityKey>
+      </EntityKeys>
       <EntitySetName>defraimp_itahcs</EntitySetName>
-      <IsDuplicateCheckSupported>0</IsDuplicateCheckSupported>
+      <IsDuplicateCheckSupported>1</IsDuplicateCheckSupported>
       <IsBusinessProcessEnabled>0</IsBusinessProcessEnabled>
       <IsRequiredOffline>0</IsRequiredOffline>
       <IsInteractionCentricEnabled>0</IsInteractionCentricEnabled>

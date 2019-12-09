@@ -26,7 +26,7 @@
               <value>714100001</value>
               <value>714100002</value>
             </condition>
-            <condition attribute="defraimp_primaryimportnotificationid" operator="not-null" />
+            <condition attribute="defraimp_dateiv66received" operator="not-null" />
           </filter>
           <attribute name="defraimp_importapplicationid" />
         </entity>
@@ -34,7 +34,7 @@
     </fetchxml>
     <IntroducedVersion>0.0.0.6</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Live Import Records With a Primary Notification" languagecode="1033" />
+      <LocalizedName description="Live Import Records With an Import Notification" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
