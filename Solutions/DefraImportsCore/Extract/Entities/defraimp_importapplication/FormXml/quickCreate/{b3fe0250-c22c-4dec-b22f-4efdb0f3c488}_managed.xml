@@ -118,6 +118,16 @@
           </columns>
         </tab>
       </tabs>
+      <formLibraries>
+        <Library name="defraimp_/js/importrecord.form.js" libraryUniqueId="{7ec1810c-8574-6682-a45c-2b766695c931}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="DefraImports.ImportRecord.OnLoadQuickCreateForm" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{1d065325-b678-5e0a-6907-c7009d78de38}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
       <DisplayConditions Order="1">
         <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
         <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
