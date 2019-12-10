@@ -35,6 +35,7 @@ Task("BuildDeploymentProject")
     CopyFiles($"{PackagesFolder}/Microsoft.CrmSdk.XrmTooling.PackageDeployment.Wpf.*/tools/**/*", Directory($"{DeployProjectFolder}/bin/Release"), true);
     CopyFiles($"{PackagesFolder}/Microsoft.CrmSdk.XrmTooling.PackageDeployment.PowerShell.*/tools/**/*", Directory($"{DeployProjectFolder}/bin/Release/PowerShell"));
     CopyFiles($"{SolutionsFolder}/**/*.zip", Directory("Deploy/bin/Release/PkgFolder"));
+    CopyFiles($"{DeployProjectFolder}/ExternalSolutions/**/*.zip", Directory("Deploy/bin/Release/PkgFolder"));
     CopyDirectory(Directory(DataFolder), Directory($"{DeployProjectFolder}/bin/Release/PkgFolder/Data"));
   });
 
