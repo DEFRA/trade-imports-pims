@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <entity name="defra_country" displayname="Country" etc="10066" primaryidfield="defra_countryid" primarynamefield="defra_name" disableplugins="false">
+    <fields>
+      <field displayname="Independent" name="defra_independent" type="bool" primaryKey="false" customfield="false" />
+      <field displayname="ISO 3166-2 Subdivision Codes" name="defra_iso31662subdivisioncodes" type="string" primaryKey="false" customfield="false" />
+      <field displayname="ISO Numeric Code" name="defra_isonumericcode" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Country" name="defra_countryid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Official Country Name" name="defra_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Code Assignment Type" name="defra_codeassignmenttype" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Start Date" name="defra_startdate" type="datetime" primaryKey="false" customfield="false" />
+      <field displayname="Also Known As" name="defra_aka" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Notes" name="defra_notes" type="memo" primaryKey="false" customfield="false" />
+      <field displayname="Citizen Demonym" name="defra_citizenemonym" type="string" primaryKey="false" customfield="false" />
+      <field displayname="ISO Code Alpha 3" name="defra_isocodealpha3" type="string" primaryKey="false" customfield="false" />
+      <field displayname="ISO Code Alpha 2" name="defra_isocodealpha2" type="string" primaryKey="false" customfield="false" />
+      <field displayname="End Date" name="defra_enddate" type="datetime" primaryKey="false" customfield="false" />
+    </fields>
+    <relationships>
+      <relationship name="defraimp_importapplication_defra_country" manyToMany="true" isreflexive="true" relatedEntityName="defraimp_importapplication_defra_country" m2mTargetEntity="defraimp_importapplication" m2mTargetEntityPrimaryKey="defraimp_importapplicationid" />
+    </relationships>
+  </entity>
   <entity name="defraexp_commoditygroup" displayname="Commodity Group" etc="10096" primaryidfield="defraexp_commoditygroupid" primarynamefield="defraexp_name" disableplugins="false">
     <fields>
       <field displayname="Commodity Group" name="defraexp_commoditygroupid" type="guid" primaryKey="true" customfield="false" />
-      <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
-    </fields>
-    <relationships />
-  </entity>
-  <entity name="defraexp_commodityname" displayname="Commodity Name" etc="10097" primaryidfield="defraexp_commoditynameid" primarynamefield="defraexp_name" disableplugins="false">
-    <fields>
-      <field displayname="Commodity Type" name="defraexp_commodity_type" type="entityreference" primaryKey="false" lookupType="defraexp_commoditytype" customfield="false" />
-      <field displayname="Commodity Name" name="defraexp_commoditynameid" type="guid" primaryKey="true" customfield="false" />
       <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
     </fields>
     <relationships />
@@ -23,6 +35,32 @@
     </fields>
     <relationships />
   </entity>
+  <entity name="defraexp_commodityname" displayname="Commodity Name" etc="10097" primaryidfield="defraexp_commoditynameid" primarynamefield="defraexp_name" disableplugins="false">
+    <fields>
+      <field displayname="Commodity Type" name="defraexp_commodity_type" type="entityreference" primaryKey="false" lookupType="defraexp_commoditytype" customfield="false" />
+      <field displayname="Commodity Name" name="defraexp_commoditynameid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraimp_importrisklevel" displayname="Import Risk Level" etc="10112" primaryidfield="defraimp_importrisklevelid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Import Risk Level" name="defraimp_importrisklevelid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraimp_importcountrycommodityrisklevel" displayname="Import Country Commodity Risk Level" etc="10110" primaryidfield="defraimp_importcountrycommodityrisklevelid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Country" name="defraimp_countryid" type="entityreference" primaryKey="false" lookupType="defra_country" customfield="false" />
+      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Risk Level Comments" name="defraimp_risklevelnotes" type="memo" primaryKey="false" customfield="false" />
+      <field displayname="Commodity Type" name="defraimp_commoditytypeid" type="entityreference" primaryKey="false" lookupType="defraexp_commoditytype" customfield="false" />
+      <field displayname="Risk Level" name="defraimp_importrisklevelid" type="entityreference" primaryKey="false" lookupType="defraimp_importrisklevel" customfield="false" />
+      <field displayname="Import Country Commodity Risk Level" name="defraimp_importcountrycommodityrisklevelid" type="guid" primaryKey="true" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
   <entity name="defraexp_configurationparameter" displayname="Configuration Parameter" etc="10099" primaryidfield="defraexp_configurationparameterid" primarynamefield="defraexp_name" disableplugins="false">
     <fields>
       <field displayname="Value" name="defraexp_value" type="string" primaryKey="false" customfield="false" />
@@ -32,13 +70,6 @@
       <field displayname="Additional Notes" name="defraexp_additionalnotes" type="memo" primaryKey="false" customfield="false" />
       <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
       <field displayname="Number of Days" name="defraexp_numberofdays" type="integer" primaryKey="false" customfield="false" />
-    </fields>
-    <relationships />
-  </entity>
-  <entity name="defraexp_country" displayname="Country" etc="10100" primaryidfield="defraexp_countryid" primarynamefield="defraexp_name" disableplugins="false">
-    <fields>
-      <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
-      <field displayname="Country" name="defraexp_countryid" type="guid" primaryKey="true" customfield="false" />
     </fields>
     <relationships />
   </entity>
@@ -67,24 +98,6 @@
     <relationships>
       <relationship name="defraimp_goldbronzecountriesnn" manyToMany="true" isreflexive="true" relatedEntityName="defraimp_goldbronzecountriesnn" m2mTargetEntity="defra_country" m2mTargetEntityPrimaryKey="defra_countryid" />
     </relationships>
-  </entity>
-  <entity name="defraimp_importcountrycommodityrisklevel" displayname="Import Country Commodity Risk Level" etc="10110" primaryidfield="defraimp_importcountrycommodityrisklevelid" primarynamefield="defraimp_name" disableplugins="false">
-    <fields>
-      <field displayname="Country" name="defraimp_countryid" type="entityreference" primaryKey="false" lookupType="defra_country" customfield="false" />
-      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
-      <field displayname="Risk Level Comments" name="defraimp_risklevelnotes" type="memo" primaryKey="false" customfield="false" />
-      <field displayname="Commodity Type" name="defraimp_commoditytypeid" type="entityreference" primaryKey="false" lookupType="defraexp_commoditytype" customfield="false" />
-      <field displayname="Risk Level" name="defraimp_importrisklevelid" type="entityreference" primaryKey="false" lookupType="defraimp_importrisklevel" customfield="false" />
-      <field displayname="Import Country Commodity Risk Level" name="defraimp_importcountrycommodityrisklevelid" type="guid" primaryKey="true" customfield="false" />
-    </fields>
-    <relationships />
-  </entity>
-  <entity name="defraimp_importrisklevel" displayname="Import Risk Level" etc="10112" primaryidfield="defraimp_importrisklevelid" primarynamefield="defraimp_name" disableplugins="false">
-    <fields>
-      <field displayname="Import Risk Level" name="defraimp_importrisklevelid" type="guid" primaryKey="true" customfield="false" />
-      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
-    </fields>
-    <relationships />
   </entity>
   <entity name="defraimp_inspectioncoveragerule" displayname="Inspection Coverage Rule" etc="10119" primaryidfield="defraimp_inspectioncoverageruleid" primarynamefield="defraimp_name" disableplugins="false">
     <fields>

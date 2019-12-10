@@ -1,0 +1,192 @@
+{
+  "RecordsCount": 11,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraimp_importapplication_defra_country",
+      "Id": "6e1ca1d9-470c-ea11-a811-000d3ab55801",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "929cb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defraimp_importapplicationid",
+          "AttributeValue": "ef9d8ea3-470c-ea11-a811-000d3ab55801",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importapplication_defra_country",
+      "Id": "a41ca1d9-470c-ea11-a811-000d3ab55801",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "ce9bb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defraimp_importapplicationid",
+          "AttributeValue": "ef9d8ea3-470c-ea11-a811-000d3ab55801",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importapplication_defra_country",
+      "Id": "b8b75a53-550c-ea11-a811-000d3ab55801",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "929cb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defraimp_importapplicationid",
+          "AttributeValue": "c10d92ed-540c-ea11-a811-000d3ab55801",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importapplication_defra_country",
+      "Id": "c9b75a53-550c-ea11-a811-000d3ab55801",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "ce9bb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defraimp_importapplicationid",
+          "AttributeValue": "c10d92ed-540c-ea11-a811-000d3ab55801",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importapplication_defra_country",
+      "Id": "cfb75a53-550c-ea11-a811-000d3ab55801",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "be9bb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defraimp_importapplicationid",
+          "AttributeValue": "c10d92ed-540c-ea11-a811-000d3ab55801",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importapplication_defra_country",
+      "Id": "d6b75a53-550c-ea11-a811-000d3ab55801",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "3e9bb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defraimp_importapplicationid",
+          "AttributeValue": "c10d92ed-540c-ea11-a811-000d3ab55801",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importapplication_defra_country",
+      "Id": "bc15b193-200d-ea11-a811-000d3ab55801",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "ce9bb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defraimp_importapplicationid",
+          "AttributeValue": "e8e0c85d-200d-ea11-a811-000d3ab55801",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importapplication_defra_country",
+      "Id": "c515b193-200d-ea11-a811-000d3ab55801",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "929cb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defraimp_importapplicationid",
+          "AttributeValue": "e8e0c85d-200d-ea11-a811-000d3ab55801",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importapplication_defra_country",
+      "Id": "b0f4968d-cd06-ea11-a811-000d3ab5d037",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "929cb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defraimp_importapplicationid",
+          "AttributeValue": "11a4a775-cd06-ea11-a811-000d3ab5d037",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importapplication_defra_country",
+      "Id": "cff4968d-cd06-ea11-a811-000d3ab5d037",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "9c9cb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defraimp_importapplicationid",
+          "AttributeValue": "11a4a775-cd06-ea11-a811-000d3ab5d037",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importapplication_defra_country",
+      "Id": "f0f4968d-cd06-ea11-a811-000d3ab5d037",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "ce9bb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defraimp_importapplicationid",
+          "AttributeValue": "11a4a775-cd06-ea11-a811-000d3ab5d037",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    }
+  ]
+}
