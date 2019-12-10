@@ -12,38 +12,9 @@
           "AttributeType": "System.String"
         },
         {
-          "AttributeName": "queueid",
-          "AttributeValue": {
-            "Id": "e0a3493b-79c0-e911-a9ab-000d3ab20be2",
-            "LogicalName": "queue",
-            "Name": "<defra-custmstr-eue-dev-imp>",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        },
-        {
-          "AttributeName": "administratorid",
-          "AttributeValue": {
-            "Id": "28ba6322-c39e-4055-88cc-605397fa8ecf",
-            "LogicalName": "systemuser",
-            "Name": "Bilal Rehman",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        },
-        {
           "AttributeName": "name",
           "AttributeValue": "defra-custmstr-eue-dev-imp",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "map.businessunitid.isRootBU.name",
-          "AttributeValue": {
-            "AttributeLogicalName": "name",
-            "EntityLogicalName": "businessunit",
-            "Value": "defra-custmstr-eue-dev-imp"
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
         },
         {
           "AttributeName": "businessunitid",
@@ -54,6 +25,15 @@
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
         }
       ]
     },
@@ -63,48 +43,9 @@
       "IsManyToMany": false,
       "Attributes": [
         {
-          "AttributeName": "transactioncurrencyid",
-          "AttributeValue": {
-            "Id": "fa693202-8fc0-e911-a9ab-000d3ab20be2",
-            "LogicalName": "transactioncurrency",
-            "Name": "Pound Sterling",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        },
-        {
-          "AttributeName": "queueid",
-          "AttributeValue": {
-            "Id": "d1e19bee-0106-ea11-a811-000d3ab5d511",
-            "LogicalName": "queue",
-            "Name": "<CIT>",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        },
-        {
-          "AttributeName": "administratorid",
-          "AttributeValue": {
-            "Id": "28ba6322-c39e-4055-88cc-605397fa8ecf",
-            "LogicalName": "systemuser",
-            "Name": "Bilal Rehman",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        },
-        {
           "AttributeName": "name",
           "AttributeValue": "IRMS - CIT",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "map.businessunitid.isRootBU.name",
-          "AttributeValue": {
-            "AttributeLogicalName": "name",
-            "EntityLogicalName": "businessunit",
-            "Value": "defra-custmstr-eue-dev-imp"
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
         },
         {
           "AttributeName": "businessunitid",
@@ -115,6 +56,15 @@
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
         }
       ]
     },
@@ -124,48 +74,9 @@
       "IsManyToMany": false,
       "Attributes": [
         {
-          "AttributeName": "transactioncurrencyid",
-          "AttributeValue": {
-            "Id": "fa693202-8fc0-e911-a9ab-000d3ab20be2",
-            "LogicalName": "transactioncurrency",
-            "Name": "Pound Sterling",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        },
-        {
-          "AttributeName": "queueid",
-          "AttributeValue": {
-            "Id": "6cdc7830-0206-ea11-a811-000d3ab5d511",
-            "LogicalName": "queue",
-            "Name": "<EU Imports - Scotland>",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        },
-        {
-          "AttributeName": "administratorid",
-          "AttributeValue": {
-            "Id": "28ba6322-c39e-4055-88cc-605397fa8ecf",
-            "LogicalName": "systemuser",
-            "Name": "Bilal Rehman",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        },
-        {
           "AttributeName": "name",
           "AttributeValue": "IRMS - Scotland",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "map.businessunitid.isRootBU.name",
-          "AttributeValue": {
-            "AttributeLogicalName": "name",
-            "EntityLogicalName": "businessunit",
-            "Value": "defra-custmstr-eue-dev-imp"
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
         },
         {
           "AttributeName": "businessunitid",
@@ -176,6 +87,15 @@
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
         }
       ]
     },
@@ -185,48 +105,9 @@
       "IsManyToMany": false,
       "Attributes": [
         {
-          "AttributeName": "transactioncurrencyid",
-          "AttributeValue": {
-            "Id": "fa693202-8fc0-e911-a9ab-000d3ab20be2",
-            "LogicalName": "transactioncurrency",
-            "Name": "Pound Sterling",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        },
-        {
-          "AttributeName": "queueid",
-          "AttributeValue": {
-            "Id": "dfe55f54-0206-ea11-a811-000d3ab5d511",
-            "LogicalName": "queue",
-            "Name": "<EU Imports - Wales>",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        },
-        {
-          "AttributeName": "administratorid",
-          "AttributeValue": {
-            "Id": "28ba6322-c39e-4055-88cc-605397fa8ecf",
-            "LogicalName": "systemuser",
-            "Name": "Bilal Rehman",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        },
-        {
           "AttributeName": "name",
           "AttributeValue": "IRMS - Wales",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "map.businessunitid.isRootBU.name",
-          "AttributeValue": {
-            "AttributeLogicalName": "name",
-            "EntityLogicalName": "businessunit",
-            "Value": "defra-custmstr-eue-dev-imp"
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
         },
         {
           "AttributeName": "businessunitid",
@@ -237,6 +118,15 @@
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
         }
       ]
     }
