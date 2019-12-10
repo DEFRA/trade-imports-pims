@@ -35,6 +35,25 @@
           "AttributeName": "name",
           "AttributeValue": "defra-custmstr-eue-dev-imp",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
         }
       ]
     },
@@ -77,6 +96,25 @@
           "AttributeName": "name",
           "AttributeValue": "IRMS - CIT",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
         }
       ]
     },
@@ -119,6 +157,25 @@
           "AttributeName": "name",
           "AttributeValue": "IRMS - Scotland",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
         }
       ]
     },
@@ -161,6 +218,25 @@
           "AttributeName": "name",
           "AttributeValue": "IRMS - Wales",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
         }
       ]
     }

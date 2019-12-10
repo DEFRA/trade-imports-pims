@@ -124,9 +124,11 @@
       <field displayname="Team" name="teamid" type="guid" primaryKey="true" customfield="false" />
       <field displayname="Team Name" name="name" type="string" primaryKey="false" customfield="false" />
       <field displayname="Email" name="emailaddress" type="string" primaryKey="false" customfield="false" />
-      <field displayname="Process" name="processid" type="guid" primaryKey="false" customfield="false" />
       <field displayname="Yomi Name" name="yominame" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Business Unit" name="businessunitid" type="entityreference" primaryKey="false" lookupType="businessunit" customfield="false" />
     </fields>
-    <relationships />
+    <relationships>
+        <relationship name="teamroles" manyToMany="true" isreflexive="false" relatedEntityName="teamroles" m2mTargetEntity="role" m2mTargetEntityPrimaryKey="roleid" />
+    </relationships>
   </entity>
 </entities>
