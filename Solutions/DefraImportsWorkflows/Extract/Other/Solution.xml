@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.10535" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.10740" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsWorkflows</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Workflows" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.10</Version>
+    <Version>0.0.0.12</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -930,7 +930,7 @@
         <Dependent key="33" type="29" displayName="Post Import Check - Update Import Application Outcome" id="{56767681-44dc-4754-9f0c-1c9e9e21dccf}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="94" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.10535)" />
+        <Required key="94" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.10740)" />
         <Dependent key="88" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
     </MissingDependencies>

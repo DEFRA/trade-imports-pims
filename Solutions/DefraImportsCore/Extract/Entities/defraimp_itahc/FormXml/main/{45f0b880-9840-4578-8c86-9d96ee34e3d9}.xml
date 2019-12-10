@@ -24,7 +24,7 @@
                         <labels>
                           <label description="Certificate Reference Number" languagecode="1033" />
                         </labels>
-                        <control disabled="false" id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" uniqueid="{3708d425-5c7e-4015-433d-17481d243cc5}" />
+                        <control disabled="false" id="defraimp_name" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_name" uniqueid="{3708d425-5c7e-4015-433d-17481d243cc5}" />
                       </cell>
                     </row>
                     <row>
@@ -240,7 +240,32 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
-      <controlDescriptions />
+      <controlDescriptions>
+        <controlDescription forControl="{3708d425-5c7e-4015-433d-17481d243cc5}">
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="0">
+            <parameters>
+              <datafieldname>defraimp_name</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="1">
+            <parameters>
+              <datafieldname>defraimp_name</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="2">
+            <parameters>
+              <datafieldname>defraimp_name</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl name="MscrmControls.InputMask.InputMaskControl" formFactor="-1">
+            <parameters>
+              <value>defraimp_name</value>
+              <mask static="true" type="SingleLine.Text">LLLLL.LL.0000.0000000</mask>
+              <maskDescription static="true" type="SingleLine.Text">For example: INTRA.HU.2019.0123456</maskDescription>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

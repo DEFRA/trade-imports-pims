@@ -24,7 +24,7 @@
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
-                        <control disabled="false" id="defraimp_name" datafieldname="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                        <control disabled="false" id="defraimp_name" datafieldname="defraimp_name" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{e5e5e72b-5dee-b7eb-056c-64b9b679c5bd}" />
                       </cell>
                     </row>
                     <row>
@@ -126,7 +126,32 @@
           </columns>
         </tab>
       </tabs>
-      <controlDescriptions />
+      <controlDescriptions>
+        <controlDescription forControl="{e5e5e72b-5dee-b7eb-056c-64b9b679c5bd}">
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="0">
+            <parameters>
+              <datafieldname>defraimp_name</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="1">
+            <parameters>
+              <datafieldname>defraimp_name</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="2">
+            <parameters>
+              <datafieldname>defraimp_name</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="-1" name="MscrmControls.InputMask.InputMaskControl">
+            <parameters>
+              <value>defraimp_name</value>
+              <mask static="true" type="SingleLine.Text">LLLLL.LL.0000.0000000</mask>
+              <maskDescription static="true" type="SingleLine.Text">For example: INTRA.HU.2019.0123456</maskDescription>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
       <DisplayConditions Order="1">
         <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
         <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />

@@ -85,7 +85,7 @@
                       <mcwo:StepLabel Description="Primary ITAHC" LabelId="7c7b066a-ede8-4322-b68a-a4b2ca96fbca" LanguageCode="1033" />
                     </sco:Collection>
                     <x:String x:Key="ProcessStepId">7c7b066a-ede8-4322-b68a-a4b2ca96fbca</x:String>
-                    <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
+                    <x:Boolean x:Key="IsProcessRequired">False</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
                 <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep10: New Step">

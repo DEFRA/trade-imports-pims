@@ -40,7 +40,7 @@
                         <labels>
                           <label description="Primary ITAHC" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_primaryitahcid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_primaryitahcid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_primaryitahcid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_primaryitahcid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="false" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -114,7 +114,7 @@
                         <labels>
                           <label description="Certificate Compliant First Time?" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_certificatecompliantfirsttime" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_certificatecompliantfirsttime" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_certificatecompliantfirsttime" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_certificatecompliantfirsttime" uniqueid="{622d6437-2984-51c8-a384-c30306a8b909}" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -286,6 +286,28 @@
           <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
             <parameters>
               <value>defraimp_matchingvalidated</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{622d6437-2984-51c8-a384-c30306a8b909}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>defraimp_certificatecompliantfirsttime</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_certificatecompliantfirsttime</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_certificatecompliantfirsttime</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_certificatecompliantfirsttime</value>
             </parameters>
           </customControl>
         </controlDescription>

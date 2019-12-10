@@ -318,7 +318,7 @@
             <displayname description="Certificate Reference Number" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The name of the custom entity." languagecode="1033" />
+            <Description description="The certificate number, for example: INTRA.HU.2019.0123456" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="defraimp_OVName">
@@ -1089,7 +1089,7 @@
       <IsDocumentRecommendationsEnabled>0</IsDocumentRecommendationsEnabled>
       <IsBPFEntity>0</IsBPFEntity>
       <OwnershipTypeMask>UserOwned</OwnershipTypeMask>
-      <IsAuditEnabled>0</IsAuditEnabled>
+      <IsAuditEnabled>1</IsAuditEnabled>
       <IsRetrieveAuditEnabled>0</IsRetrieveAuditEnabled>
       <IsRetrieveMultipleAuditEnabled>0</IsRetrieveMultipleAuditEnabled>
       <IsActivity>0</IsActivity>
