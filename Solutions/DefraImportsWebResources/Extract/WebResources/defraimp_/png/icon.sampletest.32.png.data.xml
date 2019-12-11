@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{bfa2d3ce-291c-ea11-a811-000d3ab35da5}</WebResourceId>
+  <Name>defraimp_/png/icon.sampletest.32.png</Name>
+  <DisplayName>icon.sampletest.32.png</DisplayName>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>0.0.0.8</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/defraimp_pngiconsampletest32pngBFA2D3CE-291C-EA11-A811-000D3AB35DA5</FileName>
+</WebResource>
