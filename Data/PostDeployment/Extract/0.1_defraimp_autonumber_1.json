@@ -15,11 +15,6 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Import Application Record Count",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_currentnumber",
-          "AttributeValue": 5,
-          "AttributeType": "System.Int32"
         }
       ]
     },
@@ -37,11 +32,6 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Import Application Priority 3 Counter",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_currentnumber",
-          "AttributeValue": 2,
-          "AttributeType": "System.Int32"
         }
       ]
     },
@@ -59,11 +49,6 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Import Application Priority 2 Counter",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_currentnumber",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
         }
       ]
     },
@@ -81,11 +66,6 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Import Application Priority 1 Counter",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_currentnumber",
-          "AttributeValue": 0,
-          "AttributeType": "System.Int32"
         }
       ]
     },
@@ -103,11 +83,6 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Import Application Priority 2 Quota Counter",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_currentnumber",
-          "AttributeValue": 0,
-          "AttributeType": "System.Int32"
         }
       ]
     }

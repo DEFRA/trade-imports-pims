@@ -16,9 +16,6 @@
       <field displayname="ISO Code Alpha 2" name="defra_isocodealpha2" type="string" primaryKey="false" customfield="false" />
       <field displayname="End Date" name="defra_enddate" type="datetime" primaryKey="false" customfield="false" />
     </fields>
-    <relationships>
-      <relationship name="defraimp_importapplication_defra_country" manyToMany="true" isreflexive="true" relatedEntityName="defraimp_importapplication_defra_country" m2mTargetEntity="defraimp_importapplication" m2mTargetEntityPrimaryKey="defraimp_importapplicationid" />
-    </relationships>
   </entity>
   <entity name="defraexp_commoditygroup" displayname="Commodity Group" etc="10096" primaryidfield="defraexp_commoditygroupid" primarynamefield="defraexp_name" disableplugins="false">
     <fields>
@@ -85,7 +82,6 @@
       <field displayname="Key" name="defraimp_key" type="string" primaryKey="false" customfield="false" />
       <field displayname="Autonumber" name="defraimp_autonumberid" type="guid" primaryKey="true" customfield="false" />
       <field displayname="Related Record Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
-      <field displayname="Current Number" name="defraimp_currentnumber" type="integer" primaryKey="false" customfield="false" />
     </fields>
     <relationships />
   </entity>
@@ -102,7 +98,6 @@
   <entity name="defraimp_inspectioncoveragerule" displayname="Inspection Coverage Rule" etc="10119" primaryidfield="defraimp_inspectioncoverageruleid" primarynamefield="defraimp_name" disableplugins="false">
     <fields>
       <field displayname="Rule Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
-      <field displayname="Number Of Records Until Inspection" name="defraimp_numberofrecordsuntilinspection" type="integer" primaryKey="false" customfield="false" />
       <field displayname="Risk Level" name="defraimp_risklevelid" type="entityreference" primaryKey="false" lookupType="defraimp_importrisklevel" customfield="false" />
       <field displayname="Inspection Coverage Rule" name="defraimp_inspectioncoverageruleid" type="guid" primaryKey="true" customfield="false" />
     </fields>

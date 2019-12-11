@@ -12,11 +12,6 @@
           "AttributeType": "System.String"
         },
         {
-          "AttributeName": "defraimp_numberofrecordsuntilinspection",
-          "AttributeValue": 2,
-          "AttributeType": "System.Int32"
-        },
-        {
           "AttributeName": "defraimp_risklevelid",
           "AttributeValue": {
             "Id": "48c4149e-b2d3-e911-a84e-000d3ab0d281",
@@ -37,11 +32,6 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "10% Rule",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_numberofrecordsuntilinspection",
-          "AttributeValue": 3,
-          "AttributeType": "System.Int32"
         },
         {
           "AttributeName": "defraimp_risklevelid",
@@ -66,11 +56,6 @@
           "AttributeType": "System.String"
         },
         {
-          "AttributeName": "defraimp_numberofrecordsuntilinspection",
-          "AttributeValue": 100,
-          "AttributeType": "System.Int32"
-        },
-        {
           "AttributeName": "defraimp_risklevelid",
           "AttributeValue": {
             "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
@@ -93,11 +78,6 @@
           "AttributeType": "System.String"
         },
         {
-          "AttributeName": "defraimp_numberofrecordsuntilinspection",
-          "AttributeValue": 3,
-          "AttributeType": "System.Int32"
-        },
-        {
           "AttributeName": "defraimp_risklevelid",
           "AttributeValue": {
             "Id": "48c4149e-b2d3-e911-a84e-000d3ab0d281",
@@ -118,11 +98,6 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Gold Commodity Every X",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_numberofrecordsuntilinspection",
-          "AttributeValue": 3,
-          "AttributeType": "System.Int32"
         },
         {
           "AttributeName": "defraimp_risklevelid",
