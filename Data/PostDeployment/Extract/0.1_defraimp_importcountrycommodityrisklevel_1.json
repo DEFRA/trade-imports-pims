@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 480,
+  "RecordsCount": 482,
   "ExportedEntities": [
     {
       "LogicalName": "defraimp_importcountrycommodityrisklevel",
@@ -340,9 +340,9 @@
         {
           "AttributeName": "defraimp_importrisklevelid",
           "AttributeValue": {
-            "Id": "48c4149e-b2d3-e911-a84e-000d3ab0d281",
+            "Id": "a4c3149e-b2d3-e911-a84e-000d3ab0d281",
             "LogicalName": "defraimp_importrisklevel",
-            "Name": "P3",
+            "Name": "P2",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2188,9 +2188,9 @@
         {
           "AttributeName": "defraimp_importrisklevelid",
           "AttributeValue": {
-            "Id": "a4c3149e-b2d3-e911-a84e-000d3ab0d281",
+            "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
             "LogicalName": "defraimp_importrisklevel",
-            "Name": "P2",
+            "Name": "P1",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2230,9 +2230,9 @@
         {
           "AttributeName": "defraimp_importrisklevelid",
           "AttributeValue": {
-            "Id": "48c4149e-b2d3-e911-a84e-000d3ab0d281",
+            "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
             "LogicalName": "defraimp_importrisklevel",
-            "Name": "P3",
+            "Name": "P1",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8239,11 +8239,11 @@
       "IsManyToMany": false,
       "Attributes": [
         {
-          "AttributeName": "defraimp_countryid",
+          "AttributeName": "defraimp_importrisklevelid",
           "AttributeValue": {
-            "Id": "009cb7ed-b2d3-e911-a861-000d3ab1dad7",
-            "LogicalName": "defra_country",
-            "Name": "Isle of Man",
+            "Id": "48c4149e-b2d3-e911-a84e-000d3ab0d281",
+            "LogicalName": "defraimp_importrisklevel",
+            "Name": "P3",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8252,6 +8252,16 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Isle of Man - GOATS ",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_countryid",
+          "AttributeValue": {
+            "Id": "009cb7ed-b2d3-e911-a861-000d3ab1dad7",
+            "LogicalName": "defra_country",
+            "Name": "Isle of Man",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
         },
         {
           "AttributeName": "defraimp_commoditytypeid",
@@ -10063,7 +10073,7 @@
       "Attributes": [
         {
           "AttributeName": "defraimp_risklevelnotes",
-          "AttributeValue": "Need checked they have not transited a protection Zone- IF SO NEED TREATMENT OF VEHICLE - IF THIS NOT DONE RE-CLASSIFY AS P1V",
+          "AttributeValue": "Was P1V",
           "AttributeType": "System.String"
         },
         {
@@ -14711,9 +14721,9 @@
         {
           "AttributeName": "defraimp_importrisklevelid",
           "AttributeValue": {
-            "Id": "a4c3149e-b2d3-e911-a84e-000d3ab0d281",
+            "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
             "LogicalName": "defraimp_importrisklevel",
-            "Name": "P2",
+            "Name": "P1",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14753,9 +14763,9 @@
         {
           "AttributeName": "defraimp_importrisklevelid",
           "AttributeValue": {
-            "Id": "a4c3149e-b2d3-e911-a84e-000d3ab0d281",
+            "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
             "LogicalName": "defraimp_importrisklevel",
-            "Name": "P2",
+            "Name": "P1",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14795,9 +14805,9 @@
         {
           "AttributeName": "defraimp_importrisklevelid",
           "AttributeValue": {
-            "Id": "a4c3149e-b2d3-e911-a84e-000d3ab0d281",
+            "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
             "LogicalName": "defraimp_importrisklevel",
-            "Name": "P2",
+            "Name": "P1",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15764,11 +15774,11 @@
       "IsManyToMany": false,
       "Attributes": [
         {
-          "AttributeName": "defraimp_countryid",
+          "AttributeName": "defraimp_importrisklevelid",
           "AttributeValue": {
-            "Id": "fe9bb7ed-b2d3-e911-a861-000d3ab1dad7",
-            "LogicalName": "defra_country",
-            "Name": "Ireland",
+            "Id": "48c4149e-b2d3-e911-a84e-000d3ab0d281",
+            "LogicalName": "defraimp_importrisklevel",
+            "Name": "P3",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15777,6 +15787,16 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Ireland - GOATS ",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_countryid",
+          "AttributeValue": {
+            "Id": "fe9bb7ed-b2d3-e911-a861-000d3ab1dad7",
+            "LogicalName": "defra_country",
+            "Name": "Ireland",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
         },
         {
           "AttributeName": "defraimp_commoditytypeid",
@@ -20090,6 +20110,95 @@
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
             "Name": "Other mammals, Insects, Reptiles",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importcountrycommodityrisklevel",
+      "Id": "d1ace31d-251c-ea11-a812-000d3ab5d29e",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_risklevelnotes",
+          "AttributeValue": "Random comment on fully amended entry.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_importrisklevelid",
+          "AttributeValue": {
+            "Id": "48c4149e-b2d3-e911-a84e-000d3ab0d281",
+            "LogicalName": "defraimp_importrisklevel",
+            "Name": "P3",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Albania - PIGS ",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_countryid",
+          "AttributeValue": {
+            "Id": "169bb7ed-b2d3-e911-a861-000d3ab1dad7",
+            "LogicalName": "defra_country",
+            "Name": "Albania",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_commoditytypeid",
+          "AttributeValue": {
+            "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "PIGS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importcountrycommodityrisklevel",
+      "Id": "d3ace31d-251c-ea11-a812-000d3ab5d29e",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_importrisklevelid",
+          "AttributeValue": {
+            "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
+            "LogicalName": "defraimp_importrisklevel",
+            "Name": "P1",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Algeria - BONE ASH ",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_countryid",
+          "AttributeValue": {
+            "Id": "189bb7ed-b2d3-e911-a861-000d3ab1dad7",
+            "LogicalName": "defra_country",
+            "Name": "Algeria",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_commoditytypeid",
+          "AttributeValue": {
+            "Id": "f95445a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "BONE ASH",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
