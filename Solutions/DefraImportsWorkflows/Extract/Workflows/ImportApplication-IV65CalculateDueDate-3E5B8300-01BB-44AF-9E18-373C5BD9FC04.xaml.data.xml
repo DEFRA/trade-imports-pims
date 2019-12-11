@@ -8,7 +8,7 @@
   <Scope>4</Scope>
   <OnDemand>0</OnDemand>
   <TriggerOnUpdateAttributeList>defraimp_iv65sentdate</TriggerOnUpdateAttributeList>
-  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnCreate>1</TriggerOnCreate>
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
