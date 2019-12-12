@@ -47,7 +47,7 @@
     </fetchxml>
     <IntroducedVersion>0.0.0.1</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Live Import Records" languagecode="1033" />
+      <LocalizedName description="1. Live Import Records" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

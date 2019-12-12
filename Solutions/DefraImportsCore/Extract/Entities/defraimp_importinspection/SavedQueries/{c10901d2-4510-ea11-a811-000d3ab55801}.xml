@@ -36,7 +36,7 @@
     </fetchxml>
     <IntroducedVersion>0.0.0.5</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Post Import Check 2% Checks Required Within the Month (Excluding Cats and Dogs)" languagecode="1033" />
+      <LocalizedName description="Chart (View via Dashboard) - Post Import Check 2% Required Within the Month (Excluding Cats/Dogs)" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

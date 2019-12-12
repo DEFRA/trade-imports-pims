@@ -38,7 +38,6 @@
               </condition>
             </filter>
           </link-entity>
-          <attribute name="defraimp_importinspectionid" />
           <attribute name="defraimp_relateditahc" />
           <attribute name="defraimp_samworkschedulenumber" />
           <attribute name="defraimp_inspectionoutcome" />
@@ -49,12 +48,13 @@
           <attribute name="defraimp_replyfromahodue" />
           <attribute name="defraimp_dateofvisit" />
           <order descending="true" attribute="createdon" />
+          <attribute name="defraimp_importinspectionid" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>0.0.0.6</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Post Import Checks for Dogs/Cats/Ferrets Due This Week" languagecode="1033" />
+      <LocalizedName description="4. Post Import Checks for Dogs/Cats/Ferrets Due This Week" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

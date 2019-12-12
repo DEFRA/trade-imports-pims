@@ -42,18 +42,18 @@
               <value>714100005</value>
             </condition>
           </filter>
-          <attribute name="defraimp_importinspectionid" />
           <attribute name="defraimp_customernumber" />
           <attribute name="defraimp_cphnumber" />
           <attribute name="defraimp_replyfromahodue" />
           <attribute name="defraimp_dateofvisit" />
           <order descending="true" attribute="createdon" />
+          <attribute name="defraimp_importinspectionid" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>0.0.0.4</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="My Open Post Import Checks" languagecode="1033" />
+      <LocalizedName description="1. My Open Post Import Checks" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

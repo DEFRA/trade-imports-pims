@@ -30,7 +30,6 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="defraimp_importinspectionid" />
           <attribute name="defraimp_relateditahc" />
           <attribute name="defraimp_samworkschedulenumber" />
           <attribute name="defraimp_relatedimportapplication" />
@@ -40,12 +39,13 @@
           <attribute name="defraimp_replyfromahodue" />
           <attribute name="defraimp_dateofvisit" />
           <order descending="true" attribute="createdon" />
+          <attribute name="defraimp_importinspectionid" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>0.0.0.2</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Active Post Import Checks" languagecode="1033" />
+      <LocalizedName description="6. Active Post Import Checks" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
