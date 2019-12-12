@@ -29,7 +29,7 @@
     </fetchxml>
     <IntroducedVersion>0.0.0.5</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Import Records Received Today" languagecode="1033" />
+      <LocalizedName description="Chart (View via Dashboard) - Import Records Received Today" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
