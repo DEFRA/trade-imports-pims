@@ -6,7 +6,7 @@
       <LocalizedName description="Defra.Imports.Core" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.18</Version>
+    <Version>0.0.0.19</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -253,31 +253,31 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="17" type="2" schemaName="defraexp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
-        <Dependent key="13" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" displayName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="17" type="2" schemaName="defraexp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
         <Dependent key="12" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" displayName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
       </MissingDependency>
       <MissingDependency>
         <Required key="17" type="2" schemaName="defraexp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
         <Dependent key="11" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_importnotification_CommodityTypeId" displayName="defraimp_defraexp_commoditytype_defraimp_importnotification_CommodityTypeId" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="17" type="2" schemaName="defraexp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
+        <Dependent key="13" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" displayName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="18" type="2" schemaName="defraexp_name" displayName="Name" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
+        <Dependent key="11" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_importnotification_CommodityTypeId" displayName="defraimp_defraexp_commoditytype_defraimp_importnotification_CommodityTypeId" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="18" type="2" schemaName="defraexp_name" displayName="Name" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
+        <Dependent key="12" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" displayName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="18" type="2" schemaName="defraexp_name" displayName="Name" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
+        <Dependent key="13" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" displayName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
       </MissingDependency>
       <MissingDependency>
         <Required key="18" type="2" schemaName="defraexp_name" displayName="Name" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
         <Dependent key="10" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_importapp" displayName="defraimp_defraexp_commoditytype_defraimp_importapp" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="18" type="2" schemaName="defraexp_name" displayName="Name" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
-        <Dependent key="11" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_importnotification_CommodityTypeId" displayName="defraimp_defraexp_commoditytype_defraimp_importnotification_CommodityTypeId" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="18" type="2" schemaName="defraexp_name" displayName="Name" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
-        <Dependent key="13" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" displayName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="18" type="2" schemaName="defraexp_name" displayName="Name" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
-        <Dependent key="12" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" displayName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
       </MissingDependency>
       <MissingDependency>
         <Required key="16" type="2" schemaName="defra_name" displayName="Official Country Name" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
@@ -365,11 +365,11 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="34" type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.1.0000.10740)" />
-        <Dependent key="35" type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
+        <Dependent key="35" type="60" displayName="ITAHC Quick Create" parentDisplayName="ITAHC" id="{c7a38b2c-7a34-40a6-9062-e37e878fd92d}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="34" type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.1.0000.10740)" />
-        <Dependent key="36" type="60" displayName="ITAHC Quick Create" parentDisplayName="ITAHC" id="{c7a38b2c-7a34-40a6-9062-e37e878fd92d}" />
+        <Dependent key="36" type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="37" type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.1911.1001)" />
@@ -405,7 +405,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="50" type="61" schemaName="msdyn_filesandattachments" displayName="msdyn_filesandattachments" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
-        <Dependent key="35" type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
+        <Dependent key="36" type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="50" type="61" schemaName="msdyn_filesandattachments" displayName="msdyn_filesandattachments" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
@@ -421,15 +421,15 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="54" type="61" schemaName="msdyn_multiple_uploads" displayName="msdyn_multiple_uploads" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
+        <Dependent key="6" type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="54" type="61" schemaName="msdyn_multiple_uploads" displayName="msdyn_multiple_uploads" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
         <Dependent key="33" type="60" displayName="Information" parentDisplayName="Post Import Check" id="{045d20e0-adad-46b9-ae53-39d2b3e2a7f8}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="54" type="61" schemaName="msdyn_multiple_uploads" displayName="msdyn_multiple_uploads" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
-        <Dependent key="35" type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="54" type="61" schemaName="msdyn_multiple_uploads" displayName="msdyn_multiple_uploads" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
-        <Dependent key="6" type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
+        <Dependent key="36" type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="55" type="61" schemaName="defraimp_/png/icon.goldbronzecommodity.16.png" displayName="defraimp_/png/icon.goldbronzecommodity.16.png" solution="Active" />
@@ -565,15 +565,15 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="92" type="61" schemaName="defraimp_/png/icon.itahc.16.png" displayName="defraimp_/png/icon.itahc.16.png" solution="Active" />
+        <Dependent key="69" type="1" schemaName="defraimp_cved" displayName="CVED" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="92" type="61" schemaName="defraimp_/png/icon.itahc.16.png" displayName="defraimp_/png/icon.itahc.16.png" solution="Active" />
         <Dependent key="67" type="1" schemaName="defraimp_docom" displayName="DOCOM" />
       </MissingDependency>
       <MissingDependency>
         <Required key="92" type="61" schemaName="defraimp_/png/icon.itahc.16.png" displayName="defraimp_/png/icon.itahc.16.png" solution="Active" />
         <Dependent key="68" type="1" schemaName="defraimp_itahc" displayName="ITAHC" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="92" type="61" schemaName="defraimp_/png/icon.itahc.16.png" displayName="defraimp_/png/icon.itahc.16.png" solution="Active" />
-        <Dependent key="69" type="1" schemaName="defraimp_cved" displayName="CVED" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

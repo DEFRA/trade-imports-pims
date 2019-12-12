@@ -52,7 +52,7 @@
     </fetchxml>
     <IntroducedVersion>0.0.0.5</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Open Post Import Checks" languagecode="1033" />
+      <LocalizedName description="2. Open Post Import Checks" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

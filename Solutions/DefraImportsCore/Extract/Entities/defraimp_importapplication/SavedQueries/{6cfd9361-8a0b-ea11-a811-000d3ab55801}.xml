@@ -49,7 +49,7 @@
     </fetchxml>
     <IntroducedVersion>0.0.0.4</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Live DOCOM Import Records" languagecode="1033" />
+      <LocalizedName description="4. Live DOCOM Import Records" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
