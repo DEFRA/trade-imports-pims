@@ -12,7 +12,6 @@
     <RolePrivilege name="prvAppenddefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importinspection" level="Global" />
-    <RolePrivilege name="prvAppenddefraimp_importnotification" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_sampletest" level="Global" />
@@ -40,7 +39,6 @@
     <RolePrivilege name="prvAppendTodefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importinspection" level="Global" />
-    <RolePrivilege name="prvAppendTodefraimp_importnotification" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_placeoforigin" level="Global" />
@@ -67,7 +65,6 @@
     <RolePrivilege name="prvAssigndefraimp_docom" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importinspection" level="Global" />
-    <RolePrivilege name="prvAssigndefraimp_importnotification" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvAssignQueue" level="Global" />
@@ -83,7 +80,6 @@
     <RolePrivilege name="prvCreatedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importinspection" level="Global" />
-    <RolePrivilege name="prvCreatedefraimp_importnotification" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_itahc" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvCreateExpiredProcess" level="Global" />
@@ -142,7 +138,6 @@
     <RolePrivilege name="prvReaddefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importcountrycommodityrisklevel" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importinspection" level="Global" />
-    <RolePrivilege name="prvReaddefraimp_importnotification" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvReaddefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvReaddefraimp_itahc" level="Global" />
@@ -190,7 +185,6 @@
     <RolePrivilege name="prvSharedefraimp_cved" level="Global" />
     <RolePrivilege name="prvSharedefraimp_docom" level="Global" />
     <RolePrivilege name="prvSharedefraimp_importapplication" level="Global" />
-    <RolePrivilege name="prvSharedefraimp_importnotification" level="Global" />
     <RolePrivilege name="prvSharedefraimp_itahc" level="Global" />
     <RolePrivilege name="prvSharedefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvShareWorkflow" level="Local" />
@@ -207,7 +201,6 @@
     <RolePrivilege name="prvWritedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importinspection" level="Global" />
-    <RolePrivilege name="prvWritedefraimp_importnotification" level="Global" />
     <RolePrivilege name="prvWritedefraimp_itahc" level="Global" />
     <RolePrivilege name="prvWritedefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvWriteExpiredProcess" level="Global" />
