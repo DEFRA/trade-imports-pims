@@ -12,7 +12,6 @@
   <EntityRelationship Name="business_unit_defraimp_goldbronzecommodity" />
   <EntityRelationship Name="business_unit_defraimp_importapplication" />
   <EntityRelationship Name="business_unit_defraimp_importinspection" />
-  <EntityRelationship Name="business_unit_defraimp_importnotification" />
   <EntityRelationship Name="business_unit_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="business_unit_defraimp_itahc" />
   <EntityRelationship Name="business_unit_defraimp_placeoforigin" />
@@ -25,7 +24,6 @@
   <EntityRelationship Name="defra_invitation_defraimp_importqueries" />
   <EntityRelationship Name="defraexp_exportapplication_defraimp_importqueries" />
   <EntityRelationship Name="defraimp_account_defraimp_importapplication" />
-  <EntityRelationship Name="defraimp_contact_defraimp_importapplication" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importapplication" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importapplication_ImporterAddressCountryID" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importapplication_PlaceofOriginCountryID" />
@@ -33,29 +31,19 @@
   <EntityRelationship Name="defraimp_defra_country_defraimp_importapppermdest" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importappplacedest" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importcountrycommodityrisklevel_countryid" />
-  <EntityRelationship Name="defraimp_defra_country_defraimp_importnotification_CharityAddressCountry" />
-  <EntityRelationship Name="defraimp_defra_country_defraimp_importnotification_CountryofOriginId" />
-  <EntityRelationship Name="defraimp_defra_country_defraimp_importnotification_ImporterAddressCountryid" />
-  <EntityRelationship Name="defraimp_defra_country_defraimp_importnotification_PermanentDestinationAddressCountryid" />
-  <EntityRelationship Name="defraimp_defra_country_defraimp_importnotification_PlaceofDestinationAddressCountryid" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_placeoforigin_AddressCountry" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_importapp" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" />
-  <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_importnotification_CommodityTypeId" />
   <EntityRelationship Name="defraimp_defraimp_apharegion_defraimp_importapplic" />
   <EntityRelationship Name="defraimp_defraimp_apharegion_defraimp_importinspection_RegionAreaAllocatedtoID" />
   <EntityRelationship Name="defraimp_defraimp_cved_defraimp_importapplication_PrimaryCVEDId" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defra_country" />
-  <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_impor" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_itahc" />
   <EntityRelationship Name="defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection" />
   <EntityRelationship Name="defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection" />
   <EntityRelationship Name="defraimp_defraimp_importinspection_defraimp_sample" />
-  <EntityRelationship Name="defraimp_defraimp_importnotification_defraimp_impo" />
-  <EntityRelationship Name="defraimp_defraimp_importnotification_defraimp_importnotification_replacedbyid" />
-  <EntityRelationship Name="defraimp_defraimp_importnotification_defraimp_importnotification_replacesid" />
   <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_importapplication_importrisklevelid" />
   <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_importapplication_PreviousImportRiskLevelId" />
   <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_importcountrycommodityrisklevel_risklevelid" />
@@ -71,7 +59,6 @@
   <EntityRelationship Name="defraimp_importapplication_PrimaryDOCOMId" />
   <EntityRelationship Name="defraimp_importapplication_ProcessSession" />
   <EntityRelationship Name="defraimp_importcountrycommodityrisklevel_ProcessSession" />
-  <EntityRelationship Name="defraimp_importnotification_ProcessSession" />
   <EntityRelationship Name="defraimp_importquery_businessunit_owningbusinessunit" />
   <EntityRelationship Name="defraimp_importquery_mailbox_sendermailboxid" />
   <EntityRelationship Name="defraimp_importquery_owner_ownerid" />
@@ -113,8 +100,6 @@
   <EntityRelationship Name="lk_defraimp_importcountrycommodityrisklevel_modifiedby" />
   <EntityRelationship Name="lk_defraimp_importinspection_createdby" />
   <EntityRelationship Name="lk_defraimp_importinspection_modifiedby" />
-  <EntityRelationship Name="lk_defraimp_importnotification_createdby" />
-  <EntityRelationship Name="lk_defraimp_importnotification_modifiedby" />
   <EntityRelationship Name="lk_defraimp_importrisklevel_createdby" />
   <EntityRelationship Name="lk_defraimp_importrisklevel_modifiedby" />
   <EntityRelationship Name="lk_defraimp_inspectioncoveragerule_createdby" />
@@ -138,7 +123,6 @@
   <EntityRelationship Name="owner_defraimp_goldbronzecommodity" />
   <EntityRelationship Name="owner_defraimp_importapplication" />
   <EntityRelationship Name="owner_defraimp_importinspection" />
-  <EntityRelationship Name="owner_defraimp_importnotification" />
   <EntityRelationship Name="owner_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="owner_defraimp_itahc" />
   <EntityRelationship Name="owner_defraimp_placeoforigin" />
@@ -152,7 +136,6 @@
   <EntityRelationship Name="team_defraimp_goldbronzecommodity" />
   <EntityRelationship Name="team_defraimp_importapplication" />
   <EntityRelationship Name="team_defraimp_importinspection" />
-  <EntityRelationship Name="team_defraimp_importnotification" />
   <EntityRelationship Name="team_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="team_defraimp_itahc" />
   <EntityRelationship Name="team_defraimp_placeoforigin" />
@@ -163,7 +146,6 @@
   <EntityRelationship Name="user_defraimp_goldbronzecommodity" />
   <EntityRelationship Name="user_defraimp_importapplication" />
   <EntityRelationship Name="user_defraimp_importinspection" />
-  <EntityRelationship Name="user_defraimp_importnotification" />
   <EntityRelationship Name="user_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="user_defraimp_itahc" />
   <EntityRelationship Name="user_defraimp_placeoforigin" />

@@ -4,8 +4,9 @@
     "\\Solutions",
     "\\Solutions\\DefraImportsWorkflows",
     "\\Solutions\\DefraImportsWorkflows\\WorkflowAssemblies",
-    "\\Solutions\\DefraImportsWorkflows\\WorkflowAssemblies\\Defra.Imports.Workflows"
+    "\\Solutions\\DefraImportsWorkflows\\WorkflowAssemblies\\Defra.Imports.Workflows",
+    "\\Solutions\\DefraImportsWorkflows\\WorkflowAssemblies\\Defra.Imports.Workflows\\ImportApplication"
   ],
-  "SelectedNode": "\\Defra.Imports.sln",
+  "SelectedNode": "\\Solutions\\DefraImportsWorkflows\\WorkflowAssemblies\\Defra.Imports.Workflows\\ImportApplication\\AutomatedRiskLevelAssignment.cs",
   "PreviewInSolutionExplorer": false
 }
