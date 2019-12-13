@@ -25,7 +25,6 @@
     <AppModuleComponent type="1" schemaName="defraimp_docom" />
     <AppModuleComponent type="1" schemaName="defraimp_goldbronzecommodity" />
     <AppModuleComponent type="1" schemaName="defraimp_importcountrycommodityrisklevel" />
-    <AppModuleComponent type="1" schemaName="defraimp_importnotification" />
     <AppModuleComponent type="1" schemaName="defraimp_importquery" />
     <AppModuleComponent type="1" schemaName="defraimp_importapplication" />
     <AppModuleComponent type="1" schemaName="defraimp_importrisklevel" />
