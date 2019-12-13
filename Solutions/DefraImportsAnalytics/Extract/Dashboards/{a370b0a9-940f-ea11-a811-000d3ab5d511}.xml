@@ -51,23 +51,23 @@
                           <labels>
                             <label description="Import Notification" languagecode="1033" />
                           </labels>
-                          <control id="Component385352" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <control id="Component385352" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{c2eac339-e266-e4ed-68e7-45e48320e81d}">
                             <parameters>
-                              <ViewId>{E1878097-7C0F-EA11-A811-000D3AB4DE89}</ViewId>
+                              <ViewId>{2B66A623-781A-EA11-A811-000D3AB4DF6C}</ViewId>
                               <IsUserView>false</IsUserView>
                               <RelationshipName />
-                              <TargetEntityType>defraimp_importnotification</TargetEntityType>
+                              <TargetEntityType>defraimp_importapplication</TargetEntityType>
                               <AutoExpand>Fixed</AutoExpand>
                               <EnableQuickFind>false</EnableQuickFind>
                               <EnableViewPicker>false</EnableViewPicker>
-                              <ViewIds />
+                              <ViewIds>{2B66A623-781A-EA11-A811-000D3AB4DF6C},{DD020992-1353-4A60-8EAD-C0E0925163E4}</ViewIds>
                               <EnableJumpBar>false</EnableJumpBar>
                               <ChartGridMode>Chart</ChartGridMode>
-                              <VisualizationId>{E503AD96-5B10-EA11-A811-000D3AB55801}</VisualizationId>
+                              <VisualizationId>{2D77334A-791A-EA11-A811-000D3AB4DF6C}</VisualizationId>
                               <IsUserChart>false</IsUserChart>
                               <EnableChartPicker>false</EnableChartPicker>
-                              <RecordsPerPage>8</RecordsPerPage>
-                              <HeaderColorCode />
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
                             </parameters>
                           </control>
                         </cell>
