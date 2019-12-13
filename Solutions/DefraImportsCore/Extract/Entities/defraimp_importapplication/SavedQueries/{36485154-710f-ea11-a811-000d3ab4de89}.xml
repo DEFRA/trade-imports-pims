@@ -42,8 +42,8 @@
           <attribute name="defraimp_placeoforiginorganisation" />
           <attribute name="defraimp_placeofdestinationorganisation" />
           <attribute name="defraimp_primaryitahcid" />
-          <order descending="true" attribute="createdon" />
           <attribute name="defraimp_importapplicationid" />
+          <order descending="true" attribute="createdon" />
         </entity>
       </fetch>
     </fetchxml>

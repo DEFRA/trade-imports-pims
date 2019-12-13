@@ -33,7 +33,6 @@
           <attribute name="defraimp_placeofdestinationorganisation" />
           <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_name" />
-          <order descending="true" attribute="createdon" />
           <filter type="and">
             <condition attribute="statuscode" operator="in">
               <value>1</value>
@@ -43,6 +42,7 @@
             <condition attribute="defraimp_importrisklevelid" operator="eq" uiname="P1" uitype="defraimp_importrisklevel" value="{6D5B1D98-B2D3-E911-A84E-000D3AB0D281}" />
           </filter>
           <attribute name="defraimp_importapplicationid" />
+          <order descending="true" attribute="createdon" />
         </entity>
       </fetch>
     </fetchxml>

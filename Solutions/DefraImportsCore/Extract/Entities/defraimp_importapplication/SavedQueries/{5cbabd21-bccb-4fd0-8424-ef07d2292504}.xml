@@ -36,8 +36,8 @@
           <attribute name="defraimp_importrisklevelid" />
           <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_name" />
-          <order descending="true" attribute="createdon" />
           <attribute name="defraimp_importapplicationid" />
+          <order descending="true" attribute="createdon" />
         </entity>
       </fetch>
     </fetchxml>
