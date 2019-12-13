@@ -47,7 +47,6 @@
     <RolePrivilege name="prvWritedefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importcountrycommodityrisklevel" level="Global" />
-    <RolePrivilege name="prvWritedefraimp_importnotification" level="Global" />
     <RolePrivilege name="prvWritedefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvWritedefraimp_itahc" level="Global" />
     <RolePrivilege name="prvWritedefraimp_placeoforigin" level="Global" />
