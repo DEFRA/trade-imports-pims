@@ -86,7 +86,6 @@
           <cell name="defraimp_inspectiondeclinedreason" width="100" disableSorting="1" />
           <cell name="defraimp_inspectioncompleted" width="100" />
           <cell name="defraimp_inspectionoutcome" width="100" />
-          <cell name="defraimp_inspectionoutcomereceived" width="100" />
           <cell name="defraimp_inspectionrequested" width="100" />
           <cell name="defraimp_inspectionrequiredreason" width="100" />
           <cell name="defraimp_inspectionrequired" width="100" />
@@ -169,7 +168,6 @@
           <attribute name="defraimp_inspectionrequired" />
           <attribute name="defraimp_inspectionrequiredreason" />
           <attribute name="defraimp_inspectionrequested" />
-          <attribute name="defraimp_inspectionoutcomereceived" />
           <attribute name="defraimp_inspectionoutcome" />
           <attribute name="defraimp_inspectioncompleted" />
           <attribute name="defraimp_inspectiondeclinedreason" />

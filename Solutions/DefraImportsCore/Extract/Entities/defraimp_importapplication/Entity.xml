@@ -1682,46 +1682,6 @@
             <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="defraimp_InspectionNotRequiredReason">
-          <Type>nvarchar</Type>
-          <Name>defraimp_inspectionnotrequiredreason</Name>
-          <LogicalName>defraimp_inspectionnotrequiredreason</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>0.0.0.1</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
-          <displaynames>
-            <displayname description="(To Be Deleted) Inspection Not Required Reason" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="defraimp_InspectionOutcome">
           <Type>picklist</Type>
           <Name>defraimp_inspectionoutcome</Name>
@@ -1783,67 +1743,6 @@
           </optionset>
           <displaynames>
             <displayname description="Post Import Checks Outcome" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="defraimp_InspectionOutcomeReceived">
-          <Type>bit</Type>
-          <Name>defraimp_inspectionoutcomereceived</Name>
-          <LogicalName>defraimp_inspectionoutcomereceived</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>0.0.0.1</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="defraimp_importapplication_defraimp_inspectionoutcomereceived">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>0.0.0.1</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <displaynames>
-              <displayname description="Inspection Outcome Received?" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="0" Color="#0000ff">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="1" Color="#0000ff">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Post Import Checks Outcome Received?" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -3848,45 +3747,6 @@
             <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="defraimp_PrimaryImportNotificationId">
-          <Type>lookup</Type>
-          <Name>defraimp_primaryimportnotificationid</Name>
-          <LogicalName>defraimp_primaryimportnotificationid</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>0.0.0.1</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>1</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
-          <displaynames>
-            <displayname description="Primary Import Notification" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Unique identifier for Import Notification associated with Import Record." languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="defraimp_PrimaryITAHCId">
           <Type>lookup</Type>
           <Name>defraimp_primaryitahcid</Name>
@@ -4003,45 +3863,6 @@
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier for APHA Region associated with Import Record." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="defraimp_RegistrantContactId">
-          <Type>lookup</Type>
-          <Name>defraimp_registrantcontactid</Name>
-          <LogicalName>defraimp_registrantcontactid</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>0.0.0.1</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
-          <displaynames>
-            <displayname description="Registrant Contact" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Unique identifier for Contact associated with Import Record." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="defraimp_RegistrantOrganisationId">

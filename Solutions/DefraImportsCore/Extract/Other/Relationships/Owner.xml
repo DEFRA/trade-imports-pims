@@ -134,25 +134,6 @@
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
-  <EntityRelationship Name="owner_defraimp_importnotification">
-    <EntityRelationshipType>OneToMany</EntityRelationshipType>
-    <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>0.0.0.1</IntroducedVersion>
-    <IsHierarchical>0</IsHierarchical>
-    <ReferencingEntityName>defraimp_importnotification</ReferencingEntityName>
-    <ReferencedEntityName>Owner</ReferencedEntityName>
-    <CascadeAssign>NoCascade</CascadeAssign>
-    <CascadeDelete>NoCascade</CascadeDelete>
-    <CascadeReparent>NoCascade</CascadeReparent>
-    <CascadeShare>NoCascade</CascadeShare>
-    <CascadeUnshare>NoCascade</CascadeUnshare>
-    <ReferencingAttributeName>OwnerId</ReferencingAttributeName>
-    <RelationshipDescription>
-      <Descriptions>
-        <Description description="Owner Id" languagecode="1033" />
-      </Descriptions>
-    </RelationshipDescription>
-  </EntityRelationship>
   <EntityRelationship Name="owner_defraimp_inspectioncoveragerule">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
