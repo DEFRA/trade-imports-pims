@@ -17,6 +17,7 @@
           <cell name="defraimp_importrisklevelid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="100" />
           <cell name="defraimp_placeoforiginorganisation" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_placeofdestinationorganisation" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_inspectionoutcome" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -43,6 +44,7 @@
           </filter>
           <attribute name="defraimp_name" />
           <order descending="true" attribute="createdon" />
+          <attribute name="defraimp_inspectionoutcome" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>
