@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 61,
+  "RecordsCount": 70,
   "ExportedEntities": [
     {
       "LogicalName": "defraexp_commoditytype",
@@ -935,8 +935,18 @@
       "IsManyToMany": false,
       "Attributes": [
         {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "POULTRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
           "AttributeName": "defraexp_name",
-          "AttributeValue": "Poultry/Hatching eggs",
+          "AttributeValue": "Poultry - Adult",
           "AttributeType": "System.String"
         }
       ]
@@ -1269,6 +1279,144 @@
         {
           "AttributeName": "defraexp_name",
           "AttributeValue": "ZOO ANIMALS",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "d92a512f-5d31-ea11-a810-000d3ab5d037",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "ABP",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "2dd96a7d-5d31-ea11-a810-000d3ab5d037",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Other",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "97e46c2b-5e31-ea11-a810-000d3ab5d037",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "POULTRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Poultry - Hatching Eggs",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "a8000bb6-5e31-ea11-a810-000d3ab5d037",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "d6f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "POULTRY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Poultry - Day Old Chicks",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "705d2cce-5e31-ea11-a810-000d3ab5d037",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Game Birds - Adult",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "60753ffe-5e31-ea11-a810-000d3ab5d037",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Game Birds - Hatching Eggs",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "8af76a10-5f31-ea11-a810-000d3ab5d037",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Game Birds - Day Old Chicks",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "c8cda43a-5f31-ea11-a810-000d3ab5d037",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_commoditygroupid",
+          "AttributeValue": {
+            "Id": "c8f1235a-b1d3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditygroup",
+            "Name": "FISH & FISH PRODUCTS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Fish",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_commoditytype",
+      "Id": "69a3386b-5f31-ea11-a810-000d3ab5d037",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Primates",
           "AttributeType": "System.String"
         }
       ]

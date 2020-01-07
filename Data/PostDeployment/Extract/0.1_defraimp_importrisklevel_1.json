@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 4,
+  "RecordsCount": 5,
   "ExportedEntities": [
     {
       "LogicalName": "defraimp_importrisklevel",
@@ -45,6 +45,18 @@
         {
           "AttributeName": "defraimp_name",
           "AttributeValue": "TB",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_importrisklevel",
+      "Id": "10c87fb3-5d31-ea11-a810-000d3ab5d037",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "N/A",
           "AttributeType": "System.String"
         }
       ]
