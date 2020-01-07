@@ -283,7 +283,7 @@
                       <mcwo:StepLabel Description="Certificate Compliant First Time?" LabelId="b0fc50f4-dbe1-4678-ba99-018db5240808" LanguageCode="1033" />
                     </sco:Collection>
                     <x:String x:Key="ProcessStepId">b0fc50f4-dbe1-4678-ba99-018db5240808</x:String>
-                    <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
+                    <x:Boolean x:Key="IsProcessRequired">False</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
                 <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep28: New Step">

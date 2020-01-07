@@ -114,7 +114,7 @@
                         <labels>
                           <label description="Certificate Compliant First Time?" languagecode="1033" />
                         </labels>
-                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_certificatecompliantfirsttime" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_certificatecompliantfirsttime" uniqueid="{622d6437-2984-51c8-a384-c30306a8b909}" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_certificatecompliantfirsttime" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_certificatecompliantfirsttime" uniqueid="{622d6437-2984-51c8-a384-c30306a8b909}" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="false" disabled="false" />
                       </cell>
                     </row>
                     <row>

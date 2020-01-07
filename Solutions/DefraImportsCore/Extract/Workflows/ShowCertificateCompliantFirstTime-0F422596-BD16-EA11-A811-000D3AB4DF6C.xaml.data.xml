@@ -26,7 +26,7 @@
     <Description languagecode="1033" description="Click to add description" />
   </Descriptions>
   <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{18dec64b-be16-ea11-a811-000d3ab4df6c}">
+    <ProcessTrigger processtriggerid="{1030713b-4731-ea11-a810-000d3ab5d037}">
       <controltype>1</controltype>
       <scope>1</scope>
       <controlname>defraimp_certificateverified</controlname>
@@ -35,7 +35,7 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{19dec64b-be16-ea11-a811-000d3ab4df6c}">
+    <ProcessTrigger processtriggerid="{1130713b-4731-ea11-a810-000d3ab5d037}">
       <scope>1</scope>
       <event>load</event>
       <pipelinestage>0</pipelinestage>
