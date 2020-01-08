@@ -68,7 +68,9 @@
     <RolePrivilege name="prvAssigndefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvAssignQueue" level="Global" />
+    <RolePrivilege name="prvAssignUserForm" level="Basic" />
     <RolePrivilege name="prvAssignUserQuery" level="Basic" />
+    <RolePrivilege name="prvAssignUserQueryVisualizations" level="Basic" />
     <RolePrivilege name="prvAssignWorkflow" level="Local" />
     <RolePrivilege name="prvAssignWorkflowSession" level="Basic" />
     <RolePrivilege name="prvCreateAccount" level="Basic" />
@@ -94,7 +96,9 @@
     <RolePrivilege name="prvCreateTranslationProcess" level="Global" />
     <RolePrivilege name="prvCreateUserApplicationMetadata" level="Basic" />
     <RolePrivilege name="prvCreateUserEntityUISettings" level="Basic" />
+    <RolePrivilege name="prvCreateUserForm" level="Basic" />
     <RolePrivilege name="prvCreateUserQuery" level="Basic" />
+    <RolePrivilege name="prvCreateUserQueryVisualizations" level="Basic" />
     <RolePrivilege name="prvCreateWorkflow" level="Local" />
     <RolePrivilege name="prvCreateWorkflowSession" level="Basic" />
     <RolePrivilege name="prvDeletedefraexp_certificatelifecycle" level="Global" />
@@ -107,7 +111,9 @@
     <RolePrivilege name="prvDeletePhoneToCaseProcess" level="Global" />
     <RolePrivilege name="prvDeleteTranslationProcess" level="Global" />
     <RolePrivilege name="prvDeleteUserApplicationMetadata" level="Basic" />
+    <RolePrivilege name="prvDeleteUserForm" level="Basic" />
     <RolePrivilege name="prvDeleteUserQuery" level="Basic" />
+    <RolePrivilege name="prvDeleteUserQueryVisualizations" level="Basic" />
     <RolePrivilege name="prvDeleteWorkflow" level="Local" />
     <RolePrivilege name="prvDeleteWorkflowSession" level="Basic" />
     <RolePrivilege name="prvReadAccount" level="Global" />
@@ -181,7 +187,9 @@
     <RolePrivilege name="prvReadUser" level="Local" />
     <RolePrivilege name="prvReadUserApplicationMetadata" level="Basic" />
     <RolePrivilege name="prvReadUserEntityUISettings" level="Basic" />
+    <RolePrivilege name="prvReadUserForm" level="Basic" />
     <RolePrivilege name="prvReadUserQuery" level="Basic" />
+    <RolePrivilege name="prvReadUserQueryVisualizations" level="Basic" />
     <RolePrivilege name="prvReadWebResource" level="Global" />
     <RolePrivilege name="prvReadWorkflow" level="Local" />
     <RolePrivilege name="prvReadWorkflowSession" level="Global" />
@@ -191,7 +199,9 @@
     <RolePrivilege name="prvSharedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvSharedefraimp_itahc" level="Global" />
     <RolePrivilege name="prvSharedefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvShareUserForm" level="Basic" />
     <RolePrivilege name="prvShareUserQuery" level="Basic" />
+    <RolePrivilege name="prvShareUserQueryVisualizations" level="Basic" />
     <RolePrivilege name="prvShareWorkflow" level="Local" />
     <RolePrivilege name="prvShareWorkflowSession" level="Basic" />
     <RolePrivilege name="prvWorkflowExecution" level="Global" />
@@ -218,7 +228,9 @@
     <RolePrivilege name="prvWriteTranslationProcess" level="Global" />
     <RolePrivilege name="prvWriteUserApplicationMetadata" level="Basic" />
     <RolePrivilege name="prvWriteUserEntityUISettings" level="Basic" />
+    <RolePrivilege name="prvWriteUserForm" level="Basic" />
     <RolePrivilege name="prvWriteUserQuery" level="Basic" />
+    <RolePrivilege name="prvWriteUserQueryVisualizations" level="Basic" />
     <RolePrivilege name="prvWriteWorkflow" level="Local" />
     <RolePrivilege name="prvWriteWorkflowSession" level="Basic" />
   </RolePrivileges>
