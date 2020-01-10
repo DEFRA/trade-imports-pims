@@ -1253,7 +1253,7 @@
           <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
           <IsDataSourceSecret>0</IsDataSourceSecret>
           <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
+          <IsSearchable>1</IsSearchable>
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
@@ -1922,6 +1922,11 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
+              <option value="714100012" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Manually Assigned High Risk" languagecode="1033" />
+                </labels>
+              </option>
               <option value="714100010" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Quarantine" languagecode="1033" />
@@ -3784,6 +3789,142 @@
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier for ITAHC associated with Import Record." languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="defraimp_Purpose">
+          <Type>picklist</Type>
+          <Name>defraimp_purpose</Name>
+          <LogicalName>defraimp_purpose</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>0.0.0.22</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="defraimp_importapplication_defraimp_purpose">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>0.0.0.22</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="Purpose" languagecode="1033" />
+            </displaynames>
+            <Descriptions>
+              <Description description="" languagecode="1033" />
+            </Descriptions>
+            <options>
+              <option value="714100000" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Animal feeding stuff" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100001" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Artificial reproduction" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100002" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Breeding" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100003" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Commercial sale" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100004" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Fattening" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100005" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Game restocking" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100006" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Human consumption" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100007" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Other" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100008" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Pets" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100009" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Technical/Pharmaceutical use" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100010" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Production" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100011" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Racing/competition" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100012" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Registered equidae" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100013" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Rescue/Rehoming" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100014" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Research" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100015" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Slaughter" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100016" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Zoo/Collection" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Purpose" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="defraimp_Quantity">

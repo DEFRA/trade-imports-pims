@@ -44,9 +44,6 @@
     <steplabels id="{2102c8d6-217c-4d92-ab16-9e05bb3b7e8c}">
       <label languagecode="1033" description="Assigned To" />
     </steplabels>
-    <steplabels id="{10603858-6d3f-4e9d-bfc6-44902d6efd81}">
-      <label languagecode="1033" description="Matching Validated?" />
-    </steplabels>
     <steplabels id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}">
       <label languagecode="1033" description="Risk Assessment" />
     </steplabels>
@@ -106,7 +103,7 @@
     </steplabels>
   </labels>
   <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{492af930-4631-ea11-a810-000d3ab5d037}">
+    <ProcessTrigger processtriggerid="{ce8c1cad-a133-ea11-a813-000d3ab5d037}">
       <controltype>1</controltype>
       <methodid>{735dbc53-a795-4524-8bb5-7eb1c32a25d9}</methodid>
       <scope>1</scope>
@@ -116,7 +113,7 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{4a2af930-4631-ea11-a810-000d3ab5d037}">
+    <ProcessTrigger processtriggerid="{cf8c1cad-a133-ea11-a813-000d3ab5d037}">
       <methodid>{9da4c4a0-40f4-42bc-94d6-9f3a4a766acb}</methodid>
       <scope>1</scope>
       <controlname>1c16277f-6754-4aa9-a45b-dcbc4eef7125</controlname>
@@ -125,7 +122,7 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{4b2af930-4631-ea11-a810-000d3ab5d037}">
+    <ProcessTrigger processtriggerid="{d08c1cad-a133-ea11-a813-000d3ab5d037}">
       <methodid>{01e2b7a0-bbfd-40e7-94ec-b749ab865c80}</methodid>
       <scope>1</scope>
       <controlname>2</controlname>
@@ -134,7 +131,7 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{4c2af930-4631-ea11-a810-000d3ab5d037}">
+    <ProcessTrigger processtriggerid="{d18c1cad-a133-ea11-a813-000d3ab5d037}">
       <methodid>{3faa9a4b-79fb-4d13-b3a7-ece77bfe5d74}</methodid>
       <scope>1</scope>
       <controlname>735dbc53-a795-4524-8bb5-7eb1c32a25d9</controlname>
@@ -143,7 +140,7 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{4d2af930-4631-ea11-a810-000d3ab5d037}">
+    <ProcessTrigger processtriggerid="{d28c1cad-a133-ea11-a813-000d3ab5d037}">
       <methodid>{9813a24f-0c73-45f1-b0f0-c1d7f239417f}</methodid>
       <scope>1</scope>
       <controlname>267e9309-4684-4ce7-bd60-65bd9e976b8d</controlname>
@@ -152,7 +149,7 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{4e2af930-4631-ea11-a810-000d3ab5d037}">
+    <ProcessTrigger processtriggerid="{d38c1cad-a133-ea11-a813-000d3ab5d037}">
       <methodid>{d7dde738-9789-467f-9660-a5fcb26b24c8}</methodid>
       <scope>1</scope>
       <controlname>1abb577e-c355-4a8f-b42e-7bd5e6dac304</controlname>
@@ -161,7 +158,7 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{4f2af930-4631-ea11-a810-000d3ab5d037}">
+    <ProcessTrigger processtriggerid="{d48c1cad-a133-ea11-a813-000d3ab5d037}">
       <methodid>{9813a24f-0c73-45f1-b0f0-c1d7f239417f}</methodid>
       <scope>1</scope>
       <controlname>6da07398-6ef0-46e1-b04f-36c737e8e2cb</controlname>

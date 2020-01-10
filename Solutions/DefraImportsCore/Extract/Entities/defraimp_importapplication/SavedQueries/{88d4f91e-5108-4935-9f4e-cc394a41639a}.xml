@@ -59,6 +59,7 @@
             <condition attribute="defraimp_importertelephone" operator="like" value="{0}" />
             <condition attribute="defraimp_importeremail" operator="like" value="{0}" />
             <condition attribute="defraimp_importercontactname" operator="like" value="{0}" />
+            <condition attribute="defraimp_importeraddresspostcode" operator="like" value="{0}" />
             <condition attribute="defraimp_dateofimport" operator="on" value="{3}" />
             <condition attribute="defraimp_countryoforiginid" operator="like" value="{0}" />
             <condition attribute="defraimp_commoditytypeid" operator="like" value="{0}" />
