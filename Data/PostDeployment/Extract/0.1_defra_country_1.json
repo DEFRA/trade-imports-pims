@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 272,
+  "RecordsCount": 275,
   "ExportedEntities": [
     {
       "LogicalName": "defra_country",
@@ -4848,13 +4848,23 @@
           "AttributeType": "System.String"
         },
         {
+          "AttributeName": "defra_citizenemonym",
+          "AttributeValue": "Irish",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "Ireland",
+          "AttributeType": "System.String"
+        },
+        {
           "AttributeName": "defra_isocodealpha2",
           "AttributeValue": "IE",
           "AttributeType": "System.String"
         },
         {
           "AttributeName": "defra_name",
-          "AttributeValue": "Ireland",
+          "AttributeValue": "Republic of Ireland",
           "AttributeType": "System.String"
         },
         {
@@ -11216,6 +11226,147 @@
         {
           "AttributeName": "defra_codeassignmenttype",
           "AttributeValue": "Official",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defra_country",
+      "Id": "d6e7f634-0c36-ea11-a813-000d3ab4de89",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defra_independent",
+          "AttributeValue": false,
+          "AttributeType": "System.Boolean"
+        },
+        {
+          "AttributeName": "defra_isonumericcode",
+          "AttributeValue": "826",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_iso31662subdivisioncodes",
+          "AttributeValue": "ISO 3166-2:GB",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_citizenemonym",
+          "AttributeValue": "English",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "England",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_isocodealpha2",
+          "AttributeValue": "GB",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_name",
+          "AttributeValue": "England",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_isocodealpha3",
+          "AttributeValue": "GBR",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defra_country",
+      "Id": "cca3eb46-0c36-ea11-a813-000d3ab4de89",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defra_independent",
+          "AttributeValue": false,
+          "AttributeType": "System.Boolean"
+        },
+        {
+          "AttributeName": "defra_isonumericcode",
+          "AttributeValue": "826",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_iso31662subdivisioncodes",
+          "AttributeValue": "ISO 3166-2:GB",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_citizenemonym",
+          "AttributeValue": "Welsh",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "Wales",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_isocodealpha2",
+          "AttributeValue": "GB",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_name",
+          "AttributeValue": "Wales",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_isocodealpha3",
+          "AttributeValue": "GBR",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defra_country",
+      "Id": "51866e5a-0c36-ea11-a813-000d3ab4de89",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defra_independent",
+          "AttributeValue": false,
+          "AttributeType": "System.Boolean"
+        },
+        {
+          "AttributeName": "defra_isonumericcode",
+          "AttributeValue": "826",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_iso31662subdivisioncodes",
+          "AttributeValue": "ISO 3166-2:GB",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_citizenemonym",
+          "AttributeValue": "Scottish",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "Scotland",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_isocodealpha2",
+          "AttributeValue": "GB",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_name",
+          "AttributeValue": "Scotland",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_isocodealpha3",
+          "AttributeValue": "GBR",
           "AttributeType": "System.String"
         }
       ]
