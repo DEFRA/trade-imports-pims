@@ -18,6 +18,7 @@
   <IntroducedVersion>0.0.0.11</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <BusinessProcessType>0</BusinessProcessType>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Show/Hide Move to Completion Date?" />
@@ -25,22 +26,4 @@
   <Descriptions>
     <Description languagecode="1033" description="Click to add description" />
   </Descriptions>
-  <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{090e493a-4817-ea11-a811-000d3ab4de89}">
-      <controltype>1</controltype>
-      <scope>1</scope>
-      <controlname>statuscode</controlname>
-      <event>change</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{0a0e493a-4817-ea11-a811-000d3ab4de89}">
-      <scope>1</scope>
-      <event>load</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-  </ProcessTriggers>
 </Workflow>

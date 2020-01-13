@@ -9,6 +9,22 @@ var DefraImports;
             }
         }
         ImportRecord.OnLoadQuickCreateForm = OnLoadQuickCreateForm;
+        function onChangeOfMoveToCompletion(executionObj) {
+            var formContext = executionObj.getFormContext();
+            populateMoveToCompletionDate(formContext);
+        }
+        ImportRecord.onChangeOfMoveToCompletion = onChangeOfMoveToCompletion;
+        function populateMoveToCompletionDate(formContext) {
+            var moveToCompletionVal = formContext.getAttribute("defraimp_movetocompletion").getValue();
+            var moveCompletionDateAttr = formContext.getAttribute("defraimp_movedtocompletiondate");
+            if (moveToCompletionVal) {
+                var currentDate = new Date();
+                moveCompletionDateAttr.setValue(currentDate);
+            }
+            else {
+                moveCompletionDateAttr.setValue(null);
+            }
+        }
     })(ImportRecord = DefraImports.ImportRecord || (DefraImports.ImportRecord = {}));
 })(DefraImports || (DefraImports = {}));
 //# sourceMappingURL=importrecord.form.js.map

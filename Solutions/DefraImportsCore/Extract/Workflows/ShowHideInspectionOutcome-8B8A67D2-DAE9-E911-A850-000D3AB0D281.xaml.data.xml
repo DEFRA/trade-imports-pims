@@ -18,28 +18,10 @@
   <IntroducedVersion>0.0.0.2</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <BusinessProcessType>0</BusinessProcessType>
+  <ProcessTriggerFormId>{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}</ProcessTriggerFormId>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Show/Hide Inspection Outcome" />
   </LocalizedNames>
-  <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{53a3e114-4717-ea11-a811-000d3ab4de89}">
-      <controltype>1</controltype>
-      <formid>{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}</formid>
-      <scope>1</scope>
-      <controlname>defraimp_inspectionrequested</controlname>
-      <event>change</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{54a3e114-4717-ea11-a811-000d3ab4de89}">
-      <formid>{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}</formid>
-      <scope>1</scope>
-      <event>load</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-  </ProcessTriggers>
 </Workflow>

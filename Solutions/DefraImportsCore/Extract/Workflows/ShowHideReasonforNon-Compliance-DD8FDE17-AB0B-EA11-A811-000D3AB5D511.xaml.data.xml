@@ -18,6 +18,7 @@
   <IntroducedVersion>0.0.0.4</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <BusinessProcessType>0</BusinessProcessType>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
   <PrimaryEntity>defraimp_importinspection</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Show / Hide Reason for Non-Compliance" />
@@ -25,38 +26,4 @@
   <Descriptions>
     <Description languagecode="1033" description="Click to add description" />
   </Descriptions>
-  <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{c048729b-b80b-ea11-a811-000d3ab5d037}">
-      <controltype>1</controltype>
-      <scope>1</scope>
-      <controlname>defraimp_fullycompliantvisit</controlname>
-      <event>change</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importinspection</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{c148729b-b80b-ea11-a811-000d3ab5d037}">
-      <scope>1</scope>
-      <event>load</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importinspection</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{c248729b-b80b-ea11-a811-000d3ab5d037}">
-      <controltype>1</controltype>
-      <scope>1</scope>
-      <controlname>defraimp_compliantfirsttime</controlname>
-      <event>change</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importinspection</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{c348729b-b80b-ea11-a811-000d3ab5d037}">
-      <scope>1</scope>
-      <event>load</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importinspection</primaryentitytypecode>
-    </ProcessTrigger>
-  </ProcessTriggers>
 </Workflow>

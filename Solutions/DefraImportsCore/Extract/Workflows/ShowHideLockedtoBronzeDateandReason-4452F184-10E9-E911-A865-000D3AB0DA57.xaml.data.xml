@@ -18,6 +18,7 @@
   <IntroducedVersion>0.0.0.1</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <BusinessProcessType>0</BusinessProcessType>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
   <PrimaryEntity>defraimp_placeoforigin</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Show/Hide Locked to Bronze Date and Reason" />
@@ -25,22 +26,4 @@
   <Descriptions>
     <Description languagecode="1033" description="Shows/hides Locked to Bronze Date and makes the Locked to Bronze reason mandatory if the record is Locked to Bronze." />
   </Descriptions>
-  <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{71894769-11e9-e911-a865-000d3ab0da57}">
-      <controltype>1</controltype>
-      <scope>1</scope>
-      <controlname>defraimp_locktobronze</controlname>
-      <event>change</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_placeoforigin</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{72894769-11e9-e911-a865-000d3ab0da57}">
-      <scope>1</scope>
-      <event>load</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_placeoforigin</primaryentitytypecode>
-    </ProcessTrigger>
-  </ProcessTriggers>
 </Workflow>

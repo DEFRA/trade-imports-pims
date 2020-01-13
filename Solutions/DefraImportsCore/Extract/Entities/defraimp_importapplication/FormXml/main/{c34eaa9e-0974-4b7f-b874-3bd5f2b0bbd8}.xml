@@ -5,7 +5,7 @@
     <IntroducedVersion>0.0.0.1</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
       <tabs>
         <tab id="{e3251158-11c8-d174-c7b0-ab02da20028d}" name="Summary" locklevel="0" expanded="true" showlabel="true" IsUserDefined="0">
           <labels>
@@ -305,6 +305,14 @@
                           <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{da273699-5377-939c-5b55-e53c0d3d5703}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="[Do not remove] Move to Completion?" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_movetocompletion" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_movetocompletion" disabled="true" uniqueid="{1c3c800e-6126-51cd-b2ac-a5adc03b5cac}" />
                       </cell>
                     </row>
                     <row>
@@ -1537,6 +1545,16 @@
           </customControl>
         </controlDescription>
       </controlDescriptions>
+      <formLibraries>
+        <Library name="defraimp_/js/importrecord.form.js" libraryUniqueId="{c477bd6e-9498-67e7-291b-728dccd22598}" />
+      </formLibraries>
+      <events>
+        <event name="onchange" application="false" active="false" attribute="defraimp_movetocompletion">
+          <Handlers>
+            <Handler functionName="DefraImports.ImportRecord.onChangeOfMoveToCompletion" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{4aeb0569-9806-bb4e-83e3-c9e0286b4ecc}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>
