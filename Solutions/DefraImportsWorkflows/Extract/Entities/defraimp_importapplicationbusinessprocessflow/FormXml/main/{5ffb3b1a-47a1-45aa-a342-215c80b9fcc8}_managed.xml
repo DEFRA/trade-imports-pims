@@ -259,28 +259,6 @@
         </tab>
       </tabs>
       <controlDescriptions>
-        <controlDescription forControl="{622d6437-2984-51c8-a384-c30306a8b673}">
-          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
-            <parameters>
-              <datafieldname>defraimp_matchingvalidated</datafieldname>
-            </parameters>
-          </customControl>
-          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
-            <parameters>
-              <value>defraimp_matchingvalidated</value>
-            </parameters>
-          </customControl>
-          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
-            <parameters>
-              <value>defraimp_matchingvalidated</value>
-            </parameters>
-          </customControl>
-          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
-            <parameters>
-              <value>defraimp_matchingvalidated</value>
-            </parameters>
-          </customControl>
-        </controlDescription>
         <controlDescription forControl="{622d6437-2984-51c8-a384-c30306a8b909}">
           <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
             <parameters>

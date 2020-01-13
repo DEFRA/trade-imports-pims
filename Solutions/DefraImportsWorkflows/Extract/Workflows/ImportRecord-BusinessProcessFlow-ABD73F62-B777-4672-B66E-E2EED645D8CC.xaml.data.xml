@@ -21,6 +21,7 @@
   <IntroducedVersion>0.0.0.1</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <BusinessProcessType>0</BusinessProcessType>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Import Record - Business Process Flow" />
@@ -102,70 +103,4 @@
       <label languagecode="1033" description="Completion Summary" />
     </steplabels>
   </labels>
-  <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{ce8c1cad-a133-ea11-a813-000d3ab5d037}">
-      <controltype>1</controltype>
-      <methodid>{735dbc53-a795-4524-8bb5-7eb1c32a25d9}</methodid>
-      <scope>1</scope>
-      <controlname>defraimp_inspectionrequired</controlname>
-      <event>change</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{cf8c1cad-a133-ea11-a813-000d3ab5d037}">
-      <methodid>{9da4c4a0-40f4-42bc-94d6-9f3a4a766acb}</methodid>
-      <scope>1</scope>
-      <controlname>1c16277f-6754-4aa9-a45b-dcbc4eef7125</controlname>
-      <event>STAGEENTER</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{d08c1cad-a133-ea11-a813-000d3ab5d037}">
-      <methodid>{01e2b7a0-bbfd-40e7-94ec-b749ab865c80}</methodid>
-      <scope>1</scope>
-      <controlname>2</controlname>
-      <event>PROCESSSTATUSCHANGE</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{d18c1cad-a133-ea11-a813-000d3ab5d037}">
-      <methodid>{3faa9a4b-79fb-4d13-b3a7-ece77bfe5d74}</methodid>
-      <scope>1</scope>
-      <controlname>735dbc53-a795-4524-8bb5-7eb1c32a25d9</controlname>
-      <event>STAGEENTER</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{d28c1cad-a133-ea11-a813-000d3ab5d037}">
-      <methodid>{9813a24f-0c73-45f1-b0f0-c1d7f239417f}</methodid>
-      <scope>1</scope>
-      <controlname>267e9309-4684-4ce7-bd60-65bd9e976b8d</controlname>
-      <event>STAGEENTER</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{d38c1cad-a133-ea11-a813-000d3ab5d037}">
-      <methodid>{d7dde738-9789-467f-9660-a5fcb26b24c8}</methodid>
-      <scope>1</scope>
-      <controlname>1abb577e-c355-4a8f-b42e-7bd5e6dac304</controlname>
-      <event>STAGEENTER</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{d48c1cad-a133-ea11-a813-000d3ab5d037}">
-      <methodid>{9813a24f-0c73-45f1-b0f0-c1d7f239417f}</methodid>
-      <scope>1</scope>
-      <controlname>6da07398-6ef0-46e1-b04f-36c737e8e2cb</controlname>
-      <event>STAGEENTER</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-  </ProcessTriggers>
 </Workflow>
