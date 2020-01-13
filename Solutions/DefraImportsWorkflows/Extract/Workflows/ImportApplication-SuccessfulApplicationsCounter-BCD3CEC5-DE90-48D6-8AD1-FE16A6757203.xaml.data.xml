@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{bcd3cec5-de90-48d6-8ad1-fe16a6757203}" Name="Import Application - Application Completed" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/ImportApplication-ApplicationCompleted-BCD3CEC5-DE90-48D6-8AD1-FE16A6757203.xaml</XamlFileName>
+<Workflow WorkflowId="{bcd3cec5-de90-48d6-8ad1-fe16a6757203}" Name="Import Application - Successful Applications Counter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ImportApplication-SuccessfulApplicationsCounter-BCD3CEC5-DE90-48D6-8AD1-FE16A6757203.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>0</Category>
@@ -12,8 +12,8 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
-  <StateCode>1</StateCode>
-  <StatusCode>2</StatusCode>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
   <CreateStage>40</CreateStage>
   <UpdateStage>40</UpdateStage>
   <RunAs>1</RunAs>
@@ -22,6 +22,6 @@
   <IsCustomizable>1</IsCustomizable>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Import Application - Application Completed" />
+    <LocalizedName languagecode="1033" description="Import Application - Successful Applications Counter" />
   </LocalizedNames>
 </Workflow>
