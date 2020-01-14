@@ -1,4 +1,4 @@
-  <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <entity name="defra_country" displayname="Country" etc="10066" primaryidfield="defra_countryid" primarynamefield="defra_name" disableplugins="false">
     <fields>
