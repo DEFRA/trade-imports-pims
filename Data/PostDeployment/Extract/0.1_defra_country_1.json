@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 275,
+  "RecordsCount": 276,
   "ExportedEntities": [
     {
       "LogicalName": "defra_country",
@@ -11362,6 +11362,53 @@
         {
           "AttributeName": "defra_name",
           "AttributeValue": "Scotland",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_isocodealpha3",
+          "AttributeValue": "GBR",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defra_country",
+      "Id": "dfcce526-bb36-ea11-a813-000d3ab4df6c",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defra_independent",
+          "AttributeValue": false,
+          "AttributeType": "System.Boolean"
+        },
+        {
+          "AttributeName": "defra_isonumericcode",
+          "AttributeValue": "826",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_iso31662subdivisioncodes",
+          "AttributeValue": "ISO 3166-2:GB",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_citizenemonym",
+          "AttributeValue": "Northern Irish",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "Northern Ireland",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_isocodealpha2",
+          "AttributeValue": "GB",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_name",
+          "AttributeValue": "Northern Ireland",
           "AttributeType": "System.String"
         },
         {
