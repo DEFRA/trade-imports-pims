@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{3b62985a-7d37-ea11-a813-000d3ab4df6c}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_importapplicationid">
+          <cell name="defraimp_primaryitahcid" width="100" />
+          <cell name="defraimp_primarycvedid" width="100" />
+          <cell name="defraimp_placeofdestinationaddresspostcode" width="100" />
+          <cell name="defraimp_placeofdestinationorganisation" width="100" />
+          <cell name="defraimp_placeofdestinationaddresscity" width="100" />
+          <cell name="defraimp_dateofimport" width="100" />
+          <cell name="defraimp_countryoforiginid" width="100" />
+          <cell name="defraimp_commodityidentifiers" width="100" />
+          <cell name="defraimp_commoditytypeid" width="100" />
+          <cell name="defraimp_quantity" width="100" />
+          <cell name="createdon" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="defraimp_importapplication">
+          <attribute name="defraimp_importapplicationid" />
+          <attribute name="createdon" />
+          <order attribute="createdon" descending="true" />
+          <attribute name="defraimp_primaryitahcid" />
+          <attribute name="defraimp_primarycvedid" />
+          <attribute name="defraimp_placeofdestinationaddresspostcode" />
+          <attribute name="defraimp_placeofdestinationorganisation" />
+          <attribute name="defraimp_placeofdestinationaddresscity" />
+          <attribute name="defraimp_dateofimport" />
+          <attribute name="defraimp_countryoforiginid" />
+          <attribute name="defraimp_commoditytypeid" />
+          <attribute name="defraimp_quantity" />
+          <attribute name="defraimp_commodityidentifiers" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.24</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="8. Match View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
