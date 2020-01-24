@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{368fd4af-fe63-4e23-9834-c93bcc184604}" Name="Import Application - Get Place of Origin Country" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/ImportApplication-GetPlaceofOriginCountry-368FD4AF-FE63-4E23-9834-C93BCC184604.xaml</XamlFileName>
+<Workflow WorkflowId="{368fd4af-fe63-4e23-9834-c93bcc184604}" Name="[To be deleted] Import Application - Get Place of Origin Country" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/TobedeletedImportApplication-GetPlaceofOriginCount-368FD4AF-FE63-4E23-9834-C93BCC184604.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>0</Category>
@@ -22,6 +22,6 @@
   <IsCustomizable>1</IsCustomizable>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Import Application - Get Place of Origin Country" />
+    <LocalizedName languagecode="1033" description="[To be deleted] Import Application - Get Place of Origin Country" />
   </LocalizedNames>
 </Workflow>

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.11437" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.11730" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsWorkflows</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Workflows" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.19</Version>
+    <Version>0.0.0.20</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -171,11 +171,11 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
-        <Dependent key="15" type="29" displayName="Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
+        <Dependent key="15" type="29" displayName="[To be deleted] Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="4" type="1" schemaName="defraimp_placeoforigin" displayName="Place of Origin" solution="Active" />
-        <Dependent key="15" type="29" displayName="Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
+        <Dependent key="15" type="29" displayName="[To be deleted] Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
@@ -203,7 +203,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
-        <Dependent key="22" type="29" displayName="Import Application - Update Name" id="{77ff668f-483b-4fcb-bad6-dbcf4d1ad56a}" />
+        <Dependent key="22" type="29" displayName="[To be deleted] Import Application - Update Name" id="{77ff668f-483b-4fcb-bad6-dbcf4d1ad56a}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="4" type="1" schemaName="defraimp_placeoforigin" displayName="Place of Origin" solution="Active" />
@@ -507,19 +507,19 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="72" type="2" schemaName="defraimp_registrantorganisationid" displayName="Registrant Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="22" type="29" displayName="Import Application - Update Name" id="{77ff668f-483b-4fcb-bad6-dbcf4d1ad56a}" />
+        <Dependent key="22" type="29" displayName="[To be deleted] Import Application - Update Name" id="{77ff668f-483b-4fcb-bad6-dbcf4d1ad56a}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="34" type="2" schemaName="defraimp_name" displayName="Name" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="22" type="29" displayName="Import Application - Update Name" id="{77ff668f-483b-4fcb-bad6-dbcf4d1ad56a}" />
+        <Dependent key="22" type="29" displayName="[To be deleted] Import Application - Update Name" id="{77ff668f-483b-4fcb-bad6-dbcf4d1ad56a}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="43" type="2" schemaName="defraimp_importapplicationid" displayName="Import Record" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="22" type="29" displayName="Import Application - Update Name" id="{77ff668f-483b-4fcb-bad6-dbcf4d1ad56a}" />
+        <Dependent key="22" type="29" displayName="[To be deleted] Import Application - Update Name" id="{77ff668f-483b-4fcb-bad6-dbcf4d1ad56a}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="73" type="2" schemaName="createdon" displayName="Created On" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="22" type="29" displayName="Import Application - Update Name" id="{77ff668f-483b-4fcb-bad6-dbcf4d1ad56a}" />
+        <Dependent key="22" type="29" displayName="[To be deleted] Import Application - Update Name" id="{77ff668f-483b-4fcb-bad6-dbcf4d1ad56a}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="43" type="2" schemaName="defraimp_importapplicationid" displayName="Import Record" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
@@ -619,15 +619,15 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="81" type="2" schemaName="defraimp_addresscountry" displayName="Country" parentSchemaName="defraimp_placeoforigin" parentDisplayName="Place of Origin" solution="Active" />
-        <Dependent key="15" type="29" displayName="Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
+        <Dependent key="15" type="29" displayName="[To be deleted] Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="35" type="2" schemaName="defraimp_placeoforiginid" displayName="Place of Origin" parentSchemaName="defraimp_placeoforigin" parentDisplayName="Place of Origin" solution="Active" />
-        <Dependent key="15" type="29" displayName="Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
+        <Dependent key="15" type="29" displayName="[To be deleted] Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="34" type="2" schemaName="defraimp_name" displayName="Name" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="15" type="29" displayName="Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
+        <Dependent key="15" type="29" displayName="[To be deleted] Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="35" type="2" schemaName="defraimp_placeoforiginid" displayName="Place of Origin" parentSchemaName="defraimp_placeoforigin" parentDisplayName="Place of Origin" solution="Active" />
@@ -635,19 +635,19 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="41" type="2" schemaName="defraimp_name" displayName="Organisation Name" parentSchemaName="defraimp_placeoforigin" parentDisplayName="Place of Origin" solution="Active" />
-        <Dependent key="15" type="29" displayName="Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
+        <Dependent key="15" type="29" displayName="[To be deleted] Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="43" type="2" schemaName="defraimp_importapplicationid" displayName="Import Record" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="15" type="29" displayName="Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
+        <Dependent key="15" type="29" displayName="[To be deleted] Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="55" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="15" type="29" displayName="Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
+        <Dependent key="15" type="29" displayName="[To be deleted] Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="69" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="15" type="29" displayName="Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
+        <Dependent key="15" type="29" displayName="[To be deleted] Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="34" type="2" schemaName="defraimp_name" displayName="Name" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
@@ -907,7 +907,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="87" type="10" schemaName="defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid" displayName="defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid" parentSchemaName="defraimp_placeoforigin" parentDisplayName="Place of Origin" solution="Active" />
-        <Dependent key="15" type="29" displayName="Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
+        <Dependent key="15" type="29" displayName="[To be deleted] Import Application - Get Place of Origin Country" id="{368fd4af-fe63-4e23-9834-c93bcc184604}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="88" type="10" schemaName="defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication" displayName="defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
@@ -926,7 +926,7 @@
         <Dependent key="31" type="29" displayName="Post Import Check - Update Import Application Outcome" id="{56767681-44dc-4754-9f0c-1c9e9e21dccf}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="89" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.11437)" />
+        <Required key="89" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.11730)" />
         <Dependent key="83" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
     </MissingDependencies>
