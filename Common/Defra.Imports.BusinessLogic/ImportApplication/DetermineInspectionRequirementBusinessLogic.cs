@@ -77,6 +77,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         private void PerformLogicForP2Update(string currentRiskLevel, string previousRiskLevel, defraimp_importapplication_defraimp_inspectionrequired? inspectionRequired)
         {
+
             if (currentRiskLevel.ToLower() != ImportApplicationConstants.P2_RISK_LEVEL_NAME && previousRiskLevel.ToLower() == ImportApplicationConstants.P2_RISK_LEVEL_NAME)
             {
 
@@ -112,7 +113,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                     defraimp_inspectioncoverageruleId = e.defraimp_inspectioncoverageruleId,
                     defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection
                 }
-            ).ToList().FirstOrDefault();
+            ).FirstOrDefault();
 
             if (coverageRule != null)
             {

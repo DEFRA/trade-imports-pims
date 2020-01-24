@@ -28,5 +28,25 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
 
             importApplicationRepo.Update(importApplicationUpdate);
         }
+
+        protected void InspectionPlaceOfOriginMissing(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importApplicationRepo)
+        {
+            PerformInspectionRequiredUpdate(
+                importApplication,
+                importApplicationRepo,
+                defraimp_importapplication_defraimp_inspectionrequired.Discretionary,
+                defraimp_importapplication_defraimp_inspectionrequiredreason.VerifiedPlaceofOriginMissing
+                );
+        }
+
+        protected void CantDetermineInspectionNoRiskLevel(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importApplicationRepo)
+        {
+            PerformInspectionRequiredUpdate(
+                importApplication,
+                importApplicationRepo,
+                defraimp_importapplication_defraimp_inspectionrequired.Undetermined,
+                defraimp_importapplication_defraimp_inspectionrequiredreason.RiskLevelUnknown
+                );
+        }
     }
 }

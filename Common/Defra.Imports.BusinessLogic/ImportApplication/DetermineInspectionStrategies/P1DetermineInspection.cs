@@ -66,7 +66,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                     else
                     {
                         // There is not a valid place of origin, likely because it is missing or there are errors. Set inspection as undetermined.
-                        InspectionPlaceOfOriginMissing();
+                        InspectionPlaceOfOriginMissing(importApplication, importApplicationRepo);
                     }
                 }
                 else // If the commodity is not covered by the gold/bronze rule then it falls into the default P1 path
@@ -78,7 +78,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
             else
             {
                 // Can't determine risk level
-                InspectionUndetermined();
+                CantDetermineInspectionNoRiskLevel(importApplication, importApplicationRepo);
             }
         }
 
@@ -211,26 +211,6 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 defraimp_importapplication_defraimp_inspectionrequiredreason.BronzePlaceofOrigin
                 );
             }
-        }
-
-        void InspectionUndetermined()
-        {
-            PerformInspectionRequiredUpdate(
-                importApplication,
-                importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.Undetermined,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.RiskLevelUnknown
-                );
-        }
-
-        void InspectionPlaceOfOriginMissing()
-        {
-            PerformInspectionRequiredUpdate(
-                importApplication,
-                importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.Discretionary,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.VerifiedPlaceofOriginMissing
-                );
         }
 
         void P1Inspection()
