@@ -130,12 +130,26 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         private void DealWithDeterminingInspection()
         {
-            if(_importApplication.defraimp_importrisklevelid != null)
+            // Get the risk level from the Import Risk Level and then retrieve the correct determine inspection for the risk level
+            DetermineInspectionAbstractFatory determineInspectionFactory = new DetermineInspectionFactory();
+            AbstractDetermineInspection determineInspection;
+
+            // Make sure we have a risk level as we need to access the name
+            if (_importApplication.defraimp_importrisklevelid != null)
             {
-                // Get the risk level from the Import Risk Level and then retrieve the correct determine inspection for the risk level
-                DetermineInspectionAbstractFatory determineInspectionFactory = new DetermineInspectionFactory();
                 string riskLevel = _importApplication.defraimp_importrisklevelid.Name;
-                AbstractDetermineInspection determineInspection = determineInspectionFactory.GetDetermineInspection(riskLevel);
+                determineInspection = determineInspectionFactory.GetDetermineInspection(riskLevel);
+
+                if (determineInspection != null)
+                {
+                    // Execute the determine inspection logic for the specific risk level
+                    determineInspection.ExecuteInspection(_determineInspectionContext);
+                }
+            }
+            else if (_importApplication.defraimp_importrisklevelid == null)
+            {
+                // We want the undetermined inspection requirementpath
+                determineInspection = determineInspectionFactory.GetDetermineInspection(string.Empty);
 
                 if (determineInspection != null)
                 {
