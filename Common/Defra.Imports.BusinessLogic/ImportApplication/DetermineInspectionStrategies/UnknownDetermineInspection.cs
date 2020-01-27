@@ -14,13 +14,10 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
         {
             var importApplication = determineInspectionContext.ImportApplication;
             var importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
+            var inspectionRequirement = new InspectionRequirement(importApplication, importApplicationRepo);
 
-            PerformInspectionRequiredUpdate(
-                importApplication,
-                importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.Undetermined,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.RiskLevelUnknown
-            );
+            inspectionRequirement.RiskLevelUnknown();
+            PerformInspectionRequiredUpdate(inspectionRequirement);
         }
     }
 }

@@ -12,41 +12,21 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
     {
         public abstract void ExecuteInspection(DetermineInspectionContext determineInspectionContext);
 
-        protected void PerformInspectionRequiredUpdate(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importApplicationRepo, defraimp_importapplication_defraimp_inspectionrequired required, defraimp_importapplication_defraimp_inspectionrequiredreason reason)
+        protected void PerformInspectionRequiredUpdate(InspectionRequirement inspectionRequirement)
         {
             defraimp_importapplication importApplicationUpdate = new defraimp_importapplication()
             {
-                Id = importApplication.Id,
-                defraimp_InspectionRequired = required,
-                defraimp_InspectionRequiredReason = reason,
+                Id = inspectionRequirement.ImportApplication.Id,
+                defraimp_InspectionRequired = inspectionRequirement.InspectionRequired,
+                defraimp_InspectionRequiredReason = inspectionRequirement.InspectionRequiredReason,
             };
 
-            if (required == defraimp_importapplication_defraimp_inspectionrequired.No)
+            if (inspectionRequirement.InspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.No)
             {
                 importApplicationUpdate.defraimp_InspectionDeclinedReason = "The system has determined that an inspection is not required";
             }
 
-            importApplicationRepo.Update(importApplicationUpdate);
-        }
-
-        protected void InspectionPlaceOfOriginMissing(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importApplicationRepo)
-        {
-            PerformInspectionRequiredUpdate(
-                importApplication,
-                importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.Discretionary,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.VerifiedPlaceofOriginMissing
-                );
-        }
-
-        protected void CantDetermineInspectionNoRiskLevel(defraimp_importapplication importApplication, ICrmRepository<defraimp_importapplication> importApplicationRepo)
-        {
-            PerformInspectionRequiredUpdate(
-                importApplication,
-                importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.Undetermined,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.RiskLevelUnknown
-                );
+            inspectionRequirement.ImportApplicationRepo.Update(importApplicationUpdate);
         }
     }
 }

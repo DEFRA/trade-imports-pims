@@ -106,7 +106,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             int p2CaseCounter = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P2_COUNTER_NAME);
 
             defraimp_inspectioncoveragerule coverageRule = _coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
-                rule => rule.defraimp_RiskLevelId.Id.Equals(_importApplication.defraimp_importrisklevelid.Id),
+                rule => rule.defraimp_RiskLevelId.Id.Equals(_importApplication.defraimp_PreviousImportRiskLevelId.Id),
                 e => new defraimp_inspectioncoveragerule()
                 {
                     defraimp_name = e.defraimp_name,
