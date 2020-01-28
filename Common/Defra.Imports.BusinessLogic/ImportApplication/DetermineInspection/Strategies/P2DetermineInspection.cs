@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
-using Defra.Imports.BusinessLogic.RepoInterfaces;
-using Defra.Imports.Model;
-using Defra.Imports.Repositories;
-
-namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies
+﻿namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
+    using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers;
+    using Defra.Imports.BusinessLogic.RepoInterfaces;
+    using Defra.Imports.Model;
+    using Defra.Imports.Repositories;
+
     public class P2DetermineInspection : AbstractDetermineInspection
     {
         private defraimp_importapplication _importApplication;
         private IAutonumberRepository _autoNumberRepo;
         private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
         private ICrmRepository<defraimp_importapplication> _importApplicationRepo;
+        private InspectionRequirement _inspectionRequirement;
 
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
@@ -22,6 +24,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
             _importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
             _autoNumberRepo = determineInspectionContext.AutoNumberRepo;
             _coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
+            _inspectionRequirement = new InspectionRequirement(_importApplication, _importApplicationRepo);
 
             int quotaCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME);
 
@@ -41,7 +44,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
             _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME);
 
             // Flag the application for inspection
-            UpdateToP2InspectionRequired();
+            _inspectionRequirement.P2Inspection();
         }
 
         private void DealWithNormalP2Inspection()
@@ -58,11 +61,11 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 // Reset the counter
                 _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P2_COUNTER_NAME, 0);
 
-                UpdateToP2InspectionRequired();
+                _inspectionRequirement.P2Inspection();
             }
             else
             {
-                UpdateToNoInspectionRequired();
+                _inspectionRequirement.NoInspectionRequired();
             }
         }
 
@@ -80,26 +83,6 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
             ).FirstOrDefault();
 
             return coverageRule;
-        }
-
-        private void UpdateToP2InspectionRequired()
-        {
-            PerformInspectionRequiredUpdate(
-                _importApplication,
-                _importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.Yes,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.RandomP2Inspection
-            );
-        }
-
-        private void UpdateToNoInspectionRequired()
-        {
-            PerformInspectionRequiredUpdate(
-                _importApplication,
-                _importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.No,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.NoInspectionRequired
-            );
         }
     }
 }

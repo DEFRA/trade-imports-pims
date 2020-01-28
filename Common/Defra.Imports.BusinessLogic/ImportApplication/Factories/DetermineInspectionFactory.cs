@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies;
+using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies;
 
 namespace Defra.Imports.BusinessLogic.ImportApplication.Factories
 {

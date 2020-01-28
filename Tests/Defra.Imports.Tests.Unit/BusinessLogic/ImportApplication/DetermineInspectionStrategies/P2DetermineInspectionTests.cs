@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies;
+using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies;
 using Moq;
 using Defra.Imports.Repositories;
 using Defra.Imports.BusinessLogic.RepoInterfaces;

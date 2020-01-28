@@ -1,10 +1,10 @@
 ﻿namespace Defra.Imports.Repositories
 {
     using System;
+    using Defra.Imports.BusinessLogic.RepoInterfaces;
+    using Defra.Imports.Model;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;
-    using Defra.Imports.Model;
-    using Defra.Imports.BusinessLogic.RepoInterfaces;
 
     class ImportApplicationRepository : IImportApplicationRepository
     {

@@ -1,5 +1,5 @@
 ﻿using Defra.Imports.BusinessLogic.ImportApplication;
-using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies;
+using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies;
 using Defra.Imports.Model;
 using Moq;
 using System;

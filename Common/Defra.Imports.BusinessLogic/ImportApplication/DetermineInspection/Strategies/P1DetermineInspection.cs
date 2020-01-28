@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
-using Defra.Imports.BusinessLogic.RepoInterfaces;
-using Defra.Imports.Model;
-using Defra.Imports.Repositories;
-namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies
+﻿namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
+    using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers;
+    using Defra.Imports.BusinessLogic.RepoInterfaces;
+    using Defra.Imports.Model;
+    using Defra.Imports.Repositories;
+
     public class P1DetermineInspection : AbstractDetermineInspection
     {
         private IRepositoryFactory repositoryFactory;
@@ -17,6 +19,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
         private IPlaceOfOriginRepository placeOfOriginRepo;
         private ICrmRepository <defraimp_goldbronzecommodity>goldBronzeCommodityRepo;
         private ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo;
+        private InspectionRequirement inspectionRequirement;
 
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
@@ -27,6 +30,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
             goldBronzeCommodityRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_goldbronzecommodity>();
             coverageRulesRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_inspectioncoveragerule>();
             autoNumberRepo = determineInspectionContext.AutoNumberRepo;
+            inspectionRequirement = new InspectionRequirement(importApplication, importApplicationRepo);
 
             // Get the gold/bronze quota rule
             defraimp_inspectioncoveragerule coverageRule = coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
@@ -66,19 +70,19 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                     else
                     {
                         // There is not a valid place of origin, likely because it is missing or there are errors. Set inspection as undetermined.
-                        InspectionPlaceOfOriginMissing();
+                        inspectionRequirement.PlaceOfOriginMissing();
                     }
                 }
                 else // If the commodity is not covered by the gold/bronze rule then it falls into the default P1 path
                 {
                     // P1
-                    P1Inspection();
+                    inspectionRequirement.P1Inspection();
                 }
             }
             else
             {
                 // Can't determine risk level
-                InspectionUndetermined();
+                inspectionRequirement.RiskLevelUnknown();
             }
         }
 
@@ -169,22 +173,12 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 placeOfOriginRepo.DecrementQuotaCounter(placeOfOrigin.Id);
 
                 // Set to inspect
-                PerformInspectionRequiredUpdate(
-                importApplication,
-                importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.Yes,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.GoldPlaceofOriginInspectionCoverage
-                );
+                inspectionRequirement.GoldCoverageInspection();
             }
             else
             {
                 // Don't inspect
-                PerformInspectionRequiredUpdate(
-                importApplication,
-                importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.No,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.NoInspectionRequiredGoldPlaceofOrigin
-                );
+                inspectionRequirement.NoInspectionGold();
             }
         }
 
@@ -194,53 +188,13 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
             if (placeOfOrigin.defraimp_LocktoBronze == true)
             {
                 // Set to inspect
-                PerformInspectionRequiredUpdate(
-                importApplication,
-                importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.Yes,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.PlaceofOriginLockedtoBronze
-                );
+                inspectionRequirement.LockedToBronzeInspection();
             }
             else
             {
                 // Set to inspect
-                PerformInspectionRequiredUpdate(
-                importApplication,
-                importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.Yes,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.BronzePlaceofOrigin
-                );
+                inspectionRequirement.BronzeInspection();
             }
-        }
-
-        void InspectionUndetermined()
-        {
-            PerformInspectionRequiredUpdate(
-                importApplication,
-                importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.Undetermined,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.RiskLevelUnknown
-                );
-        }
-
-        void InspectionPlaceOfOriginMissing()
-        {
-            PerformInspectionRequiredUpdate(
-                importApplication,
-                importApplicationRepo,
-                defraimp_importapplication_defraimp_inspectionrequired.Discretionary,
-                defraimp_importapplication_defraimp_inspectionrequiredreason.VerifiedPlaceofOriginMissing
-                );
-        }
-
-        void P1Inspection()
-        {
-            PerformInspectionRequiredUpdate(
-            importApplication,
-            importApplicationRepo,
-            defraimp_importapplication_defraimp_inspectionrequired.Yes,
-            defraimp_importapplication_defraimp_inspectionrequiredreason.RandomP1Inspection
-            );
         }
     }
 }

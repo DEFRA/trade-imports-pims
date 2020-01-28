@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
-using Defra.Imports.BusinessLogic.RepoInterfaces;
-using Defra.Imports.Model;
-using Defra.Imports.Repositories;
-using Microsoft.Xrm.Sdk;
-
-namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies
+﻿namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
+    using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers;
+    using Defra.Imports.BusinessLogic.RepoInterfaces;
+    using Defra.Imports.Model;
+    using Defra.Imports.Repositories;
+    using Microsoft.Xrm.Sdk;
+
     public class P3DetermineInspection : AbstractDetermineInspection
     {
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
@@ -18,6 +19,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
             var importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
             var autoNumberRepo = determineInspectionContext.AutoNumberRepo;
             var coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
+            var inspectionRequirement = new InspectionRequirement(importApplication, importApplicationRepo);
 
             // Counter is incremented for all so has already been increased and doesn't need to be incremented
 
@@ -41,21 +43,11 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 // Reset the counter
                 autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME, 0);
 
-                PerformInspectionRequiredUpdate(
-                    importApplication,
-                    importApplicationRepo,
-                    defraimp_importapplication_defraimp_inspectionrequired.Yes,
-                    defraimp_importapplication_defraimp_inspectionrequiredreason.RandomP3Inspection
-                );
+                inspectionRequirement.P3Inspection();
             }
             else
             {
-                PerformInspectionRequiredUpdate(
-                    importApplication,
-                    importApplicationRepo,
-                    defraimp_importapplication_defraimp_inspectionrequired.No,
-                    defraimp_importapplication_defraimp_inspectionrequiredreason.NoInspectionRequired
-                );
+                inspectionRequirement.NoInspectionRequired();
             }
         }
     }

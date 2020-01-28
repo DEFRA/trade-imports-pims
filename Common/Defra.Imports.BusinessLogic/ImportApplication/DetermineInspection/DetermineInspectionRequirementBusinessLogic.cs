@@ -1,5 +1,5 @@
 ﻿using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
-using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies;
+using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies;
 using Defra.Imports.BusinessLogic.ImportApplication.Factories;
 using Defra.Imports.BusinessLogic.Logging;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
@@ -77,6 +77,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         private void PerformLogicForP2Update(string currentRiskLevel, string previousRiskLevel, defraimp_importapplication_defraimp_inspectionrequired? inspectionRequired)
         {
+
             if (currentRiskLevel.ToLower() != ImportApplicationConstants.P2_RISK_LEVEL_NAME && previousRiskLevel.ToLower() == ImportApplicationConstants.P2_RISK_LEVEL_NAME)
             {
 
@@ -105,14 +106,14 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             int p2CaseCounter = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P2_COUNTER_NAME);
 
             defraimp_inspectioncoveragerule coverageRule = _coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
-                rule => rule.defraimp_RiskLevelId.Id.Equals(_importApplication.defraimp_importrisklevelid.Id),
+                rule => rule.defraimp_RiskLevelId.Id.Equals(_importApplication.defraimp_PreviousImportRiskLevelId.Id),
                 e => new defraimp_inspectioncoveragerule()
                 {
                     defraimp_name = e.defraimp_name,
                     defraimp_inspectioncoverageruleId = e.defraimp_inspectioncoverageruleId,
                     defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection
                 }
-            ).ToList().FirstOrDefault();
+            ).FirstOrDefault();
 
             if (coverageRule != null)
             {
@@ -129,12 +130,26 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         private void DealWithDeterminingInspection()
         {
-            if(_importApplication.defraimp_importrisklevelid != null)
+            // Get the risk level from the Import Risk Level and then retrieve the correct determine inspection for the risk level
+            DetermineInspectionAbstractFatory determineInspectionFactory = new DetermineInspectionFactory();
+            AbstractDetermineInspection determineInspection;
+
+            // Make sure we have a risk level as we need to access the name
+            if (_importApplication.defraimp_importrisklevelid != null)
             {
-                // Get the risk level from the Import Risk Level and then retrieve the correct determine inspection for the risk level
-                DetermineInspectionAbstractFatory determineInspectionFactory = new DetermineInspectionFactory();
                 string riskLevel = _importApplication.defraimp_importrisklevelid.Name;
-                AbstractDetermineInspection determineInspection = determineInspectionFactory.GetDetermineInspection(riskLevel);
+                determineInspection = determineInspectionFactory.GetDetermineInspection(riskLevel);
+
+                if (determineInspection != null)
+                {
+                    // Execute the determine inspection logic for the specific risk level
+                    determineInspection.ExecuteInspection(_determineInspectionContext);
+                }
+            }
+            else if (_importApplication.defraimp_importrisklevelid == null)
+            {
+                // We want the undetermined inspection requirementpath
+                determineInspection = determineInspectionFactory.GetDetermineInspection(string.Empty);
 
                 if (determineInspection != null)
                 {
