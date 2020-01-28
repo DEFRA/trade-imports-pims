@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
-using Defra.Imports.BusinessLogic.RepoInterfaces;
-using Defra.Imports.Model;
-using Defra.Imports.Repositories;
-namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies
+﻿namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
+    using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers;
+    using Defra.Imports.BusinessLogic.RepoInterfaces;
+    using Defra.Imports.Model;
+    using Defra.Imports.Repositories;
+
     public class P1DetermineInspection : AbstractDetermineInspection
     {
         private IRepositoryFactory repositoryFactory;
@@ -69,21 +71,18 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                     {
                         // There is not a valid place of origin, likely because it is missing or there are errors. Set inspection as undetermined.
                         inspectionRequirement.PlaceOfOriginMissing();
-                        PerformInspectionRequiredUpdate(inspectionRequirement);
                     }
                 }
                 else // If the commodity is not covered by the gold/bronze rule then it falls into the default P1 path
                 {
                     // P1
                     inspectionRequirement.P1Inspection();
-                    PerformInspectionRequiredUpdate(inspectionRequirement);
                 }
             }
             else
             {
                 // Can't determine risk level
                 inspectionRequirement.RiskLevelUnknown();
-                PerformInspectionRequiredUpdate(inspectionRequirement);
             }
         }
 
@@ -175,13 +174,11 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
 
                 // Set to inspect
                 inspectionRequirement.GoldCoverageInspection();
-                PerformInspectionRequiredUpdate(inspectionRequirement);
             }
             else
             {
                 // Don't inspect
                 inspectionRequirement.NoInspectionGold();
-                PerformInspectionRequiredUpdate(inspectionRequirement);
             }
         }
 
@@ -192,13 +189,11 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
             {
                 // Set to inspect
                 inspectionRequirement.LockedToBronzeInspection();
-                PerformInspectionRequiredUpdate(inspectionRequirement);
             }
             else
             {
                 // Set to inspect
                 inspectionRequirement.BronzeInspection();
-                PerformInspectionRequiredUpdate(inspectionRequirement);
             }
         }
     }

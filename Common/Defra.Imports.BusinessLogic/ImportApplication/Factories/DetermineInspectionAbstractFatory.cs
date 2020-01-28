@@ -1,4 +1,4 @@
-﻿using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies;
+﻿using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies;
 using System;
 using System.Collections.Generic;
 using System.Text;

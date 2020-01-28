@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
-using Defra.Imports.BusinessLogic.RepoInterfaces;
-using Defra.Imports.Model;
-using Defra.Imports.Repositories;
-
-namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies
+﻿namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
+    using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers;
+    using Defra.Imports.BusinessLogic.RepoInterfaces;
+    using Defra.Imports.Model;
+    using Defra.Imports.Repositories;
+
     public class P2DetermineInspection : AbstractDetermineInspection
     {
         private defraimp_importapplication _importApplication;
@@ -44,7 +45,6 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
 
             // Flag the application for inspection
             _inspectionRequirement.P2Inspection();
-            PerformInspectionRequiredUpdate(_inspectionRequirement);
         }
 
         private void DealWithNormalP2Inspection()
@@ -62,12 +62,10 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P2_COUNTER_NAME, 0);
 
                 _inspectionRequirement.P2Inspection();
-                PerformInspectionRequiredUpdate(_inspectionRequirement);
             }
             else
             {
                 _inspectionRequirement.NoInspectionRequired();
-                PerformInspectionRequiredUpdate(_inspectionRequirement);
             }
         }
 

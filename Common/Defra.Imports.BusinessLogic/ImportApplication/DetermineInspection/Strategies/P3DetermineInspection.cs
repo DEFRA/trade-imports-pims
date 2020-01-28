@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
-using Defra.Imports.BusinessLogic.RepoInterfaces;
-using Defra.Imports.Model;
-using Defra.Imports.Repositories;
-using Microsoft.Xrm.Sdk;
-
-namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies
+﻿namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
+    using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers;
+    using Defra.Imports.BusinessLogic.RepoInterfaces;
+    using Defra.Imports.Model;
+    using Defra.Imports.Repositories;
+    using Microsoft.Xrm.Sdk;
+
     public class P3DetermineInspection : AbstractDetermineInspection
     {
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
@@ -43,12 +44,10 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrat
                 autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME, 0);
 
                 inspectionRequirement.P3Inspection();
-                PerformInspectionRequiredUpdate(inspectionRequirement);
             }
             else
             {
                 inspectionRequirement.NoInspectionRequired();
-                PerformInspectionRequiredUpdate(inspectionRequirement);
             }
         }
     }

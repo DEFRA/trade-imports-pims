@@ -1,6 +1,6 @@
 ﻿using Defra.Imports.BusinessLogic;
 using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
-using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspectionStrategies;
+using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
 using Defra.Imports.Model;
 using Defra.Imports.Repositories;
