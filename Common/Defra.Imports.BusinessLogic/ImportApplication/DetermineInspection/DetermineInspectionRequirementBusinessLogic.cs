@@ -46,41 +46,23 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         public void RunLogic()
         {
+            string currentRiskLevel =
+                _importApplication.defraimp_importrisklevelid != null ? _importApplication.defraimp_importrisklevelid.Name : string.Empty;
 
-            if (IsInitialUpdate())
-            {
-                // This logic occurs when the initial update has happened (~ when the record has been "created")
-                // Increment the "2% All-Case-Random" counter
-                _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
-            }
-            else
-            {
-                string currentRiskLevel =
-                    _importApplication.defraimp_importrisklevelid != null ? _importApplication.defraimp_importrisklevelid.Name : string.Empty;
+            string previousRiskLevel =
+                _importApplication.defraimp_PreviousImportRiskLevelId != null ? _importApplication.defraimp_PreviousImportRiskLevelId.Name : string.Empty;
 
-                string previousRiskLevel = 
-                    _importApplication.defraimp_PreviousImportRiskLevelId != null ? _importApplication.defraimp_PreviousImportRiskLevelId.Name : string.Empty;
+            var inspectionRequired = _importApplication.defraimp_InspectionRequired;
 
-                var inspectionRequired = _importApplication.defraimp_InspectionRequired;
-
-                PerformLogicForP2Update(currentRiskLevel, previousRiskLevel, inspectionRequired);
-            }
+            PerformLogicForP2Update(currentRiskLevel, previousRiskLevel, inspectionRequired);
 
             DealWithDeterminingInspection();
         }
 
-        private bool IsInitialUpdate()
-        {
-            // Check if the previous risk level is populated
-            return _importApplication.defraimp_PreviousImportRiskLevelId == null;
-        }
-
         private void PerformLogicForP2Update(string currentRiskLevel, string previousRiskLevel, defraimp_importapplication_defraimp_inspectionrequired? inspectionRequired)
         {
-
             if (currentRiskLevel.ToLower() != ImportApplicationConstants.P2_RISK_LEVEL_NAME && previousRiskLevel.ToLower() == ImportApplicationConstants.P2_RISK_LEVEL_NAME)
             {
-
                 if (inspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.Yes)
                 {
                     _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME);
@@ -134,30 +116,15 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             DetermineInspectionAbstractFatory determineInspectionFactory = new DetermineInspectionFactory();
             AbstractDetermineInspection determineInspection;
 
-            // Make sure we have a risk level as we need to access the name
-            if (_importApplication.defraimp_importrisklevelid != null)
-            {
-                string riskLevel = _importApplication.defraimp_importrisklevelid.Name;
-                determineInspection = determineInspectionFactory.GetDetermineInspection(riskLevel);
+            // Make sure we have a risk level as we need to access the name, otherwise pass in an empty string
+            string riskLevel = _importApplication.defraimp_importrisklevelid != null ? _importApplication.defraimp_importrisklevelid.Name : string.Empty;
+            determineInspection = determineInspectionFactory.GetDetermineInspection(riskLevel);
 
-                if (determineInspection != null)
-                {
-                    // Execute the determine inspection logic for the specific risk level
-                    determineInspection.ExecuteInspection(_determineInspectionContext);
-                }
-            }
-            else if (_importApplication.defraimp_importrisklevelid == null)
+            if (determineInspection != null)
             {
-                // We want the undetermined inspection requirementpath
-                determineInspection = determineInspectionFactory.GetDetermineInspection(string.Empty);
-
-                if (determineInspection != null)
-                {
-                    // Execute the determine inspection logic for the specific risk level
-                    determineInspection.ExecuteInspection(_determineInspectionContext);
-                }
+                // Execute the determine inspection logic for the specific risk level
+                determineInspection.ExecuteInspection(_determineInspectionContext);
             }
         }
-
     }
 }
