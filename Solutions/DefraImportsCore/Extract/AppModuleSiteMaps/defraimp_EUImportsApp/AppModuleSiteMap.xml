@@ -53,12 +53,13 @@
           <Title LCID="1033" Title="Commodities" />
         </Titles>
         <SubArea Id="NewSubArea_fe8059fe" Entity="defraexp_commoditytype" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_8717b96a" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_goldbronzecommodity" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
       <Group Id="NewGroup_b54560b" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
           <Title LCID="1033" Title="Regions" />
         </Titles>
-        <SubArea Id="NewSubArea_87589f0e" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_apharegion" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_87589f0e" Entity="defraimp_apharegion" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
       <Group Id="NewGroup_aed14192" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>

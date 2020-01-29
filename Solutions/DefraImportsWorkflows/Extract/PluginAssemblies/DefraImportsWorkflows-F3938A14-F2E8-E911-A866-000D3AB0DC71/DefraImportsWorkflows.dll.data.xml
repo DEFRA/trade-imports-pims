@@ -5,6 +5,11 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <FileName>/PluginAssemblies/DefraImportsWorkflows-F3938A14-F2E8-E911-A866-000D3AB0DC71/DefraImportsWorkflows.dll</FileName>
   <PluginTypes>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.Autonumber.DecrementAutonumber, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="508c31a7-e241-ea11-a812-000d3ab5d511" Name="DecrementAutonumber">
+      <Description>Decrements the auto number counter for a specific record</Description>
+      <FriendlyName>Decrement the specified autonumber attribute</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.Autonumber</WorkflowActivityGroupName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.Autonumber.ResetAutonumber, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="2ab46013-f2e8-e911-a854-000d3ab0d976" Name="ResetAutonumber">
       <Description>Reset the auto number counter for a specific record to 0</Description>
       <FriendlyName>Reset the specified autonumber attribute</FriendlyName>
@@ -23,6 +28,11 @@
     <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.DetermineInspectionRequirement, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="6f948a14-f2e8-e911-a866-000d3ab0dc71" Name="DetermineInspectionRequirement">
       <Description>Determines whether a particular application should be inspected</Description>
       <FriendlyName>Determine Inspection for Import Application</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.InspectionPlaceOfOriginChange, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="193e6e49-9f42-ea11-a812-000d3ab5d511" Name="InspectionPlaceOfOriginChange">
+      <Description>Manages the Place of Origin changing and how it impacts the Inspection Requirements</Description>
+      <FriendlyName>Inspection Place of Origin Change for Import Application</FriendlyName>
       <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
     </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.IncrementAutonumber, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="38257f11-f2e8-e911-a857-000d3ab0d388" Name="IncrementAutonumber">
