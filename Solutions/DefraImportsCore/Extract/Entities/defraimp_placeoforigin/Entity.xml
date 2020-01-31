@@ -655,7 +655,7 @@
           <MinValue>0</MinValue>
           <MaxValue>2147483647</MaxValue>
           <displaynames>
-            <displayname description="Number of Successful Applications" languagecode="1033" />
+            <displayname description="Successful Consecutive Applications" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
