@@ -90,10 +90,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autonumber\DecrementAutonumber.cs" />
     <Compile Include="Autonumber\IncrementAutonumber.cs" />
     <Compile Include="Autonumber\ResetAutonumber.cs" />
     <Compile Include="ImportApplication\AutomatedRiskLevelAssignment.cs" />
     <Compile Include="ImportApplication\DetermineInspectionRequirement.cs" />
+    <Compile Include="ImportApplication\InspectionPlaceOfOriginChange.cs" />
     <Compile Include="ImportApplication\RandomRiskAssessment.cs" />
     <Compile Include="ImportApplication\DecrementPlaceOfOriginCounters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{368fd4af-fe63-4e23-9834-c93bcc184604}" Name="[To be deleted] Import Application - Get Place of Origin Country" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/TobedeletedImportApplication-GetPlaceofOriginCount-368FD4AF-FE63-4E23-9834-C93BCC184604.xaml</XamlFileName>
+<Workflow WorkflowId="{17de83cc-724b-4200-91d1-a4d9d1a8de84}" Name="Import Application - Set Previous Place of Origin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ImportApplication-SetPreviousPlaceofOrigin-17DE83CC-724B-4200-91D1-A4D9D1A8DE84.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>0</Category>
@@ -8,20 +8,20 @@
   <Scope>4</Scope>
   <OnDemand>0</OnDemand>
   <TriggerOnUpdateAttributeList>defraimp_placeoforiginid</TriggerOnUpdateAttributeList>
-  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnCreate>0</TriggerOnCreate>
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
-  <StateCode>0</StateCode>
-  <StatusCode>1</StatusCode>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
   <CreateStage>40</CreateStage>
-  <UpdateStage>40</UpdateStage>
+  <UpdateStage>20</UpdateStage>
   <RunAs>1</RunAs>
   <IsTransacted>1</IsTransacted>
-  <IntroducedVersion>0.0.0.1</IntroducedVersion>
+  <IntroducedVersion>0.0.0.21</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="[To be deleted] Import Application - Get Place of Origin Country" />
+    <LocalizedName languagecode="1033" description="Import Application - Set Previous Place of Origin" />
   </LocalizedNames>
 </Workflow>

@@ -13,7 +13,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\InArgumentExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\InspectionPlaceOfOriginChangeBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\DetermineInspectionRequirementBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Helpers\CommodityHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Strategies\AbstractDetermineInspection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Helpers\InspectionRequirement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Strategies\P1DetermineInspection.cs" />

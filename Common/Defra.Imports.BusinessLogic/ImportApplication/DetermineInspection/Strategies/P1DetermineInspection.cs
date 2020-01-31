@@ -27,7 +27,6 @@
             importApplication = determineInspectionContext.ImportApplication;
             importApplicationRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_importapplication>();
             placeOfOriginRepo = determineInspectionContext.PlaceOfOriginRepo;
-            goldBronzeCommodityRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_goldbronzecommodity>();
             coverageRulesRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_inspectioncoveragerule>();
             autoNumberRepo = determineInspectionContext.AutoNumberRepo;
             inspectionRequirement = new InspectionRequirement(importApplication, importApplicationRepo);
@@ -46,8 +45,10 @@
             // Does the import application have a commodity? If not, inspection can't be determined
             if (importApplication.defraimp_CommodityTypeId != null)
             {
+                CommodityHelper goldBronzeCommodity = new CommodityHelper(importApplication.defraimp_CommodityTypeId, repositoryFactory);
+
                 // Is the commodity gold/bronze? 
-                if (IsCommodityCoveredByGoldBronze())
+                if (goldBronzeCommodity.IsCommodityCoveredByGoldBronze(importApplication.defraimp_CountryofOriginId))
                 {
                     // Try to get a place of origin
                     defraimp_placeoforigin placeOfOrigin = GetPlaceOfOrigin();
@@ -86,56 +87,6 @@
             }
         }
 
-        private bool IsCommodityCoveredByGoldBronze()
-        {
-            try
-            {
-                defraimp_goldbronzecommodity goldBronzeCommodity = goldBronzeCommodityRepo.Find<defraimp_goldbronzecommodity>(
-                rule => rule.defraimp_CommodityTypeid.Id.Equals(importApplication.defraimp_CommodityTypeId.Id) && rule.statecode.Value.Equals(defraimp_goldbronzecommodityState.Active),
-                e => new defraimp_goldbronzecommodity()
-                {
-                    defraimp_goldbronzecommodityId = e.defraimp_goldbronzecommodityId,
-                    defraimp_name = e.defraimp_name,
-                    defraimp_CommodityTypeid = e.defraimp_CommodityTypeid,
-                }
-                ).FirstOrDefault();
-
-                // Check if we found a rule for the given commodity
-                if (goldBronzeCommodity != null)
-                {
-                    // Do these rules apply to the country of origin?
-                    ICrmRepository<defraimp_goldbronzecountriesnn> goldBronzeCommodityCountriesRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_goldbronzecountriesnn>();
-
-                    // Find the N:N relationship record between gold/bronze commodity and the country of origin.
-                    defraimp_goldbronzecountriesnn goldBronzeCommodityCountry = goldBronzeCommodityCountriesRepo.Find(
-                    rule => rule.defra_countryid.Equals(importApplication.defraimp_CountryofOriginId.Id) && rule.defraimp_goldbronzecommodityid.Equals(goldBronzeCommodity.defraimp_goldbronzecommodityId),
-                    e => new defraimp_goldbronzecountriesnn()
-                    ).FirstOrDefault();
-
-                    // Check to see if we have found a valid country/gold bronze commodity combination
-                    if (goldBronzeCommodityCountry != null)
-                    {
-                        // The given gold bronze commodity and country of origin place this inspection requirement under the gold/bronze rule.
-                        return true;
-                    }
-                    else
-                    {
-                        // We did find a rule, but the country of origin was not included on the rule and thus G/B logic should not apply.
-                        return false;
-                    }
-                }
-                else
-                {
-                    // We did not find a valid rule with the given commodity
-                    return false;
-                }
-            }
-            catch (NullReferenceException e)
-            {
-                return false;
-            }
-        }
-
         private defraimp_placeoforigin GetPlaceOfOrigin()
         {
             if (importApplication.defraimp_PlaceofOriginid != null)
@@ -152,13 +103,12 @@
 
         private void GoldInspection(defraimp_placeoforigin placeOfOrigin, int coverageRuleValue)
         {
-            // We want a local copy of the quota     so we can adjust it and not have to keep retrieving the record.
+            // We want a local copy of the quota so we can adjust it and not have to keep retrieving the record.
             int inspectionQuotaCounter = placeOfOrigin.defraimp_InspectionQuotaCounter ?? 0;
             // Check if the number of applications counter is over the coverage rule value
             if (placeOfOrigin.defraimp_ApplicationCounter >= coverageRuleValue)
             {
                 // +1 to quota
-                inspectionQuotaCounter++;
                 placeOfOriginRepo.IncrementQuotaCounter(placeOfOrigin.Id);
 
                 // Reset the application counter
@@ -169,7 +119,6 @@
             if (inspectionQuotaCounter > 0)
             {
                 // -1 from quota
-                inspectionQuotaCounter--;
                 placeOfOriginRepo.DecrementQuotaCounter(placeOfOrigin.Id);
 
                 // Set to inspect
