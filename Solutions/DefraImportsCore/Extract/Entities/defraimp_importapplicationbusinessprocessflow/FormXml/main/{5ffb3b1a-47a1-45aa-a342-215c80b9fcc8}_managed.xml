@@ -251,6 +251,14 @@
                         <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_completionsummary" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="defraimp_completionsummary" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{b3ef7e60-84d4-4ad0-8b09-3535c2d4054a}" showlabel="true" visible="true" labelid="{c48dd057-94db-489f-9012-13afe6679633}">
+                        <labels>
+                          <label description="Reset Trust Level to Bronze?" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_resettrustleveltobronze" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_resettrustleveltobronze" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="false" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>

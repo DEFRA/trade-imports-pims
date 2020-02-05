@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{b91bf1d4-9646-ea11-a812-000d3ab5d037}" Name="Show/Hide Unlocked from Bronze Date and Reason" Description="Shows/Hides Unlocked from Bronze fields - relies on the fact that it was previously locked to Bronze." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ShowHideUnlockedfromBronzeDateandReason-B91BF1D4-9646-EA11-A812-000D3AB5D037.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>0.0.0.27</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <PrimaryEntity>defraimp_placeoforigin</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Show/Hide Unlocked from Bronze Date and Reason" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="Shows/Hides Unlocked from Bronze fields - relies on the fact that it was previously locked to Bronze." />
+  </Descriptions>
+</Workflow>

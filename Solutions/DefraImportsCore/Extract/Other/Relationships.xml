@@ -33,7 +33,8 @@
   <EntityRelationship Name="defraimp_defra_country_defraimp_importcountrycommodityrisklevel_countryid" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_ConsigneeAddressCountryId" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_ConsignorAddressCountryId" />
-  <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_PlaceOfDestinationCountryId" />
+  <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_CountryOfOriginId" />
+  <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_PlaceOfDestinationAddressCountryId" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_PlaceOfLoadingAddressCountryId" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_PlaceOfOriginHarvestAddressCountryId" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_TransporterAddressCountryId" />

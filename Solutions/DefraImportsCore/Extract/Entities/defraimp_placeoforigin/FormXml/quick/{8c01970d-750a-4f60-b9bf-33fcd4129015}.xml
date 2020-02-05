@@ -102,7 +102,7 @@
                     <row>
                       <cell id="{5e0136c7-1858-23ca-1087-28a1e6586ee5}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Number of Applications" languagecode="1033" />
+                          <label description="Total No. of Import Records" languagecode="1033" />
                         </labels>
                         <control id="defraimp_numberofapplications" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofapplications" disabled="false" />
                       </cell>
@@ -110,7 +110,7 @@
                     <row>
                       <cell id="{a0b86de9-a52e-8597-9e06-7be5d00c25d8}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Successful Consecutive Applications" languagecode="1033" />
+                          <label description="No. of Satisfactory Imports Records" languagecode="1033" />
                         </labels>
                         <control id="defraimp_numberofsuccessfulapplications" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofsuccessfulapplications" disabled="false" />
                       </cell>
