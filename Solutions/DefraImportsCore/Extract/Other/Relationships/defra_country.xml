@@ -306,10 +306,10 @@
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
   </EntityRelationship>
-  <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_PlaceOfDestinationCountryId">
+  <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_CountryOfOriginId">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>0.0.0.25</IntroducedVersion>
+    <IntroducedVersion>0.0.0.27</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>defraimp_itahc</ReferencingEntityName>
     <ReferencedEntityName>defra_country</ReferencedEntityName>
@@ -320,7 +320,7 @@
     <CascadeUnshare>NoCascade</CascadeUnshare>
     <CascadeRollupView>NoCascade</CascadeRollupView>
     <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
-    <ReferencingAttributeName>defraimp_PlaceOfDestinationCountryId</ReferencingAttributeName>
+    <ReferencingAttributeName>defraimp_CountryOfOriginId</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
         <Description description="" languagecode="1033" />
@@ -331,11 +331,45 @@
         <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
         <NavPaneArea>Details</NavPaneArea>
         <NavPaneOrder>10000</NavPaneOrder>
-        <NavigationPropertyName>defraimp_PlaceOfDestinationCountryId</NavigationPropertyName>
+        <NavigationPropertyName>defraimp_CountryOfOriginId</NavigationPropertyName>
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
-        <NavigationPropertyName>defraimp_defra_country_defraimp_itahc_PlaceOfDestinationCountryId</NavigationPropertyName>
+        <NavigationPropertyName>defraimp_defra_country_defraimp_itahc_CountryOfOriginId</NavigationPropertyName>
+        <RelationshipRoleType>0</RelationshipRoleType>
+      </EntityRelationshipRole>
+    </EntityRelationshipRoles>
+  </EntityRelationship>
+  <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_PlaceOfDestinationAddressCountryId">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>0.0.0.27</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>defraimp_itahc</ReferencingEntityName>
+    <ReferencedEntityName>defra_country</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>RemoveLink</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <CascadeRollupView>NoCascade</CascadeRollupView>
+    <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
+    <ReferencingAttributeName>defraimp_PlaceOfDestinationAddressCountryId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </RelationshipDescription>
+    <EntityRelationshipRoles>
+      <EntityRelationshipRole>
+        <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
+        <NavPaneArea>Details</NavPaneArea>
+        <NavPaneOrder>10000</NavPaneOrder>
+        <NavigationPropertyName>defraimp_PlaceOfDestinationAddressCountryId</NavigationPropertyName>
+        <RelationshipRoleType>1</RelationshipRoleType>
+      </EntityRelationshipRole>
+      <EntityRelationshipRole>
+        <NavigationPropertyName>defraimp_defra_country_defraimp_itahc_PlaceOfDestinationAddressCountryId</NavigationPropertyName>
         <RelationshipRoleType>0</RelationshipRoleType>
       </EntityRelationshipRole>
     </EntityRelationshipRoles>

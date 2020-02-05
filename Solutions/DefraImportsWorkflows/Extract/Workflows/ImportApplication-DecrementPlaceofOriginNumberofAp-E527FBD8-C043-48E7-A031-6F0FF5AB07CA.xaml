@@ -11,7 +11,7 @@
   </this:XrmWorkflowe527fbd8c04348e7a0316f0ff5ab07ca.CreatedEntities>
   <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
   <mxswa:Workflow>
-    <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionSequence, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionStep1">
+    <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionSequence, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionStep1: If the Place of Origin contains data">
       <mxswa:ActivityReference.Arguments>
         <InArgument x:TypeArguments="x:Boolean" x:Key="Wait">False</InArgument>
       </mxswa:ActivityReference.Arguments>
@@ -173,6 +173,131 @@
                       <mxswa:UpdateEntity DisplayName="UpdateStep3" Entity="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" EntityName="defraimp_placeoforigin" />
                       <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin&quot;)]" Value="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" />
                     </Sequence>
+                    <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionSequence, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionStep4: If the number of applications since the last inspection counter is above 0">
+                      <mxswa:ActivityReference.Arguments>
+                        <InArgument x:TypeArguments="x:Boolean" x:Key="Wait">False</InArgument>
+                      </mxswa:ActivityReference.Arguments>
+                      <mxswa:ActivityReference.Properties>
+                        <sco:Collection x:TypeArguments="Variable" x:Key="Variables">
+                          <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep5_condition" />
+                          <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep5_1" />
+                          <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep5_2" />
+                        </sco:Collection>
+                        <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
+                          <mxswa:GetEntityProperty Attribute="defraimp_numberofapplicationssincelastinspection" Entity="[InputEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin&quot;)]" EntityName="defraimp_placeoforigin" Value="[ConditionBranchStep5_1]">
+                            <mxswa:GetEntityProperty.TargetType>
+                              <InArgument x:TypeArguments="s:Type">
+                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type">
+                                  <x:Null />
+                                </mxswa:ReferenceLiteral>
+                              </InArgument>
+                            </mxswa:GetEntityProperty.TargetType>
+                          </mxswa:GetEntityProperty>
+                          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+                            <mxswa:ActivityReference.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
+                              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.Integer, "0" }]</InArgument>
+                              <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                              </InArgument>
+                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep5_2]</OutArgument>
+                            </mxswa:ActivityReference.Arguments>
+                          </mxswa:ActivityReference>
+                          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateCondition, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateCondition">
+                            <mxswa:ActivityReference.Arguments>
+                              <InArgument x:TypeArguments="mxsq:ConditionOperator" x:Key="ConditionOperator">GreaterThan</InArgument>
+                              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { ConditionBranchStep5_2 }]</InArgument>
+                              <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep5_1]</InArgument>
+                              <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep5_condition]</OutArgument>
+                            </mxswa:ActivityReference.Arguments>
+                          </mxswa:ActivityReference>
+                          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionBranch, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep5">
+                            <mxswa:ActivityReference.Arguments>
+                              <InArgument x:TypeArguments="x:Boolean" x:Key="Condition">[ConditionBranchStep5_condition]</InArgument>
+                            </mxswa:ActivityReference.Arguments>
+                            <mxswa:ActivityReference.Properties>
+                              <mxswa:ActivityReference x:Key="Then" AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep5">
+                                <mxswa:ActivityReference.Properties>
+                                  <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
+                                  <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
+                                    <Sequence DisplayName="UpdateStep6: Decrement the number of applications since the last inspection counter">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="x:Object" Name="UpdateStep6_1" />
+                                        <Variable x:TypeArguments="x:Object" Name="UpdateStep6_2" />
+                                        <Variable x:TypeArguments="x:Object" Name="UpdateStep6_3" />
+                                        <Variable x:TypeArguments="x:Object" Name="UpdateStep6_4" />
+                                        <Variable x:TypeArguments="x:Object" Name="UpdateStep6_5" />
+                                      </Sequence.Variables>
+                                      <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" Value="[New Entity(&quot;defraimp_placeoforigin&quot;)]" />
+                                      <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;).Id]" Value="[InputEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin&quot;).Id]" />
+                                      <mxswa:GetEntityProperty Attribute="defraimp_numberofapplicationssincelastinspection" Entity="[InputEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin&quot;)]" EntityName="defraimp_placeoforigin" Value="[UpdateStep6_3]">
+                                        <mxswa:GetEntityProperty.TargetType>
+                                          <InArgument x:TypeArguments="s:Type">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                        </mxswa:GetEntityProperty.TargetType>
+                                      </mxswa:GetEntityProperty>
+                                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+                                        <mxswa:ActivityReference.Arguments>
+                                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
+                                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { UpdateStep6_3 }]</InArgument>
+                                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[UpdateStep6_2]</OutArgument>
+                                        </mxswa:ActivityReference.Arguments>
+                                      </mxswa:ActivityReference>
+                                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+                                        <mxswa:ActivityReference.Arguments>
+                                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
+                                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.Integer, "1" }]</InArgument>
+                                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[UpdateStep6_5]</OutArgument>
+                                        </mxswa:ActivityReference.Arguments>
+                                      </mxswa:ActivityReference>
+                                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+                                        <mxswa:ActivityReference.Arguments>
+                                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
+                                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { UpdateStep6_5 }]</InArgument>
+                                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[UpdateStep6_4]</OutArgument>
+                                        </mxswa:ActivityReference.Arguments>
+                                      </mxswa:ActivityReference>
+                                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+                                        <mxswa:ActivityReference.Arguments>
+                                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">Subtract</InArgument>
+                                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { UpdateStep6_2, UpdateStep6_4 }]</InArgument>
+                                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[UpdateStep6_1]</OutArgument>
+                                        </mxswa:ActivityReference.Arguments>
+                                      </mxswa:ActivityReference>
+                                      <mxswa:SetEntityProperty Attribute="defraimp_numberofapplicationssincelastinspection" Entity="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" EntityName="defraimp_placeoforigin" Value="[UpdateStep6_1]">
+                                        <mxswa:SetEntityProperty.TargetType>
+                                          <InArgument x:TypeArguments="s:Type">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                        </mxswa:SetEntityProperty.TargetType>
+                                      </mxswa:SetEntityProperty>
+                                      <mxswa:UpdateEntity DisplayName="UpdateStep6" Entity="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" EntityName="defraimp_placeoforigin" />
+                                      <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin&quot;)]" Value="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" />
+                                    </Sequence>
+                                  </sco:Collection>
+                                </mxswa:ActivityReference.Properties>
+                              </mxswa:ActivityReference>
+                              <x:Null x:Key="Else" />
+                              <x:Null x:Key="Description" />
+                            </mxswa:ActivityReference.Properties>
+                          </mxswa:ActivityReference>
+                        </sco:Collection>
+                        <x:Boolean x:Key="ContainsElseBranch">False</x:Boolean>
+                      </mxswa:ActivityReference.Properties>
+                    </mxswa:ActivityReference>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
               </mxswa:ActivityReference>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{4e150822-a248-4154-baf7-ba9cfa68a205}" Name="Place of Origin - Record Locked to Bronze Date" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/PlaceofOrigin-RecordLockedtoBronzeDate-4E150822-A248-4154-BAF7-BA9CFA68A205.xaml</XamlFileName>
+<Workflow WorkflowId="{4e150822-a248-4154-baf7-ba9cfa68a205}" Name="Place of Origin - Lock/Unlock Bronze" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/PlaceofOrigin-LockUnlockBronze-4E150822-A248-4154-BAF7-BA9CFA68A205.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>0</Category>
@@ -22,6 +22,6 @@
   <IsCustomizable>1</IsCustomizable>
   <PrimaryEntity>defraimp_placeoforigin</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Place of Origin - Record Locked to Bronze Date" />
+    <LocalizedName languagecode="1033" description="Place of Origin - Lock/Unlock Bronze" />
   </LocalizedNames>
 </Workflow>

@@ -301,30 +301,12 @@
                                                 <mxswa:ActivityReference.Properties>
                                                   <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                                                   <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                                                    <Sequence DisplayName="UpdateStep11: Set Place of Origins &quot;Successful Applications&quot; counter to 0 and Trust level to Bronze.">
+                                                    <Sequence DisplayName="UpdateStep11: Set Place of Origins &quot;Successful Applications&quot; counter to 0">
                                                       <Sequence.Variables>
                                                         <Variable x:TypeArguments="x:Object" Name="UpdateStep11_1" />
-                                                        <Variable x:TypeArguments="x:Object" Name="UpdateStep11_2" />
                                                       </Sequence.Variables>
                                                       <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" Value="[New Entity(&quot;defraimp_placeoforigin&quot;)]" />
                                                       <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;).Id]" Value="[InputEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin&quot;).Id]" />
-                                                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
-                                                        <mxswa:ActivityReference.Arguments>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
-                                                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.OptionSetValue, "714100000", "Picklist" }]</InArgument>
-                                                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
-                                                          </InArgument>
-                                                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[UpdateStep11_1]</OutArgument>
-                                                        </mxswa:ActivityReference.Arguments>
-                                                      </mxswa:ActivityReference>
-                                                      <mxswa:SetEntityProperty Attribute="defraimp_trustlevel" Entity="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" EntityName="defraimp_placeoforigin" Value="[UpdateStep11_1]">
-                                                        <mxswa:SetEntityProperty.TargetType>
-                                                          <InArgument x:TypeArguments="s:Type">
-                                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
-                                                          </InArgument>
-                                                        </mxswa:SetEntityProperty.TargetType>
-                                                      </mxswa:SetEntityProperty>
                                                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
                                                         <mxswa:ActivityReference.Arguments>
                                                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
@@ -332,10 +314,10 @@
                                                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                                                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
                                                           </InArgument>
-                                                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[UpdateStep11_2]</OutArgument>
+                                                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[UpdateStep11_1]</OutArgument>
                                                         </mxswa:ActivityReference.Arguments>
                                                       </mxswa:ActivityReference>
-                                                      <mxswa:SetEntityProperty Attribute="defraimp_numberofsuccessfulapplications" Entity="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" EntityName="defraimp_placeoforigin" Value="[UpdateStep11_2]">
+                                                      <mxswa:SetEntityProperty Attribute="defraimp_numberofsuccessfulapplications" Entity="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" EntityName="defraimp_placeoforigin" Value="[UpdateStep11_1]">
                                                         <mxswa:SetEntityProperty.TargetType>
                                                           <InArgument x:TypeArguments="s:Type">
                                                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />

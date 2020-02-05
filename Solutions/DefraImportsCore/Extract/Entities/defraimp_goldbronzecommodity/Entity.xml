@@ -780,6 +780,20 @@
           </Descriptions>
         </attribute>
       </attributes>
+      <EntityKeys>
+        <EntityKey>
+          <Name>defraimp_CommodityType</Name>
+          <LogicalName>defraimp_commoditytype</LogicalName>
+          <IntroducedVersion>0.0.0.27</IntroducedVersion>
+          <IsCustomizable>0</IsCustomizable>
+          <EntityKeyAttributes>
+            <AttributeName>defraimp_commoditytypeid</AttributeName>
+          </EntityKeyAttributes>
+          <displaynames>
+            <displayname description="Commodity Type" languagecode="1033" />
+          </displaynames>
+        </EntityKey>
+      </EntityKeys>
       <EntitySetName>defraimp_goldbronzecommodities</EntitySetName>
       <IsDuplicateCheckSupported>1</IsDuplicateCheckSupported>
       <IsBusinessProcessEnabled>0</IsBusinessProcessEnabled>
