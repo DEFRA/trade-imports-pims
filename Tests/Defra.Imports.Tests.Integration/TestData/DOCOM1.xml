@@ -1,0 +1,195 @@
+﻿<DoCom>
+  <LastChangeDate>2019-08-30 16:09</LastChangeDate>
+  <Consignment>
+    <Id>9921182</Id>
+    <Status>valid</Status>
+    <Consignor>
+      <Status>valid</Status>
+      <Name>General Trade Org2047871</Name>
+      <Address>
+        <Street>Kings Road , 37</Street>
+        <City>
+          <PostalCode>76314</PostalCode>
+          <Name>Zlín 12</Name>
+        </City>
+        <CountryISOCode>CZ</CountryISOCode>
+      </Address>
+      <Type>approvedbody</Type>
+      <ApprovalNumber>CZ 72760901</ApprovalNumber>
+      <GeneralNumber>CZ 72906295</GeneralNumber>
+      <TracesId>2047871</TracesId>
+    </Consignor>
+    <CertificateReferenceNumber>{0}</CertificateReferenceNumber>
+    <CertificateVersionNumber>0</CertificateVersionNumber>
+    <CentralCompetentAuthority>CZ00000</CentralCompetentAuthority>
+    <LocalCompetentAuthority>CZ00072</LocalCompetentAuthority>
+    <DestinationLocalCompetentAuthority>US00001</DestinationLocalCompetentAuthority>
+    <Consignee>
+      <Status>valid</Status>
+      <Name>Local Company4879008</Name>
+      <Address>
+        <Street>High Street, 14</Street>
+        <City>
+          <PostalCode>Oklahoma</PostalCode>
+          <Name>Tulsa</Name>
+        </City>
+        <CountryISOCode>US</CountryISOCode>
+      </Address>
+      <Type>other</Type>
+      <ApprovalNumber>111 W.17th St </ApprovalNumber>
+      <TracesId>4879008</TracesId>
+    </Consignee>
+    <CountryOfOrigin>CZ</CountryOfOrigin>
+    <CountryOfDestination>US</CountryOfDestination>
+    <PlaceOfOriginHarvest>
+      <Status>valid</Status>
+      <Name>General Trade Org2047871</Name>
+      <Address>
+        <Street>Kings Road , 37</Street>
+        <City>
+          <PostalCode>76314</PostalCode>
+          <Name>Zlín 12</Name>
+        </City>
+        <CountryISOCode>CZ</CountryISOCode>
+      </Address>
+      <Type>etablish</Type>
+      <ApprovalNumber>CZ 72760901</ApprovalNumber>
+      <GeneralNumber>CZ 72906295</GeneralNumber>
+      <TracesId>2047871</TracesId>
+    </PlaceOfOriginHarvest>
+    <PlaceOfDestination>
+      <Status>valid</Status>
+      <Name>Local Company4879008</Name>
+      <Address>
+        <Street>High Street, 14</Street>
+        <City>
+          <PostalCode>Oklahoma</PostalCode>
+          <Name>Tulsa</Name>
+        </City>
+        <CountryISOCode>US</CountryISOCode>
+      </Address>
+      <Type>nonappr_estab</Type>
+      <ApprovalNumber>US00057698</ApprovalNumber>
+      <TracesId>4879008</TracesId>
+    </PlaceOfDestination>
+    <PlaceOfLoading>
+      <Status>valid</Status>
+      <Name>General Trade Org2047871</Name>
+      <Address>
+        <Street>Kings Road , 37</Street>
+        <City>
+          <PostalCode>76314</PostalCode>
+          <Name>Zlín 12</Name>
+        </City>
+        <CountryISOCode>CZ</CountryISOCode>
+      </Address>
+      <Type>approvedbody</Type>
+      <ApprovalNumber>CZ 72760901</ApprovalNumber>
+      <GeneralNumber>CZ 72906295</GeneralNumber>
+      <TracesId>2047871</TracesId>
+    </PlaceOfLoading>
+    <DepartureDateTime>2016-09-16 17:10</DepartureDateTime>
+    <MeansOfTransport>
+      <Means>plane</Means>
+      <Identification>BA861</Identification>
+    </MeansOfTransport>
+    <Transporter>
+      <Status>valid</Status>
+      <Name>International Trade Company3231486</Name>
+      <Address>
+        <Street>High Street, 52</Street>
+        <City>
+          <PostalCode>TW6</PostalCode>
+          <Name>Hounslow</Name>
+        </City>
+        <CountryISOCode>GB</CountryISOCode>
+      </Address>
+      <Type>com_transport</Type>
+      <ApprovalNumber>UK/REIGA/T2/00088079</ApprovalNumber>
+      <TracesId>3231486</TracesId>
+    </Transporter>
+    <CommodityComplements>
+      <CommodityComplement>
+        <CommodityCode>051199</CommodityCode>
+        <ComplementID>177500</ComplementID>
+        <Species>
+          <SpeciesID>10027804</SpeciesID>
+          <SpeciesNomination>Aves</SpeciesNomination>
+        </Species>
+      </CommodityComplement>
+    </CommodityComplements>
+    <IncludeNonAblactedAnimals>false</IncludeNonAblactedAnimals>
+    <IdentificationOfAnimals>
+      <IdentificationParameterSet>
+        <IdentificationParameter>
+          <Key>complement</Key>
+          <Data>177500</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>species</Key>
+          <Data>10027804</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>nature_of_good</Key>
+          <Data>animalbyproductsforprocessing</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>category</Key>
+          <Data>category1</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>treatment_type</Key>
+          <Data>other</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>treatment_3catg</Key>
+          <Data/>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>manufact_plan</Key>
+          <Data>-------</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>batch_number</Key>
+          <Data>ID214232</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>quantity</Key>
+          <Data>1</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>type_package</Key>
+          <Data>case</Data>
+        </IdentificationParameter>
+      </IdentificationParameterSet>
+    </IdentificationOfAnimals>
+    <NumberOfAnimalsGrossWeight>3</NumberOfAnimalsGrossWeight>
+    <Temperature>frozen</Temperature>
+    <Packages>
+      <NumberOfPackages>1</NumberOfPackages>
+    </Packages>
+    <AnimalCertifiedAs>TechnicalUse</AnimalCertifiedAs>
+    <TransitInMemberStates>
+      <MemberStateISOCode>GB</MemberStateISOCode>
+    </TransitInMemberStates>
+    <Export>
+      <ThirdCountry>US</ThirdCountry>
+      <ExitPoint>GBLHR4 </ExitPoint>
+    </Export>
+    <ResponsibleTransportJourney>British Airways</ResponsibleTransportJourney>
+    <PlaceAndDateOfDeclaration>
+      <FirstName>/</FirstName>
+      <LastName>/</LastName>
+      <SignatureDate>2016-09-15 13:08</SignatureDate>
+    </PlaceAndDateOfDeclaration>
+    <CustomsNumber>CZ 16-S72104-058</CustomsNumber>
+  </Consignment>
+  <Decision>
+    <DoComSignatory>
+      <Name>Harry Wilson</Name>
+      <PlaceOfSignature>    CZ</PlaceOfSignature>
+      <SignatureDate>2016-09-15 14:21</SignatureDate>
+    </DoComSignatory>
+    <DoComDecisionParameters/>
+  </Decision>
+</DoCom>

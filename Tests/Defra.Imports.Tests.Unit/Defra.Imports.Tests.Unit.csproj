@@ -164,6 +164,7 @@
     <Compile Include="BusinessLogic\ImportApplication\Factories\DetermineInspectionFactoryTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Workflows\Autonumber\DecrementAutonumberTests.cs" />
     <Compile Include="Workflows\Autonumber\IncrementAutonumberTests.cs" />
     <Compile Include="Workflows\Autonumber\ResetAutonumberTests.cs" />
     <Compile Include="Workflows\ImportApplication\DetermineInspectionRequirementTests.cs" />

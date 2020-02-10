@@ -41,7 +41,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
         }
 
         [Fact]
-        public void RunLogic_InitialUpdateOfRiskLevel_IncrementsTheP3Counter()
+        public void RunLogic_InitialUpdateOfRiskLevel_DoesNotIncrementTheP3Counter()
         {
             // Arrange
 
@@ -49,7 +49,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
             _determineInspectionRequirementBusinessLogic.RunLogic();
 
             // Assert
-            _mockAutoNumberRepo.Verify(r => r.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME), Times.Once);
+            _mockAutoNumberRepo.Verify(r => r.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME), Times.Never);
         }
 
         [Fact]
