@@ -696,7 +696,7 @@
           <MinValue>0</MinValue>
           <MaxValue>2147483647</MaxValue>
           <displaynames>
-            <displayname description="Total No. of Import Records" languagecode="1033" />
+            <displayname description="Total No. of Import Records with a Primary ITAHC" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -774,7 +774,7 @@
           <MinValue>0</MinValue>
           <MaxValue>2147483647</MaxValue>
           <displaynames>
-            <displayname description="No. of Satisfactory Imports Records" languagecode="1033" />
+            <displayname description="No. of Consecutive Satisfactory Post Import Checks" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />

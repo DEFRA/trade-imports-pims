@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{93a7ebcd-c3de-56e9-28be-1dccac9e07b7}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Certificate Reference Number" languagecode="1033" />
                         </labels>
                         <control id="defraimp_certificatereferencenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_certificatereferencenumber" disabled="false" />
                       </cell>
@@ -39,10 +39,11 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{a39adfa6-0de7-4ee6-a986-b667af023d45}">
+                      <cell id="{b4c82e1b-ce97-921b-ebc0-2eb3b9784469}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Channelled Consignment" languagecode="1033" />
                         </labels>
+                        <control id="defraimp_channeledconsignment" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_channeledconsignment" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -57,7 +58,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{4af3464b-fb12-46a5-8fce-9557108af93f}">
+                      <cell id="{4af3464b-fb12-46a5-8fce-9557108af93f}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>

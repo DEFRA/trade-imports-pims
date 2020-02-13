@@ -9,9 +9,11 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace Defra.Imports.Tests.Integration
 {
+    [Collection("Sequential")]
     public abstract class IntegrationTests
     {
         protected CrmServiceClient _orgSvc;

@@ -140,6 +140,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dynamics\ImportApplication\P2RiskCounterIntegrationTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IntegrationTests.cs" />
     <Compile Include="LogicApps\CertificatesLogicAppIntegrationTests.cs" />
