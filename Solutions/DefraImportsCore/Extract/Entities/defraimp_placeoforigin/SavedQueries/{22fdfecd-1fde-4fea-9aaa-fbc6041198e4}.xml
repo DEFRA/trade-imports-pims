@@ -13,6 +13,8 @@
           <cell name="defraimp_addresscountry" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_name" width="300" />
           <cell name="defraimp_trustlevel" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_numberofsuccessfulapplications" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_numberofapplicationssincelastinspection" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_addressline1" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_addressline2" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_addressline3" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
@@ -40,6 +42,8 @@
           <attribute name="defraimp_addressstateorprovince" />
           <attribute name="defraimp_addressline3" />
           <attribute name="defraimp_addressline2" />
+          <attribute name="defraimp_numberofsuccessfulapplications" />
+          <attribute name="defraimp_numberofapplicationssincelastinspection" />
           <attribute name="defraimp_placeoforiginid" />
         </entity>
       </fetch>

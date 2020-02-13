@@ -28,6 +28,38 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{3011da24-3792-3080-dc8a-c95191c8e382}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Trust Level" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_trustlevel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_trustlevel" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b86e3337-0311-5473-e78a-490b03496394}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Lock to Bronze" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_locktobronze" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_locktobronze" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5e0136c7-1858-23ca-1087-28a1e6586ee5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Total No. of Import Records with a Primary ITAHC" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_numberofapplications" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofapplications" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a0b86de9-a52e-8597-9e06-7be5d00c25d8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="No. of Consecutive Satisfactory Post Import Checks" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_numberofsuccessfulapplications" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofsuccessfulapplications" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{24ed680d-3a91-2168-5547-21b78e8429eb}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Address Line 1" languagecode="1033" />
@@ -73,46 +105,6 @@
                           <label description="Country" languagecode="1033" />
                         </labels>
                         <control id="defraimp_addresscountry" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_addresscountry" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{3011da24-3792-3080-dc8a-c95191c8e382}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Trust Level" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_trustlevel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_trustlevel" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{b86e3337-0311-5473-e78a-490b03496394}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Lock to Bronze" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_locktobronze" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_locktobronze" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{7e7c9be3-ad34-1e2b-d08a-e57ccddcea8c}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Date Locked to Bronze" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_datelockedtobronze" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_datelockedtobronze" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{5e0136c7-1858-23ca-1087-28a1e6586ee5}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Total No. of Import Records" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_numberofapplications" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofapplications" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{a0b86de9-a52e-8597-9e06-7be5d00c25d8}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="No. of Satisfactory Imports Records" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_numberofsuccessfulapplications" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofsuccessfulapplications" disabled="false" />
                       </cell>
                     </row>
                     <row>

@@ -19,6 +19,10 @@
           <cell name="defraimp_addresscity" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_addressstateorprovince" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_postcode" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_applicationcounter" width="100" />
+          <cell name="defraimp_numberofapplicationssincelastinspection" width="100" />
+          <cell name="defraimp_numberofsuccessfulapplications" width="100" />
+          <cell name="defraimp_numberofapplications" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -39,6 +43,10 @@
           <attribute name="defraimp_addressstateorprovince" />
           <attribute name="defraimp_addressline3" />
           <attribute name="defraimp_addressline2" />
+          <attribute name="defraimp_numberofapplications" />
+          <attribute name="defraimp_numberofsuccessfulapplications" />
+          <attribute name="defraimp_numberofapplicationssincelastinspection" />
+          <attribute name="defraimp_applicationcounter" />
           <order attribute="defraimp_addresscountry" descending="false" />
           <order attribute="defraimp_name" descending="false" />
         </entity>

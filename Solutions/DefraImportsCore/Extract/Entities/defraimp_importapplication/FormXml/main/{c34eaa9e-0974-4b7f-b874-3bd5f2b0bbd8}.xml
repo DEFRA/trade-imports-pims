@@ -364,7 +364,7 @@
                         <labels>
                           <label description="Post Import Checks Required?" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_inspectionrequired" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_inspectionrequired" uniqueid="{ec788b15-179d-2e97-8a38-66aa747a0952}" />
+                        <control id="defraimp_inspectionrequired" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_inspectionrequired" uniqueid="{ec788b15-179d-2e97-8a38-66aa747a0952}" disabled="true" />
                       </cell>
                     </row>
                     <row>
@@ -372,7 +372,7 @@
                         <labels>
                           <label description="Post Import Checks Required Reason" languagecode="1033" />
                         </labels>
-                        <control disabled="false" id="defraimp_inspectionrequiredreason" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_inspectionrequiredreason" />
+                        <control disabled="true" id="defraimp_inspectionrequiredreason" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_inspectionrequiredreason" uniqueid="{552aa1d9-bbbd-7943-0343-dcae1513543b}" />
                       </cell>
                     </row>
                     <row>
@@ -389,6 +389,14 @@
                           <label description="Post Import Checks Outcome" languagecode="1033" />
                         </labels>
                         <control id="defraimp_inspectionoutcome" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_inspectionoutcome" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{108413ac-ad80-8b9c-0851-94a865cba921}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Manual Post Import Check Decision" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_manualpostimportcheckdecision" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_manualpostimportcheckdecision" disabled="false" />
                       </cell>
                     </row>
                   </rows>

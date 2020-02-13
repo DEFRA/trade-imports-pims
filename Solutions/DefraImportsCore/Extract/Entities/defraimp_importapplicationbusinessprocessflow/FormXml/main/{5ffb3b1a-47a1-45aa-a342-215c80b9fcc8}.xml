@@ -134,6 +134,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{e331341b-c04a-4b87-932b-883e0b141ff0}" showlabel="true" visible="true" labelid="{12df32f5-3553-4598-a9ab-975abfe46598}">
+                        <labels>
+                          <label description="Manual Post Import Check Decision" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_manualpostimportcheckdecision" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="defraimp_manualpostimportcheckdecision" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="false" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{e63a2475-5030-4730-a45f-199ef5f95604}" showlabel="true" visible="true" labelid="{867e0e32-1d0c-4e0e-8917-1c3e142b49da}">
                         <labels>
                           <label description="Post Import Checks Declined Reason" languagecode="1033" />
@@ -147,14 +155,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep36" locklevel="0" expanded="true" visible="false" labelid="{41f0f2d9-6132-4c4d-bbf8-c5e86f93f37d}">
+        <tab verticallayout="true" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep38" locklevel="0" expanded="true" visible="false" labelid="{41f0f2d9-6132-4c4d-bbf8-c5e86f93f37d}">
           <labels>
             <label description="Completion" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep36_section1" labelid="{20d0f77f-fb32-43fd-8d2b-ef648a464105}">
+                <section showbar="false" columns="1" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep38_section1" labelid="{5f139152-de66-4c9d-af9b-f7cd55a9491f}">
                   <labels>
                     <label description="Completion" languagecode="1033" />
                   </labels>
@@ -189,14 +197,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep45" locklevel="0" expanded="true" visible="false" labelid="{30308977-3baa-4218-8101-78ca5d1b8b94}">
+        <tab verticallayout="true" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep47" locklevel="0" expanded="true" visible="false" labelid="{30308977-3baa-4218-8101-78ca5d1b8b94}">
           <labels>
             <label description="Post Import Check" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep45_section1" labelid="{09874dbd-9a55-4595-b5bd-3d270e137d82}">
+                <section showbar="false" columns="1" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep47_section1" labelid="{91870b24-98e5-4abd-9fd5-a6dc4ed64b23}">
                   <labels>
                     <label description="Post Import Check" languagecode="1033" />
                   </labels>
@@ -215,14 +223,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep50" locklevel="0" expanded="true" visible="false" labelid="{a686457d-dcfd-465f-82b1-08e22b7bf1e5}">
+        <tab verticallayout="true" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep52" locklevel="0" expanded="true" visible="false" labelid="{a686457d-dcfd-465f-82b1-08e22b7bf1e5}">
           <labels>
             <label description="Completion" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep50_section1" labelid="{2cd4ba5e-8fd9-4589-9b39-9cbb96b344e3}">
+                <section showbar="false" columns="1" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep52_section1" labelid="{091e82fb-3497-4e01-8d27-2690c49dbea0}">
                   <labels>
                     <label description="Completion" languagecode="1033" />
                   </labels>

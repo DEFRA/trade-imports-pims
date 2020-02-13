@@ -69,6 +69,9 @@
     <steplabels id="{9c7440a2-b506-4003-b740-90fb7ec36275}">
       <label languagecode="1033" description="Post Import Checks Required?" />
     </steplabels>
+    <steplabels id="{e331341b-c04a-4b87-932b-883e0b141ff0}">
+      <label languagecode="1033" description="Manual Post Import Check Decision" />
+    </steplabels>
     <steplabels id="{e63a2475-5030-4730-a45f-199ef5f95604}">
       <label languagecode="1033" description="Post Import Checks Declined Reason" />
     </steplabels>
