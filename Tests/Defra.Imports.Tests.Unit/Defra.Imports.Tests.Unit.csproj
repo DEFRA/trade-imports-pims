@@ -167,6 +167,7 @@
     <Compile Include="Workflows\Autonumber\DecrementAutonumberTests.cs" />
     <Compile Include="Workflows\Autonumber\IncrementAutonumberTests.cs" />
     <Compile Include="Workflows\Autonumber\ResetAutonumberTests.cs" />
+    <Compile Include="Workflows\ImportApplication\AutomatedRiskLevelAssignmentTests.cs" />
     <Compile Include="Workflows\ImportApplication\DetermineInspectionRequirementTests.cs" />
     <Compile Include="Workflows\WorkflowActivityTests.cs" />
   </ItemGroup>

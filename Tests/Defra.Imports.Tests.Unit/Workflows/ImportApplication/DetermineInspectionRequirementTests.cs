@@ -20,6 +20,8 @@ namespace Defra.Imports.Tests.Unit.Workflows.ImportApplication
         {
             // Arrange
             Guid importApplicationId = Guid.NewGuid();
+            Guid countryOfOriginId = Guid.NewGuid();
+            Guid commodityTypeId = new Guid();
             IDictionary<string, object> inputs = GetInputs(importApplicationId);
 
             SetupOrgServiceMock(importApplicationId);
