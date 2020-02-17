@@ -58,7 +58,6 @@ declare namespace WebApi {
     versionnumber?: number | null;
   }
   interface defraimp_importinspection_Relationships {
-    defraimp_IV17ReviewApprovedByID?: SystemUser_Result | null;
     defraimp_NextInspection?: defraimp_importinspection_Result | null;
     defraimp_PreviousInspection?: defraimp_importinspection_Result | null;
     defraimp_RegionAreaAllocatedtoID?: defraimp_apharegion_Result | null;
@@ -228,9 +227,6 @@ declare namespace WebApi {
     versionnumber: number;
   }
   interface defraimp_importinspection_Expand {
-    createdby: WebExpand<defraimp_importinspection_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
-    createdonbehalfby: WebExpand<defraimp_importinspection_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
-    defraimp_IV17ReviewApprovedByID: WebExpand<defraimp_importinspection_Expand, SystemUser_Select, SystemUser_Filter, { defraimp_IV17ReviewApprovedByID: SystemUser_Result }>;
     defraimp_NextInspection: WebExpand<defraimp_importinspection_Expand, defraimp_importinspection_Select, defraimp_importinspection_Filter, { defraimp_NextInspection: defraimp_importinspection_Result }>;
     defraimp_PreviousInspection: WebExpand<defraimp_importinspection_Expand, defraimp_importinspection_Select, defraimp_importinspection_Filter, { defraimp_PreviousInspection: defraimp_importinspection_Result }>;
     defraimp_RegionAreaAllocatedtoID: WebExpand<defraimp_importinspection_Expand, defraimp_apharegion_Select, defraimp_apharegion_Filter, { defraimp_RegionAreaAllocatedtoID: defraimp_apharegion_Result }>;
@@ -241,10 +237,6 @@ declare namespace WebApi {
     defraimp_defraimp_importinspection_defraimp_sample: WebExpand<defraimp_importinspection_Expand, defraimp_sampletest_Select, defraimp_sampletest_Filter, { defraimp_defraimp_importinspection_defraimp_sample: defraimp_sampletest_Result[] }>;
     defraimp_importinspection_ProcessSession: WebExpand<defraimp_importinspection_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_importinspection_ProcessSession: ProcessSession_Result[] }>;
     defraimp_importinspection_SyncErrors: WebExpand<defraimp_importinspection_Expand, SyncError_Select, SyncError_Filter, { defraimp_importinspection_SyncErrors: SyncError_Result[] }>;
-    modifiedby: WebExpand<defraimp_importinspection_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
-    modifiedonbehalfby: WebExpand<defraimp_importinspection_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-    owningteam: WebExpand<defraimp_importinspection_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
-    owninguser: WebExpand<defraimp_importinspection_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
   }
   interface defraimp_importinspection_FormattedResult {
     createdby_formatted?: string;
@@ -303,18 +295,11 @@ declare namespace WebApi {
     owninguser_guid: string | null;
   }
   interface defraimp_importinspection_RelatedOne {
-    createdby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    createdonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    defraimp_IV17ReviewApprovedByID: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
     defraimp_NextInspection: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;
     defraimp_PreviousInspection: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;
     defraimp_RegionAreaAllocatedtoID: WebMappingRetrieve<WebApi.defraimp_apharegion_Select,WebApi.defraimp_apharegion_Expand,WebApi.defraimp_apharegion_Filter,WebApi.defraimp_apharegion_Fixed,WebApi.defraimp_apharegion_Result,WebApi.defraimp_apharegion_FormattedResult>;
     defraimp_RelatedITAHC: WebMappingRetrieve<WebApi.defraimp_itahc_Select,WebApi.defraimp_itahc_Expand,WebApi.defraimp_itahc_Filter,WebApi.defraimp_itahc_Fixed,WebApi.defraimp_itahc_Result,WebApi.defraimp_itahc_FormattedResult>;
     defraimp_RelatedImportApplication: WebMappingRetrieve<WebApi.defraimp_importapplication_Select,WebApi.defraimp_importapplication_Expand,WebApi.defraimp_importapplication_Filter,WebApi.defraimp_importapplication_Fixed,WebApi.defraimp_importapplication_Result,WebApi.defraimp_importapplication_FormattedResult>;
-    modifiedby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    owningteam: WebMappingRetrieve<WebApi.Team_Select,WebApi.Team_Expand,WebApi.Team_Filter,WebApi.Team_Fixed,WebApi.Team_Result,WebApi.Team_FormattedResult>;
-    owninguser: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
   }
   interface defraimp_importinspection_RelatedMany {
     defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;

@@ -125,28 +125,28 @@ declare namespace WebApi {
   }
   interface defraimp_autonumber_Update extends defraimp_autonumber {
   }
-  interface defraimp_defraimp_importapplication_defraimp_imp_Base extends WebEntity {
+  interface defraimp_cved_Base extends WebEntity {
   }
-  interface defraimp_defraimp_importapplication_defraimp_imp_Fixed extends WebEntity_Fixed {
-    defraimp_defraimp_importapplication_defraimp_impid: string;
+  interface defraimp_cved_Fixed extends WebEntity_Fixed {
+    defraimp_cvedid: string;
   }
-  interface defraimp_defraimp_importapplication_defraimp_imp extends defraimp_defraimp_importapplication_defraimp_imp_Base, defraimp_defraimp_importapplication_defraimp_imp_Relationships {
+  interface defraimp_cved extends defraimp_cved_Base, defraimp_cved_Relationships {
   }
-  interface defraimp_defraimp_importapplication_defraimp_imp_Relationships {
+  interface defraimp_cved_Relationships {
   }
-  interface defraimp_defraimp_importapplication_defraimp_imp_Result extends defraimp_defraimp_importapplication_defraimp_imp_Base, defraimp_defraimp_importapplication_defraimp_imp_Relationships {
+  interface defraimp_cved_Result extends defraimp_cved_Base, defraimp_cved_Relationships {
   }
-  interface defraimp_defraimp_importapplication_defraimp_imp_FormattedResult {
+  interface defraimp_cved_FormattedResult {
   }
-  interface defraimp_defraimp_importapplication_defraimp_imp_Select {
+  interface defraimp_cved_Select {
   }
-  interface defraimp_defraimp_importapplication_defraimp_imp_Expand {
+  interface defraimp_cved_Expand {
   }
-  interface defraimp_defraimp_importapplication_defraimp_imp_Filter {
+  interface defraimp_cved_Filter {
   }
-  interface defraimp_defraimp_importapplication_defraimp_imp_Create extends defraimp_defraimp_importapplication_defraimp_imp {
+  interface defraimp_cved_Create extends defraimp_cved {
   }
-  interface defraimp_defraimp_importapplication_defraimp_imp_Update extends defraimp_defraimp_importapplication_defraimp_imp {
+  interface defraimp_cved_Update extends defraimp_cved {
   }
   interface defraimp_defraimp_importapplication_defraimp_ita_Base extends WebEntity {
   }
@@ -309,6 +309,29 @@ declare namespace WebApi {
   }
   interface defraimp_importapplication_defra_country_Update extends defraimp_importapplication_defra_country {
   }
+  interface defraimp_importapplicationbusinessprocessflow_Base extends WebEntity {
+  }
+  interface defraimp_importapplicationbusinessprocessflow_Fixed extends WebEntity_Fixed {
+    businessprocessflowinstanceid: string;
+  }
+  interface defraimp_importapplicationbusinessprocessflow extends defraimp_importapplicationbusinessprocessflow_Base, defraimp_importapplicationbusinessprocessflow_Relationships {
+  }
+  interface defraimp_importapplicationbusinessprocessflow_Relationships {
+  }
+  interface defraimp_importapplicationbusinessprocessflow_Result extends defraimp_importapplicationbusinessprocessflow_Base, defraimp_importapplicationbusinessprocessflow_Relationships {
+  }
+  interface defraimp_importapplicationbusinessprocessflow_FormattedResult {
+  }
+  interface defraimp_importapplicationbusinessprocessflow_Select {
+  }
+  interface defraimp_importapplicationbusinessprocessflow_Expand {
+  }
+  interface defraimp_importapplicationbusinessprocessflow_Filter {
+  }
+  interface defraimp_importapplicationbusinessprocessflow_Create extends defraimp_importapplicationbusinessprocessflow {
+  }
+  interface defraimp_importapplicationbusinessprocessflow_Update extends defraimp_importapplicationbusinessprocessflow {
+  }
   interface defraimp_importcountrycommodityrisklevel_Base extends WebEntity {
   }
   interface defraimp_importcountrycommodityrisklevel_Fixed extends WebEntity_Fixed {
@@ -354,29 +377,6 @@ declare namespace WebApi {
   interface defraimp_importinspection_Create extends defraimp_importinspection {
   }
   interface defraimp_importinspection_Update extends defraimp_importinspection {
-  }
-  interface defraimp_importnotification_Base extends WebEntity {
-  }
-  interface defraimp_importnotification_Fixed extends WebEntity_Fixed {
-    defraimp_importnotificationid: string;
-  }
-  interface defraimp_importnotification extends defraimp_importnotification_Base, defraimp_importnotification_Relationships {
-  }
-  interface defraimp_importnotification_Relationships {
-  }
-  interface defraimp_importnotification_Result extends defraimp_importnotification_Base, defraimp_importnotification_Relationships {
-  }
-  interface defraimp_importnotification_FormattedResult {
-  }
-  interface defraimp_importnotification_Select {
-  }
-  interface defraimp_importnotification_Expand {
-  }
-  interface defraimp_importnotification_Filter {
-  }
-  interface defraimp_importnotification_Create extends defraimp_importnotification {
-  }
-  interface defraimp_importnotification_Update extends defraimp_importnotification {
   }
   interface defraimp_importquery_Base extends WebEntity {
   }
@@ -562,121 +562,6 @@ declare namespace WebApi {
   }
   interface SyncError_Update extends SyncError {
   }
-  interface SystemUser_Base extends WebEntity {
-  }
-  interface SystemUser_Fixed extends WebEntity_Fixed {
-    systemuserid: string;
-  }
-  interface SystemUser extends SystemUser_Base, SystemUser_Relationships {
-  }
-  interface SystemUser_Relationships {
-  }
-  interface SystemUser_Result extends SystemUser_Base, SystemUser_Relationships {
-  }
-  interface SystemUser_FormattedResult {
-  }
-  interface SystemUser_Select {
-  }
-  interface SystemUser_Expand {
-  }
-  interface SystemUser_Filter {
-  }
-  interface SystemUser_Create extends SystemUser {
-  }
-  interface SystemUser_Update extends SystemUser {
-  }
-  interface Team_Base extends WebEntity {
-  }
-  interface Team_Fixed extends WebEntity_Fixed {
-    teamid: string;
-  }
-  interface Team extends Team_Base, Team_Relationships {
-  }
-  interface Team_Relationships {
-  }
-  interface Team_Result extends Team_Base, Team_Relationships {
-  }
-  interface Team_FormattedResult {
-  }
-  interface Team_Select {
-  }
-  interface Team_Expand {
-  }
-  interface Team_Filter {
-  }
-  interface Team_Create extends Team {
-  }
-  interface Team_Update extends Team {
-  }
-  interface TeamMembership_Base extends WebEntity {
-  }
-  interface TeamMembership_Fixed extends WebEntity_Fixed {
-    teammembershipid: string;
-  }
-  interface TeamMembership extends TeamMembership_Base, TeamMembership_Relationships {
-  }
-  interface TeamMembership_Relationships {
-  }
-  interface TeamMembership_Result extends TeamMembership_Base, TeamMembership_Relationships {
-  }
-  interface TeamMembership_FormattedResult {
-  }
-  interface TeamMembership_Select {
-  }
-  interface TeamMembership_Expand {
-  }
-  interface TeamMembership_Filter {
-  }
-  interface TeamMembership_Create extends TeamMembership {
-  }
-  interface TeamMembership_Update extends TeamMembership {
-  }
-  interface Post_Base extends WebEntity {
-  }
-  interface Post_Fixed extends WebEntity_Fixed {
-    postid: string;
-  }
-  interface Post extends Post_Base, Post_Relationships {
-  }
-  interface Post_Relationships {
-  }
-  interface Post_Result extends Post_Base, Post_Relationships {
-  }
-  interface Post_FormattedResult {
-  }
-  interface Post_Select {
-  }
-  interface Post_Expand {
-  }
-  interface Post_Filter {
-  }
-  interface Post_Create extends Post {
-  }
-  interface Post_Update extends Post {
-  }
-  interface Connection_Base extends WebEntity {
-  }
-  interface Connection_Fixed extends WebEntity_Fixed {
-    connectionid: string;
-  }
-  interface Connection extends Connection_Base, Connection_Relationships {
-  }
-  interface Connection_Relationships {
-  }
-  interface Connection_Result extends Connection_Base, Connection_Relationships {
-  }
-  interface Connection_FormattedResult {
-  }
-  interface Connection_Select {
-  }
-  interface Connection_Expand {
-  }
-  interface Connection_Filter {
-  }
-  interface Connection_Create extends Connection {
-  }
-  interface Connection_Update extends Connection {
-  }
   interface Workflow_Base extends WebEntity {
   }
   interface Workflow_Fixed extends WebEntity_Fixed {
@@ -699,28 +584,5 @@ declare namespace WebApi {
   interface Workflow_Create extends Workflow {
   }
   interface Workflow_Update extends Workflow {
-  }
-  interface PostFollow_Base extends WebEntity {
-  }
-  interface PostFollow_Fixed extends WebEntity_Fixed {
-    postfollowid: string;
-  }
-  interface PostFollow extends PostFollow_Base, PostFollow_Relationships {
-  }
-  interface PostFollow_Relationships {
-  }
-  interface PostFollow_Result extends PostFollow_Base, PostFollow_Relationships {
-  }
-  interface PostFollow_FormattedResult {
-  }
-  interface PostFollow_Select {
-  }
-  interface PostFollow_Expand {
-  }
-  interface PostFollow_Filter {
-  }
-  interface PostFollow_Create extends PostFollow {
-  }
-  interface PostFollow_Update extends PostFollow {
   }
 }

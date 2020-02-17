@@ -71,16 +71,10 @@ declare namespace WebApi {
     versionnumber: number;
   }
   interface defraimp_goldbronzecommodity_Expand {
-    createdby: WebExpand<defraimp_goldbronzecommodity_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
-    createdonbehalfby: WebExpand<defraimp_goldbronzecommodity_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
     defraimp_CommodityTypeid: WebExpand<defraimp_goldbronzecommodity_Expand, defraexp_commoditytype_Select, defraexp_commoditytype_Filter, { defraimp_CommodityTypeid: defraexp_commoditytype_Result }>;
     defraimp_goldbronzecommodity_ProcessSession: WebExpand<defraimp_goldbronzecommodity_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_goldbronzecommodity_ProcessSession: ProcessSession_Result[] }>;
     defraimp_goldbronzecommodity_SyncErrors: WebExpand<defraimp_goldbronzecommodity_Expand, SyncError_Select, SyncError_Filter, { defraimp_goldbronzecommodity_SyncErrors: SyncError_Result[] }>;
     defraimp_goldbronzecountriesnn: WebExpand<defraimp_goldbronzecommodity_Expand, defra_country_Select, defra_country_Filter, { defraimp_goldbronzecountriesnn: defra_country_Result[] }>;
-    modifiedby: WebExpand<defraimp_goldbronzecommodity_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
-    modifiedonbehalfby: WebExpand<defraimp_goldbronzecommodity_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-    owningteam: WebExpand<defraimp_goldbronzecommodity_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
-    owninguser: WebExpand<defraimp_goldbronzecommodity_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
   }
   interface defraimp_goldbronzecommodity_FormattedResult {
     createdby_formatted?: string;
@@ -111,13 +105,7 @@ declare namespace WebApi {
     owninguser_guid: string | null;
   }
   interface defraimp_goldbronzecommodity_RelatedOne {
-    createdby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    createdonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
     defraimp_CommodityTypeid: WebMappingRetrieve<WebApi.defraexp_commoditytype_Select,WebApi.defraexp_commoditytype_Expand,WebApi.defraexp_commoditytype_Filter,WebApi.defraexp_commoditytype_Fixed,WebApi.defraexp_commoditytype_Result,WebApi.defraexp_commoditytype_FormattedResult>;
-    modifiedby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    owningteam: WebMappingRetrieve<WebApi.Team_Select,WebApi.Team_Expand,WebApi.Team_Filter,WebApi.Team_Fixed,WebApi.Team_Result,WebApi.Team_FormattedResult>;
-    owninguser: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
   }
   interface defraimp_goldbronzecommodity_RelatedMany {
     defraimp_goldbronzecommodity_ProcessSession: WebMappingRetrieve<WebApi.ProcessSession_Select,WebApi.ProcessSession_Expand,WebApi.ProcessSession_Filter,WebApi.ProcessSession_Fixed,WebApi.ProcessSession_Result,WebApi.ProcessSession_FormattedResult>;

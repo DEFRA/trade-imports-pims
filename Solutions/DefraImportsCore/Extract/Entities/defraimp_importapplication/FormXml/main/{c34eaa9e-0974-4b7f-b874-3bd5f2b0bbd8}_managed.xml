@@ -1562,6 +1562,16 @@
             <Handler functionName="DefraImports.ImportRecord.onChangeOfMoveToCompletion" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{4aeb0569-9806-bb4e-83e3-c9e0286b4ecc}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="DefraImports.ImportRecord.onLoad" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{5153c27b-cdc5-166e-7e9e-253b3390c3ed}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onsave" application="false" active="false">
+          <Handlers>
+            <Handler functionName="DefraImports.ImportRecord.onSave" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{91961c5c-592c-c24a-8211-3d040274d2b3}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
       </events>
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>

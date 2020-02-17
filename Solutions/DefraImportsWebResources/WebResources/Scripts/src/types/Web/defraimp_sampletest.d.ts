@@ -67,15 +67,9 @@ declare namespace WebApi {
     versionnumber: number;
   }
   interface defraimp_sampletest_Expand {
-    createdby: WebExpand<defraimp_sampletest_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
-    createdonbehalfby: WebExpand<defraimp_sampletest_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
     defraimp_defraimp_importinspection_defraimp_sample: WebExpand<defraimp_sampletest_Expand, defraimp_importinspection_Select, defraimp_importinspection_Filter, { defraimp_defraimp_importinspection_defraimp_sample: defraimp_importinspection_Result[] }>;
     defraimp_sampletest_ProcessSession: WebExpand<defraimp_sampletest_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_sampletest_ProcessSession: ProcessSession_Result[] }>;
     defraimp_sampletest_SyncErrors: WebExpand<defraimp_sampletest_Expand, SyncError_Select, SyncError_Filter, { defraimp_sampletest_SyncErrors: SyncError_Result[] }>;
-    modifiedby: WebExpand<defraimp_sampletest_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
-    modifiedonbehalfby: WebExpand<defraimp_sampletest_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-    owningteam: WebExpand<defraimp_sampletest_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
-    owninguser: WebExpand<defraimp_sampletest_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
   }
   interface defraimp_sampletest_FormattedResult {
     createdby_formatted?: string;
@@ -104,12 +98,6 @@ declare namespace WebApi {
     owninguser_guid: string | null;
   }
   interface defraimp_sampletest_RelatedOne {
-    createdby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    createdonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    owningteam: WebMappingRetrieve<WebApi.Team_Select,WebApi.Team_Expand,WebApi.Team_Filter,WebApi.Team_Fixed,WebApi.Team_Result,WebApi.Team_FormattedResult>;
-    owninguser: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
   }
   interface defraimp_sampletest_RelatedMany {
     defraimp_defraimp_importinspection_defraimp_sample: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;

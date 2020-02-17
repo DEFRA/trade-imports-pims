@@ -71,15 +71,11 @@ declare namespace WebApi {
     versionnumber: number;
   }
   interface defraimp_importcountrycommodityrisklevel_Expand {
-    createdby: WebExpand<defraimp_importcountrycommodityrisklevel_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
-    createdonbehalfby: WebExpand<defraimp_importcountrycommodityrisklevel_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
     defraimp_commoditytypeid: WebExpand<defraimp_importcountrycommodityrisklevel_Expand, defraexp_commoditytype_Select, defraexp_commoditytype_Filter, { defraimp_commoditytypeid: defraexp_commoditytype_Result }>;
     defraimp_countryid: WebExpand<defraimp_importcountrycommodityrisklevel_Expand, defra_country_Select, defra_country_Filter, { defraimp_countryid: defra_country_Result }>;
     defraimp_importcountrycommodityrisklevel_ProcessSession: WebExpand<defraimp_importcountrycommodityrisklevel_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_importcountrycommodityrisklevel_ProcessSession: ProcessSession_Result[] }>;
     defraimp_importcountrycommodityrisklevel_SyncErrors: WebExpand<defraimp_importcountrycommodityrisklevel_Expand, SyncError_Select, SyncError_Filter, { defraimp_importcountrycommodityrisklevel_SyncErrors: SyncError_Result[] }>;
     defraimp_importrisklevelid: WebExpand<defraimp_importcountrycommodityrisklevel_Expand, defraimp_importrisklevel_Select, defraimp_importrisklevel_Filter, { defraimp_importrisklevelid: defraimp_importrisklevel_Result }>;
-    modifiedby: WebExpand<defraimp_importcountrycommodityrisklevel_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
-    modifiedonbehalfby: WebExpand<defraimp_importcountrycommodityrisklevel_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   }
   interface defraimp_importcountrycommodityrisklevel_FormattedResult {
     createdby_formatted?: string;
@@ -108,13 +104,9 @@ declare namespace WebApi {
     organizationid_guid: string | null;
   }
   interface defraimp_importcountrycommodityrisklevel_RelatedOne {
-    createdby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    createdonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
     defraimp_commoditytypeid: WebMappingRetrieve<WebApi.defraexp_commoditytype_Select,WebApi.defraexp_commoditytype_Expand,WebApi.defraexp_commoditytype_Filter,WebApi.defraexp_commoditytype_Fixed,WebApi.defraexp_commoditytype_Result,WebApi.defraexp_commoditytype_FormattedResult>;
     defraimp_countryid: WebMappingRetrieve<WebApi.defra_country_Select,WebApi.defra_country_Expand,WebApi.defra_country_Filter,WebApi.defra_country_Fixed,WebApi.defra_country_Result,WebApi.defra_country_FormattedResult>;
     defraimp_importrisklevelid: WebMappingRetrieve<WebApi.defraimp_importrisklevel_Select,WebApi.defraimp_importrisklevel_Expand,WebApi.defraimp_importrisklevel_Filter,WebApi.defraimp_importrisklevel_Fixed,WebApi.defraimp_importrisklevel_Result,WebApi.defraimp_importrisklevel_FormattedResult>;
-    modifiedby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
   }
   interface defraimp_importcountrycommodityrisklevel_RelatedMany {
     defraimp_importcountrycommodityrisklevel_ProcessSession: WebMappingRetrieve<WebApi.ProcessSession_Select,WebApi.ProcessSession_Expand,WebApi.ProcessSession_Filter,WebApi.ProcessSession_Fixed,WebApi.ProcessSession_Result,WebApi.ProcessSession_FormattedResult>;

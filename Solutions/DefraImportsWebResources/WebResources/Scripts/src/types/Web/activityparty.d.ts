@@ -21,7 +21,6 @@ declare namespace WebApi {
   interface ActivityParty_Relationships {
     ActivityParty_SyncErrors?: SyncError_Result[] | null;
     activityid_defraimp_importquery_activityparty?: defraimp_importquery_Result | null;
-    partyid_systemuser?: SystemUser_Result | null;
   }
   interface ActivityParty extends ActivityParty_Base, ActivityParty_Relationships {
     activityid_activitypointer_bind$activitypointers?: string | null;
@@ -119,7 +118,6 @@ declare namespace WebApi {
   interface ActivityParty_Expand {
     ActivityParty_SyncErrors: WebExpand<ActivityParty_Expand, SyncError_Select, SyncError_Filter, { ActivityParty_SyncErrors: SyncError_Result[] }>;
     activityid_defraimp_importquery_activityparty: WebExpand<ActivityParty_Expand, defraimp_importquery_Select, defraimp_importquery_Filter, { activityid_defraimp_importquery_activityparty: defraimp_importquery_Result }>;
-    partyid_systemuser: WebExpand<ActivityParty_Expand, SystemUser_Select, SystemUser_Filter, { partyid_systemuser: SystemUser_Result }>;
   }
   interface ActivityParty_FormattedResult {
     activityid_formatted?: string;
@@ -140,7 +138,6 @@ declare namespace WebApi {
   }
   interface ActivityParty_RelatedOne {
     activityid_defraimp_importquery_activityparty: WebMappingRetrieve<WebApi.defraimp_importquery_Select,WebApi.defraimp_importquery_Expand,WebApi.defraimp_importquery_Filter,WebApi.defraimp_importquery_Fixed,WebApi.defraimp_importquery_Result,WebApi.defraimp_importquery_FormattedResult>;
-    partyid_systemuser: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
   }
   interface ActivityParty_RelatedMany {
     ActivityParty_SyncErrors: WebMappingRetrieve<WebApi.SyncError_Select,WebApi.SyncError_Expand,WebApi.SyncError_Filter,WebApi.SyncError_Fixed,WebApi.SyncError_Result,WebApi.SyncError_FormattedResult>;

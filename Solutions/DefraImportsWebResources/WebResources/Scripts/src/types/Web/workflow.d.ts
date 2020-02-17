@@ -53,6 +53,7 @@ declare namespace WebApi {
   }
   interface Workflow_Relationships {
     Workflow_SyncErrors?: SyncError_Result[] | null;
+    lk_defraimp_importapplicationbusinessprocessflow_processid?: defraimp_importapplicationbusinessprocessflow_Result[] | null;
     lk_processsession_processid?: ProcessSession_Result[] | null;
     workflow_active_workflow?: Workflow_Result[] | null;
     workflow_parent_workflow?: Workflow_Result[] | null;
@@ -195,13 +196,8 @@ declare namespace WebApi {
   interface Workflow_Expand {
     Workflow_SyncErrors: WebExpand<Workflow_Expand, SyncError_Select, SyncError_Filter, { Workflow_SyncErrors: SyncError_Result[] }>;
     activeworkflowid: WebExpand<Workflow_Expand, Workflow_Select, Workflow_Filter, { activeworkflowid: Workflow_Result }>;
-    createdby: WebExpand<Workflow_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
-    createdonbehalfby: WebExpand<Workflow_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+    lk_defraimp_importapplicationbusinessprocessflow_processid: WebExpand<Workflow_Expand, defraimp_importapplicationbusinessprocessflow_Select, defraimp_importapplicationbusinessprocessflow_Filter, { lk_defraimp_importapplicationbusinessprocessflow_processid: defraimp_importapplicationbusinessprocessflow_Result[] }>;
     lk_processsession_processid: WebExpand<Workflow_Expand, ProcessSession_Select, ProcessSession_Filter, { lk_processsession_processid: ProcessSession_Result[] }>;
-    modifiedby: WebExpand<Workflow_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
-    modifiedonbehalfby: WebExpand<Workflow_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-    owningteam: WebExpand<Workflow_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
-    owninguser: WebExpand<Workflow_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
     parentworkflowid: WebExpand<Workflow_Expand, Workflow_Select, Workflow_Filter, { parentworkflowid: Workflow_Result }>;
     workflow_active_workflow: WebExpand<Workflow_Expand, Workflow_Select, Workflow_Filter, { workflow_active_workflow: Workflow_Result[] }>;
     workflow_parent_workflow: WebExpand<Workflow_Expand, Workflow_Select, Workflow_Filter, { workflow_parent_workflow: Workflow_Result[] }>;
@@ -254,16 +250,11 @@ declare namespace WebApi {
   }
   interface Workflow_RelatedOne {
     activeworkflowid: WebMappingRetrieve<WebApi.Workflow_Select,WebApi.Workflow_Expand,WebApi.Workflow_Filter,WebApi.Workflow_Fixed,WebApi.Workflow_Result,WebApi.Workflow_FormattedResult>;
-    createdby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    createdonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    owningteam: WebMappingRetrieve<WebApi.Team_Select,WebApi.Team_Expand,WebApi.Team_Filter,WebApi.Team_Fixed,WebApi.Team_Result,WebApi.Team_FormattedResult>;
-    owninguser: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
     parentworkflowid: WebMappingRetrieve<WebApi.Workflow_Select,WebApi.Workflow_Expand,WebApi.Workflow_Filter,WebApi.Workflow_Fixed,WebApi.Workflow_Result,WebApi.Workflow_FormattedResult>;
   }
   interface Workflow_RelatedMany {
     Workflow_SyncErrors: WebMappingRetrieve<WebApi.SyncError_Select,WebApi.SyncError_Expand,WebApi.SyncError_Filter,WebApi.SyncError_Fixed,WebApi.SyncError_Result,WebApi.SyncError_FormattedResult>;
+    lk_defraimp_importapplicationbusinessprocessflow_processid: WebMappingRetrieve<WebApi.defraimp_importapplicationbusinessprocessflow_Select,WebApi.defraimp_importapplicationbusinessprocessflow_Expand,WebApi.defraimp_importapplicationbusinessprocessflow_Filter,WebApi.defraimp_importapplicationbusinessprocessflow_Fixed,WebApi.defraimp_importapplicationbusinessprocessflow_Result,WebApi.defraimp_importapplicationbusinessprocessflow_FormattedResult>;
     lk_processsession_processid: WebMappingRetrieve<WebApi.ProcessSession_Select,WebApi.ProcessSession_Expand,WebApi.ProcessSession_Filter,WebApi.ProcessSession_Fixed,WebApi.ProcessSession_Result,WebApi.ProcessSession_FormattedResult>;
     workflow_active_workflow: WebMappingRetrieve<WebApi.Workflow_Select,WebApi.Workflow_Expand,WebApi.Workflow_Filter,WebApi.Workflow_Fixed,WebApi.Workflow_Result,WebApi.Workflow_FormattedResult>;
     workflow_parent_workflow: WebMappingRetrieve<WebApi.Workflow_Select,WebApi.Workflow_Expand,WebApi.Workflow_Filter,WebApi.Workflow_Fixed,WebApi.Workflow_Result,WebApi.Workflow_FormattedResult>;

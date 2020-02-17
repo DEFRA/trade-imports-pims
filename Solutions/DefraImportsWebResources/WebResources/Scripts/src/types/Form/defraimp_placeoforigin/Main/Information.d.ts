@@ -10,6 +10,13 @@ declare namespace Form.defraimp_placeoforigin.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
+      interface tab_2 extends Xrm.SectionCollectionBase {
+        get(name: "tab_2_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "defraimp_addresscity"): Xrm.Attribute<string>;
@@ -18,13 +25,20 @@ declare namespace Form.defraimp_placeoforigin.Main {
       get(name: "defraimp_addressline2"): Xrm.Attribute<string>;
       get(name: "defraimp_addressline3"): Xrm.Attribute<string>;
       get(name: "defraimp_addressstateorprovince"): Xrm.Attribute<string>;
+      get(name: "defraimp_applicationcounter"): Xrm.NumberAttribute;
       get(name: "defraimp_datelockedtobronze"): Xrm.DateAttribute;
+      get(name: "defraimp_datesettogold"): Xrm.DateAttribute;
+      get(name: "defraimp_dateunlockedfrombronze"): Xrm.DateAttribute;
+      get(name: "defraimp_inspectionquotacounter"): Xrm.NumberAttribute;
       get(name: "defraimp_locktobronze"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_name"): Xrm.Attribute<string>;
       get(name: "defraimp_numberofapplications"): Xrm.NumberAttribute;
+      get(name: "defraimp_numberofapplicationssincelastinspection"): Xrm.NumberAttribute;
       get(name: "defraimp_numberofsuccessfulapplications"): Xrm.NumberAttribute;
       get(name: "defraimp_postcode"): Xrm.Attribute<string>;
+      get(name: "defraimp_previoustrustlevel"): Xrm.OptionSetAttribute<defraimp_trustlevel>;
       get(name: "defraimp_reasonlockedtobronze"): Xrm.Attribute<string>;
+      get(name: "defraimp_reasonunlockedfrombronze"): Xrm.Attribute<string>;
       get(name: "defraimp_trustlevel"): Xrm.OptionSetAttribute<defraimp_trustlevel>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -39,13 +53,20 @@ declare namespace Form.defraimp_placeoforigin.Main {
       get(name: "defraimp_addressline2"): Xrm.StringControl;
       get(name: "defraimp_addressline3"): Xrm.StringControl;
       get(name: "defraimp_addressstateorprovince"): Xrm.StringControl;
+      get(name: "defraimp_applicationcounter"): Xrm.NumberControl;
       get(name: "defraimp_datelockedtobronze"): Xrm.DateControl;
+      get(name: "defraimp_datesettogold"): Xrm.DateControl;
+      get(name: "defraimp_dateunlockedfrombronze"): Xrm.DateControl;
+      get(name: "defraimp_inspectionquotacounter"): Xrm.NumberControl;
       get(name: "defraimp_locktobronze"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_name"): Xrm.StringControl;
       get(name: "defraimp_numberofapplications"): Xrm.NumberControl;
+      get(name: "defraimp_numberofapplicationssincelastinspection"): Xrm.NumberControl;
       get(name: "defraimp_numberofsuccessfulapplications"): Xrm.NumberControl;
       get(name: "defraimp_postcode"): Xrm.StringControl;
+      get(name: "defraimp_previoustrustlevel"): Xrm.OptionSetControl<defraimp_trustlevel>;
       get(name: "defraimp_reasonlockedtobronze"): Xrm.StringControl;
+      get(name: "defraimp_reasonunlockedfrombronze"): Xrm.StringControl;
       get(name: "defraimp_trustlevel"): Xrm.OptionSetControl<defraimp_trustlevel>;
       get(name: "header_defraimp_trustlevel"): Xrm.OptionSetControl<defraimp_trustlevel>;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
@@ -56,6 +77,7 @@ declare namespace Form.defraimp_placeoforigin.Main {
     }
     interface Tabs extends Xrm.TabCollectionBase {
       get(name: "{70c243d2-2d16-4cf5-a82f-c347d999c6f5}"): Xrm.PageTab<Tabs._70c243d22d164cf5a82fc347d999c6f5>;
+      get(name: "tab_2"): Xrm.PageTab<Tabs.tab_2>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -69,13 +91,20 @@ declare namespace Form.defraimp_placeoforigin.Main {
     getAttribute(attributeName: "defraimp_addressline2"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_addressline3"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_addressstateorprovince"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_applicationcounter"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_datelockedtobronze"): Xrm.DateAttribute;
+    getAttribute(attributeName: "defraimp_datesettogold"): Xrm.DateAttribute;
+    getAttribute(attributeName: "defraimp_dateunlockedfrombronze"): Xrm.DateAttribute;
+    getAttribute(attributeName: "defraimp_inspectionquotacounter"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_locktobronze"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_numberofapplications"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "defraimp_numberofapplicationssincelastinspection"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_numberofsuccessfulapplications"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_postcode"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_previoustrustlevel"): Xrm.OptionSetAttribute<defraimp_trustlevel>;
     getAttribute(attributeName: "defraimp_reasonlockedtobronze"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_reasonunlockedfrombronze"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_trustlevel"): Xrm.OptionSetAttribute<defraimp_trustlevel>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
@@ -85,13 +114,20 @@ declare namespace Form.defraimp_placeoforigin.Main {
     getControl(controlName: "defraimp_addressline2"): Xrm.StringControl;
     getControl(controlName: "defraimp_addressline3"): Xrm.StringControl;
     getControl(controlName: "defraimp_addressstateorprovince"): Xrm.StringControl;
+    getControl(controlName: "defraimp_applicationcounter"): Xrm.NumberControl;
     getControl(controlName: "defraimp_datelockedtobronze"): Xrm.DateControl;
+    getControl(controlName: "defraimp_datesettogold"): Xrm.DateControl;
+    getControl(controlName: "defraimp_dateunlockedfrombronze"): Xrm.DateControl;
+    getControl(controlName: "defraimp_inspectionquotacounter"): Xrm.NumberControl;
     getControl(controlName: "defraimp_locktobronze"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_name"): Xrm.StringControl;
     getControl(controlName: "defraimp_numberofapplications"): Xrm.NumberControl;
+    getControl(controlName: "defraimp_numberofapplicationssincelastinspection"): Xrm.NumberControl;
     getControl(controlName: "defraimp_numberofsuccessfulapplications"): Xrm.NumberControl;
     getControl(controlName: "defraimp_postcode"): Xrm.StringControl;
+    getControl(controlName: "defraimp_previoustrustlevel"): Xrm.OptionSetControl<defraimp_trustlevel>;
     getControl(controlName: "defraimp_reasonlockedtobronze"): Xrm.StringControl;
+    getControl(controlName: "defraimp_reasonunlockedfrombronze"): Xrm.StringControl;
     getControl(controlName: "defraimp_trustlevel"): Xrm.OptionSetControl<defraimp_trustlevel>;
     getControl(controlName: "header_defraimp_trustlevel"): Xrm.OptionSetControl<defraimp_trustlevel>;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;

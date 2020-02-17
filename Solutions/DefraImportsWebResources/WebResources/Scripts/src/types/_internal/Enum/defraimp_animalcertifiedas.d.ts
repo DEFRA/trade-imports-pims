@@ -1,0 +1,18 @@
+declare const enum defraimp_animalcertifiedas {
+  Breeding = 714100000,
+  Fattening = 714100001,
+  Slaughter = 714100002,
+  Transhumance = 714100003,
+  ApprovedBodies = 714100004,
+  RegisteredHorses = 714100005,
+  Storage = 714100006,
+  Pets = 714100007,
+  Other = 714100008,
+  ArtificialReproduction = 714100009,
+  HumaneConsumption = 714100010,
+  TechnicalUse = 714100011,
+  AnimalFeedingstuff = 714100012,
+  PharmaceuticalUse = 714100013,
+  Circus = 714100014,
+  Relaying = 714100015,
+}

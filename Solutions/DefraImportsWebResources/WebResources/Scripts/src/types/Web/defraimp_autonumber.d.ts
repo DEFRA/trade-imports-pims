@@ -65,12 +65,8 @@ declare namespace WebApi {
     versionnumber: number;
   }
   interface defraimp_autonumber_Expand {
-    createdby: WebExpand<defraimp_autonumber_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
-    createdonbehalfby: WebExpand<defraimp_autonumber_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
     defraimp_autonumber_ProcessSession: WebExpand<defraimp_autonumber_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_autonumber_ProcessSession: ProcessSession_Result[] }>;
     defraimp_autonumber_SyncErrors: WebExpand<defraimp_autonumber_Expand, SyncError_Select, SyncError_Filter, { defraimp_autonumber_SyncErrors: SyncError_Result[] }>;
-    modifiedby: WebExpand<defraimp_autonumber_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
-    modifiedonbehalfby: WebExpand<defraimp_autonumber_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   }
   interface defraimp_autonumber_FormattedResult {
     createdby_formatted?: string;
@@ -93,10 +89,6 @@ declare namespace WebApi {
     organizationid_guid: string | null;
   }
   interface defraimp_autonumber_RelatedOne {
-    createdby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    createdonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
   }
   interface defraimp_autonumber_RelatedMany {
     defraimp_autonumber_ProcessSession: WebMappingRetrieve<WebApi.ProcessSession_Select,WebApi.ProcessSession_Expand,WebApi.ProcessSession_Filter,WebApi.ProcessSession_Fixed,WebApi.ProcessSession_Result,WebApi.ProcessSession_FormattedResult>;

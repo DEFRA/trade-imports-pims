@@ -73,15 +73,9 @@ declare namespace WebApi {
     versionnumber: number;
   }
   interface defraimp_inspectioncoveragerule_Expand {
-    createdby: WebExpand<defraimp_inspectioncoveragerule_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
-    createdonbehalfby: WebExpand<defraimp_inspectioncoveragerule_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
     defraimp_RiskLevelId: WebExpand<defraimp_inspectioncoveragerule_Expand, defraimp_importrisklevel_Select, defraimp_importrisklevel_Filter, { defraimp_RiskLevelId: defraimp_importrisklevel_Result }>;
     defraimp_inspectioncoveragerule_ProcessSession: WebExpand<defraimp_inspectioncoveragerule_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_inspectioncoveragerule_ProcessSession: ProcessSession_Result[] }>;
     defraimp_inspectioncoveragerule_SyncErrors: WebExpand<defraimp_inspectioncoveragerule_Expand, SyncError_Select, SyncError_Filter, { defraimp_inspectioncoveragerule_SyncErrors: SyncError_Result[] }>;
-    modifiedby: WebExpand<defraimp_inspectioncoveragerule_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
-    modifiedonbehalfby: WebExpand<defraimp_inspectioncoveragerule_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-    owningteam: WebExpand<defraimp_inspectioncoveragerule_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
-    owninguser: WebExpand<defraimp_inspectioncoveragerule_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
   }
   interface defraimp_inspectioncoveragerule_FormattedResult {
     createdby_formatted?: string;
@@ -112,13 +106,7 @@ declare namespace WebApi {
     owninguser_guid: string | null;
   }
   interface defraimp_inspectioncoveragerule_RelatedOne {
-    createdby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    createdonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
     defraimp_RiskLevelId: WebMappingRetrieve<WebApi.defraimp_importrisklevel_Select,WebApi.defraimp_importrisklevel_Expand,WebApi.defraimp_importrisklevel_Filter,WebApi.defraimp_importrisklevel_Fixed,WebApi.defraimp_importrisklevel_Result,WebApi.defraimp_importrisklevel_FormattedResult>;
-    modifiedby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    owningteam: WebMappingRetrieve<WebApi.Team_Select,WebApi.Team_Expand,WebApi.Team_Filter,WebApi.Team_Fixed,WebApi.Team_Result,WebApi.Team_FormattedResult>;
-    owninguser: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
   }
   interface defraimp_inspectioncoveragerule_RelatedMany {
     defraimp_inspectioncoveragerule_ProcessSession: WebMappingRetrieve<WebApi.ProcessSession_Select,WebApi.ProcessSession_Expand,WebApi.ProcessSession_Filter,WebApi.ProcessSession_Fixed,WebApi.ProcessSession_Result,WebApi.ProcessSession_FormattedResult>;

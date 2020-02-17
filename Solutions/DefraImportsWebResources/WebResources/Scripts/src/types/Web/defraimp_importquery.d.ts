@@ -48,18 +48,10 @@ declare namespace WebApi {
     versionnumber?: number | null;
   }
   interface defraimp_importquery_Relationships {
-    createdby_defraimp_importquery?: SystemUser_Result | null;
-    createdonbehalfby_defraimp_importquery?: SystemUser_Result | null;
     defraimp_ITAHC_defraimp_importquery?: defraimp_itahc_Result | null;
     defraimp_importquery_ProcessSession?: ProcessSession_Result[] | null;
     defraimp_importquery_SyncErrors?: SyncError_Result[] | null;
     defraimp_importquery_activity_parties?: ActivityParty_Result[] | null;
-    defraimp_importquery_connections1?: Connection_Result[] | null;
-    defraimp_importquery_connections2?: Connection_Result[] | null;
-    modifiedby_defraimp_importquery?: SystemUser_Result | null;
-    modifiedonbehalfby_defraimp_importquery?: SystemUser_Result | null;
-    owningteam_defraimp_importquery?: Team_Result | null;
-    owninguser_defraimp_importquery?: SystemUser_Result | null;
     regardingobjectid_defraimp_importapplication_defraimp_importquery?: defraimp_importapplication_Result | null;
   }
   interface defraimp_importquery extends defraimp_importquery_Base, defraimp_importquery_Relationships {
@@ -247,18 +239,10 @@ declare namespace WebApi {
     versionnumber: number;
   }
   interface defraimp_importquery_Expand {
-    createdby_defraimp_importquery: WebExpand<defraimp_importquery_Expand, SystemUser_Select, SystemUser_Filter, { createdby_defraimp_importquery: SystemUser_Result }>;
-    createdonbehalfby_defraimp_importquery: WebExpand<defraimp_importquery_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby_defraimp_importquery: SystemUser_Result }>;
     defraimp_ITAHC_defraimp_importquery: WebExpand<defraimp_importquery_Expand, defraimp_itahc_Select, defraimp_itahc_Filter, { defraimp_ITAHC_defraimp_importquery: defraimp_itahc_Result }>;
     defraimp_importquery_ProcessSession: WebExpand<defraimp_importquery_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_importquery_ProcessSession: ProcessSession_Result[] }>;
     defraimp_importquery_SyncErrors: WebExpand<defraimp_importquery_Expand, SyncError_Select, SyncError_Filter, { defraimp_importquery_SyncErrors: SyncError_Result[] }>;
     defraimp_importquery_activity_parties: WebExpand<defraimp_importquery_Expand, ActivityParty_Select, ActivityParty_Filter, { defraimp_importquery_activity_parties: ActivityParty_Result[] }>;
-    defraimp_importquery_connections1: WebExpand<defraimp_importquery_Expand, Connection_Select, Connection_Filter, { defraimp_importquery_connections1: Connection_Result[] }>;
-    defraimp_importquery_connections2: WebExpand<defraimp_importquery_Expand, Connection_Select, Connection_Filter, { defraimp_importquery_connections2: Connection_Result[] }>;
-    modifiedby_defraimp_importquery: WebExpand<defraimp_importquery_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby_defraimp_importquery: SystemUser_Result }>;
-    modifiedonbehalfby_defraimp_importquery: WebExpand<defraimp_importquery_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby_defraimp_importquery: SystemUser_Result }>;
-    owningteam_defraimp_importquery: WebExpand<defraimp_importquery_Expand, Team_Select, Team_Filter, { owningteam_defraimp_importquery: Team_Result }>;
-    owninguser_defraimp_importquery: WebExpand<defraimp_importquery_Expand, SystemUser_Select, SystemUser_Filter, { owninguser_defraimp_importquery: SystemUser_Result }>;
     regardingobjectid_defraimp_importapplication_defraimp_importquery: WebExpand<defraimp_importquery_Expand, defraimp_importapplication_Select, defraimp_importapplication_Filter, { regardingobjectid_defraimp_importapplication_defraimp_importquery: defraimp_importapplication_Result }>;
   }
   interface defraimp_importquery_FormattedResult {
@@ -337,21 +321,13 @@ declare namespace WebApi {
     transactioncurrencyid_guid: string | null;
   }
   interface defraimp_importquery_RelatedOne {
-    createdby_defraimp_importquery: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    createdonbehalfby_defraimp_importquery: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
     defraimp_ITAHC_defraimp_importquery: WebMappingRetrieve<WebApi.defraimp_itahc_Select,WebApi.defraimp_itahc_Expand,WebApi.defraimp_itahc_Filter,WebApi.defraimp_itahc_Fixed,WebApi.defraimp_itahc_Result,WebApi.defraimp_itahc_FormattedResult>;
-    modifiedby_defraimp_importquery: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedonbehalfby_defraimp_importquery: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    owningteam_defraimp_importquery: WebMappingRetrieve<WebApi.Team_Select,WebApi.Team_Expand,WebApi.Team_Filter,WebApi.Team_Fixed,WebApi.Team_Result,WebApi.Team_FormattedResult>;
-    owninguser_defraimp_importquery: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
     regardingobjectid_defraimp_importapplication_defraimp_importquery: WebMappingRetrieve<WebApi.defraimp_importapplication_Select,WebApi.defraimp_importapplication_Expand,WebApi.defraimp_importapplication_Filter,WebApi.defraimp_importapplication_Fixed,WebApi.defraimp_importapplication_Result,WebApi.defraimp_importapplication_FormattedResult>;
   }
   interface defraimp_importquery_RelatedMany {
     defraimp_importquery_ProcessSession: WebMappingRetrieve<WebApi.ProcessSession_Select,WebApi.ProcessSession_Expand,WebApi.ProcessSession_Filter,WebApi.ProcessSession_Fixed,WebApi.ProcessSession_Result,WebApi.ProcessSession_FormattedResult>;
     defraimp_importquery_SyncErrors: WebMappingRetrieve<WebApi.SyncError_Select,WebApi.SyncError_Expand,WebApi.SyncError_Filter,WebApi.SyncError_Fixed,WebApi.SyncError_Result,WebApi.SyncError_FormattedResult>;
     defraimp_importquery_activity_parties: WebMappingRetrieve<WebApi.ActivityParty_Select,WebApi.ActivityParty_Expand,WebApi.ActivityParty_Filter,WebApi.ActivityParty_Fixed,WebApi.ActivityParty_Result,WebApi.ActivityParty_FormattedResult>;
-    defraimp_importquery_connections1: WebMappingRetrieve<WebApi.Connection_Select,WebApi.Connection_Expand,WebApi.Connection_Filter,WebApi.Connection_Fixed,WebApi.Connection_Result,WebApi.Connection_FormattedResult>;
-    defraimp_importquery_connections2: WebMappingRetrieve<WebApi.Connection_Select,WebApi.Connection_Expand,WebApi.Connection_Filter,WebApi.Connection_Fixed,WebApi.Connection_Result,WebApi.Connection_FormattedResult>;
   }
 }
 interface WebEntitiesRetrieve {

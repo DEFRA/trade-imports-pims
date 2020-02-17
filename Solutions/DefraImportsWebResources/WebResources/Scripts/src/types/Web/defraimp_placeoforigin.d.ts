@@ -8,14 +8,19 @@ declare namespace WebApi {
     defraimp_addressstateorprovince?: string | null;
     defraimp_applicationcounter?: number | null;
     defraimp_datelockedtobronze?: Date | null;
+    defraimp_datesettogold?: Date | null;
+    defraimp_dateunlockedfrombronze?: Date | null;
     defraimp_inspectionquotacounter?: number | null;
     defraimp_locktobronze?: boolean | null;
     defraimp_name?: string | null;
     defraimp_numberofapplications?: number | null;
+    defraimp_numberofapplicationssincelastinspection?: number | null;
     defraimp_numberofsuccessfulapplications?: number | null;
     defraimp_placeoforiginid?: string | null;
     defraimp_postcode?: string | null;
+    defraimp_previoustrustlevel?: defraimp_trustlevel | null;
     defraimp_reasonlockedtobronze?: string | null;
+    defraimp_reasonunlockedfrombronze?: string | null;
     defraimp_trustlevel?: defraimp_trustlevel | null;
     importsequencenumber?: number | null;
     modifiedon?: Date | null;
@@ -29,6 +34,7 @@ declare namespace WebApi {
   interface defraimp_placeoforigin_Relationships {
     defraimp_AddressCountry?: defra_country_Result | null;
     defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid?: defraimp_importapplication_Result[] | null;
+    defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforiginid?: defraimp_importapplication_Result[] | null;
     defraimp_placeoforigin_ProcessSession?: ProcessSession_Result[] | null;
     defraimp_placeoforigin_SyncErrors?: SyncError_Result[] | null;
   }
@@ -52,14 +58,19 @@ declare namespace WebApi {
     defraimp_addressstateorprovince: WebAttribute<defraimp_placeoforigin_Select, { defraimp_addressstateorprovince: string | null }, {  }>;
     defraimp_applicationcounter: WebAttribute<defraimp_placeoforigin_Select, { defraimp_applicationcounter: number | null }, {  }>;
     defraimp_datelockedtobronze: WebAttribute<defraimp_placeoforigin_Select, { defraimp_datelockedtobronze: Date | null }, { defraimp_datelockedtobronze_formatted?: string }>;
+    defraimp_datesettogold: WebAttribute<defraimp_placeoforigin_Select, { defraimp_datesettogold: Date | null }, { defraimp_datesettogold_formatted?: string }>;
+    defraimp_dateunlockedfrombronze: WebAttribute<defraimp_placeoforigin_Select, { defraimp_dateunlockedfrombronze: Date | null }, { defraimp_dateunlockedfrombronze_formatted?: string }>;
     defraimp_inspectionquotacounter: WebAttribute<defraimp_placeoforigin_Select, { defraimp_inspectionquotacounter: number | null }, {  }>;
     defraimp_locktobronze: WebAttribute<defraimp_placeoforigin_Select, { defraimp_locktobronze: boolean | null }, {  }>;
     defraimp_name: WebAttribute<defraimp_placeoforigin_Select, { defraimp_name: string | null }, {  }>;
     defraimp_numberofapplications: WebAttribute<defraimp_placeoforigin_Select, { defraimp_numberofapplications: number | null }, {  }>;
+    defraimp_numberofapplicationssincelastinspection: WebAttribute<defraimp_placeoforigin_Select, { defraimp_numberofapplicationssincelastinspection: number | null }, {  }>;
     defraimp_numberofsuccessfulapplications: WebAttribute<defraimp_placeoforigin_Select, { defraimp_numberofsuccessfulapplications: number | null }, {  }>;
     defraimp_placeoforiginid: WebAttribute<defraimp_placeoforigin_Select, { defraimp_placeoforiginid: string | null }, {  }>;
     defraimp_postcode: WebAttribute<defraimp_placeoforigin_Select, { defraimp_postcode: string | null }, {  }>;
+    defraimp_previoustrustlevel: WebAttribute<defraimp_placeoforigin_Select, { defraimp_previoustrustlevel: defraimp_trustlevel | null }, { defraimp_previoustrustlevel_formatted?: string }>;
     defraimp_reasonlockedtobronze: WebAttribute<defraimp_placeoforigin_Select, { defraimp_reasonlockedtobronze: string | null }, {  }>;
+    defraimp_reasonunlockedfrombronze: WebAttribute<defraimp_placeoforigin_Select, { defraimp_reasonunlockedfrombronze: string | null }, {  }>;
     defraimp_trustlevel: WebAttribute<defraimp_placeoforigin_Select, { defraimp_trustlevel: defraimp_trustlevel | null }, { defraimp_trustlevel_formatted?: string }>;
     importsequencenumber: WebAttribute<defraimp_placeoforigin_Select, { importsequencenumber: number | null }, {  }>;
     modifiedby_guid: WebAttribute<defraimp_placeoforigin_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
@@ -88,14 +99,19 @@ declare namespace WebApi {
     defraimp_addressstateorprovince: string;
     defraimp_applicationcounter: number;
     defraimp_datelockedtobronze: Date;
+    defraimp_datesettogold: Date;
+    defraimp_dateunlockedfrombronze: Date;
     defraimp_inspectionquotacounter: number;
     defraimp_locktobronze: boolean;
     defraimp_name: string;
     defraimp_numberofapplications: number;
+    defraimp_numberofapplicationssincelastinspection: number;
     defraimp_numberofsuccessfulapplications: number;
     defraimp_placeoforiginid: XQW.Guid;
     defraimp_postcode: string;
+    defraimp_previoustrustlevel: defraimp_trustlevel;
     defraimp_reasonlockedtobronze: string;
+    defraimp_reasonunlockedfrombronze: string;
     defraimp_trustlevel: defraimp_trustlevel;
     importsequencenumber: number;
     modifiedby_guid: XQW.Guid;
@@ -113,16 +129,11 @@ declare namespace WebApi {
     versionnumber: number;
   }
   interface defraimp_placeoforigin_Expand {
-    createdby: WebExpand<defraimp_placeoforigin_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
-    createdonbehalfby: WebExpand<defraimp_placeoforigin_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
     defraimp_AddressCountry: WebExpand<defraimp_placeoforigin_Expand, defra_country_Select, defra_country_Filter, { defraimp_AddressCountry: defra_country_Result }>;
     defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid: WebExpand<defraimp_placeoforigin_Expand, defraimp_importapplication_Select, defraimp_importapplication_Filter, { defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid: defraimp_importapplication_Result[] }>;
+    defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforiginid: WebExpand<defraimp_placeoforigin_Expand, defraimp_importapplication_Select, defraimp_importapplication_Filter, { defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforiginid: defraimp_importapplication_Result[] }>;
     defraimp_placeoforigin_ProcessSession: WebExpand<defraimp_placeoforigin_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_placeoforigin_ProcessSession: ProcessSession_Result[] }>;
     defraimp_placeoforigin_SyncErrors: WebExpand<defraimp_placeoforigin_Expand, SyncError_Select, SyncError_Filter, { defraimp_placeoforigin_SyncErrors: SyncError_Result[] }>;
-    modifiedby: WebExpand<defraimp_placeoforigin_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
-    modifiedonbehalfby: WebExpand<defraimp_placeoforigin_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-    owningteam: WebExpand<defraimp_placeoforigin_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
-    owninguser: WebExpand<defraimp_placeoforigin_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
   }
   interface defraimp_placeoforigin_FormattedResult {
     createdby_formatted?: string;
@@ -130,6 +141,9 @@ declare namespace WebApi {
     createdonbehalfby_formatted?: string;
     defraimp_addresscountry_formatted?: string;
     defraimp_datelockedtobronze_formatted?: string;
+    defraimp_datesettogold_formatted?: string;
+    defraimp_dateunlockedfrombronze_formatted?: string;
+    defraimp_previoustrustlevel_formatted?: string;
     defraimp_trustlevel_formatted?: string;
     modifiedby_formatted?: string;
     modifiedon_formatted?: string;
@@ -155,16 +169,11 @@ declare namespace WebApi {
     owninguser_guid: string | null;
   }
   interface defraimp_placeoforigin_RelatedOne {
-    createdby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    createdonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
     defraimp_AddressCountry: WebMappingRetrieve<WebApi.defra_country_Select,WebApi.defra_country_Expand,WebApi.defra_country_Filter,WebApi.defra_country_Fixed,WebApi.defra_country_Result,WebApi.defra_country_FormattedResult>;
-    modifiedby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    owningteam: WebMappingRetrieve<WebApi.Team_Select,WebApi.Team_Expand,WebApi.Team_Filter,WebApi.Team_Fixed,WebApi.Team_Result,WebApi.Team_FormattedResult>;
-    owninguser: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
   }
   interface defraimp_placeoforigin_RelatedMany {
     defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid: WebMappingRetrieve<WebApi.defraimp_importapplication_Select,WebApi.defraimp_importapplication_Expand,WebApi.defraimp_importapplication_Filter,WebApi.defraimp_importapplication_Fixed,WebApi.defraimp_importapplication_Result,WebApi.defraimp_importapplication_FormattedResult>;
+    defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforiginid: WebMappingRetrieve<WebApi.defraimp_importapplication_Select,WebApi.defraimp_importapplication_Expand,WebApi.defraimp_importapplication_Filter,WebApi.defraimp_importapplication_Fixed,WebApi.defraimp_importapplication_Result,WebApi.defraimp_importapplication_FormattedResult>;
     defraimp_placeoforigin_ProcessSession: WebMappingRetrieve<WebApi.ProcessSession_Select,WebApi.ProcessSession_Expand,WebApi.ProcessSession_Filter,WebApi.ProcessSession_Fixed,WebApi.ProcessSession_Result,WebApi.ProcessSession_FormattedResult>;
     defraimp_placeoforigin_SyncErrors: WebMappingRetrieve<WebApi.SyncError_Select,WebApi.SyncError_Expand,WebApi.SyncError_Filter,WebApi.SyncError_Fixed,WebApi.SyncError_Result,WebApi.SyncError_FormattedResult>;
   }

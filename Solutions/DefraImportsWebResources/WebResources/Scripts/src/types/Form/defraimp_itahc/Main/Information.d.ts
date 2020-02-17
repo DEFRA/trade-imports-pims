@@ -22,7 +22,7 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_healthcertificatenumber"): Xrm.Attribute<string>;
       get(name: "defraimp_localveterinaryunit"): Xrm.Attribute<string>;
       get(name: "defraimp_lvuno"): Xrm.Attribute<string>;
-      get(name: "defraimp_name"): Xrm.Attribute<string>;
+      get(name: "defraimp_name"): Xrm.Attribute<any>;
       get(name: "defraimp_ovname"): Xrm.Attribute<string>;
       get(name: "defraimp_replacedbyid"): Xrm.LookupAttribute<"defraimp_itahc">;
       get(name: "defraimp_replacesid"): Xrm.LookupAttribute<"defraimp_itahc">;
@@ -39,7 +39,7 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_healthcertificatenumber"): Xrm.StringControl;
       get(name: "defraimp_localveterinaryunit"): Xrm.StringControl;
       get(name: "defraimp_lvuno"): Xrm.StringControl;
-      get(name: "defraimp_name"): Xrm.StringControl;
+      get(name: "defraimp_name"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "defraimp_ovname"): Xrm.StringControl;
       get(name: "defraimp_replacedbyid"): Xrm.LookupControl<"defraimp_itahc">;
       get(name: "defraimp_replacesid"): Xrm.LookupControl<"defraimp_itahc">;
@@ -65,7 +65,7 @@ declare namespace Form.defraimp_itahc.Main {
     getAttribute(attributeName: "defraimp_healthcertificatenumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_localveterinaryunit"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_lvuno"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_name"): Xrm.Attribute<any>;
     getAttribute(attributeName: "defraimp_ovname"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_replacedbyid"): Xrm.LookupAttribute<"defraimp_itahc">;
     getAttribute(attributeName: "defraimp_replacesid"): Xrm.LookupAttribute<"defraimp_itahc">;
@@ -77,7 +77,7 @@ declare namespace Form.defraimp_itahc.Main {
     getControl(controlName: "defraimp_healthcertificatenumber"): Xrm.StringControl;
     getControl(controlName: "defraimp_localveterinaryunit"): Xrm.StringControl;
     getControl(controlName: "defraimp_lvuno"): Xrm.StringControl;
-    getControl(controlName: "defraimp_name"): Xrm.StringControl;
+    getControl(controlName: "defraimp_name"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "defraimp_ovname"): Xrm.StringControl;
     getControl(controlName: "defraimp_replacedbyid"): Xrm.LookupControl<"defraimp_itahc">;
     getControl(controlName: "defraimp_replacesid"): Xrm.LookupControl<"defraimp_itahc">;

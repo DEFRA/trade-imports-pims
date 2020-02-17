@@ -9,6 +9,8 @@ declare const enum defraimp_importapplication_defraimp_inspectionrequiredreason 
   PlaceofOriginLockedtoBronze = 714100007,
   NoInspectionRequiredGoldPlaceofOrigin = 714100008,
   VerifiedPlaceofOriginMissing = 714100009,
-  Quaruntine = 714100010,
+  Quarantine = 714100010,
   TB = 714100011,
+  ManuallyAssignedHighRisk = 714100012,
+  ManuallyRequestedPostImportCheck = 714100013,
 }

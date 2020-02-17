@@ -20,29 +20,25 @@ declare namespace WebApi {
   interface SyncError_Relationships {
     SyncError_SyncErrors?: SyncError_Result[] | null;
     regardingobjectid_activityparty_syncerror?: ActivityParty_Result | null;
-    regardingobjectid_connection_syncerror?: Connection_Result | null;
     regardingobjectid_defra_country?: defra_country_Result | null;
     regardingobjectid_defraexp_commoditytype?: defraexp_commoditytype_Result | null;
     regardingobjectid_defraimp_apharegion?: defraimp_apharegion_Result | null;
     regardingobjectid_defraimp_autonumber?: defraimp_autonumber_Result | null;
+    regardingobjectid_defraimp_cved?: defraimp_cved_Result | null;
     regardingobjectid_defraimp_docom?: defraimp_docom_Result | null;
     regardingobjectid_defraimp_goldbronzecommodity?: defraimp_goldbronzecommodity_Result | null;
     regardingobjectid_defraimp_importapplication?: defraimp_importapplication_Result | null;
+    regardingobjectid_defraimp_importapplicationbusinessprocessflow?: defraimp_importapplicationbusinessprocessflow_Result | null;
     regardingobjectid_defraimp_importcountrycommodityrisklevel?: defraimp_importcountrycommodityrisklevel_Result | null;
     regardingobjectid_defraimp_importinspection?: defraimp_importinspection_Result | null;
-    regardingobjectid_defraimp_importnotification?: defraimp_importnotification_Result | null;
     regardingobjectid_defraimp_importquery?: defraimp_importquery_Result | null;
     regardingobjectid_defraimp_importrisklevel?: defraimp_importrisklevel_Result | null;
     regardingobjectid_defraimp_inspectioncoveragerule?: defraimp_inspectioncoveragerule_Result | null;
     regardingobjectid_defraimp_itahc?: defraimp_itahc_Result | null;
     regardingobjectid_defraimp_placeoforigin?: defraimp_placeoforigin_Result | null;
     regardingobjectid_defraimp_sampletest?: defraimp_sampletest_Result | null;
-    regardingobjectid_postfollow_syncerror?: PostFollow_Result | null;
     regardingobjectid_processsession_syncerror?: ProcessSession_Result | null;
     regardingobjectid_syncerror_syncerror?: SyncError_Result | null;
-    regardingobjectid_systemuser?: SystemUser_Result | null;
-    regardingobjectid_systemuser_syncerror?: SystemUser_Result | null;
-    regardingobjectid_team_syncerror?: Team_Result | null;
     regardingobjectid_workflow_syncerror?: Workflow_Result | null;
   }
   interface SyncError extends SyncError_Base, SyncError_Relationships {
@@ -60,6 +56,7 @@ declare namespace WebApi {
     regardingobjectid_activityparty_syncerror_bind$activityparties?: string | null;
     regardingobjectid_adminsettingsentity_bind$new_admin_settings_entities?: string | null;
     regardingobjectid_annotation_syncerror_bind$annotations?: string | null;
+    regardingobjectid_apisettings_bind$apisettingscollection?: string | null;
     regardingobjectid_appointment_syncerror_bind$appointments?: string | null;
     regardingobjectid_attachment_syncerror_bind$attachments?: string | null;
     regardingobjectid_attributeimageconfig_bind$attributeimageconfigs?: string | null;
@@ -139,13 +136,13 @@ declare namespace WebApi {
     regardingobjectid_defraexp_reasonfordelay_bind$defraexp_reasonfordelaies?: string | null;
     regardingobjectid_defraimp_apharegion_bind$defraimp_apharegions?: string | null;
     regardingobjectid_defraimp_autonumber_bind$defraimp_autonumbers?: string | null;
+    regardingobjectid_defraimp_cved_bind$defraimp_cveds?: string | null;
     regardingobjectid_defraimp_docom_bind$defraimp_docoms?: string | null;
     regardingobjectid_defraimp_goldbronzecommodity_bind$defraimp_goldbronzecommodities?: string | null;
     regardingobjectid_defraimp_importapplication_bind$defraimp_importapplications?: string | null;
     regardingobjectid_defraimp_importapplicationbusinessprocessflow_bind$defraimp_importapplicationbusinessprocessflows?: string | null;
     regardingobjectid_defraimp_importcountrycommodityrisklevel_bind$defraimp_importcountrycommodityrisklevels?: string | null;
     regardingobjectid_defraimp_importinspection_bind$defraimp_importinspections?: string | null;
-    regardingobjectid_defraimp_importnotification_bind$defraimp_importnotifications?: string | null;
     regardingobjectid_defraimp_importquery_bind$defraimp_importqueries?: string | null;
     regardingobjectid_defraimp_importrisklevel_bind$defraimp_importrisklevels?: string | null;
     regardingobjectid_defraimp_inspectioncoveragerule_bind$defraimp_inspectioncoveragerules?: string | null;
@@ -201,9 +198,15 @@ declare namespace WebApi {
     regardingobjectid_list_syncerror_bind$lists?: string | null;
     regardingobjectid_mailbox_syncerror_bind$mailboxes?: string | null;
     regardingobjectid_mailmergetemplate_syncerror_bind$mailmergetemplates?: string | null;
+    regardingobjectid_mbs_pluginprofile_bind$mbs_pluginprofiles?: string | null;
     regardingobjectid_metric_syncerror_bind$metrics?: string | null;
     regardingobjectid_msdyn_actioncardregarding_bind$msdyn_actioncardregardings?: string | null;
     regardingobjectid_msdyn_actioncardrolesetting_bind$msdyn_actioncardrolesettings?: string | null;
+    regardingobjectid_msdyn_aibdataset_bind$msdyn_aibdatasets?: string | null;
+    regardingobjectid_msdyn_aibdatasetfile_bind$msdyn_aibdatasetfiles?: string | null;
+    regardingobjectid_msdyn_aibdatasetscontainer_bind$msdyn_aibdatasetscontainers?: string | null;
+    regardingobjectid_msdyn_aibfile_bind$msdyn_aibfiles?: string | null;
+    regardingobjectid_msdyn_aibfileattacheddata_bind$msdyn_aibfileattacheddatas?: string | null;
     regardingobjectid_msdyn_aiconfiguration_bind$msdyn_aiconfigurations?: string | null;
     regardingobjectid_msdyn_aifptrainingdocument_bind$msdyn_aifptrainingdocuments?: string | null;
     regardingobjectid_msdyn_aimodel_bind$msdyn_aimodels?: string | null;
@@ -217,6 +220,8 @@ declare namespace WebApi {
     regardingobjectid_msdyn_analysisresult_bind$msdyn_analysisresults?: string | null;
     regardingobjectid_msdyn_analysisresultdetail_bind$msdyn_analysisresultdetails?: string | null;
     regardingobjectid_msdyn_attachmentprocessrecords_bind$msdyn_attachmentprocessrecordses?: string | null;
+    regardingobjectid_msdyn_autocapturerule_bind$msdyn_autocapturerules?: string | null;
+    regardingobjectid_msdyn_autocapturesettings_bind$msdyn_autocapturesettingses?: string | null;
     regardingobjectid_msdyn_azureblobstoragesetting_bind$msdyn_azureblobstoragesettings?: string | null;
     regardingobjectid_msdyn_callablecontext_bind$msdyn_callablecontexts?: string | null;
     regardingobjectid_msdyn_collabgraphresource_bind$msdyn_collabgraphresource?: string | null;
@@ -307,6 +312,7 @@ declare namespace WebApi {
     regardingobjectid_savedqueryvisualization_syncerror_bind$savedqueryvisualizations?: string | null;
     regardingobjectid_service_syncerror_bind$services?: string | null;
     regardingobjectid_serviceappointment_syncerror_bind$serviceappointments?: string | null;
+    regardingobjectid_serviceplan_bind$serviceplans?: string | null;
     regardingobjectid_sharepointdocumentlocation_syncerror_bind$sharepointdocumentlocations?: string | null;
     regardingobjectid_sharepointsite_syncerror_bind$sharepointsites?: string | null;
     regardingobjectid_site_syncerror_bind$sites?: string | null;
@@ -316,7 +322,7 @@ declare namespace WebApi {
     regardingobjectid_socialactivity_syncerror_bind$socialactivities?: string | null;
     regardingobjectid_socialprofile_syncerror_bind$socialprofiles?: string | null;
     regardingobjectid_solution_syncerror_bind$solutions?: string | null;
-    regardingobjectid_solutioncomponentfileconfiguration_bind$solutioncomponentfileconfigurations?: string | null;
+    regardingobjectid_solutioncomponentattributeconfiguration_bind$solutioncomponentattributeconfigurations?: string | null;
     regardingobjectid_subject_syncerror_bind$subjects?: string | null;
     regardingobjectid_syncerror_syncerror_bind$syncerrors?: string | null;
     regardingobjectid_systemuser_syncerror_bind$systemusers?: string | null;
@@ -396,35 +402,26 @@ declare namespace WebApi {
   }
   interface SyncError_Expand {
     SyncError_SyncErrors: WebExpand<SyncError_Expand, SyncError_Select, SyncError_Filter, { SyncError_SyncErrors: SyncError_Result[] }>;
-    createdby: WebExpand<SyncError_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
-    createdonbehalfby: WebExpand<SyncError_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
-    modifiedby: WebExpand<SyncError_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
-    modifiedonbehalfby: WebExpand<SyncError_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-    owningteam: WebExpand<SyncError_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
     regardingobjectid_activityparty_syncerror: WebExpand<SyncError_Expand, ActivityParty_Select, ActivityParty_Filter, { regardingobjectid_activityparty_syncerror: ActivityParty_Result }>;
-    regardingobjectid_connection_syncerror: WebExpand<SyncError_Expand, Connection_Select, Connection_Filter, { regardingobjectid_connection_syncerror: Connection_Result }>;
     regardingobjectid_defra_country: WebExpand<SyncError_Expand, defra_country_Select, defra_country_Filter, { regardingobjectid_defra_country: defra_country_Result }>;
     regardingobjectid_defraexp_commoditytype: WebExpand<SyncError_Expand, defraexp_commoditytype_Select, defraexp_commoditytype_Filter, { regardingobjectid_defraexp_commoditytype: defraexp_commoditytype_Result }>;
     regardingobjectid_defraimp_apharegion: WebExpand<SyncError_Expand, defraimp_apharegion_Select, defraimp_apharegion_Filter, { regardingobjectid_defraimp_apharegion: defraimp_apharegion_Result }>;
     regardingobjectid_defraimp_autonumber: WebExpand<SyncError_Expand, defraimp_autonumber_Select, defraimp_autonumber_Filter, { regardingobjectid_defraimp_autonumber: defraimp_autonumber_Result }>;
+    regardingobjectid_defraimp_cved: WebExpand<SyncError_Expand, defraimp_cved_Select, defraimp_cved_Filter, { regardingobjectid_defraimp_cved: defraimp_cved_Result }>;
     regardingobjectid_defraimp_docom: WebExpand<SyncError_Expand, defraimp_docom_Select, defraimp_docom_Filter, { regardingobjectid_defraimp_docom: defraimp_docom_Result }>;
     regardingobjectid_defraimp_goldbronzecommodity: WebExpand<SyncError_Expand, defraimp_goldbronzecommodity_Select, defraimp_goldbronzecommodity_Filter, { regardingobjectid_defraimp_goldbronzecommodity: defraimp_goldbronzecommodity_Result }>;
     regardingobjectid_defraimp_importapplication: WebExpand<SyncError_Expand, defraimp_importapplication_Select, defraimp_importapplication_Filter, { regardingobjectid_defraimp_importapplication: defraimp_importapplication_Result }>;
+    regardingobjectid_defraimp_importapplicationbusinessprocessflow: WebExpand<SyncError_Expand, defraimp_importapplicationbusinessprocessflow_Select, defraimp_importapplicationbusinessprocessflow_Filter, { regardingobjectid_defraimp_importapplicationbusinessprocessflow: defraimp_importapplicationbusinessprocessflow_Result }>;
     regardingobjectid_defraimp_importcountrycommodityrisklevel: WebExpand<SyncError_Expand, defraimp_importcountrycommodityrisklevel_Select, defraimp_importcountrycommodityrisklevel_Filter, { regardingobjectid_defraimp_importcountrycommodityrisklevel: defraimp_importcountrycommodityrisklevel_Result }>;
     regardingobjectid_defraimp_importinspection: WebExpand<SyncError_Expand, defraimp_importinspection_Select, defraimp_importinspection_Filter, { regardingobjectid_defraimp_importinspection: defraimp_importinspection_Result }>;
-    regardingobjectid_defraimp_importnotification: WebExpand<SyncError_Expand, defraimp_importnotification_Select, defraimp_importnotification_Filter, { regardingobjectid_defraimp_importnotification: defraimp_importnotification_Result }>;
     regardingobjectid_defraimp_importquery: WebExpand<SyncError_Expand, defraimp_importquery_Select, defraimp_importquery_Filter, { regardingobjectid_defraimp_importquery: defraimp_importquery_Result }>;
     regardingobjectid_defraimp_importrisklevel: WebExpand<SyncError_Expand, defraimp_importrisklevel_Select, defraimp_importrisklevel_Filter, { regardingobjectid_defraimp_importrisklevel: defraimp_importrisklevel_Result }>;
     regardingobjectid_defraimp_inspectioncoveragerule: WebExpand<SyncError_Expand, defraimp_inspectioncoveragerule_Select, defraimp_inspectioncoveragerule_Filter, { regardingobjectid_defraimp_inspectioncoveragerule: defraimp_inspectioncoveragerule_Result }>;
     regardingobjectid_defraimp_itahc: WebExpand<SyncError_Expand, defraimp_itahc_Select, defraimp_itahc_Filter, { regardingobjectid_defraimp_itahc: defraimp_itahc_Result }>;
     regardingobjectid_defraimp_placeoforigin: WebExpand<SyncError_Expand, defraimp_placeoforigin_Select, defraimp_placeoforigin_Filter, { regardingobjectid_defraimp_placeoforigin: defraimp_placeoforigin_Result }>;
     regardingobjectid_defraimp_sampletest: WebExpand<SyncError_Expand, defraimp_sampletest_Select, defraimp_sampletest_Filter, { regardingobjectid_defraimp_sampletest: defraimp_sampletest_Result }>;
-    regardingobjectid_postfollow_syncerror: WebExpand<SyncError_Expand, PostFollow_Select, PostFollow_Filter, { regardingobjectid_postfollow_syncerror: PostFollow_Result }>;
     regardingobjectid_processsession_syncerror: WebExpand<SyncError_Expand, ProcessSession_Select, ProcessSession_Filter, { regardingobjectid_processsession_syncerror: ProcessSession_Result }>;
     regardingobjectid_syncerror_syncerror: WebExpand<SyncError_Expand, SyncError_Select, SyncError_Filter, { regardingobjectid_syncerror_syncerror: SyncError_Result }>;
-    regardingobjectid_systemuser: WebExpand<SyncError_Expand, SystemUser_Select, SystemUser_Filter, { regardingobjectid_systemuser: SystemUser_Result }>;
-    regardingobjectid_systemuser_syncerror: WebExpand<SyncError_Expand, SystemUser_Select, SystemUser_Filter, { regardingobjectid_systemuser_syncerror: SystemUser_Result }>;
-    regardingobjectid_team_syncerror: WebExpand<SyncError_Expand, Team_Select, Team_Filter, { regardingobjectid_team_syncerror: Team_Result }>;
     regardingobjectid_workflow_syncerror: WebExpand<SyncError_Expand, Workflow_Select, Workflow_Filter, { regardingobjectid_workflow_syncerror: Workflow_Result }>;
   }
   interface SyncError_FormattedResult {
@@ -457,35 +454,26 @@ declare namespace WebApi {
     regardingobjectid_guid: string | null;
   }
   interface SyncError_RelatedOne {
-    createdby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    createdonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    owningteam: WebMappingRetrieve<WebApi.Team_Select,WebApi.Team_Expand,WebApi.Team_Filter,WebApi.Team_Fixed,WebApi.Team_Result,WebApi.Team_FormattedResult>;
     regardingobjectid_activityparty_syncerror: WebMappingRetrieve<WebApi.ActivityParty_Select,WebApi.ActivityParty_Expand,WebApi.ActivityParty_Filter,WebApi.ActivityParty_Fixed,WebApi.ActivityParty_Result,WebApi.ActivityParty_FormattedResult>;
-    regardingobjectid_connection_syncerror: WebMappingRetrieve<WebApi.Connection_Select,WebApi.Connection_Expand,WebApi.Connection_Filter,WebApi.Connection_Fixed,WebApi.Connection_Result,WebApi.Connection_FormattedResult>;
     regardingobjectid_defra_country: WebMappingRetrieve<WebApi.defra_country_Select,WebApi.defra_country_Expand,WebApi.defra_country_Filter,WebApi.defra_country_Fixed,WebApi.defra_country_Result,WebApi.defra_country_FormattedResult>;
     regardingobjectid_defraexp_commoditytype: WebMappingRetrieve<WebApi.defraexp_commoditytype_Select,WebApi.defraexp_commoditytype_Expand,WebApi.defraexp_commoditytype_Filter,WebApi.defraexp_commoditytype_Fixed,WebApi.defraexp_commoditytype_Result,WebApi.defraexp_commoditytype_FormattedResult>;
     regardingobjectid_defraimp_apharegion: WebMappingRetrieve<WebApi.defraimp_apharegion_Select,WebApi.defraimp_apharegion_Expand,WebApi.defraimp_apharegion_Filter,WebApi.defraimp_apharegion_Fixed,WebApi.defraimp_apharegion_Result,WebApi.defraimp_apharegion_FormattedResult>;
     regardingobjectid_defraimp_autonumber: WebMappingRetrieve<WebApi.defraimp_autonumber_Select,WebApi.defraimp_autonumber_Expand,WebApi.defraimp_autonumber_Filter,WebApi.defraimp_autonumber_Fixed,WebApi.defraimp_autonumber_Result,WebApi.defraimp_autonumber_FormattedResult>;
+    regardingobjectid_defraimp_cved: WebMappingRetrieve<WebApi.defraimp_cved_Select,WebApi.defraimp_cved_Expand,WebApi.defraimp_cved_Filter,WebApi.defraimp_cved_Fixed,WebApi.defraimp_cved_Result,WebApi.defraimp_cved_FormattedResult>;
     regardingobjectid_defraimp_docom: WebMappingRetrieve<WebApi.defraimp_docom_Select,WebApi.defraimp_docom_Expand,WebApi.defraimp_docom_Filter,WebApi.defraimp_docom_Fixed,WebApi.defraimp_docom_Result,WebApi.defraimp_docom_FormattedResult>;
     regardingobjectid_defraimp_goldbronzecommodity: WebMappingRetrieve<WebApi.defraimp_goldbronzecommodity_Select,WebApi.defraimp_goldbronzecommodity_Expand,WebApi.defraimp_goldbronzecommodity_Filter,WebApi.defraimp_goldbronzecommodity_Fixed,WebApi.defraimp_goldbronzecommodity_Result,WebApi.defraimp_goldbronzecommodity_FormattedResult>;
     regardingobjectid_defraimp_importapplication: WebMappingRetrieve<WebApi.defraimp_importapplication_Select,WebApi.defraimp_importapplication_Expand,WebApi.defraimp_importapplication_Filter,WebApi.defraimp_importapplication_Fixed,WebApi.defraimp_importapplication_Result,WebApi.defraimp_importapplication_FormattedResult>;
+    regardingobjectid_defraimp_importapplicationbusinessprocessflow: WebMappingRetrieve<WebApi.defraimp_importapplicationbusinessprocessflow_Select,WebApi.defraimp_importapplicationbusinessprocessflow_Expand,WebApi.defraimp_importapplicationbusinessprocessflow_Filter,WebApi.defraimp_importapplicationbusinessprocessflow_Fixed,WebApi.defraimp_importapplicationbusinessprocessflow_Result,WebApi.defraimp_importapplicationbusinessprocessflow_FormattedResult>;
     regardingobjectid_defraimp_importcountrycommodityrisklevel: WebMappingRetrieve<WebApi.defraimp_importcountrycommodityrisklevel_Select,WebApi.defraimp_importcountrycommodityrisklevel_Expand,WebApi.defraimp_importcountrycommodityrisklevel_Filter,WebApi.defraimp_importcountrycommodityrisklevel_Fixed,WebApi.defraimp_importcountrycommodityrisklevel_Result,WebApi.defraimp_importcountrycommodityrisklevel_FormattedResult>;
     regardingobjectid_defraimp_importinspection: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;
-    regardingobjectid_defraimp_importnotification: WebMappingRetrieve<WebApi.defraimp_importnotification_Select,WebApi.defraimp_importnotification_Expand,WebApi.defraimp_importnotification_Filter,WebApi.defraimp_importnotification_Fixed,WebApi.defraimp_importnotification_Result,WebApi.defraimp_importnotification_FormattedResult>;
     regardingobjectid_defraimp_importquery: WebMappingRetrieve<WebApi.defraimp_importquery_Select,WebApi.defraimp_importquery_Expand,WebApi.defraimp_importquery_Filter,WebApi.defraimp_importquery_Fixed,WebApi.defraimp_importquery_Result,WebApi.defraimp_importquery_FormattedResult>;
     regardingobjectid_defraimp_importrisklevel: WebMappingRetrieve<WebApi.defraimp_importrisklevel_Select,WebApi.defraimp_importrisklevel_Expand,WebApi.defraimp_importrisklevel_Filter,WebApi.defraimp_importrisklevel_Fixed,WebApi.defraimp_importrisklevel_Result,WebApi.defraimp_importrisklevel_FormattedResult>;
     regardingobjectid_defraimp_inspectioncoveragerule: WebMappingRetrieve<WebApi.defraimp_inspectioncoveragerule_Select,WebApi.defraimp_inspectioncoveragerule_Expand,WebApi.defraimp_inspectioncoveragerule_Filter,WebApi.defraimp_inspectioncoveragerule_Fixed,WebApi.defraimp_inspectioncoveragerule_Result,WebApi.defraimp_inspectioncoveragerule_FormattedResult>;
     regardingobjectid_defraimp_itahc: WebMappingRetrieve<WebApi.defraimp_itahc_Select,WebApi.defraimp_itahc_Expand,WebApi.defraimp_itahc_Filter,WebApi.defraimp_itahc_Fixed,WebApi.defraimp_itahc_Result,WebApi.defraimp_itahc_FormattedResult>;
     regardingobjectid_defraimp_placeoforigin: WebMappingRetrieve<WebApi.defraimp_placeoforigin_Select,WebApi.defraimp_placeoforigin_Expand,WebApi.defraimp_placeoforigin_Filter,WebApi.defraimp_placeoforigin_Fixed,WebApi.defraimp_placeoforigin_Result,WebApi.defraimp_placeoforigin_FormattedResult>;
     regardingobjectid_defraimp_sampletest: WebMappingRetrieve<WebApi.defraimp_sampletest_Select,WebApi.defraimp_sampletest_Expand,WebApi.defraimp_sampletest_Filter,WebApi.defraimp_sampletest_Fixed,WebApi.defraimp_sampletest_Result,WebApi.defraimp_sampletest_FormattedResult>;
-    regardingobjectid_postfollow_syncerror: WebMappingRetrieve<WebApi.PostFollow_Select,WebApi.PostFollow_Expand,WebApi.PostFollow_Filter,WebApi.PostFollow_Fixed,WebApi.PostFollow_Result,WebApi.PostFollow_FormattedResult>;
     regardingobjectid_processsession_syncerror: WebMappingRetrieve<WebApi.ProcessSession_Select,WebApi.ProcessSession_Expand,WebApi.ProcessSession_Filter,WebApi.ProcessSession_Fixed,WebApi.ProcessSession_Result,WebApi.ProcessSession_FormattedResult>;
     regardingobjectid_syncerror_syncerror: WebMappingRetrieve<WebApi.SyncError_Select,WebApi.SyncError_Expand,WebApi.SyncError_Filter,WebApi.SyncError_Fixed,WebApi.SyncError_Result,WebApi.SyncError_FormattedResult>;
-    regardingobjectid_systemuser: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    regardingobjectid_systemuser_syncerror: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    regardingobjectid_team_syncerror: WebMappingRetrieve<WebApi.Team_Select,WebApi.Team_Expand,WebApi.Team_Filter,WebApi.Team_Fixed,WebApi.Team_Result,WebApi.Team_FormattedResult>;
     regardingobjectid_workflow_syncerror: WebMappingRetrieve<WebApi.Workflow_Select,WebApi.Workflow_Expand,WebApi.Workflow_Filter,WebApi.Workflow_Fixed,WebApi.Workflow_Result,WebApi.Workflow_FormattedResult>;
   }
   interface SyncError_RelatedMany {

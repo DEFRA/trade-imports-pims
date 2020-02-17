@@ -63,16 +63,12 @@ declare namespace WebApi {
     versionnumber: number;
   }
   interface defraimp_importrisklevel_Expand {
-    createdby: WebExpand<defraimp_importrisklevel_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
-    createdonbehalfby: WebExpand<defraimp_importrisklevel_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
     defraimp_defraimp_importrisklevel_defraimp_importapplication_PreviousImportRiskLevelId: WebExpand<defraimp_importrisklevel_Expand, defraimp_importapplication_Select, defraimp_importapplication_Filter, { defraimp_defraimp_importrisklevel_defraimp_importapplication_PreviousImportRiskLevelId: defraimp_importapplication_Result[] }>;
     defraimp_defraimp_importrisklevel_defraimp_importapplication_importrisklevelid: WebExpand<defraimp_importrisklevel_Expand, defraimp_importapplication_Select, defraimp_importapplication_Filter, { defraimp_defraimp_importrisklevel_defraimp_importapplication_importrisklevelid: defraimp_importapplication_Result[] }>;
     defraimp_defraimp_importrisklevel_defraimp_importcountrycommodityrisklevel_risklevelid: WebExpand<defraimp_importrisklevel_Expand, defraimp_importcountrycommodityrisklevel_Select, defraimp_importcountrycommodityrisklevel_Filter, { defraimp_defraimp_importrisklevel_defraimp_importcountrycommodityrisklevel_risklevelid: defraimp_importcountrycommodityrisklevel_Result[] }>;
     defraimp_defraimp_importrisklevel_defraimp_inspectioncoveragerule_RiskLevelId: WebExpand<defraimp_importrisklevel_Expand, defraimp_inspectioncoveragerule_Select, defraimp_inspectioncoveragerule_Filter, { defraimp_defraimp_importrisklevel_defraimp_inspectioncoveragerule_RiskLevelId: defraimp_inspectioncoveragerule_Result[] }>;
     defraimp_importrisklevel_ProcessSession: WebExpand<defraimp_importrisklevel_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_importrisklevel_ProcessSession: ProcessSession_Result[] }>;
     defraimp_importrisklevel_SyncErrors: WebExpand<defraimp_importrisklevel_Expand, SyncError_Select, SyncError_Filter, { defraimp_importrisklevel_SyncErrors: SyncError_Result[] }>;
-    modifiedby: WebExpand<defraimp_importrisklevel_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
-    modifiedonbehalfby: WebExpand<defraimp_importrisklevel_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   }
   interface defraimp_importrisklevel_FormattedResult {
     createdby_formatted?: string;
@@ -95,10 +91,6 @@ declare namespace WebApi {
     organizationid_guid: string | null;
   }
   interface defraimp_importrisklevel_RelatedOne {
-    createdby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    createdonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
-    modifiedonbehalfby: WebMappingRetrieve<WebApi.SystemUser_Select,WebApi.SystemUser_Expand,WebApi.SystemUser_Filter,WebApi.SystemUser_Fixed,WebApi.SystemUser_Result,WebApi.SystemUser_FormattedResult>;
   }
   interface defraimp_importrisklevel_RelatedMany {
     defraimp_defraimp_importrisklevel_defraimp_importapplication_PreviousImportRiskLevelId: WebMappingRetrieve<WebApi.defraimp_importapplication_Select,WebApi.defraimp_importapplication_Expand,WebApi.defraimp_importapplication_Filter,WebApi.defraimp_importapplication_Fixed,WebApi.defraimp_importapplication_Result,WebApi.defraimp_importapplication_FormattedResult>;
