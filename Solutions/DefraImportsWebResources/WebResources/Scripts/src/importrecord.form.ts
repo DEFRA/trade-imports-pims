@@ -1,9 +1,11 @@
 namespace DefraImports.ImportRecord {
 
+  const MANUAL_POST_IMPORT_CHECK_BLANK_ERROR_MSG: string = "'Manual Post Import Check Decision' must be populated.";
+
   let wasManualPostImportCheckSet: boolean = false;
+  let isErrorDialogDisplaying: boolean = false
 
   export function OnLoadQuickCreateForm(executionObj: Xrm.ExecutionContext<any>) {
-
     let formContext = executionObj.getFormContext() as Form.defraimp_importapplication.Quick.Information;
 
     if (formContext.ui.getFormType() === Xrm.FormType.Create) {
@@ -15,7 +17,13 @@ namespace DefraImports.ImportRecord {
     let formContext = executionObj.getFormContext() as Form.defraimp_importapplication.Main.Information;
 
     storeWasManualPostImportCheckSet(formContext);
+  }
 
+  export function onSave(executionObj: Xrm.ExecutionContext<any>) {
+    const formContext = executionObj.getFormContext() as Form.defraimp_importapplication.Main.Information;
+
+    preventSaveIfPostImportChecksIsUpdatedToBlank(executionObj);
+    storeWasManualPostImportCheckSet(formContext);
   }
 
   function storeWasManualPostImportCheckSet(formContext: Form.defraimp_importapplication.Main.Information) {
@@ -26,30 +34,24 @@ namespace DefraImports.ImportRecord {
     }
   }
 
-
-  export function onSave(executionObj: Xrm.ExecutionContext<any>) {
-
-    preventSaveIfPostImportChecksIsUpdatedToBlank(executionObj);
-  }
-
   function preventSaveIfPostImportChecksIsUpdatedToBlank(executionObj: Xrm.ExecutionContext<any>) {
     let formContext = executionObj.getFormContext() as Form.defraimp_importapplication.Main.Information;
     let currentManualPostImportCheckAttr = formContext.getAttribute("defraimp_manualpostimportcheckdecision");
 
     if (wasManualPostImportCheckSet && currentManualPostImportCheckAttr.getValue() === null) {
       executionObj.getEventArgs().preventDefault();
-      displayManualPostImportCheckDecisionErrorMessage();
-    }
-    else {
-      wasManualPostImportCheckSet = true;
+      if (!isErrorDialogDisplaying) {
+        displayManualPostImportCheckDecisionErrorMessage();
+      }
     }
   }
 
   function displayManualPostImportCheckDecisionErrorMessage() {
-    let errorMessage: string = "'Manual Post Import Check Decision' must be populated.";
+    let errorMessage: string = MANUAL_POST_IMPORT_CHECK_BLANK_ERROR_MSG;
+    isErrorDialogDisplaying = true;
     Xrm.Navigation.openErrorDialog({ message: errorMessage }).then(
       function (success) {
-
+        isErrorDialogDisplaying = false;
       },
       function (error) {
 

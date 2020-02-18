@@ -2,7 +2,9 @@ var DefraImports;
 (function (DefraImports) {
     var ImportRecord;
     (function (ImportRecord) {
+        var MANUAL_POST_IMPORT_CHECK_BLANK_ERROR_MSG = "'Manual Post Import Check Decision' must be populated.";
         var wasManualPostImportCheckSet = false;
+        var isErrorDialogDisplaying = false;
         function OnLoadQuickCreateForm(executionObj) {
             var formContext = executionObj.getFormContext();
             if (formContext.ui.getFormType() === 1 /* Create */) {
@@ -15,30 +17,33 @@ var DefraImports;
             storeWasManualPostImportCheckSet(formContext);
         }
         ImportRecord.onLoad = onLoad;
+        function onSave(executionObj) {
+            var formContext = executionObj.getFormContext();
+            preventSaveIfPostImportChecksIsUpdatedToBlank(executionObj);
+            storeWasManualPostImportCheckSet(formContext);
+        }
+        ImportRecord.onSave = onSave;
         function storeWasManualPostImportCheckSet(formContext) {
             var manualPostImportCheckAttr = formContext.getAttribute("defraimp_manualpostimportcheckdecision");
             if (manualPostImportCheckAttr.getValue() !== null) {
                 wasManualPostImportCheckSet = true;
             }
         }
-        function onSave(executionObj) {
-            preventSaveIfPostImportChecksIsUpdatedToBlank(executionObj);
-        }
-        ImportRecord.onSave = onSave;
         function preventSaveIfPostImportChecksIsUpdatedToBlank(executionObj) {
             var formContext = executionObj.getFormContext();
             var currentManualPostImportCheckAttr = formContext.getAttribute("defraimp_manualpostimportcheckdecision");
             if (wasManualPostImportCheckSet && currentManualPostImportCheckAttr.getValue() === null) {
                 executionObj.getEventArgs().preventDefault();
-                displayManualPostImportCheckDecisionErrorMessage();
-            }
-            else {
-                wasManualPostImportCheckSet = true;
+                if (!isErrorDialogDisplaying) {
+                    displayManualPostImportCheckDecisionErrorMessage();
+                }
             }
         }
         function displayManualPostImportCheckDecisionErrorMessage() {
-            var errorMessage = "'Manual Post Import Check Decision' must be populated.";
+            var errorMessage = MANUAL_POST_IMPORT_CHECK_BLANK_ERROR_MSG;
+            isErrorDialogDisplaying = true;
             Xrm.Navigation.openErrorDialog({ message: errorMessage }).then(function (success) {
+                isErrorDialogDisplaying = false;
             }, function (error) {
             });
         }
