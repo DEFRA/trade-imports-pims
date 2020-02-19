@@ -163,6 +163,7 @@
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\UnkownDetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\Factories\DetermineInspectionFactoryTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Plugins\ImportApplication\PrimaryITAHCCounterManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Workflows\Autonumber\DecrementAutonumberTests.cs" />
     <Compile Include="Workflows\Autonumber\IncrementAutonumberTests.cs" />

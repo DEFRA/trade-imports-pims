@@ -10,6 +10,8 @@
 
         int GetQuotaCounterValue(Guid placeOfOriginId);
 
+        int GetPrimaryITAHCCounterValue(Guid placeOfOriginId);
+
         defraimp_placeoforigin Find(Guid placeOfOriginId);
 
         void IncrementApplicationCounter(Guid placeOfOriginId);
@@ -21,5 +23,9 @@
         void DecrementQuotaCounter(Guid placeOfOriginId);
 
         void SetQuotaCounter(Guid placeOfOriginId, int value);
+
+        void IncrementNumberOfPrimaryITAHCCounter(Guid placeOfOriginId);
+
+        void DecrementNumberOfPrimaryITAHCCounter(Guid placeOfOriginId);
     }
 }

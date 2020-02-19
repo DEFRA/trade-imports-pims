@@ -46,6 +46,20 @@
             }
         }
 
+        public int GetPrimaryITAHCCounterValue(Guid placeOfOriginId)
+        {
+            defraimp_placeoforigin placeOfOriginRecord = Find(placeOfOriginId);
+            if (placeOfOriginRecord != null)
+            {
+                int value = placeOfOriginRecord.defraimp_NumberofApplications ?? 0;
+                return value;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         public defraimp_placeoforigin Find(Guid placeOfOriginId)
         {
             if (orgSvc != null)
@@ -119,6 +133,30 @@
             {
                 Id = placeOfOriginId,
                 defraimp_InspectionQuotaCounter = value,
+            };
+            orgSvc.Update(updatedPlaceOfOriginRecord);
+        }
+
+        public void IncrementNumberOfPrimaryITAHCCounter(Guid placeOfOriginId)
+        {
+            int currentCounterValue = GetPrimaryITAHCCounterValue(placeOfOriginId);
+            defraimp_placeoforigin updatedPlaceOfOriginRecord = new defraimp_placeoforigin
+            {
+                Id = placeOfOriginId,
+                defraimp_NumberofApplications = currentCounterValue + 1,
+
+            };
+            orgSvc.Update(updatedPlaceOfOriginRecord);
+        }
+
+        public void DecrementNumberOfPrimaryITAHCCounter(Guid placeOfOriginId)
+        {
+            int currentCounterValue = GetPrimaryITAHCCounterValue(placeOfOriginId);
+            defraimp_placeoforigin updatedPlaceOfOriginRecord = new defraimp_placeoforigin
+            {
+                Id = placeOfOriginId,
+                defraimp_NumberofApplications = currentCounterValue - 1,
+
             };
             orgSvc.Update(updatedPlaceOfOriginRecord);
         }
