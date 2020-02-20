@@ -20,6 +20,7 @@
           <cell name="defraimp_commodityidentifiers" width="100" />
           <cell name="defraimp_commoditytypeid" width="100" />
           <cell name="defraimp_quantity" width="100" />
+          <cell name="defraimp_workschedulenumber" width="100" />
           <cell name="createdon" width="100" />
         </row>
       </grid>
@@ -28,7 +29,6 @@
     <fetchxml>
       <fetch version="1.0" output-format="xml-platform" mapping="logical">
         <entity name="defraimp_importapplication">
-          <attribute name="defraimp_importapplicationid" />
           <attribute name="createdon" />
           <order attribute="createdon" descending="true" />
           <attribute name="defraimp_primaryitahcid" />
@@ -41,6 +41,8 @@
           <attribute name="defraimp_commoditytypeid" />
           <attribute name="defraimp_quantity" />
           <attribute name="defraimp_commodityidentifiers" />
+          <attribute name="defraimp_workschedulenumber" />
+          <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>
     </fetchxml>

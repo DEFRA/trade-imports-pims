@@ -31,18 +31,14 @@
           <attribute name="defraimp_commoditytypeid" />
           <attribute name="defraimp_placeoforiginorganisation" />
           <attribute name="defraimp_placeofdestinationorganisation" />
-          <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_name" />
+          <order descending="true" attribute="createdon" />
           <filter type="and">
-            <condition attribute="statuscode" operator="in">
-              <value>1</value>
-              <value>714100001</value>
-              <value>714100002</value>
-            </condition>
+            <condition attribute="statecode" operator="eq" value="0" />
             <condition attribute="defraimp_importrisklevelid" operator="eq" uiname="P3" uitype="defraimp_importrisklevel" value="{48C4149E-B2D3-E911-A84E-000D3AB0D281}" />
           </filter>
+          <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_importapplicationid" />
-          <order descending="true" attribute="createdon" />
         </entity>
       </fetch>
     </fetchxml>

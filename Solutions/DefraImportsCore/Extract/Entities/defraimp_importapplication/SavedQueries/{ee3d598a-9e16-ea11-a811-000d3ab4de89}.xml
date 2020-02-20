@@ -10,7 +10,7 @@
     <layoutxml>
       <grid name="resultset" jump="defraimp_name" select="1" preview="1" icon="1">
         <row name="result" id="defraimp_importapplicationid">
-          <cell name="defraimp_primaryitahcid" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_primaryitahcid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_commoditytypeid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_importrisklevelid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="a_68fd025ae6dde911a85e000d3ab0d65d.defraimp_tracesreceiveddate" width="125" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
@@ -23,7 +23,6 @@
     <fetchxml>
       <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
         <entity name="defraimp_importapplication">
-          <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_commoditytypeid" />
           <attribute name="defraimp_importrisklevelid" />
           <attribute name="defraimp_regionareaallocatedtoid" />
@@ -35,6 +34,7 @@
           <link-entity name="defraimp_itahc" from="defraimp_itahcid" to="defraimp_primaryitahcid" visible="false" link-type="outer" alias="a_68fd025ae6dde911a85e000d3ab0d65d">
             <attribute name="defraimp_tracesreceiveddate" />
           </link-entity>
+          <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>

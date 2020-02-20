@@ -33,11 +33,6 @@
           <attribute name="statuscode" />
           <attribute name="defraimp_querynumber" />
           <attribute name="createdby" />
-          <link-entity name="activityparty" from="activityid" to="activityid" alias="aa">
-            <filter type="and">
-              <condition attribute="partyid" operator="eq-userid" />
-            </filter>
-          </link-entity>
           <attribute name="defraimp_querysentto" />
           <attribute name="defraimp_itahc" />
           <attribute name="ownerid" />
@@ -45,6 +40,18 @@
           <attribute name="defraimp_duedate" />
           <attribute name="regardingobjectid" />
           <order attribute="defraimp_querynumber" descending="true" />
+          <filter type="and">
+            <condition attribute="statuscode" operator="in">
+              <value>2</value>
+              <value>3</value>
+            </condition>
+          </filter>
+          <link-entity name="activityparty" from="activityid" to="activityid" alias="aa">
+            <filter type="and">
+              <condition attribute="partyid" operator="eq-userid" />
+            </filter>
+          </link-entity>
+          <attribute name="activityid" />
         </entity>
       </fetch>
     </fetchxml>

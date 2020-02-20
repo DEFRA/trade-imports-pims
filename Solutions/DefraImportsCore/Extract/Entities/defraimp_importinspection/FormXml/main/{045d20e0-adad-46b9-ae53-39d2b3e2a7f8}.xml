@@ -749,6 +749,24 @@
               <control disabled="false" id="header_ownerid" datafieldname="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
             </cell>
           </row>
+          <row>
+            <cell id="{43ed7ccd-584d-9844-259a-240d6e9d70ab}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Created On" languagecode="1033" />
+              </labels>
+              <control id="header_createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+            </cell>
+            <cell id="{2ac89e34-0a25-61c3-c396-6084e8a7511c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5870a410-70d1-b7c2-eab2-7cb3ae76788b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
         </rows>
       </header>
       <Navigation>

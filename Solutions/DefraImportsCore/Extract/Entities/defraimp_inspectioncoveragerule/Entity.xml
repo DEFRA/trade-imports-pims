@@ -244,7 +244,7 @@
           <Type>lookup</Type>
           <Name>defraimp_risklevelid</Name>
           <LogicalName>defraimp_risklevelid</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
+          <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>

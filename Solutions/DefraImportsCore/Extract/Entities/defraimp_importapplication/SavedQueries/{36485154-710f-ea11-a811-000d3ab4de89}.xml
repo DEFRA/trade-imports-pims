@@ -23,27 +23,23 @@
     </layoutxml>
     <querytype>0</querytype>
     <fetchxml>
-      <fetch distinct="false" version="1.0" output-format="xml-platform" mapping="logical">
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
         <entity name="defraimp_importapplication">
           <attribute name="defraimp_name" />
-          <filter type="and">
-            <condition value="714100000" attribute="defraimp_importapplicationtype" operator="eq" />
-            <condition value="{D4FE672A-4605-EA11-A811-000D3AB35DA5}" attribute="defraimp_regionareaallocatedtoid" operator="eq" uiname="North (Not Allocated)" uitype="defraimp_apharegion" />
-            <condition attribute="statuscode" operator="in">
-              <value>1</value>
-              <value>714100001</value>
-              <value>714100002</value>
-            </condition>
-          </filter>
           <attribute name="createdon" />
           <attribute name="defraimp_importrisklevelid" />
           <attribute name="defraimp_countryoforiginid" />
           <attribute name="defraimp_commoditytypeid" />
           <attribute name="defraimp_placeoforiginorganisation" />
           <attribute name="defraimp_placeofdestinationorganisation" />
+          <order descending="true" attribute="createdon" />
+          <filter type="and">
+            <condition attribute="defraimp_importapplicationtype" operator="eq" value="714100000" />
+            <condition attribute="defraimp_regionareaallocatedtoid" operator="eq" uiname="North (Not Allocated)" uitype="defraimp_apharegion" value="{D4FE672A-4605-EA11-A811-000D3AB35DA5}" />
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
           <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_importapplicationid" />
-          <order descending="true" attribute="createdon" />
         </entity>
       </fetch>
     </fetchxml>

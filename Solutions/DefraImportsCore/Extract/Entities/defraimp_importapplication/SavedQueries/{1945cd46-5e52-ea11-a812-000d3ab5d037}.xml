@@ -6,17 +6,18 @@
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
     <isdefault>0</isdefault>
-    <savedqueryid>{053650de-a816-ea11-a811-000d3ab4df6c}</savedqueryid>
+    <savedqueryid>{1945cd46-5e52-ea11-a812-000d3ab5d037}</savedqueryid>
     <layoutxml>
       <grid name="resultset" preview="1" icon="1" select="1" jump="defraimp_name">
         <row id="defraimp_importapplicationid" name="result">
           <cell name="defraimp_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="defraimp_primaryitahcid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_certificatenumber" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_commoditytypeid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
           <cell name="defraimp_countryoforiginid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
           <cell name="defraimp_importrisklevelid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="100" />
           <cell name="defraimp_placeoforiginorganisation" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_placeofdestinationorganisation" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_inspectionoutcome" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -32,19 +33,19 @@
           <attribute name="defraimp_placeoforiginorganisation" />
           <attribute name="defraimp_placeofdestinationorganisation" />
           <attribute name="defraimp_name" />
+          <attribute name="defraimp_inspectionoutcome" />
           <order descending="true" attribute="createdon" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
-            <condition attribute="ownerid" operator="eq-userid" />
           </filter>
-          <attribute name="defraimp_primaryitahcid" />
+          <attribute name="defraimp_certificatenumber" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>
     </fetchxml>
-    <IntroducedVersion>0.0.0.10</IntroducedVersion>
+    <IntroducedVersion>0.0.0.30</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="3. My Live Import Records" languagecode="1033" />
+      <LocalizedName description="Z. New Example Live Import Records" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

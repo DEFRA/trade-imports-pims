@@ -895,6 +895,11 @@
                   <label description="Satisfactory" languagecode="1033" />
                 </labels>
               </option>
+              <option value="714100007" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Not Visited" languagecode="1033" />
+                </labels>
+              </option>
               <option value="714100002" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Non-Compliant" languagecode="1033" />

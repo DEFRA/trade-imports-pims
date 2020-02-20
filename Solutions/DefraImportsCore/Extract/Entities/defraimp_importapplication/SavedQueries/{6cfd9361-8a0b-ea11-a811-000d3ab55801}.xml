@@ -33,18 +33,14 @@
           <attribute name="defraimp_placeoforiginorganisation" />
           <attribute name="defraimp_placeofdestinationorganisation" />
           <attribute name="defraimp_primarydocomid" />
-          <order descending="true" attribute="createdon" />
-          <filter type="and">
-            <condition value="714100001" attribute="defraimp_importapplicationtype" operator="eq" />
-            <condition attribute="defraimp_primarydocomid" operator="not-null" />
-            <condition attribute="statuscode" operator="in">
-              <value>1</value>
-              <value>714100001</value>
-              <value>714100002</value>
-            </condition>
-          </filter>
           <attribute name="defraimp_name" />
           <attribute name="defraimp_inspectionoutcome" />
+          <order descending="true" attribute="createdon" />
+          <filter type="and">
+            <condition attribute="defraimp_importapplicationtype" operator="eq" value="714100001" />
+            <condition attribute="defraimp_primarydocomid" operator="not-null" />
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>

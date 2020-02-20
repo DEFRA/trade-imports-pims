@@ -204,7 +204,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep47_section1" labelid="{91870b24-98e5-4abd-9fd5-a6dc4ed64b23}">
+                <section showbar="false" columns="1" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep47_section1" labelid="{3efc7196-2464-447d-b6cb-a94b6ec942da}">
                   <labels>
                     <label description="Post Import Check" languagecode="1033" />
                   </labels>
@@ -230,7 +230,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep52_section1" labelid="{091e82fb-3497-4e01-8d27-2690c49dbea0}">
+                <section showbar="false" columns="1" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep52_section1" labelid="{216875c5-17b5-4815-ab53-2949ff10a0b6}">
                   <labels>
                     <label description="Completion" languagecode="1033" />
                   </labels>

@@ -35,10 +35,10 @@
           <attribute name="defraimp_commoditytypeid" />
           <attribute name="defraimp_countryoforiginid" />
           <attribute name="defraimp_importrisklevelid" />
-          <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_name" />
           <order descending="true" attribute="createdon" />
           <attribute name="defraimp_inspectionoutcome" />
+          <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>

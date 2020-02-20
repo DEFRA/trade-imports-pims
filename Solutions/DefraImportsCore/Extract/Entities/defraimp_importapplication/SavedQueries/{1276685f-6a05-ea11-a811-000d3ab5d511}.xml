@@ -24,7 +24,7 @@
     </layoutxml>
     <querytype>0</querytype>
     <fetchxml>
-      <fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
         <entity name="defraimp_importapplication">
           <attribute name="createdon" />
           <attribute name="defraimp_importrisklevelid" />
@@ -32,19 +32,15 @@
           <attribute name="defraimp_commoditytypeid" />
           <attribute name="defraimp_placeoforiginorganisation" />
           <attribute name="defraimp_placeofdestinationorganisation" />
-          <attribute name="defraimp_primaryitahcid" />
+          <attribute name="defraimp_name" />
+          <attribute name="defraimp_inspectionoutcome" />
+          <order descending="true" attribute="createdon" />
           <filter type="and">
-            <condition attribute="statuscode" operator="in">
-              <value>1</value>
-              <value>714100001</value>
-              <value>714100002</value>
-            </condition>
+            <condition attribute="statecode" operator="eq" value="0" />
             <condition attribute="defraimp_iv65responsereceiveddate" operator="null" />
             <condition attribute="defraimp_iv65responseduedate" operator="olderthan-x-hours" value="1" />
           </filter>
-          <attribute name="defraimp_name" />
-          <order descending="true" attribute="createdon" />
-          <attribute name="defraimp_inspectionoutcome" />
+          <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>

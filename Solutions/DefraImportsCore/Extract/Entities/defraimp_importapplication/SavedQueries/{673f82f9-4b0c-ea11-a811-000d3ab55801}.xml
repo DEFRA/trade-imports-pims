@@ -32,7 +32,6 @@
           <attribute name="defraimp_commoditytypeid" />
           <attribute name="defraimp_placeoforiginorganisation" />
           <attribute name="defraimp_placeofdestinationorganisation" />
-          <attribute name="defraimp_primaryitahcid" />
           <filter type="and">
             <condition attribute="statuscode" operator="in">
               <value>1</value>
@@ -45,6 +44,7 @@
           <attribute name="defraimp_name" />
           <order descending="true" attribute="createdon" />
           <attribute name="defraimp_inspectionoutcome" />
+          <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>
