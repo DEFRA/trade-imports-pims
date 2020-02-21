@@ -5,7 +5,7 @@
     <IntroducedVersion>0.0.0.1</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{70c243d2-2d16-4cf5-a82f-c347d999c6f5}" IsUserDefined="1" name="{70c243d2-2d16-4cf5-a82f-c347d999c6f5}" locklevel="0" expanded="true" showlabel="false">
           <labels>
@@ -46,7 +46,7 @@
                     <row>
                       <cell id="{e293377e-de98-3772-839c-9e5c5e849495}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Previous Trust Level" languagecode="1033" />
+                          <label description="Previous Trust Level Before Locked to Bronze" languagecode="1033" />
                         </labels>
                         <control id="defraimp_previoustrustlevel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_previoustrustlevel" disabled="true" uniqueid="{dc3479b2-c951-da80-5e30-9dac1c5cd83e}" />
                       </cell>
@@ -189,6 +189,56 @@
                         <control id="defraimp_addresscountry" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_addresscountry" disabled="false" />
                       </cell>
                     </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_3" id="{5102ab7b-250b-5648-b704-abe4a416d890}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Related Import Records" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_3_section_1" showlabel="false" showbar="false" locklevel="0" id="{624c1531-d0a5-aa2d-25b4-607b07337817}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0cd250ac-6824-0b34-04b2-15a08bb99322}" showlabel="true" colspan="1" auto="false" rowspan="7">
+                        <labels>
+                          <label description="Related Import Records" languagecode="1033" />
+                        </labels>
+                        <control id="RelatedImportRecords" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{d4cdd0d4-a5bb-370d-79ec-98ec038d1d39}">
+                          <parameters>
+                            <ViewId>{19037CA3-FD53-EA11-A812-000D3AB5D037}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid</RelationshipName>
+                            <TargetEntityType>defraimp_importapplication</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{DD020992-1353-4A60-8EAD-C0E0925163E4},{3B62985A-7D37-EA11-A813-000D3AB4DF6C},{19037CA3-FD53-EA11-A812-000D3AB5D037}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId>{716C999F-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
