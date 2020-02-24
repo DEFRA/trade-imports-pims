@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.13228" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.13533" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsWorkflows</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Workflows" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.27</Version>
+    <Version>0.0.0.28</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -533,35 +533,39 @@
         <Dependent key="31" type="29" displayName="Import Application - Decrement Place of Origin Number of Applications" id="{e527fbd8-c043-48e7-a031-6f0ff5ab07ca}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="85" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="85" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="31" type="29" displayName="Import Application - Decrement Place of Origin Number of Applications" id="{e527fbd8-c043-48e7-a031-6f0ff5ab07ca}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="86" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="33" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="86" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="87" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="33" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="87" type="2" schemaName="defraimp_certificatecompliantfirsttime" displayName="Certificate Compliant First Time?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="88" type="2" schemaName="defraimp_certificatecompliantfirsttime" displayName="Certificate Compliant First Time?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="33" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="88" type="2" schemaName="defraimp_regionareaallocatedtoid" displayName="Region / Area Allocated to" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="89" type="2" schemaName="defraimp_regionareaallocatedtoid" displayName="Region / Area Allocated to" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="33" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="89" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="90" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="33" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="90" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="91" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="33" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="91" type="2" schemaName="defraimp_certificatenoncompliancereason" displayName="Certificate Non Compliance Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="92" type="2" schemaName="defraimp_certificatenoncompliancereason" displayName="Certificate Non Compliance Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="33" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="92" type="2" schemaName="defraimp_risklevelverified" displayName="Risk Level Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="93" type="2" schemaName="defraimp_risklevelverified" displayName="Risk Level Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="33" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
@@ -569,7 +573,7 @@
         <Dependent key="33" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="93" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="85" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="33" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
@@ -633,7 +637,7 @@
         <Dependent key="31" type="29" displayName="Import Application - Decrement Place of Origin Number of Applications" id="{e527fbd8-c043-48e7-a031-6f0ff5ab07ca}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="86" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="87" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="32" type="29" displayName="Import Application - Determine Inspection Requirement" id="{aa4a4e60-f0ff-426b-92dc-e8c37b2ecdd1}" />
       </MissingDependency>
       <MissingDependency>
@@ -653,7 +657,7 @@
         <Dependent key="28" type="29" displayName="Place of Origin - Check if to set to Gold" id="{250640d9-cf09-453e-a308-7c6e8137c9d0}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="93" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="85" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="27" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
@@ -669,7 +673,7 @@
         <Dependent key="27" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="85" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="86" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="27" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
@@ -825,7 +829,11 @@
         <Dependent key="18" type="29" displayName="Import Application - Increment Place of Origin Number of Applications" id="{02bb7ca9-2b24-4842-a954-c0a19704dc20}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="93" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="85" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="19" type="29" displayName="Import Application - Reset Verified Place of Origin Gold Inspections counter" id="{ca957b73-8543-497d-85c4-721e9af2b265}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="97" type="2" schemaName="defraimp_applicationcounter" displayName="Application Counter" parentSchemaName="defraimp_placeoforigin" parentDisplayName="Place of Origin" solution="Active" />
         <Dependent key="19" type="29" displayName="Import Application - Reset Verified Place of Origin Gold Inspections counter" id="{ca957b73-8543-497d-85c4-721e9af2b265}" />
       </MissingDependency>
       <MissingDependency>
@@ -834,6 +842,10 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="45" type="2" schemaName="defraimp_name" displayName="Name" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="18" type="29" displayName="Import Application - Increment Place of Origin Number of Applications" id="{02bb7ca9-2b24-4842-a954-c0a19704dc20}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="85" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="Import Application - Increment Place of Origin Number of Applications" id="{02bb7ca9-2b24-4842-a954-c0a19704dc20}" />
       </MissingDependency>
       <MissingDependency>
@@ -901,7 +913,7 @@
         <Dependent key="11" type="29" displayName="Import Application - Auto Risk Assessment and Inspection" id="{8c09794a-1388-4113-b508-46dde8a56422}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="90" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="91" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="11" type="29" displayName="Import Application - Auto Risk Assessment and Inspection" id="{8c09794a-1388-4113-b508-46dde8a56422}" />
       </MissingDependency>
       <MissingDependency>
@@ -961,19 +973,19 @@
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="93" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="85" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="89" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="90" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="88" type="2" schemaName="defraimp_regionareaallocatedtoid" displayName="Region / Area Allocated to" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="89" type="2" schemaName="defraimp_regionareaallocatedtoid" displayName="Region / Area Allocated to" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="87" type="2" schemaName="defraimp_certificatecompliantfirsttime" displayName="Certificate Compliant First Time?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="88" type="2" schemaName="defraimp_certificatecompliantfirsttime" displayName="Certificate Compliant First Time?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
@@ -985,23 +997,23 @@
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="91" type="2" schemaName="defraimp_certificatenoncompliancereason" displayName="Certificate Non Compliance Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="92" type="2" schemaName="defraimp_certificatenoncompliancereason" displayName="Certificate Non Compliance Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="90" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="91" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="86" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="87" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="92" type="2" schemaName="defraimp_risklevelverified" displayName="Risk Level Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="93" type="2" schemaName="defraimp_risklevelverified" displayName="Risk Level Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="85" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="86" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
@@ -1077,7 +1089,7 @@
         <Dependent key="6" type="29" displayName="Import Application - Set Previous Risk Level" id="{2152e3cd-0fb3-4708-8ee3-de3754018b3f}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="86" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="87" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="6" type="29" displayName="Import Application - Set Previous Risk Level" id="{2152e3cd-0fb3-4708-8ee3-de3754018b3f}" />
       </MissingDependency>
       <MissingDependency>
@@ -1121,7 +1133,7 @@
         <Dependent key="1" type="29" displayName="Import Application - Revert Verified Place of Origin to Bronze" id="{00a435dd-6f3a-4e04-89d6-ace88292a8ee}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="89" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="90" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="1" type="29" displayName="Import Application - Revert Verified Place of Origin to Bronze" id="{00a435dd-6f3a-4e04-89d6-ace88292a8ee}" />
       </MissingDependency>
       <MissingDependency>
@@ -1137,7 +1149,7 @@
         <Dependent key="3" type="29" displayName="Import Application - Update Risk Level Status to Manually Updated" id="{e6952b8c-a24c-4b35-bb9a-3319bfcc2326}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="86" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="87" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="3" type="29" displayName="Import Application - Update Risk Level Status to Manually Updated" id="{e6952b8c-a24c-4b35-bb9a-3319bfcc2326}" />
       </MissingDependency>
       <MissingDependency>
@@ -1197,7 +1209,7 @@
         <Dependent key="40" type="29" displayName="Post Import Check - Update Import Application Outcome" id="{56767681-44dc-4754-9f0c-1c9e9e21dccf}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="120" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.13228)" />
+        <Required key="120" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.13533)" />
         <Dependent key="109" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
     </MissingDependencies>

@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{eb177e35-a4a1-b7a7-371d-a4a1170c33d1}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Related Import Record" languagecode="1033" />
                         </labels>
                         <control id="defraimp_relatedimportapplication" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_relatedimportapplication" disabled="false" />
                       </cell>
@@ -30,7 +30,7 @@
                     <row>
                       <cell id="{d5a241e9-33b6-de02-3814-1a5422cba2c7}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Related ITAHC" languagecode="1033" />
                         </labels>
                         <control id="defraimp_relateditahc" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_relateditahc" disabled="false" />
                       </cell>
@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{20e0e2ce-48e2-4711-2469-87a591850c8c}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="SAM Work Schedule Number" languagecode="1033" />
                         </labels>
                         <control id="defraimp_samworkschedulenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_samworkschedulenumber" disabled="false" />
                       </cell>
@@ -46,15 +46,23 @@
                     <row>
                       <cell id="{040adc55-4055-6a44-8693-b48070bae925}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Date Visit Allocated" languagecode="1033" />
                         </labels>
                         <control id="defraimp_datevisitallocated" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_datevisitallocated" disabled="false" />
                       </cell>
                     </row>
                     <row>
+                      <cell id="{9e3bddd1-00e4-9a73-54dc-beb8b9650190}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Reply from AHO Due" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_replyfromahodue" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_replyfromahodue" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{de615344-488b-d140-12cc-057d8737b232}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Customer Number" languagecode="1033" />
                         </labels>
                         <control id="defraimp_customernumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_customernumber" disabled="false" />
                       </cell>
@@ -62,7 +70,7 @@
                     <row>
                       <cell id="{9c5161be-a15a-286c-9425-1b0a5e5da357}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="CPH Number" languagecode="1033" />
                         </labels>
                         <control id="defraimp_cphnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_cphnumber" disabled="false" />
                       </cell>
@@ -70,7 +78,7 @@
                     <row>
                       <cell id="{2b996b91-339a-a710-1a8c-5074ed4ab50e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Region / Area Allocated to" languagecode="1033" />
                         </labels>
                         <control id="defraimp_regionareaallocatedtoid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_regionareaallocatedtoid" disabled="false" />
                       </cell>

@@ -24,6 +24,13 @@
   <EntityRelationship Name="defra_invitation_defraimp_importqueries" />
   <EntityRelationship Name="defraexp_exportapplication_defraimp_importqueries" />
   <EntityRelationship Name="defraimp_account_defraimp_importapplication" />
+  <EntityRelationship Name="defraimp_defra_country_defraimp_docom_ConsigneeAddressCountryId" />
+  <EntityRelationship Name="defraimp_defra_country_defraimp_docom_ConsignorAddressCountryId" />
+  <EntityRelationship Name="defraimp_defra_country_defraimp_docom_CountryOfOriginId" />
+  <EntityRelationship Name="defraimp_defra_country_defraimp_docom_PlaceOfDestinationAddressCountryId" />
+  <EntityRelationship Name="defraimp_defra_country_defraimp_docom_PlaceOfLoadingAddressCountryId" />
+  <EntityRelationship Name="defraimp_defra_country_defraimp_docom_PlaceOfOriginHarvestAddressCountryId" />
+  <EntityRelationship Name="defraimp_defra_country_defraimp_docom_TransporterAddressCountryId" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importapplication" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importapplication_ImporterAddressCountryID" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importapplication_PlaceofOriginCountryID" />

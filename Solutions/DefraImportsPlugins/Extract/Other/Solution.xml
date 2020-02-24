@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.13228" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.13533" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsPlugins</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Plugins" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.6</Version>
+    <Version>0.0.0.7</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -80,81 +80,93 @@
     <RootComponents>
       <RootComponent type="91" id="{cec94a4e-6452-ea11-a812-000d3ab5d037}" schemaName="Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" behavior="0" />
       <RootComponent type="92" id="{03e26bf1-0353-ea11-a812-000d3ab5d511}" behavior="0" />
-      <RootComponent type="92" id="{9dcddd3f-2653-ea11-a812-000d3ab5d511}" behavior="0" />
+      <RootComponent type="92" id="{a67cc006-b354-ea11-a812-000d3ab5d037}" behavior="0" />
       <RootComponent type="92" id="{ffb72dec-0353-ea11-a812-000d3ab5d037}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
         <Required key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
-        <Dependent key="1" type="93" id="{a4851f16-2253-ea11-a812-000d3ab55801}" />
+        <Dependent key="1" type="93" id="{e8c51d07-b354-ea11-a812-000d3ab5d511}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
-        <Dependent key="2" type="93" id="{4323d3e6-2253-ea11-a812-000d3ab5d511}" />
+        <Dependent key="2" type="93" id="{a4851f16-2253-ea11-a812-000d3ab55801}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
-        <Dependent key="3" type="93" id="{4fc9f3e6-2253-ea11-a812-000d3ab5d037}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="4" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="2" type="93" id="{4323d3e6-2253-ea11-a812-000d3ab5d511}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="5" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="2" type="93" id="{4323d3e6-2253-ea11-a812-000d3ab5d511}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="5" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="3" type="93" id="{4fc9f3e6-2253-ea11-a812-000d3ab5d037}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="4" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="3" type="93" id="{4fc9f3e6-2253-ea11-a812-000d3ab5d037}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="4" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="1" type="93" id="{a4851f16-2253-ea11-a812-000d3ab55801}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="5" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="1" type="93" id="{a4851f16-2253-ea11-a812-000d3ab55801}" />
+        <Dependent key="3" type="93" id="{4323d3e6-2253-ea11-a812-000d3ab5d511}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
-        <Dependent key="6" type="92" id="{03e26bf1-0353-ea11-a812-000d3ab5d511}" />
+        <Dependent key="4" type="93" id="{4fc9f3e6-2253-ea11-a812-000d3ab5d037}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="5" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="3" type="93" id="{4323d3e6-2253-ea11-a812-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="6" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="3" type="93" id="{4323d3e6-2253-ea11-a812-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="6" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="4" type="93" id="{4fc9f3e6-2253-ea11-a812-000d3ab5d037}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="5" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="4" type="93" id="{4fc9f3e6-2253-ea11-a812-000d3ab5d037}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="5" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="2" type="93" id="{a4851f16-2253-ea11-a812-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="6" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="2" type="93" id="{a4851f16-2253-ea11-a812-000d3ab55801}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="6" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="1" type="93" id="{e8c51d07-b354-ea11-a812-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="5" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="1" type="93" id="{e8c51d07-b354-ea11-a812-000d3ab5d511}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
-        <Dependent key="7" type="92" id="{9dcddd3f-2653-ea11-a812-000d3ab5d511}" />
+        <Dependent key="7" type="92" id="{03e26bf1-0353-ea11-a812-000d3ab5d511}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
-        <Dependent key="8" type="92" id="{ffb72dec-0353-ea11-a812-000d3ab5d037}" />
+        <Dependent key="8" type="92" id="{a67cc006-b354-ea11-a812-000d3ab5d037}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="5" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="6" type="92" id="{03e26bf1-0353-ea11-a812-000d3ab5d511}" />
+        <Required key="0" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
+        <Dependent key="9" type="92" id="{ffb72dec-0353-ea11-a812-000d3ab5d037}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="4" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="8" type="92" id="{ffb72dec-0353-ea11-a812-000d3ab5d037}" />
+        <Required key="6" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="8" type="92" id="{a67cc006-b354-ea11-a812-000d3ab5d037}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="5" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="8" type="92" id="{ffb72dec-0353-ea11-a812-000d3ab5d037}" />
+        <Required key="5" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="8" type="92" id="{a67cc006-b354-ea11-a812-000d3ab5d037}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="4" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="7" type="92" id="{9dcddd3f-2653-ea11-a812-000d3ab5d511}" />
+        <Required key="5" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="9" type="92" id="{ffb72dec-0353-ea11-a812-000d3ab5d037}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="5" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="7" type="92" id="{9dcddd3f-2653-ea11-a812-000d3ab5d511}" />
+        <Required key="6" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="9" type="92" id="{ffb72dec-0353-ea11-a812-000d3ab5d037}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="4" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="6" type="92" id="{03e26bf1-0353-ea11-a812-000d3ab5d511}" />
+        <Required key="5" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="7" type="92" id="{03e26bf1-0353-ea11-a812-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="6" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="7" type="92" id="{03e26bf1-0353-ea11-a812-000d3ab5d511}" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

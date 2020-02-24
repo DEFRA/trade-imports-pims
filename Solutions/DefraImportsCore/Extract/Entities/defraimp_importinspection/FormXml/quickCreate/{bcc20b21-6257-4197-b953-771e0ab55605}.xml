@@ -52,6 +52,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{9e3bddd1-00e4-9a73-54dc-beb8b9650190}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Reply from AHO Due" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_replyfromahodue" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_replyfromahodue" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{de615344-488b-d140-12cc-057d8737b232}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Customer Number" languagecode="1033" />
