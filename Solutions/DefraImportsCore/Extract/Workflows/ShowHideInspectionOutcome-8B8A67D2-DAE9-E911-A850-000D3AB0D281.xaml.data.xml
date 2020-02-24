@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{8b8a67d2-dae9-e911-a850-000d3ab0d281}" Name="Show/Hide Inspection Outcome" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Workflow WorkflowId="{8b8a67d2-dae9-e911-a850-000d3ab0d281}" Name="Show/Hide Inspection Outcome" Description="Click to add description" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <XamlFileName>/Workflows/ShowHideInspectionOutcome-8B8A67D2-DAE9-E911-A850-000D3AB0D281.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
@@ -18,10 +18,12 @@
   <IntroducedVersion>0.0.0.2</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <BusinessProcessType>0</BusinessProcessType>
-  <ProcessTriggerFormId>{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}</ProcessTriggerFormId>
   <ProcessTriggerScope>1</ProcessTriggerScope>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Show/Hide Inspection Outcome" />
   </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="Click to add description" />
+  </Descriptions>
 </Workflow>

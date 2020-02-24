@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="Delete Step (Profiled)" SdkMessageProcessingStepId="{9dcddd3f-2653-ea11-a812-000d3ab5d511}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SdkMessageProcessingStep Name="Delete Step" SdkMessageProcessingStepId="{a67cc006-b354-ea11-a812-000d3ab5d037}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <PluginTypeName>Defra.Imports.Plugins.ImportApplication.PrimaryITAHCCountManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4</PluginTypeName>
   <PluginTypeId>778783fc-6452-ea11-a812-000d3ab5d037</PluginTypeId>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
@@ -15,5 +15,14 @@
   <IsHidden>0</IsHidden>
   <SupportedDeployment>0</SupportedDeployment>
   <IntroducedVersion>1.0</IntroducedVersion>
-  <SdkMessageProcessingStepImages />
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="PreImage">
+      <SdkMessageProcessingStepImageId>{e8c51d07-b354-ea11-a812-000d3ab5d511}</SdkMessageProcessingStepImageId>
+      <Attributes>defraimp_placeoforiginid,defraimp_primaryitahcid</Attributes>
+      <EntityAlias>PreImage</EntityAlias>
+      <ImageType>0</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
 </SdkMessageProcessingStep>
