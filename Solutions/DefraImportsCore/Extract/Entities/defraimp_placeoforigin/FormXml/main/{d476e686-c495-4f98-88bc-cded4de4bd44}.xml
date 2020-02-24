@@ -208,7 +208,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{0cd250ac-6824-0b34-04b2-15a08bb99322}" showlabel="true" colspan="1" auto="false" rowspan="7">
+                      <cell id="{0cd250ac-6824-0b34-04b2-15a08bb99322}" showlabel="true" colspan="1" auto="false" rowspan="13">
                         <labels>
                           <label description="Related Import Records" languagecode="1033" />
                         </labels>
@@ -227,12 +227,18 @@
                             <VisualizationId>{716C999F-A712-EA11-A811-000D3AB5D037}</VisualizationId>
                             <IsUserChart>false</IsUserChart>
                             <EnableChartPicker>false</EnableChartPicker>
-                            <RecordsPerPage>4</RecordsPerPage>
+                            <RecordsPerPage>10</RecordsPerPage>
                             <HeaderColorCode>#F3F3F3</HeaderColorCode>
                           </parameters>
                         </control>
                       </cell>
                     </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                     <row />
                     <row />
                     <row />
