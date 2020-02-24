@@ -47,7 +47,7 @@
                 <mxswa:ActivityReference.Properties>
                   <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                   <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                    <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionSequence, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionStep3: Verified Place of Origin trust level is Gold">
+                    <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionSequence, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionStep3: Verified Place of Origin trust level is set (Originally this step asked only for Gold but now covered Gold and Bronze)">
                       <mxswa:ActivityReference.Arguments>
                         <InArgument x:TypeArguments="x:Boolean" x:Key="Wait">False</InArgument>
                       </mxswa:ActivityReference.Arguments>
@@ -56,6 +56,7 @@
                           <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep4_condition" />
                           <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep4_1" />
                           <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep4_2" />
+                          <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep4_3" />
                         </sco:Collection>
                         <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
                           <mxswa:GetEntityProperty Attribute="defraimp_trustlevel" Entity="[InputEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin&quot;)]" EntityName="defraimp_placeoforigin" Value="[ConditionBranchStep4_1]">
@@ -77,10 +78,20 @@
                               <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep4_2]</OutArgument>
                             </mxswa:ActivityReference.Arguments>
                           </mxswa:ActivityReference>
+                          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+                            <mxswa:ActivityReference.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
+                              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.OptionSetValue, "714100000", "Picklist" }]</InArgument>
+                              <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
+                              </InArgument>
+                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep4_3]</OutArgument>
+                            </mxswa:ActivityReference.Arguments>
+                          </mxswa:ActivityReference>
                           <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateCondition, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateCondition">
                             <mxswa:ActivityReference.Arguments>
-                              <InArgument x:TypeArguments="mxsq:ConditionOperator" x:Key="ConditionOperator">Equal</InArgument>
-                              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { ConditionBranchStep4_2 }]</InArgument>
+                              <InArgument x:TypeArguments="mxsq:ConditionOperator" x:Key="ConditionOperator">In</InArgument>
+                              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { ConditionBranchStep4_2, ConditionBranchStep4_3 }]</InArgument>
                               <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep4_1]</InArgument>
                               <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep4_condition]</OutArgument>
                             </mxswa:ActivityReference.Arguments>
