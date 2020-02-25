@@ -5,7 +5,7 @@
     <IntroducedVersion>0.0.0.1</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form shownavigationbar="false" showImage="false" maxWidth="1920">
+    <form shownavigationbar="true" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{70c243d2-2d16-4cf5-a82f-c347d999c6f5}" IsUserDefined="1" name="{70c243d2-2d16-4cf5-a82f-c347d999c6f5}" locklevel="0" expanded="true" showlabel="false">
           <labels>
@@ -304,7 +304,7 @@
               <labels>
                 <label description="Trust Level" languagecode="1033" />
               </labels>
-              <control id="header_defraimp_trustlevel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_trustlevel" disabled="false" />
+              <control id="header_defraimp_trustlevel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_trustlevel" disabled="true" uniqueid="{5300b2da-4b29-d616-aaac-3e7bb892b538}" />
             </cell>
           </row>
         </rows>
