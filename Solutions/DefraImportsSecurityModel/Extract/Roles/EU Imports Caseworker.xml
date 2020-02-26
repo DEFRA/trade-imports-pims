@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Role id="{b1d76a5b-c7da-e911-a863-000d3ab0da57}" name="EU Imports Caseworker" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Role id="{b1d76a5b-c7da-e911-a863-000d3ab0da57}" name="EU Imports Caseworker" isinherited="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <IsCustomizable>1</IsCustomizable>
   <RolePrivileges>
     <RolePrivilege name="prvActivateSynchronousWorkflow" level="Basic" />
