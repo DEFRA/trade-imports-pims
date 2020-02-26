@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\InArgumentExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\P3CounterManagerBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\InspectionPlaceOfOriginChangeBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\DetermineInspectionRequirementBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Helpers\CommodityHelper.cs" />
@@ -25,7 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Factories\DetermineInspectionAbstractFatory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Factories\DetermineInspectionFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\ImportApplicationConstants.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\PrimaryITAHCCountManager\PrimaryITAHCCountManagerBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\PrimaryITAHCCountManagerBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IRepositoryFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ConsoleLogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ILogWriter.cs" />
