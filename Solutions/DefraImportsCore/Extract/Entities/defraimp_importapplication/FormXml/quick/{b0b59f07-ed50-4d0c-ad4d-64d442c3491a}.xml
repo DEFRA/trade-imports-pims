@@ -28,11 +28,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{208a3d39-463c-302e-2194-6ec422d0b68d}" showlabel="true" locklevel="0">
+                      <cell id="{b1d92ee0-d793-cc8c-18e1-e780dda58d9e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Place of Origin - Country" languagecode="1033" />
+                          <label description="Country of Origin" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_placeoforigincountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeoforigincountryid" disabled="false" />
+                        <control id="defraimp_countryoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_countryoforiginid" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -62,7 +62,7 @@
                         </control>
                       </cell>
                     </row>
-                    <row></row>
+                    <row />
                     <row />
                     <row />
                     <row />

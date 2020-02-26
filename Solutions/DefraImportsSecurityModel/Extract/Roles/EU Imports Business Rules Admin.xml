@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Role id="{69e3969a-e8fb-e911-a813-000d3ab4de89}" name="EU Imports Business Rules Admin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Role id="{69e3969a-e8fb-e911-a813-000d3ab4de89}" name="EU Imports Business Rules Admin" isinherited="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <IsCustomizable>1</IsCustomizable>
   <RolePrivileges>
     <RolePrivilege name="prvAppenddefraimp_goldbronzecommodity" level="Global" />

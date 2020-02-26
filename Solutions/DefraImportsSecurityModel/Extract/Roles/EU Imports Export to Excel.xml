@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Role id="{25129d52-5df6-e911-a813-000d3ab5d511}" name="EU Imports Export to Excel" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Role id="{25129d52-5df6-e911-a813-000d3ab5d511}" name="EU Imports Export to Excel" isinherited="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <IsCustomizable>1</IsCustomizable>
   <RolePrivileges>
     <RolePrivilege name="prvCreateSharePointData" level="Global" />

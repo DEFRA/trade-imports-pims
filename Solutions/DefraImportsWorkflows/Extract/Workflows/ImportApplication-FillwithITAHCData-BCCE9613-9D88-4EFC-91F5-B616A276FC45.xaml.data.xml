@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{bcce9613-9d88-4efc-91f5-b616a276fc45}" Name="Import Application - Fill with ITAHC Data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ImportApplication-FillwithITAHCData-BCCE9613-9D88-4EFC-91F5-B616A276FC45.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>1</Subprocess>
+  <Category>0</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>1</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <CreateStage>40</CreateStage>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>0.0.0.30</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Import Application - Fill with ITAHC Data" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{251d8a64-c881-451a-8563-e7064b69ff05}">
+      <label languagecode="1033" description="Please add a Primary ITAHC to this Import Record" />
+    </steplabels>
+    <steplabels id="{adb1131c-3090-40ba-87e5-915876234268}">
+      <label languagecode="1033" description="The record type must be ITAHC and have a Primary ITAHC to use this flow" />
+    </steplabels>
+  </labels>
+</Workflow>

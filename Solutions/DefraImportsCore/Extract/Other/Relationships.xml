@@ -49,6 +49,7 @@
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_importapp" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" />
+  <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityType" />
   <EntityRelationship Name="defraimp_defraimp_apharegion_defraimp_importapplic" />
   <EntityRelationship Name="defraimp_defraimp_apharegion_defraimp_importinspection_RegionAreaAllocatedtoID" />
   <EntityRelationship Name="defraimp_defraimp_cved_defraimp_importapplication_PrimaryCVEDId" />

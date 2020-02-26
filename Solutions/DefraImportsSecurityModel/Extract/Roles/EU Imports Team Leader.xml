@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Role id="{f9e6fead-cada-e911-a863-000d3ab0da57}" name="EU Imports Team Leader" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Role id="{f9e6fead-cada-e911-a863-000d3ab0da57}" name="EU Imports Team Leader" isinherited="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <IsCustomizable>1</IsCustomizable>
   <RolePrivileges>
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
