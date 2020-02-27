@@ -56,8 +56,11 @@
                     // Do we have a place of origin?
                     if (placeOfOrigin != null)
                     {
-                        //Increment the gold/bronze application counter
+                        // Increment the gold/bronze application counter
                         placeOfOriginRepo.IncrementApplicationCounter(placeOfOrigin.Id);
+
+                        // Ensure our local copy also increments the counter
+                        placeOfOrigin.defraimp_ApplicationCounter += 1;
 
                         if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Gold)
                         {
@@ -110,6 +113,7 @@
             {
                 // +1 to quota
                 placeOfOriginRepo.IncrementQuotaCounter(placeOfOrigin.Id);
+                inspectionQuotaCounter += 1;
 
                 // Reset the application counter
                 placeOfOriginRepo.SetApplicationCounter(placeOfOrigin.Id, 0);

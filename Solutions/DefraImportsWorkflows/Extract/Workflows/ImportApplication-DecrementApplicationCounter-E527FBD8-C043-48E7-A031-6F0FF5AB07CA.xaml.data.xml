@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{e527fbd8-c043-48e7-a031-6f0ff5ab07ca}" Name="Import Application - Decrement Place of Origin Number of Applications" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/ImportApplication-DecrementPlaceofOriginNumberofAp-E527FBD8-C043-48E7-A031-6F0FF5AB07CA.xaml</XamlFileName>
+<Workflow WorkflowId="{e527fbd8-c043-48e7-a031-6f0ff5ab07ca}" Name="Import Application - Decrement Application Counter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ImportApplication-DecrementApplicationCounter-E527FBD8-C043-48E7-A031-6F0FF5AB07CA.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>0</Category>
@@ -23,6 +23,6 @@
   <IsCustomizable>1</IsCustomizable>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Import Application - Decrement Place of Origin Number of Applications" />
+    <LocalizedName languagecode="1033" description="Import Application - Decrement Application Counter" />
   </LocalizedNames>
 </Workflow>
