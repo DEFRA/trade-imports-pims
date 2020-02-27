@@ -60,6 +60,21 @@
             }
         }
 
+
+        public int GetNumberOfRecordsSinceLastCheckValue(Guid placeOfOriginId)
+        {
+            defraimp_placeoforigin placeOfOriginRecord = Find(placeOfOriginId);
+            if (placeOfOriginRecord != null)
+            {
+                int value = placeOfOriginRecord.defraimp_numberofapplicationssincelastinspection ?? 0;
+                return value;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         public defraimp_placeoforigin Find(Guid placeOfOriginId)
         {
             if (orgSvc != null)
@@ -157,6 +172,38 @@
                 Id = placeOfOriginId,
                 defraimp_NumberofApplications = currentCounterValue - 1,
 
+            };
+            orgSvc.Update(updatedPlaceOfOriginRecord);
+        }
+
+        public void SetNumberOfRecordsSinceLastCheckValue(Guid placeOfOriginId, int value)
+        {
+            defraimp_placeoforigin updatedPlaceOfOriginRecord = new defraimp_placeoforigin
+            {
+                Id = placeOfOriginId,
+                defraimp_numberofapplicationssincelastinspection = value,
+            };
+            orgSvc.Update(updatedPlaceOfOriginRecord);
+        }
+
+        public void IncrementNumberOfRecordsSinceLastCheck(Guid placeOfOriginId)
+        {
+            int currentCounterValue = GetNumberOfRecordsSinceLastCheckValue(placeOfOriginId);
+            defraimp_placeoforigin updatedPlaceOfOriginRecord = new defraimp_placeoforigin
+            {
+                Id = placeOfOriginId,
+                defraimp_numberofapplicationssincelastinspection = currentCounterValue + 1,
+            };
+            orgSvc.Update(updatedPlaceOfOriginRecord);
+        }
+
+        public void DecrementNumberOfRecordsSinceLastCheck(Guid placeOfOriginId)
+        {
+            int currentCounterValue = GetNumberOfRecordsSinceLastCheckValue(placeOfOriginId);
+            defraimp_placeoforigin updatedPlaceOfOriginRecord = new defraimp_placeoforigin
+            {
+                Id = placeOfOriginId,
+                defraimp_numberofapplicationssincelastinspection = currentCounterValue - 1,
             };
             orgSvc.Update(updatedPlaceOfOriginRecord);
         }

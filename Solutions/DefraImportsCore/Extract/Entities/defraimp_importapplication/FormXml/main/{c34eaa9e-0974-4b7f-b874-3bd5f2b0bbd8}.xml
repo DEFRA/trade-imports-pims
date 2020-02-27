@@ -388,7 +388,7 @@
                         <labels>
                           <label description="Post Import Checks Outcome" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_inspectionoutcome" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_inspectionoutcome" disabled="false" />
+                        <control id="defraimp_inspectionoutcome" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_inspectionoutcome" disabled="false" uniqueid="{56767816-9668-6114-cdc0-9cee9add5d1b}" />
                       </cell>
                     </row>
                     <row>

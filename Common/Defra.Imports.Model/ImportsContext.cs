@@ -9615,6 +9615,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Unsatisfactory = 714100002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NotVisited = 714100003,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -9937,6 +9940,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_CertificateNonComplianceReasonOther");
 				this.SetAttributeValue("defraimp_certificatenoncompliancereasonother", value);
 				this.OnPropertyChanged("defraimp_CertificateNonComplianceReasonOther");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_certificatenumber")]
+		public string defraimp_CertificateNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_certificatenumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_CertificateNumber");
+				this.SetAttributeValue("defraimp_certificatenumber", value);
+				this.OnPropertyChanged("defraimp_CertificateNumber");
 			}
 		}
 		
@@ -11900,6 +11921,24 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_workschedulenumber")]
+		public string defraimp_WorkScheduleNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_workschedulenumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_WorkScheduleNumber");
+				this.SetAttributeValue("defraimp_workschedulenumber", value);
+				this.OnPropertyChanged("defraimp_WorkScheduleNumber");
+			}
+		}
+		
+		/// <summary>
 		/// Sequence number of the import that created this record.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("importsequencenumber")]
@@ -12821,6 +12860,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Satisfactory = 714100001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NotVisited = 714100007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		NonCompliant = 714100002,
@@ -17008,6 +17050,24 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_commoditycode")]
+		public string defraimp_CommodityCode
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_commoditycode");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_CommodityCode");
+				this.SetAttributeValue("defraimp_commoditycode", value);
+				this.OnPropertyChanged("defraimp_CommodityCode");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_commoditycomplementstext")]
 		public string defraimp_CommodityComplementsText
 		{
@@ -17020,6 +17080,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_CommodityComplementsText");
 				this.SetAttributeValue("defraimp_commoditycomplementstext", value);
 				this.OnPropertyChanged("defraimp_CommodityComplementsText");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_commoditytype")]
+		public Microsoft.Xrm.Sdk.EntityReference defraimp_CommodityType
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_commoditytype");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_CommodityType");
+				this.SetAttributeValue("defraimp_commoditytype", value);
+				this.OnPropertyChanged("defraimp_CommodityType");
 			}
 		}
 		

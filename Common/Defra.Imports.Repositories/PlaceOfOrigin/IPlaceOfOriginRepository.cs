@@ -27,5 +27,11 @@
         void IncrementNumberOfPrimaryITAHCCounter(Guid placeOfOriginId);
 
         void DecrementNumberOfPrimaryITAHCCounter(Guid placeOfOriginId);
+
+        void SetNumberOfRecordsSinceLastCheckValue(Guid placeOfOriginId, int value);
+
+        void IncrementNumberOfRecordsSinceLastCheck(Guid placeOfOriginId);
+
+        void DecrementNumberOfRecordsSinceLastCheck(Guid placeOfOriginId);
     }
 }
