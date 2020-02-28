@@ -39,6 +39,9 @@
     <steplabels id="{7c7b066a-ede8-4322-b68a-a4b2ca96fbca}">
       <label languagecode="1033" description="Primary ITAHC" />
     </steplabels>
+    <steplabels id="{bf52be99-318e-44f1-aa9d-79ee915c55fb}">
+      <label languagecode="1033" description="Verified Place of Origin" />
+    </steplabels>
     <steplabels id="{52e7aef7-f4ca-4585-b941-eb1b921593db}">
       <label languagecode="1033" description="Region / Area Allocated to" />
     </steplabels>
