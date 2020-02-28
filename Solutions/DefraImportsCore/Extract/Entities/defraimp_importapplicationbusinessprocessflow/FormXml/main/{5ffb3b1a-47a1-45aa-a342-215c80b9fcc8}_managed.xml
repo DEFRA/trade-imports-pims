@@ -44,6 +44,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{bf52be99-318e-44f1-aa9d-79ee915c55fb}" showlabel="true" visible="true" labelid="{8da6dbd2-9eb4-43b8-9616-d62a0fe4393c}">
+                        <labels>
+                          <label description="Verified Place of Origin" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_placeoforiginid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_placeoforiginid" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="false" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{52e7aef7-f4ca-4585-b941-eb1b921593db}" showlabel="true" visible="true" labelid="{857dbc65-adf4-4a91-a0a6-cefcdca2bbe1}">
                         <labels>
                           <label description="Region / Area Allocated to" languagecode="1033" />
@@ -65,14 +73,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}" name="StageStep17" locklevel="0" expanded="true" visible="false" labelid="{782dce25-dacf-4def-b57e-b32cad9ca5ba}">
+        <tab verticallayout="true" id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}" name="StageStep19" locklevel="0" expanded="true" visible="false" labelid="{782dce25-dacf-4def-b57e-b32cad9ca5ba}">
           <labels>
             <label description="Risk Assessment" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}" name="StageStep17_section1" labelid="{3b6e016f-891c-420c-861f-81b5ce63ab35}">
+                <section showbar="false" columns="1" id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}" name="StageStep19_section1" labelid="{165378fc-4e9e-464c-839a-4938ca6ce458}">
                   <labels>
                     <label description="Risk Assessment" languagecode="1033" />
                   </labels>
@@ -155,16 +163,16 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep38" locklevel="0" expanded="true" visible="false" labelid="{41f0f2d9-6132-4c4d-bbf8-c5e86f93f37d}">
+        <tab verticallayout="true" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep40" locklevel="0" expanded="true" visible="false" labelid="{41f0f2d9-6132-4c4d-bbf8-c5e86f93f37d}">
           <labels>
             <label description="Completion" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep38_section1" labelid="{cd8ba2c0-7e7f-4e78-8821-521233e5ccc2}">
+                <section showbar="false" columns="1" id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}" name="StageStep40_section1" labelid="{86811ab9-a0dc-4000-a401-434638052bae}">
                   <labels>
-                    <label description="" languagecode="1033" />
+                    <label description="Completion" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -197,14 +205,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep47" locklevel="0" expanded="true" visible="false" labelid="{30308977-3baa-4218-8101-78ca5d1b8b94}">
+        <tab verticallayout="true" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep49" locklevel="0" expanded="true" visible="false" labelid="{30308977-3baa-4218-8101-78ca5d1b8b94}">
           <labels>
             <label description="Post Import Check" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep47_section1" labelid="{802050a0-0ae1-44cd-b029-01dcc379f998}">
+                <section showbar="false" columns="1" id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}" name="StageStep49_section1" labelid="{d49ca1cb-da75-4fef-9faf-425f73b3e1d5}">
                   <labels>
                     <label description="Post Import Check" languagecode="1033" />
                   </labels>
@@ -223,14 +231,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep52" locklevel="0" expanded="true" visible="false" labelid="{a686457d-dcfd-465f-82b1-08e22b7bf1e5}">
+        <tab verticallayout="true" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep54" locklevel="0" expanded="true" visible="false" labelid="{a686457d-dcfd-465f-82b1-08e22b7bf1e5}">
           <labels>
             <label description="Completion" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep52_section1" labelid="{aa342990-5c8d-4d03-a69e-6c956f7bb542}">
+                <section showbar="false" columns="1" id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}" name="StageStep54_section1" labelid="{b0f71605-7d4c-4cbe-89cc-7467110209b5}">
                   <labels>
                     <label description="Completion" languagecode="1033" />
                   </labels>
