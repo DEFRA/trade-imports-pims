@@ -35,6 +35,11 @@
       <FriendlyName>Inspection Place of Origin Change for Import Application</FriendlyName>
       <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.MapFieldsFromItahcToImportRecord, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="f88396dc-ef5b-ea11-a811-000d3ab5d037" Name="MapFieldsFromItahcToImportRecord">
+      <Description>Maps fields from one record to another using a xml mapping web resource</Description>
+      <FriendlyName>Maps fields from one record to another using a mapping web resource</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.IncrementAutonumber, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="38257f11-f2e8-e911-a857-000d3ab0d388" Name="IncrementAutonumber">
       <Description>Increments the auto number counter for a specific record</Description>
       <FriendlyName>Increment the specified autonumber attribute</FriendlyName>
