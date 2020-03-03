@@ -162,6 +162,8 @@
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\P3DetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\UnkownDetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\Factories\DetermineInspectionFactoryTests.cs" />
+    <Compile Include="BusinessLogic\Utils\FieldMappingConfigParserTests.cs" />
+    <Compile Include="BusinessLogic\Utils\GenericEntityMapperTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Plugins\ImportApplication\PrimaryITAHCCounterManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

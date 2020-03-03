@@ -40,8 +40,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)RepositoryFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\FetchService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\FetchTemplateParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\FieldMappingConfigParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\GenericEntityMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\IFetchService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\IFetchTemplateParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\IGenericEntityMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\IFieldMappingConfigParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\MapFieldsFromOneRecordToAnotherBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivity.cs" />
   </ItemGroup>
 </Project>

@@ -107,6 +107,16 @@ namespace Defra.Imports.Tests.Integration.LogicApps
 
         }
 
+
+        [Fact(Skip = "This is skipped as we don't want to flood our system with records")]
+        [ExcludeFromCodeCoverage]
+        public void SendToSBQueue_ListOfDocoms_ListOfDocomsAreCreated()
+        {
+            List<string> docomXmlList = GetDocomListXml();
+
+            docomXmlList.ForEach(item => this.SendServiceBusMessage(item));
+        }
+
         private void ClearDownCertificateTest(string certificateType, DataCollection<Entity> certificates)
         {
             if (certificates.Count > 0)
@@ -146,12 +156,45 @@ namespace Defra.Imports.Tests.Integration.LogicApps
         {
             XmlDocument doc = new XmlDocument();
             doc.Load($"{Directory.GetCurrentDirectory()}\\TestData\\ITAHC_LIST.xml");
-            XmlNodeList certNodes = doc.GetElementsByTagName("IntraTrade");
+            XmlNodeList certNodes = doc.GetElementsByTagName("ns2:intraTrade");
 
             List<string> outputCertList = new List<string>();
             using(StringWriter stringWriter = new StringWriter())
             {
                 using(XmlTextWriter xmlWriter = new XmlTextWriter(stringWriter))
+                {
+                    xmlWriter.Formatting = Formatting.Indented;
+                    xmlWriter.Indentation = 2;
+                    foreach (XmlNode node in certNodes)
+                    {
+                        // Clear the string writer
+                        StringBuilder sb = stringWriter.GetStringBuilder();
+                        sb.Remove(0, sb.Length);
+
+                        // Write node and add to list
+                        node.WriteTo(xmlWriter);
+                        outputCertList.Add(stringWriter.ToString());
+                    }
+                }
+            }
+            return outputCertList;
+        }
+
+        private List<string> GetDocomListXml()
+        {
+            return GetCertificateXmlList("DOCOM_LIST.xml", "ns2:doCom");
+        }
+
+        private List<string> GetCertificateXmlList(string xmlDocumentName, string certificateTagName)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load($"{Directory.GetCurrentDirectory()}\\TestData\\{xmlDocumentName}");
+            XmlNodeList certNodes = doc.GetElementsByTagName(certificateTagName);
+
+            List<string> outputCertList = new List<string>();
+            using (StringWriter stringWriter = new StringWriter())
+            {
+                using (XmlTextWriter xmlWriter = new XmlTextWriter(stringWriter))
                 {
                     xmlWriter.Formatting = Formatting.Indented;
                     xmlWriter.Indentation = 2;

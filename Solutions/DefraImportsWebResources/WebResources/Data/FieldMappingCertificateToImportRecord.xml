@@ -1,0 +1,4 @@
+<FieldMappings>
+  <FieldMapping mapfrom="defraimp_consignorname" mapto="defraimp_importerorganisation" />
+  <FieldMapping mapfrom="defraimp_consignoraddressstreet" mapto="defraimp_importeraddress1" />
+</FieldMappings>
