@@ -1,0 +1,24 @@
+<FieldMappings>
+  <FieldMapping mapfrom="defraimp_consignorname" mapto="defraimp_importerorganisation" />
+  <FieldMapping mapfrom="defraimp_consignoraddressstreet" mapto="defraimp_importeraddress1" />
+  <FieldMapping mapfrom="defraimp_consignoraddresspostcode" mapto="defraimp_importeraddresspostcode" />
+  <FieldMapping mapfrom="defraimp_consignoraddresscity" mapto="defraimp_importeraddresscity" />
+  <FieldMapping mapfrom="defraimp_consignoraddresscountryid" mapto="defraimp_importeraddresscountryid" />
+  <FieldMapping mapfrom="defraimp_placeoforiginharvestname" mapto="defraimp_placeoforiginorganisation" />
+  <FieldMapping mapfrom="defraimp_placeoforiginharvestaddressstreet" mapto="defraimp_placeoforiginaddressline1" />
+  <FieldMapping mapfrom="defraimp_placeoforiginharvestaddresspostcode" mapto="defraimp_placeoforiginaddresspostcode" />
+  <FieldMapping mapfrom="defraimp_placeoforiginharvestaddresscity" mapto="defraimp_placeoforiginaddresscity" />
+  <FieldMapping mapfrom="defraimp_placeoforiginharvestaddresscountryid" mapto="defraimp_placeoforigincountryid" />
+  <FieldMapping mapfrom="defraimp_placeofdestinationname" mapto="defraimp_placeofdestinationorganisation" />
+  <FieldMapping mapfrom="defraimp_placeofdestinationaddressstreet" mapto="defraimp_placeofdestinationaddressline1" />
+  <FieldMapping mapfrom="defraimp_placeofdestinationaddresspostcode" mapto="defraimp_placeofdestinationaddresspostcode" />
+  <FieldMapping mapfrom="defraimp_placeofdestinationaddresscity" mapto="defraimp_placeofdestinationaddresscity" />
+  <FieldMapping mapfrom="defraimp_placeofdestinationaddresscountryid" mapto="defraimp_destinationaddresscountryid" />
+  <FieldMapping mapfrom="defraimp_transportername" mapto="defraimp_transportername" />
+  <FieldMapping mapfrom="defraimp_transporteraddressstreet" mapto="defraimp_transporteraddressline1" />
+  <FieldMapping mapfrom="defraimp_transporteraddresspostcode" mapto="defraimp_transporteraddresspostcode" />
+  <FieldMapping mapfrom="defraimp_transporteraddresscity" mapto="defraimp_transporteraddresscity" />
+  <FieldMapping mapfrom="defraimp_transporteraddresscountryid" mapto="defraimp_transporteraddresscountryid" />
+  <FieldMapping mapfrom="defraimp_countryoforiginid" mapto="defraimp_countryoforiginid" />
+  <FieldMapping mapfrom="defraimp_commoditytype" mapto="defraimp_commoditytypeid" />
+</FieldMappings>
