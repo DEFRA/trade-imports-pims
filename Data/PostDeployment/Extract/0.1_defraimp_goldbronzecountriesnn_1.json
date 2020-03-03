@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 3,
+  "RecordsCount": 5,
   "ExportedEntities": [
     {
       "LogicalName": "defraimp_goldbronzecountriesnn",
@@ -37,17 +37,51 @@
     },
     {
       "LogicalName": "defraimp_goldbronzecountriesnn",
-      "Id": "c403b4f7-79f5-e911-a813-000d3ab4df6c",
+      "Id": "8488f841-1241-ea11-a812-000d3ab5d037",
       "IsManyToMany": true,
       "Attributes": [
         {
           "AttributeName": "defraimp_goldbronzecommodityid",
-          "AttributeValue": "1477b550-b6e6-e911-a866-000d3ab0dc71",
+          "AttributeValue": "ad98637e-47eb-e911-a812-000d3ab5d037",
           "AttributeType": "System.Guid"
         },
         {
           "AttributeName": "defra_countryid",
-          "AttributeValue": "be9bb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeValue": "589bb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_goldbronzecountriesnn",
+      "Id": "8688f841-1241-ea11-a812-000d3ab5d037",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_goldbronzecommodityid",
+          "AttributeValue": "ad98637e-47eb-e911-a812-000d3ab5d037",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "9c9cb7ed-b2d3-e911-a861-000d3ab1dad7",
+          "AttributeType": "System.Guid"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_goldbronzecountriesnn",
+      "Id": "8888f841-1241-ea11-a812-000d3ab5d037",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_goldbronzecommodityid",
+          "AttributeValue": "ad98637e-47eb-e911-a812-000d3ab5d037",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "defra_countryid",
+          "AttributeValue": "8a9bb7ed-b2d3-e911-a861-000d3ab1dad7",
           "AttributeType": "System.Guid"
         }
       ]

@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 5,
+  "RecordsCount": 3,
   "ExportedEntities": [
     {
       "LogicalName": "defraimp_inspectioncoveragerule",
@@ -39,50 +39,6 @@
             "Id": "a4c3149e-b2d3-e911-a84e-000d3ab0d281",
             "LogicalName": "defraimp_importrisklevel",
             "Name": "P2",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        }
-      ]
-    },
-    {
-      "LogicalName": "defraimp_inspectioncoveragerule",
-      "Id": "e3acb448-3205-ea11-a811-000d3ab4de89",
-      "IsManyToMany": false,
-      "Attributes": [
-        {
-          "AttributeName": "defraimp_name",
-          "AttributeValue": "Test Rule 1",
-          "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_risklevelid",
-          "AttributeValue": {
-            "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
-            "LogicalName": "defraimp_importrisklevel",
-            "Name": "P1",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        }
-      ]
-    },
-    {
-      "LogicalName": "defraimp_inspectioncoveragerule",
-      "Id": "4af26fc0-3205-ea11-a811-000d3ab4de89",
-      "IsManyToMany": false,
-      "Attributes": [
-        {
-          "AttributeName": "defraimp_name",
-          "AttributeValue": "Test Rule 2",
-          "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_risklevelid",
-          "AttributeValue": {
-            "Id": "48c4149e-b2d3-e911-a84e-000d3ab0d281",
-            "LogicalName": "defraimp_importrisklevel",
-            "Name": "P3",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
