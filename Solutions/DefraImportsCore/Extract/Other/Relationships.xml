@@ -46,6 +46,7 @@
   <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_PlaceOfOriginHarvestAddressCountryId" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_TransporterAddressCountryId" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_placeoforigin_AddressCountry" />
+  <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_docom_CommodityType" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_importapp" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" />
