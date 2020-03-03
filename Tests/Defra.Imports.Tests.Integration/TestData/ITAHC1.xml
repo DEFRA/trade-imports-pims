@@ -1,4 +1,4 @@
-﻿<IntraTrade>
+﻿<ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
   <LastChangeDate>2019-08-30 16:27</LastChangeDate>
   <Consignment>
     <Id>13058454</Id>
@@ -177,4 +177,4 @@
       <SignatureDate>2019-06-18 09:45</SignatureDate>
     </PlaceAndDateOfDeclaration>
   </Consignment>
-</IntraTrade>
+</ns2:intraTrade>

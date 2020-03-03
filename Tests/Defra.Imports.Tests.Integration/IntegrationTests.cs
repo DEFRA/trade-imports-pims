@@ -52,6 +52,7 @@ namespace Defra.Imports.Tests.Integration
         {
             MemoryStream messageStream = new MemoryStream(Encoding.UTF8.GetBytes(message));
             BrokeredMessage messageToSend = new BrokeredMessage(messageStream);
+            messageToSend.SessionId = Guid.NewGuid().ToString();
             _serviceBusQueueClient.Send(messageToSend);
         }
     }

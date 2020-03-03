@@ -30,5 +30,11 @@ namespace Defra.Imports.BusinessLogic
         {
             return new CrmRepository<TContext, TEntity>(this.OrganizationService);
         }
+
+        /// <inheritdoc/>
+        public ICrmRepository GetRepository(string entityLogicalName)
+        {
+            return new CrmRepository(this.OrganizationService, entityLogicalName);
+        }
     }
 }

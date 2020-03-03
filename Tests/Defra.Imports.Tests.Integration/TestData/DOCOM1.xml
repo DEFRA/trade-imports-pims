@@ -1,4 +1,4 @@
-﻿<DoCom>
+﻿<ns2:doCom xmlns="traceswsns" xmlns:ns2="doCom">
   <LastChangeDate>2019-08-30 16:09</LastChangeDate>
   <Consignment>
     <Id>9921182</Id>
@@ -192,4 +192,4 @@
     </DoComSignatory>
     <DoComDecisionParameters/>
   </Decision>
-</DoCom>
+</ns2:doCom>

@@ -1,5 +1,5 @@
 ﻿<Certificates>
-  <IntraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13034518</Id>
@@ -160,8 +160,8 @@
         <SignatureDate>2019-06-11 11:41</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13064667</Id>
@@ -400,8 +400,8 @@
         <SignatureDate>2019-06-19 13:56</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:10</LastChangeDate>
     <Consignment>
       <Id>10183811</Id>
@@ -562,8 +562,8 @@
         <SignatureDate>2019-06-17 03:29</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13009530</Id>
@@ -951,8 +951,8 @@
         <SignatureDate>2019-06-04 01:07</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13058454</Id>
@@ -1131,8 +1131,8 @@
         <SignatureDate>2019-06-18 09:45</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13055779</Id>
@@ -1781,8 +1781,8 @@
         <SignatureDate>2019-06-18 12:14</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13059560</Id>
@@ -1955,8 +1955,8 @@
         <SignatureDate>2019-06-20 13:15</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13061435</Id>
@@ -2382,8 +2382,8 @@
         <SignatureDate>2019-06-18 17:29</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:26</LastChangeDate>
     <Consignment>
       <Id>13061439</Id>
@@ -2739,8 +2739,8 @@
         <SignatureDate>2019-06-20 13:23</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13004395</Id>
@@ -2915,8 +2915,8 @@
         <SignatureDate>2019-06-02 09:34</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13049842</Id>
@@ -3095,8 +3095,8 @@
         <SignatureDate>2019-06-14 11:52</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13049854</Id>
@@ -3330,8 +3330,8 @@
         <SignatureDate>2019-06-14 11:55</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13049858</Id>
@@ -3565,8 +3565,8 @@
         <SignatureDate>2019-06-14 11:56</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13049901</Id>
@@ -4070,8 +4070,8 @@
         <SignatureDate>2019-06-14 11:58</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13060894</Id>
@@ -4337,8 +4337,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>2019/26/148</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13060896</Id>
@@ -4544,8 +4544,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>2019/26/149</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13060952</Id>
@@ -4781,8 +4781,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>2019/26/150</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13060956</Id>
@@ -4989,8 +4989,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>2019/26/151</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13060982</Id>
@@ -5167,8 +5167,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>2019/26/146</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13060988</Id>
@@ -5344,8 +5344,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>2019/26/147</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13069076</Id>
@@ -5514,8 +5514,8 @@
         <SignatureDate>2019-06-21 16:36</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:26</LastChangeDate>
     <Consignment>
       <Id>12999065</Id>
@@ -5665,8 +5665,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>B/E108/B/009/31/05/19</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:26</LastChangeDate>
     <Consignment>
       <Id>12999057</Id>
@@ -5815,8 +5815,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>R1570653</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13002349</Id>
@@ -5942,8 +5942,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>274348</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13023565</Id>
@@ -6093,8 +6093,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>R1231611</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13023847</Id>
@@ -6245,8 +6245,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>B/E108/B/007/07/06/19</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13024484</Id>
@@ -6396,8 +6396,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>r1231611</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13027492</Id>
@@ -6522,8 +6522,8 @@
         <SignatureDate>2019-06-07 12:17</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13041560</Id>
@@ -6673,8 +6673,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>E282</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13048772</Id>
@@ -6824,8 +6824,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>B/E108/B/002/14/06/19</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13050107</Id>
@@ -6951,8 +6951,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>274350</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13056707</Id>
@@ -7102,8 +7102,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>B1261903</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13067050</Id>
@@ -7240,8 +7240,8 @@
         <SignatureDate>2019-06-20 09:27</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:26</LastChangeDate>
     <Consignment>
       <Id>12994213</Id>
@@ -7380,8 +7380,8 @@
         <SignatureDate>2019-05-29 10:33</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13008445</Id>
@@ -7546,8 +7546,8 @@
         <SignatureDate>2019-06-03 14:45</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13008500</Id>
@@ -7712,8 +7712,8 @@
         <SignatureDate>2019-06-03 14:48</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13042103</Id>
@@ -7866,8 +7866,8 @@
         <SignatureDate>2019-06-12 21:09</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13062154</Id>
@@ -8032,8 +8032,8 @@
         <SignatureDate>2019-06-19 08:11</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13062156</Id>
@@ -8198,8 +8198,8 @@
         <SignatureDate>2019-06-19 08:14</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13064167</Id>
@@ -8451,8 +8451,8 @@
         <SignatureDate>2019-06-21 14:47</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13064694</Id>
@@ -8598,8 +8598,8 @@
         <SignatureDate>2019-06-19 14:04</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13069119</Id>
@@ -8754,8 +8754,8 @@
         <SignatureDate>2019-06-20 14:45</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13069160</Id>
@@ -8910,8 +8910,8 @@
         <SignatureDate>2019-06-20 14:46</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13069162</Id>
@@ -9066,8 +9066,8 @@
         <SignatureDate>2019-06-20 14:48</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13069168</Id>
@@ -9222,8 +9222,8 @@
         <SignatureDate>2019-06-20 14:50</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13069169</Id>
@@ -9378,8 +9378,8 @@
         <SignatureDate>2019-06-20 14:51</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13009003</Id>
@@ -9594,8 +9594,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>NO-000619</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13009043</Id>
@@ -9810,8 +9810,8 @@
       </PlaceAndDateOfDeclaration>
       <CustomsNumber>NO-000619</CustomsNumber>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13002229</Id>
@@ -10079,8 +10079,8 @@
         <SignatureDate>2019-05-31 12:36</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
-  <IntraTrade>
+  </ns2:intraTrade>
+  <ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
     <LastChangeDate>2019-08-30 16:27</LastChangeDate>
     <Consignment>
       <Id>13002362</Id>
@@ -10201,5 +10201,5 @@
         <SignatureDate>2019-05-31 12:54</SignatureDate>
       </PlaceAndDateOfDeclaration>
     </Consignment>
-  </IntraTrade>
+  </ns2:intraTrade>
 </Certificates>

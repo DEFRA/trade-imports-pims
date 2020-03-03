@@ -23,5 +23,12 @@ namespace Defra.Imports.BusinessLogic
         ICrmRepository<TEntity> GetRepository<TContext, TEntity>()
             where TEntity : Entity, new()
             where TContext : OrganizationServiceContext;
+
+        /// <summary>
+        /// Gets a repository for the entity passed in.
+        /// </summary>
+        /// <param name="entityLogicalName">The logical name of the entity to get a repository for.</param>
+        /// <returns>A repository for the given entity.</returns>
+        ICrmRepository GetRepository(string entityLogicalName);
     }
 }
