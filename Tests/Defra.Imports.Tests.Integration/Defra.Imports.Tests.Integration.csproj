@@ -143,8 +143,10 @@
     <Compile Include="Dynamics\ImportApplication\P2RiskCounterIntegrationTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IntegrationTests.cs" />
-    <Compile Include="LogicApps\CertificatesLogicAppIntegrationTests.cs" />
+    <Compile Include="LogicApps\CertificatesLogicAppIntegrationTestsBase.cs" />
+    <Compile Include="LogicApps\DocomCertificatesLogicAppIntegrationTests.cs" />
     <Compile Include="LogicApps\Helpers\XmlHelper.cs" />
+    <Compile Include="LogicApps\ItahcCertificatesLogicAppIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
