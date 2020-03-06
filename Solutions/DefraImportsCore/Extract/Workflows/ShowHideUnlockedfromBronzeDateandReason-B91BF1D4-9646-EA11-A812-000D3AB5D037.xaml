@@ -136,6 +136,38 @@
                       <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
                       <mcwc:SetFieldRequiredLevel ControlId="defraimp_reasonunlockedfrombronze" ControlType="standard" DisplayName="SetFieldRequiredLevelStep6" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_placeoforigin" RequiredLevel="None" />
                     </Sequence>
+                    <Sequence DisplayName="SetAttributeValueStep_SetFieldRequiredLevelStep6_8: Clear Unlocked Date">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep_SetFieldRequiredLevelStep6_8_1" />
+                      </Sequence.Variables>
+                      <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;defraimp_placeoforigin&quot;)]" />
+                      <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
+                      <mxswa:SetEntityProperty Attribute="defraimp_dateunlockedfrombronze" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_placeoforigin" Value="[SetAttributeValueStep_SetFieldRequiredLevelStep6_8_1]">
+                        <mxswa:SetEntityProperty.TargetType>
+                          <InArgument x:TypeArguments="s:Type">
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
+                          </InArgument>
+                        </mxswa:SetEntityProperty.TargetType>
+                      </mxswa:SetEntityProperty>
+                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep_SetFieldRequiredLevelStep6_8" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_placeoforigin" />
+                      <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;primaryEntity&quot;)]" Value="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" />
+                    </Sequence>
+                    <Sequence DisplayName="SetAttributeValueStep8: Clear Reason Unlocked from Bronze">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep8_1" />
+                      </Sequence.Variables>
+                      <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;defraimp_placeoforigin&quot;)]" />
+                      <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
+                      <mxswa:SetEntityProperty Attribute="defraimp_reasonunlockedfrombronze" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_placeoforigin" Value="[SetAttributeValueStep8_1]">
+                        <mxswa:SetEntityProperty.TargetType>
+                          <InArgument x:TypeArguments="s:Type">
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                          </InArgument>
+                        </mxswa:SetEntityProperty.TargetType>
+                      </mxswa:SetEntityProperty>
+                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep8" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_placeoforigin" />
+                      <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;primaryEntity&quot;)]" Value="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" />
+                    </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
               </mxswa:ActivityReference>

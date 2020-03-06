@@ -5,7 +5,7 @@
     <IntroducedVersion>0.0.0.1</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab id="{3c395eba-c343-45a3-a58b-ea5860aa2036}" name="{3c395eba-c343-45a3-a58b-ea5860aa2036}" verticallayout="true" IsUserDefined="1" locklevel="0" expanded="true" showlabel="true">
           <labels>
@@ -253,6 +253,14 @@
                         <control id="defraimp_consignortracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_consignortracesid" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{d43bfe60-5c54-4f75-a038-1f1cc2402500}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignor Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignortype" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignortype" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -333,6 +341,14 @@
                           <label description="Consignee TracesId" languagecode="1033" />
                         </labels>
                         <control id="defraimp_consigneetracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_consigneetracesid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4345e0a3-787d-4ac3-93db-f13493455cd9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignee Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consigneetype" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consigneetype" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -426,6 +442,14 @@
                         <control id="defraimp_placeoforiginharvesttracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_placeoforiginharvesttracesid" disabled="false" uniqueid="{86668889-6633-3dca-85da-ac05da26a2b9}" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{779a3d2a-69a9-4982-8305-70587d09645e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Harvest Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvesttype" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvesttype" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -515,6 +539,14 @@
                           <label description="Place of Destination Traces ID" languagecode="1033" />
                         </labels>
                         <control id="defraimp_placeofdestinationtracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_placeofdestinationtracesid" disabled="false" uniqueid="{e8e06a10-44a8-e836-e773-ca64cbeed280}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{189e69af-a8b3-45d5-837a-f03ae76189ee}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Destination Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationtype" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationtype" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -608,6 +640,14 @@
                         <control id="defraimp_placeofloadingtracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_placeofloadingtracesid" disabled="false" uniqueid="{271342c6-6e96-5d2e-7362-3653ec877708}" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{ccc0a69f-d19b-4796-b691-18b389b8b95d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Loading Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofloadingtype" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeofloadingtype" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -688,6 +728,14 @@
                           <label description="Transporter Traces ID" languagecode="1033" />
                         </labels>
                         <control id="defraimp_transportertracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_transportertracesid" disabled="false" uniqueid="{ce5e3e4d-15e8-5e20-0059-58c896a0121a}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3fdbbb1f-480c-4cae-86aa-3dcbe1bca727}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transportertype" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_transportertype" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -935,6 +983,12 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
+            <cell id="{3c4e3b4e-0ea3-46da-8c2c-557370ceaeb8}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Certificate Status" languagecode="1033" />
+              </labels>
+              <control id="header_defraimp_certificatestatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_certificatestatus" disabled="false" />
+            </cell>
             <cell id="{012069d4-0545-ee8b-70ca-bc6bddb22261}" locklevel="0" showlabel="true">
               <labels>
                 <label description="Created On" languagecode="1033" />
@@ -951,7 +1005,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -1006,6 +1060,28 @@
           </customControl>
         </controlDescription>
       </controlDescriptions>
+      <footer id="{08813b37-1aa1-4e28-99da-92f5b2d9a13f}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{91bf0b80-8477-4d5d-b6f8-f14ae626eedd}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0a4785f5-2cb0-484c-9b46-925619a73fb0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{67a4f688-6bfa-41bc-a079-1652e74bd1cc}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="defraimp_certificatestatus" localizedName="Certificate Status" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>0.0.0.39</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Certificate Status" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="714100000">
+      <labels>
+        <label description="new" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100001">
+      <labels>
+        <label description="rejected" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100002">
+      <labels>
+        <label description="pre-validated" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100003">
+      <labels>
+        <label description="valid" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100004">
+      <labels>
+        <label description="cancelled" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100005">
+      <labels>
+        <label description="replaced" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100006">
+      <labels>
+        <label description="animo" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100007">
+      <labels>
+        <label description="inprogress" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100008">
+      <labels>
+        <label description="recalled" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>
