@@ -23,7 +23,7 @@
        "Create Step",
        0,
        IsolationModeEnum.Sandbox,
-       Image1Attributes = "defraimp_importapplicationtype,defraimp_primaryitahcid",
+       Image1Attributes = "defraimp_importapplicationtype,defraimp_primaryitahcid,defraimp_risklevelid",
        Image1Name = "PostImage",
        Image1Type = ImageTypeEnum.PostImage)]
 
@@ -36,10 +36,10 @@
        "Update Step",
        0,
        IsolationModeEnum.Sandbox,
-       Image1Attributes = "defraimp_importapplicationtype,defraimp_primaryitahcid",
+       Image1Attributes = "defraimp_importapplicationtype,defraimp_primaryitahcid,defraimp_risklevelid",
        Image1Name = "PreImage",
        Image1Type = ImageTypeEnum.PreImage,
-       Image2Attributes = "defraimp_importapplicationtype,defraimp_primaryitahcid",
+       Image2Attributes = "defraimp_importapplicationtype,defraimp_primaryitahcid,defraimp_risklevelid",
        Image2Name = "PostImage",
        Image2Type = ImageTypeEnum.PostImage)]
 
@@ -52,7 +52,7 @@
        "Delete Step",
        0,
        IsolationModeEnum.Sandbox,
-       Image1Attributes = "defraimp_importapplicationtype,defraimp_primaryitahcid",
+       Image1Attributes = "defraimp_importapplicationtype,defraimp_primaryitahcid,defraimp_risklevelid",
        Image1Name = "PreImage",
        Image1Type = ImageTypeEnum.PreImage)]
 
