@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{91d8cc91-e9b7-8c96-4904-0be4e4a90d66}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Import Record Type" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_importapplicationtype" datafieldname="defraimp_importapplicationtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" />
                       </cell>
@@ -30,7 +30,7 @@
                     <row>
                       <cell id="{ee2a71c6-93c7-a224-7b76-123bb0802a76}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Devolved Office" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_devolvedofficeid" datafieldname="defraimp_devolvedofficeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{4abe5670-91e5-0684-186c-286a5cb4ea2e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Primary ITAHC" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_primaryitahcid" datafieldname="defraimp_primaryitahcid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
@@ -46,7 +46,7 @@
                     <row>
                       <cell id="{19393a90-412b-aa0d-0665-8eebc4d348d4}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Commodity Type" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_commoditytypeid" datafieldname="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
@@ -54,7 +54,7 @@
                     <row>
                       <cell id="{58666ed7-8187-553a-02cc-09ec9b499d18}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Country of Origin" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_countryoforiginid" datafieldname="defraimp_countryoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
@@ -62,7 +62,7 @@
                     <row>
                       <cell id="{86e60442-c23d-e2b2-5252-18a59c59b855}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Region / Area Allocated to" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_regionareaallocatedtoid" datafieldname="defraimp_regionareaallocatedtoid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
@@ -70,7 +70,7 @@
                     <row>
                       <cell id="{d10488a6-de90-e61a-ba09-01b1837c1c90}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Owner" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="ownerid" datafieldname="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>

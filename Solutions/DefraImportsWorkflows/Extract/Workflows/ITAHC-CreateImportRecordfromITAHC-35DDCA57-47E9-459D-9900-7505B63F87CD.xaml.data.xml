@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{35ddca57-47e9-459d-9900-7505b63f87cd}" Name="ITAHC - Create Import Record from ITAHC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/ITAHC-CreateImportRecordfromITAHC-35DDCA57-47E9-459D-9900-7505B63F87CD.xaml</XamlFileName>
+<Workflow WorkflowId="{35ddca57-47e9-459d-9900-7505b63f87cd}" Name="ITAHC - Create Import Record From ITAHC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ITAHC-CreateImportRecordFromITAHC-35DDCA57-47E9-459D-9900-7505B63F87CD.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>1</Subprocess>
   <Category>0</Category>
@@ -20,7 +20,7 @@
   <IsCustomizable>1</IsCustomizable>
   <PrimaryEntity>defraimp_itahc</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="ITAHC - Create Import Record from ITAHC" />
+    <LocalizedName languagecode="1033" description="ITAHC - Create Import Record From ITAHC" />
   </LocalizedNames>
   <labels>
     <steplabels id="{61d7b67a-5ba4-4552-a05d-342b648b3e36}">

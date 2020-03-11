@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{ce4aea05-8149-b5de-8579-c7910045891a}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Certificate Reference Number" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_name" datafieldname="defraimp_name" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{e5e5e72b-5dee-b7eb-056c-64b9b679c5bd}" />
                       </cell>
@@ -30,7 +30,7 @@
                     <row>
                       <cell id="{4b9a9290-ec0e-ae4e-ae5e-e4b45c1d784b}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="TRACES Notification Received Date" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_tracesreceiveddate" datafieldname="defraimp_tracesreceiveddate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" />
                       </cell>
@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{3d294379-937a-2c96-ac29-b327e3533557}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="OV Name" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_ovname" datafieldname="defraimp_ovname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
                       </cell>
@@ -46,7 +46,7 @@
                     <row>
                       <cell id="{c6088958-4145-2c87-b458-d56c1d0bab65}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Local Veterinary Unit" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_localveterinaryunit" datafieldname="defraimp_localveterinaryunit" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
                       </cell>
@@ -54,7 +54,7 @@
                     <row>
                       <cell id="{39b799ac-52a4-c5ce-d110-b15b5b018d83}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="LVU No." languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_lvuno" datafieldname="defraimp_lvuno" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
                       </cell>
@@ -62,7 +62,7 @@
                     <row>
                       <cell id="{5ecc2276-aa09-3e0d-5d6a-4380d4a83a1d}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Local Reference" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_healthcertificatenumber" datafieldname="defraimp_healthcertificatenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
                       </cell>
@@ -70,7 +70,7 @@
                     <row>
                       <cell id="{87d749e5-ae3d-3b7a-9c15-b66167c5b461}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Replaced By" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_replacedbyid" datafieldname="defraimp_replacedbyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>
@@ -78,7 +78,7 @@
                     <row>
                       <cell id="{603cbd85-e427-543b-6175-24a26636ba5e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Replaces" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_replacesid" datafieldname="defraimp_replacesid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" />
                       </cell>

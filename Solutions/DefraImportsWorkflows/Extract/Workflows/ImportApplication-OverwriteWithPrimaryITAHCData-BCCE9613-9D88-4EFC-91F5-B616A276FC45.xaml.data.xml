@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{bcce9613-9d88-4efc-91f5-b616a276fc45}" Name="Import Application - Fill with ITAHC Data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/ImportApplication-FillwithITAHCData-BCCE9613-9D88-4EFC-91F5-B616A276FC45.xaml</XamlFileName>
+<Workflow WorkflowId="{bcce9613-9d88-4efc-91f5-b616a276fc45}" Name="Import Application - Overwrite With Primary ITAHC Data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ImportApplication-OverwriteWithPrimaryITAHCData-BCCE9613-9D88-4EFC-91F5-B616A276FC45.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>1</Subprocess>
   <Category>0</Category>
@@ -20,7 +20,7 @@
   <IsCustomizable>1</IsCustomizable>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Import Application - Fill with ITAHC Data" />
+    <LocalizedName languagecode="1033" description="Import Application - Overwrite With Primary ITAHC Data" />
   </LocalizedNames>
   <labels>
     <steplabels id="{251d8a64-c881-451a-8563-e7064b69ff05}">
