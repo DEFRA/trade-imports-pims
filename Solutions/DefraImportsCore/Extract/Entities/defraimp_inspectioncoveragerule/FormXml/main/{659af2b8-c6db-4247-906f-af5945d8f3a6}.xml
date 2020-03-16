@@ -36,11 +36,19 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{0cdca71c-b850-d8ed-3a4b-8ead32248494}" showlabel="true" locklevel="0">
+                      <cell id="{cac76ced-c08c-2131-956e-43e93c66a6a2}" showlabel="true" locklevel="1">
+                        <labels>
+                          <label description="Key" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_key" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_key" disabled="false" uniqueid="{95621a1c-9514-921d-8ca3-a2ea8cb5e79b}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0cdca71c-b850-d8ed-3a4b-8ead32248494}" showlabel="true" locklevel="1">
                         <labels>
                           <label description="Risk Level" languagecode="1033" />
                         </labels>
-                        <control disabled="true" id="defraimp_risklevelid" datafieldname="defraimp_risklevelid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{b9885605-a079-c366-3aee-b8c3d69dc20b}">
+                        <control disabled="false" id="defraimp_risklevelid" datafieldname="defraimp_risklevelid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{b9885605-a079-c366-3aee-b8c3d69dc20b}">
                           <parameters>
                             <AutoResolve>true</AutoResolve>
                             <DisableMru>false</DisableMru>
