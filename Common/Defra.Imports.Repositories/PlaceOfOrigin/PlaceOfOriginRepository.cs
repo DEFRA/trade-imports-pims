@@ -117,6 +117,18 @@
             orgSvc.Update(updatedPlaceOfOriginRecord);
         }
 
+        public void DecrementApplicationCounter(Guid placeOfOriginId)
+        {
+            int currentCounterValue = GetApplicationCounterValue(placeOfOriginId);
+            defraimp_placeoforigin updatedPlaceOfOriginRecord = new defraimp_placeoforigin
+            {
+                Id = placeOfOriginId,
+                defraimp_ApplicationCounter = currentCounterValue - 1,
+
+            };
+            orgSvc.Update(updatedPlaceOfOriginRecord);
+        }
+
         public void IncrementQuotaCounter(Guid placeOfOriginId)
         {
             int currentCounterValue = GetQuotaCounterValue(placeOfOriginId);

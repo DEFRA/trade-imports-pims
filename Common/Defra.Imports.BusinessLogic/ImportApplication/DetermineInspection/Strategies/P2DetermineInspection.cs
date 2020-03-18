@@ -26,15 +26,28 @@
             _coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
             _inspectionRequirement = new InspectionRequirement(_importApplication, _importApplicationRepo);
 
-            int quotaCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME);
+            //Does the import application have a primary ITAHC?
+            if (_importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC && _importApplication.defraimp_PrimaryITAHCId != null)
+            {
+                // Has the record not been counted yet?
+                if (_importApplication.defraimp_ImportRecordCounted != true)
+                {
+                    int quotaCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P2_QUOTA_COUNTER_NAME);
 
-            if(quotaCount > 0)
-            {
-                DealWithP2QuotaInspection();
+                    if (quotaCount > 0)
+                    {
+                        DealWithP2QuotaInspection();
+                    }
+                    else
+                    {
+                        DealWithNormalP2Inspection();
+                    }
+                }
             }
-            else
+            else if (_importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
             {
-                DealWithNormalP2Inspection();
+                // Flag the application as missing an ITAHC
+                _inspectionRequirement.PrimaryITAHCMissing();
             }
         }
 
@@ -45,12 +58,14 @@
 
             // Flag the application for inspection
             _inspectionRequirement.P2Inspection();
+
+            SetRecordCounted(_importApplicationRepo, _importApplication, true);
         }
 
         private void DealWithNormalP2Inspection()
         {
             // Get the threashold
-            defraimp_inspectioncoveragerule coverageRule = GetP2CoverageRule();
+            defraimp_inspectioncoveragerule coverageRule = GetCoverageRule(_coverageRulesRepo, ImportApplicationConstants.P2_COVERAGE_RULE_KEY);
 
             // Increment the counter and get the value
             _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P2_COUNTER_NAME);
@@ -67,22 +82,8 @@
             {
                 _inspectionRequirement.NoInspectionRequired();
             }
-        }
 
-        private defraimp_inspectioncoveragerule GetP2CoverageRule()
-        {
-            // Get the threashold
-            defraimp_inspectioncoveragerule coverageRule = _coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
-                rule => rule.defraimp_RiskLevelId.Id.Equals(_importApplication.defraimp_importrisklevelid.Id),
-                e => new defraimp_inspectioncoveragerule()
-                {
-                    defraimp_name = e.defraimp_name,
-                    defraimp_inspectioncoverageruleId = e.defraimp_inspectioncoverageruleId,
-                    defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection
-                }
-            ).FirstOrDefault();
-
-            return coverageRule;
+            SetRecordCounted(_importApplicationRepo, _importApplication, true);
         }
     }
 }

@@ -57,6 +57,13 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Help
             PerformInspectionRequiredUpdate();
         }
 
+        public void PrimaryITAHCMissing()
+        {
+            InspectionRequired = defraimp_importapplication_defraimp_inspectionrequired.Undetermined;
+            InspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.PrimaryITAHCMissing;
+            PerformInspectionRequiredUpdate();
+        }
+
         //Requirements - Standard Requirements
         public void NoInspectionRequired()
         {
@@ -111,7 +118,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Help
         public void NoInspectionGold()
         {
             InspectionRequired = defraimp_importapplication_defraimp_inspectionrequired.No;
-            InspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.GoldPlaceofOriginInspectionCoverage;
+            InspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.NoInspectionRequiredGoldPlaceofOrigin;
             PerformInspectionRequiredUpdate();
         }
     }

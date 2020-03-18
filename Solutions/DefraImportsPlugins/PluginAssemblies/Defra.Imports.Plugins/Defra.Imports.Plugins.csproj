@@ -103,7 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImportApplication\InspectionsSinceLastCheckCounterManager.cs" />
-    <Compile Include="ImportApplication\P3CounterManager.cs" />
+    <Compile Include="ImportApplication\DetermineInspectionRequirement.cs" />
     <Compile Include="ImportApplication\PrimaryITAHCCountManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
