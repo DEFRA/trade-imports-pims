@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="Delete Step" SdkMessageProcessingStepId="{f2f1176e-b958-ea11-a811-000d3ab5d037}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <PluginTypeName>Defra.Imports.Plugins.ImportApplication.P3CounterManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4</PluginTypeName>
-  <PluginTypeId>7ff1176e-b958-ea11-a811-000d3ab5d037</PluginTypeId>
+<SdkMessageProcessingStep Name="Delete Step" SdkMessageProcessingStepId="{1d7e4211-435a-ea11-a811-000d3ab5d037}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PluginTypeName>Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4</PluginTypeName>
+  <PluginTypeId>282a48b5-6e59-ea11-a811-000d3ab5d511</PluginTypeId>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
-  <FilteringAttributes>defraimp_primaryitahcid</FilteringAttributes>
+  <FilteringAttributes>statecode</FilteringAttributes>
   <InvocationSource>1</InvocationSource>
   <Mode>0</Mode>
   <Rank>0</Rank>
@@ -17,8 +17,8 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <SdkMessageProcessingStepImages>
     <SdkMessageProcessingStepImage Name="PreImage">
-      <SdkMessageProcessingStepImageId>{00f2176e-b958-ea11-a811-000d3ab5d037}</SdkMessageProcessingStepImageId>
-      <Attributes>defraimp_importapplicationtype,defraimp_primaryitahcid</Attributes>
+      <SdkMessageProcessingStepImageId>{3ce45410-435a-ea11-a811-000d3ab5d511}</SdkMessageProcessingStepImageId>
+      <Attributes>statecode,statuscode,defraimp_inspectionoutcome</Attributes>
       <EntityAlias>PreImage</EntityAlias>
       <ImageType>0</ImageType>
       <MessagePropertyName>Target</MessagePropertyName>

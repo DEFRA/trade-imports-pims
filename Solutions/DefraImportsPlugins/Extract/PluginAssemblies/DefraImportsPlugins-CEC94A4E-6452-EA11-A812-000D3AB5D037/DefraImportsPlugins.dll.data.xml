@@ -8,11 +8,14 @@
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="282a48b5-6e59-ea11-a811-000d3ab5d511" Name="Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager">
       <FriendlyName>Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager</FriendlyName>
     </PluginType>
-    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.P3CounterManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="7ff1176e-b958-ea11-a811-000d3ab5d037" Name="Defra.Imports.Plugins.ImportApplication.P3CounterManager">
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.P3CounterManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="a0ed794e-3269-ea11-a811-000d3ab55801" Name="Defra.Imports.Plugins.ImportApplication.P3CounterManager">
       <FriendlyName>Defra.Imports.Plugins.ImportApplication.P3CounterManager</FriendlyName>
     </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.PrimaryITAHCCountManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="778783fc-6452-ea11-a812-000d3ab5d037" Name="Defra.Imports.Plugins.ImportApplication.PrimaryITAHCCountManager">
       <FriendlyName>Defra.Imports.Plugins.ImportApplication.PrimaryITAHCCountManager</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="fbec794e-3269-ea11-a811-000d3ab55801" Name="Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy">
+      <FriendlyName>Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy</FriendlyName>
     </PluginType>
   </PluginTypes>
 </PluginAssembly>
