@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="Create Step" SdkMessageProcessingStepId="{2d4e926c-b958-ea11-a811-000d3ab5d511}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SdkMessageProcessingStep Name="Create Step" SdkMessageProcessingStepId="{3049b44e-3269-ea11-a811-000d3ab5d511}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <PluginTypeName>Defra.Imports.Plugins.ImportApplication.P3CounterManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4</PluginTypeName>
-  <PluginTypeId>7ff1176e-b958-ea11-a811-000d3ab5d037</PluginTypeId>
+  <PluginTypeId>a0ed794e-3269-ea11-a811-000d3ab55801</PluginTypeId>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
   <FilteringAttributes>defraimp_primaryitahcid</FilteringAttributes>
@@ -17,7 +17,7 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <SdkMessageProcessingStepImages>
     <SdkMessageProcessingStepImage Name="PostImage">
-      <SdkMessageProcessingStepImageId>{a6f1176e-b958-ea11-a811-000d3ab5d037}</SdkMessageProcessingStepImageId>
+      <SdkMessageProcessingStepImageId>{e4ed794e-3269-ea11-a811-000d3ab55801}</SdkMessageProcessingStepImageId>
       <Attributes>defraimp_importapplicationtype,defraimp_primaryitahcid</Attributes>
       <EntityAlias>PostImage</EntityAlias>
       <ImageType>1</ImageType>

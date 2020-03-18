@@ -105,6 +105,7 @@
     <Compile Include="ImportApplication\InspectionsSinceLastCheckCounterManager.cs" />
     <Compile Include="ImportApplication\P3CounterManager.cs" />
     <Compile Include="ImportApplication\PrimaryITAHCCountManager.cs" />
+    <Compile Include="Itahc\PopulateReplacesAndReplacedBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

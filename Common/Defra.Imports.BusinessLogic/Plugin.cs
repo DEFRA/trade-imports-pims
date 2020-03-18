@@ -61,5 +61,41 @@ namespace Defra.Imports.BusinessLogic
         /// <param name="logWriter">The log writer.</param>
         /// <param name="repositoryFactory">The repository factory.</param>
         protected abstract void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory);
+
+
+        /// <summary>
+        /// Retrieve a post image entity
+        /// </summary>
+        /// <typeparam name="T">The entity type of the post image</typeparam>
+        /// <param name="context">The plugin execution context</param>
+        /// <param name="postImageName">The name of the post image</param>
+        /// <returns>The specified post image if it's found</returns>
+        protected T GetPostImage<T>(IPluginExecutionContext context, string postImageName) where T : Entity
+        {
+            return GetImageEntity<T>(postImageName, context.PostEntityImages);
+        }
+
+        /// <summary>
+        /// Retrieve a pre image entity
+        /// </summary>
+        /// <typeparam name="T">The entity type of the post image</typeparam>
+        /// <param name="context">The plugin execution context</param>
+        /// <param name="preImageName">The name of the pre image</param>
+        /// <returns>The specified pre image if it's found</returns>
+        protected T GetPreImage<T>(IPluginExecutionContext context, string preImageName) where T : Entity
+        {
+            return GetImageEntity<T>(preImageName, context.PreEntityImages);
+        }
+
+        private T GetImageEntity<T>(string imageName, EntityImageCollection entityImages) where T : Entity
+        {
+            T imageEntity = null;
+            if (entityImages.Contains(imageName))
+            {
+                Entity image = (Entity)entityImages[imageName];
+                imageEntity = image.ToEntity<T>();
+            }
+            return imageEntity;
+        }
     }
 }
