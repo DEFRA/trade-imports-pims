@@ -14,7 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\InspectionsSinceLastCheckCounterManagerBusinessLogic.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\P3CounterManagerBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\RiskLevelCounterManagerBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\InspectionPlaceOfOriginChangeBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\DetermineInspectionRequirementBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Helpers\CommodityHelper.cs" />
@@ -49,5 +49,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utils\IFieldMappingConfigParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\MapFieldsFromOneRecordToAnotherBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Strategies\" />
   </ItemGroup>
 </Project>

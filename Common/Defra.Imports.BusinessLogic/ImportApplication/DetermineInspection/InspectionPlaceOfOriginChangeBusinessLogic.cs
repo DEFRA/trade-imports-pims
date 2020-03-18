@@ -57,7 +57,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                     // Is previous place of origin != null?
                     if (previousPlaceOfOrigin != null)
                     {
-                        //If previos Place of Origin Gold?
+                        //If previous Place of Origin Gold?
                         if (previousPlaceOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Gold)
                         {
                             //Were we supposed to inspect the consignment on the import record?

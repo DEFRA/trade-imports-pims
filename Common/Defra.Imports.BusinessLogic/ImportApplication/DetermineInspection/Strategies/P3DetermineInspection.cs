@@ -13,42 +13,78 @@
 
     public class P3DetermineInspection : AbstractDetermineInspection
     {
+        private defraimp_importapplication _importApplication;
+        private IAutonumberRepository _autoNumberRepo;
+        private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
+        private ICrmRepository<defraimp_importapplication> _importApplicationRepo;
+        private InspectionRequirement _inspectionRequirement;
+
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
-            var importApplication = determineInspectionContext.ImportApplication;
-            var importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
-            var autoNumberRepo = determineInspectionContext.AutoNumberRepo;
-            var coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
-            var inspectionRequirement = new InspectionRequirement(importApplication, importApplicationRepo);
+            _importApplication = determineInspectionContext.ImportApplication;
+            _importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
+            _autoNumberRepo = determineInspectionContext.AutoNumberRepo;
+            _coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
+            _inspectionRequirement = new InspectionRequirement(_importApplication, _importApplicationRepo);
 
-            // Counter is incremented for all so has already been increased and doesn't need to be incremented
-
-            // Retrieve the count of the current value
-            int currentCount = autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
-
-            // Retrieve the threshold value
-            defraimp_inspectioncoveragerule coverageRule = coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
-                rule => rule.defraimp_RiskLevelId.Id.Equals(importApplication.defraimp_importrisklevelid.Id),
-                e => new defraimp_inspectioncoveragerule()
+            //Does the import application have a primary ITAHC?
+            if (_importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC && _importApplication.defraimp_PrimaryITAHCId != null)
+            {
+                // Has the record not been counted yet?
+                if (_importApplication.defraimp_ImportRecordCounted != true)
                 {
-                    defraimp_name = e.defraimp_name,
-                    defraimp_inspectioncoverageruleId = e.defraimp_inspectioncoverageruleId,
-                    defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection
-                }
-            ).FirstOrDefault();
+                    int quotaCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_QUOTA_COUNTER_NAME);
 
-            // Check whether the counter has reached the threshold
+                    if (quotaCount > 0)
+                    {
+                        DealWithP3QuotaInspection();
+                    }
+                    else
+                    {
+                        DealWithNormalP3Inspection();
+                    }
+                }
+            }
+            else if (_importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
+            {
+                // Flag the application as missing an ITAHC
+                _inspectionRequirement.PrimaryITAHCMissing();
+            }
+        }
+
+        private void DealWithP3QuotaInspection()
+        {
+            // Decrement the quota counter list
+            _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P3_QUOTA_COUNTER_NAME);
+
+            // Flag the application for inspection
+            _inspectionRequirement.P3Inspection();
+
+            SetRecordCounted(_importApplicationRepo, _importApplication, true);
+        }
+
+        private void DealWithNormalP3Inspection()
+        {
+            // Get the threashold
+            defraimp_inspectioncoveragerule coverageRule = GetCoverageRule(_coverageRulesRepo, ImportApplicationConstants.P3_COVERAGE_RULE_KEY);
+
+            // Increment the counter and get the value
+            _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+
+            int currentCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
             if (currentCount >= coverageRule.defraimp_NumberOfRecordsUntilInspection)
             {
                 // Reset the counter
-                autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME, 0);
+                _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME, 0);
 
-                inspectionRequirement.P3Inspection();
+                _inspectionRequirement.P3Inspection();
             }
             else
             {
-                inspectionRequirement.NoInspectionRequired();
+                _inspectionRequirement.NoInspectionRequired();
             }
+
+            SetRecordCounted(_importApplicationRepo, _importApplication, true);
         }
     }
 }

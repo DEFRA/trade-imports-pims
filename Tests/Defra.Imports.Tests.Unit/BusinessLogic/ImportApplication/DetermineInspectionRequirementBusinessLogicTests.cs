@@ -18,7 +18,8 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
 {
     public class DetermineInspectionRequirementBusinessLogicTests
     {
-        private defraimp_importapplication _importApplication;
+        private defraimp_importapplication _preImportApplication;
+        private defraimp_importapplication _postImportApplication;
         private Mock<ICrmRepository<defraimp_importapplication>> _mockImportApplicationRepo;
         private Mock<ICrmRepository<defraimp_inspectioncoveragerule>> _mockCoverageRulesRepo;
         private Mock<IAutonumberRepository> _mockAutoNumberRepo;
@@ -29,7 +30,8 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
 
         public DetermineInspectionRequirementBusinessLogicTests()
         {
-            _importApplication = new defraimp_importapplication();
+            _preImportApplication = new defraimp_importapplication();
+            _postImportApplication = new defraimp_importapplication();
             _mockImportApplicationRepo = new Mock<ICrmRepository<defraimp_importapplication>>();
             _mockCoverageRulesRepo = new Mock<ICrmRepository<defraimp_inspectioncoveragerule>>();
             _mockAutoNumberRepo = new Mock<IAutonumberRepository>();
@@ -37,7 +39,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
             _mockRepositoryFactory = new Mock<IRepositoryFactory>();
             _logWriter = new Mock<ILogWriter>();
 
-            _determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(_importApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object, _mockPlaceOfOriginRepo.Object, _mockRepositoryFactory.Object, _logWriter.Object); 
+            _determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(_preImportApplication,_postImportApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockAutoNumberRepo.Object, _mockPlaceOfOriginRepo.Object, _mockRepositoryFactory.Object, _logWriter.Object); 
         }
 
         [Fact]
@@ -56,8 +58,8 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
         public void RunLogic_PreviousRiskLevelP2AndCurrentRiskLevelNotP2AndNotFlaggedForInspection_DecrementsTheP2Counter()
         {
             // Arrange
-            _importApplication.defraimp_PreviousImportRiskLevelId = new EntityReference(defraimp_importrisklevel.EntityLogicalName, Guid.NewGuid());
-            _importApplication.defraimp_PreviousImportRiskLevelId.Name = "P2";
+            _postImportApplication.defraimp_PreviousImportRiskLevelId = new EntityReference(defraimp_importrisklevel.EntityLogicalName, Guid.NewGuid());
+            _postImportApplication.defraimp_PreviousImportRiskLevelId.Name = "P2";
 
             // Act
             _determineInspectionRequirementBusinessLogic.RunLogic();
@@ -71,8 +73,8 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
         public void RunLogic_PreviousRiskLevelP2QuotaMoreThanZeroCounterNegativeByMoreThan_ShouldDecreaseTheQuotaAndIncreaseTheCounterByThreshold()
         {
             // Arrange
-            _importApplication.defraimp_PreviousImportRiskLevelId = new EntityReference(defraimp_importrisklevel.EntityLogicalName, Guid.NewGuid());
-            _importApplication.defraimp_PreviousImportRiskLevelId.Name = "P2";
+            _postImportApplication.defraimp_PreviousImportRiskLevelId = new EntityReference(defraimp_importrisklevel.EntityLogicalName, Guid.NewGuid());
+            _postImportApplication.defraimp_PreviousImportRiskLevelId.Name = "P2";
 
             int threshold = 10;
 
@@ -122,9 +124,9 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
         public void RunLogic_PreviousRiskLevelP2AndCurrentRiskLevelNotP2AndFlaggedForInspection_IncrementsTheP2QuotaCounter()
         {
             // Arrange
-            _importApplication.defraimp_PreviousImportRiskLevelId = new EntityReference(defraimp_importrisklevel.EntityLogicalName, Guid.NewGuid());
-            _importApplication.defraimp_PreviousImportRiskLevelId.Name = "P2";
-            _importApplication.defraimp_InspectionRequired = defraimp_importapplication_defraimp_inspectionrequired.Yes;
+            _postImportApplication.defraimp_PreviousImportRiskLevelId = new EntityReference(defraimp_importrisklevel.EntityLogicalName, Guid.NewGuid());
+            _postImportApplication.defraimp_PreviousImportRiskLevelId.Name = "P2";
+            _postImportApplication.defraimp_InspectionRequired = defraimp_importapplication_defraimp_inspectionrequired.Yes;
 
             // Act
             _determineInspectionRequirementBusinessLogic.RunLogic();
