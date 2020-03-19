@@ -29,16 +29,5 @@
 
             return coverageRule;
         }
-
-        public void SetRecordCounted(ICrmRepository<defraimp_importapplication> importApplicationRepo, defraimp_importapplication importApplication, bool counted)
-        {
-            defraimp_importapplication updatedImportApplication = new defraimp_importapplication();
-            updatedImportApplication.Id = importApplication.Id;
-            updatedImportApplication.defraimp_ImportRecordCounted = counted;
-            importApplicationRepo.Update(updatedImportApplication);
-
-            //Update the local copy of the flag
-            importApplication.defraimp_ImportRecordCounted = counted;
-        }
     }
 }

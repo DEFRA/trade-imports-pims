@@ -14,7 +14,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\InspectionsSinceLastCheckCounterManagerBusinessLogic.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\RiskLevelCounterManagerBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\AutonumberRiskLevelCounterManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\IRiskLevelCounterManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\PlaceOfOriginRiskLevelCounterManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\AbstractRiskCounterManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\InspectionPlaceOfOriginChangeBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\DetermineInspectionRequirementBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Helpers\CommodityHelper.cs" />
@@ -51,6 +54,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivity.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Strategies\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\" />
   </ItemGroup>
 </Project>
