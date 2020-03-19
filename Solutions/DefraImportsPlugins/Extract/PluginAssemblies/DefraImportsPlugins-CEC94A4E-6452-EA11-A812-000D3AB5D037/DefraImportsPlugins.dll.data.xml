@@ -5,16 +5,16 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <FileName>/PluginAssemblies/DefraImportsPlugins-CEC94A4E-6452-EA11-A812-000D3AB5D037/DefraImportsPlugins.dll</FileName>
   <PluginTypes>
-    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="282a48b5-6e59-ea11-a811-000d3ab5d511" Name="Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager">
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="38779195-e069-ea11-a811-000d3ab5d511" Name="Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement">
+      <FriendlyName>Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="5d222690-e069-ea11-a811-000d3ab55801" Name="Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager">
       <FriendlyName>Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager</FriendlyName>
     </PluginType>
-    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.P3CounterManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="a0ed794e-3269-ea11-a811-000d3ab55801" Name="Defra.Imports.Plugins.ImportApplication.P3CounterManager">
-      <FriendlyName>Defra.Imports.Plugins.ImportApplication.P3CounterManager</FriendlyName>
-    </PluginType>
-    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.PrimaryITAHCCountManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="778783fc-6452-ea11-a812-000d3ab5d037" Name="Defra.Imports.Plugins.ImportApplication.PrimaryITAHCCountManager">
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.PrimaryITAHCCountManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="d7c22096-e069-ea11-a811-000d3ab55801" Name="Defra.Imports.Plugins.ImportApplication.PrimaryITAHCCountManager">
       <FriendlyName>Defra.Imports.Plugins.ImportApplication.PrimaryITAHCCountManager</FriendlyName>
     </PluginType>
-    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="fbec794e-3269-ea11-a811-000d3ab55801" Name="Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy">
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="e7e6e15c-046a-ea11-a811-000d3ab5d511" Name="Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy">
       <FriendlyName>Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy</FriendlyName>
     </PluginType>
   </PluginTypes>

@@ -12,6 +12,7 @@
         <row name="result" id="defraimp_itahcid">
           <cell name="defraimp_healthcertificatenumber" width="100" />
           <cell name="defraimp_name" width="300" />
+          <cell name="defraimp_certificatestatus" width="100" />
           <cell name="defraimp_tracesreceiveddate" width="100" />
           <cell name="defraimp_ovname" width="100" />
           <cell name="defraimp_localveterinaryunit" width="100" />
@@ -34,6 +35,7 @@
           </filter>
           <filter type="or" isquickfindfields="1">
             <condition attribute="defraimp_healthcertificatenumber" operator="like" value="{0}" />
+            <condition attribute="defraimp_certificatestatus" operator="like" value="{0}" />
             <condition attribute="defraimp_name" operator="like" value="{0}" />
           </filter>
           <attribute name="defraimp_replacesid" />
@@ -43,6 +45,7 @@
           <attribute name="defraimp_healthcertificatenumber" />
           <attribute name="defraimp_tracesreceiveddate" />
           <attribute name="defraimp_lvuno" />
+          <attribute name="defraimp_certificatestatus" />
           <attribute name="defraimp_itahcid" />
         </entity>
       </fetch>

@@ -8,7 +8,7 @@
       "Attributes": [
         {
           "AttributeName": "defraexp_value",
-          "AttributeValue": "50",
+          "AttributeValue": "3",
           "AttributeType": "System.String"
         },
         {

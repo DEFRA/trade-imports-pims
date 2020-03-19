@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="Create Step" SdkMessageProcessingStepId="{b048b44e-3269-ea11-a811-000d3ab5d511}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SdkMessageProcessingStep Name="Update Step" SdkMessageProcessingStepId="{f1e6e15c-046a-ea11-a811-000d3ab5d511}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <PluginTypeName>Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4</PluginTypeName>
-  <PluginTypeId>fbec794e-3269-ea11-a811-000d3ab55801</PluginTypeId>
+  <PluginTypeId>e7e6e15c-046a-ea11-a811-000d3ab5d511</PluginTypeId>
   <PrimaryEntity>defraimp_itahc</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
-  <FilteringAttributes>defraimp_itahcid</FilteringAttributes>
+  <FilteringAttributes>defraimp_replacedreferencenumber,defraimp_replacingreferencenumber</FilteringAttributes>
   <InvocationSource>1</InvocationSource>
   <Mode>0</Mode>
   <Rank>0</Rank>
-  <SdkMessageId>{9ebdbb1b-ea3e-db11-86a7-000a3a5473e8}</SdkMessageId>
+  <SdkMessageId>{20bebb1b-ea3e-db11-86a7-000a3a5473e8}</SdkMessageId>
   <EventHandlerTypeCode>4602</EventHandlerTypeCode>
   <Stage>20</Stage>
   <IsCustomizable>1</IsCustomizable>
