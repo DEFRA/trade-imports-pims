@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{06c60483-b89e-4b8a-8c57-121c81df5f00}" Name="Import Application - Decrement Global Counter (P3)" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/ImportApplication-DecrementGlobalCounterP3-06C60483-B89E-4B8A-8C57-121C81DF5F00.xaml</XamlFileName>
+<Workflow WorkflowId="{06c60483-b89e-4b8a-8c57-121c81df5f00}" Name="[To be deleted] Import Application - Decrement Global Counter (P3)" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/TobedeletedImportApplication-DecrementGlobalCounte-06C60483-B89E-4B8A-8C57-121C81DF5F00.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>0</Category>
@@ -21,6 +21,6 @@
   <IsCustomizable>1</IsCustomizable>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Import Application - Decrement Global Counter (P3)" />
+    <LocalizedName languagecode="1033" description="[To be deleted] Import Application - Decrement Global Counter (P3)" />
   </LocalizedNames>
 </Workflow>

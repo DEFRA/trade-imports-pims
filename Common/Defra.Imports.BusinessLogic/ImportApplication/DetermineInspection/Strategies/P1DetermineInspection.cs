@@ -190,13 +190,6 @@
 
         void BronzeInspection(defraimp_placeoforigin placeOfOrigin)
         {
-            // Increment the gold/bronze application counter
-            //_placeOfOriginRepo.IncrementApplicationCounter(placeOfOrigin.Id);
-            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Bronze Place of Origin");
-
-            // Ensure our local copy also increments the counter
-            placeOfOrigin.defraimp_ApplicationCounter += 1;
-
             // Check if the commodity has been locked to bronze. If so, set that as the inspection reason.
             if (placeOfOrigin.defraimp_LocktoBronze == true)
             {

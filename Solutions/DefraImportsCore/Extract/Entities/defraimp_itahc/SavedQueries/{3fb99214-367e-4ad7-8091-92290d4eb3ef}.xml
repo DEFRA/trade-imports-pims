@@ -12,6 +12,7 @@
         <row name="result" id="defraimp_itahcid">
           <cell name="defraimp_healthcertificatenumber" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_certificatestatus" width="100" />
           <cell name="defraimp_tracesreceiveddate" width="100" />
           <cell name="defraimp_ovname" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_localveterinaryunit" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
@@ -39,6 +40,7 @@
           <order attribute="createdon" descending="true" />
           <attribute name="defraimp_tracesreceiveddate" />
           <attribute name="defraimp_lvuno" />
+          <attribute name="defraimp_certificatestatus" />
           <attribute name="defraimp_itahcid" />
         </entity>
       </fetch>

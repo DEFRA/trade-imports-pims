@@ -4,6 +4,7 @@
   <IsGlobal>1</IsGlobal>
   <IntroducedVersion>0.0.0.39</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
+  <ExternalTypeName></ExternalTypeName>
   <displaynames>
     <displayname description="Certificate Status" languagecode="1033" />
   </displaynames>
@@ -11,50 +12,77 @@
     <Description description="" languagecode="1033" />
   </Descriptions>
   <options>
-    <option value="714100000">
+    <option value="714100000" ExternalValue="" Color="">
       <labels>
-        <label description="new" languagecode="1033" />
+        <label description="New" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
-    <option value="714100001">
+    <option value="714100001" ExternalValue="" Color="">
       <labels>
-        <label description="rejected" languagecode="1033" />
+        <label description="Rejected" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
-    <option value="714100002">
+    <option value="714100002" ExternalValue="" Color="">
       <labels>
-        <label description="pre-validated" languagecode="1033" />
+        <label description="Pre-Validated" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
-    <option value="714100003">
+    <option value="714100003" ExternalValue="" Color="">
       <labels>
-        <label description="valid" languagecode="1033" />
+        <label description="Valid" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
-    <option value="714100004">
+    <option value="714100004" ExternalValue="" Color="">
       <labels>
-        <label description="cancelled" languagecode="1033" />
+        <label description="Cancelled" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
-    <option value="714100005">
+    <option value="714100005" ExternalValue="" Color="">
       <labels>
-        <label description="replaced" languagecode="1033" />
+        <label description="Replaced" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
-    <option value="714100006">
+    <option value="714100006" ExternalValue="" Color="">
       <labels>
-        <label description="animo" languagecode="1033" />
+        <label description="Animo" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
-    <option value="714100007">
+    <option value="714100007" ExternalValue="" Color="">
       <labels>
-        <label description="inprogress" languagecode="1033" />
+        <label description="In Progress" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
-    <option value="714100008">
+    <option value="714100008" ExternalValue="" Color="">
       <labels>
-        <label description="recalled" languagecode="1033" />
+        <label description="Recalled" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
   </options>
 </optionset>

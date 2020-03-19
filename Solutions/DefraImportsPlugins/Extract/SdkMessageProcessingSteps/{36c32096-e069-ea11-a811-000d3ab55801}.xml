@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="Update Step" SdkMessageProcessingStepId="{03e26bf1-0353-ea11-a812-000d3ab5d511}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SdkMessageProcessingStep Name="Delete Step" SdkMessageProcessingStepId="{36c32096-e069-ea11-a811-000d3ab55801}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <PluginTypeName>Defra.Imports.Plugins.ImportApplication.PrimaryITAHCCountManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4</PluginTypeName>
-  <PluginTypeId>778783fc-6452-ea11-a812-000d3ab5d037</PluginTypeId>
+  <PluginTypeId>d7c22096-e069-ea11-a811-000d3ab55801</PluginTypeId>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
   <FilteringAttributes>defraimp_placeoforiginid,defraimp_primaryitahcid</FilteringAttributes>
   <InvocationSource>1</InvocationSource>
   <Mode>0</Mode>
   <Rank>0</Rank>
-  <SdkMessageId>{20bebb1b-ea3e-db11-86a7-000a3a5473e8}</SdkMessageId>
+  <SdkMessageId>{a1bdbb1b-ea3e-db11-86a7-000a3a5473e8}</SdkMessageId>
   <EventHandlerTypeCode>4602</EventHandlerTypeCode>
   <Stage>40</Stage>
   <IsCustomizable>1</IsCustomizable>
@@ -16,16 +16,8 @@
   <SupportedDeployment>0</SupportedDeployment>
   <IntroducedVersion>1.0</IntroducedVersion>
   <SdkMessageProcessingStepImages>
-    <SdkMessageProcessingStepImage Name="PostImage">
-      <SdkMessageProcessingStepImageId>{4323d3e6-2253-ea11-a812-000d3ab5d511}</SdkMessageProcessingStepImageId>
-      <Attributes>defraimp_placeoforiginid,defraimp_primaryitahcid</Attributes>
-      <EntityAlias>PostImage</EntityAlias>
-      <ImageType>1</ImageType>
-      <MessagePropertyName>Target</MessagePropertyName>
-      <IsCustomizable>1</IsCustomizable>
-    </SdkMessageProcessingStepImage>
     <SdkMessageProcessingStepImage Name="PreImage">
-      <SdkMessageProcessingStepImageId>{a4851f16-2253-ea11-a812-000d3ab55801}</SdkMessageProcessingStepImageId>
+      <SdkMessageProcessingStepImageId>{4e789195-e069-ea11-a811-000d3ab5d511}</SdkMessageProcessingStepImageId>
       <Attributes>defraimp_placeoforiginid,defraimp_primaryitahcid</Attributes>
       <EntityAlias>PreImage</EntityAlias>
       <ImageType>0</ImageType>

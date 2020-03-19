@@ -20,27 +20,27 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{68915985-8006-4ac8-8829-0b4edac8e52e}">
+                      <cell id="{68915985-8006-4ac8-8829-0b4edac8e52e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Related Record Name" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" />
+                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" uniqueid="{81c39453-78d7-c003-2e0b-ac2609752b37}" disabled="true" />
                       </cell>
                     </row>
                     <row>
                       <cell id="{d812c65b-bdc2-c102-47da-a040ba4514e7}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Key" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_key" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_key" disabled="false" />
+                        <control id="defraimp_key" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_key" disabled="true" uniqueid="{d1a655ea-3b7b-0702-e018-ac45d5937b89}" />
                       </cell>
                     </row>
                     <row>
                       <cell id="{1881a573-7273-d27b-bdb8-7be4b14209da}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Current Number" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_currentnumber" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_currentnumber" disabled="false" uniqueid="{67a23886-ed76-8404-4db3-d0003d62775e}" />
+                        <control id="defraimp_currentnumber" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_currentnumber" disabled="true" uniqueid="{67a23886-ed76-8404-4db3-d0003d62775e}" />
                       </cell>
                     </row>
                   </rows>

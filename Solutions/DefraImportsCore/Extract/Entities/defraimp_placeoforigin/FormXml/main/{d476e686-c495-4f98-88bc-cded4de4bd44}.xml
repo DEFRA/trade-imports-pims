@@ -266,7 +266,7 @@
                     <row>
                       <cell id="{99404522-8a46-25a5-b41b-745d35586ea8}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Applications Since Last Post Import Check" languagecode="1033" />
+                          <label description="Application Counter" languagecode="1033" />
                         </labels>
                         <control id="defraimp_applicationcounter" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_applicationcounter" disabled="true" uniqueid="{45768951-e168-0a43-45a0-9be4ca3e76c5}" />
                       </cell>

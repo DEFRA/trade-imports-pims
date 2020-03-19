@@ -7,6 +7,7 @@
   <EntityRelationship Name="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" />
   <EntityRelationship Name="bulkoperation_defraimp_importqueries" />
   <EntityRelationship Name="business_unit_defraimp_apharegion" />
+  <EntityRelationship Name="business_unit_defraimp_counterhistory" />
   <EntityRelationship Name="business_unit_defraimp_cved" />
   <EntityRelationship Name="business_unit_defraimp_docom" />
   <EntityRelationship Name="business_unit_defraimp_goldbronzecommodity" />
@@ -53,8 +54,12 @@
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityType" />
   <EntityRelationship Name="defraimp_defraimp_apharegion_defraimp_importapplic" />
   <EntityRelationship Name="defraimp_defraimp_apharegion_defraimp_importinspection_RegionAreaAllocatedtoID" />
+  <EntityRelationship Name="defraimp_defraimp_autonumber_defraimp_counterhistory_AutoNumberId" />
   <EntityRelationship Name="defraimp_defraimp_cved_defraimp_importapplication_PrimaryCVEDId" />
+  <EntityRelationship Name="defraimp_defraimp_docom_defraimp_docom_ReplacedById" />
+  <EntityRelationship Name="defraimp_defraimp_docom_defraimp_docom_ReplacesId" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defra_country" />
+  <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_counterhistory_ImportApplicationId" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_itahc" />
   <EntityRelationship Name="defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection" />
@@ -69,6 +74,7 @@
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_importquery_ITAHC" />
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_itahc" />
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_rb" />
+  <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_counterhistory_PlaceOfOriginId" />
   <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid" />
   <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforiginid" />
   <EntityRelationship Name="defraimp_goldbronzecountriesnn" />
@@ -101,6 +107,8 @@
   <EntityRelationship Name="lk_defraimp_apharegion_modifiedby" />
   <EntityRelationship Name="lk_defraimp_autonumber_createdby" />
   <EntityRelationship Name="lk_defraimp_autonumber_modifiedby" />
+  <EntityRelationship Name="lk_defraimp_counterhistory_createdby" />
+  <EntityRelationship Name="lk_defraimp_counterhistory_modifiedby" />
   <EntityRelationship Name="lk_defraimp_cved_createdby" />
   <EntityRelationship Name="lk_defraimp_cved_modifiedby" />
   <EntityRelationship Name="lk_defraimp_docom_createdby" />
@@ -135,6 +143,7 @@
   <EntityRelationship Name="organization_defraimp_importcountrycommodityrisklevel" />
   <EntityRelationship Name="organization_defraimp_importrisklevel" />
   <EntityRelationship Name="owner_defraimp_apharegion" />
+  <EntityRelationship Name="owner_defraimp_counterhistory" />
   <EntityRelationship Name="owner_defraimp_cved" />
   <EntityRelationship Name="owner_defraimp_docom" />
   <EntityRelationship Name="owner_defraimp_goldbronzecommodity" />
@@ -148,6 +157,7 @@
   <EntityRelationship Name="salesorder_defraimp_importqueries" />
   <EntityRelationship Name="site_defraimp_importqueries" />
   <EntityRelationship Name="team_defraimp_apharegion" />
+  <EntityRelationship Name="team_defraimp_counterhistory" />
   <EntityRelationship Name="team_defraimp_cved" />
   <EntityRelationship Name="team_defraimp_docom" />
   <EntityRelationship Name="team_defraimp_goldbronzecommodity" />
@@ -158,6 +168,7 @@
   <EntityRelationship Name="team_defraimp_placeoforigin" />
   <EntityRelationship Name="team_defraimp_sampletest" />
   <EntityRelationship Name="user_defraimp_apharegion" />
+  <EntityRelationship Name="user_defraimp_counterhistory" />
   <EntityRelationship Name="user_defraimp_cved" />
   <EntityRelationship Name="user_defraimp_docom" />
   <EntityRelationship Name="user_defraimp_goldbronzecommodity" />
