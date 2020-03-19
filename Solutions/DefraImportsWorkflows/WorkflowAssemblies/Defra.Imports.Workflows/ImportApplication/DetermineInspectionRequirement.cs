@@ -40,10 +40,11 @@ namespace Defra.Imports.Workflows.ImportApplication
             ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo = new CrmRepository<ImportsContext, defraimp_inspectioncoveragerule>(orgSvc);
             IAutonumberRepository autoNumberRepo = new AutonumberRepository(orgSvc);
             ICrmRepository<defraimp_importapplication> importApplicationRepo = new CrmRepository<ImportsContext, defraimp_importapplication>(orgSvc);
+            ICrmRepository<defraimp_importrisklevel> importRiskLevelRepo = new CrmRepository<ImportsContext, defraimp_importrisklevel>(orgSvc);
             IPlaceOfOriginRepository placeOfOriginRepo = new PlaceOfOriginRepository(orgSvc);
             IRepositoryFactory repositoryFactory = new RepositoryFactory(orgSvc);
-            defraimp_importapplication importApplication = importApplicationRepo.Retrieve(importApplicationId, new string[] { "defraimp_importrisklevelid", "defraimp_previousimportrisklevelid", "defraimp_inspectionrequired", "defraimp_placeoforiginid","defraimp_commoditytypeid", "defraimp_countryoforiginid" });
-            DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(importApplication, importApplicationRepo, coverageRulesRepo, autoNumberRepo,placeOfOriginRepo, repositoryFactory, logWriter);
+            defraimp_importapplication importApplication = importApplicationRepo.Retrieve(importApplicationId, new string[] { "defraimp_importrisklevelid", "defraimp_previousimportrisklevelid", "defraimp_inspectionrequired", "defraimp_placeoforiginid","defraimp_commoditytypeid", "defraimp_countryoforiginid", "defraimp_primaryitahcid" });
+            DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(null,importApplication, importApplicationRepo, coverageRulesRepo, importRiskLevelRepo, autoNumberRepo, placeOfOriginRepo, repositoryFactory, logWriter);
             determineInspectionRequirementBusinessLogic.RunLogic();
         }
     }

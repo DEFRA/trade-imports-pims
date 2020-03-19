@@ -18,6 +18,8 @@
 
         void SetApplicationCounter(Guid placeOfOriginId, int value);
 
+        void DecrementApplicationCounter(Guid placeOfOriginId);
+
         void IncrementQuotaCounter(Guid placeOfOriginId);
 
         void DecrementQuotaCounter(Guid placeOfOriginId);

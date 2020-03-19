@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 3,
+  "RecordsCount": 4,
   "ExportedEntities": [
     {
       "LogicalName": "defraimp_inspectioncoveragerule",
@@ -53,6 +53,28 @@
         {
           "AttributeName": "defraimp_name",
           "AttributeValue": "Gold Commodity Every X",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_risklevelid",
+          "AttributeValue": {
+            "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
+            "LogicalName": "defraimp_importrisklevel",
+            "Name": "P1",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_inspectioncoveragerule",
+      "Id": "361023e8-1e65-ea11-a811-000d3ab5d511",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "P1 Coverage Rule",
           "AttributeType": "System.String"
         },
         {

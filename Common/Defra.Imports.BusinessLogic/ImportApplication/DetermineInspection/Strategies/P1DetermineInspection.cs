@@ -12,89 +12,90 @@
 
     public class P1DetermineInspection : AbstractDetermineInspection
     {
-        private IRepositoryFactory repositoryFactory;
-        private defraimp_importapplication importApplication;
-        private ICrmRepository<defraimp_importapplication> importApplicationRepo;
-        private IAutonumberRepository autoNumberRepo;
-        private IPlaceOfOriginRepository placeOfOriginRepo;
-        private ICrmRepository <defraimp_goldbronzecommodity>goldBronzeCommodityRepo;
-        private ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo;
-        private InspectionRequirement inspectionRequirement;
+        private IRepositoryFactory _repositoryFactory;
+        private defraimp_importapplication _importApplication;
+        private ICrmRepository<defraimp_importapplication> _importApplicationRepo;
+        private IAutonumberRepository _autoNumberRepo;
+        private IPlaceOfOriginRepository _placeOfOriginRepo;
+        private ICrmRepository <defraimp_goldbronzecommodity> _goldBronzeCommodityRepo;
+        private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
+        private InspectionRequirement _inspectionRequirement;
+        private IRiskLevelCounterManager _riskLevelCounterManager;
 
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
-            repositoryFactory = determineInspectionContext.RepositoryFactory;
-            importApplication = determineInspectionContext.ImportApplication;
-            importApplicationRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_importapplication>();
-            placeOfOriginRepo = determineInspectionContext.PlaceOfOriginRepo;
-            coverageRulesRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_inspectioncoveragerule>();
-            autoNumberRepo = determineInspectionContext.AutoNumberRepo;
-            inspectionRequirement = new InspectionRequirement(importApplication, importApplicationRepo);
+            _importApplication = determineInspectionContext.ImportApplication;
+            _repositoryFactory = determineInspectionContext.RepositoryFactory;
+            _importApplicationRepo = _repositoryFactory.GetRepository<ImportsContext, defraimp_importapplication>();
+            _placeOfOriginRepo = determineInspectionContext.PlaceOfOriginRepo;
+            _coverageRulesRepo = _repositoryFactory.GetRepository<ImportsContext, defraimp_inspectioncoveragerule>();
+            _autoNumberRepo = determineInspectionContext.AutoNumberRepo;
+            _inspectionRequirement = new InspectionRequirement(_importApplication, _importApplicationRepo);
+            _riskLevelCounterManager = determineInspectionContext.RiskLevelCounterManager;
 
-            // Get the gold/bronze quota rule
-            defraimp_inspectioncoveragerule coverageRule = coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
-                rule => rule.defraimp_RiskLevelId.Id.Equals(importApplication.defraimp_importrisklevelid.Id),
-                e => new defraimp_inspectioncoveragerule()
-                {
-                    defraimp_name = e.defraimp_name,
-                    defraimp_inspectioncoverageruleId = e.defraimp_inspectioncoverageruleId,
-                    defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection,
-                }
-            ).FirstOrDefault();
-
-            // Does the import application have a commodity? If not, inspection can't be determined
-            if (importApplication.defraimp_CommodityTypeId != null)
+            //Does the import application have a primary ITAHC?
+            if (_importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC && _importApplication.defraimp_PrimaryITAHCId != null)
             {
-                CommodityHelper goldBronzeCommodity = new CommodityHelper(importApplication.defraimp_CommodityTypeId, repositoryFactory);
-
-                // Is the commodity gold/bronze? 
-                if (goldBronzeCommodity.IsCommodityCoveredByGoldBronze(importApplication.defraimp_CountryofOriginId))
+                // Has the record not been counted yet?
+                if (_importApplication.defraimp_ImportRecordCounted != true)
                 {
-                    // Try to get a place of origin
-                    defraimp_placeoforigin placeOfOrigin = GetPlaceOfOrigin();
-
-                    // Do we have a place of origin?
-                    if (placeOfOrigin != null)
+                    // Does the import application have a commodity and country? If not, inspection can't be determined
+                    if (_importApplication.defraimp_CommodityTypeId != null && _importApplication.defraimp_CountryofOriginId != null)
                     {
-                        // Increment the gold/bronze application counter
-                        placeOfOriginRepo.IncrementApplicationCounter(placeOfOrigin.Id);
+                        CommodityHelper goldBronzeCommodity = new CommodityHelper(_importApplication.defraimp_CommodityTypeId, _repositoryFactory);
 
-                        // Ensure our local copy also increments the counter
-                        placeOfOrigin.defraimp_ApplicationCounter += 1;
-
-                        if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Gold)
+                        // Is the commodity gold/bronze? 
+                        if (goldBronzeCommodity.IsCommodityCoveredByGoldBronze(_importApplication.defraimp_CountryofOriginId))
                         {
-                            GoldInspection(placeOfOrigin, (int)coverageRule.defraimp_NumberOfRecordsUntilInspection);
+                            // Try to get a place of origin
+                            defraimp_placeoforigin placeOfOrigin = GetPlaceOfOrigin();
+
+                            // Do we have a place of origin?
+                            if (placeOfOrigin != null)
+                            {
+                                // Get the gold/bronze quota rule
+                                defraimp_inspectioncoveragerule gbCoverageRule = GetCoverageRule(_coverageRulesRepo, ImportApplicationConstants.GB_COVERAGE_RULE_KEY);
+
+                                if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Gold)
+                                {
+                                    GoldInspection(placeOfOrigin, (int)gbCoverageRule.defraimp_NumberOfRecordsUntilInspection);
+                                }
+                                else if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Bronze)
+                                {
+                                    BronzeInspection(placeOfOrigin);
+                                }
+                            }
+                            else
+                            {
+                                // There is not a valid place of origin, likely because it is missing or there are errors. Set inspection as undetermined.
+                                _inspectionRequirement.PlaceOfOriginMissing();
+                            }
                         }
-                        else if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Bronze)
+                        else // If the commodity is not covered by the gold/bronze rule then it falls into the default P1 path
                         {
-                            BronzeInspection(placeOfOrigin);
+                            // P1
+                            P1Inspection();
                         }
                     }
                     else
                     {
-                        // There is not a valid place of origin, likely because it is missing or there are errors. Set inspection as undetermined.
-                        inspectionRequirement.PlaceOfOriginMissing();
+                        // Can't determine risk level
+                        _inspectionRequirement.RiskLevelUnknown();
                     }
-                }
-                else // If the commodity is not covered by the gold/bronze rule then it falls into the default P1 path
-                {
-                    // P1
-                    inspectionRequirement.P1Inspection();
                 }
             }
             else
             {
-                // Can't determine risk level
-                inspectionRequirement.RiskLevelUnknown();
+                // No Primary ITAHC
+                _inspectionRequirement.PrimaryITAHCMissing();
             }
         }
 
         private defraimp_placeoforigin GetPlaceOfOrigin()
         {
-            if (importApplication.defraimp_PlaceofOriginid != null)
+            if (_importApplication.defraimp_PlaceofOriginid != null)
             {
-                defraimp_placeoforigin placeOfOrigin = placeOfOriginRepo.Find(importApplication.defraimp_PlaceofOriginid.Id);
+                defraimp_placeoforigin placeOfOrigin = _placeOfOriginRepo.Find(_importApplication.defraimp_PlaceofOriginid.Id);
 
                 return placeOfOrigin;
             }
@@ -104,49 +105,108 @@
             }
         }
 
+        private void P1Inspection()
+        {
+            int quotaCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P1_QUOTA_COUNTER_NAME);
+
+            if (quotaCount > 0)
+            {
+                DealWithP1QuotaInspection();
+            }
+            else
+            {
+                DealWithNormalP1Inspection();
+            }
+        }
+
+        private void DealWithP1QuotaInspection()
+        {
+            // Decrement the quota counter list
+            _riskLevelCounterManager.DecrementQuota(ref _importApplication, "Quota value was above 0 so the record was flagged for inspection");
+
+            // Flag the application for inspection
+            _inspectionRequirement.P1Inspection();
+        }
+
+        private void DealWithNormalP1Inspection()
+        {
+            // Get the threashold
+            defraimp_inspectioncoveragerule p1coverageRule = GetCoverageRule(_coverageRulesRepo, ImportApplicationConstants.P1_COVERAGE_RULE_KEY);
+
+            // Increment the counter and get the value
+            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Risk was evaluated as P1 - Application count incremented");
+
+            int currentCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P1_COUNTER_NAME);
+            if (currentCount >= p1coverageRule.defraimp_NumberOfRecordsUntilInspection)
+            {
+                // Reset the counter
+                _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P1_COUNTER_NAME, 0);
+                _riskLevelCounterManager.SetNumberValue(ref _importApplication, "Record flagged for inspection - Application count reset.", 0);
+
+                _inspectionRequirement.P1Inspection();
+            }
+            else
+            {
+                _inspectionRequirement.NoInspectionRequired();
+            }
+        }
+
         private void GoldInspection(defraimp_placeoforigin placeOfOrigin, int coverageRuleValue)
         {
+            // Increment the gold/bronze application counter
+            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Gold Place of Origin");
+
+            // Ensure our local copy also increments the counter
+            placeOfOrigin.defraimp_ApplicationCounter += 1;
+
             // We want a local copy of the quota so we can adjust it and not have to keep retrieving the record.
-            int inspectionQuotaCounter = placeOfOrigin.defraimp_InspectionQuotaCounter ?? 0;
+            int quotaCount = _placeOfOriginRepo.GetQuotaCounterValue(placeOfOrigin.Id);
             // Check if the number of applications counter is over the coverage rule value
             if (placeOfOrigin.defraimp_ApplicationCounter >= coverageRuleValue)
             {
                 // +1 to quota
-                placeOfOriginRepo.IncrementQuotaCounter(placeOfOrigin.Id);
-                inspectionQuotaCounter += 1;
+                _riskLevelCounterManager.IncrementQuota(ref _importApplication, "Application Counter is greater than or equal to the coverage rule value");
+                quotaCount += 1;
 
                 // Reset the application counter
-                placeOfOriginRepo.SetApplicationCounter(placeOfOrigin.Id, 0);
+                _riskLevelCounterManager.SetNumberValue(ref _importApplication, "Quota was incremented, reset Application Count", 0);
             }
 
             // Check the outstanding inspection counter, see if we need to apply an inspection
-            if (inspectionQuotaCounter > 0)
+            if (quotaCount > 0)
             {
                 // -1 from quota
-                placeOfOriginRepo.DecrementQuotaCounter(placeOfOrigin.Id);
+                _riskLevelCounterManager.DecrementQuota(ref _importApplication, "Quota value was above 0 so the record was flagged for inspection");
 
                 // Set to inspect
-                inspectionRequirement.GoldCoverageInspection();
+                _inspectionRequirement.GoldCoverageInspection();
             }
             else
             {
                 // Don't inspect
-                inspectionRequirement.NoInspectionGold();
+                _inspectionRequirement.NoInspectionGold();
             }
         }
 
         void BronzeInspection(defraimp_placeoforigin placeOfOrigin)
         {
+            // Increment the gold/bronze application counter
+            //_placeOfOriginRepo.IncrementApplicationCounter(placeOfOrigin.Id);
+            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Bronze Place of Origin");
+
+            // Ensure our local copy also increments the counter
+            placeOfOrigin.defraimp_ApplicationCounter += 1;
+
             // Check if the commodity has been locked to bronze. If so, set that as the inspection reason.
             if (placeOfOrigin.defraimp_LocktoBronze == true)
             {
                 // Set to inspect
-                inspectionRequirement.LockedToBronzeInspection();
+                _inspectionRequirement.LockedToBronzeInspection();
             }
             else
             {
                 // Set to inspect
-                inspectionRequirement.BronzeInspection();
+                _inspectionRequirement.BronzeInspection();
             }
         }
     }

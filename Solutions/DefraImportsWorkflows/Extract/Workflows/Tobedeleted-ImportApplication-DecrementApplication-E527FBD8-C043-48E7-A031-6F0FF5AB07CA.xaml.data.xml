@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{e527fbd8-c043-48e7-a031-6f0ff5ab07ca}" Name="Import Application - Decrement Application Counter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/ImportApplication-DecrementApplicationCounter-E527FBD8-C043-48E7-A031-6F0FF5AB07CA.xaml</XamlFileName>
+<Workflow WorkflowId="{e527fbd8-c043-48e7-a031-6f0ff5ab07ca}" Name="[To be deleted] - Import Application - Decrement Application Counter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/Tobedeleted-ImportApplication-DecrementApplication-E527FBD8-C043-48E7-A031-6F0FF5AB07CA.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>0</Category>
@@ -12,8 +12,8 @@
   <TriggerOnDelete>1</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
-  <StateCode>1</StateCode>
-  <StatusCode>2</StatusCode>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
   <CreateStage>40</CreateStage>
   <UpdateStage>20</UpdateStage>
   <DeleteStage>20</DeleteStage>
@@ -23,6 +23,6 @@
   <IsCustomizable>1</IsCustomizable>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Import Application - Decrement Application Counter" />
+    <LocalizedName languagecode="1033" description="[To be deleted] - Import Application - Decrement Application Counter" />
   </LocalizedNames>
 </Workflow>

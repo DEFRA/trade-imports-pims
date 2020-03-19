@@ -23,6 +23,9 @@
     <LocalizedName languagecode="1033" description="ITAHC - Create Import Record From ITAHC" />
   </LocalizedNames>
   <labels>
+    <steplabels id="{b82cfd07-0d07-41bb-9ab8-24081183d05d}">
+      <label languagecode="1033" description="ITAHC has a status of cancelled." />
+    </steplabels>
     <steplabels id="{61d7b67a-5ba4-4552-a05d-342b648b3e36}">
       <label languagecode="1033" description="Commodity Type Required" />
     </steplabels>

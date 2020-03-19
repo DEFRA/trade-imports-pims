@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 5,
+  "RecordsCount": 7,
   "ExportedEntities": [
     {
       "LogicalName": "defraimp_autonumber",
@@ -82,6 +82,40 @@
         {
           "AttributeName": "defraimp_name",
           "AttributeValue": "Import Application Priority 2 Quota Counter",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_autonumber",
+      "Id": "869324fb-ee62-ea11-a811-000d3ab5d511",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_key",
+          "AttributeValue": "p1_quota_record_count",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Import Application Priority 1 Quota Counter",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_autonumber",
+      "Id": "aa9b2101-ef62-ea11-a811-000d3ab5d511",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_key",
+          "AttributeValue": "p3_quota_record_count",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Import Application Priority 3 Quota Counter",
           "AttributeType": "System.String"
         }
       ]
