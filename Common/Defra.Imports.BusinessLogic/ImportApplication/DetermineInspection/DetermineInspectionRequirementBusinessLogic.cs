@@ -100,12 +100,22 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
                     DealWithDeterminingInspection();
                 } // Deactivate when the state was previously active but has been moved to a status of inactive (Note that we use state and statuscode here as we don't want this logic to run on Application Completion status reason)
-                else if (_preImageImportApplication.statecode == defraimp_importapplicationState.Active && _postImageImportApplication.statuscode == defraimp_importapplication_statuscode.Inactive)
+                else if (_preImageImportApplication.statecode == defraimp_importapplicationState.Active && _postImageImportApplication.statuscode == defraimp_importapplication_statuscode.Cancelled)
                 {
                     _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Deactivate");
                     ManageRecordDeactivation(currentRiskLevel);
                 }
-                else if (_preImageImportApplication.statuscode == defraimp_importapplication_statuscode.Inactive && _postImageImportApplication.statecode == defraimp_importapplicationState.Active)
+                else if (_preImageImportApplication.statecode == defraimp_importapplicationState.Active && _postImageImportApplication.statuscode == defraimp_importapplication_statuscode.NoITAHCReceived)
+                {
+                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Deactivate");
+                    ManageRecordDeactivation(currentRiskLevel);
+                }
+                else if (_preImageImportApplication.statuscode == defraimp_importapplication_statuscode.Cancelled && _postImageImportApplication.statecode == defraimp_importapplicationState.Active)
+                {
+                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Reactivate");
+                    ManageRecordReactivation();
+                }
+                else if (_preImageImportApplication.statuscode == defraimp_importapplication_statuscode.NoITAHCReceived && _postImageImportApplication.statecode == defraimp_importapplicationState.Active)
                 {
                     _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Reactivate");
                     ManageRecordReactivation();
@@ -147,7 +157,6 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
             return null; //If we make it here, we should return null.
         }
-
         void ManageRiskLevelChange(string previousRiskLevel, string currentRiskLevel)
         {
             _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Manage Risk");

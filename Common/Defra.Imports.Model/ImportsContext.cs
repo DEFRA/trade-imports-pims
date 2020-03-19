@@ -119,31 +119,31 @@ namespace Defra.Imports.Model
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		@new = 714100000,
+		New = 714100000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		rejected = 714100001,
+		Rejected = 714100001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		prevalidated = 714100002,
+		PreValidated = 714100002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		valid = 714100003,
+		Valid = 714100003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		cancelled = 714100004,
+		Cancelled = 714100004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		replaced = 714100005,
+		Replaced = 714100005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		animo = 714100006,
+		Animo = 714100006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		inprogress = 714100007,
+		InProgress = 714100007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		recalled = 714100008,
+		Recalled = 714100008,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -9827,7 +9827,10 @@ namespace Defra.Imports.Model
 		Completion = 714100003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Inactive = 2,
+		NoITAHCReceived = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Cancelled = 714100004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ApplicationComplete = 714100000,
