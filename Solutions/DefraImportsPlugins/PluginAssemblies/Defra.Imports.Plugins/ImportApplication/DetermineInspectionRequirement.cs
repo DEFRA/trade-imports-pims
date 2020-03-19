@@ -76,7 +76,7 @@
     {
         protected override void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)
         {
-            logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Fired plugin with message: " + context.MessageName);
+            logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Fired plugin with message: " + context.MessageName + ". Depth = " + context.Depth);
 
             // Ensure the depth is 1
             if (context.Depth <= 1 || context.MessageName == "SetStateDynamicEntity")

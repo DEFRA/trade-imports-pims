@@ -17,12 +17,10 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
     {
         IPlaceOfOriginRepository _placeOfOriginRepo;
         defraimp_placeoforigin _placeOfOrigin;
-        ILogWriter _logWriter;
 
-        public PlaceOfOriginRiskLevelCounterManager(ICrmRepository<defraimp_importapplication> importApplicationRepo, ref defraimp_importapplication importApplication, IPlaceOfOriginRepository placeOfOriginRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, ILogWriter logWriter)
+        public PlaceOfOriginRiskLevelCounterManager(ICrmRepository<defraimp_importapplication> importApplicationRepo, defraimp_importapplication importApplication, IPlaceOfOriginRepository placeOfOriginRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, ILogWriter logWriter)
         {
             _importApplicationRepo = importApplicationRepo;
-            _importApplication = importApplication;
             _placeOfOriginRepo = placeOfOriginRepo;
             _coverageRulesRepo = coverageRulesRepo;
             _logWriter = logWriter;
@@ -33,31 +31,31 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             }
         }
 
-        public override void IncrementNumber(string reason)
+        public override void IncrementNumber(ref defraimp_importapplication importApplication, string reason)
         {
             if (_placeOfOrigin != null)
             {
                 // Make sure we've counted this record before we decrement
-                if (_importApplication.defraimp_ImportRecordCounted != true)
+                if (importApplication.defraimp_ImportRecordCounted != true)
                 {
                     _placeOfOriginRepo.IncrementApplicationCounter(_placeOfOrigin.Id);
-                    SetRecordCounted(true);
+                    SetRecordCounted(ref importApplication, true);
                 }
             }
 
-            base.IncrementNumber(reason);
+            base.IncrementNumber(ref importApplication, reason);
         }
 
-        public override void DecrementNumber(string reason)
+        public override void DecrementNumber(ref defraimp_importapplication importApplication, string reason)
         {
             if (_placeOfOrigin != null)
             {
                 // Make sure we've counted this record before we decrement
-                if (_importApplication.defraimp_ImportRecordCounted == true)
+                if (importApplication.defraimp_ImportRecordCounted == true)
                 {
-                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Inspection reason is " + _importApplication.defraimp_InspectionRequiredReason.Value);
+                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Inspection reason is " + importApplication.defraimp_InspectionRequiredReason.Value);
                     // If we needed to inspect because of Gold/Bronze inspection coverage
-                    if (_importApplication.defraimp_InspectionRequiredReason == defraimp_importapplication_defraimp_inspectionrequiredreason.GoldPlaceofOriginInspectionCoverage)
+                    if (importApplication.defraimp_InspectionRequiredReason == defraimp_importapplication_defraimp_inspectionrequiredreason.GoldPlaceofOriginInspectionCoverage)
                     {
                         //Increment the quota counter so that the next record for this place of origin is inspected
                         _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment PoO '" + _placeOfOrigin.Id + "' Quota");
@@ -66,58 +64,58 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                     else
                     {
                         _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement PoO '" + _placeOfOrigin.Id + "' counter");
-                        _placeOfOriginRepo.DecrementApplicationCounter(_placeOfOrigin.Id);
+                        //_placeOfOriginRepo.DecrementApplicationCounter(_placeOfOrigin.Id);
                     }
 
                     _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Set record as 'Not Counted'");
-                    SetRecordCounted(false);
+                    SetRecordCounted(ref importApplication, false);
 
                     _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Balance Place of Origin ratios");
                     BalanceInspectionToNonInspectionAspectRatio();
                 }
             }
 
-            base.DecrementNumber(reason);
+            base.DecrementNumber(ref importApplication, reason);
         }
 
-        public override void SetNumberValue(string reason, int value)
+        public override void SetNumberValue(ref defraimp_importapplication importApplication, string reason, int value)
         {
             if (_placeOfOrigin != null)
             {
                 _placeOfOriginRepo.SetApplicationCounter(_placeOfOrigin.Id, value);
             }
 
-            base.SetNumberValue(reason, value);
+            base.SetNumberValue(ref importApplication, reason, value);
         }
 
-        public override void IncrementQuota(string reason)
+        public override void IncrementQuota(ref defraimp_importapplication importApplication, string reason)
         {
             if (_placeOfOrigin != null)
             {
                 _placeOfOriginRepo.IncrementQuotaCounter(_placeOfOrigin.Id);
             }
 
-            base.IncrementNumber(reason);
+            base.IncrementNumber(ref importApplication, reason);
         }
 
-        public override void DecrementQuota(string reason)
+        public override void DecrementQuota(ref defraimp_importapplication importApplication, string reason)
         {
             if (_placeOfOrigin != null)
             {
                 _placeOfOriginRepo.DecrementQuotaCounter(_placeOfOrigin.Id);
             }
 
-            base.DecrementQuota(reason);
+            base.DecrementQuota(ref importApplication, reason);
         }
 
-        public override void SetQuotaValue(string reason, int value)
+        public override void SetQuotaValue(ref defraimp_importapplication importApplication, string reason, int value)
         {
             if (_placeOfOrigin != null)
             {
                 _placeOfOriginRepo.SetApplicationCounter(_placeOfOrigin.Id, value);
             }
 
-            base.SetQuotaValue(reason, value);
+            base.SetQuotaValue(ref importApplication, reason, value);
         }
 
 

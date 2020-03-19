@@ -16,47 +16,53 @@
     public abstract class AbstractRiskCounterManager : IRiskLevelCounterManager
     {
         protected ICrmRepository<defraimp_importapplication> _importApplicationRepo;
-        protected defraimp_importapplication _importApplication;
         protected ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
+        protected ILogWriter _logWriter;
 
-        public virtual void IncrementNumber(string reason)
+        public virtual void IncrementNumber(ref defraimp_importapplication importApplication, string reason)
         {
             //Broadcast Stuff
+            _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment because: " + reason);
         }
 
-        public virtual void DecrementNumber(string reason)
+        public virtual void DecrementNumber(ref defraimp_importapplication importApplication, string reason)
         {
             //Broadcast Stuff
+            _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement because: " + reason);
         }
-        public virtual void SetNumberValue(string reason, int value)
+        public virtual void SetNumberValue(ref defraimp_importapplication importApplication, string reason, int value)
         {
             //Broadcast Stuff
-        }
-
-        public virtual void IncrementQuota(string reason)
-        {
-            //Broadcast Stuff
+            _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Set number because: " + reason);
         }
 
-        public virtual void DecrementQuota(string reason)
+        public virtual void IncrementQuota(ref defraimp_importapplication importApplication, string reason)
         {
             //Broadcast Stuff
+            _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment Quota because: " + reason);
         }
 
-        public virtual void SetQuotaValue(string reason, int value)
+        public virtual void DecrementQuota(ref defraimp_importapplication importApplication, string reason)
         {
             //Broadcast Stuff
+            _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement Quota because: " + reason);
         }
 
-        protected void SetRecordCounted(bool counted)
+        public virtual void SetQuotaValue(ref defraimp_importapplication importApplication, string reason, int value)
+        {
+            //Broadcast Stuff
+            _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Set Quota because: " + reason);
+        }
+
+        protected void SetRecordCounted(ref defraimp_importapplication importApplication, bool counted)
         {
             defraimp_importapplication updatedImportApplication = new defraimp_importapplication();
-            updatedImportApplication.Id = _importApplication.Id;
+            updatedImportApplication.Id = importApplication.Id;
             updatedImportApplication.defraimp_ImportRecordCounted = counted;
             _importApplicationRepo.Update(updatedImportApplication);
 
             //Set the local value to ensure we don't do an operation twice
-            _importApplication.defraimp_ImportRecordCounted = counted;
+            importApplication.defraimp_ImportRecordCounted = counted;
         }
 
     }

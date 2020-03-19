@@ -114,7 +114,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             else if (_preImageImportApplication != null && _postImageImportApplication == null)
             {
                 _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Delete");
-                ManageRecordDeactivation(previousRiskLevel);
+                ManageRecordDeletion(previousRiskLevel);
             }
         }
 
@@ -135,12 +135,12 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                     if (CommodityCoveredByGoldBronze(importApplication))
                     {
                         _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Create Place of Origin Risk Level Counter Manager");
-                        return new PlaceOfOriginRiskLevelCounterManager(_importApplicationRepo, ref importApplication, _placeOfOriginRepo, _coverageRulesRepo, _logWriter);
+                        return new PlaceOfOriginRiskLevelCounterManager(_importApplicationRepo, importApplication, _placeOfOriginRepo, _coverageRulesRepo, _logWriter);
                     }
                     else
                     {
                         _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Create Autonumber: " + riskLevel + " Risk Level Counter Manager");
-                        return new AutonumberRiskCounterManager(_importApplicationRepo, ref importApplication, _autoNumberRepo, riskLevel, _coverageRulesRepo, _logWriter);
+                        return new AutonumberRiskCounterManager(_importApplicationRepo, _autoNumberRepo, riskLevel, _coverageRulesRepo, _logWriter);
                     }
                 }
             }
@@ -170,14 +170,14 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                             {
                                 _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Call Decrement PoO counter");
                                 // Manage the counts for the place of origin record we're replacing
-                                _previousRiskLevelCounterManager.DecrementNumber("Risk level changed");
+                                _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, "Risk level changed");
                             }
                         }
                     }
                     else
                     {
                         _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Call Decrement " + previousRiskLevel + " counter");
-                        _previousRiskLevelCounterManager.DecrementNumber("Risk level Changed");
+                        _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, "Risk level Changed");
                     }
                 }
                 else
@@ -206,13 +206,13 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                             if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Gold)
                             {
                                 // Manage the counts for the place of origin record we're replacing
-                                _previousRiskLevelCounterManager.DecrementNumber("Primary ITAHC Removed");
+                                _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, "Primary ITAHC Removed");
                             }
                         }
                     }
                     else
                     {
-                        _previousRiskLevelCounterManager.DecrementNumber("Primary ITAHC Removed");
+                        _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, "Primary ITAHC Removed");
                     }
                 }
             }
@@ -245,7 +245,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                             {
                                 _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "PoO '" + placeOfOrigin.defraimp_name + "' is gold, decrement");
                                 // Manage the counts for the place of origin record we're replacing
-                                _previousRiskLevelCounterManager.DecrementNumber("Place of Origin Changed");
+                                _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, "Place of Origin Changed");
                             }
                         }
                     }
@@ -255,8 +255,14 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         void ManageRecordDeactivation(string riskLevel)
         {
-            _previousRiskLevelCounterManager.DecrementNumber("Record Deactivated");
+            _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, "Record Deactivated");
         }
+
+        void ManageRecordDeletion(string riskLevel)
+        {
+            _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, "Record Deleted");
+        }
+
 
         void ManageRecordReactivation()
         {
