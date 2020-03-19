@@ -268,7 +268,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="20" type="2" schemaName="defraexp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
-        <Dependent key="14" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" displayName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
+        <Dependent key="13" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" displayName="defraimp_defraexp_commoditytype_defraimp_importcountrycommodityrisklevel_commoditytypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
       </MissingDependency>
       <MissingDependency>
         <Required key="20" type="2" schemaName="defraexp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
@@ -284,7 +284,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="20" type="2" schemaName="defraexp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
-        <Dependent key="13" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" displayName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
+        <Dependent key="12" type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" displayName="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
       </MissingDependency>
       <MissingDependency>
         <Required key="21" type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
