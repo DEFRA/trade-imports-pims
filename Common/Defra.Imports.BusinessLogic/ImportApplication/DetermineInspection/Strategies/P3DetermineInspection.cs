@@ -18,6 +18,7 @@
         private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
         private ICrmRepository<defraimp_importapplication> _importApplicationRepo;
         private InspectionRequirement _inspectionRequirement;
+        private IRiskLevelCounterManager _riskLevelCounterManager;
 
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
@@ -26,6 +27,7 @@
             _autoNumberRepo = determineInspectionContext.AutoNumberRepo;
             _coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
             _inspectionRequirement = new InspectionRequirement(_importApplication, _importApplicationRepo);
+            _riskLevelCounterManager = determineInspectionContext.RiskLevelCounterManager;
 
             //Does the import application have a primary ITAHC?
             if (_importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC && _importApplication.defraimp_PrimaryITAHCId != null)
@@ -55,12 +57,10 @@
         private void DealWithP3QuotaInspection()
         {
             // Decrement the quota counter list
-            _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P3_QUOTA_COUNTER_NAME);
+            _riskLevelCounterManager.DecrementQuota("Quota value was above 0 so the record was flagged for inspection");
 
             // Flag the application for inspection
             _inspectionRequirement.P3Inspection();
-
-            SetRecordCounted(_importApplicationRepo, _importApplication, true);
         }
 
         private void DealWithNormalP3Inspection()
@@ -69,13 +69,13 @@
             defraimp_inspectioncoveragerule coverageRule = GetCoverageRule(_coverageRulesRepo, ImportApplicationConstants.P3_COVERAGE_RULE_KEY);
 
             // Increment the counter and get the value
-            _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+            _riskLevelCounterManager.IncrementNumber("Risk was evaluated as P3 - Application count incremented");
 
             int currentCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
             if (currentCount >= coverageRule.defraimp_NumberOfRecordsUntilInspection)
             {
                 // Reset the counter
-                _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME, 0);
+                _riskLevelCounterManager.SetNumberValue("Record flagged for inspection - Application count reset.", 0);
 
                 _inspectionRequirement.P3Inspection();
             }
@@ -83,8 +83,6 @@
             {
                 _inspectionRequirement.NoInspectionRequired();
             }
-
-            SetRecordCounted(_importApplicationRepo, _importApplication, true);
         }
     }
 }

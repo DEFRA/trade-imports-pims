@@ -25,6 +25,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
         private IRepositoryFactory _repositoryFactory;
         private ILogWriter _logWriter;
         private DetermineInspectionContext _determineInspectionContext;
+        private IRiskLevelCounterManager _previousRiskLevelCounterManager;
 
         public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication preImageImportApplication, defraimp_importapplication postImageImportApplication, ICrmRepository<defraimp_importapplication> importAppRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, ICrmRepository<defraimp_importrisklevel> importRiskLevelRepo, IAutonumberRepository autonumberRepo, IPlaceOfOriginRepository placeoforiginRepo, IRepositoryFactory repositoryFactory, ILogWriter logWriter)
         {
@@ -66,6 +67,10 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                     _preImageImportApplication.defraimp_importrisklevelid != null ? _preImageImportApplication.defraimp_importrisklevelid.Name : string.Empty;
             }
 
+            //Set up counter manager to manage incrementing and decrementing. We need seperate counter managers to support a change in risk levels.
+            _previousRiskLevelCounterManager = SetupRiskLevelCounterManager(_preImageImportApplication); //This counter manager will manage decrements in this class
+            _determineInspectionContext.RiskLevelCounterManager = SetupRiskLevelCounterManager(_postImageImportApplication); //This counter manager will manage increments
+
             // Create (Only post)
             if (_preImageImportApplication == null && _postImageImportApplication != null)
             {
@@ -104,6 +109,30 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             }
         }
 
+        IRiskLevelCounterManager SetupRiskLevelCounterManager(defraimp_importapplication importApplication)
+        {
+            if (importApplication != null)
+            {
+                string riskLevel =
+                     importApplication.defraimp_importrisklevelid != null ? importApplication.defraimp_importrisklevelid.Name : string.Empty;
+
+                if (!string.IsNullOrEmpty(riskLevel))
+                {
+                    //Does this record work with Gold/Bronze
+                    if (CommodityCoveredByGoldBronze(importApplication))
+                    {
+                        return new PlaceOfOriginRiskLevelCounterManager(_importApplicationRepo, ref importApplication, _placeOfOriginRepo, _coverageRulesRepo, _logWriter);
+                    }
+                    else
+                    {
+                        return new AutonumberRiskCounterManager(_importApplicationRepo, ref importApplication, _autoNumberRepo, riskLevel, _coverageRulesRepo, _logWriter);
+                    }
+                }
+            }
+
+            return null; //If we make it here, we should return null.
+        }
+
         void ManageRiskLevelChange(string previousRiskLevel, string currentRiskLevel)
         {
             _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Manage Risk");
@@ -114,7 +143,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 if (!string.IsNullOrEmpty(previousRiskLevel))
                 {
                     _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Call Decrement " + previousRiskLevel + " counter");
-                    if (CommodityCoveredByGoldBronze())
+                    if (CommodityCoveredByGoldBronze(_preImageImportApplication))
                     {
                         // Does the pre image have a place of origin?
                         if (_preImageImportApplication.defraimp_PlaceofOriginid != null)
@@ -126,13 +155,13 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                             if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Gold)
                             {
                                 // Manage the counts for the place of origin record we're replacing
-                                ManagePlaceOfOriginCounterDecrement(placeOfOrigin.Id);
+                                _previousRiskLevelCounterManager.DecrementNumber("Risk level changed");
                             }
                         }
                     }
                     else
                     {
-                        ManageCounterDecrement(previousRiskLevel);
+                        _previousRiskLevelCounterManager.DecrementNumber("Risk level Changed");
                     }
                 }
                 else
@@ -149,7 +178,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 // Make sure the previous risk level was not empty
                 if (!string.IsNullOrEmpty(previousRiskLevel))
                 {
-                    if (CommodityCoveredByGoldBronze())
+                    if (CommodityCoveredByGoldBronze(_preImageImportApplication))
                     {
                         // Does the pre image have a place of origin?
                         if (_preImageImportApplication.defraimp_PlaceofOriginid != null)
@@ -161,13 +190,13 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                             if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Gold)
                             {
                                 // Manage the counts for the place of origin record we're replacing
-                                ManagePlaceOfOriginCounterDecrement(placeOfOrigin.Id);
+                                _previousRiskLevelCounterManager.DecrementNumber("Primary ITAHC Removed");
                             }
                         }
                     }
                     else
                     {
-                        ManageCounterDecrement(previousRiskLevel);
+                        _previousRiskLevelCounterManager.DecrementNumber("Primary ITAHC Removed");
                     }
                 }
             }
@@ -181,7 +210,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             {
                 _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Check if covered by G/B");
                 // Was the commodity a Gold/Bronze commodity
-                if (CommodityCoveredByGoldBronze())
+                if (CommodityCoveredByGoldBronze(_preImageImportApplication))
                 {
                     _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Is covered by G/B");
                     // Was there previously a place of origin?
@@ -200,7 +229,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                             {
                                 _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "PoO '" + placeOfOrigin.defraimp_name + "' is gold, decrement");
                                 // Manage the counts for the place of origin record we're replacing
-                                ManagePlaceOfOriginCounterDecrement(placeOfOrigin.Id);
+                                _previousRiskLevelCounterManager.DecrementNumber("Place of Origin Changed");
                             }
                         }
                     }
@@ -210,144 +239,22 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         void ManageRecordDeactivation(string riskLevel)
         {
-            ManageCounterDecrement(riskLevel);
+            _previousRiskLevelCounterManager.DecrementNumber("Record Deactivated");
         }
 
         void ManageRecordReactivation()
         {
             DealWithDeterminingInspection();
         }
-
-        void ManageCounterDecrement(string riskLevel)
-        {
-            if (!string.IsNullOrEmpty(riskLevel))
-            {
-                // Make sure we've counted this record before we decrement
-                if (_preImageImportApplication.defraimp_ImportRecordCounted == true)
-                {
-                    // If we previously had flagged this record for a post import check
-                    if (_preImageImportApplication.defraimp_InspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.Yes)
-                    {
-                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment " + riskLevel + " quota counter");
-                        _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.GetQuotaCounterName(riskLevel));
-                    }
-                    else
-                    {
-                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement " + riskLevel + " counter");
-                        _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.GetCounterName(riskLevel));
-                    }
-
-                    SetRecordCounted(false);
-
-                    BalanceInspectionToNonInspectionAspectRatio(riskLevel);
-                }
-            }
-        }
-
-        void ManagePlaceOfOriginCounterDecrement(Guid placeOfOriginId)
-        {
-            // Make sure we've counted this record before we decrement
-            if (_preImageImportApplication.defraimp_ImportRecordCounted == true)
-            {
-                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Inspection reason is " + _preImageImportApplication.defraimp_InspectionRequiredReason.Value);
-                // If we needed to inspect because of Gold/Bronze inspection coverage
-                if (_preImageImportApplication.defraimp_InspectionRequiredReason == defraimp_importapplication_defraimp_inspectionrequiredreason.GoldPlaceofOriginInspectionCoverage)
-                {
-                    //Increment the quota counter so that the next record for this place of origin is inspected
-                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment PoO '" + placeOfOriginId + "' Quota");
-                    _placeOfOriginRepo.IncrementQuotaCounter(placeOfOriginId);
-                }
-                else
-                {
-                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement PoO '" + placeOfOriginId + "' counter");
-                    _placeOfOriginRepo.DecrementApplicationCounter(placeOfOriginId);
-                }
-
-                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Set record as 'Not Counted'");
-                SetRecordCounted(false);
-
-                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Balance Place of Origin ratios");
-                BalancePlaceOfOriginInspectionToNonInspectionAspectRatio(placeOfOriginId);
-            }
-        }
-
-        void SetRecordCounted(bool counted)
-        {
-            defraimp_importapplication updatedImportApplication = new defraimp_importapplication();
-            updatedImportApplication.Id = _postImageImportApplication.Id;
-            updatedImportApplication.defraimp_ImportRecordCounted = counted;
-            _importApplicationRepo.Update(updatedImportApplication);
-
-            //Update the local copy of the flag
-            _preImageImportApplication.defraimp_ImportRecordCounted = counted; //Set this to ensure we don't decrement twice
-            _postImageImportApplication.defraimp_ImportRecordCounted = counted; //Set this to ensure we can increment if we need to
-        }
-        
-
-        void BalanceInspectionToNonInspectionAspectRatio(string currentRiskLevel)
-        {
-            int quotaCounterValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(currentRiskLevel));
-            int counterValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetCounterName(currentRiskLevel));
-
-            defraimp_inspectioncoveragerule coverageRule = _coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
-                rule => rule.defraimp_RiskLevelId.Id.Equals(_preImageImportApplication.defraimp_importrisklevelid.Id),
-                e => new defraimp_inspectioncoveragerule()
-                {
-                    defraimp_name = e.defraimp_name,
-                    defraimp_inspectioncoverageruleId = e.defraimp_inspectioncoverageruleId,
-                    defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection
-                }
-            ).FirstOrDefault();
-
-            if (coverageRule != null)
-            {
-                int threshold = coverageRule.defraimp_NumberOfRecordsUntilInspection.Value;
-                int negativeThreshold = -threshold;
-
-                if ((quotaCounterValue > 0) && (counterValue <= negativeThreshold))
-                {
-                    _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.GetQuotaCounterName(currentRiskLevel));
-                    _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.GetCounterName(currentRiskLevel), threshold + 1);
-                }
-            }
-        }
-        
-        void BalancePlaceOfOriginInspectionToNonInspectionAspectRatio(Guid placeOfOriginId)
-        {
-            int quotaCounterValue = _placeOfOriginRepo.GetQuotaCounterValue(placeOfOriginId);
-            int counterValue = _placeOfOriginRepo.GetApplicationCounterValue(placeOfOriginId);
-
-            defraimp_inspectioncoveragerule coverageRule = _coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
-                rule => rule.defraimp_Key.Equals(ImportApplicationConstants.GB_COVERAGE_RULE_KEY),
-                e => new defraimp_inspectioncoveragerule()
-                {
-                    defraimp_name = e.defraimp_name,
-                    defraimp_inspectioncoverageruleId = e.defraimp_inspectioncoverageruleId,
-                    defraimp_NumberOfRecordsUntilInspection = e.defraimp_NumberOfRecordsUntilInspection
-                }
-            ).FirstOrDefault();
-
-            if (coverageRule != null)
-            {
-                int threshold = coverageRule.defraimp_NumberOfRecordsUntilInspection.Value;
-                int negativeThreshold = -threshold;
-
-                if ((quotaCounterValue > 0) && (counterValue <= negativeThreshold))
-                {
-                    _placeOfOriginRepo.DecrementQuotaCounter(placeOfOriginId);
-                    _placeOfOriginRepo.SetApplicationCounter(placeOfOriginId, 0);
-                }
-            }
-        }
-
-        private bool CommodityCoveredByGoldBronze()
+      
+        private bool CommodityCoveredByGoldBronze(defraimp_importapplication importApplication)
         {
             // Make sure we have an import application and country of origin
-            if (_preImageImportApplication.defraimp_CommodityTypeId != null && _preImageImportApplication.defraimp_CountryofOriginId != null)
+            if (importApplication.defraimp_CommodityTypeId != null && importApplication.defraimp_CountryofOriginId != null)
             {
-                CommodityHelper commodityHelper = new CommodityHelper(_preImageImportApplication.defraimp_CommodityTypeId, _repositoryFactory);
+                CommodityHelper commodityHelper = new CommodityHelper(importApplication.defraimp_CommodityTypeId, _repositoryFactory);
 
-                if (commodityHelper.IsCommodityCoveredByGoldBronze(_preImageImportApplication.defraimp_CountryofOriginId))
+                if (commodityHelper.IsCommodityCoveredByGoldBronze(importApplication.defraimp_CountryofOriginId))
                 {
                     return true;
                 }
