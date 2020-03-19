@@ -57,19 +57,28 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
             if (_postImageImportApplication != null)
             {
+                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Try to popultate current risk as " + _postImageImportApplication.defraimp_importrisklevelid);
+
                 currentRiskLevel =
                      _postImageImportApplication.defraimp_importrisklevelid != null ? _postImageImportApplication.defraimp_importrisklevelid.Name : string.Empty;
+
+                //Set up counter manager to manage incrementing. We need seperate counter managers to support a change in risk levels. We put this in the determine inspection context for risk strategies to use.
+                _determineInspectionContext.RiskLevelCounterManager = SetupRiskLevelCounterManager(_postImageImportApplication);
             }
 
             if (_preImageImportApplication != null)
             {
-                previousRiskLevel =
-                    _preImageImportApplication.defraimp_importrisklevelid != null ? _preImageImportApplication.defraimp_importrisklevelid.Name : string.Empty;
-            }
+                //We need this method because the "Name" primary field does not work correctly on a pre-image
+                if (_preImageImportApplication.defraimp_importrisklevelid != null)
+                {
+                    previousRiskLevel = GetRiskLevelName(_preImageImportApplication.defraimp_importrisklevelid.Id);
+                }
 
-            //Set up counter manager to manage incrementing and decrementing. We need seperate counter managers to support a change in risk levels.
-            _previousRiskLevelCounterManager = SetupRiskLevelCounterManager(_preImageImportApplication); //This counter manager will manage decrements in this class
-            _determineInspectionContext.RiskLevelCounterManager = SetupRiskLevelCounterManager(_postImageImportApplication); //This counter manager will manage increments
+                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Prev risk is " + previousRiskLevel);
+
+                //Set up counter manager to manage decrementing. We need seperate counter managers to support a change in risk levels.
+                _previousRiskLevelCounterManager = SetupRiskLevelCounterManager(_preImageImportApplication);
+            }
 
             // Create (Only post)
             if (_preImageImportApplication == null && _postImageImportApplication != null)
@@ -111,20 +120,26 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         IRiskLevelCounterManager SetupRiskLevelCounterManager(defraimp_importapplication importApplication)
         {
+            _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Setup Risk Management for risk level of " + importApplication.defraimp_importrisklevelid);
             if (importApplication != null)
             {
-                string riskLevel =
-                     importApplication.defraimp_importrisklevelid != null ? importApplication.defraimp_importrisklevelid.Name : string.Empty;
+                string riskLevel = "";
+                if (importApplication.defraimp_importrisklevelid != null)
+                {
+                    riskLevel = GetRiskLevelName(importApplication.defraimp_importrisklevelid.Id);
+                }
 
                 if (!string.IsNullOrEmpty(riskLevel))
                 {
                     //Does this record work with Gold/Bronze
                     if (CommodityCoveredByGoldBronze(importApplication))
                     {
+                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Create Place of Origin Risk Level Counter Manager");
                         return new PlaceOfOriginRiskLevelCounterManager(_importApplicationRepo, ref importApplication, _placeOfOriginRepo, _coverageRulesRepo, _logWriter);
                     }
                     else
                     {
+                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Create Autonumber: " + riskLevel + " Risk Level Counter Manager");
                         return new AutonumberRiskCounterManager(_importApplicationRepo, ref importApplication, _autoNumberRepo, riskLevel, _coverageRulesRepo, _logWriter);
                     }
                 }
@@ -138,11 +153,10 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Manage Risk");
             if (previousRiskLevel != currentRiskLevel)
             {
-                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Risk changed from: " + previousRiskLevel);
+                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Risk changed from: " + previousRiskLevel + " to " + currentRiskLevel);
                 // Make sure the previous risk level was not empty
                 if (!string.IsNullOrEmpty(previousRiskLevel))
                 {
-                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Call Decrement " + previousRiskLevel + " counter");
                     if (CommodityCoveredByGoldBronze(_preImageImportApplication))
                     {
                         // Does the pre image have a place of origin?
@@ -154,6 +168,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                             //If previous Place of Origin Gold?
                             if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Gold)
                             {
+                                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Call Decrement PoO counter");
                                 // Manage the counts for the place of origin record we're replacing
                                 _previousRiskLevelCounterManager.DecrementNumber("Risk level changed");
                             }
@@ -161,6 +176,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                     }
                     else
                     {
+                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Call Decrement " + previousRiskLevel + " counter");
                         _previousRiskLevelCounterManager.DecrementNumber("Risk level Changed");
                     }
                 }
@@ -281,6 +297,18 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 // Execute the determine inspection logic for the specific risk level
                 determineInspection.ExecuteInspection(_determineInspectionContext);
             }
+        }
+        string GetRiskLevelName(Guid riskLevelId)
+        {
+            defraimp_importrisklevel previousRiskLevelId = _importRiskLevelRepo.Find<defraimp_importrisklevel>(
+            rule => rule.Id.Equals(riskLevelId),
+            e => new defraimp_importrisklevel()
+            {
+                defraimp_name = e.defraimp_name
+            }
+            ).FirstOrDefault();
+
+            return previousRiskLevelId != null ? previousRiskLevelId.defraimp_name : string.Empty;
         }
     }
 }
