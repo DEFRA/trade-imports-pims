@@ -17,42 +17,40 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
     {
         IAutonumberRepository _autoNumberRepo;
         string _riskLevel;
-        ILogWriter _logWriter;
 
-        public AutonumberRiskCounterManager(ICrmRepository<defraimp_importapplication> importApplicationRepo, ref defraimp_importapplication importApplication, IAutonumberRepository autoNumberRepo, string riskLevel, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, ILogWriter logWriter)
+        public AutonumberRiskCounterManager(ICrmRepository<defraimp_importapplication> importApplicationRepo, IAutonumberRepository autoNumberRepo, string riskLevel, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, ILogWriter logWriter)
         {
             _importApplicationRepo = importApplicationRepo;
-            _importApplication = importApplication;
             _autoNumberRepo = autoNumberRepo;
             _coverageRulesRepo = coverageRulesRepo;
             _riskLevel = riskLevel;
             _logWriter = logWriter;
         }
 
-        public override void IncrementNumber(string reason)
+        public override void IncrementNumber(ref defraimp_importapplication importApplication, string reason)
         {
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 // Make sure we've counted this record before we decrement
-                if (_importApplication.defraimp_ImportRecordCounted != true)
+                if (importApplication.defraimp_ImportRecordCounted != true)
                 {
                     _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.GetCounterName(_riskLevel));
-                    SetRecordCounted(true);
+                    SetRecordCounted(ref importApplication, true);
                 }
             }
 
-            base.IncrementNumber(reason);
+            base.IncrementNumber(ref importApplication, reason);
         }
 
-        public override void DecrementNumber(string reason)
+        public override void DecrementNumber(ref defraimp_importapplication importApplication, string reason)
         {
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 // Make sure we've counted this record before we decrement
-                if (_importApplication.defraimp_ImportRecordCounted == true)
+                if (importApplication.defraimp_ImportRecordCounted == true)
                 {
                     // If we previously had flagged this record for a post import check
-                    if (_importApplication.defraimp_InspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.Yes)
+                    if (importApplication.defraimp_InspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.Yes)
                     {
                         _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment " + _riskLevel + " quota counter");
                         _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
@@ -63,62 +61,62 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                         _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.GetCounterName(_riskLevel));
                     }
 
-                    SetRecordCounted(false);
+                    SetRecordCounted(ref importApplication, false);
 
-                    BalanceInspectionToNonInspectionAspectRatio();
+                    BalanceInspectionToNonInspectionAspectRatio(importApplication);
                 }
             }
 
-            base.DecrementNumber(reason);
+            base.DecrementNumber(ref importApplication, reason);
         }
 
-        public override void SetNumberValue(string reason, int value)
+        public override void SetNumberValue(ref defraimp_importapplication importApplication, string reason, int value)
         {
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel), value);
             }
                
-            base.SetNumberValue(reason, value);
+            base.SetNumberValue(ref importApplication, reason, value);
         }
 
-        public override void IncrementQuota(string reason)
+        public override void IncrementQuota(ref defraimp_importapplication importApplication, string reason)
         {
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
             }
 
-            base.IncrementQuota(reason);
+            base.IncrementQuota(ref importApplication, reason);
         }
 
-        public override void DecrementQuota(string reason)
+        public override void DecrementQuota(ref defraimp_importapplication importApplication, string reason)
         {
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
             }
 
-            base.DecrementQuota(reason);
+            base.DecrementQuota(ref importApplication, reason);
         }
 
-        public override void SetQuotaValue(string reason, int value)
+        public override void SetQuotaValue(ref defraimp_importapplication importApplication, string reason, int value)
         {
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel), value);
             }
 
-            base.SetQuotaValue(reason, value);
+            base.SetQuotaValue(ref importApplication, reason, value);
         }
 
-        void BalanceInspectionToNonInspectionAspectRatio()
+        void BalanceInspectionToNonInspectionAspectRatio(defraimp_importapplication importApplication)
         {
             int quotaCounterValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
             int counterValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel));
 
             defraimp_inspectioncoveragerule coverageRule = _coverageRulesRepo.Find<defraimp_inspectioncoveragerule>(
-                rule => rule.defraimp_RiskLevelId.Id.Equals(_importApplication.defraimp_importrisklevelid.Id),
+                rule => rule.defraimp_RiskLevelId.Id.Equals(importApplication.defraimp_importrisklevelid.Id),
                 e => new defraimp_inspectioncoveragerule()
                 {
                     defraimp_name = e.defraimp_name,

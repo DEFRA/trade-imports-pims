@@ -39,8 +39,8 @@
                 // Has the record not been counted yet?
                 if (_importApplication.defraimp_ImportRecordCounted != true)
                 {
-                    // Does the import application have a commodity? If not, inspection can't be determined
-                    if (_importApplication.defraimp_CommodityTypeId != null)
+                    // Does the import application have a commodity and country? If not, inspection can't be determined
+                    if (_importApplication.defraimp_CommodityTypeId != null && _importApplication.defraimp_CountryofOriginId != null)
                     {
                         CommodityHelper goldBronzeCommodity = new CommodityHelper(_importApplication.defraimp_CommodityTypeId, _repositoryFactory);
 
@@ -122,7 +122,7 @@
         private void DealWithP1QuotaInspection()
         {
             // Decrement the quota counter list
-            _riskLevelCounterManager.DecrementQuota("Quota value was above 0 so the record was flagged for inspection");
+            _riskLevelCounterManager.DecrementQuota(ref _importApplication, "Quota value was above 0 so the record was flagged for inspection");
 
             // Flag the application for inspection
             _inspectionRequirement.P1Inspection();
@@ -134,14 +134,14 @@
             defraimp_inspectioncoveragerule p1coverageRule = GetCoverageRule(_coverageRulesRepo, ImportApplicationConstants.P1_COVERAGE_RULE_KEY);
 
             // Increment the counter and get the value
-            _riskLevelCounterManager.IncrementNumber("Risk was evaluated as P1 - Application count incremented");
+            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Risk was evaluated as P1 - Application count incremented");
 
             int currentCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P1_COUNTER_NAME);
             if (currentCount >= p1coverageRule.defraimp_NumberOfRecordsUntilInspection)
             {
                 // Reset the counter
                 _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P1_COUNTER_NAME, 0);
-                _riskLevelCounterManager.SetNumberValue("Record flagged for inspection - Application count reset.",0);
+                _riskLevelCounterManager.SetNumberValue(ref _importApplication, "Record flagged for inspection - Application count reset.", 0);
 
                 _inspectionRequirement.P1Inspection();
             }
@@ -154,7 +154,7 @@
         private void GoldInspection(defraimp_placeoforigin placeOfOrigin, int coverageRuleValue)
         {
             // Increment the gold/bronze application counter
-            _riskLevelCounterManager.IncrementNumber("Gold Place of Origin");
+            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Gold Place of Origin");
 
             // Ensure our local copy also increments the counter
             placeOfOrigin.defraimp_ApplicationCounter += 1;
@@ -165,18 +165,18 @@
             if (placeOfOrigin.defraimp_ApplicationCounter >= coverageRuleValue)
             {
                 // +1 to quota
-                _riskLevelCounterManager.IncrementQuota("Application Counter is greater than or equal to the coverage rule value");
+                _riskLevelCounterManager.IncrementQuota(ref _importApplication, "Application Counter is greater than or equal to the coverage rule value");
                 quotaCount += 1;
 
                 // Reset the application counter
-                _riskLevelCounterManager.SetNumberValue("Quota was incremented, reset Application Count", 0);
+                _riskLevelCounterManager.SetNumberValue(ref _importApplication, "Quota was incremented, reset Application Count", 0);
             }
 
             // Check the outstanding inspection counter, see if we need to apply an inspection
             if (quotaCount > 0)
             {
                 // -1 from quota
-                _riskLevelCounterManager.DecrementQuota("Quota value was above 0 so the record was flagged for inspection");
+                _riskLevelCounterManager.DecrementQuota(ref _importApplication, "Quota value was above 0 so the record was flagged for inspection");
 
                 // Set to inspect
                 _inspectionRequirement.GoldCoverageInspection();
@@ -192,7 +192,7 @@
         {
             // Increment the gold/bronze application counter
             //_placeOfOriginRepo.IncrementApplicationCounter(placeOfOrigin.Id);
-            _riskLevelCounterManager.IncrementNumber("Bronze Place of Origin");
+            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Bronze Place of Origin");
 
             // Ensure our local copy also increments the counter
             placeOfOrigin.defraimp_ApplicationCounter += 1;
