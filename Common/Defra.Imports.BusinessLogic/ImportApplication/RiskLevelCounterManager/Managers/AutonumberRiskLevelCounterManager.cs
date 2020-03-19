@@ -34,7 +34,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 // Make sure we've counted this record before we decrement
-                if (_importApplication.defraimp_ImportRecordCounted == true)
+                if (_importApplication.defraimp_ImportRecordCounted != true)
                 {
                     _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.GetCounterName(_riskLevel));
                     SetRecordCounted(true);

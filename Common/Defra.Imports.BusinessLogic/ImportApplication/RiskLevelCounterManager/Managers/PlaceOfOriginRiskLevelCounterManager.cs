@@ -29,7 +29,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
             if (importApplication.defraimp_PlaceofOriginid != null)
             {
-                _placeOfOriginRepo.Find(importApplication.defraimp_PlaceofOriginid.Id);
+                _placeOfOrigin = _placeOfOriginRepo.Find(importApplication.defraimp_PlaceofOriginid.Id);
             }
         }
 
