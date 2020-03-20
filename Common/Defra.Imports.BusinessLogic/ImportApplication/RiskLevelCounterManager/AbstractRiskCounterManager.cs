@@ -17,6 +17,7 @@
     {
         protected ICrmRepository<defraimp_importapplication> _importApplicationRepo;
         protected ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
+        protected IAutonumberRepository _autoNumberRepo;
         protected ILogWriter _logWriter;
 
         public virtual void IncrementNumber(ref defraimp_importapplication importApplication, string reason)

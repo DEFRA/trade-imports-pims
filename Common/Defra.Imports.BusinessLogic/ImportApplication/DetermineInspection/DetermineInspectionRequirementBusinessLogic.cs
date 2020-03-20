@@ -145,7 +145,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                     if (CommodityCoveredByGoldBronze(importApplication))
                     {
                         _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Create Place of Origin Risk Level Counter Manager");
-                        return new PlaceOfOriginRiskLevelCounterManager(_importApplicationRepo, importApplication, _placeOfOriginRepo, _coverageRulesRepo, _logWriter);
+                        return new PlaceOfOriginRiskLevelCounterManager(_importApplicationRepo, _autoNumberRepo, importApplication, _placeOfOriginRepo, _coverageRulesRepo, _logWriter);
                     }
                     else
                     {
