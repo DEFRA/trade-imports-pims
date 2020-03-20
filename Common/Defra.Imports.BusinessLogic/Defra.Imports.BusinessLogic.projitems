@@ -14,6 +14,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\InspectionsSinceLastCheckCounterManagerBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Auditor\CounterHistoryDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Auditor\RiskCounterAuditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\AutonumberRiskLevelCounterManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\IRiskLevelCounterManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\PlaceOfOriginRiskLevelCounterManager.cs" />
