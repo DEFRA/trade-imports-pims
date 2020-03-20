@@ -140,7 +140,6 @@
             if (currentCount >= p1coverageRule.defraimp_NumberOfRecordsUntilInspection)
             {
                 // Reset the counter
-                _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.P1_COUNTER_NAME, 0);
                 _riskLevelCounterManager.SetNumberValue(ref _importApplication, "Record flagged for inspection - Application count reset.", 0);
 
                 _inspectionRequirement.P1Inspection();

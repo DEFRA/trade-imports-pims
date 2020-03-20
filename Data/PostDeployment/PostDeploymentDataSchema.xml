@@ -93,13 +93,14 @@
     </fields>
     <relationships>
       <relationship name="defraimp_goldbronzecountriesnn" manyToMany="true" isreflexive="true" relatedEntityName="defraimp_goldbronzecountriesnn" m2mTargetEntity="defra_country" m2mTargetEntityPrimaryKey="defra_countryid" />
-    </relationships>
+    </relationships>`
   </entity>
   <entity name="defraimp_inspectioncoveragerule" displayname="Inspection Coverage Rule" etc="10119" primaryidfield="defraimp_inspectioncoverageruleid" primarynamefield="defraimp_name" disableplugins="false">
     <fields>
       <field displayname="Rule Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
       <field displayname="Risk Level" name="defraimp_risklevelid" type="entityreference" primaryKey="false" lookupType="defraimp_importrisklevel" customfield="false" />
       <field displayname="Inspection Coverage Rule" name="defraimp_inspectioncoverageruleid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Key" name="defraimp_key" type="string" primaryKey="false" customfield="false" />
     </fields>
     <relationships />
   </entity>
