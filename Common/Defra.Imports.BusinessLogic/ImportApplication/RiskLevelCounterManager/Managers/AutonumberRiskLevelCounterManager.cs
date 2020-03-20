@@ -15,7 +15,6 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 {
     public class AutonumberRiskCounterManager : AbstractRiskCounterManager
     {
-        IAutonumberRepository _autoNumberRepo;
         string _riskLevel;
 
         public AutonumberRiskCounterManager(ICrmRepository<defraimp_importapplication> importApplicationRepo, IAutonumberRepository autoNumberRepo, string riskLevel, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, ILogWriter logWriter)
@@ -35,6 +34,15 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 if (importApplication.defraimp_ImportRecordCounted != true)
                 {
                     _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.GetCounterName(_riskLevel));
+
+                    // If this was a risk level other than P3 we need to also increment the P3 counter
+                    if (_riskLevel.ToLower() != ImportApplicationConstants.P3_RISK_LEVEL_NAME)
+                    {
+                        // Increment the P3 global counter
+                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment Global P3 counter");
+                        _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+                    }
+
                     SetRecordCounted(ref importApplication, true);
                 }
             }
@@ -59,6 +67,14 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                     {
                         _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement " + _riskLevel + " counter");
                         _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.GetCounterName(_riskLevel));
+                    }
+
+                    // If this was a risk level other than P3 we need to decrement the P3 counter as well
+                    if (_riskLevel.ToLower() != ImportApplicationConstants.P3_RISK_LEVEL_NAME)
+                    {
+                        // Decrement the P3 global counter
+                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement Global P3 counter");
+                        _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
                     }
 
                     SetRecordCounted(ref importApplication, false);
@@ -92,9 +108,20 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         public override void DecrementQuota(ref defraimp_importapplication importApplication, string reason)
         {
+            _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Quota decrement risk level is " + _riskLevel);
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+
+                // If this was a risk level other than P3 we need to decrement the P3 counter as well
+                if (_riskLevel.ToLower() != ImportApplicationConstants.P3_RISK_LEVEL_NAME)
+                {
+                    // Increment the P3 global counter
+                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment Global P3 counter");
+                    _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+                }
+
+                SetRecordCounted(ref importApplication, true);
             }
 
             base.DecrementQuota(ref importApplication, reason);
@@ -133,7 +160,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 if ((quotaCounterValue > 0) && (counterValue <= negativeThreshold))
                 {
                     _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
-                    _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.GetCounterName(_riskLevel), threshold + 1);
+                    _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel), 1);
                 }
             }
         }

@@ -18,11 +18,12 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
         IPlaceOfOriginRepository _placeOfOriginRepo;
         defraimp_placeoforigin _placeOfOrigin;
 
-        public PlaceOfOriginRiskLevelCounterManager(ICrmRepository<defraimp_importapplication> importApplicationRepo, defraimp_importapplication importApplication, IPlaceOfOriginRepository placeOfOriginRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, ILogWriter logWriter)
+        public PlaceOfOriginRiskLevelCounterManager(ICrmRepository<defraimp_importapplication> importApplicationRepo, IAutonumberRepository autoNumberRepo, defraimp_importapplication importApplication, IPlaceOfOriginRepository placeOfOriginRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, ILogWriter logWriter)
         {
             _importApplicationRepo = importApplicationRepo;
             _placeOfOriginRepo = placeOfOriginRepo;
             _coverageRulesRepo = coverageRulesRepo;
+            _autoNumberRepo = autoNumberRepo;
             _logWriter = logWriter;
 
             if (importApplication.defraimp_PlaceofOriginid != null)
@@ -39,6 +40,11 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 if (importApplication.defraimp_ImportRecordCounted != true)
                 {
                     _placeOfOriginRepo.IncrementApplicationCounter(_placeOfOrigin.Id);
+
+                    // Increment the P3 global counter
+                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment Global P3 counter");
+                    _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+
                     SetRecordCounted(ref importApplication, true);
                 }
             }
@@ -66,6 +72,10 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                         _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement PoO '" + _placeOfOrigin.Id + "' counter");
                         //_placeOfOriginRepo.DecrementApplicationCounter(_placeOfOrigin.Id);
                     }
+
+                    // Decrement the P3 global counter
+                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement Global P3 counter");
+                    _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
 
                     _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Set record as 'Not Counted'");
                     SetRecordCounted(ref importApplication, false);
@@ -100,9 +110,16 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         public override void DecrementQuota(ref defraimp_importapplication importApplication, string reason)
         {
+            // This is called when there was a quota value that we're now taking to flag an import record for an inspection
             if (_placeOfOrigin != null)
             {
                 _placeOfOriginRepo.DecrementQuotaCounter(_placeOfOrigin.Id);
+
+                // Increment the P3 global counter
+                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment Global P3 counter");
+                _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+
+                SetRecordCounted(ref importApplication, true);
             }
 
             base.DecrementQuota(ref importApplication, reason);
