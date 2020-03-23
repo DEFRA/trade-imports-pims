@@ -9,6 +9,7 @@
     <Import_RootNamespace>Defra.Imports.BusinessLogic</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\CustomActionNames.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CrmPluginRegistrationAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\InArgumentExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />

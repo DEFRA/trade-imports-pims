@@ -1,6 +1,7 @@
 namespace Defra.Imports.BusinessLogic
 {
     using System;
+    using System.Linq;
     using Defra.Imports.BusinessLogic.Logging;
     using Defra.Imports.Repositories;
     using Microsoft.Xrm.Sdk;
@@ -62,6 +63,33 @@ namespace Defra.Imports.BusinessLogic
         /// <param name="repositoryFactory">The repository factory.</param>
         protected abstract void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory);
 
+        /// <summary>
+        /// Check if the root contexts message name is contained in the custom message names array
+        /// </summary>
+        /// <param name="context">The execution context</param>
+        /// <param name="customMessageNames">An array of custom message names to search for</param>
+        /// <returns>True if the root context message name is in the custom message names array</returns>
+        protected bool IsRootContextCustomMessage(IPluginExecutionContext context, string[] customMessageNames)
+        {
+            IPluginExecutionContext currentContext = context;
+            while (currentContext.ParentContext != null)
+            {
+                currentContext = currentContext.ParentContext;
+            }
+
+            return this.IsMessageContextCustomMessage(currentContext, customMessageNames);
+        }
+
+        /// <summary>
+        /// Check if the message context name is contained in the custom message names array
+        /// </summary>
+        /// <param name="context">The execution context</param>
+        /// <param name="customMessageNames">An array of custom message names to search for</param>
+        /// <returns>True if the context message name is in the custom message names array</returns>
+        protected bool IsMessageContextCustomMessage(IPluginExecutionContext context, string[] customMessageNames)
+        {
+            return customMessageNames.Contains(context.MessageName);
+        }
 
         /// <summary>
         /// Retrieve a post image entity

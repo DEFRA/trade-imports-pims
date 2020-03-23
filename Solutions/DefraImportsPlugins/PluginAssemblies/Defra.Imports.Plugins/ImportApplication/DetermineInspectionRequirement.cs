@@ -7,6 +7,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using Defra.Imports.BusinessLogic;
+    using Defra.Imports.BusinessLogic.Constants;
     using Defra.Imports.BusinessLogic.ImportApplication;
     using Defra.Imports.BusinessLogic.Logging;
     using Defra.Imports.BusinessLogic.RepoInterfaces;
@@ -78,8 +79,10 @@
         {
             logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Fired plugin with message: " + context.MessageName + ". Depth = " + context.Depth);
 
+            string[] customMessageNames = GetCustomMessageNames();
+
             // Ensure the depth is 1
-            if (context.Depth <= 1 || context.MessageName == "SetStateDynamicEntity")
+            if (context.Depth <= 1 || context.MessageName == "SetStateDynamicEntity" || this.IsRootContextCustomMessage(context, customMessageNames))
             {
                 logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Plugin executing");
                 // Try to retrieve a pre-image. This won't work if it's the correct step, so we will pass in a null object which the business logic will handle.
@@ -109,6 +112,11 @@
                 DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(preImageApplication, postImageApplication, importApplicationRepo, coverageRulesRepo, importRiskLevelRepo, autoNumberRepo, placeOfOriginRepo, repositoryFactory, logWriter);
                 determineInspectionRequirementBusinessLogic.RunLogic();
             }
+        }
+
+        private string[] GetCustomMessageNames()
+        {
+            return new string[] { CustomActionNames.CreateImportRecordFromItahc };
         }
     }
 }

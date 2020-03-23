@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Xunit;
 namespace Defra.Imports.Tests.Unit.Plugins
 {
-    class PrimaryITAHCCounterManagerTests
+    public class PrimaryITAHCCounterManagerTests
     {
     }
 }
