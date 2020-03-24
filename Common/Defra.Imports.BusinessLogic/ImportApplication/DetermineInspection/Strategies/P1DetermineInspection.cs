@@ -6,6 +6,7 @@
     using System.Text;
     using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
     using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers;
+    using Defra.Imports.BusinessLogic.ImportApplication.Factories;
     using Defra.Imports.BusinessLogic.RepoInterfaces;
     using Defra.Imports.Model;
     using Defra.Imports.Repositories;
@@ -122,7 +123,8 @@
         private void DealWithP1QuotaInspection()
         {
             // Decrement the quota counter list
-            _riskLevelCounterManager.DecrementQuota(ref _importApplication, "Quota value was above 0 so the record was flagged for inspection");
+            _riskLevelCounterManager.DecrementQuota(ref _importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection);
+            _riskLevelCounterManager.IncrementGlobalCounter(_importApplication);
 
             // Flag the application for inspection
             _inspectionRequirement.P1Inspection();
@@ -134,13 +136,13 @@
             defraimp_inspectioncoveragerule p1coverageRule = GetCoverageRule(_coverageRulesRepo, ImportApplicationConstants.P1_COVERAGE_RULE_KEY);
 
             // Increment the counter and get the value
-            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Risk was evaluated as P1 - Application count incremented");
+            _riskLevelCounterManager.IncrementNumber(ref _importApplication, defraimp_counterhistory_defraimp_reason.ValidP1);
 
             int currentCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P1_COUNTER_NAME);
             if (currentCount >= p1coverageRule.defraimp_NumberOfRecordsUntilInspection)
             {
                 // Reset the counter
-                _riskLevelCounterManager.SetNumberValue(ref _importApplication, "Record flagged for inspection - Application count reset.", 0);
+                _riskLevelCounterManager.SetNumberValue(ref _importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection, 0);
 
                 _inspectionRequirement.P1Inspection();
             }
@@ -151,9 +153,9 @@
         }
 
         private void GoldInspection(defraimp_placeoforigin placeOfOrigin, int coverageRuleValue)
-        {
+        {        
             // Increment the gold/bronze application counter
-            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Gold Place of Origin");
+            _riskLevelCounterManager.IncrementNumber(ref _importApplication, defraimp_counterhistory_defraimp_reason.ValidGB);
 
             // Ensure our local copy also increments the counter
             placeOfOrigin.defraimp_ApplicationCounter += 1;
@@ -164,18 +166,18 @@
             if (placeOfOrigin.defraimp_ApplicationCounter >= coverageRuleValue)
             {
                 // +1 to quota
-                _riskLevelCounterManager.IncrementQuota(ref _importApplication, "Application Counter is greater than or equal to the coverage rule value");
+                _riskLevelCounterManager.IncrementQuota(ref _importApplication, defraimp_counterhistory_defraimp_reason.CounterTargetReachedQuotaIncrement);
                 quotaCount += 1;
 
                 // Reset the application counter
-                _riskLevelCounterManager.SetNumberValue(ref _importApplication, "Quota was incremented, reset Application Count", 0);
+                _riskLevelCounterManager.SetNumberValue(ref _importApplication, defraimp_counterhistory_defraimp_reason.CounterTargetReachedQuotaIncrement, 0);
             }
 
             // Check the outstanding inspection counter, see if we need to apply an inspection
             if (quotaCount > 0)
             {
                 // -1 from quota
-                _riskLevelCounterManager.DecrementQuota(ref _importApplication, "Quota value was above 0 so the record was flagged for inspection");
+                _riskLevelCounterManager.DecrementQuota(ref _importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection);
 
                 // Set to inspect
                 _inspectionRequirement.GoldCoverageInspection();
@@ -190,8 +192,7 @@
         void BronzeInspection(defraimp_placeoforigin placeOfOrigin)
         {
             // Increment the gold/bronze application counter
-            //_placeOfOriginRepo.IncrementApplicationCounter(placeOfOrigin.Id);
-            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Bronze Place of Origin");
+            _riskLevelCounterManager.IncrementNumber(ref _importApplication, defraimp_counterhistory_defraimp_reason.ValidGB);
 
             // Ensure our local copy also increments the counter
             placeOfOrigin.defraimp_ApplicationCounter += 1;

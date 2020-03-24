@@ -7,11 +7,13 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 {
     public interface IRiskLevelCounterManager
     {
-        void IncrementNumber(ref defraimp_importapplication importApplication, string reason);
-        void DecrementNumber(ref defraimp_importapplication importApplication, string reason);
-        void SetNumberValue(ref defraimp_importapplication importApplication, string reason, int value);
-        void IncrementQuota(ref defraimp_importapplication importApplication, string reason);
-        void DecrementQuota(ref defraimp_importapplication importApplication, string reason);
-        void SetQuotaValue(ref defraimp_importapplication importApplication, string reason, int value);
+        void IncrementNumber(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason);
+        void DecrementNumber(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason);
+        void SetNumberValue(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason, int value);
+        void IncrementQuota(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason);
+        void DecrementQuota(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason);
+        void SetQuotaValue(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason, int value);
+        void IncrementGlobalCounter(defraimp_importapplication importApplication);
+        void DecrementGlobalCounter(defraimp_importapplication importApplication);
     }
 }

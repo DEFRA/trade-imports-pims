@@ -25,6 +25,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             _coverageRulesRepo = coverageRulesRepo;
             _autoNumberRepo = autoNumberRepo;
             _logWriter = logWriter;
+            _abstractCounterTransactionDetailFactory = new CounterTransactionDetailFactory();
 
             if (importApplication.defraimp_PlaceofOriginid != null)
             {
@@ -32,111 +33,163 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             }
         }
 
-        public override void IncrementNumber(ref defraimp_importapplication importApplication, string reason)
+        public override void IncrementNumber(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason)
         {
             if (_placeOfOrigin != null)
             {
                 // Make sure we've counted this record before we decrement
                 if (importApplication.defraimp_ImportRecordCounted != true)
-                {
+                {   
+                    // Create a new counterTransactionDetail record and populate it
+                    CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _placeOfOrigin, defraimp_counterhistory_defraimp_operation.Increment, counterTransactionReason);
+                    counterTransactionDetail.PreviousValue = _placeOfOriginRepo.GetApplicationCounterValue(_placeOfOrigin.Id);
+
+                    // Carry out the increment operation
                     _placeOfOriginRepo.IncrementApplicationCounter(_placeOfOrigin.Id);
 
+                    // Get the current value of the counter after the operation
+                    counterTransactionDetail.CurrentValue = _placeOfOriginRepo.GetApplicationCounterValue(_placeOfOrigin.Id);
+
+                    // Broadcast the message so that the auditor can pick it up
+                    BroadcastCounterTransactionEvent(counterTransactionDetail);
+
                     // Increment the P3 global counter
-                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment Global P3 counter");
-                    _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+                    IncrementGlobalCounter(importApplication);
 
                     SetRecordCounted(ref importApplication, true);
                 }
             }
 
-            base.IncrementNumber(ref importApplication, reason);
+            base.IncrementNumber(ref importApplication, counterTransactionReason);
         }
 
-        public override void DecrementNumber(ref defraimp_importapplication importApplication, string reason)
+        public override void DecrementNumber(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason)
         {
             if (_placeOfOrigin != null)
             {
                 // Make sure we've counted this record before we decrement
                 if (importApplication.defraimp_ImportRecordCounted == true)
                 {
-                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Inspection reason is " + importApplication.defraimp_InspectionRequiredReason.Value);
                     // If we needed to inspect because of Gold/Bronze inspection coverage
                     if (importApplication.defraimp_InspectionRequiredReason == defraimp_importapplication_defraimp_inspectionrequiredreason.GoldPlaceofOriginInspectionCoverage)
                     {
-                        //Increment the quota counter so that the next record for this place of origin is inspected
-                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment PoO '" + _placeOfOrigin.Id + "' Quota");
-                        _placeOfOriginRepo.IncrementQuotaCounter(_placeOfOrigin.Id);
+                        IncrementQuota(ref importApplication, counterTransactionReason);
                     }
                     else
                     {
-                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement PoO '" + _placeOfOrigin.Id + "' counter");
-                        //_placeOfOriginRepo.DecrementApplicationCounter(_placeOfOrigin.Id);
+                        // Create a new counterTransactionDetail record and populate it
+                        CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _placeOfOrigin, defraimp_counterhistory_defraimp_operation.Decrement, counterTransactionReason);
+                        counterTransactionDetail.PreviousValue = _placeOfOriginRepo.GetApplicationCounterValue(_placeOfOrigin.Id);
+
+                        // Carry out the decrement operation
+                        _placeOfOriginRepo.DecrementApplicationCounter(_placeOfOrigin.Id);
+
+                        // Get the current value of the counter after the operation
+                        counterTransactionDetail.CurrentValue = _placeOfOriginRepo.GetApplicationCounterValue(_placeOfOrigin.Id);
+
+                        // Broadcast the message so that the auditor can pick it up
+                        BroadcastCounterTransactionEvent(counterTransactionDetail);
+
                     }
 
                     // Decrement the P3 global counter
-                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement Global P3 counter");
-                    _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+                    DecrementGlobalCounter(importApplication);
 
-                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Set record as 'Not Counted'");
                     SetRecordCounted(ref importApplication, false);
 
-                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Balance Place of Origin ratios");
-                    BalanceInspectionToNonInspectionAspectRatio();
+                    BalanceInspectionToNonInspectionAspectRatio(importApplication);
                 }
             }
 
-            base.DecrementNumber(ref importApplication, reason);
+            base.DecrementNumber(ref importApplication, counterTransactionReason);
         }
 
-        public override void SetNumberValue(ref defraimp_importapplication importApplication, string reason, int value)
+        public override void SetNumberValue(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason, int value)
         {
             if (_placeOfOrigin != null)
             {
+                // Create a new counterTransactionDetail record and populate it
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _placeOfOrigin, defraimp_counterhistory_defraimp_operation.Setto0, counterTransactionReason);
+                counterTransactionDetail.PreviousValue = _placeOfOriginRepo.GetApplicationCounterValue(_placeOfOrigin.Id);
+
+                // Carry out the set number operation
                 _placeOfOriginRepo.SetApplicationCounter(_placeOfOrigin.Id, value);
+
+                // Get the current value of the counter after the operation
+                counterTransactionDetail.CurrentValue = _placeOfOriginRepo.GetApplicationCounterValue(_placeOfOrigin.Id);
+
+                // Broadcast the message so that the auditor can pick it up
+                BroadcastCounterTransactionEvent(counterTransactionDetail);
             }
 
-            base.SetNumberValue(ref importApplication, reason, value);
+            base.SetNumberValue(ref importApplication, counterTransactionReason, value);
         }
 
-        public override void IncrementQuota(ref defraimp_importapplication importApplication, string reason)
+        public override void IncrementQuota(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason)
         {
             if (_placeOfOrigin != null)
             {
+                // Create a new counterTransactionDetail record and populate it
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _placeOfOrigin, defraimp_counterhistory_defraimp_operation.Increment, counterTransactionReason);
+                counterTransactionDetail.PreviousValue = _placeOfOriginRepo.GetQuotaCounterValue(_placeOfOrigin.Id);
+
                 _placeOfOriginRepo.IncrementQuotaCounter(_placeOfOrigin.Id);
+
+                // Get the current value of the quota after the operation
+                counterTransactionDetail.CurrentValue = _placeOfOriginRepo.GetQuotaCounterValue(_placeOfOrigin.Id);
+
+                // Broadcast the message so that the auditor can pick it up
+                BroadcastCounterTransactionEvent(counterTransactionDetail);
             }
 
-            base.IncrementNumber(ref importApplication, reason);
+            base.IncrementQuota(ref importApplication, counterTransactionReason);
         }
 
-        public override void DecrementQuota(ref defraimp_importapplication importApplication, string reason)
+        public override void DecrementQuota(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason)
         {
             // This is called when there was a quota value that we're now taking to flag an import record for an inspection
             if (_placeOfOrigin != null)
             {
+                // Create a new counterTransactionDetail record and populate it
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _placeOfOrigin, defraimp_counterhistory_defraimp_operation.Decrement, counterTransactionReason);
+                counterTransactionDetail.PreviousValue = _placeOfOriginRepo.GetQuotaCounterValue(_placeOfOrigin.Id);
+
                 _placeOfOriginRepo.DecrementQuotaCounter(_placeOfOrigin.Id);
 
-                // Increment the P3 global counter
-                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment Global P3 counter");
-                _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+                // Get the current value of the quota after the operation
+                counterTransactionDetail.CurrentValue = _placeOfOriginRepo.GetQuotaCounterValue(_placeOfOrigin.Id);
+
+                // Broadcast the message so that the auditor can pick it up
+                BroadcastCounterTransactionEvent(counterTransactionDetail);
 
                 SetRecordCounted(ref importApplication, true);
             }
 
-            base.DecrementQuota(ref importApplication, reason);
+            base.DecrementQuota(ref importApplication, counterTransactionReason);
         }
 
-        public override void SetQuotaValue(ref defraimp_importapplication importApplication, string reason, int value)
+        public override void SetQuotaValue(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason, int value)
         {
             if (_placeOfOrigin != null)
             {
+                // Create a new counterTransactionDetail record and populate it
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _placeOfOrigin, defraimp_counterhistory_defraimp_operation.Setto0, counterTransactionReason);
+                counterTransactionDetail.PreviousValue = _placeOfOriginRepo.GetQuotaCounterValue(_placeOfOrigin.Id);
+
                 _placeOfOriginRepo.SetApplicationCounter(_placeOfOrigin.Id, value);
+
+                // Get the current value of the quota after the operation
+                counterTransactionDetail.CurrentValue = _placeOfOriginRepo.GetQuotaCounterValue(_placeOfOrigin.Id);
+
+                // Broadcast the message so that the auditor can pick it up
+                BroadcastCounterTransactionEvent(counterTransactionDetail);
             }
 
-            base.SetQuotaValue(ref importApplication, reason, value);
+            base.SetQuotaValue(ref importApplication, counterTransactionReason, value);
         }
 
 
-        void BalanceInspectionToNonInspectionAspectRatio()
+        void BalanceInspectionToNonInspectionAspectRatio(defraimp_importapplication importApplication)
         {
             int quotaCounterValue = _placeOfOriginRepo.GetQuotaCounterValue(_placeOfOrigin.Id);
             int counterValue = _placeOfOriginRepo.GetApplicationCounterValue(_placeOfOrigin.Id);
@@ -158,8 +211,8 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
                 if ((quotaCounterValue > 0) && (counterValue <= negativeThreshold))
                 {
-                    _placeOfOriginRepo.DecrementQuotaCounter(_placeOfOrigin.Id);
-                    _placeOfOriginRepo.SetApplicationCounter(_placeOfOrigin.Id, 0);
+                    DecrementQuota(ref importApplication, defraimp_counterhistory_defraimp_reason.NegativeThresholdReachedBalanceQuota);
+                    SetNumberValue(ref importApplication, defraimp_counterhistory_defraimp_reason.NegativeThresholdReachedBalanceQuota, 0);
                 }
             }
         }
