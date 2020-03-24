@@ -6,6 +6,7 @@ using Defra.Imports.BusinessLogic.Logging;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
 using Defra.Imports.Model;
 using Defra.Imports.Repositories;
+using Microsoft.Xrm.Sdk;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,19 +26,21 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
         private IRepositoryFactory _repositoryFactory;
         private ILogWriter _logWriter;
         private DetermineInspectionContext _determineInspectionContext;
-        private IRiskLevelCounterManager _previousRiskLevelCounterManager;
+        private AbstractRiskCounterManager _previousRiskLevelCounterManager;
         private ImportRiskCounterAuditor _importRiskCounterAuditor;
+        private ICrmRepository<defraimp_counterhistory> _counterHistoryRepo;
 
-        public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication preImageImportApplication, defraimp_importapplication postImageImportApplication, ICrmRepository<defraimp_importapplication> importAppRepo, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, ICrmRepository<defraimp_importrisklevel> importRiskLevelRepo, IAutonumberRepository autonumberRepo, IPlaceOfOriginRepository placeoforiginRepo, IRepositoryFactory repositoryFactory, ILogWriter logWriter)
+        public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication preImageImportApplication, defraimp_importapplication postImageImportApplication, IOrganizationService orgSvc, ILogWriter logWriter)
         {
             _preImageImportApplication = preImageImportApplication;
             _postImageImportApplication = postImageImportApplication;
-            _importApplicationRepo = importAppRepo;
-            _coverageRulesRepo = coverageRulesRepo;
-            _importRiskLevelRepo = importRiskLevelRepo;
-            _autoNumberRepo = autonumberRepo;
-            _placeOfOriginRepo = placeoforiginRepo;
-            _repositoryFactory = repositoryFactory;
+            _autoNumberRepo = new AutonumberRepository(orgSvc);
+            _placeOfOriginRepo = new PlaceOfOriginRepository(orgSvc);
+            _importApplicationRepo = new CrmRepository<ImportsContext, defraimp_importapplication>(orgSvc);
+            _coverageRulesRepo = new CrmRepository<ImportsContext, defraimp_inspectioncoveragerule>(orgSvc);
+            _importApplicationRepo = new CrmRepository<ImportsContext, defraimp_importapplication>(orgSvc);
+            _importRiskLevelRepo = new CrmRepository<ImportsContext, defraimp_importrisklevel>(orgSvc);
+            _counterHistoryRepo = new CrmRepository<ImportsContext, defraimp_counterhistory>(orgSvc);
             _logWriter = logWriter;
 
             _determineInspectionContext = new DetermineInspectionContext()
@@ -63,6 +66,9 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
                 //Set up counter manager to manage incrementing. We need seperate counter managers to support a change in risk levels. We put this in the determine inspection context for risk strategies to use.
                 _determineInspectionContext.RiskLevelCounterManager = SetupRiskLevelCounterManager(_postImageImportApplication);
+                
+                // Set up an auditor for the counter manager
+                yay
             }
 
             if (_preImageImportApplication != null)
@@ -75,6 +81,9 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
                 //Set up counter manager to manage decrementing. We need seperate counter managers to support a change in risk levels.
                 _previousRiskLevelCounterManager = SetupRiskLevelCounterManager(_preImageImportApplication);
+
+                // Set up an auditor for the counter manager
+                _importRiskCounterAuditor = new ImportRiskCounterAuditor(_previousRiskLevelCounterManager, _counterHistoryRepo);
             }
 
             // Create (Only post)
@@ -116,7 +125,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             }
         }
 
-        IRiskLevelCounterManager SetupRiskLevelCounterManager(defraimp_importapplication importApplication)
+        AbstractRiskCounterManager SetupRiskLevelCounterManager(defraimp_importapplication importApplication)
         {
             if (importApplication != null)
             {

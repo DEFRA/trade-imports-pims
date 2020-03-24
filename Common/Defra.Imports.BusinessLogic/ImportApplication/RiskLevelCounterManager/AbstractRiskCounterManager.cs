@@ -13,7 +13,7 @@
     using System.Text;
     using System.Linq;
 
-    public abstract class AbstractRiskCounterManager : IRiskLevelCounterManager
+    public abstract class AbstractRiskCounterManager
     {
         protected ICrmRepository<defraimp_importapplication> _importApplicationRepo;
         protected ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
