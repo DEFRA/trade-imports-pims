@@ -17,6 +17,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\InspectionsSinceLastCheckCounterManagerBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Auditor\CounterTransactionDetail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Auditor\ImportRiskCounterAuditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Factories\AbstractCounterTransactionDetailFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Factories\CounterTransactionDetailFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\AutonumberRiskLevelCounterManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\IRiskLevelCounterManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\PlaceOfOriginRiskLevelCounterManager.cs" />
