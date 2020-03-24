@@ -27,7 +27,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
         private ILogWriter _logWriter;
         private DetermineInspectionContext _determineInspectionContext;
         private AbstractRiskCounterManager _previousRiskLevelCounterManager;
-        private ImportRiskCounterAuditor _importRiskCounterAuditor;
+        private IImportRiskCounterAuditor _importRiskCounterAuditor;
         private ICrmRepository<defraimp_counterhistory> _counterHistoryRepo;
 
         public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication preImageImportApplication, defraimp_importapplication postImageImportApplication, IOrganizationService orgSvc, ILogWriter logWriter)
@@ -66,9 +66,9 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
                 //Set up counter manager to manage incrementing. We need seperate counter managers to support a change in risk levels. We put this in the determine inspection context for risk strategies to use.
                 _determineInspectionContext.RiskLevelCounterManager = SetupRiskLevelCounterManager(_postImageImportApplication);
-                
+
                 // Set up an auditor for the counter manager
-                yay
+                _determineInspectionContext.ImportRiskCounterAuditor = new ImportRiskCounterAuditor(_determineInspectionContext.RiskLevelCounterManager, _counterHistoryRepo);
             }
 
             if (_preImageImportApplication != null)

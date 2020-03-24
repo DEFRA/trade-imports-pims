@@ -17,6 +17,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.Contexts
         public IAutonumberRepository AutoNumberRepo { get; set; }
         public IPlaceOfOriginRepository PlaceOfOriginRepo { get; set; }
         public IRepositoryFactory RepositoryFactory { get; set; }
-        public IRiskLevelCounterManager RiskLevelCounterManager { get; set; }
+        public AbstractRiskCounterManager RiskLevelCounterManager { get; set; }
+        public IImportRiskCounterAuditor ImportRiskCounterAuditor { get; set; }
     }
 }

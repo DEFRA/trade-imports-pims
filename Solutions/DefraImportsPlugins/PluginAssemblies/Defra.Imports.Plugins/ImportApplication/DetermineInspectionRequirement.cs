@@ -104,7 +104,7 @@
                 }
 
                 // Create an import application repository
-                DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(preImageApplication, postImageApplication, repositoryFactory, logWriter);
+                DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(preImageApplication, postImageApplication, orgSvc, logWriter);
                 determineInspectionRequirementBusinessLogic.RunLogic();
             }
         }

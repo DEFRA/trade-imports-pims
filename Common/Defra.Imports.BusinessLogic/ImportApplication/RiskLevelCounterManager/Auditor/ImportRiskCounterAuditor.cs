@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Defra.Imports.BusinessLogic.ImportApplication
 {
-    class ImportRiskCounterAuditor
+    class ImportRiskCounterAuditor : IImportRiskCounterAuditor
     {
         AbstractRiskCounterManager _riskLevelCounterManager;
         ICrmRepository<defraimp_counterhistory> _counterHistoryRepo;

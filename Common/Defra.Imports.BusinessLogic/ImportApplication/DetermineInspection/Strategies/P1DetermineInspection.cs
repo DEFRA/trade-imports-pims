@@ -21,7 +21,7 @@
         private ICrmRepository <defraimp_goldbronzecommodity> _goldBronzeCommodityRepo;
         private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
         private InspectionRequirement _inspectionRequirement;
-        private IRiskLevelCounterManager _riskLevelCounterManager;
+        private AbstractRiskCounterManager _riskLevelCounterManager;
 
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
