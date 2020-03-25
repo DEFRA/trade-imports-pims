@@ -18,7 +18,7 @@
         private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
         private ICrmRepository<defraimp_importapplication> _importApplicationRepo;
         private InspectionRequirement _inspectionRequirement;
-        private IRiskLevelCounterManager _riskLevelCounterManager;
+        private AbstractRiskCounterManager _riskLevelCounterManager;
 
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
@@ -57,7 +57,7 @@
         private void DealWithP3QuotaInspection()
         {
             // Decrement the quota counter list
-            _riskLevelCounterManager.DecrementQuota(ref _importApplication, "Quota value was above 0 so the record was flagged for inspection");
+            _riskLevelCounterManager.DecrementQuota(ref _importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection);
 
             // Flag the application for inspection
             _inspectionRequirement.P3Inspection();
@@ -69,13 +69,13 @@
             defraimp_inspectioncoveragerule coverageRule = GetCoverageRule(_coverageRulesRepo, ImportApplicationConstants.P3_COVERAGE_RULE_KEY);
 
             // Increment the counter and get the value
-            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Risk was evaluated as P3 - Application count incremented");
+            _riskLevelCounterManager.IncrementNumber(ref _importApplication, defraimp_counterhistory_defraimp_reason.ValidP3);
 
             int currentCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
             if (currentCount >= coverageRule.defraimp_NumberOfRecordsUntilInspection)
             {
                 // Reset the counter
-                _riskLevelCounterManager.SetNumberValue(ref _importApplication, "Record flagged for inspection - Application count reset.", 0);
+                _riskLevelCounterManager.SetNumberValue(ref _importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection, 0);
 
                 _inspectionRequirement.P3Inspection();
             }

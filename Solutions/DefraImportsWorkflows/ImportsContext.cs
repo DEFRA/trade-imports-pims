@@ -9070,16 +9070,25 @@ namespace Defra.Imports.Model
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Increment = 714100000,
+		IncrementCounter = 714100000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Decrement = 714100001,
+		DecrementCounter = 714100001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		NoOperation = 714100002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Setto0 = 714100003,
+		SetCounter = 714100003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IncrementQuota = 714100004,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DecrementQuota = 714100005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SetQuota = 714100006,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]

@@ -103,13 +103,7 @@
                     postImageApplication = postImage.ToEntity<defraimp_importapplication>();
                 }
 
-                // Create an import application repository
-                ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo = new CrmRepository<ImportsContext, defraimp_inspectioncoveragerule>(orgSvc);
-                IAutonumberRepository autoNumberRepo = new AutonumberRepository(orgSvc);
-                ICrmRepository<defraimp_importapplication> importApplicationRepo = new CrmRepository<ImportsContext, defraimp_importapplication>(orgSvc);
-                ICrmRepository<defraimp_importrisklevel> importRiskLevelRepo = new CrmRepository<ImportsContext, defraimp_importrisklevel>(orgSvc);
-                IPlaceOfOriginRepository placeOfOriginRepo = new PlaceOfOriginRepository(orgSvc);
-                DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(preImageApplication, postImageApplication, importApplicationRepo, coverageRulesRepo, importRiskLevelRepo, autoNumberRepo, placeOfOriginRepo, repositoryFactory, logWriter);
+                DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(preImageApplication, postImageApplication, repositoryFactory, logWriter);
                 determineInspectionRequirementBusinessLogic.RunLogic();
             }
         }

@@ -17,7 +17,7 @@
         private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
         private ICrmRepository<defraimp_importapplication> _importApplicationRepo;
         private InspectionRequirement _inspectionRequirement;
-        private IRiskLevelCounterManager _riskLevelCounterManager;
+        private AbstractRiskCounterManager _riskLevelCounterManager;
 
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
@@ -55,8 +55,11 @@
 
         private void DealWithP2QuotaInspection()
         {
+            // Increment the global counter first
+            _riskLevelCounterManager.IncrementGlobalCounter(_importApplication);
+
             // Decrement the quota counter list
-            _riskLevelCounterManager.DecrementQuota(ref _importApplication, "Quota value was above 0 so the record was flagged for inspection");
+            _riskLevelCounterManager.DecrementQuota(ref _importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection);
 
             // Flag the application for inspection
             _inspectionRequirement.P2Inspection();
@@ -68,13 +71,13 @@
             defraimp_inspectioncoveragerule coverageRule = GetCoverageRule(_coverageRulesRepo, ImportApplicationConstants.P2_COVERAGE_RULE_KEY);
 
             // Increment the counter and get the value
-            _riskLevelCounterManager.IncrementNumber(ref _importApplication, "Risk was evaluated as P2 - Application count incremented");
+            _riskLevelCounterManager.IncrementNumber(ref _importApplication, defraimp_counterhistory_defraimp_reason.ValidP2);
 
             int currentCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P2_COUNTER_NAME);
             if (currentCount >= coverageRule.defraimp_NumberOfRecordsUntilInspection)
             {
                 // Reset the counter
-                _riskLevelCounterManager.SetNumberValue(ref _importApplication, "Record flagged for inspection - Application count reset.", 0);
+                _riskLevelCounterManager.SetNumberValue(ref _importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection, 0);
 
                 _inspectionRequirement.P2Inspection();
             }

@@ -16,6 +16,8 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
     public class AutonumberRiskCounterManager : AbstractRiskCounterManager
     {
         string _riskLevel;
+        defraimp_autonumber _autoNumberRecord;
+        defraimp_autonumber _quotaAutoNumberRecord;
 
         public AutonumberRiskCounterManager(ICrmRepository<defraimp_importapplication> importApplicationRepo, IAutonumberRepository autoNumberRepo, string riskLevel, ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, ILogWriter logWriter)
         {
@@ -24,33 +26,45 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             _coverageRulesRepo = coverageRulesRepo;
             _riskLevel = riskLevel;
             _logWriter = logWriter;
+            _autoNumberRecord = _autoNumberRepo.GetAutonumberWithKey(ImportApplicationConstants.GetCounterName(_riskLevel));
+            _quotaAutoNumberRecord = _autoNumberRepo.GetAutonumberWithKey(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+            _abstractCounterTransactionDetailFactory = new CounterTransactionDetailFactory();
         }
 
-        public override void IncrementNumber(ref defraimp_importapplication importApplication, string reason)
+        public override void IncrementNumber(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason)
         {
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 // Make sure we've counted this record before we decrement
                 if (importApplication.defraimp_ImportRecordCounted != true)
                 {
+                    // Create a new counterTransactionDetail record and populate it
+                    CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _autoNumberRecord, defraimp_counterhistory_defraimp_operation.Increment, counterTransactionReason);               
+                    counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel));
+
+                    // Carry out the increment operation
                     _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.GetCounterName(_riskLevel));
+
+                    // Get the current value of the counter after the operation
+                    counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel));
+
+                    // Broadcast the message so that the auditor can pick it up
+                    BroadcastCounterTransactionEvent(counterTransactionDetail);
 
                     // If this was a risk level other than P3 we need to also increment the P3 counter
                     if (_riskLevel.ToLower() != ImportApplicationConstants.P3_RISK_LEVEL_NAME)
                     {
-                        // Increment the P3 global counter
-                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment Global P3 counter");
-                        _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+                        IncrementGlobalCounter(importApplication);
                     }
 
                     SetRecordCounted(ref importApplication, true);
                 }
             }
 
-            base.IncrementNumber(ref importApplication, reason);
+            base.IncrementNumber(ref importApplication, counterTransactionReason);
         }
 
-        public override void DecrementNumber(ref defraimp_importapplication importApplication, string reason)
+        public override void DecrementNumber(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason)
         {
             if (!string.IsNullOrEmpty(_riskLevel))
             {
@@ -60,21 +74,29 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                     // If we previously had flagged this record for a post import check
                     if (importApplication.defraimp_InspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.Yes)
                     {
-                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment " + _riskLevel + " quota counter");
-                        _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+                        // Carry out the increment operation for the quota
+                        IncrementQuota(ref importApplication, counterTransactionReason);
                     }
                     else
                     {
-                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement " + _riskLevel + " counter");
+                        // Create a new counterTransactionDetail record and populate it
+                        CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _autoNumberRecord, defraimp_counterhistory_defraimp_operation.Decrement, counterTransactionReason);
+                        counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+
+                        // Carry out the decrement operation
                         _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.GetCounterName(_riskLevel));
+
+                        // Get the current value of the counter after the operation
+                        counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+
+                        // Broadcast the message so that the auditor can pick it up
+                        BroadcastCounterTransactionEvent(counterTransactionDetail);
                     }
 
                     // If this was a risk level other than P3 we need to decrement the P3 counter as well
                     if (_riskLevel.ToLower() != ImportApplicationConstants.P3_RISK_LEVEL_NAME)
                     {
-                        // Decrement the P3 global counter
-                        _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement Global P3 counter");
-                        _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+                        DecrementGlobalCounter(importApplication);
                     }
 
                     SetRecordCounted(ref importApplication, false);
@@ -83,58 +105,93 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 }
             }
 
-            base.DecrementNumber(ref importApplication, reason);
+            base.DecrementNumber(ref importApplication, counterTransactionReason);
         }
 
-        public override void SetNumberValue(ref defraimp_importapplication importApplication, string reason, int value)
+        public override void SetNumberValue(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason, int value)
         {
             if (!string.IsNullOrEmpty(_riskLevel))
             {
+                // Create a new counterTransactionDetail record and populate it
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _autoNumberRecord, defraimp_counterhistory_defraimp_operation.Setto0, counterTransactionReason);
+                counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+
+                // Carry out the set number operation
                 _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel), value);
+
+                // Get the current value of the counter after the operation
+                counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+
+                // Broadcast the message so that the auditor can pick it up
+                BroadcastCounterTransactionEvent(counterTransactionDetail);
             }
                
-            base.SetNumberValue(ref importApplication, reason, value);
+            base.SetNumberValue(ref importApplication, counterTransactionReason, value);
         }
 
-        public override void IncrementQuota(ref defraimp_importapplication importApplication, string reason)
+        public override void IncrementQuota(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason)
         {
             if (!string.IsNullOrEmpty(_riskLevel))
             {
+                // Create a new counterTransactionDetail record and populate it
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _quotaAutoNumberRecord, defraimp_counterhistory_defraimp_operation.Increment, counterTransactionReason);
+                counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+
+                // Carry out the increment quota operation
                 _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+
+                // Get the current value of the quota after the operation
+                counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+
+                // Broadcast the message so that the auditor can pick it up
+                BroadcastCounterTransactionEvent(counterTransactionDetail);
             }
 
-            base.IncrementQuota(ref importApplication, reason);
+            base.IncrementQuota(ref importApplication, counterTransactionReason);
         }
 
-        public override void DecrementQuota(ref defraimp_importapplication importApplication, string reason)
+        public override void DecrementQuota(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason)
         {
-            _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Quota decrement risk level is " + _riskLevel);
             if (!string.IsNullOrEmpty(_riskLevel))
             {
+                // Create a new counterTransactionDetail record and populate it
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _quotaAutoNumberRecord, defraimp_counterhistory_defraimp_operation.Decrement, counterTransactionReason);
+                counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+
+                // Carry out the decrement quota operation
                 _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
 
-                // If this was a risk level other than P3 we need to decrement the P3 counter as well
-                if (_riskLevel.ToLower() != ImportApplicationConstants.P3_RISK_LEVEL_NAME)
-                {
-                    // Increment the P3 global counter
-                    _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment Global P3 counter");
-                    _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
-                }
+                // Get the current value of the quota after the operation
+                counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
 
                 SetRecordCounted(ref importApplication, true);
+
+                // Broadcast the message so that the auditor can pick it up
+                BroadcastCounterTransactionEvent(counterTransactionDetail);
             }
 
-            base.DecrementQuota(ref importApplication, reason);
+            base.DecrementQuota(ref importApplication, counterTransactionReason);
         }
 
-        public override void SetQuotaValue(ref defraimp_importapplication importApplication, string reason, int value)
+        public override void SetQuotaValue(ref defraimp_importapplication importApplication, defraimp_counterhistory_defraimp_reason counterTransactionReason, int value)
         {
             if (!string.IsNullOrEmpty(_riskLevel))
             {
+                // Create a new counterTransactionDetail record and populate it
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _quotaAutoNumberRecord, defraimp_counterhistory_defraimp_operation.Setto0, counterTransactionReason);
+                counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+
+                // Carry out the set quota value operation
                 _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel), value);
+
+                // Get the current value of the quota after the operation
+                counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+
+                // Broadcast the message so that the auditor can pick it up
+                BroadcastCounterTransactionEvent(counterTransactionDetail);
             }
 
-            base.SetQuotaValue(ref importApplication, reason, value);
+            base.SetQuotaValue(ref importApplication, counterTransactionReason, value);
         }
 
         void BalanceInspectionToNonInspectionAspectRatio(defraimp_importapplication importApplication)
@@ -159,8 +216,8 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
                 if ((quotaCounterValue > 0) && (counterValue <= negativeThreshold))
                 {
-                    _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
-                    _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel), 1);
+                    DecrementQuota(ref importApplication, defraimp_counterhistory_defraimp_reason.NegativeThresholdReachedBalanceQuota);
+                    SetNumberValue(ref importApplication, defraimp_counterhistory_defraimp_reason.NegativeThresholdReachedBalanceQuota, 0);
                 }
             }
         }

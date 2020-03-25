@@ -24,7 +24,7 @@
                         <labels>
                           <label description="Devolved Office" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_devolvedofficeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_devolvedofficeid" disabled="false" />
+                        <control id="defraimp_devolvedofficeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_devolvedofficeid" disabled="false" uniqueid="{52393713-7628-3c51-7a44-57378dd80198}" />
                       </cell>
                     </row>
                     <row>
@@ -32,7 +32,7 @@
                         <labels>
                           <label description="Import Record Type" languagecode="1033" />
                         </labels>
-                        <control disabled="false" id="defraimp_importapplicationtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_importapplicationtype" />
+                        <control disabled="false" id="defraimp_importapplicationtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_importapplicationtype" uniqueid="{29ab1735-6046-3429-6729-b3a6e4eb9a99}" />
                       </cell>
                     </row>
                     <row>
@@ -59,7 +59,7 @@
                         <control disabled="false" id="defraimp_commoditynotes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commoditynotes" uniqueid="{034cdbb1-ae15-2422-db89-7c5708ed6dc3}" />
                       </cell>
                     </row>
-                    <row />
+                    <row></row>
                     <row>
                       <cell id="{4a20d1c3-8208-1145-0487-d58594a3a92d}" locklevel="0" showlabel="true">
                         <labels>

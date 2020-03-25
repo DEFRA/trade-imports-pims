@@ -24,7 +24,7 @@
                         <labels>
                           <label description="Created On" languagecode="1033" />
                         </labels>
-                        <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                        <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" uniqueid="{47777bc7-c3e7-80ba-7130-e4cb236b11c2}" />
                       </cell>
                     </row>
                     <row>
@@ -32,7 +32,7 @@
                         <labels>
                           <label description="Counter History Type" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_counterhistorytype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_counterhistorytype" disabled="false" uniqueid="{bc60baed-1584-1298-b1eb-369c6748ce80}" />
+                        <control id="defraimp_counterhistorytype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_counterhistorytype" disabled="true" uniqueid="{bc60baed-1584-1298-b1eb-369c6748ce80}" />
                       </cell>
                     </row>
                     <row>
@@ -40,7 +40,7 @@
                         <labels>
                           <label description="Auto Number" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_autonumberid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_autonumberid" disabled="false" uniqueid="{4209217b-588d-94de-7902-98e4832825de}">
+                        <control id="defraimp_autonumberid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_autonumberid" disabled="true" uniqueid="{4209217b-588d-94de-7902-98e4832825de}">
                           <parameters>
                             <AutoResolve>true</AutoResolve>
                             <DisableMru>false</DisableMru>
@@ -53,11 +53,36 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{d01479d5-78e3-8c7a-b73d-087dda09322b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Previous Value" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_previousvalue" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_previousvalue" disabled="true" uniqueid="{75840950-4055-4b5d-8da4-72788387c76d}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e5c8687a-1091-6235-4b4d-9b8e7d42c3ad}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Current Value" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_currentvalue" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_currentvalue" disabled="true" uniqueid="{3d23a20d-7b83-8e3e-46bd-74129ae395ae}" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{43e5497c-312b-1bea-0366-5b604b585938}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Place Of Origin" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_placeoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeoforiginid" disabled="false" uniqueid="{7b7c10c1-2886-73cd-410a-cd3836716824}" />
+                        <control id="defraimp_placeoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeoforiginid" disabled="true" uniqueid="{7b7c10c1-2886-73cd-410a-cd3836716824}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{EBC9914A-BC86-4EF7-B910-DF37FBBE6655}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
@@ -65,7 +90,7 @@
                         <labels>
                           <label description="Import Record" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_importapplicationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importapplicationid" disabled="false" uniqueid="{13bb7803-3ce3-aa14-86c0-9a74a1abb27d}">
+                        <control id="defraimp_importapplicationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importapplicationid" disabled="true" uniqueid="{13bb7803-3ce3-aa14-86c0-9a74a1abb27d}">
                           <parameters>
                             <AutoResolve>true</AutoResolve>
                             <DisableMru>false</DisableMru>
@@ -82,7 +107,7 @@
                         <labels>
                           <label description="Operation" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_operation" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_operation" disabled="false" uniqueid="{49c0b276-3a49-19d2-5d0d-d46c893d9483}" />
+                        <control id="defraimp_operation" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_operation" disabled="true" uniqueid="{49c0b276-3a49-19d2-5d0d-d46c893d9483}" />
                       </cell>
                     </row>
                     <row>
@@ -90,7 +115,7 @@
                         <labels>
                           <label description="Reason" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_reason" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_reason" disabled="false" uniqueid="{c68eb0c6-54d2-4d09-bd49-ade62868a3ad}" />
+                        <control id="defraimp_reason" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_reason" disabled="true" uniqueid="{c68eb0c6-54d2-4d09-bd49-ade62868a3ad}" />
                       </cell>
                     </row>
                   </rows>
