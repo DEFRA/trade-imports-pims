@@ -7,12 +7,14 @@
     <RolePrivilege name="prvAppenddefra_country" level="Global" />
     <RolePrivilege name="prvAppenddefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvAppenddefraexp_exportapplicationlifecycle" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_autonumber" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_counterhistory" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_cved" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_docom" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importinspection" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_sampletest" level="Global" />
@@ -34,6 +36,7 @@
     <RolePrivilege name="prvAppendTodefraexp_commoditytype" level="Global" />
     <RolePrivilege name="prvAppendTodefraexp_exportapplicationlifecycle" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_apharegion" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_autonumber" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_counterhistory" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_cved" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_docom" level="Global" />
@@ -42,6 +45,7 @@
     <RolePrivilege name="prvAppendTodefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importrisklevel" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_sampletest" level="Global" />
