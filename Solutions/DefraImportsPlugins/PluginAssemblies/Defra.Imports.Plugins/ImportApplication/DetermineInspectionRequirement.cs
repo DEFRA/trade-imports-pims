@@ -103,8 +103,7 @@
                     postImageApplication = postImage.ToEntity<defraimp_importapplication>();
                 }
 
-                // Create an import application repository
-                DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(preImageApplication, postImageApplication, orgSvc, logWriter);
+                DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(preImageApplication, postImageApplication, repositoryFactory, logWriter);
                 determineInspectionRequirementBusinessLogic.RunLogic();
             }
         }

@@ -20,6 +20,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
         public ImportRiskCounterAuditor(AbstractRiskCounterManager riskLevelCounterManager, ICrmRepository<defraimp_counterhistory> counterHistoryRepo)
         {
             _riskLevelCounterManager = riskLevelCounterManager;
+            _counterHistoryRepo = counterHistoryRepo;
 
             //Subscribe to the events we care about
             _riskLevelCounterManager.CounterTransactionEvent += AuditCounterEvent;

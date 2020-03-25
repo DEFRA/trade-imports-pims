@@ -83,6 +83,22 @@
                         <control disabled="false" id="defraimp_dateofdecision" datafieldname="defraimp_dateofdecision" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" uniqueid="{539cadbe-c3b7-e2ce-7622-a267a45266ee}" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{e19e30d9-7800-4778-b232-c9260b2a2e96}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Replaces" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_replacesid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_replacesid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5219fbe6-f111-4f1a-a57c-085bd5dd5143}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Replaced By" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_replacedbyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_replacedbyid" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -137,11 +153,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{a6080e32-87dc-114c-808c-99b411397ad1}" showlabel="true" locklevel="0">
+                      <cell id="{a2f6c7ca-32fb-47ef-b922-7ca226d30e30}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Central Competent Authority" languagecode="1033" />
+                          <label description="Quantity / Weight (Grams)" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_centralcompetentauthority" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_centralcompetentauthority" disabled="false" />
+                        <control id="defraimp_quantity" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="defraimp_quantity" disabled="false" />
                       </cell>
                       <cell id="{a6126088-53d0-7d79-3c35-965e0241bed8}" showlabel="true" locklevel="0">
                         <labels>
@@ -151,13 +167,39 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{67ef6aa2-c234-4c9c-9678-bf9f737f2838}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Number of Packages" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_numberofpackages" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofpackages" disabled="false" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{d10ac2d1-34ae-40ce-9c40-04af90c8cdad}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a6080e32-87dc-114c-808c-99b411397ad1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Central Competent Authority" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_centralcompetentauthority" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_centralcompetentauthority" disabled="false" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{69ba20fb-16a4-4a51-ac3b-c5e395a0fa93}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{76e277ce-170e-1735-1920-27a6aab9b38c}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Local Competent Authority" languagecode="1033" />
                         </labels>
                         <control id="defraimp_localcompetentauthority" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_localcompetentauthority" disabled="false" />
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{d10ac2d1-34ae-40ce-9c40-04af90c8cdad}">
+                      <cell showlabel="true" locklevel="0" id="{a5a5b943-64fa-4a13-bc6c-ea6ba70e5c8b}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>

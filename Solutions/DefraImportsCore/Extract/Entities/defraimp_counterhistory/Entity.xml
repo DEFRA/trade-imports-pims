@@ -423,22 +423,37 @@
             <options>
               <option value="714100000" ExternalValue="" Color="#0000ff">
                 <labels>
-                  <label description="Increment" languagecode="1033" />
+                  <label description="Increment Counter" languagecode="1033" />
                 </labels>
               </option>
               <option value="714100001" ExternalValue="" Color="#0000ff">
                 <labels>
-                  <label description="Decrement" languagecode="1033" />
+                  <label description="Decrement Counter" languagecode="1033" />
                 </labels>
               </option>
               <option value="714100002" ExternalValue="" Color="#0000ff">
                 <labels>
-                  <label description="Did Not Decrement" languagecode="1033" />
+                  <label description="No Operation" languagecode="1033" />
                 </labels>
               </option>
               <option value="714100003" ExternalValue="" Color="#0000ff">
                 <labels>
-                  <label description="Set to 0" languagecode="1033" />
+                  <label description="Set Counter" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100004" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Increment Quota" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100005" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Decrement Quota" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100006" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Set Quota" languagecode="1033" />
                 </labels>
               </option>
             </options>
@@ -570,6 +585,26 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
+              <option value="714100015" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Negative Threshold Reached - Balance Quota" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100012" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Global Counter" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100013" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Was Flagged for Inspection" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100014" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Counter Target Reached - Quota Increment" languagecode="1033" />
+                </labels>
+              </option>
               <option value="714100000" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Valid P1" languagecode="1033" />

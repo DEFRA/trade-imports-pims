@@ -6,7 +6,6 @@ using Defra.Imports.BusinessLogic.Logging;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
 using Defra.Imports.Model;
 using Defra.Imports.Repositories;
-using Microsoft.Xrm.Sdk;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,17 +29,18 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
         private IImportRiskCounterAuditor _importRiskCounterAuditor;
         private ICrmRepository<defraimp_counterhistory> _counterHistoryRepo;
 
-        public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication preImageImportApplication, defraimp_importapplication postImageImportApplication, IOrganizationService orgSvc, ILogWriter logWriter)
+        public DetermineInspectionRequirementBusinessLogic(defraimp_importapplication preImageImportApplication, defraimp_importapplication postImageImportApplication, IRepositoryFactory repositoryFactory, ILogWriter logWriter)
         {
+            _repositoryFactory = repositoryFactory;
             _preImageImportApplication = preImageImportApplication;
             _postImageImportApplication = postImageImportApplication;
-            _autoNumberRepo = new AutonumberRepository(orgSvc);
-            _placeOfOriginRepo = new PlaceOfOriginRepository(orgSvc);
-            _importApplicationRepo = new CrmRepository<ImportsContext, defraimp_importapplication>(orgSvc);
-            _coverageRulesRepo = new CrmRepository<ImportsContext, defraimp_inspectioncoveragerule>(orgSvc);
-            _importApplicationRepo = new CrmRepository<ImportsContext, defraimp_importapplication>(orgSvc);
-            _importRiskLevelRepo = new CrmRepository<ImportsContext, defraimp_importrisklevel>(orgSvc);
-            _counterHistoryRepo = new CrmRepository<ImportsContext, defraimp_counterhistory>(orgSvc);
+            _autoNumberRepo = new AutonumberRepository(repositoryFactory.OrganizationService);
+            _placeOfOriginRepo = new PlaceOfOriginRepository(repositoryFactory.OrganizationService);
+            _importApplicationRepo = _repositoryFactory.GetRepository<ImportsContext, defraimp_importapplication>();
+            _coverageRulesRepo = _repositoryFactory.GetRepository<ImportsContext, defraimp_inspectioncoveragerule>();
+            _importApplicationRepo = _repositoryFactory.GetRepository<ImportsContext, defraimp_importapplication>();
+            _importRiskLevelRepo = _repositoryFactory.GetRepository<ImportsContext, defraimp_importrisklevel>();
+            _counterHistoryRepo = _repositoryFactory.GetRepository<ImportsContext, defraimp_counterhistory>();
             _logWriter = logWriter;
 
             _determineInspectionContext = new DetermineInspectionContext()
@@ -63,12 +63,6 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             {
                 currentRiskLevel =
                      _postImageImportApplication.defraimp_importrisklevelid != null ? _postImageImportApplication.defraimp_importrisklevelid.Name : string.Empty;
-
-                //Set up counter manager to manage incrementing. We need seperate counter managers to support a change in risk levels. We put this in the determine inspection context for risk strategies to use.
-                _determineInspectionContext.RiskLevelCounterManager = SetupRiskLevelCounterManager(_postImageImportApplication);
-
-                // Set up an auditor for the counter manager
-                _determineInspectionContext.ImportRiskCounterAuditor = new ImportRiskCounterAuditor(_determineInspectionContext.RiskLevelCounterManager, _counterHistoryRepo);
             }
 
             if (_preImageImportApplication != null)
@@ -82,8 +76,11 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 //Set up counter manager to manage decrementing. We need seperate counter managers to support a change in risk levels.
                 _previousRiskLevelCounterManager = SetupRiskLevelCounterManager(_preImageImportApplication);
 
-                // Set up an auditor for the counter manager
-                _importRiskCounterAuditor = new ImportRiskCounterAuditor(_previousRiskLevelCounterManager, _counterHistoryRepo);
+                if (_previousRiskLevelCounterManager != null)
+                {
+                    // Set up an auditor for the counter manager
+                    _importRiskCounterAuditor = new ImportRiskCounterAuditor(_previousRiskLevelCounterManager, _counterHistoryRepo);
+                }
             }
 
             // Create (Only post)
@@ -171,12 +168,20 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                             {
                                 // Manage the counts for the place of origin record we're replacing
                                 _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, defraimp_counterhistory_defraimp_reason.RiskLevelChangedRemoved);
+                                _postImageImportApplication.defraimp_ImportRecordCounted = false; // Update the local copy of the post image to reflect the change to the count state
+                            }
+                            else if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Bronze)
+                            {
+                                // We need to decrement the global counter
+                                _previousRiskLevelCounterManager.DecrementGlobalCounter(_preImageImportApplication);
+                                _postImageImportApplication.defraimp_ImportRecordCounted = false; // Update the local copy of the post image to reflect the change to the count state
                             }
                         }
                     }
                     else
                     {
                         _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, defraimp_counterhistory_defraimp_reason.RiskLevelChangedRemoved);
+                        _postImageImportApplication.defraimp_ImportRecordCounted = false; // Update the local copy of the post image to reflect the change to the count state
                     }
                 }
                 else
@@ -206,8 +211,21 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                             {
                                 // Manage the counts for the place of origin record we're replacing
                                 _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, defraimp_counterhistory_defraimp_reason.ITAHCRemoved);
+                                _postImageImportApplication.defraimp_ImportRecordCounted = false; // Update the local copy of the post image to reflect the change to the count state
+                            }
+                            else if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Bronze)
+                            {
+                                // We need to decrement the global counter
+                                _previousRiskLevelCounterManager.DecrementGlobalCounter(_preImageImportApplication);
+                                _postImageImportApplication.defraimp_ImportRecordCounted = false; // Update the local copy of the post image to reflect the change to the count state
                             }
                         }
+                    }
+                    else
+                    {
+                        // Manage the counts for the place of origin record we're replacing
+                        _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, defraimp_counterhistory_defraimp_reason.ITAHCRemoved);
+                        _postImageImportApplication.defraimp_ImportRecordCounted = false; // Update the local copy of the post image to reflect the change to the count state
                     }
                 }
             }
@@ -235,6 +253,13 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                             {
                                 // Manage the counts for the place of origin record we're replacing
                                 _previousRiskLevelCounterManager.DecrementNumber(ref _preImageImportApplication, defraimp_counterhistory_defraimp_reason.GBPlaceOfOriginRemoved);
+                                _postImageImportApplication.defraimp_ImportRecordCounted = false; // Update the local copy of the post image to reflect the change to the count state
+                            }
+                            else if (placeOfOrigin.defraimp_TrustLevel == defraimp_trustlevel.Bronze)
+                            {
+                                // We need to decrement the global counter
+                                _previousRiskLevelCounterManager.DecrementGlobalCounter(_preImageImportApplication);
+                                _postImageImportApplication.defraimp_ImportRecordCounted = false; // Update the local copy of the post image to reflect the change to the count state
                             }
                         }
                     }
@@ -279,6 +304,16 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
 
         private void DealWithDeterminingInspection()
         {
+            //Set up counter manager to manage incrementing. We need seperate counter managers to support a change in risk levels. 
+            // We put this in the determine inspection context for risk strategies to use, and set it up here so it can capture any prior changes made by the previous counter
+            _determineInspectionContext.RiskLevelCounterManager = SetupRiskLevelCounterManager(_postImageImportApplication);
+
+            // Set up an auditor for the counter manager
+            if (_determineInspectionContext.RiskLevelCounterManager != null)
+            {
+                _determineInspectionContext.ImportRiskCounterAuditor = new ImportRiskCounterAuditor(_determineInspectionContext.RiskLevelCounterManager, _counterHistoryRepo);
+            }
+
             // Get the risk level from the Import Risk Level and then retrieve the correct determine inspection for the risk level
             DetermineInspectionAbstractFatory determineInspectionFactory = new DetermineInspectionFactory();
             AbstractDetermineInspection determineInspection;
@@ -293,6 +328,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 determineInspection.ExecuteInspection(_determineInspectionContext);
             }
         }
+
         string GetRiskLevelName(Guid riskLevelId)
         {
             defraimp_importrisklevel previousRiskLevelId = _importRiskLevelRepo.Find<defraimp_importrisklevel>(

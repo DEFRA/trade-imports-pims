@@ -122,9 +122,11 @@
 
         private void DealWithP1QuotaInspection()
         {
+            // Increment the global counter first
+            _riskLevelCounterManager.IncrementGlobalCounter(_importApplication);
+
             // Decrement the quota counter list
             _riskLevelCounterManager.DecrementQuota(ref _importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection);
-            _riskLevelCounterManager.IncrementGlobalCounter(_importApplication);
 
             // Flag the application for inspection
             _inspectionRequirement.P1Inspection();
@@ -191,11 +193,8 @@
 
         void BronzeInspection(defraimp_placeoforigin placeOfOrigin)
         {
-            // Increment the gold/bronze application counter
-            _riskLevelCounterManager.IncrementNumber(ref _importApplication, defraimp_counterhistory_defraimp_reason.ValidGB);
-
-            // Ensure our local copy also increments the counter
-            placeOfOrigin.defraimp_ApplicationCounter += 1;
+            // Increment the global counter first
+            _riskLevelCounterManager.IncrementGlobalCounter(_importApplication);
 
             // Check if the commodity has been locked to bronze. If so, set that as the inspection reason.
             if (placeOfOrigin.defraimp_LocktoBronze == true)

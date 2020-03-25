@@ -61,13 +61,16 @@
 
         protected void SetRecordCounted(ref defraimp_importapplication importApplication, bool counted)
         {
-            defraimp_importapplication updatedImportApplication = new defraimp_importapplication();
-            updatedImportApplication.Id = importApplication.Id;
-            updatedImportApplication.defraimp_ImportRecordCounted = counted;
-            _importApplicationRepo.Update(updatedImportApplication);
+            if (importApplication.defraimp_ImportRecordCounted != counted)
+            {
+                defraimp_importapplication updatedImportApplication = new defraimp_importapplication();
+                updatedImportApplication.Id = importApplication.Id;
+                updatedImportApplication.defraimp_ImportRecordCounted = counted;
+                _importApplicationRepo.Update(updatedImportApplication);
 
-            //Set the local value to ensure we don't do an operation twice
-            importApplication.defraimp_ImportRecordCounted = counted;
+                //Set the local value to ensure we don't do an operation twice
+                importApplication.defraimp_ImportRecordCounted = counted;
+            }
         }
 
         protected void BroadcastCounterTransactionEvent(CounterTransactionDetail counterTransactionDetail)
@@ -78,42 +81,52 @@
 
         public void IncrementGlobalCounter(defraimp_importapplication importApplication)
         {
-            defraimp_autonumber autoNumberRecord = _autoNumberRepo.GetAutonumberWithKey(ImportApplicationConstants.P3_COUNTER_NAME);
-            // Create a new counterTransactionDetail record and populate it
-            CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, autoNumberRecord, defraimp_counterhistory_defraimp_operation.Increment, defraimp_counterhistory_defraimp_reason.GlobalCounter);
+            if (importApplication.defraimp_ImportRecordCounted == false)
+            {
+                defraimp_autonumber autoNumberRecord = _autoNumberRepo.GetAutonumberWithKey(ImportApplicationConstants.P3_COUNTER_NAME);
+                // Create a new counterTransactionDetail record and populate it
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, autoNumberRecord, defraimp_counterhistory_defraimp_operation.Increment, defraimp_counterhistory_defraimp_reason.GlobalCounter);
 
-            // Set the previous value before the operation
-            counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
+                // Set the previous value before the operation
+                counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
 
-            // Increment the P3 global counter
-            _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment Global P3 counter");
-            _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+                // Increment the P3 global counter
+                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Increment Global P3 counter");
+                _autoNumberRepo.IncrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
 
-            // Get the current value after the operation
-            counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
+                // Get the current value after the operation
+                counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
 
-            // Broadcast the message so that the auditor can pick it up
-            BroadcastCounterTransactionEvent(counterTransactionDetail);
+                // Broadcast the message so that the auditor can pick it up
+                BroadcastCounterTransactionEvent(counterTransactionDetail);
+
+                SetRecordCounted(ref importApplication, true);
+            }
         }
 
         public void DecrementGlobalCounter(defraimp_importapplication importApplication)
         {
-            defraimp_autonumber autoNumberRecord = _autoNumberRepo.GetAutonumberWithKey(ImportApplicationConstants.P3_COUNTER_NAME);
-            // Create a new counterTransactionDetail record and populate it
-            CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, autoNumberRecord, defraimp_counterhistory_defraimp_operation.Decrement, defraimp_counterhistory_defraimp_reason.GlobalCounter);
+            if (importApplication.defraimp_ImportRecordCounted == true)
+            {
+                defraimp_autonumber autoNumberRecord = _autoNumberRepo.GetAutonumberWithKey(ImportApplicationConstants.P3_COUNTER_NAME);
+                // Create a new counterTransactionDetail record and populate it
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, autoNumberRecord, defraimp_counterhistory_defraimp_operation.Decrement, defraimp_counterhistory_defraimp_reason.GlobalCounter);
 
-            // Set the previous value before the operation
-            counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
+                // Set the previous value before the operation
+                counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
 
-            // Increment the P3 global counter
-            _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement Global P3 counter");
-            _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
+                // Increment the P3 global counter
+                _logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Decrement Global P3 counter");
+                _autoNumberRepo.DecrementAutonumber(ImportApplicationConstants.P3_COUNTER_NAME);
 
-            // Get the current value after the operation
-            counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
+                // Get the current value after the operation
+                counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
 
-            // Broadcast the message so that the auditor can pick it up
-            BroadcastCounterTransactionEvent(counterTransactionDetail);
+                // Broadcast the message so that the auditor can pick it up
+                BroadcastCounterTransactionEvent(counterTransactionDetail);
+
+                SetRecordCounted(ref importApplication, false);
+            }
         }
     }
 }

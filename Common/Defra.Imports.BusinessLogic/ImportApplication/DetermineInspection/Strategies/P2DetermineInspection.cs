@@ -55,9 +55,11 @@
 
         private void DealWithP2QuotaInspection()
         {
+            // Increment the global counter first
+            _riskLevelCounterManager.IncrementGlobalCounter(_importApplication);
+
             // Decrement the quota counter list
             _riskLevelCounterManager.DecrementQuota(ref _importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection);
-            _riskLevelCounterManager.IncrementGlobalCounter(_importApplication);
 
             // Flag the application for inspection
             _inspectionRequirement.P2Inspection();
