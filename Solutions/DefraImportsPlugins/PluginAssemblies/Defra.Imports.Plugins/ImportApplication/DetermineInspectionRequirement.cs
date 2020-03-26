@@ -79,10 +79,8 @@
         {
             logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Fired plugin with message: " + context.MessageName + ". Depth = " + context.Depth);
 
-            string[] customMessageNames = GetCustomMessageNames();
-
             // Ensure the depth is 1
-            if (context.Depth <= 1 || context.MessageName == "SetStateDynamicEntity" || this.IsRootContextCustomMessage(context, customMessageNames))
+            if (context.Depth <= 1 || context.MessageName == "SetStateDynamicEntity" || IsITAHCUpdateMessage(context, logWriter))
             {
                 logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Plugin executing");
                 // Try to retrieve a pre-image. This won't work if it's the correct step, so we will pass in a null object which the business logic will handle.
@@ -105,6 +103,23 @@
 
                 DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(preImageApplication, postImageApplication, repositoryFactory, logWriter);
                 determineInspectionRequirementBusinessLogic.RunLogic();
+            }
+        }
+
+        bool IsITAHCUpdateMessage(IPluginExecutionContext context, TracingServiceLogWriter logWriter)
+        {
+            string[] customMessageNames = GetCustomMessageNames();
+            bool isRootContextCustomMessage = this.IsRootContextCustomMessage(context, customMessageNames);
+
+            if (context.MessageName == "Update" && isRootContextCustomMessage)
+            {
+                logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Plugin Message is ITAHC Update");
+                return true;
+            }
+            else
+            {
+                logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Plugin Message is not ITAHC Update. Context message: " + context.MessageName + ". IsRootContextCustomMessage = " + isRootContextCustomMessage);
+                return false;
             }
         }
 
