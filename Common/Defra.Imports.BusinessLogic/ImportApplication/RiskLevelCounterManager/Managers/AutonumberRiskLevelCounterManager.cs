@@ -114,13 +114,13 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             {
                 // Create a new counterTransactionDetail record and populate it
                 CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _autoNumberRecord, defraimp_counterhistory_defraimp_operation.Setto0, counterTransactionReason);
-                counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+                counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel));
 
                 // Carry out the set number operation
                 _autoNumberRepo.SetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel), value);
 
                 // Get the current value of the counter after the operation
-                counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
+                counterTransactionDetail.CurrentValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel));
 
                 // Broadcast the message so that the auditor can pick it up
                 BroadcastCounterTransactionEvent(counterTransactionDetail);
