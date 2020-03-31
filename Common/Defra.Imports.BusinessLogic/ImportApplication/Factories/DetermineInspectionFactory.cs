@@ -17,6 +17,8 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.Factories
                     return new P2DetermineInspection();
                 case "p3":
                     return new P3DetermineInspection();
+                case "tb":
+                    return new TBDetermineInspection();
                 default:
                     return new UnknownDetermineInspection();
             }
