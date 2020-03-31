@@ -15,12 +15,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\InspectionsSinceLastCheckCounterManagerBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Strategies\TBDetermineInspection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Auditor\CounterTransactionDetail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Auditor\IImportRiskCounterAuditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Auditor\ImportRiskCounterAuditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Factories\AbstractCounterTransactionDetailFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Factories\CounterTransactionDetailFactory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\AutonumberRiskLevelCounterManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\AutonumberRiskLevelCounterManager - Copy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\OnlyGlobalCounterRiskLevelManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\PlaceOfOriginRiskLevelCounterManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\AbstractRiskCounterManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\InspectionPlaceOfOriginChangeBusinessLogic.cs" />
@@ -63,8 +65,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utils\MatchXMLGenerators\MatchXmlGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\WebResourceXmlRetriever.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivity.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\" />
   </ItemGroup>
 </Project>

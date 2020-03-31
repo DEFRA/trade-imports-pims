@@ -139,9 +139,14 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                     {
                         return new PlaceOfOriginRiskLevelCounterManager(_importApplicationRepo, _autoNumberRepo, importApplication, _placeOfOriginRepo, _coverageRulesRepo, _logWriter);
                     }
+                    else if (riskLevel.ToLower() == ImportApplicationConstants.TB_RISK_LEVEL_NAME)
+                    {
+                        return new OnlyGlobalCounterRiskLevelManager(_importApplicationRepo, _autoNumberRepo, riskLevel, _coverageRulesRepo, _logWriter);
+                    }
                     else
                     {
                         return new AutonumberRiskCounterManager(_importApplicationRepo, _autoNumberRepo, riskLevel, _coverageRulesRepo, _logWriter);
+
                     }
                 }
             }
