@@ -179,6 +179,8 @@
                         <Variable x:TypeArguments="x:Object" Name="CreateStep7_49" />
                         <Variable x:TypeArguments="x:Object" Name="CreateStep7_50" />
                         <Variable x:TypeArguments="x:Object" Name="CreateStep7_51" />
+                        <Variable x:TypeArguments="x:Object" Name="CreateStep7_52" />
+                        <Variable x:TypeArguments="x:Object" Name="CreateStep7_53" />
                       </Sequence.Variables>
                       <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importapplication&quot;)]" />
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
@@ -249,10 +251,10 @@
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_countryoforiginid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_7]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_quantity" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_7]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -261,22 +263,22 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep7_7 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_6]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_countryoforiginid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_6]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_quantity" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_6]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_consignorname" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_9]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_countryoforiginid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_9]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -285,19 +287,19 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep7_9 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_8]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_importerorganisation" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_8]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_countryoforiginid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_8]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddressstreet" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_11]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_consignorname" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_11]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -314,14 +316,14 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_10]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_importeraddress1" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_10]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_importerorganisation" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_10]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddresscity" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_13]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddressstreet" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_13]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -338,14 +340,14 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_12]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_importeraddresscity" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_12]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_importeraddress1" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_12]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddresspostcode" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_15]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddresscity" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_15]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -362,17 +364,17 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_14]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_importeraddresspostcode" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_14]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_importeraddresscity" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_14]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddresscountryid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_17]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddresspostcode" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_17]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -381,22 +383,22 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep7_17 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_16]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_importeraddresscountryid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_16]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_importeraddresspostcode" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_16]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_placeoforiginharvestname" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_19]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddresscountryid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_19]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -405,19 +407,19 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep7_19 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_18]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_placeoforiginorganisation" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_18]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_importeraddresscountryid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_18]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_placeoforiginharvestaddressstreet" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_21]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_placeoforiginharvestname" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_21]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -434,14 +436,14 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_20]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_placeoforiginaddressline1" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_20]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_placeoforiginorganisation" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_20]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_placeoforiginharvestaddresscity" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_23]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_placeoforiginharvestaddressstreet" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_23]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -458,14 +460,14 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_22]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_placeoforiginaddresscity" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_22]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_placeoforiginaddressline1" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_22]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_placeoforiginharvestaddresspostcode" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_25]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_placeoforiginharvestaddresscity" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_25]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -482,17 +484,17 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_24]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_placeoforiginaddresspostcode" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_24]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_placeoforiginaddresscity" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_24]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_placeoforiginharvestaddresscountryid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_27]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_placeoforiginharvestaddresspostcode" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_27]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -501,22 +503,22 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep7_27 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_26]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_placeoforigincountryid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_26]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_placeoforiginaddresspostcode" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_26]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_placeofdestinationname" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_29]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_placeoforiginharvestaddresscountryid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_29]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -525,19 +527,19 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep7_29 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_28]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_placeofdestinationorganisation" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_28]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_placeoforigincountryid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_28]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_placeofdestinationaddressstreet" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_31]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_placeofdestinationname" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_31]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -554,14 +556,14 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_30]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_placeofdestinationaddressline1" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_30]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_placeofdestinationorganisation" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_30]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_placeofdestinationaddresscity" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_33]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_placeofdestinationaddressstreet" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_33]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -578,14 +580,14 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_32]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_placeofdestinationaddresscity" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_32]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_placeofdestinationaddressline1" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_32]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_placeofdestinationaddresspostcode" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_35]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_placeofdestinationaddresscity" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_35]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -602,17 +604,17 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_34]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_placeofdestinationaddresspostcode" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_34]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_placeofdestinationaddresscity" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_34]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_placeofdestinationaddresscountryid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_37]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_placeofdestinationaddresspostcode" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_37]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -621,22 +623,22 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep7_37 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_36]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_destinationaddresscountryid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_36]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_placeofdestinationaddresspostcode" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_36]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_transportername" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_39]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_placeofdestinationaddresscountryid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_39]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -645,19 +647,19 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep7_39 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_38]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_transportername" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_38]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_destinationaddresscountryid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_38]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_transporteraddressstreet" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_41]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_transportername" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_41]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -674,14 +676,14 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_40]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_transporteraddressline1" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_40]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_transportername" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_40]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_transporteraddresscity" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_43]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_transporteraddressstreet" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_43]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -698,14 +700,14 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_42]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_transporteraddresscity" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_42]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_transporteraddressline1" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_42]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_transporteraddresspostcode" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_45]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_transporteraddresscity" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_45]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -722,17 +724,17 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_44]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_transporteraddresspostcode" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_44]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_transporteraddresscity" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_44]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_transporteraddresscountryid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_47]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_transporteraddresspostcode" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_47]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -741,19 +743,19 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep7_47 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_46]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_transporteraddresscountryid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_46]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_transporteraddresspostcode" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_46]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_itahcid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_49]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_transporteraddresscountryid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_49]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
@@ -770,14 +772,14 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_48]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_primaryitahcid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_48]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_transporteraddresscountryid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_48]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="modifiedby" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_51]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_itahcid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_51]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
@@ -794,7 +796,31 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_50]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="ownerid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_50]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_primaryitahcid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_50]">
+                        <mxswa:SetEntityProperty.TargetType>
+                          <InArgument x:TypeArguments="s:Type">
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                          </InArgument>
+                        </mxswa:SetEntityProperty.TargetType>
+                      </mxswa:SetEntityProperty>
+                      <mxswa:GetEntityProperty Attribute="modifiedby" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_53]">
+                        <mxswa:GetEntityProperty.TargetType>
+                          <InArgument x:TypeArguments="s:Type">
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                          </InArgument>
+                        </mxswa:GetEntityProperty.TargetType>
+                      </mxswa:GetEntityProperty>
+                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+                        <mxswa:ActivityReference.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
+                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep7_53 }]</InArgument>
+                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                          </InArgument>
+                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_52]</OutArgument>
+                        </mxswa:ActivityReference.Arguments>
+                      </mxswa:ActivityReference>
+                      <mxswa:SetEntityProperty Attribute="ownerid" Entity="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep7_52]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
