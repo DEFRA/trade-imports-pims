@@ -218,7 +218,7 @@
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_consignorname" Entity="[InputEntities(&quot;related_defraimp_primaryitahcid#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[UpdateStep5_8]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_consigneename" Entity="[InputEntities(&quot;related_defraimp_primaryitahcid#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[UpdateStep5_8]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -242,7 +242,7 @@
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddressstreet" Entity="[InputEntities(&quot;related_defraimp_primaryitahcid#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[UpdateStep5_10]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_consigneeaddressstreet" Entity="[InputEntities(&quot;related_defraimp_primaryitahcid#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[UpdateStep5_10]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -266,7 +266,7 @@
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddresscity" Entity="[InputEntities(&quot;related_defraimp_primaryitahcid#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[UpdateStep5_12]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_consigneeaddresscity" Entity="[InputEntities(&quot;related_defraimp_primaryitahcid#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[UpdateStep5_12]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -290,7 +290,7 @@
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddresspostcode" Entity="[InputEntities(&quot;related_defraimp_primaryitahcid#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[UpdateStep5_14]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_consigneeaddresspostcode" Entity="[InputEntities(&quot;related_defraimp_primaryitahcid#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[UpdateStep5_14]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
@@ -314,7 +314,7 @@
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_consignoraddresscountryid" Entity="[InputEntities(&quot;related_defraimp_primaryitahcid#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[UpdateStep5_16]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_consigneeaddresscountryid" Entity="[InputEntities(&quot;related_defraimp_primaryitahcid#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[UpdateStep5_16]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />

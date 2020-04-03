@@ -6,7 +6,7 @@
       <LocalizedName description="Defra.Imports.Workflows" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.40</Version>
+    <Version>0.0.0.41</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -509,19 +509,11 @@
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="85" type="2" schemaName="defraimp_consignoraddresscity" displayName="Consignor Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="85" type="2" schemaName="defraimp_importeraddresscountryid" displayName="Importer - Address - Country" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="86" type="2" schemaName="defraimp_importeraddresscountryid" displayName="Importer - Address - Country" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="87" type="2" schemaName="defraimp_importeraddress1" displayName="Importer - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="88" type="2" schemaName="defraimp_consignorname" displayName="Consignor Name" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="86" type="2" schemaName="defraimp_importeraddress1" displayName="Importer - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
@@ -529,19 +521,15 @@
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="89" type="2" schemaName="defraimp_placeofdestinationaddressstreet" displayName="Place of Destination Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="87" type="2" schemaName="defraimp_placeofdestinationaddressstreet" displayName="Place of Destination Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="90" type="2" schemaName="defraimp_transporteraddresspostcode" displayName="Transporter - Address - Postcode" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="88" type="2" schemaName="defraimp_transporteraddresspostcode" displayName="Transporter - Address - Postcode" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="91" type="2" schemaName="defraimp_consignoraddresscountryid" displayName="Consignor Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
-        <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="92" type="2" schemaName="defraimp_quantity" displayName="Quantity / Weight (Grams)" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="89" type="2" schemaName="defraimp_quantity" displayName="Quantity / Weight (Grams)" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
@@ -549,7 +537,7 @@
         <Dependent key="13" type="10" schemaName="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" displayName="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="93" type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="90" type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
@@ -557,19 +545,19 @@
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="94" type="2" schemaName="defraimp_certificateverified" displayName="Certificate Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="91" type="2" schemaName="defraimp_certificateverified" displayName="Certificate Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="95" type="2" schemaName="defraimp_movedtocompletiondate" displayName="Moved to Completion Date" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="92" type="2" schemaName="defraimp_movedtocompletiondate" displayName="Moved to Completion Date" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="96" type="2" schemaName="defraimp_completionsummary" displayName="Completion Summary" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="93" type="2" schemaName="defraimp_completionsummary" displayName="Completion Summary" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="97" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="94" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
@@ -577,43 +565,43 @@
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="98" type="2" schemaName="defraimp_certificatenoncompliancereasonother" displayName="Certificate Non Compliance Reason - Other" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="95" type="2" schemaName="defraimp_certificatenoncompliancereasonother" displayName="Certificate Non Compliance Reason - Other" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="99" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="96" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="100" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="97" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="101" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="98" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="102" type="2" schemaName="defraimp_certificatecompliantfirsttime" displayName="Certificate Compliant First Time?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="99" type="2" schemaName="defraimp_certificatecompliantfirsttime" displayName="Certificate Compliant First Time?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="103" type="2" schemaName="defraimp_regionareaallocatedtoid" displayName="Region / Area Allocated to" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="100" type="2" schemaName="defraimp_regionareaallocatedtoid" displayName="Region / Area Allocated to" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="104" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="101" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="105" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="102" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="106" type="2" schemaName="defraimp_certificatenoncompliancereason" displayName="Certificate Non Compliance Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="103" type="2" schemaName="defraimp_certificatenoncompliancereason" displayName="Certificate Non Compliance Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="107" type="2" schemaName="defraimp_risklevelverified" displayName="Risk Level Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="104" type="2" schemaName="defraimp_risklevelverified" displayName="Risk Level Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
@@ -621,7 +609,7 @@
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="108" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="105" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
@@ -629,27 +617,39 @@
         <Dependent key="36" type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="109" type="2" schemaName="defraimp_placeoforiginharvestname" displayName="Place of Origin Harvest Name" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="106" type="2" schemaName="defraimp_placeoforiginharvestname" displayName="Place of Origin Harvest Name" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="110" type="2" schemaName="defraimp_placeoforiginharvestaddresscity" displayName="Place of Origin Harvest Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="107" type="2" schemaName="defraimp_placeoforiginharvestaddresscity" displayName="Place of Origin Harvest Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="111" type="2" schemaName="defraimp_placeofdestinationaddressline1" displayName="Place of Destination - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="108" type="2" schemaName="defraimp_placeofdestinationaddressline1" displayName="Place of Destination - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="99" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="96" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="112" type="2" schemaName="defraimp_placeoforiginharvestaddressstreet" displayName="Place of Origin Harvest Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="109" type="2" schemaName="defraimp_placeoforiginharvestaddressstreet" displayName="Place of Origin Harvest Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="113" type="2" schemaName="defraimp_destinationaddresscountryid" displayName="Destination Country" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="110" type="2" schemaName="defraimp_destinationaddresscountryid" displayName="Destination Country" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="111" type="2" schemaName="defraimp_consigneeaddresscity" displayName="Consignee Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="112" type="2" schemaName="defraimp_consigneeaddresspostcode" displayName="Consignee Address Postcode" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="113" type="2" schemaName="defraimp_consigneeaddressstreet" displayName="Consignee Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
@@ -669,15 +669,11 @@
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="118" type="2" schemaName="defraimp_consignoraddresspostcode" displayName="Consignor Address Postcode" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="118" type="2" schemaName="defraimp_importeraddresscity" displayName="Importer - Address - City" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="119" type="2" schemaName="defraimp_importeraddresscity" displayName="Importer - Address - City" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="120" type="2" schemaName="defraimp_transporteraddressstreet" displayName="Transporter Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="119" type="2" schemaName="defraimp_transporteraddressstreet" displayName="Transporter Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
@@ -685,31 +681,35 @@
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="121" type="2" schemaName="defraimp_transporteraddresscity" displayName="Transporter - Address - City" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="120" type="2" schemaName="defraimp_transporteraddresscity" displayName="Transporter - Address - City" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="122" type="2" schemaName="defraimp_placeoforiginharvestaddresscountryid" displayName="Place of Origin Harvest Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="121" type="2" schemaName="defraimp_placeoforiginharvestaddresscountryid" displayName="Place of Origin Harvest Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="123" type="2" schemaName="defraimp_placeoforiginorganisation" displayName="Place of Origin Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="122" type="2" schemaName="defraimp_placeoforiginorganisation" displayName="Place of Origin Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="124" type="2" schemaName="defraimp_transporteraddressline1" displayName="Transporter - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="123" type="2" schemaName="defraimp_transporteraddressline1" displayName="Transporter - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="125" type="2" schemaName="defraimp_placeofdestinationorganisation" displayName="Place of Destination Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="124" type="2" schemaName="defraimp_placeofdestinationorganisation" displayName="Place of Destination Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="126" type="2" schemaName="defraimp_transportername" displayName="Transporter Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="125" type="2" schemaName="defraimp_transportername" displayName="Transporter Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="105" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="102" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="126" type="2" schemaName="defraimp_consigneeaddresscountryid" displayName="Consignee Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
@@ -741,11 +741,7 @@
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="133" type="2" schemaName="defraimp_consignoraddressstreet" displayName="Consignor Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
-        <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="134" type="2" schemaName="defraimp_importerorganisation" displayName="Importer Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="133" type="2" schemaName="defraimp_importerorganisation" displayName="Importer Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
@@ -753,7 +749,7 @@
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="135" type="2" schemaName="defraimp_transporteraddresscountryid" displayName="Transporter Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="134" type="2" schemaName="defraimp_transporteraddresscountryid" displayName="Transporter Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
@@ -761,19 +757,23 @@
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="136" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="135" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="137" type="2" schemaName="defraimp_transporteraddresscity" displayName="Transporter Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="136" type="2" schemaName="defraimp_transporteraddresscity" displayName="Transporter Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="138" type="2" schemaName="defraimp_commoditytype" displayName="Commodity Type" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="137" type="2" schemaName="defraimp_commoditytype" displayName="Commodity Type" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="71" type="2" schemaName="defraimp_itahcid" displayName="ITAHC" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="138" type="2" schemaName="defraimp_consigneename" displayName="Consignee Name" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="35" type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
@@ -809,7 +809,7 @@
         <Dependent key="33" type="29" displayName="Import Application - Populate Trust Level" id="{8f74e594-0f1d-4d12-9908-69a7bc0d5ade}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="97" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="94" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="33" type="29" displayName="Import Application - Populate Trust Level" id="{8f74e594-0f1d-4d12-9908-69a7bc0d5ade}" />
       </MissingDependency>
       <MissingDependency>
@@ -857,7 +857,7 @@
         <Dependent key="31" type="29" displayName="Counter History - Populate Name On Create" id="{73b912d0-7cd9-4634-a306-feb049d7c55e}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="97" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="94" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="29" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
@@ -869,7 +869,7 @@
         <Dependent key="31" type="29" displayName="Counter History - Populate Name On Create" id="{73b912d0-7cd9-4634-a306-feb049d7c55e}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="100" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="97" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="29" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
@@ -889,7 +889,7 @@
         <Dependent key="31" type="29" displayName="Counter History - Populate Name On Create" id="{73b912d0-7cd9-4634-a306-feb049d7c55e}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="108" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="105" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="29" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
@@ -1029,7 +1029,7 @@
         <Dependent key="20" type="29" displayName="Import Application - Reset Verified Place of Origin Gold Inspections counter" id="{ca957b73-8543-497d-85c4-721e9af2b265}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="97" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="94" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="20" type="29" displayName="Import Application - Reset Verified Place of Origin Gold Inspections counter" id="{ca957b73-8543-497d-85c4-721e9af2b265}" />
       </MissingDependency>
       <MissingDependency>
@@ -1045,7 +1045,7 @@
         <Dependent key="19" type="26" schemaName="Inactive Import Application - Business Process Flow on my Import Applications" displayName="Inactive Import Application - Business Process Flow on my Import Applications" parentSchemaName="defraimp_importapplicationbusinessprocessflow" parentDisplayName="Import Application - Business Process Flow" id="{e341b3d2-dc22-48c2-afee-02e394f0e97f}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="108" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="105" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="20" type="29" displayName="Import Application - Reset Verified Place of Origin Gold Inspections counter" id="{ca957b73-8543-497d-85c4-721e9af2b265}" />
       </MissingDependency>
       <MissingDependency>
@@ -1061,11 +1061,15 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
+        <Required key="112" type="2" schemaName="defraimp_consigneeaddresspostcode" displayName="Consignee Address Postcode" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required key="72" type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="122" type="2" schemaName="defraimp_placeoforiginharvestaddresscountryid" displayName="Place of Origin Harvest Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="121" type="2" schemaName="defraimp_placeoforiginharvestaddresscountryid" displayName="Place of Origin Harvest Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1073,7 +1077,7 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="110" type="2" schemaName="defraimp_placeoforiginharvestaddresscity" displayName="Place of Origin Harvest Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="107" type="2" schemaName="defraimp_placeoforiginharvestaddresscity" displayName="Place of Origin Harvest Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1097,27 +1101,23 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="126" type="2" schemaName="defraimp_transportername" displayName="Transporter Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="125" type="2" schemaName="defraimp_transportername" displayName="Transporter Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="111" type="2" schemaName="defraimp_placeofdestinationaddressline1" displayName="Place of Destination - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="108" type="2" schemaName="defraimp_placeofdestinationaddressline1" displayName="Place of Destination - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="138" type="2" schemaName="defraimp_commoditytype" displayName="Commodity Type" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="137" type="2" schemaName="defraimp_commoditytype" displayName="Commodity Type" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="121" type="2" schemaName="defraimp_transporteraddresscity" displayName="Transporter - Address - City" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="120" type="2" schemaName="defraimp_transporteraddresscity" displayName="Transporter - Address - City" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="80" type="2" schemaName="defraimp_placeofdestinationaddresspostcode" displayName="Place of Destination - Postcode" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="91" type="2" schemaName="defraimp_consignoraddresscountryid" displayName="Consignor Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1129,11 +1129,7 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="87" type="2" schemaName="defraimp_importeraddress1" displayName="Importer - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="85" type="2" schemaName="defraimp_consignoraddresscity" displayName="Consignor Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="86" type="2" schemaName="defraimp_importeraddress1" displayName="Importer - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1141,7 +1137,7 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="89" type="2" schemaName="defraimp_placeofdestinationaddressstreet" displayName="Place of Destination Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="87" type="2" schemaName="defraimp_placeofdestinationaddressstreet" displayName="Place of Destination Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1153,27 +1149,31 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="123" type="2" schemaName="defraimp_placeoforiginorganisation" displayName="Place of Origin Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="122" type="2" schemaName="defraimp_placeoforiginorganisation" displayName="Place of Origin Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="125" type="2" schemaName="defraimp_placeofdestinationorganisation" displayName="Place of Destination Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="124" type="2" schemaName="defraimp_placeofdestinationorganisation" displayName="Place of Destination Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="120" type="2" schemaName="defraimp_transporteraddressstreet" displayName="Transporter Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="119" type="2" schemaName="defraimp_transporteraddressstreet" displayName="Transporter Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="93" type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="90" type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="19" type="26" schemaName="Inactive Import Application - Business Process Flow on my Import Applications" displayName="Inactive Import Application - Business Process Flow on my Import Applications" parentSchemaName="defraimp_importapplicationbusinessprocessflow" parentDisplayName="Import Application - Business Process Flow" id="{e341b3d2-dc22-48c2-afee-02e394f0e97f}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="112" type="2" schemaName="defraimp_placeoforiginharvestaddressstreet" displayName="Place of Origin Harvest Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="109" type="2" schemaName="defraimp_placeoforiginharvestaddressstreet" displayName="Place of Origin Harvest Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="86" type="2" schemaName="defraimp_importeraddresscountryid" displayName="Importer - Address - Country" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="111" type="2" schemaName="defraimp_consigneeaddresscity" displayName="Consignee Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="85" type="2" schemaName="defraimp_importeraddresscountryid" displayName="Importer - Address - Country" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1181,15 +1181,15 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="119" type="2" schemaName="defraimp_importeraddresscity" displayName="Importer - Address - City" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="118" type="2" schemaName="defraimp_importeraddresscity" displayName="Importer - Address - City" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="136" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="135" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="137" type="2" schemaName="defraimp_transporteraddresscity" displayName="Transporter Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="136" type="2" schemaName="defraimp_transporteraddresscity" displayName="Transporter Address City" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1197,7 +1197,11 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="105" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="102" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="113" type="2" schemaName="defraimp_consigneeaddressstreet" displayName="Consignee Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1209,11 +1213,11 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="134" type="2" schemaName="defraimp_importerorganisation" displayName="Importer Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="133" type="2" schemaName="defraimp_importerorganisation" displayName="Importer Organisation" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="133" type="2" schemaName="defraimp_consignoraddressstreet" displayName="Consignor Address Street" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="138" type="2" schemaName="defraimp_consigneename" displayName="Consignee Name" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1221,7 +1225,7 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="90" type="2" schemaName="defraimp_transporteraddresspostcode" displayName="Transporter - Address - Postcode" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="88" type="2" schemaName="defraimp_transporteraddresspostcode" displayName="Transporter - Address - Postcode" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1233,7 +1237,7 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="118" type="2" schemaName="defraimp_consignoraddresspostcode" displayName="Consignor Address Postcode" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="126" type="2" schemaName="defraimp_consigneeaddresscountryid" displayName="Consignee Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1245,7 +1249,7 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="99" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="96" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1253,11 +1257,11 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="135" type="2" schemaName="defraimp_transporteraddresscountryid" displayName="Transporter Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="134" type="2" schemaName="defraimp_transporteraddresscountryid" displayName="Transporter Address Country" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="93" type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="90" type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1273,15 +1277,11 @@
         <Dependent key="22" type="29" displayName="Import Application - Fill Empty Fields With Primary ITAHC Data" id="{6e484443-28c3-4401-b8d1-81f4c8f92c9f}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="124" type="2" schemaName="defraimp_transporteraddressline1" displayName="Transporter - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="123" type="2" schemaName="defraimp_transporteraddressline1" displayName="Transporter - Address - Line 1" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="88" type="2" schemaName="defraimp_consignorname" displayName="Consignor Name" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
-        <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="113" type="2" schemaName="defraimp_destinationaddresscountryid" displayName="Destination Country" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="110" type="2" schemaName="defraimp_destinationaddresscountryid" displayName="Destination Country" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1289,11 +1289,11 @@
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="92" type="2" schemaName="defraimp_quantity" displayName="Quantity / Weight (Grams)" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="89" type="2" schemaName="defraimp_quantity" displayName="Quantity / Weight (Grams)" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="109" type="2" schemaName="defraimp_placeoforiginharvestname" displayName="Place of Origin Harvest Name" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
+        <Required key="106" type="2" schemaName="defraimp_placeoforiginharvestname" displayName="Place of Origin Harvest Name" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" solution="Active" />
         <Dependent key="18" type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1309,7 +1309,7 @@
         <Dependent key="16" type="29" displayName="Import Application - Change Status Reason to Triage" id="{9da4c4a0-40f4-42bc-94d6-9f3a4a766acb}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="93" type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="90" type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="15" type="26" schemaName="Active Import Application - Business Process Flow on my Import Applications" displayName="Active Import Application - Business Process Flow on my Import Applications" parentSchemaName="defraimp_importapplicationbusinessprocessflow" parentDisplayName="Import Application - Business Process Flow" id="{eca4b7b0-0f0c-449a-ba82-7bbf3f97502a}" />
       </MissingDependency>
       <MissingDependency>
@@ -1341,11 +1341,11 @@
         <Dependent key="10" type="29" displayName="Import Application - Successful Applications Counter" id="{bcd3cec5-de90-48d6-8ad1-fe16a6757203}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="99" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="96" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="11" type="29" displayName="Import Application - Auto Risk Assessment and Inspection" id="{8c09794a-1388-4113-b508-46dde8a56422}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="105" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="102" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="11" type="29" displayName="Import Application - Auto Risk Assessment and Inspection" id="{8c09794a-1388-4113-b508-46dde8a56422}" />
       </MissingDependency>
       <MissingDependency>
@@ -1357,7 +1357,7 @@
         <Dependent key="10" type="29" displayName="Import Application - Successful Applications Counter" id="{bcd3cec5-de90-48d6-8ad1-fe16a6757203}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="97" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="94" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="10" type="29" displayName="Import Application - Successful Applications Counter" id="{bcd3cec5-de90-48d6-8ad1-fe16a6757203}" />
       </MissingDependency>
       <MissingDependency>
@@ -1385,7 +1385,7 @@
         <Dependent key="9" type="29" displayName="Place of Origin - Reset all counters" id="{1089028f-74d7-44db-a0f2-48448b2979cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="95" type="2" schemaName="defraimp_movedtocompletiondate" displayName="Moved to Completion Date" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="92" type="2" schemaName="defraimp_movedtocompletiondate" displayName="Moved to Completion Date" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
@@ -1397,7 +1397,7 @@
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="99" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="96" type="2" schemaName="defraimp_countryoforiginid" displayName="Country of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
@@ -1405,7 +1405,7 @@
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="108" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="105" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
@@ -1421,7 +1421,7 @@
         <Dependent key="8" type="29" displayName="Import Application - Set Previous Place of Origin" id="{17de83cc-724b-4200-91d1-a4d9d1a8de84}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="97" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="94" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="8" type="29" displayName="Import Application - Set Previous Place of Origin" id="{17de83cc-724b-4200-91d1-a4d9d1a8de84}" />
       </MissingDependency>
       <MissingDependency>
@@ -1461,7 +1461,7 @@
         <Dependent key="6" type="29" displayName="Import Application - Set Previous Risk Level" id="{2152e3cd-0fb3-4708-8ee3-de3754018b3f}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="101" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="98" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="6" type="29" displayName="Import Application - Set Previous Risk Level" id="{2152e3cd-0fb3-4708-8ee3-de3754018b3f}" />
       </MissingDependency>
       <MissingDependency>
@@ -1505,11 +1505,11 @@
         <Dependent key="1" type="29" displayName="Import Application - Revert Verified Place of Origin to Bronze" id="{00a435dd-6f3a-4e04-89d6-ace88292a8ee}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="104" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="101" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="1" type="29" displayName="Import Application - Revert Verified Place of Origin to Bronze" id="{00a435dd-6f3a-4e04-89d6-ace88292a8ee}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="97" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="94" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="1" type="29" displayName="Import Application - Revert Verified Place of Origin to Bronze" id="{00a435dd-6f3a-4e04-89d6-ace88292a8ee}" />
       </MissingDependency>
       <MissingDependency>
@@ -1521,7 +1521,7 @@
         <Dependent key="3" type="29" displayName="Import Application - Update Risk Level Status to Manually Updated" id="{e6952b8c-a24c-4b35-bb9a-3319bfcc2326}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="101" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="98" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="3" type="29" displayName="Import Application - Update Risk Level Status to Manually Updated" id="{e6952b8c-a24c-4b35-bb9a-3319bfcc2326}" />
       </MissingDependency>
       <MissingDependency>
@@ -1533,51 +1533,51 @@
         <Dependent key="3" type="29" displayName="Import Application - Update Risk Level Status to Manually Updated" id="{e6952b8c-a24c-4b35-bb9a-3319bfcc2326}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="104" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="101" type="2" schemaName="defraimp_resettrustleveltobronze" displayName="Reset Trust Level to Bronze?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="103" type="2" schemaName="defraimp_regionareaallocatedtoid" displayName="Region / Area Allocated to" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="100" type="2" schemaName="defraimp_regionareaallocatedtoid" displayName="Region / Area Allocated to" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="102" type="2" schemaName="defraimp_certificatecompliantfirsttime" displayName="Certificate Compliant First Time?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="99" type="2" schemaName="defraimp_certificatecompliantfirsttime" displayName="Certificate Compliant First Time?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="98" type="2" schemaName="defraimp_certificatenoncompliancereasonother" displayName="Certificate Non Compliance Reason - Other" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="95" type="2" schemaName="defraimp_certificatenoncompliancereasonother" displayName="Certificate Non Compliance Reason - Other" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="97" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="94" type="2" schemaName="defraimp_placeoforiginid" displayName="Verified Place of Origin" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="96" type="2" schemaName="defraimp_completionsummary" displayName="Completion Summary" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="93" type="2" schemaName="defraimp_completionsummary" displayName="Completion Summary" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="106" type="2" schemaName="defraimp_certificatenoncompliancereason" displayName="Certificate Non Compliance Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="103" type="2" schemaName="defraimp_certificatenoncompliancereason" displayName="Certificate Non Compliance Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="105" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="102" type="2" schemaName="defraimp_commoditytypeid" displayName="Commodity Type" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="101" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="98" type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="107" type="2" schemaName="defraimp_risklevelverified" displayName="Risk Level Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="104" type="2" schemaName="defraimp_risklevelverified" displayName="Risk Level Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="100" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="97" type="2" schemaName="defraimp_inspectiondeclinedreason" displayName="Post Import Check Declined Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="94" type="2" schemaName="defraimp_certificateverified" displayName="Certificate Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="91" type="2" schemaName="defraimp_certificateverified" displayName="Certificate Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
@@ -1585,7 +1585,7 @@
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="93" type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="90" type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="168" type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
