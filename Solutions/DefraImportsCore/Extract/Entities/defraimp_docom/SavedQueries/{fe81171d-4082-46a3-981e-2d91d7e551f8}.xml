@@ -19,6 +19,8 @@
           <cell name="defraimp_containernumber" width="100" />
           <cell name="defraimp_aphaabpapprovalregistrationnumber" width="100" />
           <cell name="defraimp_dateofdecision" width="100" />
+          <cell name="defraimp_replacedbyid" width="100" />
+          <cell name="defraimp_replacesid" width="100" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -42,6 +44,8 @@
           <attribute name="defraimp_dateofdecision" />
           <attribute name="defraimp_certificatestatus" />
           <attribute name="defraimp_docomid" />
+          <attribute name="defraimp_replacedbyid" />
+          <attribute name="defraimp_replacesid" />
         </entity>
       </fetch>
     </fetchxml>

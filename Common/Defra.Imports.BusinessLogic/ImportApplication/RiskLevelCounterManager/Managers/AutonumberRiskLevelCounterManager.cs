@@ -39,7 +39,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 if (importApplication.defraimp_ImportRecordCounted != true)
                 {
                     // Create a new counterTransactionDetail record and populate it
-                    CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _autoNumberRecord, defraimp_counterhistory_defraimp_operation.Increment, counterTransactionReason);               
+                    CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _autoNumberRecord, defraimp_counterhistory_defraimp_operation.IncrementCounter, counterTransactionReason);               
                     counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel));
 
                     // Carry out the increment operation
@@ -80,7 +80,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                     else
                     {
                         // Create a new counterTransactionDetail record and populate it
-                        CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _autoNumberRecord, defraimp_counterhistory_defraimp_operation.Decrement, counterTransactionReason);
+                        CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _autoNumberRecord, defraimp_counterhistory_defraimp_operation.DecrementCounter, counterTransactionReason);
                         counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
 
                         // Carry out the decrement operation
@@ -113,7 +113,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 // Create a new counterTransactionDetail record and populate it
-                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _autoNumberRecord, defraimp_counterhistory_defraimp_operation.Setto0, counterTransactionReason);
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _autoNumberRecord, defraimp_counterhistory_defraimp_operation.SetCounter, counterTransactionReason);
                 counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetCounterName(_riskLevel));
 
                 // Carry out the set number operation
@@ -134,7 +134,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 // Create a new counterTransactionDetail record and populate it
-                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _quotaAutoNumberRecord, defraimp_counterhistory_defraimp_operation.Increment, counterTransactionReason);
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _quotaAutoNumberRecord, defraimp_counterhistory_defraimp_operation.IncrementQuota, counterTransactionReason);
                 counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
 
                 // Carry out the increment quota operation
@@ -155,7 +155,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 // Create a new counterTransactionDetail record and populate it
-                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _quotaAutoNumberRecord, defraimp_counterhistory_defraimp_operation.Decrement, counterTransactionReason);
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _quotaAutoNumberRecord, defraimp_counterhistory_defraimp_operation.DecrementQuota, counterTransactionReason);
                 counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
 
                 // Carry out the decrement quota operation
@@ -178,7 +178,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
             if (!string.IsNullOrEmpty(_riskLevel))
             {
                 // Create a new counterTransactionDetail record and populate it
-                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _quotaAutoNumberRecord, defraimp_counterhistory_defraimp_operation.Setto0, counterTransactionReason);
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, _quotaAutoNumberRecord, defraimp_counterhistory_defraimp_operation.SetQuota, counterTransactionReason);
                 counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.GetQuotaCounterName(_riskLevel));
 
                 // Carry out the set quota value operation

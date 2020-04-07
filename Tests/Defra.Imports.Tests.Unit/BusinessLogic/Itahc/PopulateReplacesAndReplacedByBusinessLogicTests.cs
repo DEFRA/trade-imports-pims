@@ -1,6 +1,7 @@
 ﻿using Defra.Imports.BusinessLogic.Itahc;
 using Defra.Imports.Model;
 using Defra.Imports.Repositories;
+using Microsoft.Xrm.Sdk;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,11 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
 {
     public class PopulateReplacesAndReplacedByBusinessLogicTests
     {
-        private Mock<ICrmRepository<defraimp_itahc>> _mockItahcRepo;
+        private Mock<ICrmRepository> _mockCertificateRepo;
 
         public PopulateReplacesAndReplacedByBusinessLogicTests()
         {
-            _mockItahcRepo = new Mock<ICrmRepository<defraimp_itahc>>();
+            _mockCertificateRepo = new Mock<ICrmRepository>();
         }
 
         [Fact]
@@ -26,7 +27,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
         {
             defraimp_itahc target = new defraimp_itahc();
 
-            PopulateReplacesAndReplacedByBusinessLogic logic = new PopulateReplacesAndReplacedByBusinessLogic(_mockItahcRepo.Object, target);
+            PopulateReplacesAndReplacedByBusinessLogic logic = new PopulateReplacesAndReplacedByBusinessLogic(_mockCertificateRepo.Object, target);
             logic.RunLogic();
 
             Assert.Null(target.defraimp_ReplacedById);
@@ -48,7 +49,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             this.SetupItahcMockRepoWithOneResult(retrievedRecordId, certRefNumber);
 
             // Act
-            PopulateReplacesAndReplacedByBusinessLogic logic = new PopulateReplacesAndReplacedByBusinessLogic(_mockItahcRepo.Object, target);
+            PopulateReplacesAndReplacedByBusinessLogic logic = new PopulateReplacesAndReplacedByBusinessLogic(_mockCertificateRepo.Object, target);
             logic.RunLogic();
 
             // Assert
@@ -70,7 +71,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             this.SetupItahcMockRepoWithNoResults();
 
             // Act
-            PopulateReplacesAndReplacedByBusinessLogic logic = new PopulateReplacesAndReplacedByBusinessLogic(_mockItahcRepo.Object, target);
+            PopulateReplacesAndReplacedByBusinessLogic logic = new PopulateReplacesAndReplacedByBusinessLogic(_mockCertificateRepo.Object, target);
             logic.RunLogic();
 
             // Assert
@@ -92,7 +93,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             this.SetupItahcMockRepoWithOneResult(retrievedRecordId, certRefNumber);
 
             // Act
-            PopulateReplacesAndReplacedByBusinessLogic logic = new PopulateReplacesAndReplacedByBusinessLogic(_mockItahcRepo.Object, target);
+            PopulateReplacesAndReplacedByBusinessLogic logic = new PopulateReplacesAndReplacedByBusinessLogic(_mockCertificateRepo.Object, target);
             logic.RunLogic();
 
             // Assert
@@ -114,22 +115,48 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             this.SetupItahcMockRepoWithNoResults();
 
             // Act
-            PopulateReplacesAndReplacedByBusinessLogic logic = new PopulateReplacesAndReplacedByBusinessLogic(_mockItahcRepo.Object, target);
+            PopulateReplacesAndReplacedByBusinessLogic logic = new PopulateReplacesAndReplacedByBusinessLogic(_mockCertificateRepo.Object, target);
             logic.RunLogic();
 
             // Assert
             Assert.Null(target.defraimp_ReplacesId);
         }
 
+        [Fact]
+        public void RunLogic_DocomWithReplacedAndReplacesReference_ShouldUpdateTheTargetReplacedByAndReplacingIds()
+        {
+            // Arrange
+            string certRefNumber = "test ref";
+            Guid retrievedRecordId = Guid.NewGuid();
+
+            defraimp_docom target = new defraimp_docom()
+            {
+                defraimp_ReplacedReferenceNumber = certRefNumber,
+                defraimp_ReplacingReferenceNumber = certRefNumber
+            };
+
+            this.SetupDocomMockRepoWithOneResult(retrievedRecordId, certRefNumber);
+
+            // Act
+            PopulateReplacesAndReplacedByBusinessLogic logic = new PopulateReplacesAndReplacedByBusinessLogic(_mockCertificateRepo.Object, target);
+            logic.RunLogic();
+
+            // Assert
+            Assert.Equal(retrievedRecordId, target.defraimp_ReplacedById.Id);
+            Assert.Equal(retrievedRecordId, target.defraimp_ReplacesId.Id);
+        }
+
         private void SetupItahcMockRepoWithOneResult(Guid retrievedRecordId, string certificateReferenceNumber)
         {
             defraimp_itahc stubbedReplacedItahc = new defraimp_itahc()
             {
+                Id = retrievedRecordId,
+                defraimp_name = certificateReferenceNumber,
                 defraimp_HealthCertificateNumber = certificateReferenceNumber,
                 defraimp_itahcId = retrievedRecordId,
             };
 
-            List<defraimp_itahc> stubbedItahcs = new List<defraimp_itahc>()
+            List<Entity> stubbedItahcs = new List<Entity>()
             {
                 stubbedReplacedItahc
             };
@@ -139,15 +166,32 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
 
         private void SetupItahcMockRepoWithNoResults()
         {
-            List<defraimp_itahc> stubbedItahcs = new List<defraimp_itahc>();
+            List<Entity> stubbedItahcs = new List<Entity>();
             UpdateMockedIahcRepoWithStubbedOutput(stubbedItahcs);
         }
 
-        private void UpdateMockedIahcRepoWithStubbedOutput(List<defraimp_itahc> stubbedItahcs)
+        private void SetupDocomMockRepoWithOneResult(Guid retrievedRecordId, string certificateReferenceNumber)
         {
-            _mockItahcRepo.Setup(r => r.Find(
-                It.IsAny<Expression<Func<defraimp_itahc, bool>>>(),
-                It.IsAny<Expression<Func<defraimp_itahc, defraimp_itahc>>>()
+            defraimp_docom stubbedReplacedDocom = new defraimp_docom()
+            {
+                Id = retrievedRecordId,
+                defraimp_name = certificateReferenceNumber,
+                defraimp_docomId = retrievedRecordId,
+            };
+
+            List<Entity> stubbedDocoms = new List<Entity>()
+            {
+                stubbedReplacedDocom
+            };
+
+            UpdateMockedIahcRepoWithStubbedOutput(stubbedDocoms);
+        }
+
+        private void UpdateMockedIahcRepoWithStubbedOutput(List<Entity> stubbedItahcs)
+        {
+            _mockCertificateRepo.Setup(r => r.Find(
+                It.IsAny<Expression<Func<Entity, bool>>>(),
+                It.IsAny<Expression<Func<Entity, Entity>>>()
             )).Returns(stubbedItahcs.AsQueryable());
         }
     }

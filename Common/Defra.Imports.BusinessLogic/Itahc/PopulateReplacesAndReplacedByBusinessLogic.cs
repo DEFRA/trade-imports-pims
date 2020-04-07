@@ -10,45 +10,40 @@ namespace Defra.Imports.BusinessLogic.Itahc
 {
     public class PopulateReplacesAndReplacedByBusinessLogic
     {
-        private ICrmRepository<defraimp_itahc> _itahcRepo;
-        private defraimp_itahc _targetEntity;
+        private ICrmRepository _certificateRepo;
+        private Entity _targetEntity;
 
-        public PopulateReplacesAndReplacedByBusinessLogic(ICrmRepository<defraimp_itahc> itahcRepo, defraimp_itahc targetEntity)
+        public PopulateReplacesAndReplacedByBusinessLogic(ICrmRepository certificateRepo, Entity targetEntity)
         {
-            _itahcRepo = itahcRepo;
+            _certificateRepo = certificateRepo;
             _targetEntity = targetEntity;
         }
 
         public void RunLogic()
         {
-            if (_targetEntity.defraimp_ReplacedReferenceNumber != null)
-            {
-                // Retrieve the itahc with the certificate reference number of the itahc in the replaced field
-                defraimp_itahc replacedItahc = this.RetrieveItahcForReferenceNumber(_targetEntity.defraimp_ReplacedReferenceNumber);
+            AddCertificateLookupByReferenceField("defraimp_replacedreferencenumber", "defraimp_replacedbyid");
+            AddCertificateLookupByReferenceField("defraimp_replacingreferencenumber", "defraimp_replacesid");
+        }
 
-                if (replacedItahc != null)
-                {
-                    _targetEntity.defraimp_ReplacedById = new EntityReference(defraimp_itahc.EntityLogicalName, replacedItahc.defraimp_itahcId.Value);
-                }
-            }
-
-            if (_targetEntity.defraimp_ReplacingReferenceNumber != null)
+        private void AddCertificateLookupByReferenceField(string referenceNumberField, string lookupField)
+        {
+            if (_targetEntity.Attributes.Contains(referenceNumberField))
             {
                 // Retrieve the itahc with the certificate reference number of the itahc in the replaces field
-                defraimp_itahc replacingItahc = this.RetrieveItahcForReferenceNumber(_targetEntity.defraimp_ReplacingReferenceNumber);
+                Entity retrievedCert = this.RetrieveCertificateForReferenceNumber(_targetEntity.GetAttributeValue<string>(referenceNumberField));
 
-                if (replacingItahc != null)
+                if (retrievedCert != null)
                 {
-                    _targetEntity.defraimp_ReplacesId = new EntityReference(defraimp_itahc.EntityLogicalName, replacingItahc.defraimp_itahcId.Value);
+                    _targetEntity[lookupField] = new EntityReference(retrievedCert.LogicalName, retrievedCert.Id);
                 }
             }
         }
 
-        private defraimp_itahc RetrieveItahcForReferenceNumber(string referenceNumber)
+        private Entity RetrieveCertificateForReferenceNumber(string referenceNumber)
         {
-            return _itahcRepo.Find(
-                    e => e.defraimp_name == referenceNumber,
-                    e => new defraimp_itahc() { defraimp_itahcId = e.defraimp_itahcId }
+            return _certificateRepo.Find(
+                    e => ((string)e["defraimp_name"]) == referenceNumber,
+                    e => new Entity() { Id = e.Id }
                 ).FirstOrDefault();
         }
 

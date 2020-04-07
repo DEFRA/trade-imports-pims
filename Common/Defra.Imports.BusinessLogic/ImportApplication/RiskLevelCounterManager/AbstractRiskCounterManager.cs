@@ -12,7 +12,7 @@
     using System.Collections.Generic;
     using System.Text;
     using System.Linq;
-
+    
     public abstract class AbstractRiskCounterManager
     {
         protected ICrmRepository<defraimp_importapplication> _importApplicationRepo;
@@ -85,7 +85,7 @@
             {
                 defraimp_autonumber autoNumberRecord = _autoNumberRepo.GetAutonumberWithKey(ImportApplicationConstants.P3_COUNTER_NAME);
                 // Create a new counterTransactionDetail record and populate it
-                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, autoNumberRecord, defraimp_counterhistory_defraimp_operation.Increment, defraimp_counterhistory_defraimp_reason.GlobalCounter);
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, autoNumberRecord, defraimp_counterhistory_defraimp_operation.IncrementCounter, defraimp_counterhistory_defraimp_reason.GlobalCounter);
 
                 // Set the previous value before the operation
                 counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
@@ -110,7 +110,7 @@
             {
                 defraimp_autonumber autoNumberRecord = _autoNumberRepo.GetAutonumberWithKey(ImportApplicationConstants.P3_COUNTER_NAME);
                 // Create a new counterTransactionDetail record and populate it
-                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, autoNumberRecord, defraimp_counterhistory_defraimp_operation.Decrement, defraimp_counterhistory_defraimp_reason.GlobalCounter);
+                CounterTransactionDetail counterTransactionDetail = _abstractCounterTransactionDetailFactory.GetCounterTransactionDetail(importApplication, autoNumberRecord, defraimp_counterhistory_defraimp_operation.DecrementCounter, defraimp_counterhistory_defraimp_reason.GlobalCounter);
 
                 // Set the previous value before the operation
                 counterTransactionDetail.PreviousValue = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);

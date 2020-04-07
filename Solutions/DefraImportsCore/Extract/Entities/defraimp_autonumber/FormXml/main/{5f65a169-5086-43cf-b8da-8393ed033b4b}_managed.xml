@@ -40,7 +40,7 @@
                         <labels>
                           <label description="Current Number" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_currentnumber" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_currentnumber" disabled="true" uniqueid="{67a23886-ed76-8404-4db3-d0003d62775e}" />
+                        <control id="defraimp_currentnumber" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_currentnumber" disabled="false" uniqueid="{67a23886-ed76-8404-4db3-d0003d62775e}" />
                       </cell>
                     </row>
                   </rows>

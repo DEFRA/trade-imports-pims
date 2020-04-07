@@ -28,10 +28,6 @@
       <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
         <entity name="defraimp_itahc">
           <attribute name="defraimp_name" />
-          <filter type="and">
-            <condition attribute="defraimp_tracesreceiveddate" operator="today" />
-          </filter>
-          <attribute name="defraimp_itahcid" />
           <attribute name="createdon" />
           <attribute name="defraimp_healthcertificatenumber" />
           <attribute name="defraimp_ovname" />
@@ -42,6 +38,24 @@
           <attribute name="defraimp_lvuno" />
           <attribute name="defraimp_certificatestatus" />
           <order attribute="createdon" descending="true" />
+          <filter type="and">
+            <condition attribute="defraimp_tracesreceiveddate" operator="today" />
+            <filter type="or">
+              <filter type="and">
+                <condition attribute="defraimp_countryoforiginid" operator="ne" uiname="Republic of Ireland" uitype="defra_country" value="{FE9BB7ED-B2D3-E911-A861-000D3AB1DAD7}" />
+                <condition attribute="defraimp_placeofdestinationaddresscountryid" operator="ne" uiname="Northern Ireland" uitype="defra_country" value="{DFCCE526-BB36-EA11-A813-000D3AB4DF6C}" />
+              </filter>
+              <filter type="and">
+                <condition attribute="defraimp_countryoforiginid" operator="eq" uiname="Republic of Ireland" uitype="defra_country" value="{FE9BB7ED-B2D3-E911-A861-000D3AB1DAD7}" />
+                <condition attribute="defraimp_placeofdestinationaddresscountryid" operator="ne" uiname="Northern Ireland" uitype="defra_country" value="{DFCCE526-BB36-EA11-A813-000D3AB4DF6C}" />
+              </filter>
+              <filter type="and">
+                <condition attribute="defraimp_countryoforiginid" operator="ne" uiname="Republic of Ireland" uitype="defra_country" value="{FE9BB7ED-B2D3-E911-A861-000D3AB1DAD7}" />
+                <condition attribute="defraimp_placeofdestinationaddresscountryid" operator="eq" uiname="Northern Ireland" uitype="defra_country" value="{DFCCE526-BB36-EA11-A813-000D3AB4DF6C}" />
+              </filter>
+            </filter>
+          </filter>
+          <attribute name="defraimp_itahcid" />
         </entity>
       </fetch>
     </fetchxml>

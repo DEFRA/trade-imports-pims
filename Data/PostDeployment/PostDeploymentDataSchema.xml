@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <entity name="defra_country" displayname="Country" etc="10066" primaryidfield="defra_countryid" primarynamefield="defra_name" disableplugins="false">
     <fields>
       <field displayname="Independent" name="defra_independent" type="bool" primaryKey="false" customfield="false" />
@@ -91,9 +92,7 @@
       <field displayname="Commodity Type" name="defraimp_commoditytypeid" type="entityreference" primaryKey="false" lookupType="defraexp_commoditytype" customfield="false" />
       <field displayname="Gold/Bronze Commodity" name="defraimp_goldbronzecommodityid" type="guid" primaryKey="true" customfield="false" />
     </fields>
-    <relationships>
-      <relationship name="defraimp_goldbronzecountriesnn" manyToMany="true" isreflexive="true" relatedEntityName="defraimp_goldbronzecountriesnn" m2mTargetEntity="defra_country" m2mTargetEntityPrimaryKey="defra_countryid" />
-    </relationships>`
+    <relationships />
   </entity>
   <entity name="defraimp_inspectioncoveragerule" displayname="Inspection Coverage Rule" etc="10119" primaryidfield="defraimp_inspectioncoverageruleid" primarynamefield="defraimp_name" disableplugins="false">
     <fields>

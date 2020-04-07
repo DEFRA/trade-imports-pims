@@ -41,7 +41,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
             _mockRepositoryFactory = new Mock<IRepositoryFactory>();
             _logWriter = new Mock<ILogWriter>();
 
-            new DetermineInspectionRequirementBusinessLogic(_preImportApplication, _postImportApplication, _mockImportApplicationRepo.Object, _mockCoverageRulesRepo.Object, _mockImportRiskLevelRepo.Object, _mockAutoNumberRepo.Object, _mockPlaceOfOriginRepo.Object, _mockRepositoryFactory.Object, _logWriter.Object);
+            new DetermineInspectionRequirementBusinessLogic(_preImportApplication, _postImportApplication, _mockRepositoryFactory.Object, _logWriter.Object);
         }
 
         [Fact]

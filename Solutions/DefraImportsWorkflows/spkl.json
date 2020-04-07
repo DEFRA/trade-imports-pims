@@ -7,7 +7,7 @@
   ],
   "earlyboundtypes": [
     {
-      "entities": "contact,defraimp_autonumber,defraimp_counterhistory,defraimp_importrisklevel,defraimp_importcountrycommodityrisklevel,defraexp_configurationparameter,defraimp_importapplication,defraimp_inspectioncoveragerule,defraimp_itahc,defraimp_placeoforigin,defraimp_goldbronzecommodity,defraimp_goldbronzecountriesnn,defraimp_importinspection,defraimp_importquery",
+      "entities": "contact,defraimp_autonumber,defraimp_counterhistory,defraimp_importrisklevel,defraimp_importcountrycommodityrisklevel,defraexp_configurationparameter,defraimp_importapplication,defraimp_inspectioncoveragerule,defraimp_itahc,defraimp_docom,defraimp_placeoforigin,defraimp_goldbronzecommodity,defraimp_goldbronzecountriesnn,defraimp_importinspection,defraimp_importquery",
       "actions": "",
       "generateOptionsetEnums": true,
       "generateStateEnums": true,
