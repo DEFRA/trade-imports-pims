@@ -81,6 +81,22 @@ namespace Defra.Imports.Repositories
             return entity;
         }
 
+        public Entity RetrieveByAttribute(string attributeName, object attributeValue, string[] columns)
+        {
+            if (columns == null || columns.Length == 0)
+            {
+                throw new ArgumentException($"At least one column must be specified when invoking {nameof(this.Retrieve)} method of {nameof(CrmRepository)}");
+            }
+
+            var colSet = new ColumnSet(columns.Where(c => c != null).Distinct().ToArray());
+            var queryExpression = new QueryExpression(this.EntityLogicalName);
+            queryExpression.ColumnSet = colSet;
+            queryExpression.Criteria.AddCondition(new ConditionExpression(attributeName, ConditionOperator.Equal, attributeValue));
+
+            var entity = this.OrgService.RetrieveMultiple(queryExpression).Entities.FirstOrDefault();
+            return entity;
+        }
+
         /// <inheritdoc/>
         public virtual IQueryable<TObject> Find<TObject>(Expression<Func<Entity, bool>> filter, Expression<Func<Entity, TObject>> selector)
             where TObject : class

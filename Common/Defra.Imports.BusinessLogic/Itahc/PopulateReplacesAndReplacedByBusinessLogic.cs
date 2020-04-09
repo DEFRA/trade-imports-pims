@@ -21,11 +21,11 @@ namespace Defra.Imports.BusinessLogic.Itahc
 
         public void RunLogic()
         {
-            AddCertificateLookupByReferenceField("defraimp_replacedreferencenumber", "defraimp_replacedbyid");
-            AddCertificateLookupByReferenceField("defraimp_replacingreferencenumber", "defraimp_replacesid");
+            AddCertificateLookupByReferenceField("defraimp_replacedreferencenumber", "defraimp_replacedbyid", "defraimp_replacesid");
+            AddCertificateLookupByReferenceField("defraimp_replacingreferencenumber", "defraimp_replacesid", "defraimp_replacedbyid");
         }
 
-        private void AddCertificateLookupByReferenceField(string referenceNumberField, string lookupField)
+        private void AddCertificateLookupByReferenceField(string referenceNumberField, string lookupField, string retrievedEntityLookupField)
         {
             if (_targetEntity.Attributes.Contains(referenceNumberField))
             {
@@ -35,6 +35,16 @@ namespace Defra.Imports.BusinessLogic.Itahc
                 if (retrievedCert != null)
                 {
                     _targetEntity[lookupField] = new EntityReference(retrievedCert.LogicalName, retrievedCert.Id);
+
+                    // Update the target
+                    Entity targetUpateInfo = new Entity(_targetEntity.LogicalName, _targetEntity.Id);
+                    targetUpateInfo[lookupField] = new EntityReference(retrievedCert.LogicalName, retrievedCert.Id);
+                    _certificateRepo.Update(targetUpateInfo);
+
+                    // Update the retrieved entity
+                    Entity retrievedEntityUpdateInfo = new Entity(_targetEntity.LogicalName, retrievedCert.Id);
+                    retrievedEntityUpdateInfo[retrievedEntityLookupField] = _targetEntity.ToEntityReference();
+                    _certificateRepo.Update(retrievedEntityUpdateInfo);
                 }
             }
         }

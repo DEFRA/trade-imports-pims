@@ -10,7 +10,7 @@
   [CrmPluginRegistration(
      MessageNameEnum.Create,
      nameof(defraimp_itahc),
-     StageEnum.PreOperation,
+     StageEnum.PostOperation,
      ExecutionModeEnum.Synchronous,
      "defraimp_itahcid",
      "Create Step",
@@ -20,7 +20,7 @@
   [CrmPluginRegistration(
       MessageNameEnum.Update,
       nameof(defraimp_itahc),
-      StageEnum.PreOperation,
+      StageEnum.PostOperation,
       ExecutionModeEnum.Synchronous,
       "defraimp_replacedreferencenumber,defraimp_replacingreferencenumber",
       "Update Step",
@@ -30,7 +30,7 @@
   [CrmPluginRegistration(
      MessageNameEnum.Create,
      nameof(defraimp_docom),
-     StageEnum.PreOperation,
+     StageEnum.PostOperation,
      ExecutionModeEnum.Synchronous,
      "defraimp_docomid",
      "Create Step DOCOM",
@@ -40,7 +40,7 @@
   [CrmPluginRegistration(
       MessageNameEnum.Update,
       nameof(defraimp_docom),
-      StageEnum.PreOperation,
+      StageEnum.PostOperation,
       ExecutionModeEnum.Synchronous,
       "defraimp_replacedreferencenumber,defraimp_replacingreferencenumber",
       "Update Step DOCOM",

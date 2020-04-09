@@ -20,6 +20,15 @@ namespace Defra.Imports.Repositories
         Entity Retrieve(Guid entityId, string[] columns);
 
         /// <summary>
+        /// Retrieve a record by a unique field
+        /// </summary>
+        /// <param name="attributeName">The name of the field</param>
+        /// <param name="attributeValue">The value that should be queried on</param>
+        /// <param name="columns">The columns to select</param>
+        /// <returns></returns>
+        Entity RetrieveByAttribute(string attributeName, object attributeValue, string[] columns);
+
+        /// <summary>
         /// Retrieve records using the provided predicate.
         /// </summary>
         /// <typeparam name="TObject">The type of object to select.</typeparam>

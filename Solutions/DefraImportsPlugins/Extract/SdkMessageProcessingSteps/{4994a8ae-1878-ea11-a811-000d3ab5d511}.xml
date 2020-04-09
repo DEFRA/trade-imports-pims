@@ -10,7 +10,7 @@
   <Rank>0</Rank>
   <SdkMessageId>{9ebdbb1b-ea3e-db11-86a7-000a3a5473e8}</SdkMessageId>
   <EventHandlerTypeCode>4602</EventHandlerTypeCode>
-  <Stage>20</Stage>
+  <Stage>40</Stage>
   <IsCustomizable>1</IsCustomizable>
   <IsHidden>0</IsHidden>
   <SupportedDeployment>0</SupportedDeployment>

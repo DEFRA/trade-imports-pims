@@ -43,6 +43,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
 
             defraimp_itahc target = new defraimp_itahc()
             {
+                Id = Guid.NewGuid(),
                 defraimp_ReplacedReferenceNumber = certRefNumber
             };
 
@@ -54,6 +55,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
 
             // Assert
             Assert.Equal(retrievedRecordId, target.defraimp_ReplacedById.Id);
+            _mockCertificateRepo.Verify(r => r.Update(It.Is<Entity>(e => e.Id == target.Id)));
         }
 
         [Fact]
@@ -65,6 +67,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
 
             defraimp_itahc target = new defraimp_itahc()
             {
+                Id = Guid.NewGuid(),
                 defraimp_ReplacedReferenceNumber = certRefNumber
             };
 
@@ -76,6 +79,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
 
             // Assert
             Assert.Null(target.defraimp_ReplacedById);
+            _mockCertificateRepo.Verify(r => r.Update(It.Is<Entity>(e => e.Id == target.Id)), Times.Never);
         }
 
         [Fact]
@@ -87,6 +91,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
 
             defraimp_itahc target = new defraimp_itahc()
             {
+                Id = Guid.NewGuid(),
                 defraimp_ReplacingReferenceNumber = certRefNumber
             };
 
@@ -98,6 +103,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
 
             // Assert
             Assert.Equal(retrievedRecordId, target.defraimp_ReplacesId.Id);
+            _mockCertificateRepo.Verify(r => r.Update(It.Is<Entity>(e => e.Id == target.Id)));
         }
 
         [Fact]
@@ -120,6 +126,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
 
             // Assert
             Assert.Null(target.defraimp_ReplacesId);
+            _mockCertificateRepo.Verify(r => r.Update(It.Is<Entity>(e => e.Id == target.Id)), Times.Never);
         }
 
         [Fact]
