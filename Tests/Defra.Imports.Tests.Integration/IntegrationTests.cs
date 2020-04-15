@@ -18,10 +18,22 @@ namespace Defra.Imports.Tests.Integration
     {
         protected CrmServiceClient _orgSvc;
         protected QueueClient _serviceBusQueueClient;
+        private string _serviceBusConnectionString;
+        private string _serviceBusQueueName;
 
         public IntegrationTests()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            _serviceBusConnectionString = ConfigurationManager.ConnectionStrings["DevServiceBusConnection"].ConnectionString;
+            _serviceBusQueueName = ConfigurationManager.AppSettings["DevServiceBusQueueName"];
+            InitaliseConnections();
+        }
+
+        public IntegrationTests(string serviceBusConnectionString, string serviceBusQueueName)
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            _serviceBusConnectionString = serviceBusConnectionString;
+            _serviceBusQueueName = serviceBusQueueName;
             InitaliseConnections();
         }
 
@@ -43,9 +55,14 @@ namespace Defra.Imports.Tests.Integration
 
         private void InitialiseServiceBusConnection()
         {
-            string serviceBusConnectionString = ConfigurationManager.ConnectionStrings["DevServiceBusConnection"].ConnectionString;
-            string serviceBusQueueName = ConfigurationManager.AppSettings["DevServiceBusQueueName"];
-            _serviceBusQueueClient = QueueClient.CreateFromConnectionString(serviceBusConnectionString, serviceBusQueueName);
+            _serviceBusQueueClient = QueueClient.CreateFromConnectionString(_serviceBusConnectionString, _serviceBusQueueName);
+        }
+
+        protected void SetServiceBusConnection(string serviceBusConnectionString, string serviceBusQueueName)
+        {
+            _serviceBusConnectionString = serviceBusConnectionString;
+            _serviceBusQueueName = serviceBusQueueName;
+            InitialiseServiceBusConnection();
         }
 
         protected void SendServiceBusMessage(string message)
@@ -54,6 +71,18 @@ namespace Defra.Imports.Tests.Integration
             BrokeredMessage messageToSend = new BrokeredMessage(messageStream);
             messageToSend.SessionId = Guid.NewGuid().ToString();
             _serviceBusQueueClient.Send(messageToSend);
+        }
+
+        protected string ReadTestData(string fileName)
+        {
+            string filePath = $"{Directory.GetCurrentDirectory()}\\TestData\\{fileName}";
+            string fileContents = ReadFileContents(filePath);
+            return fileContents;
+        }
+
+        private string ReadFileContents(string filePath)
+        {
+            return File.ReadAllText(filePath);
         }
     }
 }

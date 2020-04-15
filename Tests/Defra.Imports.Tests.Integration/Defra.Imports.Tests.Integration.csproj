@@ -147,6 +147,7 @@
     <Compile Include="LogicApps\DocomCertificatesLogicAppIntegrationTests.cs" />
     <Compile Include="LogicApps\Helpers\XmlHelper.cs" />
     <Compile Include="LogicApps\ItahcCertificatesLogicAppIntegrationTests.cs" />
+    <Compile Include="LogicApps\NotificationsLogicAppIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,9 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Defra.Imports.Tests.Integration.ruleset" />
+    <None Include="TestData\NOTIFICATION1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="xunit.runner.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
