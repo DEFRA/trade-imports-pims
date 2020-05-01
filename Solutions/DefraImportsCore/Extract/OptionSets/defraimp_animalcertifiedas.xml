@@ -140,5 +140,85 @@
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
+    <option value="714100016" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Approved" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100017" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Quarantine" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100018" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Registered" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100019" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Commercial sale" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100020" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Game restocking" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100021" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Production" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100022" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Racing/competition" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100023" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Rescue/Rehoming" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100024" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Research" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100025" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Zoo/Collection" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
   </options>
 </optionset>

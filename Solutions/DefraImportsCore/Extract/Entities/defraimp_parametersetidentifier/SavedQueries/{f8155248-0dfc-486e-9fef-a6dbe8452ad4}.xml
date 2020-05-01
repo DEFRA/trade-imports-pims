@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{f8155248-0dfc-486e-9fef-a6dbe8452ad4}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_parametersetidentifierid">
+          <cell name="defraimp_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_data" width="200" />
+          <cell name="defraimp_commoditycomplementparameterset" width="300" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="defraimp_parametersetidentifier">
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="defraimp_commoditycomplementparameterset" />
+          <attribute name="defraimp_data" />
+          <attribute name="defraimp_name" />
+          <attribute name="defraimp_parametersetidentifierid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.49</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Parameter Set Identifiers" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

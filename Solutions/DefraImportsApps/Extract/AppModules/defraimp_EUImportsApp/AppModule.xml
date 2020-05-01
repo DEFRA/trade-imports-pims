@@ -30,6 +30,7 @@
     <AppModuleComponent type="1" schemaName="defraimp_importquery" />
     <AppModuleComponent type="1" schemaName="defraimp_importapplication" />
     <AppModuleComponent type="1" schemaName="defraimp_importrisklevel" />
+    <AppModuleComponent type="1" schemaName="defraimp_importernotification" />
     <AppModuleComponent type="1" schemaName="defraimp_inspectioncoveragerule" />
     <AppModuleComponent type="1" schemaName="defraimp_itahc" />
     <AppModuleComponent type="1" schemaName="defraimp_placeoforigin" />

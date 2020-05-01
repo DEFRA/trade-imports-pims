@@ -21,6 +21,7 @@
           <Title LCID="1033" Title="Case Management" />
         </Titles>
         <SubArea Id="New_SubArea" Icon="/_imgs/imagestrips/transparent_spacer.gif" IntroducedVersion="7.0.0.0" Entity="defraimp_importapplication" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_54625816" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_importernotification" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="NewSubArea_3f63fd65" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_itahc" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="NewSubArea_d13df07c" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_docom" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="NewSubArea_ec9ada4d" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_cved" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
@@ -46,27 +47,27 @@
         <Titles>
           <Title LCID="1033" Title="Countries" />
         </Titles>
-        <SubArea Id="NewSubArea_17d52a4e" Entity="defra_country" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_17d52a4e" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defra_country" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
       <Group Id="NewGroup_9f90a2aa" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
           <Title LCID="1033" Title="Commodities" />
         </Titles>
-        <SubArea Id="NewSubArea_fe8059fe" Entity="defraexp_commoditytype" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_fe8059fe" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraexp_commoditytype" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="NewSubArea_8717b96a" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_goldbronzecommodity" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
       <Group Id="NewGroup_b54560b" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
           <Title LCID="1033" Title="Regions" />
         </Titles>
-        <SubArea Id="NewSubArea_87589f0e" Entity="defraimp_apharegion" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_87589f0e" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_apharegion" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
       <Group Id="NewGroup_aed14192" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
           <Title LCID="1033" Title="Configuration" />
         </Titles>
-        <SubArea Id="NewSubArea_5132d2e2" Entity="defraexp_configurationparameter" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="NewSubArea_dcc907cd" Entity="defraimp_autonumber" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+        <SubArea Id="NewSubArea_5132d2e2" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraexp_configurationparameter" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_dcc907cd" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_autonumber" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
           <Titles>
             <Title LCID="1033" Title="Auto Numbers" />
           </Titles>
