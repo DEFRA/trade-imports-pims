@@ -139,7 +139,7 @@
               <sections>
                 <section name="_section_632" id="1b9e2d8a-dbe8-4cb9-9158-81bc3af2fcda" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
                   <labels>
-                    <label description="New Section" languagecode="1033" />
+                    <label description="Consignment Details" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -1866,7 +1866,7 @@
         </controlDescription>
       </controlDescriptions>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
