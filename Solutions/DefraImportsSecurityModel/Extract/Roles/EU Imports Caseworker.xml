@@ -8,14 +8,19 @@
     <RolePrivilege name="prvAppenddefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvAppenddefraexp_exportapplicationlifecycle" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_autonumber" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_commoditycomplement" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_commoditycomplementparameterset" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_counterhistory" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_cved" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_docom" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importapplicationbusinessprocessflow" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_parametersetidentifier" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_sampletest" level="Global" />
     <RolePrivilege name="prvAppendExpiredProcess" level="Global" />
@@ -37,16 +42,21 @@
     <RolePrivilege name="prvAppendTodefraexp_exportapplicationlifecycle" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_apharegion" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_autonumber" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_commoditycomplement" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_commoditycomplementparameterset" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_counterhistory" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_cved" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_docom" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importapplicationbusinessprocessflow" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_parametersetidentifier" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_sampletest" level="Global" />
     <RolePrivilege name="prvAppendToExpiredProcess" level="Global" />
@@ -67,11 +77,16 @@
     <RolePrivilege name="prvAppendWorkflow" level="Local" />
     <RolePrivilege name="prvAppendWorkflowSession" level="Basic" />
     <RolePrivilege name="prvAssignActivity" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_commoditycomplement" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_commoditycomplementparameterset" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_cved" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_docom" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importapplication" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_parametersetidentifier" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvAssignQueue" level="Global" />
     <RolePrivilege name="prvAssignUserForm" level="Basic" />
@@ -84,13 +99,18 @@
     <RolePrivilege name="prvCreateContact" level="Basic" />
     <RolePrivilege name="prvCreatedefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvCreatedefraexp_exportapplicationlifecycle" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_commoditycomplement" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_commoditycomplementparameterset" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_counterhistory" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_cved" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_docom" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importapplicationbusinessprocessflow" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_parametersetidentifier" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvCreateExpiredProcess" level="Global" />
     <RolePrivilege name="prvCreateLeadToOpportunitySalesProcess" level="Global" />
@@ -147,6 +167,8 @@
     <RolePrivilege name="prvReaddefraexp_exportapplicationlifecycle" level="Global" />
     <RolePrivilege name="prvReaddefraimp_apharegion" level="Global" />
     <RolePrivilege name="prvReaddefraimp_autonumber" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_commoditycomplement" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_commoditycomplementparameterset" level="Global" />
     <RolePrivilege name="prvReaddefraimp_counterhistory" level="Global" />
     <RolePrivilege name="prvReaddefraimp_cved" level="Global" />
     <RolePrivilege name="prvReaddefraimp_docom" level="Global" />
@@ -154,10 +176,13 @@
     <RolePrivilege name="prvReaddefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvReaddefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvReaddefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_parametersetidentifier" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvReaddefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvReaddefraimp_sampletest" level="Global" />
     <RolePrivilege name="prvReadEntity" level="Global" />
@@ -202,10 +227,15 @@
     <RolePrivilege name="prvReadWorkflow" level="Local" />
     <RolePrivilege name="prvReadWorkflowSession" level="Global" />
     <RolePrivilege name="prvShareActivity" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_commoditycomplement" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_commoditycomplementparameterset" level="Global" />
     <RolePrivilege name="prvSharedefraimp_cved" level="Global" />
     <RolePrivilege name="prvSharedefraimp_docom" level="Global" />
     <RolePrivilege name="prvSharedefraimp_importapplication" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvSharedefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_parametersetidentifier" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvSharedefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvShareUserForm" level="Basic" />
     <RolePrivilege name="prvShareUserQuery" level="Basic" />
@@ -219,13 +249,18 @@
     <RolePrivilege name="prvWritedefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvWritedefraexp_exportapplicationlifecycle" level="Global" />
     <RolePrivilege name="prvWritedefraimp_autonumber" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_commoditycomplement" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_commoditycomplementparameterset" level="Global" />
     <RolePrivilege name="prvWritedefraimp_counterhistory" level="Global" />
     <RolePrivilege name="prvWritedefraimp_cved" level="Global" />
     <RolePrivilege name="prvWritedefraimp_docom" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importapplicationbusinessprocessflow" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvWritedefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_parametersetidentifier" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvWritedefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvWriteExpiredProcess" level="Global" />
     <RolePrivilege name="prvWriteLeadToOpportunitySalesProcess" level="Global" />
