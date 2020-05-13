@@ -19,6 +19,7 @@
     <RolePrivilege name="prvAppenddefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_placeoforigin" level="Global" />
@@ -55,6 +56,7 @@
     <RolePrivilege name="prvAppendTodefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_placeoforigin" level="Global" />
@@ -85,6 +87,7 @@
     <RolePrivilege name="prvAssigndefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_placeoforigin" level="Global" />
@@ -109,6 +112,7 @@
     <RolePrivilege name="prvCreatedefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_placeoforigin" level="Global" />
@@ -181,6 +185,7 @@
     <RolePrivilege name="prvReaddefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvReaddefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvReaddefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvReaddefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvReaddefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvReaddefraimp_placeoforigin" level="Global" />
@@ -234,6 +239,7 @@
     <RolePrivilege name="prvSharedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvSharedefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvSharedefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvSharedefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvSharedefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvSharedefraimp_placeoforigin" level="Global" />
@@ -259,6 +265,7 @@
     <RolePrivilege name="prvWritedefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvWritedefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvWritedefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvWritedefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvWritedefraimp_placeoforigin" level="Global" />
