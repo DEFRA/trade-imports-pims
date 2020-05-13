@@ -61,13 +61,16 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
             // Split the ISO code of the countries from the target entity
             string[] countryISOCodes = _target.defraimp_routetransitingstates.Split(',');
 
-            // Retrieve the countries
-            var countryReferences = GetCountryReferencesFromISOCodes(countryISOCodes);
+            if(countryISOCodes.Length > 0)
+            {
+                // Retrieve the countries
+                var countryReferences = GetCountryReferencesFromISOCodes(countryISOCodes);
 
-            EntityReferenceCollection countryRefCollection = new EntityReferenceCollection(countryReferences.ToList());
+                EntityReferenceCollection countryRefCollection = new EntityReferenceCollection(countryReferences.ToList());
 
-            // Link the countries to the current target
-            _orgSvc.Associate(_target.LogicalName, _target.Id, new Relationship("defraimp_ImporterNotification_CountriesofTransit"), countryRefCollection);
+                // Link the countries to the current target
+                _orgSvc.Associate(_target.LogicalName, _target.Id, new Relationship("defraimp_ImporterNotification_CountriesofTransit"), countryRefCollection);
+            }
         }
 
         private IEnumerable<EntityReference> GetCountryReferencesFromISOCodes(string[] countryISOCodes)
@@ -84,10 +87,24 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
             QueryExpression qe = new QueryExpression("defra_country");
             qe.ColumnSet = new ColumnSet(new string[] { "defra_countryid" });
 
+            FilterExpression filterEx = new FilterExpression(LogicalOperator.Or);
             foreach (string country in countryISOCodes)
             {
-                qe.Criteria.AddCondition(new ConditionExpression("defra_isocodealpha3", ConditionOperator.Equal, country));
+                string sanitizedCountry = country.Trim();
+                if(sanitizedCountry.Length == 2)
+                {
+                    filterEx.AddCondition(new ConditionExpression("defra_isocodealpha2", ConditionOperator.Equal, sanitizedCountry));
+                }
+                else if(sanitizedCountry.Length == 3)
+                {
+                    filterEx.AddCondition(new ConditionExpression("defra_isocodealpha3", ConditionOperator.Equal, sanitizedCountry));
+                }
+                else
+                {
+                    filterEx.AddCondition(new ConditionExpression("defra_name", ConditionOperator.Equal, sanitizedCountry));
+                }
             }
+            qe.Criteria = filterEx;
 
             return qe;
         }
