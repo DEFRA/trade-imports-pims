@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 276,
+  "RecordsCount": 277,
   "ExportedEntities": [
     {
       "LogicalName": "defra_country",
@@ -4900,6 +4900,16 @@
           "AttributeType": "System.String"
         },
         {
+          "AttributeName": "defra_citizenemonym",
+          "AttributeValue": "x",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "Isle of Man",
+          "AttributeType": "System.String"
+        },
+        {
           "AttributeName": "defra_isocodealpha2",
           "AttributeValue": "IM",
           "AttributeType": "System.String"
@@ -4911,7 +4921,7 @@
         },
         {
           "AttributeName": "defra_isocodealpha3",
-          "AttributeValue": "IMN",
+          "AttributeValue": "IOM",
           "AttributeType": "System.String"
         },
         {
@@ -11309,7 +11319,7 @@
         },
         {
           "AttributeName": "defra_isocodealpha2",
-          "AttributeValue": "XX",
+          "AttributeValue": "WA",
           "AttributeType": "System.String"
         },
         {
@@ -11366,7 +11376,7 @@
         },
         {
           "AttributeName": "defra_isocodealpha3",
-          "AttributeValue": "GBR",
+          "AttributeValue": "SCO",
           "AttributeType": "System.String"
         }
       ]
@@ -11413,7 +11423,49 @@
         },
         {
           "AttributeName": "defra_isocodealpha3",
-          "AttributeValue": "GBR",
+          "AttributeValue": "NIR",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defra_country",
+      "Id": "5b57a57b-c795-ea11-a811-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defra_independent",
+          "AttributeValue": false,
+          "AttributeType": "System.Boolean"
+        },
+        {
+          "AttributeName": "defra_isonumericcode",
+          "AttributeValue": "826",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_citizenemonym",
+          "AttributeValue": "xx",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "Channel Islands",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_isocodealpha2",
+          "AttributeValue": "xx",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_name",
+          "AttributeValue": "Channel Islands",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_isocodealpha3",
+          "AttributeValue": "CIS",
           "AttributeType": "System.String"
         }
       ]
