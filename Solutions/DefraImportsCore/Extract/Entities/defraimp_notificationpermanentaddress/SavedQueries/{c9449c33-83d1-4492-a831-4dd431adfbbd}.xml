@@ -20,7 +20,6 @@
           <cell name="defraimp_addresscity" width="125" />
           <cell name="defraimp_addresspostalzipcode" width="150" />
           <cell name="defraimp_addresscountryid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="defraimp_id" width="100" />
           <cell name="defraimp_approvalnumber" width="150" />
           <cell name="defraimp_type" width="100" />
           <cell name="defraimp_status" width="100" />
@@ -42,7 +41,6 @@
           <attribute name="defraimp_companyname" />
           <attribute name="defraimp_addressemail" />
           <attribute name="defraimp_addresstelephone" />
-          <attribute name="defraimp_id" />
           <attribute name="defraimp_approvalnumber" />
           <attribute name="defraimp_type" />
           <attribute name="defraimp_status" />

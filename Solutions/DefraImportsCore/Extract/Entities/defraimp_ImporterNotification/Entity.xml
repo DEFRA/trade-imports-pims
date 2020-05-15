@@ -8845,6 +8845,9 @@
       <CanCreateViews>1</CanCreateViews>
       <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
       <CanEnableSyncToExternalSearchIndex>1</CanEnableSyncToExternalSearchIndex>
+      <IconMediumName>defraimp_/png/icon.importnotification.32.png</IconMediumName>
+      <IconSmallName>defraimp_/png/icon.importnotfication.16.png</IconSmallName>
+      <IconVectorName>defraimp_/svg/icon.importnotification.svg</IconVectorName>
       <EnforceStateTransitions>0</EnforceStateTransitions>
       <CanChangeHierarchicalRelationship>1</CanChangeHierarchicalRelationship>
       <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>

@@ -85,6 +85,23 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{18cec22c-723a-b152-ec7b-c932392ca16c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Primary Importer Notification" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_primaryimporternotificationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_primaryimporternotificationid" disabled="false" uniqueid="{cc51a7ed-3754-2a37-b926-1aa9aa130478}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{B57A0BEF-AC7C-4B41-9320-7FDB50C726A7}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{c745516d-73e3-a53c-6385-07071529ebe9}" locklevel="0" showlabel="true" visible="false">
                         <labels>
                           <label description="Primary ITAHC" languagecode="1033" />
@@ -1313,32 +1330,6 @@
             </column>
           </columns>
         </tab>
-        <tab name="tab_10" id="{4c4195aa-dd0e-ada0-8432-3961b5a95e44}" IsUserDefined="0" locklevel="0" showlabel="true">
-          <labels>
-            <label description="Tab" languagecode="1033" />
-          </labels>
-          <columns>
-            <column width="100%">
-              <sections>
-                <section name="tab_10_section_1" showlabel="false" showbar="false" locklevel="0" id="{773bd157-ad9e-6eba-9ca8-8b212e323234}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
-                  <labels>
-                    <label description="Section" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{10259b69-c8da-8ac8-a5a2-563c325a429e}" showlabel="false" locklevel="0">
-                        <labels>
-                          <label description="Certificate Number" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_certificatenumber" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_certificatenumber" disabled="false" uniqueid="{ae7618ac-88ac-ed5a-1c02-5bebd364dd6b}" />
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-              </sections>
-            </column>
-          </columns>
-        </tab>
       </tabs>
       <header id="{9c68e5ce-39b7-4825-abce-0f062b447838}" columns="111">
         <rows>
@@ -1575,37 +1566,6 @@
           <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
             <parameters>
               <value>defraimp_iv66receivedinrequiredtimescale</value>
-            </parameters>
-          </customControl>
-        </controlDescription>
-        <controlDescription forControl="{ae7618ac-88ac-ed5a-1c02-5bebd364dd6b}">
-          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}">
-            <parameters>
-              <datafieldname>defraimp_certificatenumber</datafieldname>
-            </parameters>
-          </customControl>
-          <customControl formFactor="0" name="MscrmControls.Canvas.CanvasControl">
-            <parameters>
-              <record>defraimp_certificatenumber</record>
-              <entityName static="true" type="SingleLine.Text">Import Record</entityName>
-              <appName static="true" type="SingleLine.Text">Canvas App</appName>
-              <appId static="true" type="SingleLine.Text">b8d5dbcd-d272-44c7-a00f-719c716d0a0b</appId>
-            </parameters>
-          </customControl>
-          <customControl formFactor="1" name="MscrmControls.Canvas.CanvasControl">
-            <parameters>
-              <record>defraimp_certificatenumber</record>
-              <entityName static="true" type="SingleLine.Text">Import Record</entityName>
-              <appName static="true" type="SingleLine.Text">Canvas App</appName>
-              <appId static="true" type="SingleLine.Text">b8d5dbcd-d272-44c7-a00f-719c716d0a0b</appId>
-            </parameters>
-          </customControl>
-          <customControl formFactor="2" name="MscrmControls.Canvas.CanvasControl">
-            <parameters>
-              <record>defraimp_certificatenumber</record>
-              <entityName static="true" type="SingleLine.Text">Import Record</entityName>
-              <appName static="true" type="SingleLine.Text">Canvas App</appName>
-              <appId static="true" type="SingleLine.Text">b8d5dbcd-d272-44c7-a00f-719c716d0a0b</appId>
             </parameters>
           </customControl>
         </controlDescription>

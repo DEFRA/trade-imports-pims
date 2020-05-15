@@ -18,7 +18,6 @@
   <EntityRelationship Name="business_unit_defraimp_importinspection" />
   <EntityRelationship Name="business_unit_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="business_unit_defraimp_itahc" />
-  <EntityRelationship Name="business_unit_defraimp_matchrecord" />
   <EntityRelationship Name="business_unit_defraimp_notificationpermanentaddress" />
   <EntityRelationship Name="business_unit_defraimp_parametersetidentifier" />
   <EntityRelationship Name="business_unit_defraimp_parametersetkeydatapair" />
@@ -80,7 +79,7 @@
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_counterhistory_ImportApplicationId" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_itahc" />
-  <EntityRelationship Name="defraimp_defraimp_importernotification_defraimp_matchrecord_ImporterNotification" />
+  <EntityRelationship Name="defraimp_defraimp_importernotification_defraimp_importapplication_PrimaryImporterNotificationId" />
   <EntityRelationship Name="defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_ImporterNotificationId" />
   <EntityRelationship Name="defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection" />
   <EntityRelationship Name="defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection" />
@@ -93,7 +92,6 @@
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC" />
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_importquery_ITAHC" />
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_itahc" />
-  <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_matchrecord_ITAHC" />
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_rb" />
   <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_counterhistory_PlaceOfOriginId" />
   <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid" />
@@ -163,8 +161,6 @@
   <EntityRelationship Name="lk_defraimp_inspectioncoveragerule_modifiedby" />
   <EntityRelationship Name="lk_defraimp_itahc_createdby" />
   <EntityRelationship Name="lk_defraimp_itahc_modifiedby" />
-  <EntityRelationship Name="lk_defraimp_matchrecord_createdby" />
-  <EntityRelationship Name="lk_defraimp_matchrecord_modifiedby" />
   <EntityRelationship Name="lk_defraimp_notificationpermanentaddress_createdby" />
   <EntityRelationship Name="lk_defraimp_notificationpermanentaddress_modifiedby" />
   <EntityRelationship Name="lk_defraimp_parametersetidentifier_createdby" />
@@ -194,7 +190,6 @@
   <EntityRelationship Name="owner_defraimp_importinspection" />
   <EntityRelationship Name="owner_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="owner_defraimp_itahc" />
-  <EntityRelationship Name="owner_defraimp_matchrecord" />
   <EntityRelationship Name="owner_defraimp_notificationpermanentaddress" />
   <EntityRelationship Name="owner_defraimp_parametersetidentifier" />
   <EntityRelationship Name="owner_defraimp_parametersetkeydatapair" />
@@ -215,7 +210,6 @@
   <EntityRelationship Name="team_defraimp_importinspection" />
   <EntityRelationship Name="team_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="team_defraimp_itahc" />
-  <EntityRelationship Name="team_defraimp_matchrecord" />
   <EntityRelationship Name="team_defraimp_notificationpermanentaddress" />
   <EntityRelationship Name="team_defraimp_parametersetidentifier" />
   <EntityRelationship Name="team_defraimp_parametersetkeydatapair" />
@@ -233,7 +227,6 @@
   <EntityRelationship Name="user_defraimp_importinspection" />
   <EntityRelationship Name="user_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="user_defraimp_itahc" />
-  <EntityRelationship Name="user_defraimp_matchrecord" />
   <EntityRelationship Name="user_defraimp_notificationpermanentaddress" />
   <EntityRelationship Name="user_defraimp_parametersetidentifier" />
   <EntityRelationship Name="user_defraimp_parametersetkeydatapair" />

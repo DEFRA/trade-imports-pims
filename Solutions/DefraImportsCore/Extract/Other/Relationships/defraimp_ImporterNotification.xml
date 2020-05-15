@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <EntityRelationship Name="defraimp_defraimp_importernotification_defraimp_matchrecord_ImporterNotification">
+  <EntityRelationship Name="defraimp_defraimp_importernotification_defraimp_importapplication_PrimaryImporterNotificationId">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>0.0.0.50</IntroducedVersion>
+    <IntroducedVersion>0.0.0.52</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
-    <ReferencingEntityName>defraimp_matchrecord</ReferencingEntityName>
+    <ReferencingEntityName>defraimp_importapplication</ReferencingEntityName>
     <ReferencedEntityName>defraimp_ImporterNotification</ReferencedEntityName>
     <CascadeAssign>NoCascade</CascadeAssign>
     <CascadeDelete>RemoveLink</CascadeDelete>
@@ -14,7 +14,7 @@
     <CascadeUnshare>NoCascade</CascadeUnshare>
     <CascadeRollupView>NoCascade</CascadeRollupView>
     <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
-    <ReferencingAttributeName>defraimp_ImporterNotification</ReferencingAttributeName>
+    <ReferencingAttributeName>defraimp_PrimaryImporterNotificationId</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
         <Description description="" languagecode="1033" />
@@ -25,11 +25,11 @@
         <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
         <NavPaneArea>Details</NavPaneArea>
         <NavPaneOrder>10000</NavPaneOrder>
-        <NavigationPropertyName>defraimp_ImporterNotification</NavigationPropertyName>
+        <NavigationPropertyName>defraimp_PrimaryImporterNotificationId</NavigationPropertyName>
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
-        <NavigationPropertyName>defraimp_defraimp_importernotification_defraimp_matchrecord_ImporterNotification</NavigationPropertyName>
+        <NavigationPropertyName>defraimp_defraimp_importernotification_defraimp_importapplication_PrimaryImporterNotificationId</NavigationPropertyName>
         <RelationshipRoleType>0</RelationshipRoleType>
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
