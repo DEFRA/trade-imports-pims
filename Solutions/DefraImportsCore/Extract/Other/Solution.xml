@@ -6,7 +6,7 @@
       <LocalizedName description="Defra.Imports.Core" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.52</Version>
+    <Version>0.0.0.53</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -277,10 +277,6 @@
       <MissingDependency>
         <Required key="0" type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
         <Dependent key="0" type="1" schemaName="defra_country" displayName="Country" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="15" type="1" schemaName="defraimp_matchrecord" displayName="Match Record" solution="Active" />
-        <Dependent key="10" type="62" schemaName="defraimp_EUImportsApp" />
       </MissingDependency>
       <MissingDependency>
         <Required key="15" type="1" schemaName="defraimp_matchrecord" displayName="Match Record" solution="Active" />
