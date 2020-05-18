@@ -3,7 +3,7 @@
   <solutions>
     <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsDependencies_1_0_0_0_managed.zip" useAsync="true" />
     <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsWebResources_managed.zip" useAsync="true" />
-    <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="false" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsCore_managed.zip" useAsync="true" />
+    <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsCore_managed.zip" useAsync="true" />
     <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsWorkflows_managed.zip" useAsync="true" />
     <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsPlugins_managed.zip" useAsync="true" />
     <configsolutionfile deleteonly="false" forceUpgrade="false" overwriteunmanagedcustomizations="true" publishworkflowsandactivateplugins="true" solutionpackagefilename="DefraImportsAnalytics_managed.zip" useAsync="true" />
