@@ -691,7 +691,7 @@
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>0</ValidForCreateApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
@@ -791,6 +791,11 @@
               <status value="2" state="1" TransitionData="" Color="#0000ff">
                 <labels>
                   <label description="Matched" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="714100001" state="1" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Rejected" languagecode="1033" />
                 </labels>
               </status>
               <status value="714100000" state="1" TransitionData="" Color="#0000ff">

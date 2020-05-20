@@ -176,6 +176,7 @@
   <EntityRelationship Name="lk_defraimp_placeoforigin_modifiedby" />
   <EntityRelationship Name="lk_defraimp_sampletest_createdby" />
   <EntityRelationship Name="lk_defraimp_sampletest_modifiedby" />
+  <EntityRelationship Name="msdyn_customerasset_defraimp_importqueries" />
   <EntityRelationship Name="msdyn_playbookinstance_defraimp_importqueries" />
   <EntityRelationship Name="msdyn_postalbum_defraimp_importqueries" />
   <EntityRelationship Name="opportunity_defraimp_importqueries" />
