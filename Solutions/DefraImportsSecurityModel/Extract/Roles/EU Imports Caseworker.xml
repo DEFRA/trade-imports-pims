@@ -71,6 +71,7 @@
     <RolePrivilege name="prvAppendToTransactionCurrency" level="Global" />
     <RolePrivilege name="prvAppendToTranslationProcess" level="Global" />
     <RolePrivilege name="prvAppendToUser" level="Local" />
+    <RolePrivilege name="prvAppendToUserSettings" level="Local" />
     <RolePrivilege name="prvAppendToWorkflow" level="Global" />
     <RolePrivilege name="prvAppendToWorkflowSession" level="Basic" />
     <RolePrivilege name="prvAppendTransactionCurrency" level="Global" />
@@ -130,6 +131,7 @@
     <RolePrivilege name="prvCreateUserForm" level="Basic" />
     <RolePrivilege name="prvCreateUserQuery" level="Basic" />
     <RolePrivilege name="prvCreateUserQueryVisualizations" level="Basic" />
+    <RolePrivilege name="prvCreateUserSettings" level="Local" />
     <RolePrivilege name="prvCreateWorkflow" level="Local" />
     <RolePrivilege name="prvCreateWorkflowSession" level="Basic" />
     <RolePrivilege name="prvDeletedefraexp_certificatelifecycle" level="Global" />
@@ -145,6 +147,7 @@
     <RolePrivilege name="prvDeleteUserForm" level="Basic" />
     <RolePrivilege name="prvDeleteUserQuery" level="Basic" />
     <RolePrivilege name="prvDeleteUserQueryVisualizations" level="Basic" />
+    <RolePrivilege name="prvDeleteUserSettings" level="Local" />
     <RolePrivilege name="prvDeleteWorkflow" level="Local" />
     <RolePrivilege name="prvDeleteWorkflowSession" level="Basic" />
     <RolePrivilege name="prvReadAccount" level="Global" />
@@ -228,6 +231,7 @@
     <RolePrivilege name="prvReadUserForm" level="Basic" />
     <RolePrivilege name="prvReadUserQuery" level="Basic" />
     <RolePrivilege name="prvReadUserQueryVisualizations" level="Basic" />
+    <RolePrivilege name="prvReadUserSettings" level="Global" />
     <RolePrivilege name="prvReadWebResource" level="Global" />
     <RolePrivilege name="prvReadWorkflow" level="Local" />
     <RolePrivilege name="prvReadWorkflowSession" level="Global" />
@@ -282,6 +286,7 @@
     <RolePrivilege name="prvWriteUserForm" level="Basic" />
     <RolePrivilege name="prvWriteUserQuery" level="Basic" />
     <RolePrivilege name="prvWriteUserQueryVisualizations" level="Basic" />
+    <RolePrivilege name="prvWriteUserSettings" level="Local" />
     <RolePrivilege name="prvWriteWorkflow" level="Local" />
     <RolePrivilege name="prvWriteWorkflowSession" level="Basic" />
   </RolePrivileges>

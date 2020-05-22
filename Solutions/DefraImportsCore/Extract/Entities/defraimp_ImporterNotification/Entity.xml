@@ -244,7 +244,7 @@
           <AppDefaultValue>-1</AppDefaultValue>
           <OptionSetName>defraimp_animalcertifiedas</OptionSetName>
           <displaynames>
-            <displayname description="Animals Certified As" languagecode="1033" />
+            <displayname description="Purpose of Movement" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Certification for animal" languagecode="1033" />
