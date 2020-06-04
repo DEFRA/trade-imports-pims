@@ -5,6 +5,7 @@
   <EntityRelationship Name="bookableresourcebooking_defraimp_importqueries" />
   <EntityRelationship Name="bookableresourcebookingheader_defraimp_importqueries" />
   <EntityRelationship Name="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" />
+  <EntityRelationship Name="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow" />
   <EntityRelationship Name="bulkoperation_defraimp_importqueries" />
   <EntityRelationship Name="business_unit_defraimp_apharegion" />
   <EntityRelationship Name="business_unit_defraimp_commoditycomplement" />
@@ -170,6 +171,10 @@
   <EntityRelationship Name="lk_defraimp_itahc_modifiedby" />
   <EntityRelationship Name="lk_defraimp_matchrecord_createdby" />
   <EntityRelationship Name="lk_defraimp_matchrecord_modifiedby" />
+  <EntityRelationship Name="lk_defraimp_matchrecordbusinessprocessflow_activestageid" />
+  <EntityRelationship Name="lk_defraimp_matchrecordbusinessprocessflow_createdby" />
+  <EntityRelationship Name="lk_defraimp_matchrecordbusinessprocessflow_modifiedby" />
+  <EntityRelationship Name="lk_defraimp_matchrecordbusinessprocessflow_processid" />
   <EntityRelationship Name="lk_defraimp_notificationpermanentaddress_createdby" />
   <EntityRelationship Name="lk_defraimp_notificationpermanentaddress_modifiedby" />
   <EntityRelationship Name="lk_defraimp_parametersetidentifier_createdby" />
@@ -188,6 +193,7 @@
   <EntityRelationship Name="organization_defraimp_importapplicationbusinessprocessflow" />
   <EntityRelationship Name="organization_defraimp_importcountrycommodityrisklevel" />
   <EntityRelationship Name="organization_defraimp_importrisklevel" />
+  <EntityRelationship Name="organization_defraimp_matchrecordbusinessprocessflow" />
   <EntityRelationship Name="owner_defraimp_apharegion" />
   <EntityRelationship Name="owner_defraimp_commoditycomplement" />
   <EntityRelationship Name="owner_defraimp_commoditycomplementparameterset" />
