@@ -18,6 +18,7 @@
   <IsTransacted>1</IsTransacted>
   <IntroducedVersion>0.0.0.36</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>defraimp_counterhistory</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Counter History - Populate Name On Create" />

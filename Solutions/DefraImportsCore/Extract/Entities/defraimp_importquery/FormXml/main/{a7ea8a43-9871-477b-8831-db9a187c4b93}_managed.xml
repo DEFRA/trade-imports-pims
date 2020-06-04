@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{657510a9-422c-2a13-e481-6c67186aea15}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Query Number" languagecode="1033" />
                         </labels>
                         <control id="defraimp_querynumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_querynumber" disabled="true" uniqueid="{c59a31bc-3453-757d-c097-c47811d5c558}" />
                       </cell>
@@ -30,7 +30,7 @@
                     <row>
                       <cell id="{37d8770a-9250-0816-8e18-1c1c3e338a40}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Query Sent To" languagecode="1033" />
                         </labels>
                         <control id="defraimp_querysentto" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="defraimp_querysentto" disabled="false" />
                       </cell>
@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{3ecef2d5-9a1a-418c-af7b-d0c6a2b60ed6}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Summary" languagecode="1033" />
                         </labels>
                         <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" uniqueid="{287c3e9b-0613-8394-54db-056a09150397}" />
                       </cell>
@@ -46,7 +46,7 @@
                     <row>
                       <cell id="{1619db5e-c003-394d-9b0c-04aac9704e19}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Due Date" languagecode="1033" />
                         </labels>
                         <control id="defraimp_duedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_duedate" disabled="false" />
                       </cell>
@@ -54,7 +54,7 @@
                     <row>
                       <cell id="{e7c1ecc0-5102-1ebc-d4e7-c7d8c5483eeb}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Date Raised" languagecode="1033" />
                         </labels>
                         <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" uniqueid="{c67db1ba-e18c-61b4-1159-2d5e2a8b8c77}" />
                       </cell>
@@ -62,7 +62,7 @@
                     <row>
                       <cell id="{764863d5-a122-5351-c066-690b9b777955}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Query Raised By" languagecode="1033" />
                         </labels>
                         <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="true" uniqueid="{1526e521-08d5-d590-96e5-21b98dc6551e}">
                           <parameters>
@@ -86,7 +86,7 @@
                     <row>
                       <cell id="{51420a80-2acb-4539-8785-69fa63d16112}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Regarding" languagecode="1033" />
                         </labels>
                         <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" />
                       </cell>
@@ -94,7 +94,7 @@
                     <row>
                       <cell id="{32e8c107-e4a1-5d4c-ecb9-1a3b7217e274}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="ITAHC" languagecode="1033" />
                         </labels>
                         <control id="defraimp_itahc" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_itahc" disabled="false" />
                       </cell>
@@ -127,7 +127,7 @@
                     <row>
                       <cell id="{8ba0d2d5-0a7c-c0be-7095-54410405764a}" showlabel="true" locklevel="0" rowspan="8">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Description" languagecode="1033" />
                         </labels>
                         <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" disabled="false" uniqueid="{470a2ec8-bac8-66c2-2a13-09a002bbea40}" />
                       </cell>
@@ -177,13 +177,13 @@
           <row>
             <cell id="{4e6c37c4-acd4-a92a-4ad9-b8cb349e5b91}" showlabel="true" locklevel="0">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Due Date" languagecode="1033" />
               </labels>
               <control id="header_defraimp_duedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_duedate" disabled="false" />
             </cell>
             <cell id="{b07d4159-7ae3-43bd-238c-0213cd6b197a}" showlabel="true" locklevel="0">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Date Resolved" languagecode="1033" />
               </labels>
               <control id="header_defraimp_dateresolved" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateresolved" disabled="false" />
             </cell>
@@ -195,7 +195,7 @@
             </cell>
             <cell id="{cdf6812c-9ef2-4bfb-8104-3804ec4943dd}">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Owner" languagecode="1033" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
             </cell>

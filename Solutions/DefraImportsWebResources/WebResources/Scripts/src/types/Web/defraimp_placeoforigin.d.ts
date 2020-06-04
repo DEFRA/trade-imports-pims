@@ -32,11 +32,8 @@ declare namespace WebApi {
     versionnumber?: number | null;
   }
   interface defraimp_placeoforigin_Relationships {
-    defraimp_AddressCountry?: defra_country_Result | null;
     defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid?: defraimp_importapplication_Result[] | null;
     defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforiginid?: defraimp_importapplication_Result[] | null;
-    defraimp_placeoforigin_ProcessSession?: ProcessSession_Result[] | null;
-    defraimp_placeoforigin_SyncErrors?: SyncError_Result[] | null;
   }
   interface defraimp_placeoforigin extends defraimp_placeoforigin_Base, defraimp_placeoforigin_Relationships {
     defraimp_AddressCountry_bind$defra_countries?: string | null;
@@ -129,11 +126,8 @@ declare namespace WebApi {
     versionnumber: number;
   }
   interface defraimp_placeoforigin_Expand {
-    defraimp_AddressCountry: WebExpand<defraimp_placeoforigin_Expand, defra_country_Select, defra_country_Filter, { defraimp_AddressCountry: defra_country_Result }>;
     defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid: WebExpand<defraimp_placeoforigin_Expand, defraimp_importapplication_Select, defraimp_importapplication_Filter, { defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid: defraimp_importapplication_Result[] }>;
     defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforiginid: WebExpand<defraimp_placeoforigin_Expand, defraimp_importapplication_Select, defraimp_importapplication_Filter, { defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforiginid: defraimp_importapplication_Result[] }>;
-    defraimp_placeoforigin_ProcessSession: WebExpand<defraimp_placeoforigin_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_placeoforigin_ProcessSession: ProcessSession_Result[] }>;
-    defraimp_placeoforigin_SyncErrors: WebExpand<defraimp_placeoforigin_Expand, SyncError_Select, SyncError_Filter, { defraimp_placeoforigin_SyncErrors: SyncError_Result[] }>;
   }
   interface defraimp_placeoforigin_FormattedResult {
     createdby_formatted?: string;
@@ -169,13 +163,10 @@ declare namespace WebApi {
     owninguser_guid: string | null;
   }
   interface defraimp_placeoforigin_RelatedOne {
-    defraimp_AddressCountry: WebMappingRetrieve<WebApi.defra_country_Select,WebApi.defra_country_Expand,WebApi.defra_country_Filter,WebApi.defra_country_Fixed,WebApi.defra_country_Result,WebApi.defra_country_FormattedResult>;
   }
   interface defraimp_placeoforigin_RelatedMany {
     defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid: WebMappingRetrieve<WebApi.defraimp_importapplication_Select,WebApi.defraimp_importapplication_Expand,WebApi.defraimp_importapplication_Filter,WebApi.defraimp_importapplication_Fixed,WebApi.defraimp_importapplication_Result,WebApi.defraimp_importapplication_FormattedResult>;
     defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforiginid: WebMappingRetrieve<WebApi.defraimp_importapplication_Select,WebApi.defraimp_importapplication_Expand,WebApi.defraimp_importapplication_Filter,WebApi.defraimp_importapplication_Fixed,WebApi.defraimp_importapplication_Result,WebApi.defraimp_importapplication_FormattedResult>;
-    defraimp_placeoforigin_ProcessSession: WebMappingRetrieve<WebApi.ProcessSession_Select,WebApi.ProcessSession_Expand,WebApi.ProcessSession_Filter,WebApi.ProcessSession_Fixed,WebApi.ProcessSession_Result,WebApi.ProcessSession_FormattedResult>;
-    defraimp_placeoforigin_SyncErrors: WebMappingRetrieve<WebApi.SyncError_Select,WebApi.SyncError_Expand,WebApi.SyncError_Filter,WebApi.SyncError_Fixed,WebApi.SyncError_Result,WebApi.SyncError_FormattedResult>;
   }
 }
 interface WebEntitiesRetrieve {

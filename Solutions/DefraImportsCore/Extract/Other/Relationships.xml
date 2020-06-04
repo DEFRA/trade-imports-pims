@@ -98,6 +98,7 @@
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_itahc" />
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_matchrecord_ITAHC" />
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_rb" />
+  <EntityRelationship Name="defraimp_defraimp_matchrecord_defraimp_Im" />
   <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_counterhistory_PlaceOfOriginId" />
   <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid" />
   <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforiginid" />
@@ -122,6 +123,7 @@
   <EntityRelationship Name="defraimp_importrisklevel_ProcessSession" />
   <EntityRelationship Name="defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParameterSet" />
   <EntityRelationship Name="defraimp_parameterset_defraimp_parametersetkeydatapair_CommodityComplementParameterSet" />
+  <EntityRelationship Name="defraimp_PotentiallyRelatedImportRecords" />
   <EntityRelationship Name="defraimp_systemuser_defraimp_importinspection_IV17ReviewApprovedBy" />
   <EntityRelationship Name="defraimp_team_defraimp_importapplication" />
   <EntityRelationship Name="entitlement_defraimp_importqueries" />

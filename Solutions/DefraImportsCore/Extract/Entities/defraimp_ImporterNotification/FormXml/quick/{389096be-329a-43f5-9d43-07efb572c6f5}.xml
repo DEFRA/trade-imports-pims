@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{389096be-329a-43f5-9d43-07efb572c6f5}</formid>
+    <IntroducedVersion>0.0.0.56</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{050854af-b26f-41c5-bec3-6b09d574e760}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="Place of Origin Details" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{b2c782df-9444-4932-aca1-22faa6cace6f}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{87e0a714-3db3-2034-ae09-bded10e613eb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Original Harvest Individual Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestindividualname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvestindividualname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7c662cca-c59a-6c6b-d062-123d1e1dbc10}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Original Harvest Company Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestcompanyname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvestcompanyname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{793656a0-d3e7-1db1-a4e3-d3bada82551e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Original Harvest Address Line 1" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestaddressaddressline1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvestaddressaddressline1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0e4e4055-db60-e1a5-db98-a022cd60552b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Original Harvest Address Line 2" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestaddressaddressline2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvestaddressaddressline2" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e73bd4d6-b492-d151-92a6-ecb94b1027ae}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Original Harvest Address Line 3" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestaddressaddressline3" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvestaddressaddressline3" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9333b403-41b8-5282-c742-98819b73cb72}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Original Harvest Address City" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestaddresscity" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvestaddresscity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c55a914b-9a58-9ac5-d4c9-69ee2d406263}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Original Harvest Address Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestaddresspostalzipcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvestaddresspostalzipcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{57477911-7cc5-5102-a67b-1b2648b762ae}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Original Harvest Address Country" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestaddresscountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeoforiginharvestaddresscountryid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{28069610-2dc1-97ad-1b8a-a2548c0e8938}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Original Harvest Approval Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestapprovalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvestapprovalnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bdd01239-3e52-9a90-3b74-c7153a2e5913}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Original Harvest Other Identifier" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestotheridentifier" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvestotheridentifier" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="4">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Place of Origin Details" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

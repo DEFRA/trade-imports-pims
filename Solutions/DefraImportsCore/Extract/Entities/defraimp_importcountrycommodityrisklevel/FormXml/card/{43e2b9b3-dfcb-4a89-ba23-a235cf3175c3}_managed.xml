@@ -40,7 +40,7 @@
                     <row>
                       <cell id="{02295f76-e84a-4835-9b71-9190bc1b9531}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Status Reason" languagecode="1033" />
                         </labels>
                         <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
                       </cell>
@@ -65,7 +65,7 @@
                     <row>
                       <cell id="{00212966-b531-46b5-bb0f-a75eb8bf3b4c}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" disabled="false" uniqueid="{4ad4ae01-0800-c728-1ab7-460266a6a9ee}" />
                       </cell>
@@ -73,7 +73,7 @@
                     <row>
                       <cell id="{834387e5-76ae-1b69-190a-2312ba00aeca}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Country" languagecode="1033" />
                         </labels>
                         <control id="defraimp_countryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_countryid" disabled="false" />
                       </cell>
@@ -81,7 +81,7 @@
                     <row>
                       <cell id="{d3289871-1873-6e66-d53a-0cc12131d7e3}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Commodity Type" languagecode="1033" />
                         </labels>
                         <control id="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytypeid" disabled="false" />
                       </cell>
@@ -89,7 +89,7 @@
                     <row>
                       <cell id="{b1cca3eb-d14d-5a77-a9ee-2619804eded2}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Risk Level" languagecode="1033" />
                         </labels>
                         <control id="defraimp_importrisklevelid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importrisklevelid" disabled="false" />
                       </cell>
@@ -110,7 +110,7 @@
                       </cell>
                       <cell id="{8a78544c-35a0-4dfd-bc30-6f698481372f}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Created On" languagecode="1033" />
                         </labels>
                         <control id="createdon" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdon" disabled="false" />
                       </cell>

@@ -60,14 +60,10 @@ declare namespace WebApi {
   interface defraimp_importinspection_Relationships {
     defraimp_NextInspection?: defraimp_importinspection_Result | null;
     defraimp_PreviousInspection?: defraimp_importinspection_Result | null;
-    defraimp_RegionAreaAllocatedtoID?: defraimp_apharegion_Result | null;
     defraimp_RelatedITAHC?: defraimp_itahc_Result | null;
     defraimp_RelatedImportApplication?: defraimp_importapplication_Result | null;
     defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection?: defraimp_importinspection_Result[] | null;
     defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection?: defraimp_importinspection_Result[] | null;
-    defraimp_defraimp_importinspection_defraimp_sample?: defraimp_sampletest_Result[] | null;
-    defraimp_importinspection_ProcessSession?: ProcessSession_Result[] | null;
-    defraimp_importinspection_SyncErrors?: SyncError_Result[] | null;
   }
   interface defraimp_importinspection extends defraimp_importinspection_Base, defraimp_importinspection_Relationships {
     defraimp_IV17ReviewApprovedByID_bind$systemusers?: string | null;
@@ -229,14 +225,10 @@ declare namespace WebApi {
   interface defraimp_importinspection_Expand {
     defraimp_NextInspection: WebExpand<defraimp_importinspection_Expand, defraimp_importinspection_Select, defraimp_importinspection_Filter, { defraimp_NextInspection: defraimp_importinspection_Result }>;
     defraimp_PreviousInspection: WebExpand<defraimp_importinspection_Expand, defraimp_importinspection_Select, defraimp_importinspection_Filter, { defraimp_PreviousInspection: defraimp_importinspection_Result }>;
-    defraimp_RegionAreaAllocatedtoID: WebExpand<defraimp_importinspection_Expand, defraimp_apharegion_Select, defraimp_apharegion_Filter, { defraimp_RegionAreaAllocatedtoID: defraimp_apharegion_Result }>;
     defraimp_RelatedITAHC: WebExpand<defraimp_importinspection_Expand, defraimp_itahc_Select, defraimp_itahc_Filter, { defraimp_RelatedITAHC: defraimp_itahc_Result }>;
     defraimp_RelatedImportApplication: WebExpand<defraimp_importinspection_Expand, defraimp_importapplication_Select, defraimp_importapplication_Filter, { defraimp_RelatedImportApplication: defraimp_importapplication_Result }>;
     defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection: WebExpand<defraimp_importinspection_Expand, defraimp_importinspection_Select, defraimp_importinspection_Filter, { defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection: defraimp_importinspection_Result[] }>;
     defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection: WebExpand<defraimp_importinspection_Expand, defraimp_importinspection_Select, defraimp_importinspection_Filter, { defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection: defraimp_importinspection_Result[] }>;
-    defraimp_defraimp_importinspection_defraimp_sample: WebExpand<defraimp_importinspection_Expand, defraimp_sampletest_Select, defraimp_sampletest_Filter, { defraimp_defraimp_importinspection_defraimp_sample: defraimp_sampletest_Result[] }>;
-    defraimp_importinspection_ProcessSession: WebExpand<defraimp_importinspection_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_importinspection_ProcessSession: ProcessSession_Result[] }>;
-    defraimp_importinspection_SyncErrors: WebExpand<defraimp_importinspection_Expand, SyncError_Select, SyncError_Filter, { defraimp_importinspection_SyncErrors: SyncError_Result[] }>;
   }
   interface defraimp_importinspection_FormattedResult {
     createdby_formatted?: string;
@@ -297,16 +289,12 @@ declare namespace WebApi {
   interface defraimp_importinspection_RelatedOne {
     defraimp_NextInspection: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;
     defraimp_PreviousInspection: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;
-    defraimp_RegionAreaAllocatedtoID: WebMappingRetrieve<WebApi.defraimp_apharegion_Select,WebApi.defraimp_apharegion_Expand,WebApi.defraimp_apharegion_Filter,WebApi.defraimp_apharegion_Fixed,WebApi.defraimp_apharegion_Result,WebApi.defraimp_apharegion_FormattedResult>;
     defraimp_RelatedITAHC: WebMappingRetrieve<WebApi.defraimp_itahc_Select,WebApi.defraimp_itahc_Expand,WebApi.defraimp_itahc_Filter,WebApi.defraimp_itahc_Fixed,WebApi.defraimp_itahc_Result,WebApi.defraimp_itahc_FormattedResult>;
     defraimp_RelatedImportApplication: WebMappingRetrieve<WebApi.defraimp_importapplication_Select,WebApi.defraimp_importapplication_Expand,WebApi.defraimp_importapplication_Filter,WebApi.defraimp_importapplication_Fixed,WebApi.defraimp_importapplication_Result,WebApi.defraimp_importapplication_FormattedResult>;
   }
   interface defraimp_importinspection_RelatedMany {
     defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;
     defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;
-    defraimp_defraimp_importinspection_defraimp_sample: WebMappingRetrieve<WebApi.defraimp_sampletest_Select,WebApi.defraimp_sampletest_Expand,WebApi.defraimp_sampletest_Filter,WebApi.defraimp_sampletest_Fixed,WebApi.defraimp_sampletest_Result,WebApi.defraimp_sampletest_FormattedResult>;
-    defraimp_importinspection_ProcessSession: WebMappingRetrieve<WebApi.ProcessSession_Select,WebApi.ProcessSession_Expand,WebApi.ProcessSession_Filter,WebApi.ProcessSession_Fixed,WebApi.ProcessSession_Result,WebApi.ProcessSession_FormattedResult>;
-    defraimp_importinspection_SyncErrors: WebMappingRetrieve<WebApi.SyncError_Select,WebApi.SyncError_Expand,WebApi.SyncError_Filter,WebApi.SyncError_Fixed,WebApi.SyncError_Result,WebApi.SyncError_FormattedResult>;
   }
 }
 interface WebEntitiesRetrieve {

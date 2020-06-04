@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CustomActions>
+    <CustomAction Id="defraimp.defraimp_importapplication.AppendImporterNotification.Button.CustomAction" Location="Mscrm.SubGrid.defraimp_importapplication.MainTab.Management.Controls._children" Sequence="58">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:defraimp.defraimp_importapplication.AppendImporterNotification.Button.Alt" Command="defraimp.defraimp_importapplication.AppendImporterNotification.Command" Id="defraimp.defraimp_importapplication.AppendImporterNotification.Button" Image32by32="$webresource:defraimp_/png/icon.importnotfication.32.png" Image16by16="$webresource:defraimp_/png/icon.importnotfication.16.png" LabelText="$LocLabels:defraimp.defraimp_importapplication.AppendImporterNotification.Button.LabelText" Sequence="58" TemplateAlias="o1" ToolTipTitle="$LocLabels:defraimp.defraimp_importapplication.AppendImporterNotification.Button.ToolTipTitle" ToolTipDescription="$LocLabels:defraimp.defraimp_importapplication.AppendImporterNotification.Button.ToolTipDescription" ModernImage="$webresource:defraimp_/svg/icon.importnotification.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="defraimp.defraimp_importapplication.AppendITAHC.Button.CustomAction" Location="Mscrm.SubGrid.defraimp_importapplication.MainTab.Management.Controls._children" Sequence="55">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:defraimp.defraimp_importapplication.AppendITAHC.Button.Alt" Command="defraimp.defraimp_importapplication.AppendITAHC.Command" Id="defraimp.defraimp_importapplication.AppendITAHC.Button" Image32by32="$webresource:defraimp_/png/icon.itahc.32.png" Image16by16="$webresource:defraimp_/png/icon.itahc.16.png" LabelText="$LocLabels:defraimp.defraimp_importapplication.AppendITAHC.Button.LabelText" Sequence="55" TemplateAlias="o1" ToolTipTitle="$LocLabels:defraimp.defraimp_importapplication.AppendITAHC.Button.ToolTipTitle" ToolTipDescription="$LocLabels:defraimp.defraimp_importapplication.AppendITAHC.Button.ToolTipDescription" ModernImage="$webresource:defraimp_/svg/icon.itahc.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
     <CustomAction Id="defraimp.defraimp_importapplication.FillEmptyDataWithItahc.Button.CustomAction" Location="Mscrm.Form.defraimp_importapplication.MainTab.Save.Controls._children" Sequence="93">
       <CommandUIDefinition>
         <Button Alt="$LocLabels:defraimp.defraimp_importapplication.FillEmptyDataWithItahc.Button.Alt" Command="defraimp.defraimp_importapplication.FillEmptyDataWithItahc.Command" Id="defraimp.defraimp_importapplication.FillEmptyDataWithItahc.Button" Image32by32="$webresource:defraimp_/png/icon.itahc.32.png" Image16by16="$webresource:defraimp_/png/icon.itahc.16.png" LabelText="$LocLabels:defraimp.defraimp_importapplication.FillEmptyDataWithItahc.Button.LabelText" Sequence="93" TemplateAlias="isv" ToolTipTitle="$LocLabels:defraimp.defraimp_importapplication.FillEmptyDataWithItahc.Button.ToolTipTitle" ToolTipDescription="$LocLabels:defraimp.defraimp_importapplication.FillEmptyDataWithItahc.Button.ToolTipDescription" ModernImage="$webresource:defraimp_/svg/icon.itahc.svg" />
@@ -16,6 +26,28 @@
     <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
   </Templates>
   <CommandDefinitions>
+    <CommandDefinition Id="defraimp.defraimp_importapplication.AppendImporterNotification.Command">
+      <EnableRules>
+        <EnableRule Id="defraimp.defraimp_importapplication.AppendRules.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="DefraImports.MatchRecord.onAppendImporterNotification" Library="$webresource:defraimp_/js/matchrecord.subgrid.ribbon.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="defraimp.defraimp_importapplication.AppendITAHC.Command">
+      <EnableRules>
+        <EnableRule Id="defraimp.defraimp_importapplication.AppendRules.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="DefraImports.MatchRecord.onAppendItahc" Library="$webresource:defraimp_/js/matchrecord.subgrid.ribbon.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
     <CommandDefinition Id="defraimp.defraimp_importapplication.FillEmptyDataWithItahc.Command">
       <EnableRules>
         <EnableRule Id="defraimp.defraimp_importapplication.ItahcCommands.EnableRule" />
@@ -43,12 +75,55 @@
     <TabDisplayRules />
     <DisplayRules />
     <EnableRules>
+      <EnableRule Id="defraimp.defraimp_importapplication.AppendRules.EnableRule">
+        <SelectionCountRule Minimum="1" />
+      </EnableRule>
       <EnableRule Id="defraimp.defraimp_importapplication.ItahcCommands.EnableRule">
         <ValueRule Field="defraimp_importapplicationtype" Value="714100000" Default="false" />
       </EnableRule>
     </EnableRules>
   </RuleDefinitions>
   <LocLabels>
+    <LocLabel Id="defraimp.defraimp_importapplication.AppendImporterNotification.Button.Alt">
+      <Titles>
+        <Title description="Append Notification" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importapplication.AppendImporterNotification.Button.LabelText">
+      <Titles>
+        <Title description="Append Notification" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importapplication.AppendImporterNotification.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Append Importer Notification to Import Record" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importapplication.AppendImporterNotification.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Append Notification" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importapplication.AppendITAHC.Button.Alt">
+      <Titles>
+        <Title description="Append ITAHC" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importapplication.AppendITAHC.Button.LabelText">
+      <Titles>
+        <Title description="Append ITAHC" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importapplication.AppendITAHC.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Appends this Match Records ITAHC to the selected Import Records" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importapplication.AppendITAHC.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Append ITAHC" languagecode="1033" />
+      </Titles>
+    </LocLabel>
     <LocLabel Id="defraimp.defraimp_importapplication.FillEmptyDataWithItahc.Button.Alt">
       <Titles>
         <Title description="Fill Empty Data With ITAHC" languagecode="1033" />

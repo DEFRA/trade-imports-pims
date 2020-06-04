@@ -18,6 +18,7 @@
   <IsTransacted>1</IsTransacted>
   <IntroducedVersion>0.0.0.29</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>defraimp_itahc</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="ITAHC - Create Import Record From ITAHC" />

@@ -17,6 +17,13 @@ declare namespace Form.defraimp_placeoforigin.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
+      interface tab_3 extends Xrm.SectionCollectionBase {
+        get(name: "tab_3_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "defraimp_addresscity"): Xrm.Attribute<string>;
@@ -47,6 +54,7 @@ declare namespace Form.defraimp_placeoforigin.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "RelatedImportRecords"): Xrm.SubGridControl<"defraimp_importapplication">;
       get(name: "defraimp_addresscity"): Xrm.StringControl;
       get(name: "defraimp_addresscountry"): Xrm.LookupControl<"defra_country">;
       get(name: "defraimp_addressline1"): Xrm.StringControl;
@@ -78,6 +86,7 @@ declare namespace Form.defraimp_placeoforigin.Main {
     interface Tabs extends Xrm.TabCollectionBase {
       get(name: "{70c243d2-2d16-4cf5-a82f-c347d999c6f5}"): Xrm.PageTab<Tabs._70c243d22d164cf5a82fc347d999c6f5>;
       get(name: "tab_2"): Xrm.PageTab<Tabs.tab_2>;
+      get(name: "tab_3"): Xrm.PageTab<Tabs.tab_3>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -108,6 +117,7 @@ declare namespace Form.defraimp_placeoforigin.Main {
     getAttribute(attributeName: "defraimp_trustlevel"): Xrm.OptionSetAttribute<defraimp_trustlevel>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "RelatedImportRecords"): Xrm.SubGridControl<"defraimp_importapplication">;
     getControl(controlName: "defraimp_addresscity"): Xrm.StringControl;
     getControl(controlName: "defraimp_addresscountry"): Xrm.LookupControl<"defra_country">;
     getControl(controlName: "defraimp_addressline1"): Xrm.StringControl;

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{2d9946c3-d7a0-ea11-a812-000d3ab6d757}</formid>
+    <IntroducedVersion>0.0.0.56</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="ACBA75B7-97B6-4116-AA55-51312992B721" name="tab_1" showlabel="false" labelid="{e0432113-c75c-407e-8c79-462a5f8a091e}">
+          <labels>
+            <label description="ITAHC Match Details" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_1_section_3" id="eeb24045-03a7-4fce-b20b-c5e76d06be5d" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{48ecaab7-11a5-4fde-807b-5ab2795c5519}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Certificate Reference Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_name" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2e1bc4e0-b057-4336-8d75-01b90f3e3350}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Destination Address Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationaddresspostcode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationaddresspostcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c0cc289d-650c-40bc-8a11-d421ec1d9685}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Destination Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c72ff2d4-278d-494d-a650-eb882a9b567d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Departure Date Time" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_departuredatetime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_departuredatetime" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c7d8a7a9-0882-4e07-bd0d-fcdf6d2d9e08}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Code" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditycode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commoditycode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{91e76c3b-960a-449c-9cb4-113521b78f02}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Species " languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_species" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_species" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dfdcfcf4-4825-426e-bfb4-81c845ea91ae}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Quantity / Weight (Grams)" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_quantity" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="defraimp_quantity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d31e9c9e-2c40-48ee-a24d-d9a31dbb83ce}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Country of Origin" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_countryoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_countryoforiginid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="7" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="ITAHC Match Details" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

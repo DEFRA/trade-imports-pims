@@ -11,8 +11,8 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-  <StateCode>0</StateCode>
-  <StatusCode>1</StatusCode>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
   <processorder>100</processorder>
   <processroleassignment>&lt;DisplayConditions&gt;&lt;Role Id="{627090ff-40a3-4053-8790-584edc5be201}" /&gt;&lt;Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" /&gt;&lt;/DisplayConditions&gt;</processroleassignment>
   <RunAs>1</RunAs>
@@ -113,80 +113,4 @@
       <label languagecode="1033" description="Reset Trust Level to Bronze?" />
     </steplabels>
   </labels>
-  <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{5817301a-475a-ea11-a811-000d3ab5d511}">
-      <controltype>1</controltype>
-      <methodid>{735dbc53-a795-4524-8bb5-7eb1c32a25d9}</methodid>
-      <scope>1</scope>
-      <controlname>defraimp_inspectionrequired</controlname>
-      <event>change</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{5e17301a-475a-ea11-a811-000d3ab5d511}">
-      <controltype>1</controltype>
-      <methodid>{735dbc53-a795-4524-8bb5-7eb1c32a25d9}</methodid>
-      <scope>1</scope>
-      <controlname>defraimp_manualpostimportcheckdecision</controlname>
-      <event>change</event>
-      <pipelinestage>0</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{6017301a-475a-ea11-a811-000d3ab5d511}">
-      <methodid>{9da4c4a0-40f4-42bc-94d6-9f3a4a766acb}</methodid>
-      <scope>1</scope>
-      <controlname>1c16277f-6754-4aa9-a45b-dcbc4eef7125</controlname>
-      <event>STAGEENTER</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{6517301a-475a-ea11-a811-000d3ab5d511}">
-      <methodid>{01e2b7a0-bbfd-40e7-94ec-b749ab865c80}</methodid>
-      <scope>1</scope>
-      <controlname>2</controlname>
-      <event>PROCESSSTATUSCHANGE</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{6617301a-475a-ea11-a811-000d3ab5d511}">
-      <methodid>{3faa9a4b-79fb-4d13-b3a7-ece77bfe5d74}</methodid>
-      <scope>1</scope>
-      <controlname>735dbc53-a795-4524-8bb5-7eb1c32a25d9</controlname>
-      <event>STAGEENTER</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{6717301a-475a-ea11-a811-000d3ab5d511}">
-      <methodid>{9813a24f-0c73-45f1-b0f0-c1d7f239417f}</methodid>
-      <scope>1</scope>
-      <controlname>267e9309-4684-4ce7-bd60-65bd9e976b8d</controlname>
-      <event>STAGEENTER</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{6817301a-475a-ea11-a811-000d3ab5d511}">
-      <methodid>{d7dde738-9789-467f-9660-a5fcb26b24c8}</methodid>
-      <scope>1</scope>
-      <controlname>1abb577e-c355-4a8f-b42e-7bd5e6dac304</controlname>
-      <event>STAGEENTER</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{6917301a-475a-ea11-a811-000d3ab5d511}">
-      <methodid>{9813a24f-0c73-45f1-b0f0-c1d7f239417f}</methodid>
-      <scope>1</scope>
-      <controlname>6da07398-6ef0-46e1-b04f-36c737e8e2cb</controlname>
-      <event>STAGEENTER</event>
-      <pipelinestage>40</pipelinestage>
-      <iscustomizable>1</iscustomizable>
-      <primaryentitytypecode>defraimp_importapplication</primaryentitytypecode>
-    </ProcessTrigger>
-  </ProcessTriggers>
 </Workflow>
