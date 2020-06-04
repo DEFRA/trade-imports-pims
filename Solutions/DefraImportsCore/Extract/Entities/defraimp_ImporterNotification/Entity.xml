@@ -4994,8 +4994,8 @@
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>text</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
+          <MaxLength>255</MaxLength>
+          <Length>510</Length>
           <displaynames>
             <displayname description="Person Responsible Company Name" languagecode="1033" />
           </displaynames>
@@ -8792,6 +8792,20 @@
           </Descriptions>
         </attribute>
       </attributes>
+      <EntityKeys>
+        <EntityKey>
+          <Name>defraimp_ReferenceNumber</Name>
+          <LogicalName>defraimp_referencenumber</LogicalName>
+          <IntroducedVersion>0.0.0.56</IntroducedVersion>
+          <IsCustomizable>0</IsCustomizable>
+          <EntityKeyAttributes>
+            <AttributeName>defraimp_name</AttributeName>
+          </EntityKeyAttributes>
+          <displaynames>
+            <displayname description="Reference Number" languagecode="1033" />
+          </displaynames>
+        </EntityKey>
+      </EntityKeys>
       <EntitySetName>defraimp_importernotifications</EntitySetName>
       <IsDuplicateCheckSupported>1</IsDuplicateCheckSupported>
       <IsBusinessProcessEnabled>0</IsBusinessProcessEnabled>

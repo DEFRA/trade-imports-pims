@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{f8dd9e88-d17b-4db4-966d-3c667d429559}</formid>
+    <IntroducedVersion>0.0.0.56</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{9042a1b4-1a54-4fd8-9d5d-0cb049a55262}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="Key Details" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{5043377e-282d-4a29-aa59-44e96e28aeb3}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ae6d5dec-b245-1397-89c9-32a00113a90b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Reference Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{224909c6-322d-9851-04a6-164a88bcaab7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Veterinary Document" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_veterinaryinformationveterinarydocument" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_veterinaryinformationveterinarydocument" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0d40287b-2961-a330-88a7-c396604937d9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Country of Origin" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_countryoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_countryoforiginid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{40c0302d-77ce-77d8-6218-776560a22da6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Id" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commodityid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_commodityid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eac38beb-b666-d175-3ee6-ce1576a5b7cb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Species Common Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commodityspeciescommonname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_commodityspeciescommonname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c42c4bbb-689c-1974-5763-db53e9d60d00}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Intended For" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditiescommodityintendedfor" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_commoditiescommodityintendedfor" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{07542dd3-6592-71c5-099b-78c9eb368ea0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodities Number of Animals" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditiesnumberofanimals" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofanimals" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eac236e2-4254-e639-153e-e1a4b1874d90}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Departure Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_departuredate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_departuredate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2c939624-a7d6-1e10-7a83-12a0a8c2e0b3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Departure Time" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_departuretime" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_departuretime" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{16c41738-418d-db71-7600-30b28134b5a9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Arrival Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_arrivaldate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_arrivaldate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e031832e-28c2-e9e6-105b-0a58d7e79087}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Arrival Time" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_arrivaltime" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_arrivaltime" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7c4d8ea0-d7d3-3d15-13a7-ae233aa956e7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Submission Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_submissiondate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_submissiondate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3712d736-a037-d929-294e-7284262ad458}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Created In PIMS On" languagecode="1033" />
+                        </labels>
+                        <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" uniqueid="{3bd8c2b5-d56c-b92c-5233-40161d846d70}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Key Details" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

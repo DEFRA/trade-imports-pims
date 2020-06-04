@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{740eb8b1-a666-176b-3edb-98e180340a71}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Organisation Name" languagecode="1033" />
                         </labels>
                         <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" disabled="false" />
                       </cell>
@@ -30,7 +30,7 @@
                     <row>
                       <cell id="{72154879-29c1-867e-ac9e-0315002ba727}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Address Line 1" languagecode="1033" />
                         </labels>
                         <control id="defraimp_addressline1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_addressline1" disabled="false" />
                       </cell>
@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{e5ba3595-17d1-a031-1d55-96518e8b4591}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Address Line 2" languagecode="1033" />
                         </labels>
                         <control id="defraimp_addressline2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_addressline2" disabled="false" />
                       </cell>
@@ -46,7 +46,7 @@
                     <row>
                       <cell id="{2b301214-0467-4bce-016c-18379a069dd4}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Address Line 3" languagecode="1033" />
                         </labels>
                         <control id="defraimp_addressline3" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_addressline3" disabled="false" />
                       </cell>
@@ -54,7 +54,7 @@
                     <row>
                       <cell id="{2534d950-e824-78d4-3371-24e186529e34}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Town/City" languagecode="1033" />
                         </labels>
                         <control id="defraimp_addresscity" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_addresscity" disabled="false" />
                       </cell>
@@ -62,7 +62,7 @@
                     <row>
                       <cell id="{47e5ca2a-d031-5eb3-dc0e-623d114e162e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="County/Province" languagecode="1033" />
                         </labels>
                         <control id="defraimp_addressstateorprovince" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_addressstateorprovince" disabled="false" />
                       </cell>
@@ -70,7 +70,7 @@
                     <row>
                       <cell id="{07372b8b-41e4-722e-7962-61bd16622329}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Postcode" languagecode="1033" />
                         </labels>
                         <control id="defraimp_postcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_postcode" disabled="false" />
                       </cell>
@@ -78,7 +78,7 @@
                     <row>
                       <cell id="{1ab64998-0c26-ec41-c283-6ebd8825b0a3}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Country" languagecode="1033" />
                         </labels>
                         <control id="defraimp_addresscountry" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_addresscountry" disabled="false" />
                       </cell>
@@ -97,7 +97,7 @@
                     <row>
                       <cell id="{0be81dc9-5448-704c-eed7-2d357a2b68a0}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Trust Level" languagecode="1033" />
                         </labels>
                         <control id="defraimp_trustlevel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_trustlevel" disabled="false" />
                       </cell>

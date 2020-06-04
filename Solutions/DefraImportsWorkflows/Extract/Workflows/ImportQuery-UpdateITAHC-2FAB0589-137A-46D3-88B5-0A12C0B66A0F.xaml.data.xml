@@ -20,6 +20,7 @@
   <IsTransacted>1</IsTransacted>
   <IntroducedVersion>0.0.0.3</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>defraimp_importquery</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Import Query - Update ITAHC" />

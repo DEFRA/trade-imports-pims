@@ -6,4 +6,5 @@ declare const enum defraimp_importinspection_defraimp_inspectionoutcome {
   Cancelled = 714100004,
   AdditionalInspectionRequired = 714100005,
   Quarantined = 714100006,
+  NotVisited = 714100007,
 }

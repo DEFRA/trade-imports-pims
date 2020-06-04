@@ -18,6 +18,7 @@ declare namespace Form.defraimp_importinspection.QuickCreate {
       get(name: "defraimp_regionareaallocatedtoid"): Xrm.LookupAttribute<"defraimp_apharegion">;
       get(name: "defraimp_relatedimportapplication"): Xrm.LookupAttribute<"defraimp_importapplication">;
       get(name: "defraimp_relateditahc"): Xrm.LookupAttribute<"defraimp_itahc">;
+      get(name: "defraimp_replyfromahodue"): Xrm.DateAttribute;
       get(name: "defraimp_samworkschedulenumber"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -31,6 +32,7 @@ declare namespace Form.defraimp_importinspection.QuickCreate {
       get(name: "defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion">;
       get(name: "defraimp_relatedimportapplication"): Xrm.LookupControl<"defraimp_importapplication">;
       get(name: "defraimp_relateditahc"): Xrm.LookupControl<"defraimp_itahc">;
+      get(name: "defraimp_replyfromahodue"): Xrm.DateControl;
       get(name: "defraimp_samworkschedulenumber"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -52,6 +54,7 @@ declare namespace Form.defraimp_importinspection.QuickCreate {
     getAttribute(attributeName: "defraimp_regionareaallocatedtoid"): Xrm.LookupAttribute<"defraimp_apharegion">;
     getAttribute(attributeName: "defraimp_relatedimportapplication"): Xrm.LookupAttribute<"defraimp_importapplication">;
     getAttribute(attributeName: "defraimp_relateditahc"): Xrm.LookupAttribute<"defraimp_itahc">;
+    getAttribute(attributeName: "defraimp_replyfromahodue"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_samworkschedulenumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "defraimp_cphnumber"): Xrm.StringControl;
@@ -60,6 +63,7 @@ declare namespace Form.defraimp_importinspection.QuickCreate {
     getControl(controlName: "defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion">;
     getControl(controlName: "defraimp_relatedimportapplication"): Xrm.LookupControl<"defraimp_importapplication">;
     getControl(controlName: "defraimp_relateditahc"): Xrm.LookupControl<"defraimp_itahc">;
+    getControl(controlName: "defraimp_replyfromahodue"): Xrm.DateControl;
     getControl(controlName: "defraimp_samworkschedulenumber"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }

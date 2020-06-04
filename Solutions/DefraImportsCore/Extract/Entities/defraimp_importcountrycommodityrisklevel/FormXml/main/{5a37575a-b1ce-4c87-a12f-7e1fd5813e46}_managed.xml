@@ -30,7 +30,7 @@
                     <row>
                       <cell id="{857d3474-e5a0-990e-9992-cd48336ed5ac}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Country" languagecode="1033" />
                         </labels>
                         <control id="defraimp_countryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_countryid" disabled="false" />
                       </cell>
@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{1c73b8c6-22c6-79cb-463e-d7887a6e2700}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Commodity Type" languagecode="1033" />
                         </labels>
                         <control id="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytypeid" disabled="false" />
                       </cell>
@@ -57,7 +57,7 @@
                     <row>
                       <cell id="{d4ae8d21-2101-c0b3-1330-6129edbea68c}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Risk Level" languagecode="1033" />
                         </labels>
                         <control id="defraimp_importrisklevelid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importrisklevelid" disabled="false" />
                       </cell>
@@ -65,7 +65,7 @@
                     <row>
                       <cell id="{2e409819-3aec-332a-ebdc-051b254b83cc}" showlabel="true" locklevel="0" rowspan="3">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Risk Level Comments" languagecode="1033" />
                         </labels>
                         <control id="defraimp_risklevelnotes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_risklevelnotes" disabled="false" uniqueid="{81cbaa81-96e9-c9d0-9c5d-9d4e31ca4eb0}" />
                       </cell>
@@ -94,7 +94,7 @@
             </cell>
             <cell id="{6dd0d333-940b-6ed5-aecb-298d9118d483}" showlabel="true" locklevel="0" visible="false">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Status" languagecode="1033" />
               </labels>
               <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" uniqueid="{8b947c89-3448-32b6-49b1-d41e08851089}" />
             </cell>
@@ -106,19 +106,19 @@
           <row>
             <cell id="{07c713a1-d7e2-064d-37ad-5b8d4ba59488}" showlabel="true" locklevel="0">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Created By" languagecode="1033" />
               </labels>
               <control id="footer_createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="true" />
             </cell>
             <cell id="{b46bbe3c-a476-052a-4067-d674c5765a87}" showlabel="true" locklevel="0">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Modified On" languagecode="1033" />
               </labels>
               <control id="footer_modifiedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="true" />
             </cell>
             <cell id="{9b13836d-0310-1206-2893-998141cc5a58}" showlabel="true" locklevel="0">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Status" languagecode="1033" />
               </labels>
               <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="true" />
             </cell>
@@ -126,13 +126,13 @@
           <row>
             <cell id="{6ed9e719-03ac-0399-2ead-5d65779647d0}" showlabel="true" locklevel="0">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Created On" languagecode="1033" />
               </labels>
               <control id="footer_createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" />
             </cell>
             <cell id="{81d03b7d-0201-b97c-702e-094e4ca070b4}" showlabel="true" locklevel="0">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Modified By" languagecode="1033" />
               </labels>
               <control id="footer_modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="true" />
             </cell>

@@ -20,6 +20,7 @@
   <IsTransacted>1</IsTransacted>
   <IntroducedVersion>0.0.0.1</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>defraimp_placeoforigin</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Place of Origin - Check if to set to Gold" />

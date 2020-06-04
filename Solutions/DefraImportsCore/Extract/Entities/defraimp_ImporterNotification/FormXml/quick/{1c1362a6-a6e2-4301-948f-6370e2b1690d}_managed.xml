@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{1c1362a6-a6e2-4301-948f-6370e2b1690d}</formid>
+    <IntroducedVersion>0.0.0.56</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{a5c3d9e2-b291-4065-8337-5720c1f66aed}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="Transporter Details" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{15216878-c454-431d-81c4-5a4dd08ff161}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ccea70cd-0437-3bc5-7e2b-83be613ba9e1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter Individual Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transporterindividualname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transporterindividualname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{028a9d32-0e13-40de-5706-d3c5ea7a11c3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter Company Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transportercompanyname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transportercompanyname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{01034cb0-c857-b13b-9780-a6a81ad44589}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter Address Line 1" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transporteraddressaddressline1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transporteraddressaddressline1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cc60772c-0c98-bd88-5850-044b34c711aa}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter Address Line 2" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transporteraddressaddressline2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transporteraddressaddressline2" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0d5068c2-284c-8c5d-3701-ead1031ad647}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter Address Line 3" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transporteraddressaddressline3" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transporteraddressaddressline3" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c87ea059-3bd6-dcad-a922-6329acbe6808}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter Address City" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transporteraddresscity" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transporteraddresscity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{640c97e2-e412-5582-4b8a-845979856188}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter Address Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transporteraddresspostalzipcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transporteraddresspostalzipcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{03ccdb8d-958c-e9ee-5abb-58192696d45c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter Address Country" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transporteraddresscountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_transporteraddresscountryid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{43d6b588-947e-62a5-16e7-326b13e85651}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter Approval Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transporterapprovalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transporterapprovalnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e965cd90-960d-39ca-2026-c01413066427}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter Other Identifier" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transporterotheridentifier" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transporterotheridentifier" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="6">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Transporter Details" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

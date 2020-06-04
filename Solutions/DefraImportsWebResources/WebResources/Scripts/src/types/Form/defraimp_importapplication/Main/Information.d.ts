@@ -157,6 +157,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_pointofentry"): Xrm.Attribute<string>;
       get(name: "defraimp_primarycvedid"): Xrm.LookupAttribute<"defraimp_cved">;
       get(name: "defraimp_primarydocomid"): Xrm.LookupAttribute<"defraimp_docom">;
+      get(name: "defraimp_primaryimporternotificationid"): Xrm.LookupAttribute<"defraimp_importernotification">;
       get(name: "defraimp_primaryitahcid"): Xrm.LookupAttribute<"defraimp_itahc">;
       get(name: "defraimp_purpose"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_purpose>;
       get(name: "defraimp_quantity"): Xrm.NumberAttribute;
@@ -258,6 +259,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_pointofentry"): Xrm.StringControl;
       get(name: "defraimp_primarycvedid"): Xrm.LookupControl<"defraimp_cved">;
       get(name: "defraimp_primarydocomid"): Xrm.LookupControl<"defraimp_docom">;
+      get(name: "defraimp_primaryimporternotificationid"): Xrm.LookupControl<"defraimp_importernotification">;
       get(name: "defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc">;
       get(name: "defraimp_purpose"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_purpose>;
       get(name: "defraimp_quantity"): Xrm.NumberControl;
@@ -295,6 +297,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "header_process_defraimp_movedtocompletiondate1"): Xrm.DateControl | null;
       get(name: "header_process_defraimp_movetocompletion"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_defraimp_movetocompletion1"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin"> | null;
       get(name: "header_process_defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc"> | null;
       get(name: "header_process_defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion"> | null;
       get(name: "header_process_defraimp_resettrustleveltobronze"): Xrm.OptionSetControl<boolean> | null;
@@ -402,6 +405,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_pointofentry"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_primarycvedid"): Xrm.LookupAttribute<"defraimp_cved">;
     getAttribute(attributeName: "defraimp_primarydocomid"): Xrm.LookupAttribute<"defraimp_docom">;
+    getAttribute(attributeName: "defraimp_primaryimporternotificationid"): Xrm.LookupAttribute<"defraimp_importernotification">;
     getAttribute(attributeName: "defraimp_primaryitahcid"): Xrm.LookupAttribute<"defraimp_itahc">;
     getAttribute(attributeName: "defraimp_purpose"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_purpose>;
     getAttribute(attributeName: "defraimp_quantity"): Xrm.NumberAttribute;
@@ -498,6 +502,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_pointofentry"): Xrm.StringControl;
     getControl(controlName: "defraimp_primarycvedid"): Xrm.LookupControl<"defraimp_cved">;
     getControl(controlName: "defraimp_primarydocomid"): Xrm.LookupControl<"defraimp_docom">;
+    getControl(controlName: "defraimp_primaryimporternotificationid"): Xrm.LookupControl<"defraimp_importernotification">;
     getControl(controlName: "defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc">;
     getControl(controlName: "defraimp_purpose"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_purpose>;
     getControl(controlName: "defraimp_quantity"): Xrm.NumberControl;
@@ -535,6 +540,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "header_process_defraimp_movedtocompletiondate1"): Xrm.DateControl | null;
     getControl(controlName: "header_process_defraimp_movetocompletion"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_defraimp_movetocompletion1"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin"> | null;
     getControl(controlName: "header_process_defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc"> | null;
     getControl(controlName: "header_process_defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion"> | null;
     getControl(controlName: "header_process_defraimp_resettrustleveltobronze"): Xrm.OptionSetControl<boolean> | null;

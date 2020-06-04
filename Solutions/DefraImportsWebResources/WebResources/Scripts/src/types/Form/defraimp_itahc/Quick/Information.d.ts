@@ -1,6 +1,12 @@
 declare namespace Form.defraimp_itahc.Quick {
   namespace Information {
     namespace Tabs {
+      interface _03ccc136b8654104878e9637c1f64720 extends Xrm.SectionCollectionBase {
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "defraimp_healthcertificatenumber"): Xrm.Attribute<string>;
@@ -21,6 +27,7 @@ declare namespace Form.defraimp_itahc.Quick {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "{03ccc136-b865-4104-878e-9637c1f64720}"): Xrm.PageTab<Tabs._03ccc136b8654104878e9637c1f64720>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;

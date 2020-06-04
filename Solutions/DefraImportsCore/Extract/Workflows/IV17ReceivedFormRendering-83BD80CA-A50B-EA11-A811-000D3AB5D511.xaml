@@ -1,14 +1,14 @@
-<Activity x:Class="XrmWorkflow00000000000000000000000000000000" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mcwc="clr-namespace:Microsoft.Crm.Workflow.ClientActivities;assembly=Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:mxs="clr-namespace:Microsoft.Xrm.Sdk;assembly=Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:mxsq="clr-namespace:Microsoft.Xrm.Sdk.Query;assembly=Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:mxswa="clr-namespace:Microsoft.Xrm.Sdk.Workflow.Activities;assembly=Microsoft.Xrm.Sdk.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:s="clr-namespace:System;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:srs="clr-namespace:System.Runtime.Serialization;assembly=System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:this="clr-namespace:" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity x:Class="XrmWorkflow83bd80caa50bea11a811000d3ab5d511" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mcwc="clr-namespace:Microsoft.Crm.Workflow.ClientActivities;assembly=Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:mxs="clr-namespace:Microsoft.Xrm.Sdk;assembly=Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:mxsq="clr-namespace:Microsoft.Xrm.Sdk.Query;assembly=Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:mxswa="clr-namespace:Microsoft.Xrm.Sdk.Workflow.Activities;assembly=Microsoft.Xrm.Sdk.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xmlns:s="clr-namespace:System;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:srs="clr-namespace:System.Runtime.Serialization;assembly=System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xmlns:this="clr-namespace:" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="InputEntities" Type="InArgument(scg:IDictionary(x:String, mxs:Entity))" />
     <x:Property Name="CreatedEntities" Type="InArgument(scg:IDictionary(x:String, mxs:Entity))" />
   </x:Members>
-  <this:XrmWorkflow00000000000000000000000000000000.InputEntities>
+  <this:XrmWorkflow83bd80caa50bea11a811000d3ab5d511.InputEntities>
     <InArgument x:TypeArguments="scg:IDictionary(x:String, mxs:Entity)" />
-  </this:XrmWorkflow00000000000000000000000000000000.InputEntities>
-  <this:XrmWorkflow00000000000000000000000000000000.CreatedEntities>
+  </this:XrmWorkflow83bd80caa50bea11a811000d3ab5d511.InputEntities>
+  <this:XrmWorkflow83bd80caa50bea11a811000d3ab5d511.CreatedEntities>
     <InArgument x:TypeArguments="scg:IDictionary(x:String, mxs:Entity)" />
-  </this:XrmWorkflow00000000000000000000000000000000.CreatedEntities>
+  </this:XrmWorkflow83bd80caa50bea11a811000d3ab5d511.CreatedEntities>
   <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
   <mxswa:Workflow>
     <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionSequence, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionStep1">
@@ -71,7 +71,7 @@
           <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
             <mxswa:ActivityReference.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
-              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.Boolean, "true" }]</InArgument>
+              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.Boolean, "True" }]</InArgument>
               <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                 <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Boolean" />
               </InArgument>
@@ -106,61 +106,61 @@
                       <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep7" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" />
                       <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;primaryEntity&quot;)]" Value="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" />
                     </Sequence>
-                    <Sequence DisplayName="SetDisplayModeStep_SetAttributeValueStep7_9: Lock IV17 Approved By">
+                    <Sequence DisplayName="SetDisplayModeStep9: Lock IV17 Approved By">
                       <mcwc:SetDisplayMode ControlId="defraimp_iv17reviewapprovedbyid" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importinspection" IsReadOnly="True" />
                     </Sequence>
-                    <Sequence DisplayName="SetAttributeValueStep_SetAttributeValueStep7_9_10: Clear IV17 Approved By">
+                    <Sequence DisplayName="SetAttributeValueStep10: Clear IV17 Approved By">
                       <Sequence.Variables>
-                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep_SetAttributeValueStep7_9_10_1" />
+                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep10_1" />
                       </Sequence.Variables>
                       <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importinspection&quot;)]" />
                       <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
-                      <mxswa:SetEntityProperty Attribute="defraimp_iv17reviewapprovedbyid" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" Value="[SetAttributeValueStep_SetAttributeValueStep7_9_10_1]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_iv17reviewapprovedbyid" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" Value="[SetAttributeValueStep10_1]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep_SetAttributeValueStep7_9_10" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" />
+                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep10" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" />
                       <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;primaryEntity&quot;)]" Value="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" />
                     </Sequence>
-                    <Sequence DisplayName="SetDisplayModeStep_SetAttributeValueStep7_7: Lock Date Started Working on IV17">
+                    <Sequence DisplayName="SetDisplayModeStep7: Lock Date Started Working on IV17">
                       <mcwc:SetDisplayMode ControlId="defraimp_datestartedworking" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importinspection" IsReadOnly="True" />
                     </Sequence>
-                    <Sequence DisplayName="SetAttributeValueStep_SetAttributeValueStep7_7_8: Clear Date Started Working on IV17">
+                    <Sequence DisplayName="SetAttributeValueStep8: Clear Date Started Working on IV17">
                       <Sequence.Variables>
-                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep_SetAttributeValueStep7_7_8_1" />
+                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep8_1" />
                       </Sequence.Variables>
                       <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importinspection&quot;)]" />
                       <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
-                      <mxswa:SetEntityProperty Attribute="defraimp_datestartedworking" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" Value="[SetAttributeValueStep_SetAttributeValueStep7_7_8_1]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_datestartedworking" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" Value="[SetAttributeValueStep8_1]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep_SetAttributeValueStep7_7_8" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" />
+                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep8" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" />
                       <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;primaryEntity&quot;)]" Value="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" />
                     </Sequence>
-                    <Sequence DisplayName="SetDisplayModeStep_SetAttributeValueStep7_7_8_11: Lock Date Completed IV17 Review">
+                    <Sequence DisplayName="SetDisplayModeStep11: Lock Date Completed IV17 Review">
                       <mcwc:SetDisplayMode ControlId="defraimp_datecompleted" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importinspection" IsReadOnly="True" />
                     </Sequence>
-                    <Sequence DisplayName="SetAttributeValueStep_SetAttributeValueStep7_7_8_11_12: Clear Date IV17 Review Completed">
+                    <Sequence DisplayName="SetAttributeValueStep12: Clear Date IV17 Review Completed">
                       <Sequence.Variables>
-                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep_SetAttributeValueStep7_7_8_11_12_1" />
+                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep12_1" />
                       </Sequence.Variables>
                       <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importinspection&quot;)]" />
                       <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
-                      <mxswa:SetEntityProperty Attribute="defraimp_datecompleted" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" Value="[SetAttributeValueStep_SetAttributeValueStep7_7_8_11_12_1]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_datecompleted" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" Value="[SetAttributeValueStep12_1]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep_SetAttributeValueStep7_7_8_11_12" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" />
+                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep12" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" />
                       <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;primaryEntity&quot;)]" Value="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" />
                     </Sequence>
                   </sco:Collection>

@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{820464e7-a799-4ad1-a8f9-1bba319ea280}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" />
                       </cell>
@@ -30,7 +30,7 @@
                     <row>
                       <cell id="{488f29a2-4454-4a5f-8137-342a6adea9c8}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Owner" languagecode="1033" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>

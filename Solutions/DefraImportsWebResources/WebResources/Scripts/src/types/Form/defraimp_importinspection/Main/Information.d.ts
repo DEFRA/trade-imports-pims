@@ -47,6 +47,7 @@ declare namespace Form.defraimp_importinspection.Main {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "createdon"): Xrm.DateAttribute;
       get(name: "defraimp_amendediv17receiveddate"): Xrm.DateAttribute;
       get(name: "defraimp_comments"): Xrm.Attribute<string>;
       get(name: "defraimp_compliantfirsttime"): Xrm.OptionSetAttribute<boolean>;
@@ -152,6 +153,7 @@ declare namespace Form.defraimp_importinspection.Main {
       get(name: "defraimp_tradeintelligence"): Xrm.StringControl;
       get(name: "defraimp_visitwithinrequiredtimescale"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "defraimp_welfareconcerns"): Xrm.StringControl;
+      get(name: "header_createdon"): Xrm.DateControl;
       get(name: "header_defraimp_name"): Xrm.StringControl;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "header_statecode"): Xrm.OptionSetControl<defraimp_importinspection_statecode>;
@@ -174,6 +176,7 @@ declare namespace Form.defraimp_importinspection.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "createdon"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_amendediv17receiveddate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_comments"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_compliantfirsttime"): Xrm.OptionSetAttribute<boolean>;
@@ -274,6 +277,7 @@ declare namespace Form.defraimp_importinspection.Main {
     getControl(controlName: "defraimp_tradeintelligence"): Xrm.StringControl;
     getControl(controlName: "defraimp_visitwithinrequiredtimescale"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "defraimp_welfareconcerns"): Xrm.StringControl;
+    getControl(controlName: "header_createdon"): Xrm.DateControl;
     getControl(controlName: "header_defraimp_name"): Xrm.StringControl;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "header_statecode"): Xrm.OptionSetControl<defraimp_importinspection_statecode>;

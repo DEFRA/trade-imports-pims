@@ -4,6 +4,7 @@ declare namespace WebApi {
     defraimp_certificatecompliantfirsttime?: boolean | null;
     defraimp_certificatenoncompliancereason?: defraimp_importapplication_defraimp_certificatenoncompliancereason | null;
     defraimp_certificatenoncompliancereasonother?: string | null;
+    defraimp_certificatenumber?: string | null;
     defraimp_certificateverified?: boolean | null;
     defraimp_commodityidentifiers?: string | null;
     defraimp_commoditynotes?: string | null;
@@ -28,6 +29,7 @@ declare namespace WebApi {
     defraimp_importeremail?: string | null;
     defraimp_importerorganisation?: string | null;
     defraimp_importertelephone?: string | null;
+    defraimp_importrecordcounted?: boolean | null;
     defraimp_importrisklevelstatus?: defraimp_importapplication_defraimp_importrisklevelstatus | null;
     defraimp_inspectioncompleted?: boolean | null;
     defraimp_inspectiondeclinedreason?: string | null;
@@ -88,6 +90,7 @@ declare namespace WebApi {
     defraimp_unit?: string | null;
     defraimp_warbleflytreatmentdeclarationreceiveddate?: Date | null;
     defraimp_warbleflytreatmentdeclarationrequired?: boolean | null;
+    defraimp_workschedulenumber?: string | null;
     importsequencenumber?: number | null;
     modifiedon?: Date | null;
     overriddencreatedon?: Date | null;
@@ -101,25 +104,13 @@ declare namespace WebApi {
     versionnumber?: number | null;
   }
   interface defraimp_importapplication_Relationships {
-    bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow?: defraimp_importapplicationbusinessprocessflow_Result[] | null;
-    defraimp_CommodityTypeId?: defraexp_commoditytype_Result | null;
-    defraimp_CountryofOriginId?: defra_country_Result | null;
-    defraimp_ImporterAddressCountryID?: defra_country_Result | null;
-    defraimp_PermanentDestinationAddressCounId?: defra_country_Result | null;
-    defraimp_PlaceofOriginCountryID?: defra_country_Result | null;
     defraimp_PlaceofOriginid?: defraimp_placeoforigin_Result | null;
-    defraimp_PreviousImportRiskLevelId?: defraimp_importrisklevel_Result | null;
-    defraimp_PrimaryCVEDId?: defraimp_cved_Result | null;
-    defraimp_PrimaryDOCOMId?: defraimp_docom_Result | null;
+    defraimp_PotentiallyRelatedImportRecords?: defraimp_matchrecord_Result[] | null;
     defraimp_PrimaryITAHCId?: defraimp_itahc_Result | null;
-    defraimp_RegionAreaAllocatedtoId?: defraimp_apharegion_Result | null;
-    defraimp_defraimp_importapplication_defra_country?: defra_country_Result[] | null;
+    defraimp_PrimaryImporterNotificationId?: defraimp_ImporterNotification_Result | null;
     defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication?: defraimp_importinspection_Result[] | null;
     defraimp_defraimp_importapplication_defraimp_itahc?: defraimp_itahc_Result[] | null;
-    defraimp_destinationaddresscountryId?: defra_country_Result | null;
-    defraimp_importapplication_ProcessSession?: ProcessSession_Result[] | null;
-    defraimp_importapplication_SyncErrors?: SyncError_Result[] | null;
-    defraimp_importapplication_defraimp_importqueries?: defraimp_importquery_Result[] | null;
+    defraimp_defraimp_matchrecord_defraimp_Im?: defraimp_matchrecord_Result[] | null;
   }
   interface defraimp_importapplication extends defraimp_importapplication_Base, defraimp_importapplication_Relationships {
     defraimp_CommodityTypeId_bind$defraexp_commoditytypes?: string | null;
@@ -133,6 +124,7 @@ declare namespace WebApi {
     defraimp_PrimaryCVEDId_bind$defraimp_cveds?: string | null;
     defraimp_PrimaryDOCOMId_bind$defraimp_docoms?: string | null;
     defraimp_PrimaryITAHCId_bind$defraimp_itahcs?: string | null;
+    defraimp_PrimaryImporterNotificationId_bind$defraimp_importernotifications?: string | null;
     defraimp_RegionAreaAllocatedtoId_bind$defraimp_apharegions?: string | null;
     defraimp_RegistrantOrganisationId_bind$accounts?: string | null;
     defraimp_destinationaddresscountryId_bind$defra_countries?: string | null;
@@ -153,6 +145,7 @@ declare namespace WebApi {
     defraimp_certificatecompliantfirsttime: WebAttribute<defraimp_importapplication_Select, { defraimp_certificatecompliantfirsttime: boolean | null }, {  }>;
     defraimp_certificatenoncompliancereason: WebAttribute<defraimp_importapplication_Select, { defraimp_certificatenoncompliancereason: defraimp_importapplication_defraimp_certificatenoncompliancereason | null }, { defraimp_certificatenoncompliancereason_formatted?: string }>;
     defraimp_certificatenoncompliancereasonother: WebAttribute<defraimp_importapplication_Select, { defraimp_certificatenoncompliancereasonother: string | null }, {  }>;
+    defraimp_certificatenumber: WebAttribute<defraimp_importapplication_Select, { defraimp_certificatenumber: string | null }, {  }>;
     defraimp_certificateverified: WebAttribute<defraimp_importapplication_Select, { defraimp_certificateverified: boolean | null }, {  }>;
     defraimp_commodityidentifiers: WebAttribute<defraimp_importapplication_Select, { defraimp_commodityidentifiers: string | null }, {  }>;
     defraimp_commoditynotes: WebAttribute<defraimp_importapplication_Select, { defraimp_commoditynotes: string | null }, {  }>;
@@ -182,6 +175,7 @@ declare namespace WebApi {
     defraimp_importeremail: WebAttribute<defraimp_importapplication_Select, { defraimp_importeremail: string | null }, {  }>;
     defraimp_importerorganisation: WebAttribute<defraimp_importapplication_Select, { defraimp_importerorganisation: string | null }, {  }>;
     defraimp_importertelephone: WebAttribute<defraimp_importapplication_Select, { defraimp_importertelephone: string | null }, {  }>;
+    defraimp_importrecordcounted: WebAttribute<defraimp_importapplication_Select, { defraimp_importrecordcounted: boolean | null }, {  }>;
     defraimp_importrisklevelid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_importrisklevelid_guid: string | null }, { defraimp_importrisklevelid_formatted?: string }>;
     defraimp_importrisklevelstatus: WebAttribute<defraimp_importapplication_Select, { defraimp_importrisklevelstatus: defraimp_importapplication_defraimp_importrisklevelstatus | null }, { defraimp_importrisklevelstatus_formatted?: string }>;
     defraimp_inspectioncompleted: WebAttribute<defraimp_importapplication_Select, { defraimp_inspectioncompleted: boolean | null }, {  }>;
@@ -234,6 +228,7 @@ declare namespace WebApi {
     defraimp_previousplaceoforiginid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_previousplaceoforiginid_guid: string | null }, { defraimp_previousplaceoforiginid_formatted?: string }>;
     defraimp_primarycvedid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_primarycvedid_guid: string | null }, { defraimp_primarycvedid_formatted?: string }>;
     defraimp_primarydocomid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_primarydocomid_guid: string | null }, { defraimp_primarydocomid_formatted?: string }>;
+    defraimp_primaryimporternotificationid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_primaryimporternotificationid_guid: string | null }, { defraimp_primaryimporternotificationid_formatted?: string }>;
     defraimp_primaryitahcid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_primaryitahcid_guid: string | null }, { defraimp_primaryitahcid_formatted?: string }>;
     defraimp_purpose: WebAttribute<defraimp_importapplication_Select, { defraimp_purpose: defraimp_importapplication_defraimp_purpose | null }, { defraimp_purpose_formatted?: string }>;
     defraimp_quantity: WebAttribute<defraimp_importapplication_Select, { defraimp_quantity: number | null }, {  }>;
@@ -254,6 +249,7 @@ declare namespace WebApi {
     defraimp_unit: WebAttribute<defraimp_importapplication_Select, { defraimp_unit: string | null }, {  }>;
     defraimp_warbleflytreatmentdeclarationreceiveddate: WebAttribute<defraimp_importapplication_Select, { defraimp_warbleflytreatmentdeclarationreceiveddate: Date | null }, { defraimp_warbleflytreatmentdeclarationreceiveddate_formatted?: string }>;
     defraimp_warbleflytreatmentdeclarationrequired: WebAttribute<defraimp_importapplication_Select, { defraimp_warbleflytreatmentdeclarationrequired: boolean | null }, {  }>;
+    defraimp_workschedulenumber: WebAttribute<defraimp_importapplication_Select, { defraimp_workschedulenumber: string | null }, {  }>;
     importsequencenumber: WebAttribute<defraimp_importapplication_Select, { importsequencenumber: number | null }, {  }>;
     modifiedby_guid: WebAttribute<defraimp_importapplication_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
     modifiedon: WebAttribute<defraimp_importapplication_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
@@ -279,6 +275,7 @@ declare namespace WebApi {
     defraimp_certificatecompliantfirsttime: boolean;
     defraimp_certificatenoncompliancereason: defraimp_importapplication_defraimp_certificatenoncompliancereason;
     defraimp_certificatenoncompliancereasonother: string;
+    defraimp_certificatenumber: string;
     defraimp_certificateverified: boolean;
     defraimp_commodityidentifiers: string;
     defraimp_commoditynotes: string;
@@ -308,6 +305,7 @@ declare namespace WebApi {
     defraimp_importeremail: string;
     defraimp_importerorganisation: string;
     defraimp_importertelephone: string;
+    defraimp_importrecordcounted: boolean;
     defraimp_importrisklevelid_guid: XQW.Guid;
     defraimp_importrisklevelstatus: defraimp_importapplication_defraimp_importrisklevelstatus;
     defraimp_inspectioncompleted: boolean;
@@ -360,6 +358,7 @@ declare namespace WebApi {
     defraimp_previousplaceoforiginid_guid: XQW.Guid;
     defraimp_primarycvedid_guid: XQW.Guid;
     defraimp_primarydocomid_guid: XQW.Guid;
+    defraimp_primaryimporternotificationid_guid: XQW.Guid;
     defraimp_primaryitahcid_guid: XQW.Guid;
     defraimp_purpose: defraimp_importapplication_defraimp_purpose;
     defraimp_quantity: number;
@@ -380,6 +379,7 @@ declare namespace WebApi {
     defraimp_unit: string;
     defraimp_warbleflytreatmentdeclarationreceiveddate: Date;
     defraimp_warbleflytreatmentdeclarationrequired: boolean;
+    defraimp_workschedulenumber: string;
     importsequencenumber: number;
     modifiedby_guid: XQW.Guid;
     modifiedon: Date;
@@ -399,28 +399,14 @@ declare namespace WebApi {
     versionnumber: number;
   }
   interface defraimp_importapplication_Expand {
-    bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow: WebExpand<defraimp_importapplication_Expand, defraimp_importapplicationbusinessprocessflow_Select, defraimp_importapplicationbusinessprocessflow_Filter, { bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow: defraimp_importapplicationbusinessprocessflow_Result[] }>;
-    defraimp_CommodityTypeId: WebExpand<defraimp_importapplication_Expand, defraexp_commoditytype_Select, defraexp_commoditytype_Filter, { defraimp_CommodityTypeId: defraexp_commoditytype_Result }>;
-    defraimp_CountryofOriginId: WebExpand<defraimp_importapplication_Expand, defra_country_Select, defra_country_Filter, { defraimp_CountryofOriginId: defra_country_Result }>;
-    defraimp_ImporterAddressCountryID: WebExpand<defraimp_importapplication_Expand, defra_country_Select, defra_country_Filter, { defraimp_ImporterAddressCountryID: defra_country_Result }>;
-    defraimp_PermanentDestinationAddressCounId: WebExpand<defraimp_importapplication_Expand, defra_country_Select, defra_country_Filter, { defraimp_PermanentDestinationAddressCounId: defra_country_Result }>;
-    defraimp_PlaceofOriginCountryID: WebExpand<defraimp_importapplication_Expand, defra_country_Select, defra_country_Filter, { defraimp_PlaceofOriginCountryID: defra_country_Result }>;
     defraimp_PlaceofOriginid: WebExpand<defraimp_importapplication_Expand, defraimp_placeoforigin_Select, defraimp_placeoforigin_Filter, { defraimp_PlaceofOriginid: defraimp_placeoforigin_Result }>;
-    defraimp_PreviousImportRiskLevelId: WebExpand<defraimp_importapplication_Expand, defraimp_importrisklevel_Select, defraimp_importrisklevel_Filter, { defraimp_PreviousImportRiskLevelId: defraimp_importrisklevel_Result }>;
-    defraimp_PrimaryCVEDId: WebExpand<defraimp_importapplication_Expand, defraimp_cved_Select, defraimp_cved_Filter, { defraimp_PrimaryCVEDId: defraimp_cved_Result }>;
-    defraimp_PrimaryDOCOMId: WebExpand<defraimp_importapplication_Expand, defraimp_docom_Select, defraimp_docom_Filter, { defraimp_PrimaryDOCOMId: defraimp_docom_Result }>;
+    defraimp_PotentiallyRelatedImportRecords: WebExpand<defraimp_importapplication_Expand, defraimp_matchrecord_Select, defraimp_matchrecord_Filter, { defraimp_PotentiallyRelatedImportRecords: defraimp_matchrecord_Result[] }>;
     defraimp_PrimaryITAHCId: WebExpand<defraimp_importapplication_Expand, defraimp_itahc_Select, defraimp_itahc_Filter, { defraimp_PrimaryITAHCId: defraimp_itahc_Result }>;
-    defraimp_RegionAreaAllocatedtoId: WebExpand<defraimp_importapplication_Expand, defraimp_apharegion_Select, defraimp_apharegion_Filter, { defraimp_RegionAreaAllocatedtoId: defraimp_apharegion_Result }>;
-    defraimp_defraimp_importapplication_defra_country: WebExpand<defraimp_importapplication_Expand, defra_country_Select, defra_country_Filter, { defraimp_defraimp_importapplication_defra_country: defra_country_Result[] }>;
+    defraimp_PrimaryImporterNotificationId: WebExpand<defraimp_importapplication_Expand, defraimp_ImporterNotification_Select, defraimp_ImporterNotification_Filter, { defraimp_PrimaryImporterNotificationId: defraimp_ImporterNotification_Result }>;
     defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication: WebExpand<defraimp_importapplication_Expand, defraimp_importinspection_Select, defraimp_importinspection_Filter, { defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication: defraimp_importinspection_Result[] }>;
     defraimp_defraimp_importapplication_defraimp_itahc: WebExpand<defraimp_importapplication_Expand, defraimp_itahc_Select, defraimp_itahc_Filter, { defraimp_defraimp_importapplication_defraimp_itahc: defraimp_itahc_Result[] }>;
-    defraimp_destinationaddresscountryId: WebExpand<defraimp_importapplication_Expand, defra_country_Select, defra_country_Filter, { defraimp_destinationaddresscountryId: defra_country_Result }>;
-    defraimp_importapplication_ProcessSession: WebExpand<defraimp_importapplication_Expand, ProcessSession_Select, ProcessSession_Filter, { defraimp_importapplication_ProcessSession: ProcessSession_Result[] }>;
-    defraimp_importapplication_SyncErrors: WebExpand<defraimp_importapplication_Expand, SyncError_Select, SyncError_Filter, { defraimp_importapplication_SyncErrors: SyncError_Result[] }>;
-    defraimp_importapplication_defraimp_importqueries: WebExpand<defraimp_importapplication_Expand, defraimp_importquery_Select, defraimp_importquery_Filter, { defraimp_importapplication_defraimp_importqueries: defraimp_importquery_Result[] }>;
-    defraimp_importrisklevelid: WebExpand<defraimp_importapplication_Expand, defraimp_importrisklevel_Select, defraimp_importrisklevel_Filter, { defraimp_importrisklevelid: defraimp_importrisklevel_Result }>;
+    defraimp_defraimp_matchrecord_defraimp_Im: WebExpand<defraimp_importapplication_Expand, defraimp_matchrecord_Select, defraimp_matchrecord_Filter, { defraimp_defraimp_matchrecord_defraimp_Im: defraimp_matchrecord_Result[] }>;
     defraimp_previousplaceoforiginid: WebExpand<defraimp_importapplication_Expand, defraimp_placeoforigin_Select, defraimp_placeoforigin_Filter, { defraimp_previousplaceoforiginid: defraimp_placeoforigin_Result }>;
-    defraimp_transporteraddresscountryid: WebExpand<defraimp_importapplication_Expand, defra_country_Select, defra_country_Filter, { defraimp_transporteraddresscountryid: defra_country_Result }>;
   }
   interface defraimp_importapplication_FormattedResult {
     createdby_formatted?: string;
@@ -456,6 +442,7 @@ declare namespace WebApi {
     defraimp_previousplaceoforiginid_formatted?: string;
     defraimp_primarycvedid_formatted?: string;
     defraimp_primarydocomid_formatted?: string;
+    defraimp_primaryimporternotificationid_formatted?: string;
     defraimp_primaryitahcid_formatted?: string;
     defraimp_purpose_formatted?: string;
     defraimp_regionareaallocatedtoid_formatted?: string;
@@ -490,6 +477,7 @@ declare namespace WebApi {
     defraimp_previousplaceoforiginid_guid: string | null;
     defraimp_primarycvedid_guid: string | null;
     defraimp_primarydocomid_guid: string | null;
+    defraimp_primaryimporternotificationid_guid: string | null;
     defraimp_primaryitahcid_guid: string | null;
     defraimp_regionareaallocatedtoid_guid: string | null;
     defraimp_registrantorganisationid_guid: string | null;
@@ -502,30 +490,16 @@ declare namespace WebApi {
     owninguser_guid: string | null;
   }
   interface defraimp_importapplication_RelatedOne {
-    defraimp_CommodityTypeId: WebMappingRetrieve<WebApi.defraexp_commoditytype_Select,WebApi.defraexp_commoditytype_Expand,WebApi.defraexp_commoditytype_Filter,WebApi.defraexp_commoditytype_Fixed,WebApi.defraexp_commoditytype_Result,WebApi.defraexp_commoditytype_FormattedResult>;
-    defraimp_CountryofOriginId: WebMappingRetrieve<WebApi.defra_country_Select,WebApi.defra_country_Expand,WebApi.defra_country_Filter,WebApi.defra_country_Fixed,WebApi.defra_country_Result,WebApi.defra_country_FormattedResult>;
-    defraimp_ImporterAddressCountryID: WebMappingRetrieve<WebApi.defra_country_Select,WebApi.defra_country_Expand,WebApi.defra_country_Filter,WebApi.defra_country_Fixed,WebApi.defra_country_Result,WebApi.defra_country_FormattedResult>;
-    defraimp_PermanentDestinationAddressCounId: WebMappingRetrieve<WebApi.defra_country_Select,WebApi.defra_country_Expand,WebApi.defra_country_Filter,WebApi.defra_country_Fixed,WebApi.defra_country_Result,WebApi.defra_country_FormattedResult>;
-    defraimp_PlaceofOriginCountryID: WebMappingRetrieve<WebApi.defra_country_Select,WebApi.defra_country_Expand,WebApi.defra_country_Filter,WebApi.defra_country_Fixed,WebApi.defra_country_Result,WebApi.defra_country_FormattedResult>;
     defraimp_PlaceofOriginid: WebMappingRetrieve<WebApi.defraimp_placeoforigin_Select,WebApi.defraimp_placeoforigin_Expand,WebApi.defraimp_placeoforigin_Filter,WebApi.defraimp_placeoforigin_Fixed,WebApi.defraimp_placeoforigin_Result,WebApi.defraimp_placeoforigin_FormattedResult>;
-    defraimp_PreviousImportRiskLevelId: WebMappingRetrieve<WebApi.defraimp_importrisklevel_Select,WebApi.defraimp_importrisklevel_Expand,WebApi.defraimp_importrisklevel_Filter,WebApi.defraimp_importrisklevel_Fixed,WebApi.defraimp_importrisklevel_Result,WebApi.defraimp_importrisklevel_FormattedResult>;
-    defraimp_PrimaryCVEDId: WebMappingRetrieve<WebApi.defraimp_cved_Select,WebApi.defraimp_cved_Expand,WebApi.defraimp_cved_Filter,WebApi.defraimp_cved_Fixed,WebApi.defraimp_cved_Result,WebApi.defraimp_cved_FormattedResult>;
-    defraimp_PrimaryDOCOMId: WebMappingRetrieve<WebApi.defraimp_docom_Select,WebApi.defraimp_docom_Expand,WebApi.defraimp_docom_Filter,WebApi.defraimp_docom_Fixed,WebApi.defraimp_docom_Result,WebApi.defraimp_docom_FormattedResult>;
     defraimp_PrimaryITAHCId: WebMappingRetrieve<WebApi.defraimp_itahc_Select,WebApi.defraimp_itahc_Expand,WebApi.defraimp_itahc_Filter,WebApi.defraimp_itahc_Fixed,WebApi.defraimp_itahc_Result,WebApi.defraimp_itahc_FormattedResult>;
-    defraimp_RegionAreaAllocatedtoId: WebMappingRetrieve<WebApi.defraimp_apharegion_Select,WebApi.defraimp_apharegion_Expand,WebApi.defraimp_apharegion_Filter,WebApi.defraimp_apharegion_Fixed,WebApi.defraimp_apharegion_Result,WebApi.defraimp_apharegion_FormattedResult>;
-    defraimp_destinationaddresscountryId: WebMappingRetrieve<WebApi.defra_country_Select,WebApi.defra_country_Expand,WebApi.defra_country_Filter,WebApi.defra_country_Fixed,WebApi.defra_country_Result,WebApi.defra_country_FormattedResult>;
-    defraimp_importrisklevelid: WebMappingRetrieve<WebApi.defraimp_importrisklevel_Select,WebApi.defraimp_importrisklevel_Expand,WebApi.defraimp_importrisklevel_Filter,WebApi.defraimp_importrisklevel_Fixed,WebApi.defraimp_importrisklevel_Result,WebApi.defraimp_importrisklevel_FormattedResult>;
+    defraimp_PrimaryImporterNotificationId: WebMappingRetrieve<WebApi.defraimp_ImporterNotification_Select,WebApi.defraimp_ImporterNotification_Expand,WebApi.defraimp_ImporterNotification_Filter,WebApi.defraimp_ImporterNotification_Fixed,WebApi.defraimp_ImporterNotification_Result,WebApi.defraimp_ImporterNotification_FormattedResult>;
     defraimp_previousplaceoforiginid: WebMappingRetrieve<WebApi.defraimp_placeoforigin_Select,WebApi.defraimp_placeoforigin_Expand,WebApi.defraimp_placeoforigin_Filter,WebApi.defraimp_placeoforigin_Fixed,WebApi.defraimp_placeoforigin_Result,WebApi.defraimp_placeoforigin_FormattedResult>;
-    defraimp_transporteraddresscountryid: WebMappingRetrieve<WebApi.defra_country_Select,WebApi.defra_country_Expand,WebApi.defra_country_Filter,WebApi.defra_country_Fixed,WebApi.defra_country_Result,WebApi.defra_country_FormattedResult>;
   }
   interface defraimp_importapplication_RelatedMany {
-    bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow: WebMappingRetrieve<WebApi.defraimp_importapplicationbusinessprocessflow_Select,WebApi.defraimp_importapplicationbusinessprocessflow_Expand,WebApi.defraimp_importapplicationbusinessprocessflow_Filter,WebApi.defraimp_importapplicationbusinessprocessflow_Fixed,WebApi.defraimp_importapplicationbusinessprocessflow_Result,WebApi.defraimp_importapplicationbusinessprocessflow_FormattedResult>;
-    defraimp_defraimp_importapplication_defra_country: WebMappingRetrieve<WebApi.defra_country_Select,WebApi.defra_country_Expand,WebApi.defra_country_Filter,WebApi.defra_country_Fixed,WebApi.defra_country_Result,WebApi.defra_country_FormattedResult>;
+    defraimp_PotentiallyRelatedImportRecords: WebMappingRetrieve<WebApi.defraimp_matchrecord_Select,WebApi.defraimp_matchrecord_Expand,WebApi.defraimp_matchrecord_Filter,WebApi.defraimp_matchrecord_Fixed,WebApi.defraimp_matchrecord_Result,WebApi.defraimp_matchrecord_FormattedResult>;
     defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;
     defraimp_defraimp_importapplication_defraimp_itahc: WebMappingRetrieve<WebApi.defraimp_itahc_Select,WebApi.defraimp_itahc_Expand,WebApi.defraimp_itahc_Filter,WebApi.defraimp_itahc_Fixed,WebApi.defraimp_itahc_Result,WebApi.defraimp_itahc_FormattedResult>;
-    defraimp_importapplication_ProcessSession: WebMappingRetrieve<WebApi.ProcessSession_Select,WebApi.ProcessSession_Expand,WebApi.ProcessSession_Filter,WebApi.ProcessSession_Fixed,WebApi.ProcessSession_Result,WebApi.ProcessSession_FormattedResult>;
-    defraimp_importapplication_SyncErrors: WebMappingRetrieve<WebApi.SyncError_Select,WebApi.SyncError_Expand,WebApi.SyncError_Filter,WebApi.SyncError_Fixed,WebApi.SyncError_Result,WebApi.SyncError_FormattedResult>;
-    defraimp_importapplication_defraimp_importqueries: WebMappingRetrieve<WebApi.defraimp_importquery_Select,WebApi.defraimp_importquery_Expand,WebApi.defraimp_importquery_Filter,WebApi.defraimp_importquery_Fixed,WebApi.defraimp_importquery_Result,WebApi.defraimp_importquery_FormattedResult>;
+    defraimp_defraimp_matchrecord_defraimp_Im: WebMappingRetrieve<WebApi.defraimp_matchrecord_Select,WebApi.defraimp_matchrecord_Expand,WebApi.defraimp_matchrecord_Filter,WebApi.defraimp_matchrecord_Fixed,WebApi.defraimp_matchrecord_Result,WebApi.defraimp_matchrecord_FormattedResult>;
   }
 }
 interface WebEntitiesRetrieve {

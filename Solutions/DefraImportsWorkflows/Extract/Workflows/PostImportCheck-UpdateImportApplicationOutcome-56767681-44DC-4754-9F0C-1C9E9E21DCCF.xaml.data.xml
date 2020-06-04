@@ -20,6 +20,7 @@
   <IsTransacted>1</IsTransacted>
   <IntroducedVersion>0.0.0.2</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>defraimp_importinspection</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Post Import Check - Update Import Application Outcome" />

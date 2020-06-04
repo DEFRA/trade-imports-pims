@@ -21,6 +21,7 @@
   <IntroducedVersion>0.0.0.35</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <FormId>{00000000-0000-0000-0000-000000000000}</FormId>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>defraimp_itahc</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Create Import Record From Itahc" />

@@ -384,6 +384,7 @@ declare namespace Xrm {
    * Interface for a standard form control.
    */
   interface BaseControl {
+    getGrid();
     /**
      * Get information about the type of control.
      */

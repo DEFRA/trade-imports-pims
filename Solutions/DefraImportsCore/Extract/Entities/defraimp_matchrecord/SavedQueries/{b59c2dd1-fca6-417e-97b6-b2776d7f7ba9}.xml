@@ -10,7 +10,14 @@
     <layoutxml>
       <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
         <row name="result" id="defraimp_matchrecordid">
-          <cell name="defraimp_name" width="300" />
+          <cell name="defraimp_itahc" width="100" />
+          <cell name="defraimp_importernotification" width="180" />
+          <cell name="defraimp_overallmatchrating" width="31" />
+          <cell name="a_ff5ca48a8adb4ecf83041993dfdb03fe.defraimp_consigneeaddresspostcode" width="260" />
+          <cell name="a_ff5ca48a8adb4ecf83041993dfdb03fe.defraimp_consigneename" width="190" />
+          <cell name="a_ff5ca48a8adb4ecf83041993dfdb03fe.defraimp_countryoforiginid" width="200" />
+          <cell name="a_ff5ca48a8adb4ecf83041993dfdb03fe.defraimp_commoditycode" width="190" />
+          <cell name="a_bfe93e89e7d64ea9b4f748514da5de3d.defraimp_departuredate" width="280" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -20,18 +27,28 @@
       <fetch version="1.0" mapping="logical">
         <entity name="defraimp_matchrecord">
           <attribute name="defraimp_matchrecordid" />
-          <attribute name="defraimp_name" />
           <attribute name="createdon" />
-          <order attribute="defraimp_name" descending="false" />
           <filter type="and">
-            <condition attribute="statecode" operator="eq" value="1" />
+            <condition attribute="statuscode" operator="eq" value="2" />
           </filter>
+          <attribute name="defraimp_itahc" />
+          <attribute name="defraimp_importernotification" />
+          <attribute name="defraimp_overallmatchrating" />
+          <link-entity alias="a_ff5ca48a8adb4ecf83041993dfdb03fe" name="defraimp_itahc" to="defraimp_itahc" from="defraimp_itahcid" link-type="outer" visible="false">
+            <attribute name="defraimp_consigneeaddresspostcode" />
+            <attribute name="defraimp_consigneename" />
+            <attribute name="defraimp_countryoforiginid" />
+            <attribute name="defraimp_commoditycode" />
+          </link-entity>
+          <link-entity alias="a_bfe93e89e7d64ea9b4f748514da5de3d" name="defraimp_importernotification" to="defraimp_importernotification" from="defraimp_importernotificationid" link-type="outer" visible="false">
+            <attribute name="defraimp_departuredate" />
+          </link-entity>
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>0.0.0.50</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Inactive Match Records" languagecode="1033" />
+      <LocalizedName description="Completed Match Records" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

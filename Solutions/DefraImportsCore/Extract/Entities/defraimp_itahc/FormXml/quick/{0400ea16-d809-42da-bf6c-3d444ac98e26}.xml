@@ -5,11 +5,11 @@
     <IntroducedVersion>0.0.0.1</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form maxWidth="400">
       <tabs>
-        <tab verticallayout="true" id="{03ccc136-b865-4104-878e-9637c1f64720}" IsUserDefined="1">
+        <tab verticallayout="true" id="{03ccc136-b865-4104-878e-9637c1f64720}" IsUserDefined="1" name="{03ccc136-b865-4104-878e-9637c1f64720}" locklevel="0" expanded="true" showlabel="false">
           <labels>
-            <label description="" languagecode="1033" />
+            <label description="Information" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">

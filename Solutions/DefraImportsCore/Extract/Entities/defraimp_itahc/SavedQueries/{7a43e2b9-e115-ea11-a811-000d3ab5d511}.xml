@@ -37,7 +37,6 @@
           <attribute name="defraimp_tracesreceiveddate" />
           <attribute name="defraimp_lvuno" />
           <attribute name="defraimp_certificatestatus" />
-          <order attribute="createdon" descending="true" />
           <filter type="and">
             <filter type="or">
               <filter type="and">
@@ -55,6 +54,7 @@
             </filter>
           </filter>
           <attribute name="defraimp_itahcid" />
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

@@ -18,6 +18,7 @@ declare namespace Form.defraimp_importapplication.Quick {
       get(name: "defraimp_movedtocompletiondate"): Xrm.DateAttribute;
       get(name: "defraimp_movetocompletion"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_name"): Xrm.Attribute<string>;
+      get(name: "defraimp_placeoforiginid"): Xrm.LookupAttribute<"defraimp_placeoforigin">;
       get(name: "defraimp_primaryitahcid"): Xrm.LookupAttribute<"defraimp_itahc">;
       get(name: "defraimp_regionareaallocatedtoid"): Xrm.LookupAttribute<"defraimp_apharegion">;
       get(name: "defraimp_resettrustleveltobronze"): Xrm.OptionSetAttribute<boolean>;
@@ -47,6 +48,7 @@ declare namespace Form.defraimp_importapplication.Quick {
       get(name: "header_process_defraimp_movedtocompletiondate1"): Xrm.DateControl | null;
       get(name: "header_process_defraimp_movetocompletion"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_defraimp_movetocompletion1"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin"> | null;
       get(name: "header_process_defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc"> | null;
       get(name: "header_process_defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion"> | null;
       get(name: "header_process_defraimp_resettrustleveltobronze"): Xrm.OptionSetControl<boolean> | null;
@@ -81,6 +83,7 @@ declare namespace Form.defraimp_importapplication.Quick {
     getAttribute(attributeName: "defraimp_movedtocompletiondate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_movetocompletion"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_placeoforiginid"): Xrm.LookupAttribute<"defraimp_placeoforigin">;
     getAttribute(attributeName: "defraimp_primaryitahcid"): Xrm.LookupAttribute<"defraimp_itahc">;
     getAttribute(attributeName: "defraimp_regionareaallocatedtoid"): Xrm.LookupAttribute<"defraimp_apharegion">;
     getAttribute(attributeName: "defraimp_resettrustleveltobronze"): Xrm.OptionSetAttribute<boolean>;
@@ -105,6 +108,7 @@ declare namespace Form.defraimp_importapplication.Quick {
     getControl(controlName: "header_process_defraimp_movedtocompletiondate1"): Xrm.DateControl | null;
     getControl(controlName: "header_process_defraimp_movetocompletion"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_defraimp_movetocompletion1"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin"> | null;
     getControl(controlName: "header_process_defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc"> | null;
     getControl(controlName: "header_process_defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion"> | null;
     getControl(controlName: "header_process_defraimp_resettrustleveltobronze"): Xrm.OptionSetControl<boolean> | null;

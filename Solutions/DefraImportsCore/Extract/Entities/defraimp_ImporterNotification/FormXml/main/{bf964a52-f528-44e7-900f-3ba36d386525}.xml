@@ -111,11 +111,11 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{e37a3657-16c5-4339-938d-795379bd5f82}" showlabel="true" locklevel="0">
+                      <cell id="{3ae70e83-edb1-431c-92e5-9e2029b81317}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="CPH Number" languagecode="1033" />
+                          <label description="Commodity Id" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_cphnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_cphnumber" disabled="false" />
+                        <control id="defraimp_commodityid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commodityid" disabled="false" />
                       </cell>
                       <cell id="{754e25e6-22dc-d86a-b25c-01633ec4c7ce}" showlabel="true" locklevel="0">
                         <labels>
@@ -125,11 +125,25 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{3ee009fc-3242-4d3c-ab78-89aa263d656a}" showlabel="true" locklevel="0">
+                      <cell id="{dd01b726-a29d-42cc-9b44-0998e28c0bcd}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Purpose of Movement" languagecode="1033" />
+                          <label description="Commodity Species Id" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditiesanimalscertifiedas" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_commoditiesanimalscertifiedas" disabled="false" />
+                        <control id="defraimp_commodityspeciesid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commodityspeciesid" disabled="false" />
+                      </cell>
+                      <cell id="{d0900c4f-edac-4d72-ad40-1c6e68bb2e1b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="(For Testing) Country of Origin ISO Code" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditiescountryoforigin" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commoditiescountryoforigin" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e37a3657-16c5-4339-938d-795379bd5f82}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="CPH Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_cphnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_cphnumber" disabled="false" />
                       </cell>
                       <cell id="{cad201e2-317d-4afa-8ab3-6696f2c599de}" showlabel="true" locklevel="0">
                         <labels>
@@ -139,11 +153,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{ddce7eda-b3f1-4878-87a6-1944b192a154}" showlabel="true" locklevel="0">
+                      <cell id="{3ee009fc-3242-4d3c-ab78-89aa263d656a}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Commodities Number of Animals" languagecode="1033" />
+                          <label description="Purpose of Movement" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditiesnumberofanimals" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofanimals" disabled="false" />
+                        <control id="defraimp_commoditiesanimalscertifiedas" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_commoditiesanimalscertifiedas" disabled="false" />
                       </cell>
                       <cell id="{d099a1e5-fb7b-4596-9ec4-ac246fb10ee4}" showlabel="true" locklevel="0">
                         <labels>
@@ -153,36 +167,13 @@
                       </cell>
                     </row>
                     <row>
-                      <cell showlabel="true" locklevel="0" id="{52a56e44-dcf3-4028-a79e-d96b53271c4f}">
+                      <cell id="{ddce7eda-b3f1-4878-87a6-1944b192a154}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Commodities Number of Animals" languagecode="1033" />
                         </labels>
+                        <control id="defraimp_commoditiesnumberofanimals" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofanimals" disabled="false" />
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{8cd47a5a-5bb4-4fc5-b347-c2ac749ec7f3}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell showlabel="true" locklevel="0" id="{8c33c864-f2dd-4a6a-b76a-85c1032327e6}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                      <cell showlabel="true" locklevel="0" id="{46091214-fce9-49ca-ab73-5c9cb7e8211c}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell showlabel="true" locklevel="0" id="{62f360f1-e971-4504-874e-316c49e27b80}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                      <cell showlabel="true" locklevel="0" id="{d59a8cb6-2dd2-4dd8-ae8a-13793ee05b3b}">
+                      <cell showlabel="true" locklevel="0" id="{cd606d05-f063-457b-a492-1cbb479e7653}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -1161,6 +1152,14 @@
                           <label description="Country" languagecode="1033" />
                         </labels>
                         <control id="defraimp_placeofdestinationcountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeofdestinationcountryid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{563351cd-8805-45b2-89c0-e04508f84857}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="(For Testing) Country ISO Code" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationaddresscountryisocode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationaddresscountryisocode" disabled="false" />
                       </cell>
                     </row>
                     <row>

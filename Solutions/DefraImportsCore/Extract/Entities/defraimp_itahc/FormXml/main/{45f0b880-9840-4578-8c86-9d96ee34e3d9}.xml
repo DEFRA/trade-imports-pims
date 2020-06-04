@@ -118,6 +118,20 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{981aaab4-170c-4924-97f5-b51f37fbda68}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="(Needs To Be Mapped) Species " languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_species" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_species" disabled="false" />
+                      </cell>
+                      <cell id="{43f9d165-44ac-490f-a0ba-97899657825d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="(For Testing) Country Of Origin ISO Code" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_countryoforiginisocode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_countryoforiginisocode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{12a25005-8ddc-ec2c-db6b-36553e9eae86}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Commodity Type" languagecode="1033" />
@@ -152,7 +166,7 @@
                         </labels>
                         <control id="defraimp_quantity" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="defraimp_quantity" disabled="false" />
                       </cell>
-                      <cell id="{61eab403-0017-3ce1-bb24-337d26d0b2c4}" showlabel="false">
+                      <cell id="{79284256-a85e-4125-9de8-47ba50541807}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -165,7 +179,7 @@
                         </labels>
                         <control id="defraimp_numberofpackages" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofpackages" disabled="false" />
                       </cell>
-                      <cell id="{79284256-a85e-4125-9de8-47ba50541807}" showlabel="false">
+                      <cell showlabel="true" locklevel="0" id="{5de2cf04-7bd1-4c6e-989e-ec19a13c1c89}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -178,7 +192,7 @@
                         </labels>
                         <control id="defraimp_centralcompetentauthority" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_centralcompetentauthority" disabled="false" />
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{5de2cf04-7bd1-4c6e-989e-ec19a13c1c89}">
+                      <cell showlabel="true" locklevel="0" id="{b952007c-9e94-4e3c-b0a9-9b9ef2449269}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -191,7 +205,7 @@
                         </labels>
                         <control id="defraimp_localcompetentauthority" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_localcompetentauthority" disabled="false" />
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{b952007c-9e94-4e3c-b0a9-9b9ef2449269}">
+                      <cell showlabel="true" locklevel="0" id="{00660182-5a0b-4175-b7c7-ad596df1e40d}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -617,6 +631,14 @@
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
                         </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{43566b45-9817-4391-9c75-b8dad1ab324a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="(For Testing) Country ISO Code" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationaddresscountryisocode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationaddresscountryisocode" disabled="false" />
                       </cell>
                     </row>
                   </rows>
