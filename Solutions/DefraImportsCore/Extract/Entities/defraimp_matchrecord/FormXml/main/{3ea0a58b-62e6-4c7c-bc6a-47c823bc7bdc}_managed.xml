@@ -69,7 +69,7 @@
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" />
+                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" uniqueid="{79029ddd-c50b-38c7-029b-2b63831426d3}" />
                       </cell>
                     </row>
                   </rows>
@@ -153,6 +153,22 @@
                           <label description="Organisation Name Match Rating" languagecode="1033" />
                         </labels>
                         <control id="defraimp_organisationnamematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_organisationnamematchrating" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f8960e49-f206-4722-90fb-9ebc70f42335}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Postcode Match Rating" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginpostcodematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginpostcodematchrating" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f44728ae-24cf-4398-b50c-a612c8eff503}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Name Match Rating" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginnamematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginnamematchrating" disabled="false" />
                       </cell>
                     </row>
                     <row>

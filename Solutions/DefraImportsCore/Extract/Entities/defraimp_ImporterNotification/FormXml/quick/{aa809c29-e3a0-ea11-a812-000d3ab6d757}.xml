@@ -44,6 +44,22 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{d70e7ec3-df3e-441b-bef7-2e1d7d2a1b86}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddresspostalzipcode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignoraddresspostalzipcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2047af5c-389b-4e3b-bc48-c81b81fff2d4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Company Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignorcompanyname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignorcompanyname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{53421045-dd06-4415-81f5-3bf4ec5dc141}" showlabel="true" locklevel="0" labelid="{ff4a5223-813b-4a6a-8ae0-ee7f589231db}">
                         <labels>
                           <label description="Arrival Date" languagecode="1033" />
@@ -60,11 +76,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{56ab6fa9-fb8d-40c9-a1e0-b5cbadd2eeb0}" showlabel="true" locklevel="0">
+                      <cell id="{c931298f-30a3-4647-bfab-f6deb0c4be6e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Commodity Species Common Name" languagecode="1033" />
+                          <label description="Commodity Species Id" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commodityspeciescommonname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commodityspeciescommonname" disabled="false" />
+                        <control id="defraimp_commodityspeciesid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commodityspeciesid" disabled="false" />
                       </cell>
                     </row>
                     <row>

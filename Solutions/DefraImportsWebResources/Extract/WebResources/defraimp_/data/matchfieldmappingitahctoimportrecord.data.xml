@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{c3eb7b34-31a7-ea11-a812-000d3ad82cac}</WebResourceId>
+  <Name>defraimp_/data/matchfieldmappingitahctoimportrecord</Name>
+  <DisplayName>Match Mapping ITAHC to Import Record</DisplayName>
+  <WebResourceType>4</WebResourceType>
+  <IntroducedVersion>0.0.0.19</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/defraimp_datamatchfieldmappingitahctoimportrecordC3EB7B34-31A7-EA11-A812-000D3AD82CAC</FileName>
+</WebResource>

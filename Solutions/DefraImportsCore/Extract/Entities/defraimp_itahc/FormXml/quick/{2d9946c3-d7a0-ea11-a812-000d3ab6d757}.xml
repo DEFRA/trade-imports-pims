@@ -44,6 +44,22 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{a6d6d6c3-ecf9-4e8a-b1c0-45f38e298c60}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestaddresspostcode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvestaddresspostcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{62868298-f5de-4d54-a2be-b2f4e3eca14f}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginharvestname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginharvestname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{c72ff2d4-278d-494d-a650-eb882a9b567d}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Departure Date Time" languagecode="1033" />
