@@ -52,6 +52,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{547e7204-42d5-4631-9864-48cbef269c71}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Species Id" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commodityspeciesid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commodityspeciesid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{eac38beb-b666-d175-3ee6-ce1576a5b7cb}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Commodity Species Common Name" languagecode="1033" />
