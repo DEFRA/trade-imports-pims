@@ -1,0 +1,53 @@
+<FieldMappings>
+  <Consignor>
+    <FieldMapping mapfrom="defraimp_consigneeindividualname" mapto="defraimp_importercontactname" />
+    <FieldMapping mapfrom="defraimp_consigneecompanyname" mapto="defraimp_importerorganisation" />
+    <FieldMapping mapfrom="defraimp_consigneeaddressaddressline1" mapto="defraimp_importeraddress1" />
+    <FieldMapping mapfrom="defraimp_consigneeaddressaddressline2" mapto="defraimp_importeraddress2" />
+    <FieldMapping mapfrom="defraimp_consigneeaddressaddressline3" mapto="defraimp_importeraddress3" />
+    <FieldMapping mapfrom="defraimp_consigneeaddresspostalzipcode" mapto="defraimp_importeraddresspostcode" />
+    <FieldMapping mapfrom="defraimp_consigneeaddresscity" mapto="defraimp_importeraddresscity" />
+    <FieldMapping mapfrom="defraimp_consigneeaddresscountryid" mapto="defraimp_importeraddresscountryid" />
+    <FieldMapping mapfrom="defraimp_consigneeaddressemail" mapto="defraimp_importeremail" />
+    <FieldMapping mapfrom="defraimp_consigneeaddresstelephone" mapto="defraimp_importertelephone" />
+  </Consignor>
+  <Consignee>
+  </Consignee>
+  <PlaceOfDestination>
+    <FieldMapping mapfrom="defraimp_placeofdestinationindividualname" mapto="defraimp_placeofdestinationcontactname" />
+    <FieldMapping mapfrom="defraimp_placeofdestinationcompanyname" mapto="defraimp_placeofdestinationorganisation" />
+    <FieldMapping mapfrom="defraimp_placeofdestinationaddressaddressline1" mapto="defraimp_placeofdestinationaddressline1" />
+    <FieldMapping mapfrom="defraimp_placeofdestinationaddressaddressline2" mapto="defraimp_placeofdestinationaddressline2" />
+    <FieldMapping mapfrom="defraimp_placeofdestinationaddressaddressline3" mapto="defraimp_placeofdestinationaddressline3" />
+    <FieldMapping mapfrom="defraimp_placeofdestinationaddresspostalzipcode" mapto="defraimp_placeofdestinationaddresspostcode" />
+    <FieldMapping mapfrom="defraimp_placeofdestinationaddresscity" mapto="defraimp_placeofdestinationaddresscity" />
+    <FieldMapping mapfrom="defraimp_placeofdestinationcountryid" mapto="defraimp_destinationaddresscountryid" />
+    <FieldMapping mapfrom="defraimp_placeofdestinationaddressemail" mapto="defraimp_placeofdestinationemail" />
+    <FieldMapping mapfrom="defraimp_placeofdestinationaddresstelephone" mapto="defraimp_placeofdestinationtelephone" />
+  </PlaceOfDestination>
+  <PlaceOfOrigin>
+    <FieldMapping mapfrom="defraimp_placeoforiginharvestindividualname" mapto="defraimp_placeoforigincontactname" />
+    <FieldMapping mapfrom="defraimp_placeoforiginharvestcompanyname" mapto="defraimp_placeoforiginorganisation" />
+    <FieldMapping mapfrom="defraimp_placeoforiginharvestaddressaddressline1" mapto="defraimp_placeoforiginaddressline1" />
+    <FieldMapping mapfrom="defraimp_placeoforiginharvestaddressaddressline2" mapto="defraimp_placeoforiginaddressline2" />
+    <FieldMapping mapfrom="defraimp_placeoforiginharvestaddressaddressline3" mapto="defraimp_placeoforiginaddressline3" />
+    <FieldMapping mapfrom="defraimp_placeoforiginharvestaddresspostalzipcode" mapto="defraimp_placeoforiginaddresspostcode" />
+    <FieldMapping mapfrom="defraimp_placeoforiginharvestaddresscity" mapto="defraimp_placeoforiginaddresscity" />
+    <FieldMapping mapfrom="defraimp_placeoforiginharvestaddresscountryid" mapto="defraimp_placeoforigincountryid" />
+    <FieldMapping mapfrom="defraimp_countryoforiginid" mapto="defraimp_countryoforiginid" />
+  </PlaceOfOrigin>
+  <Transporter>
+    <FieldMapping mapfrom="defraimp_transportercompanyname" mapto="defraimp_transportername" />
+    <FieldMapping mapfrom="defraimp_transporteraddressaddressline1" mapto="defraimp_transporteraddressline1" />
+    <FieldMapping mapfrom="defraimp_transporteraddressaddressline2" mapto="defraimp_transporteraddressline2" />
+    <FieldMapping mapfrom="defraimp_transporteraddressaddressline3" mapto="defraimp_transporteraddressline3" />
+    <FieldMapping mapfrom="defraimp_transporteraddresspostalzipcode" mapto="defraimp_transporteraddresspostcode" />
+    <FieldMapping mapfrom="defraimp_transporteraddresscity" mapto="defraimp_transporteraddresscity" />
+    <FieldMapping mapfrom="defraimp_transporteraddresscountryid" mapto="defraimp_transporteraddresscountryid" />
+    <FieldMapping mapfrom="defraimp_transporteraddresstelephone" mapto="defraimp_transportertelephone" />
+    <FieldMapping mapfrom="defraimp_transporteraddressemail" mapto="defraimp_transporteremail" />
+  </Transporter>
+  <Commodity>
+    <FieldMapping mapfrom="defraimp_commoditiesnumberofanimals" mapto="defraimp_quantity" />
+  </Commodity>
+</FieldMappings>

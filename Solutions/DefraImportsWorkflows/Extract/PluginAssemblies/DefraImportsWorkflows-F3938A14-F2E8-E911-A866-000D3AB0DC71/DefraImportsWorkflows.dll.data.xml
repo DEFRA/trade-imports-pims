@@ -45,6 +45,21 @@
       <FriendlyName>Increment the specified autonumber attribute</FriendlyName>
       <WorkflowActivityGroupName>Defra.Imports.Workflows.Autonumber</WorkflowActivityGroupName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.MatchRecord.PopulateImportRecordFromImporterNotification, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="4de2c09b-48a7-ea11-a812-000d3ad82cac" Name="PopulateImportRecordFromImporterNotification">
+      <Description>Maps fields from ImporterNotification to Import Record using a xml mapping web resource</Description>
+      <FriendlyName>Maps fields from ImporterNotification to Import Record using a mapping web resource</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.MatchRecord</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.MatchRecord.PopulateImportRecordFromITAHC, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="65d99562-32a7-ea11-a812-000d3ad82cac" Name="PopulateImportRecordFromITAHC">
+      <Description>Maps fields from ITAHC to Import Record using a xml mapping web resource</Description>
+      <FriendlyName>Maps fields from ITAHC to Import Record using a mapping web resource</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.MatchRecord</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.MatchRecord.PotentialRelatedImportRecordSearch, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="d54d2476-a0a9-ea11-a812-000d3ab6d757" Name="PotentialRelatedImportRecordSearch">
+      <Description>Finds potentially related Import Records for the given Match Record</Description>
+      <FriendlyName>Find potentially related Import Records for Match Record</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.MatchRecord</WorkflowActivityGroupName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.Utils.CountRecordsByFetchXml, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="7003e50e-9d04-ea11-a811-000d3ab35da5" Name="CountRecordsByFetchXml">
       <Description>Counts records using a FetchXML query</Description>
       <FriendlyName>Counts records by FetchXML</FriendlyName>
