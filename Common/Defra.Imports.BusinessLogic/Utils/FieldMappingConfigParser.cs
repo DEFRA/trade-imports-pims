@@ -27,7 +27,8 @@ namespace Defra.Imports.BusinessLogic.Utils
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(configContents);
             XmlNodeList fieldMappingNodes = xmlDoc.GetElementsByTagName("FieldMapping");
-            foreach(XmlNode fieldMappingNode in fieldMappingNodes)
+
+            foreach (XmlNode fieldMappingNode in fieldMappingNodes)
             {
 
                 if(fieldMappingNode.Attributes != null)

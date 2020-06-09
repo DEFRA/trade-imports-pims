@@ -43,6 +43,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ILogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\Severity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\TracingServiceLogWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Interfaces\InnRelationshipAssociator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\NNRelationshipAssociator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IConfigurationParameterRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IImportApplicationRepository.cs" />
@@ -56,7 +58,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utils\IFetchTemplateParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\IGenericEntityMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\IFieldMappingConfigParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Interfaces\IXmlRetriever.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\MapFieldsFromOneRecordToAnotherBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\MatchXMLGenerators\MatchXmlGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\WebResourceXmlRetriever.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivity.cs" />
   </ItemGroup>
   <ItemGroup>
