@@ -20,19 +20,11 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{9e35663c-8fad-4f92-9fb2-15e63ab56696}">
-                        <labels>
-                          <label description="Name" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" uniqueid="{79029ddd-c50b-38c7-029b-2b63831426d3}" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{0a99d7cc-97c8-7b21-c905-3209d7ab4928}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="ITAHC" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_itahc" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_itahc" disabled="false" uniqueid="{42a982d2-1b5a-e8d9-8a02-d70e7b6bea80}">
+                        <control id="defraimp_itahc" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_itahc" disabled="true" uniqueid="{42a982d2-1b5a-e8d9-8a02-d70e7b6bea80}">
                           <parameters>
                             <AutoResolve>true</AutoResolve>
                             <DisableMru>false</DisableMru>
@@ -72,6 +64,14 @@
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{9e35663c-8fad-4f92-9fb2-15e63ab56696}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" uniqueid="{79029ddd-c50b-38c7-029b-2b63831426d3}" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -88,7 +88,7 @@
                         <labels>
                           <label description="Importer Notification" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_importernotification" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importernotification" disabled="false" uniqueid="{300498ad-a4bc-e218-2e25-7d884e3603cd}">
+                        <control id="defraimp_importernotification" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importernotification" disabled="true" uniqueid="{300498ad-a4bc-e218-2e25-7d884e3603cd}">
                           <parameters>
                             <AutoResolve>true</AutoResolve>
                             <DisableMru>false</DisableMru>
@@ -134,88 +134,81 @@
                     <row>
                       <cell id="{883e71f2-12c4-4b02-81fa-479341bbdc9a}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="ITAHC Number" languagecode="1033" />
+                          <label description="ITAHC Number Match Rating" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_itahcnumbermatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_itahcnumbermatchrating" disabled="true" uniqueid="{ba2bc702-97b1-cdb0-1bee-9e4d0a1b64c2}" />
+                        <control id="defraimp_itahcnumbermatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_itahcnumbermatchrating" disabled="true" />
                       </cell>
                     </row>
                     <row>
                       <cell id="{0b71ffb0-bbfe-43ee-ae21-aa3858733b5c}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Place of Destination Address Postcode" languagecode="1033" />
+                          <label description="Destination Postcode Match Rating" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_destinationpostcodematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_destinationpostcodematchrating" disabled="true" uniqueid="{b828a94d-2d28-6351-d81e-3519d9781530}" />
+                        <control id="defraimp_destinationpostcodematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_destinationpostcodematchrating" disabled="true" />
                       </cell>
                     </row>
                     <row>
                       <cell id="{5ece7bdb-138e-4fa2-a570-a1f599d12d67}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Place of Destination Name" languagecode="1033" />
+                          <label description="Organisation Name Match Rating" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_organisationnamematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_organisationnamematchrating" disabled="true" uniqueid="{ee3e92cb-e77d-050b-42ba-a5bae055cd99}" />
+                        <control id="defraimp_organisationnamematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_organisationnamematchrating" disabled="true" />
                       </cell>
                     </row>
                     <row>
                       <cell id="{f8960e49-f206-4722-90fb-9ebc70f42335}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Place of Origin Postcode" languagecode="1033" />
+                          <label description="Place of Origin Postcode Match Rating" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_placeoforiginpostcodematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginpostcodematchrating" disabled="true" uniqueid="{c850eac6-cbc4-9b47-2cd6-9233c63613d9}" />
+                        <control id="defraimp_placeoforiginpostcodematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginpostcodematchrating" disabled="false" />
                       </cell>
                     </row>
                     <row>
                       <cell id="{f44728ae-24cf-4398-b50c-a612c8eff503}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Place of Origin Name" languagecode="1033" />
+                          <label description="Place of Origin Name Match Rating" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_placeoforiginnamematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginnamematchrating" disabled="true" uniqueid="{52c2790c-02c0-8c3b-a468-7a611e502a17}" />
+                        <control id="defraimp_placeoforiginnamematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginnamematchrating" disabled="false" />
                       </cell>
                     </row>
                     <row>
                       <cell id="{17781440-ee91-4196-b497-f97462577a32}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Date of Import" languagecode="1033" />
+                          <label description="Date of Import Match Rating" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_dateofimportmatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_dateofimportmatchrating" disabled="true" uniqueid="{e9ab809d-5254-3625-4bd5-8e8666205c63}" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{85971988-6564-4cc5-7c3e-692e3858bd29}" showlabel="false" userspacer="true">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
+                        <control id="defraimp_dateofimportmatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_dateofimportmatchrating" disabled="true" />
                       </cell>
                     </row>
                     <row>
                       <cell id="{61f5d394-4156-4aa5-86d2-9b6390626d99}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Commodity Code" languagecode="1033" />
+                          <label description="Commodity Code Match Rating" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditycodematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commoditycodematchrating" disabled="true" uniqueid="{0c1cd759-a31e-8d6b-1d04-e9b78125227c}" />
+                        <control id="defraimp_commoditycodematchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commoditycodematchrating" disabled="true" />
                       </cell>
                     </row>
                     <row>
                       <cell id="{86fef79c-0c66-47b0-bea8-21286235a4cb}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Species" languagecode="1033" />
+                          <label description="Species Match Rating" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_speciesmatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_speciesmatchrating" disabled="true" uniqueid="{d29ceeca-e831-d695-a381-ce7d5bbe3c7d}" />
+                        <control id="defraimp_speciesmatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_speciesmatchrating" disabled="true" />
                       </cell>
                     </row>
                     <row>
                       <cell id="{06a27b05-5aab-4332-b133-3e8a62452966}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Quantity" languagecode="1033" />
+                          <label description="Quantity Match Rating" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_quantitymatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_quantitymatchrating" disabled="true" uniqueid="{c2c1045c-d7be-6b41-3046-74e8e8d4178d}" />
+                        <control id="defraimp_quantitymatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_quantitymatchrating" disabled="true" />
                       </cell>
                     </row>
                     <row>
                       <cell id="{c3180702-d7ef-4b4d-bb6b-1825e9c1bc72}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Country of Origin" languagecode="1033" />
+                          <label description="Country of Origin Match Rating" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_countryoforiginmatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_countryoforiginmatchrating" disabled="true" uniqueid="{370cb183-7a65-2210-a718-c4a921074568}" />
+                        <control id="defraimp_countryoforiginmatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_countryoforiginmatchrating" disabled="true" />
                       </cell>
                     </row>
                   </rows>
@@ -239,7 +232,7 @@
                     <row>
                       <cell id="{98cde47d-d949-d610-a5e0-d856e8ce7a0d}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Overwrite Existing Fields" languagecode="1033" />
+                          <label description="Overwrite Existing Fields on Import Record" languagecode="1033" />
                         </labels>
                         <control id="defraimp_overwriteexistingfieldsonimportrecord" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_overwriteexistingfieldsonimportrecord" disabled="false" uniqueid="{0d5ed83a-ad77-b14a-eb25-323809843395}" />
                       </cell>
@@ -255,11 +248,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{8e240e59-3358-6320-8d70-7b2bbec1ea97}" showlabel="true" locklevel="0">
+                      <cell id="{5bc9e881-5dc7-56e2-8baa-56089958bb70}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Copy Place of Origin From" languagecode="1033" />
+                          <label description="Copy Key Details From" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_copyplaceoforiginfrom" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_copyplaceoforiginfrom" disabled="false" uniqueid="{42971996-e22b-9a39-7910-5e9ba016789a}" />
+                        <control id="defraimp_copykeydetailsfrom" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_copykeydetailsfrom" disabled="false" uniqueid="{e1505415-22ab-a949-8c1c-e9412c0203d8}" />
                       </cell>
                       <cell id="{4eb3d1ca-3b9c-03c9-d39b-b9126d56b004}" showlabel="true" locklevel="0">
                         <labels>
@@ -275,6 +268,12 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{8e240e59-3358-6320-8d70-7b2bbec1ea97}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Copy Place of Origin From" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_copyplaceoforiginfrom" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_copyplaceoforiginfrom" disabled="false" uniqueid="{42971996-e22b-9a39-7910-5e9ba016789a}" />
+                      </cell>
                       <cell id="{d3162376-acb8-8ebc-34ea-6e6b3cc189e7}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Copy Place of Destination From" languagecode="1033" />
@@ -286,12 +285,6 @@
                           <label description="Copy Transporter From" languagecode="1033" />
                         </labels>
                         <control id="defraimp_copytransporterfrom" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_copytransporterfrom" disabled="false" uniqueid="{760a80c4-eed2-7561-b329-a04a1d955720}" />
-                      </cell>
-                      <cell id="{5bc9e881-5dc7-56e2-8baa-56089958bb70}" showlabel="true" locklevel="0" visible="false">
-                        <labels>
-                          <label description="Copy Key Details From" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_copykeydetailsfrom" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_copykeydetailsfrom" disabled="false" uniqueid="{e1505415-22ab-a949-8c1c-e9412c0203d8}" />
                       </cell>
                     </row>
                   </rows>
