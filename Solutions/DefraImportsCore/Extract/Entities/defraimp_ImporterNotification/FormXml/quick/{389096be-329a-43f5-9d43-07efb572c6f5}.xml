@@ -20,19 +20,11 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{46f2b21b-abf1-434d-b7e1-2b1d5399c496}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Place of Origin Individual Name" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_consignorindividualname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignorindividualname" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{8e243211-7a9a-410c-9e10-922a1304fe55}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Place of Origin Company Name" languagecode="1033" />
+                          <label description="Place of Origin Name" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_consignorcompanyname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignorcompanyname" disabled="false" />
+                        <control id="defraimp_consignorcompanyname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignorcompanyname" disabled="false" uniqueid="{89dd00c7-dccc-b8a6-1bec-6bc3c385007b}" />
                       </cell>
                     </row>
                     <row>
