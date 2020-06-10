@@ -256,9 +256,9 @@
                     <row>
                       <cell id="{cb4573ad-c083-ad48-9645-6927866502da}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="TracesId" languagecode="1033" />
+                          <label description="Traces ID" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_consignortracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_consignortracesid" disabled="false" />
+                        <control id="defraimp_consignortracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_consignortracesid" disabled="false" uniqueid="{999ad875-565e-d42b-60aa-0828baddd14a}" />
                       </cell>
                     </row>
                     <row>
@@ -357,9 +357,9 @@
                     <row>
                       <cell id="{5000267a-0bc4-38a3-0062-2d25c10e443a}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="TracesId" languagecode="1033" />
+                          <label description="Traces ID" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_consigneetracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_consigneetracesid" disabled="false" />
+                        <control id="defraimp_consigneetracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_consigneetracesid" disabled="false" uniqueid="{15a689b1-42e0-9939-c7cd-9a5c6940c418}" />
                       </cell>
                     </row>
                     <row>
@@ -1130,7 +1130,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
