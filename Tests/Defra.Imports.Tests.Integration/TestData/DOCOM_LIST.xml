@@ -3,7 +3,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6355595</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>Aallgemeiner Handel3731874</Name>
@@ -194,7 +194,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6383885</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Lokale Handelsorganisation1801818</Name>
@@ -379,7 +379,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6402053</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Lokale Handelsorganisation1801818</Name>
@@ -564,7 +564,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6403473</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Lokale Handelsorganisation1801818</Name>
@@ -749,7 +749,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6466243</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Internationale Handelsfirma2827357</Name>
@@ -934,7 +934,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6468403</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Internationale Handelsfirma2827357</Name>
@@ -1119,7 +1119,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6472254</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Lokale Handelsorganisation1801818</Name>
@@ -1304,7 +1304,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6526351</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Globale Handelsorganisation2616625</Name>
@@ -1497,7 +1497,7 @@
     <LastChangeDate>2019-08-30 15:48</LastChangeDate>
     <Consignment>
       <Id>6255702</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Organisation du Commerce Mondial2397565</Name>
@@ -1683,7 +1683,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6288063</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Société de Commerce International3176382</Name>
@@ -1871,7 +1871,7 @@
     <LastChangeDate>2019-08-30 15:48</LastChangeDate>
     <Consignment>
       <Id>6207675</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -2060,7 +2060,7 @@
     <LastChangeDate>2019-08-30 15:48</LastChangeDate>
     <Consignment>
       <Id>6207677</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -2249,7 +2249,7 @@
     <LastChangeDate>2019-08-30 15:48</LastChangeDate>
     <Consignment>
       <Id>6221363</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -2432,7 +2432,7 @@
     <LastChangeDate>2019-08-30 15:48</LastChangeDate>
     <Consignment>
       <Id>6222660</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>International Trade Company3311595</Name>
@@ -2622,7 +2622,7 @@
     <LastChangeDate>2019-08-30 15:48</LastChangeDate>
     <Consignment>
       <Id>6227234</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>General Trade Org3239181</Name>
@@ -2809,7 +2809,7 @@
     <LastChangeDate>2019-08-30 15:48</LastChangeDate>
     <Consignment>
       <Id>6232871</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>General Trade Org3239181</Name>
@@ -2996,7 +2996,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6270192</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -3179,7 +3179,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6324294</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -3367,7 +3367,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6324373</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>General Trade Org3239181</Name>
@@ -3554,7 +3554,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6324378</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>General Trade Org3239181</Name>
@@ -3741,7 +3741,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6352313</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>General Trade Org3239181</Name>
@@ -3928,7 +3928,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6384255</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -4116,7 +4116,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6390057</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>International Trade Company3311595</Name>
@@ -4306,7 +4306,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6401913</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>International Trade Company3311595</Name>
@@ -4496,7 +4496,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6410674</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -4684,7 +4684,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6413302</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -4872,7 +4872,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6418590</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -5063,7 +5063,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6422055</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Local Trade Org3785834</Name>
@@ -5252,7 +5252,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6466862</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>International Trade Company3311595</Name>
@@ -5441,7 +5441,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6478635</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Local Trade Org3785834</Name>
@@ -5619,7 +5619,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6481680</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>International Trade Company3311595</Name>
@@ -5811,7 +5811,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6502670</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -6000,7 +6000,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6505511</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Local Company3754120</Name>
@@ -6181,7 +6181,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6523556</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Global Trade Company3756472</Name>
@@ -6366,7 +6366,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6534908</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Global Trade Company3756472</Name>
@@ -6556,7 +6556,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6535567</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -6745,7 +6745,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6540925</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>General Trade Org3239181</Name>
@@ -6932,7 +6932,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6541259</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Local Company1981183</Name>
@@ -7122,7 +7122,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6549951</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Local Company1981183</Name>
@@ -7311,7 +7311,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6555606</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Local Company1981183</Name>
@@ -7501,7 +7501,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6555851</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Local Company1981183</Name>
@@ -7691,7 +7691,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6559609</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -7879,7 +7879,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6555818</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>deleted</Status>
         <Name>International Trade Company3742332</Name>
@@ -8068,7 +8068,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6390541</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>General Trade Org3890637</Name>
@@ -8252,7 +8252,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6390542</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>General Trade Org3890637</Name>
@@ -8429,7 +8429,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6394227</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>International Trade Company2563223</Name>
@@ -8611,7 +8611,7 @@
     <LastChangeDate>2019-08-30 15:49</LastChangeDate>
     <Consignment>
       <Id>6396389</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>International Trade Company2563223</Name>
@@ -8794,7 +8794,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6483176</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>International Trade Company2563223</Name>
@@ -9000,7 +9000,7 @@
     <LastChangeDate>2019-08-30 15:50</LastChangeDate>
     <Consignment>
       <Id>6497813</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Local Company2983865</Name>
@@ -9191,7 +9191,7 @@
     <LastChangeDate>2019-08-30 15:47</LastChangeDate>
     <Consignment>
       <Id>6083842</Id>
-      <Status>cancelled</Status>
+      <Status>valid</Status>
       <Consignor>
         <Status>valid</Status>
         <Name>Local Trade Company2647253</Name>
