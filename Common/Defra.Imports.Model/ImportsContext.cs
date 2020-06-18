@@ -18260,42 +18260,6 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_arrivaldate")]
-		public System.Nullable<System.DateTime> defraimp_ArrivalDate
-		{
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<System.DateTime>>("defraimp_arrivaldate");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_ArrivalDate");
-				this.SetAttributeValue("defraimp_arrivaldate", value);
-				this.OnPropertyChanged("defraimp_ArrivalDate");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_arrivaltime")]
-		public string defraimp_ArrivalTime
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_arrivaltime");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_ArrivalTime");
-				this.SetAttributeValue("defraimp_arrivaltime", value);
-				this.OnPropertyChanged("defraimp_ArrivalTime");
-			}
-		}
-		
-		/// <summary>
 		/// Certification for animal
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_commoditiesanimalscertifiedas")]
@@ -28375,24 +28339,6 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_ReplacingReferenceNumber");
 				this.SetAttributeValue("defraimp_replacingreferencenumber", value);
 				this.OnPropertyChanged("defraimp_ReplacingReferenceNumber");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_species")]
-		public string defraimp_Species
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_species");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_Species");
-				this.SetAttributeValue("defraimp_species", value);
-				this.OnPropertyChanged("defraimp_Species");
 			}
 		}
 		
