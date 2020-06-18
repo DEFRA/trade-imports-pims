@@ -10,40 +10,28 @@
     <layoutxml>
       <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
         <row name="result" id="defraimp_matchrecordid">
-          <cell name="defraimp_itahc" width="130" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="defraimp_importernotification" width="160" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="defraimp_overallmatchrating" width="160" />
-          <cell name="a_78aa2f32b4d94062b299485980a1ea74.defraimp_consigneeaddresspostcode" width="260" />
-          <cell name="a_78aa2f32b4d94062b299485980a1ea74.defraimp_consigneename" width="190" />
-          <cell name="a_78aa2f32b4d94062b299485980a1ea74.defraimp_countryoforiginid" width="190" />
-          <cell name="a_78aa2f32b4d94062b299485980a1ea74.defraimp_commoditycode" width="190" />
-          <cell name="a_bf0c46407c0c42c090ddde5b2d27a5da.defraimp_departuredate" width="270" />
-          <cell name="createdon" width="125" />
+          <cell name="defraimp_itahc" width="130" />
+          <cell name="defraimp_importernotification" width="170" />
+          <cell name="statuscode" width="120" />
+          <cell name="defraimp_overallmatchrating" width="170" />
+          <cell name="createdon" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
         </row>
       </grid>
     </layoutxml>
     <querytype>0</querytype>
     <fetchxml>
-      <fetch version="1.0" mapping="logical">
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
         <entity name="defraimp_matchrecord">
           <attribute name="createdon" />
-          <order attribute="createdon" descending="false" />
           <attribute name="defraimp_itahc" />
           <attribute name="defraimp_importernotification" />
-          <attribute name="defraimp_matchrecordid" />
           <attribute name="defraimp_overallmatchrating" />
           <filter type="and">
             <condition attribute="statuscode" operator="eq" value="1" />
           </filter>
-          <link-entity alias="a_78aa2f32b4d94062b299485980a1ea74" name="defraimp_itahc" to="defraimp_itahc" from="defraimp_itahcid" link-type="outer" visible="false">
-            <attribute name="defraimp_countryoforiginid" />
-            <attribute name="defraimp_consigneeaddresspostcode" />
-            <attribute name="defraimp_consigneename" />
-            <attribute name="defraimp_commoditycode" />
-          </link-entity>
-          <link-entity alias="a_bf0c46407c0c42c090ddde5b2d27a5da" name="defraimp_importernotification" to="defraimp_importernotification" from="defraimp_importernotificationid" link-type="outer" visible="false">
-            <attribute name="defraimp_departuredate" />
-          </link-entity>
+          <attribute name="defraimp_matchrecordid" />
+          <attribute name="statuscode" />
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

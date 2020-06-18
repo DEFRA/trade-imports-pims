@@ -14,7 +14,7 @@
           <cell name="defraimp_version" width="100" />
           <cell name="defraimp_submissiondate" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="createdon" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="defraimp_status" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="statuscode" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_type" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_personresponsiblename" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_personresponsiblecompanyname" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
@@ -29,13 +29,11 @@
     <fetchxml>
       <fetch version="1.0" mapping="logical">
         <entity name="defraimp_importernotification">
-          <attribute name="defraimp_importernotificationid" />
           <attribute name="defraimp_name" />
           <attribute name="createdon" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="1" />
           </filter>
-          <attribute name="defraimp_status" />
           <attribute name="defraimp_submissiondate" />
           <attribute name="defraimp_commoditiesregionoforigin" />
           <attribute name="defraimp_countryoforiginid" />
@@ -46,12 +44,14 @@
           <attribute name="defraimp_type" />
           <order attribute="createdon" descending="true" />
           <attribute name="defraimp_version" />
+          <attribute name="statuscode" />
+          <attribute name="defraimp_importernotificationid" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>0.0.0.49</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Inactive Importer Notifications" languagecode="1033" />
+      <LocalizedName description="Archived Importer Notifications" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

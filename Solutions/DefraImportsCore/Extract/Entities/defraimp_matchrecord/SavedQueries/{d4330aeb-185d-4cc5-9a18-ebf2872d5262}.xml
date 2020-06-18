@@ -10,16 +10,11 @@
     <layoutxml>
       <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
         <row name="result" id="defraimp_matchrecordid">
-          <cell name="statuscode" width="100" />
           <cell name="defraimp_itahc" width="130" />
           <cell name="defraimp_importernotification" width="170" />
-          <cell name="defraimp_overallmatchrating" width="160" />
-          <cell name="a_3073e7d3b098480c8ee0dd886c4e8d5b.defraimp_consigneeaddresspostcode" width="260" />
-          <cell name="a_3073e7d3b098480c8ee0dd886c4e8d5b.defraimp_consigneename" width="180" />
-          <cell name="a_3073e7d3b098480c8ee0dd886c4e8d5b.defraimp_countryoforiginid" width="190" />
-          <cell name="a_3073e7d3b098480c8ee0dd886c4e8d5b.defraimp_commoditycode" width="190" />
-          <cell name="a_b0210572939f4e90b559ef0a0763b438.defraimp_departuredate" width="300" />
-          <cell name="createdon" width="125" />
+          <cell name="statuscode" width="120" />
+          <cell name="defraimp_overallmatchrating" width="170" />
+          <cell name="createdon" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
         </row>
       </grid>
     </layoutxml>
@@ -33,15 +28,7 @@
           <attribute name="defraimp_itahc" />
           <attribute name="defraimp_importernotification" />
           <attribute name="defraimp_overallmatchrating" />
-          <link-entity alias="a_3073e7d3b098480c8ee0dd886c4e8d5b" name="defraimp_itahc" to="defraimp_itahc" from="defraimp_itahcid" link-type="outer" visible="false">
-            <attribute name="defraimp_consigneeaddresspostcode" />
-            <attribute name="defraimp_consigneename" />
-            <attribute name="defraimp_commoditycode" />
-            <attribute name="defraimp_countryoforiginid" />
-          </link-entity>
-          <link-entity alias="a_b0210572939f4e90b559ef0a0763b438" name="defraimp_importernotification" to="defraimp_importernotification" from="defraimp_importernotificationid" link-type="outer" visible="false">
-            <attribute name="defraimp_departuredate" />
-          </link-entity>
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>
