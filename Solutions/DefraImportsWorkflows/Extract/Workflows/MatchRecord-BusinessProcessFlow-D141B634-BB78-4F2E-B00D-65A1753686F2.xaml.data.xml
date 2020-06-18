@@ -31,28 +31,25 @@
       <label languagecode="1033" description="Confirm Match" />
     </steplabels>
     <steplabels id="{9080bb42-9079-4810-a7e4-3084c7348e7e}">
-      <label languagecode="1033" description="Copy Key Details From" />
+      <label languagecode="1033" description="Is this Record a Valid Match?" />
     </steplabels>
-    <steplabels id="{3906021d-e5da-4e1e-8f85-2c99da05907a}">
-      <label languagecode="1033" description="Copy Consignor From" />
-    </steplabels>
-    <steplabels id="{e65531ca-b895-4289-a0f4-2a83c10327c8}">
-      <label languagecode="1033" description="Copy Consignee From" />
-    </steplabels>
-    <steplabels id="{e494b4c7-2868-4f36-9a15-932db46abbe1}">
-      <label languagecode="1033" description="Copy Place of Destination From" />
-    </steplabels>
-    <steplabels id="{03641310-6fc0-4300-b1e0-51af45bc725e}">
-      <label languagecode="1033" description="Copy Place of Origin From" />
-    </steplabels>
-    <steplabels id="{7a795e29-ce72-4f3c-83c7-1e264bf83ce5}">
-      <label languagecode="1033" description="Copy Transporter From" />
-    </steplabels>
-    <steplabels id="{e14d6131-5af9-412e-9c3f-2e04c224bacc}">
+    <steplabels id="{d3e86630-cf6a-43ee-b193-31b3bd654c04}">
       <label languagecode="1033" description="Complete Match" />
     </steplabels>
-    <steplabels id="{a59508f3-478e-4496-bd96-9a5148462ccb}">
-      <label languagecode="1033" description="Importer Record" />
+    <steplabels id="{858d2fcb-1470-4470-a73e-dac07029bf6e}">
+      <label languagecode="1033" description="Have you Appended Records to Import Record? " />
+    </steplabels>
+    <steplabels id="{676718a8-544a-43a9-9b5f-31471fd8ec1e}">
+      <label languagecode="1033" description="Close Record as Completed?" />
+    </steplabels>
+    <steplabels id="{bc974345-5054-4257-a96d-d8f5725979b2}">
+      <label languagecode="1033" description="Reject Match" />
+    </steplabels>
+    <steplabels id="{90783c71-525f-43a3-8381-c400300cafb7}">
+      <label languagecode="1033" description="Close Record as Rejected?" />
+    </steplabels>
+    <steplabels id="{3521c9d2-d226-459e-ae73-5fdd09651992}">
+      <label languagecode="1033" description="Rejected Reason" />
     </steplabels>
   </labels>
 </Workflow>
