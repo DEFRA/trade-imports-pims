@@ -298,24 +298,6 @@ namespace Defra.Imports.Model
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
-	public enum defraimp_matchfieldtype
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Unique = 714100000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PreScoring = 714100001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Exact = 714100002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fuzzy = 714100003,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
 	public enum goal_fiscalperiod
 	{
 		
@@ -11723,24 +11705,6 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_complementid")]
-		public string defraimp_ComplementId
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_complementid");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_ComplementId");
-				this.SetAttributeValue("defraimp_complementid", value);
-				this.OnPropertyChanged("defraimp_ComplementId");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_consigneeaddresscity")]
 		public string defraimp_ConsigneeAddressCity
 		{
@@ -13208,96 +13172,6 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_SignatorySignatureDate");
 				this.SetAttributeValue("defraimp_signatorysignaturedate", value);
 				this.OnPropertyChanged("defraimp_SignatorySignatureDate");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_speciesclass")]
-		public string defraimp_SpeciesClass
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_speciesclass");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_SpeciesClass");
-				this.SetAttributeValue("defraimp_speciesclass", value);
-				this.OnPropertyChanged("defraimp_SpeciesClass");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_speciesid")]
-		public string defraimp_SpeciesId
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_speciesid");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_SpeciesId");
-				this.SetAttributeValue("defraimp_speciesid", value);
-				this.OnPropertyChanged("defraimp_SpeciesId");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_speciesmodel")]
-		public string defraimp_SpeciesModel
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_speciesmodel");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_SpeciesModel");
-				this.SetAttributeValue("defraimp_speciesmodel", value);
-				this.OnPropertyChanged("defraimp_SpeciesModel");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_speciesnomination")]
-		public string defraimp_SpeciesNomination
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_speciesnomination");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_SpeciesNomination");
-				this.SetAttributeValue("defraimp_speciesnomination", value);
-				this.OnPropertyChanged("defraimp_SpeciesNomination");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_speciestype")]
-		public string defraimp_SpeciesType
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_speciestype");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_SpeciesType");
-				this.SetAttributeValue("defraimp_speciestype", value);
-				this.OnPropertyChanged("defraimp_SpeciesType");
 			}
 		}
 		
@@ -18475,24 +18349,6 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_commoditycomplementstext")]
-		public string defraimp_CommodityComplementsText
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_commoditycomplementstext");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_CommodityComplementsText");
-				this.SetAttributeValue("defraimp_commoditycomplementstext", value);
-				this.OnPropertyChanged("defraimp_CommodityComplementsText");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_commoditydescription")]
 		public string defraimp_CommodityDescription
 		{
@@ -19801,24 +19657,6 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_estimatedjourneytimeinminutes");
 				this.SetAttributeValue("defraimp_estimatedjourneytimeinminutes", value);
 				this.OnPropertyChanged("defraimp_estimatedjourneytimeinminutes");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_identificationofanimalstext")]
-		public string defraimp_IdentificationOfAnimalsText
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_identificationofanimalstext");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_IdentificationOfAnimalsText");
-				this.SetAttributeValue("defraimp_identificationofanimalstext", value);
-				this.OnPropertyChanged("defraimp_IdentificationOfAnimalsText");
 			}
 		}
 		
@@ -21352,24 +21190,6 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_portofentry");
 				this.SetAttributeValue("defraimp_portofentry", value);
 				this.OnPropertyChanged("defraimp_portofentry");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_quickviewspacer")]
-		public string defraimp_QuickViewSpacer
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_quickviewspacer");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_QuickViewSpacer");
-				this.SetAttributeValue("defraimp_quickviewspacer", value);
-				this.OnPropertyChanged("defraimp_QuickViewSpacer");
 			}
 		}
 		
@@ -26743,24 +26563,6 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_complementid")]
-		public string defraimp_ComplementId
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_complementid");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_ComplementId");
-				this.SetAttributeValue("defraimp_complementid", value);
-				this.OnPropertyChanged("defraimp_ComplementId");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_consigneeaddresscity")]
 		public string defraimp_ConsigneeAddressCity
 		{
@@ -27295,42 +27097,6 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_EstimatedJourneyTime");
 				this.SetAttributeValue("defraimp_estimatedjourneytime", value);
 				this.OnPropertyChanged("defraimp_EstimatedJourneyTime");
-			}
-		}
-		
-		/// <summary>
-		/// Field to store the formatted values from the JSON data from Commodity Complements Text
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_formattedcommoditycomplementstext")]
-		public string defraimp_FormattedCommodityComplementsText
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_formattedcommoditycomplementstext");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_FormattedCommodityComplementsText");
-				this.SetAttributeValue("defraimp_formattedcommoditycomplementstext", value);
-				this.OnPropertyChanged("defraimp_FormattedCommodityComplementsText");
-			}
-		}
-		
-		/// <summary>
-		/// Field to store the formatted values from JSON data of Identification Of Animals Text
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_formattedidentificationofanimalstext")]
-		public string defraimp_formattedIdentificationOfAnimalsText
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_formattedidentificationofanimalstext");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_formattedIdentificationOfAnimalsText");
-				this.SetAttributeValue("defraimp_formattedidentificationofanimalstext", value);
-				this.OnPropertyChanged("defraimp_formattedIdentificationOfAnimalsText");
 			}
 		}
 		
@@ -28345,90 +28111,18 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_speciesclass")]
-		public string defraimp_SpeciesClass
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_species")]
+		public string defraimp_Species
 		{
 			get
 			{
-				return this.GetAttributeValue<string>("defraimp_speciesclass");
+				return this.GetAttributeValue<string>("defraimp_species");
 			}
 			set
 			{
-				this.OnPropertyChanging("defraimp_SpeciesClass");
-				this.SetAttributeValue("defraimp_speciesclass", value);
-				this.OnPropertyChanged("defraimp_SpeciesClass");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_speciesid")]
-		public string defraimp_SpeciesId
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_speciesid");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_SpeciesId");
-				this.SetAttributeValue("defraimp_speciesid", value);
-				this.OnPropertyChanged("defraimp_SpeciesId");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_speciesmodel")]
-		public string defraimp_SpeciesModel
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_speciesmodel");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_SpeciesModel");
-				this.SetAttributeValue("defraimp_speciesmodel", value);
-				this.OnPropertyChanged("defraimp_SpeciesModel");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_speciesnomination")]
-		public string defraimp_SpeciesNomination
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_speciesnomination");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_SpeciesNomination");
-				this.SetAttributeValue("defraimp_speciesnomination", value);
-				this.OnPropertyChanged("defraimp_SpeciesNomination");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_speciestype")]
-		public string defraimp_SpeciesType
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_speciestype");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_SpeciesType");
-				this.SetAttributeValue("defraimp_speciestype", value);
-				this.OnPropertyChanged("defraimp_SpeciesType");
+				this.OnPropertyChanging("defraimp_Species");
+				this.SetAttributeValue("defraimp_species", value);
+				this.OnPropertyChanged("defraimp_Species");
 			}
 		}
 		
@@ -29278,60 +28972,6 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_appendrecordstoimportrecords")]
-		public System.Nullable<bool> defraimp_AppendRecordsToImportRecords
-		{
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<bool>>("defraimp_appendrecordstoimportrecords");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_AppendRecordsToImportRecords");
-				this.SetAttributeValue("defraimp_appendrecordstoimportrecords", value);
-				this.OnPropertyChanged("defraimp_AppendRecordsToImportRecords");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_closerecordascompleted")]
-		public System.Nullable<bool> defraimp_CloseRecordAsCompleted
-		{
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<bool>>("defraimp_closerecordascompleted");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_CloseRecordAsCompleted");
-				this.SetAttributeValue("defraimp_closerecordascompleted", value);
-				this.OnPropertyChanged("defraimp_CloseRecordAsCompleted");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_closerecordasrejected")]
-		public System.Nullable<bool> defraimp_CloseRecordAsRejected
-		{
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<bool>>("defraimp_closerecordasrejected");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_CloseRecordAsRejected");
-				this.SetAttributeValue("defraimp_closerecordasrejected", value);
-				this.OnPropertyChanged("defraimp_CloseRecordAsRejected");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_commoditycodematchrating")]
 		public string defraimp_CommodityCodeMatchRating
 		{
@@ -29566,24 +29206,6 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_isrecordvalidmatch")]
-		public System.Nullable<bool> defraimp_IsRecordValidMatch
-		{
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<bool>>("defraimp_isrecordvalidmatch");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_IsRecordValidMatch");
-				this.SetAttributeValue("defraimp_isrecordvalidmatch", value);
-				this.OnPropertyChanged("defraimp_IsRecordValidMatch");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_itahc")]
 		public Microsoft.Xrm.Sdk.EntityReference defraimp_ITAHC
 		{
@@ -29779,24 +29401,6 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_QuantityMatchRating");
 				this.SetAttributeValue("defraimp_quantitymatchrating", value);
 				this.OnPropertyChanged("defraimp_QuantityMatchRating");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_rejectedreason")]
-		public string defraimp_RejectedReason
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("defraimp_rejectedreason");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_RejectedReason");
-				this.SetAttributeValue("defraimp_rejectedreason", value);
-				this.OnPropertyChanged("defraimp_RejectedReason");
 			}
 		}
 		
