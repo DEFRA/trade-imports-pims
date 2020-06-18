@@ -20,19 +20,11 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{ccea70cd-0437-3bc5-7e2b-83be613ba9e1}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Transporter Individual Name" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_transporterindividualname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transporterindividualname" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{028a9d32-0e13-40de-5706-d3c5ea7a11c3}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Transporter Company Name" languagecode="1033" />
+                          <label description="Transporter Name" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_transportercompanyname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transportercompanyname" disabled="false" />
+                        <control id="defraimp_transportercompanyname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transportercompanyname" disabled="false" uniqueid="{03ad9157-6a3e-e034-bbd0-71ca6cb8e941}" />
                       </cell>
                     </row>
                     <row>

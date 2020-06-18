@@ -38,9 +38,9 @@
                     <row>
                       <cell id="{0c6ad3d1-f559-4cbf-82fe-2c5981d8ebe0}" showlabel="true" locklevel="0" labelid="{374af86f-9e75-43ea-93c6-367e74d7f17a}">
                         <labels>
-                          <label description="Place of Destination Company Name" languagecode="1033" />
+                          <label description="Place of Destination Name" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_placeofdestinationcompanyname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationcompanyname" disabled="false" />
+                        <control id="defraimp_placeofdestinationcompanyname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationcompanyname" disabled="false" uniqueid="{2dc7e0a1-9741-3477-8e3c-534e956880e5}" />
                       </cell>
                     </row>
                     <row>
@@ -54,9 +54,9 @@
                     <row>
                       <cell id="{2047af5c-389b-4e3b-bc48-c81b81fff2d4}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Place of Origin Company Name" languagecode="1033" />
+                          <label description="Place of Origin Name" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_consignorcompanyname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignorcompanyname" disabled="false" />
+                        <control id="defraimp_consignorcompanyname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignorcompanyname" disabled="false" uniqueid="{424ee7e2-7228-574b-31d1-d265a494d829}" />
                       </cell>
                     </row>
                     <row>
@@ -65,6 +65,21 @@
                           <label description="Arrival Date" languagecode="1033" />
                         </labels>
                         <control id="defraimp_arrivaldate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_arrivaldate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{812b2a6a-6920-93ea-6ce2-141b453736a8}" showlabel="false" locklevel="0">
+                        <labels>
+                          <label description="QuickViewSpacer" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_quickviewspacer" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_quickviewspacer" disabled="true" uniqueid="{931e1ea3-e624-1b0b-6384-b3113b8a3527}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b66b810b-9830-2464-c75e-930047a635ce}" showlabel="false" userspacer="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                     <row>

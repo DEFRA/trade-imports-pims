@@ -10,15 +10,11 @@
     <layoutxml>
       <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
         <row name="result" id="defraimp_matchrecordid">
-          <cell name="defraimp_itahc" width="100" />
-          <cell name="defraimp_importernotification" width="160" />
-          <cell name="defraimp_overallmatchrating" width="160" />
-          <cell name="a_30e95d48c45940b6bbbe61ab96d5676a.defraimp_consigneeaddresspostcode" width="260" />
-          <cell name="a_30e95d48c45940b6bbbe61ab96d5676a.defraimp_consigneename" width="180" />
-          <cell name="a_30e95d48c45940b6bbbe61ab96d5676a.defraimp_countryoforiginid" width="190" />
-          <cell name="a_30e95d48c45940b6bbbe61ab96d5676a.defraimp_commoditycode" width="190" />
-          <cell name="a_afffd8d0d7e94299b51aeedacc1aad85.defraimp_departuredate" width="270" />
-          <cell name="createdon" width="100" />
+          <cell name="defraimp_itahc" width="130" />
+          <cell name="defraimp_importernotification" width="170" />
+          <cell name="statuscode" width="120" />
+          <cell name="defraimp_overallmatchrating" width="170" />
+          <cell name="createdon" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
         </row>
       </grid>
     </layoutxml>
@@ -33,17 +29,9 @@
           <filter type="and">
             <condition attribute="statuscode" operator="eq" value="714100001" />
           </filter>
-          <link-entity alias="a_30e95d48c45940b6bbbe61ab96d5676a" name="defraimp_itahc" to="defraimp_itahc" from="defraimp_itahcid" link-type="outer" visible="false">
-            <attribute name="defraimp_consigneeaddresspostcode" />
-            <attribute name="defraimp_consigneename" />
-            <attribute name="defraimp_countryoforiginid" />
-            <attribute name="defraimp_commoditycode" />
-          </link-entity>
-          <link-entity alias="a_afffd8d0d7e94299b51aeedacc1aad85" name="defraimp_importernotification" to="defraimp_importernotification" from="defraimp_importernotificationid" link-type="outer" visible="false">
-            <attribute name="defraimp_departuredate" />
-          </link-entity>
           <attribute name="createdon" />
-          <order attribute="createdon" descending="false" />
+          <attribute name="statuscode" />
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

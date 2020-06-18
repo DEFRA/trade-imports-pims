@@ -54,8 +54,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkflowAssemblies", "Workf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defra.Imports.Workflows", "Solutions\DefraImportsWorkflows\WorkflowAssemblies\Defra.Imports.Workflows\Defra.Imports.Workflows.csproj", "{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defra.Imports.Tests.Ui", "Tests\Defra.Imports.Tests.Ui\Defra.Imports.Tests.Ui.csproj", "{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}"
-EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{143ed2d6-36c2-67e4-3dc2-4ec3e3d7fb7f}*SharedItemsImports = 4
@@ -111,12 +109,6 @@ Global
 		{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}.Deploy|Any CPU.Build.0 = Debug|Any CPU
 		{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Deploy|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Deploy|Any CPU.Build.0 = Debug|Any CPU
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,7 +128,6 @@ Global
 		{082B405E-DE84-455F-A00D-D2042623C4C8} = {0F585759-A22A-4564-AD05-11924B6B1DDF}
 		{F1F3247C-214F-4A66-BEAF-E251B0723C97} = {082B405E-DE84-455F-A00D-D2042623C4C8}
 		{B70CCC0B-2CB8-44F5-9A4A-80669BF0CBB8} = {F1F3247C-214F-4A66-BEAF-E251B0723C97}
-		{D4F155F1-411E-4C63-95F6-F0F9D9D450DA} = {FD3CAA3F-296C-4ECB-A6E9-A4A8CA3E15B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3D6A7645-2C64-4610-BC84-6AD17AA98B71}

@@ -95,11 +95,11 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{6e77d072-7967-c528-45e6-88178d427e07}" showlabel="true" locklevel="0">
+                      <cell id="{ba069878-ede4-c064-a303-d24a2237bb7e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Commodity Code" languagecode="1033" />
+                          <label description="Animal Certified As" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditycode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_commoditycode" disabled="false" />
+                        <control id="defraimp_animalcertifiedas" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_animalcertifiedas" disabled="false" />
                       </cell>
                       <cell id="{a768eeba-ba71-b532-ee67-362516510793}" showlabel="true" locklevel="0">
                         <labels>
@@ -118,11 +118,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{981aaab4-170c-4924-97f5-b51f37fbda68}" showlabel="true" locklevel="0">
+                      <cell id="{e26b740c-455a-49a4-b6c7-c6883d2f0da4}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="(Needs To Be Mapped) Species " languagecode="1033" />
+                          <label description="Quantity / Weight (Grams)" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_species" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_species" disabled="false" />
+                        <control id="defraimp_quantity" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="defraimp_quantity" disabled="false" />
                       </cell>
                       <cell id="{43f9d165-44ac-490f-a0ba-97899657825d}" showlabel="true" locklevel="0">
                         <labels>
@@ -132,11 +132,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{12a25005-8ddc-ec2c-db6b-36553e9eae86}" showlabel="true" locklevel="0">
+                      <cell id="{5c53bd53-447e-44dd-b7dc-f7f7027f3d3e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Commodity Type" languagecode="1033" />
+                          <label description="Number of Packages" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditytype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytype" disabled="false" />
+                        <control id="defraimp_numberofpackages" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofpackages" disabled="false" />
                       </cell>
                       <cell id="{e320bcd1-9c00-a17a-5e06-8c555ea9e968}" showlabel="true" locklevel="0">
                         <labels>
@@ -146,11 +146,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{ba069878-ede4-c064-a303-d24a2237bb7e}" showlabel="true" locklevel="0">
+                      <cell id="{edb74e57-cb4c-94e3-00e5-62bb5a4824c7}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Animal Certified As" languagecode="1033" />
+                          <label description="Central Competent Authority" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_animalcertifiedas" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_animalcertifiedas" disabled="false" />
+                        <control id="defraimp_centralcompetentauthority" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_centralcompetentauthority" disabled="false" />
                       </cell>
                       <cell id="{27381112-705b-8edc-8d76-97d4a489209a}" showlabel="true" locklevel="0">
                         <labels>
@@ -160,11 +160,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{e26b740c-455a-49a4-b6c7-c6883d2f0da4}" showlabel="true" locklevel="0">
+                      <cell id="{65e50436-88b4-89ad-24b3-ccc7c2822309}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Quantity / Weight (Grams)" languagecode="1033" />
+                          <label description="Local Competent Authority" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_quantity" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="defraimp_quantity" disabled="false" />
+                        <control id="defraimp_localcompetentauthority" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_localcompetentauthority" disabled="false" />
                       </cell>
                       <cell id="{79284256-a85e-4125-9de8-47ba50541807}" showlabel="false">
                         <labels>
@@ -172,45 +172,106 @@
                         </labels>
                       </cell>
                     </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_commodities" id="{64ac2e9a-42d4-5e63-44db-9eb105394a50}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Commodities" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section name="tab_12_section_1" showlabel="false" showbar="false" locklevel="0" id="{e93e843e-a72a-9c90-a38b-759269d0cb25}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
                     <row>
-                      <cell id="{5c53bd53-447e-44dd-b7dc-f7f7027f3d3e}" showlabel="true" locklevel="0">
+                      <cell id="{6e77d072-7967-c528-45e6-88178d427e07}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Number of Packages" languagecode="1033" />
+                          <label description="Commodity Code" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_numberofpackages" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofpackages" disabled="false" />
+                        <control id="defraimp_commoditycode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_commoditycode" disabled="false" />
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{5de2cf04-7bd1-4c6e-989e-ec19a13c1c89}">
+                    </row>
+                    <row>
+                      <cell id="{a399dcca-fb81-48af-8ac5-7b92ae7c5ff6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Species ID" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_speciesid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_speciesid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{12a25005-8ddc-ec2c-db6b-36553e9eae86}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditytype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytype" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="tab_12_section_2" showlabel="false" showbar="false" locklevel="0" id="{e76294c8-dd9d-5d96-d856-b5a5569b2d15}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{16c65312-2295-bd31-5c5e-7aa8ed4de0ed}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Complements Text" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditycomplementstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commoditycomplementstext" disabled="false" uniqueid="{d931b190-7d11-6594-4a2a-3734737a6330}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d4e316c7-5a18-18cb-e4dc-1ea688b058ad}" showlabel="true" locklevel="0" rowspan="5">
+                        <labels>
+                          <label description="Formatted Commodity Complements Text" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_formattedcommoditycomplementstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_formattedcommoditycomplementstext" disabled="false" uniqueid="{9725b243-6858-e570-ceb0-c82798d5a6db}" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{aa07a7c6-341c-904d-23c7-b191a354ee6b}" showlabel="false" userspacer="true">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
                     </row>
                     <row>
-                      <cell id="{edb74e57-cb4c-94e3-00e5-62bb5a4824c7}" showlabel="true" locklevel="0">
+                      <cell id="{c235d056-e2a7-237a-68cc-dc2cd60a7231}" showlabel="true" locklevel="0" auto="false">
                         <labels>
-                          <label description="Central Competent Authority" languagecode="1033" />
+                          <label description="Identification Of Animals Text" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_centralcompetentauthority" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_centralcompetentauthority" disabled="false" />
-                      </cell>
-                      <cell showlabel="true" locklevel="0" id="{b952007c-9e94-4e3c-b0a9-9b9ef2449269}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
+                        <control id="defraimp_identificationofanimalstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_identificationofanimalstext" disabled="false" uniqueid="{a25a2e63-bc16-4eed-86bb-b90d82ee6a7c}" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{65e50436-88b4-89ad-24b3-ccc7c2822309}" showlabel="true" locklevel="0">
+                      <cell id="{85814dc3-d3b7-790a-23bc-34a50ba422de}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
-                          <label description="Local Competent Authority" languagecode="1033" />
+                          <label description="Formatted Identification Of Animals Text" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_localcompetentauthority" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_localcompetentauthority" disabled="false" />
-                      </cell>
-                      <cell showlabel="true" locklevel="0" id="{00660182-5a0b-4175-b7c7-ad596df1e40d}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
+                        <control id="defraimp_formattedidentificationofanimalstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_formattedidentificationofanimalstext" disabled="false" uniqueid="{1b9212a8-0995-cda4-7792-a712618a4d44}" />
                       </cell>
                     </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -234,7 +295,7 @@
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_consignorname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignorname" disabled="false" />
+                        <control id="defraimp_consignorname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignorname" disabled="false" uniqueid="{ba253766-1509-21c0-a486-3a968a17c29a}" />
                       </cell>
                     </row>
                     <row>
@@ -256,9 +317,9 @@
                     <row>
                       <cell id="{cb4573ad-c083-ad48-9645-6927866502da}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="TracesId" languagecode="1033" />
+                          <label description="Traces ID" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_consignortracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_consignortracesid" disabled="false" />
+                        <control id="defraimp_consignortracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_consignortracesid" disabled="false" uniqueid="{999ad875-565e-d42b-60aa-0828baddd14a}" />
                       </cell>
                     </row>
                     <row>
@@ -357,9 +418,9 @@
                     <row>
                       <cell id="{5000267a-0bc4-38a3-0062-2d25c10e443a}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="TracesId" languagecode="1033" />
+                          <label description="Traces ID" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_consigneetracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_consigneetracesid" disabled="false" />
+                        <control id="defraimp_consigneetracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_consigneetracesid" disabled="false" uniqueid="{15a689b1-42e0-9939-c7cd-9a5c6940c418}" />
                       </cell>
                     </row>
                     <row>
@@ -1130,7 +1191,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

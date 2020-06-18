@@ -40,11 +40,42 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
+        [Fact]
+        [ExcludeFromCodeCoverage]
+        public void SendToSBQueue_FiveMessagesFinalMessageCancelled_NotificationShouldBeCreatedAndThenCancelled()
+        {
+            // Arrange
+            string expectedReferenceNumber = "IMP.GB.2020.1462627";
+            List<string> messages = new List<string>();
+            messages.Add(ReadTestData("NOTIFICATION_1_SUBMITTED.json"));
+            messages.Add(ReadTestData("NOTIFICATION_2_AMEND.json"));
+            messages.Add(ReadTestData("NOTIFICATION_3_SUBMITTED.json"));
+            messages.Add(ReadTestData("NOTIFICATION_4_AMEND.json"));
+            messages.Add(ReadTestData("NOTIFICATION_5_CANCELLED.json"));
+
+            // Act
+            foreach(string jsonMessage in messages)
+            {
+                SendServiceBusMessage(jsonMessage);
+            }
+
+            Thread.Sleep(150000);
+
+            // Assert
+            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            Assert.True(notifications.Count > 0);
+            Assert.True(notifications[0].GetAttributeValue<OptionSetValue>("defraimp_status").Value == 714100008);
+
+            // Clear down
+            ClearDownDynamicsEntities(notifications);
+        }
+
         private List<Entity> GetNotificationsByReference(string referenceNumber)
         {
-            QueryExpression qe = new QueryExpression("defraimp_importnotification");
+            QueryExpression qe = new QueryExpression("defraimp_importernotification");
             qe.Criteria.AddCondition(new ConditionExpression("defraimp_name", ConditionOperator.Equal, referenceNumber));
             qe.ColumnSet.AddColumn("defraimp_name");
+            qe.ColumnSet.AddColumn("defraimp_status");
 
             EntityCollection eCollection = _orgSvc.RetrieveMultiple(qe);
             return eCollection.Entities.ToList();

@@ -20,19 +20,11 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{9a010b98-b3c7-3170-7190-08d829b502b0}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Consignor Individual Name" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_consignorindividualname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignorindividualname" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{ec8816c5-9b3e-a75a-7ba3-1da6dcaba46d}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Consignor Company Name" languagecode="1033" />
+                          <label description="Consignor Name" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_consignorcompanyname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignorcompanyname" disabled="false" />
+                        <control id="defraimp_consignorcompanyname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignorcompanyname" disabled="false" uniqueid="{adda3ead-0006-a065-23da-94884829529c}" />
                       </cell>
                     </row>
                     <row>
