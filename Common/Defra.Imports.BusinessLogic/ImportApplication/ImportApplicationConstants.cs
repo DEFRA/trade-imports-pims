@@ -17,6 +17,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
         public const string P1_RISK_LEVEL_NAME = "p1";
         public const string P2_RISK_LEVEL_NAME = "p2";
         public const string P3_RISK_LEVEL_NAME = "p3";
+        public const string TB_RISK_LEVEL_NAME = "tb";
 
         public const string GB_COVERAGE_RULE_KEY = "p1gb";
         public const string P1_COVERAGE_RULE_KEY = "p1";
