@@ -13,7 +13,7 @@
     </CustomAction>
     <CustomAction Id="defraimp.defraimp_importapplication.CreateNewImportRecord.CustomAction" Location="Mscrm.SubGrid.defraimp_importapplication.MainTab.Management.Controls._children" Sequence="28">
       <CommandUIDefinition>
-        <Button Alt="$LocLabels:defraimp.defraimp_importapplication.CreateNewImportRecord.Alt" Command="defraimp.defraimp_importapplication.AppendITAHC.Command" Id="defraimp.defraimp_importapplication.CreateNewImportRecord" Image32by32="$webresource:defraimp_/png/icon.importapplication.32.png" Image16by16="$webresource:defraimp_/png/icon.importapplication.16.png" LabelText="$LocLabels:defraimp.defraimp_importapplication.CreateNewImportRecord.LabelText" Sequence="28" TemplateAlias="o1" ToolTipTitle="$LocLabels:defraimp.defraimp_importapplication.CreateNewImportRecord.ToolTipTitle" ToolTipDescription="$LocLabels:defraimp.defraimp_importapplication.CreateNewImportRecord.ToolTipDescription" ModernImage="$webresource:defraimp_/svg/icon.importapplication.svg" />
+        <Button Alt="$LocLabels:defraimp.defraimp_importapplication.CreateNewImportRecord.Alt" Command="defraimp.defraimp_importapplication.CreateImportRecordFromItahc.Command" Id="defraimp.defraimp_importapplication.CreateNewImportRecord" Image32by32="$webresource:defraimp_/png/icon.importapplication.32.png" Image16by16="$webresource:defraimp_/png/icon.importapplication.16.png" LabelText="$LocLabels:defraimp.defraimp_importapplication.CreateNewImportRecord.LabelText" Sequence="28" TemplateAlias="o1" ToolTipTitle="$LocLabels:defraimp.defraimp_importapplication.CreateNewImportRecord.ToolTipTitle" ToolTipDescription="$LocLabels:defraimp.defraimp_importapplication.CreateNewImportRecord.ToolTipDescription" ModernImage="$webresource:defraimp_/svg/icon.importapplication.svg" />
       </CommandUIDefinition>
     </CustomAction>
     <CustomAction Id="defraimp.defraimp_importapplication.FillEmptyDataWithItahc.Button.CustomAction" Location="Mscrm.Form.defraimp_importapplication.MainTab.Save.Controls._children" Sequence="93">
@@ -33,7 +33,7 @@
   <CommandDefinitions>
     <CommandDefinition Id="defraimp.defraimp_importapplication.AppendImporterNotification.Command">
       <EnableRules>
-        <EnableRule Id="defraimp.defraimp_importapplication.AppendRules.EnableRule" />
+        <EnableRule Id="defraimp.defraimp_importapplication.AppendFromMatch.EnableRule" />
       </EnableRules>
       <DisplayRules />
       <Actions>
@@ -44,11 +44,22 @@
     </CommandDefinition>
     <CommandDefinition Id="defraimp.defraimp_importapplication.AppendITAHC.Command">
       <EnableRules>
-        <EnableRule Id="defraimp.defraimp_importapplication.AppendRules.EnableRule" />
+        <EnableRule Id="defraimp.defraimp_importapplication.AppendFromMatch.EnableRule" />
       </EnableRules>
       <DisplayRules />
       <Actions>
         <JavaScriptFunction FunctionName="DefraImports.MatchRecord.onAppendItahc" Library="$webresource:defraimp_/js/matchrecord.subgrid.ribbon.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="defraimp.defraimp_importapplication.CreateImportRecordFromItahc.Command">
+      <EnableRules>
+        <EnableRule Id="defraimp.defraimp_importapplication.CreateFromMatchRules.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="DefraImports.MatchRecord.onCreateImportRecordFromITAHC" Library="$webresource:defraimp_/js/matchrecord.subgrid.ribbon.js">
           <CrmParameter Value="PrimaryControl" />
         </JavaScriptFunction>
       </Actions>
@@ -80,8 +91,12 @@
     <TabDisplayRules />
     <DisplayRules />
     <EnableRules>
-      <EnableRule Id="defraimp.defraimp_importapplication.AppendRules.EnableRule">
+      <EnableRule Id="defraimp.defraimp_importapplication.AppendFromMatch.EnableRule">
         <SelectionCountRule Minimum="1" />
+        <EntityRule EntityName="defraimp_matchrecord" />
+      </EnableRule>
+      <EnableRule Id="defraimp.defraimp_importapplication.CreateFromMatchRules.EnableRule">
+        <SelectionCountRule Maximum="0" />
         <EntityRule EntityName="defraimp_matchrecord" />
       </EnableRule>
       <EnableRule Id="defraimp.defraimp_importapplication.ItahcCommands.EnableRule">
