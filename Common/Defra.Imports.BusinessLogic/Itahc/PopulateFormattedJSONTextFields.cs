@@ -24,15 +24,14 @@ namespace Defra.Imports.BusinessLogic.Itahc
         /// </summary>
         public void FormatIntegrationData()
         {
-            if (this.itahcFromContext.Contains("defraimp_commoditycomplementstext"))
+            if (this.itahcFromContext.Contains("defraimp_commoditycomplementstext") && !string.IsNullOrEmpty(itahcFromContext.defraimp_CommodityComplementsText))
             {
-                var commodityComplemets = ProcessCommodityComplementJson(this.itahcFromContext.defraimp_CommodityComplementsText);
-                this.itahcFromContext.defraimp_FormattedCommodityComplementsText = commodityComplemets;
+                ProcessCommodityComplementJson(this.itahcFromContext.defraimp_CommodityComplementsText);
             }
-            else if (this.itahcFromContext.Contains("defraimp_identificationofanimalstext"))
+
+            if (this.itahcFromContext.Contains("defraimp_identificationofanimalstext") && !string.IsNullOrEmpty(itahcFromContext.defraimp_IdentificationOfAnimalsText))
             {
-                var identificationParameterSet = ProcessIdentificationParameterSetJson(this.itahcFromContext.defraimp_IdentificationOfAnimalsText);
-                this.itahcFromContext.defraimp_formattedIdentificationOfAnimalsText = identificationParameterSet;
+                ProcessIdentificationParameterSetJson(this.itahcFromContext.defraimp_IdentificationOfAnimalsText);
             }
         }
 
@@ -66,9 +65,15 @@ namespace Defra.Imports.BusinessLogic.Itahc
                             + System.Environment.NewLine
                             + "SpeciesModel: " + serializedObject.CommodityComplement.SpeciesModel + System.Environment.NewLine
                             + System.Environment.NewLine
-                            + "Species: " + System.Environment.NewLine
+                            + "Species:" + System.Environment.NewLine
                             + "SpeciesID: " + serializedObject.CommodityComplement.Species.SpeciesID + System.Environment.NewLine
                             + "SpeciesNomination: " + serializedObject.CommodityComplement.Species.SpeciesNomination;
+
+            itahcFromContext.defraimp_FormattedCommodityComplementsText = finalString;
+            itahcFromContext.defraimp_CommodityCode = serializedObject.CommodityComplement.CommodityCode;
+            itahcFromContext.defraimp_SpeciesId = serializedObject.CommodityComplement.Species.SpeciesID;
+            itahcFromContext.defraimp_SpeciesNomination = serializedObject.CommodityComplement.Species.SpeciesNomination;
+            itahcFromContext.defraimp_ComplementId = serializedObject.CommodityComplement.ComplementID;
 
             return finalString;
         }
@@ -90,13 +95,33 @@ namespace Defra.Imports.BusinessLogic.Itahc
             }
 
             var finalString = string.Empty;
+            var commodityIdTypes = string.Empty;
+            var passportNumber = string.Empty;
 
             serializedObject.IdentificationParameterSet.IdentificationParameter.ForEach(x =>
             {
                 finalString += "Key: " + x.Key + System.Environment.NewLine
                              + "Data: " + x.Data + System.Environment.NewLine
                              + System.Environment.NewLine;
+
+                if (x.Key.Trim().Equals("identsystem"))
+                {
+                    commodityIdTypes += x.Data.Trim() + ": ";
+                }
+                else if (x.Key.Trim().Equals("identnumber"))
+                {
+                    commodityIdTypes += x.Data.Trim() + System.Environment.NewLine;
+                }
+
+                if (x.Key.Trim().Equals("passportnumber"))
+                {
+                    passportNumber = x.Data.Trim();
+                }
             });
+
+            itahcFromContext.defraimp_formattedIdentificationOfAnimalsText = finalString;
+            itahcFromContext.defraimp_CommodityIdTypes = commodityIdTypes;
+            itahcFromContext.defraimp_PassportNumber = passportNumber;
 
             return finalString;
         }

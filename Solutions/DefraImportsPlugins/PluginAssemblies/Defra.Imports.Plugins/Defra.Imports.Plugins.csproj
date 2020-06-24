@@ -106,6 +106,7 @@
     <Compile Include="ImportApplication\DetermineInspectionRequirement.cs" />
     <Compile Include="ImportApplication\PrimaryITAHCCountManager.cs" />
     <Compile Include="ImporterNotification\PopulateCountriesOfTransit.cs" />
+    <Compile Include="ImporterNotification\PopulateIdentificationFormatJson.cs" />
     <Compile Include="Itahc\PopulateIntegrationFormattedValues.cs" />
     <Compile Include="Itahc\PopulateReplacesAndReplacedBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
