@@ -1,4 +1,8 @@
 <FieldMappings>
+  <Generic>
+    <FieldMapping mapfrom="defraimp_cphnumber" mapto="defraimp_importercphnumber" />
+    <FieldMapping mapfrom="defraimp_submissiondate" mapto="defraimp_dateiv66received" />
+  </Generic>
   <Consignor>
     <FieldMapping mapfrom="defraimp_consigneeindividualname" mapto="defraimp_importercontactname" />
     <FieldMapping mapfrom="defraimp_consigneecompanyname" mapto="defraimp_importerorganisation" />

@@ -484,18 +484,19 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{35c4e51a-419b-d452-55aa-d8ceb62b48b1}" locklevel="0" showlabel="false" rowspan="6">
+                      <cell id="{0d6ea39d-c2de-a6e2-5cde-9095b25870ca}" showlabel="false" colspan="1" auto="false">
                         <labels>
-                          <label description="Commodity Identifiers" languagecode="1033" />
+                          <label description="Commodities Identifiers" languagecode="1033" />
                         </labels>
-                        <control disabled="false" id="defraimp_commodityidentifiers" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidentifiers" uniqueid="{62ecdde5-6cb0-478c-b052-9159dac6379c}" />
+                        <control id="Commodities_Identifiers" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="defraimp_primaryitahcid" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="defraimp_itahc"&gt;f3440302-d569-4010-9282-9c28a5bf52ac&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
                   </rows>
                 </section>
                 <section id="{56d51c6a-1466-ca84-1467-d3d4aa784060}" name="GeneralComments_Sectiom" locklevel="0" showlabel="true" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" showbar="false">

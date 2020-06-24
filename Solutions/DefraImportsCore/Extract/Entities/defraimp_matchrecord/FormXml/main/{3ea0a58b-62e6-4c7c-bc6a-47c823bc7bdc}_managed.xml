@@ -217,6 +217,50 @@
             </column>
           </columns>
         </tab>
+        <tab name="tab_10" id="{662936ba-a2b6-32a7-42a9-926665552674}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Commodities" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_10_section_1" showlabel="true" showbar="false" locklevel="0" id="{d8b48670-9c03-6902-57a5-405de476e6c5}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Commodities - ITAHC / Importer Notification" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{16cca12e-4a43-9483-c039-390d9b143b86}" showlabel="false" colspan="1" auto="false">
+                        <labels>
+                          <label description="ITAHC Commodities" languagecode="1033" />
+                        </labels>
+                        <control id="ITAHC_Commodities" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="defraimp_itahc" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="defraimp_itahc"&gt;f3440302-d569-4010-9282-9c28a5bf52ac&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{4adec53e-9cea-e90c-4dd9-3ca3387d6d16}" showlabel="false" colspan="1" auto="false">
+                        <labels>
+                          <label description="Importer Notification Commodities" languagecode="1033" />
+                        </labels>
+                        <control id="ImporterNotification_Commodities" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="defraimp_importernotification" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="defraimp_importernotification"&gt;c674aecd-4884-4546-844f-9f4b0177aebf&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
         <tab name="tab_8" id="{72732954-4159-a93d-6581-1e34a9a4ab25}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
           <labels>
             <label description="Related Import Records" languagecode="1033" />

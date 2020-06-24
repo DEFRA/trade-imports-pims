@@ -99,22 +99,6 @@
                         <control id="defraimp_countryoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_countryoforiginid" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{ae639e43-20cc-b263-3c58-eb14ed07ca77}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Formatted Commodity Complements Text" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_formattedcommoditycomplementstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_formattedcommoditycomplementstext" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{9365e0e3-57c6-0a89-5e20-3ee188ec05ba}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Formatted Identification Of Animals Text" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_formattedidentificationofanimalstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_formattedidentificationofanimalstext" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>

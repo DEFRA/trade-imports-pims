@@ -92,6 +92,10 @@ namespace Defra.Imports.BusinessLogic.Utils
         private List<string> GetITAHCNodeValues()
         {
             List<string> fieldsToMap = new List<string>();
+
+            //Parse the required ITAHC fields
+            fieldsToMap.AddRange(ParseMappingConfig("Generic", _mappingXml));
+
             //False is Importer Notification, true is ITAHC
             if (_matchRecord.defraimp_CopyConsignorFrom == true)
             {
@@ -128,6 +132,10 @@ namespace Defra.Imports.BusinessLogic.Utils
         private List<string> GetImporterNotificationNodeValues()
         {
             List<string> fieldsToMap = new List<string>();
+
+            //Parse the required Notification fields
+            fieldsToMap.AddRange(ParseMappingConfig("Generic", _mappingXml));
+
             //False is Importer Notification, true is ITAHC
             if (_matchRecord.defraimp_CopyConsignorFrom == false)
             {

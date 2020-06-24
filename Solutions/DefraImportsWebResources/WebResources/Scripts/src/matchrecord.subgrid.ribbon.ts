@@ -99,6 +99,8 @@ namespace DefraImports.MatchRecord
   }
 
 export function onAppendItahc(primaryControl: Form.defraimp_matchrecord.Main.Information): void {
+  primaryControl.data.save().then(
+    function (success: Xrm.WebApiResponse) {  
     Xrm.Utility.showProgressIndicator("Appending ITAHCs");
     var selectedImportRecords = getSelectedImportRecords(primaryControl);
     var itahc = primaryControl.getAttribute("defraimp_itahc").getValue()[0];
@@ -113,26 +115,36 @@ export function onAppendItahc(primaryControl: Form.defraimp_matchrecord.Main.Inf
 
     executeMultipleRequests(primaryControl, requests)
   }
+  );
+  }
   
   export function onAppendImporterNotification(primaryControl: Form.defraimp_matchrecord.Main.Information): void {
-    Xrm.Utility.showProgressIndicator("Appending Importer Notifications");
-    var selectedImportRecords = getSelectedImportRecords(primaryControl);
-    var importerNotification = primaryControl.getAttribute("defraimp_importernotification").getValue()[0];
-    const matchRecord : Xrm.Lookup = primaryControl.data.entity.getEntityReference();
+    primaryControl.data.save().then(
+      function (success: Xrm.WebApiResponse) { 
+      Xrm.Utility.showProgressIndicator("Appending Importer Notifications");
+      var selectedImportRecords = getSelectedImportRecords(primaryControl);
+      var importerNotification = primaryControl.getAttribute("defraimp_importernotification").getValue()[0];
+      const matchRecord : Xrm.Lookup = primaryControl.data.entity.getEntityReference();
 
-    var requests: Array<AppendImporterNotificationToImportRecordRequest> = [];
+      var requests: Array<AppendImporterNotificationToImportRecordRequest> = [];
 
-    selectedImportRecords.forEach(importRecord => {
-        requests.push(generateAppendImporterNotificationRequest(matchRecord,importerNotification,importRecord));
-        
-    });
+      selectedImportRecords.forEach(importRecord => {
+          requests.push(generateAppendImporterNotificationRequest(matchRecord,importerNotification,importRecord));
+          
+      });
 
-    executeMultipleRequests(primaryControl, requests)
+      executeMultipleRequests(primaryControl, requests)
+    }
+    );
   }
 
   export function onCreateImportRecordFromITAHC(primaryControl: Form.defraimp_matchrecord.Main.Information): void {
-    Xrm.Utility.showProgressIndicator("Creating Import Record");
-    createImportRecordFromItahc(primaryControl);
+    primaryControl.data.save().then(
+      function (success: Xrm.WebApiResponse) { 
+      Xrm.Utility.showProgressIndicator("Creating Import Record");
+      createImportRecordFromItahc(primaryControl);
+      }
+    );
   }
   
   function getSelectedImportRecords(primaryControl: Form.defraimp_matchrecord.Main.Information): Xrm.EntityReference<any>[] {

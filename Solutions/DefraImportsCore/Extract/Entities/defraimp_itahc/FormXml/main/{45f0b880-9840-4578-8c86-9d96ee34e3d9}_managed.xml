@@ -88,7 +88,7 @@
                         <labels>
                           <label description="Related Import Record" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_relatedimportrecord" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_relatedimportrecord" disabled="false" />
+                        <control id="defraimp_relatedimportrecord" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_relatedimportrecord" disabled="false" uniqueid="{4a6b72a5-5aea-0842-c2e9-199e9125a1c6}" />
                       </cell>
                     </row>
                   </rows>
@@ -207,6 +207,30 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{bc038ec7-64c9-2137-e2a9-8a7a05704316}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Complement Id" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_complementid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_complementid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c04e8178-d81c-037b-e7c6-a760446ad272}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Id Types" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commodityidtypes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidtypes" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b6b23c17-966d-ec1c-a172-d1d23490a5d2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Passport Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_passportnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_passportnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{a399dcca-fb81-48af-8ac5-7b92ae7c5ff6}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Species ID" languagecode="1033" />
@@ -222,6 +246,14 @@
                         <control id="defraimp_commoditytype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytype" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{88035405-8be4-45a4-eee4-d01c3379b048}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Species Nomination" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_speciesnomination" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_speciesnomination" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -234,14 +266,6 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{16c65312-2295-bd31-5c5e-7aa8ed4de0ed}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Commodity Complements Text" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_commoditycomplementstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commoditycomplementstext" disabled="false" uniqueid="{d931b190-7d11-6594-4a2a-3734737a6330}" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{d4e316c7-5a18-18cb-e4dc-1ea688b058ad}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
                           <label description="Formatted Commodity Complements Text" languagecode="1033" />
@@ -253,21 +277,6 @@
                     <row />
                     <row />
                     <row />
-                    <row>
-                      <cell id="{aa07a7c6-341c-904d-23c7-b191a354ee6b}" showlabel="false" userspacer="true">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{c235d056-e2a7-237a-68cc-dc2cd60a7231}" showlabel="true" locklevel="0" auto="false">
-                        <labels>
-                          <label description="Identification Of Animals Text" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_identificationofanimalstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_identificationofanimalstext" disabled="false" uniqueid="{a25a2e63-bc16-4eed-86bb-b90d82ee6a7c}" />
-                      </cell>
-                    </row>
                     <row>
                       <cell id="{85814dc3-d3b7-790a-23bc-34a50ba422de}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
@@ -286,7 +295,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="tab_4" id="{438e5ecd-c22a-2071-9a1a-b1986b8a3088}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <tab name="tab_4" id="{438e5ecd-c22a-2071-9a1a-b1986b8a3088}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
           <labels>
             <label description="Consignor " languagecode="1033" />
           </labels>
@@ -387,7 +396,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="tab_3" id="{2cbca4ea-cb4d-e292-beee-e141157ce13d}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <tab name="tab_3" id="{2cbca4ea-cb4d-e292-beee-e141157ce13d}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
           <labels>
             <label description="Consignee" languagecode="1033" />
           </labels>
@@ -488,7 +497,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="tab_5" id="{012ae4e6-ae13-3324-3c50-8d231c016ead}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <tab name="tab_5" id="{012ae4e6-ae13-3324-3c50-8d231c016ead}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
           <labels>
             <label description="Place of Origin Harvest" languagecode="1033" />
           </labels>
@@ -598,7 +607,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="tab_7" id="{55b2ed64-9c85-d6e6-0179-2ac38d79e9bb}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <tab name="tab_7" id="{55b2ed64-9c85-d6e6-0179-2ac38d79e9bb}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
           <labels>
             <label description="Place of Destination" languagecode="1033" />
           </labels>
@@ -716,7 +725,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="tab_8" id="{3d9d50dc-2a86-631c-9146-b8841a44cb7b}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <tab name="tab_8" id="{3d9d50dc-2a86-631c-9146-b8841a44cb7b}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
           <labels>
             <label description="Place of Loading" languagecode="1033" />
           </labels>
@@ -826,7 +835,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="tab_9" id="{03b29b5b-3790-2913-4271-74bb451dd4c7}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <tab name="tab_9" id="{03b29b5b-3790-2913-4271-74bb451dd4c7}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
           <labels>
             <label description="Transporter" languagecode="1033" />
           </labels>
@@ -927,7 +936,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="tab_10" id="{7490e723-020d-a20e-566e-6cecdea06331}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <tab name="tab_10" id="{7490e723-020d-a20e-566e-6cecdea06331}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
           <labels>
             <label description="Official Veterinarian" languagecode="1033" />
           </labels>
@@ -1028,7 +1037,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="tab_11" id="{692ce0d0-2393-6bbd-7cbe-8d031163c7c6}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <tab name="tab_11" id="{692ce0d0-2393-6bbd-7cbe-8d031163c7c6}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
           <labels>
             <label description="Declaration" languagecode="1033" />
           </labels>
@@ -1094,7 +1103,7 @@
             </column>
           </columns>
         </tab>
-        <tab id="{833bee03-aa2a-c324-4e8c-17bc7e2d3aae}" name="tab_2" IsUserDefined="0" locklevel="0" expanded="true" showlabel="true" visible="false">
+        <tab id="{833bee03-aa2a-c324-4e8c-17bc7e2d3aae}" name="tab_2" IsUserDefined="0" locklevel="0" expanded="false" showlabel="true" visible="false">
           <labels>
             <label description="Files and Attachments" languagecode="1033" />
           </labels>
@@ -1168,6 +1177,40 @@
             </column>
           </columns>
         </tab>
+        <tab name="tab_12" id="{b60c6ca8-6964-5edb-4c0b-69b25e0c99ce}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+          <labels>
+            <label description="Hidden Information" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_12_section_3" showlabel="false" showbar="false" locklevel="0" id="{9b47c320-2a6b-b247-137c-5766631b9513}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{16c65312-2295-bd31-5c5e-7aa8ed4de0ed}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Complements Text" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditycomplementstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commoditycomplementstext" disabled="false" uniqueid="{d931b190-7d11-6594-4a2a-3734737a6330}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c235d056-e2a7-237a-68cc-dc2cd60a7231}" showlabel="true" locklevel="0" auto="false">
+                        <labels>
+                          <label description="Identification Of Animals Text" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_identificationofanimalstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_identificationofanimalstext" disabled="false" uniqueid="{a25a2e63-bc16-4eed-86bb-b90d82ee6a7c}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
       </tabs>
       <header id="{b305d148-1d1c-47a6-a451-0cb3571b1e2c}" columns="111">
         <rows>
@@ -1199,7 +1242,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

@@ -85,32 +85,38 @@ var DefraImports;
             return CreateImportRecordFromITAHCRequest;
         }());
         function onAppendItahc(primaryControl) {
-            Xrm.Utility.showProgressIndicator("Appending ITAHCs");
-            var selectedImportRecords = getSelectedImportRecords(primaryControl);
-            var itahc = primaryControl.getAttribute("defraimp_itahc").getValue()[0];
-            var matchRecord = primaryControl.data.entity.getEntityReference();
-            var requests = [];
-            selectedImportRecords.forEach(function (importRecord) {
-                requests.push(generateAppendItahcRequest(matchRecord, itahc, importRecord));
+            primaryControl.data.save().then(function (success) {
+                Xrm.Utility.showProgressIndicator("Appending ITAHCs");
+                var selectedImportRecords = getSelectedImportRecords(primaryControl);
+                var itahc = primaryControl.getAttribute("defraimp_itahc").getValue()[0];
+                var matchRecord = primaryControl.data.entity.getEntityReference();
+                var requests = [];
+                selectedImportRecords.forEach(function (importRecord) {
+                    requests.push(generateAppendItahcRequest(matchRecord, itahc, importRecord));
+                });
+                executeMultipleRequests(primaryControl, requests);
             });
-            executeMultipleRequests(primaryControl, requests);
         }
         MatchRecord.onAppendItahc = onAppendItahc;
         function onAppendImporterNotification(primaryControl) {
-            Xrm.Utility.showProgressIndicator("Appending Importer Notifications");
-            var selectedImportRecords = getSelectedImportRecords(primaryControl);
-            var importerNotification = primaryControl.getAttribute("defraimp_importernotification").getValue()[0];
-            var matchRecord = primaryControl.data.entity.getEntityReference();
-            var requests = [];
-            selectedImportRecords.forEach(function (importRecord) {
-                requests.push(generateAppendImporterNotificationRequest(matchRecord, importerNotification, importRecord));
+            primaryControl.data.save().then(function (success) {
+                Xrm.Utility.showProgressIndicator("Appending Importer Notifications");
+                var selectedImportRecords = getSelectedImportRecords(primaryControl);
+                var importerNotification = primaryControl.getAttribute("defraimp_importernotification").getValue()[0];
+                var matchRecord = primaryControl.data.entity.getEntityReference();
+                var requests = [];
+                selectedImportRecords.forEach(function (importRecord) {
+                    requests.push(generateAppendImporterNotificationRequest(matchRecord, importerNotification, importRecord));
+                });
+                executeMultipleRequests(primaryControl, requests);
             });
-            executeMultipleRequests(primaryControl, requests);
         }
         MatchRecord.onAppendImporterNotification = onAppendImporterNotification;
         function onCreateImportRecordFromITAHC(primaryControl) {
-            Xrm.Utility.showProgressIndicator("Creating Import Record");
-            createImportRecordFromItahc(primaryControl);
+            primaryControl.data.save().then(function (success) {
+                Xrm.Utility.showProgressIndicator("Creating Import Record");
+                createImportRecordFromItahc(primaryControl);
+            });
         }
         MatchRecord.onCreateImportRecordFromITAHC = onCreateImportRecordFromITAHC;
         function getSelectedImportRecords(primaryControl) {
