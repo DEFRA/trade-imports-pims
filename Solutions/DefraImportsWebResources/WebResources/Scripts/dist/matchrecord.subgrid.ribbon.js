@@ -60,30 +60,65 @@ var DefraImports;
             };
             return AppendImporterNotificationToImportRecordRequest;
         }());
+        var CreateImportRecordFromITAHCRequest = /** @class */ (function () {
+            function CreateImportRecordFromITAHCRequest(matchRecord, itahcRecord) {
+                this.entity = matchRecord;
+                this.itahc = itahcRecord;
+            }
+            CreateImportRecordFromITAHCRequest.prototype.getMetadata = function () {
+                return {
+                    boundParameter: "entity",
+                    operationType: 0,
+                    operationName: "defraimp_MatchRecordCreateImportRecordfromITAHC",
+                    parameterTypes: {
+                        entity: {
+                            typeName: "mscrm.defraimp_matchrecord",
+                            structuralProperty: 5
+                        },
+                        itahc: {
+                            typeName: "mscrm.defraimp_itahc",
+                            structuralProperty: 5
+                        },
+                    }
+                };
+            };
+            return CreateImportRecordFromITAHCRequest;
+        }());
         function onAppendItahc(primaryControl) {
-            Xrm.Utility.showProgressIndicator("Appending ITAHCs");
-            var selectedImportRecords = getSelectedImportRecords(primaryControl);
-            var itahc = primaryControl.getAttribute("defraimp_itahc").getValue()[0];
-            var matchRecord = primaryControl.data.entity.getEntityReference();
-            var requests = [];
-            selectedImportRecords.forEach(function (importRecord) {
-                requests.push(generateAppendItahcRequest(matchRecord, itahc, importRecord));
+            primaryControl.data.save().then(function (success) {
+                Xrm.Utility.showProgressIndicator("Appending ITAHCs");
+                var selectedImportRecords = getSelectedImportRecords(primaryControl);
+                var itahc = primaryControl.getAttribute("defraimp_itahc").getValue()[0];
+                var matchRecord = primaryControl.data.entity.getEntityReference();
+                var requests = [];
+                selectedImportRecords.forEach(function (importRecord) {
+                    requests.push(generateAppendItahcRequest(matchRecord, itahc, importRecord));
+                });
+                executeMultipleRequests(primaryControl, requests);
             });
-            executeMultipleRequests(primaryControl, requests);
         }
         MatchRecord.onAppendItahc = onAppendItahc;
         function onAppendImporterNotification(primaryControl) {
-            Xrm.Utility.showProgressIndicator("Appending Importer Notifications");
-            var selectedImportRecords = getSelectedImportRecords(primaryControl);
-            var importerNotification = primaryControl.getAttribute("defraimp_importernotification").getValue()[0];
-            var matchRecord = primaryControl.data.entity.getEntityReference();
-            var requests = [];
-            selectedImportRecords.forEach(function (importRecord) {
-                requests.push(generateAppendImporterNotificationRequest(matchRecord, importerNotification, importRecord));
+            primaryControl.data.save().then(function (success) {
+                Xrm.Utility.showProgressIndicator("Appending Importer Notifications");
+                var selectedImportRecords = getSelectedImportRecords(primaryControl);
+                var importerNotification = primaryControl.getAttribute("defraimp_importernotification").getValue()[0];
+                var matchRecord = primaryControl.data.entity.getEntityReference();
+                var requests = [];
+                selectedImportRecords.forEach(function (importRecord) {
+                    requests.push(generateAppendImporterNotificationRequest(matchRecord, importerNotification, importRecord));
+                });
+                executeMultipleRequests(primaryControl, requests);
             });
-            executeMultipleRequests(primaryControl, requests);
         }
         MatchRecord.onAppendImporterNotification = onAppendImporterNotification;
+        function onCreateImportRecordFromITAHC(primaryControl) {
+            primaryControl.data.save().then(function (success) {
+                Xrm.Utility.showProgressIndicator("Creating Import Record");
+                createImportRecordFromItahc(primaryControl);
+            });
+        }
+        MatchRecord.onCreateImportRecordFromITAHC = onCreateImportRecordFromITAHC;
         function getSelectedImportRecords(primaryControl) {
             var selectedRows = primaryControl.getControl("RelatedImportRecords").getGrid().getSelectedRows();
             var selectedImportRecords = [];
@@ -97,6 +132,16 @@ var DefraImports;
         }
         function generateAppendImporterNotificationRequest(matchRecord, importerNotification, importRecord) {
             return new AppendImporterNotificationToImportRecordRequest(matchRecord, importRecord, importerNotification);
+        }
+        function createImportRecordFromItahc(primaryControl) {
+            var itahc = primaryControl.getAttribute("defraimp_itahc").getValue()[0];
+            var matchRecord = primaryControl.data.entity.getEntityReference();
+            var request = new CreateImportRecordFromITAHCRequest(matchRecord, itahc);
+            Xrm.WebApi.online
+                .execute(request)
+                .then(function (success) {
+                executeSuccess(primaryControl);
+            }, executeErrorCallback);
         }
         function executeMultipleRequests(primaryControl, requests) {
             Xrm.WebApi.online
