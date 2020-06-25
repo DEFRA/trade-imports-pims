@@ -55,22 +55,22 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
 
             serializedObject.ForEach(x =>
             {
-                finalString += "CommodityID: " + x.commodityID + System.Environment.NewLine
-                             + "Commodity Description: " + x.commodityDescription + System.Environment.NewLine
-                             + "Complement ID: " + x.complementID.ToString() + System.Environment.NewLine
-                             + "Complement Name: " + x.complementName + System.Environment.NewLine
-                             + "SpeciesID: " + x.speciesID + System.Environment.NewLine
-                             + "Species Name: " + x.speciesName + System.Environment.NewLine
-                             + "Species Type: " + x.speciesType + System.Environment.NewLine
-                             + "Species Class Name: " + x.speciesClassName + System.Environment.NewLine
-                             + "Species Class: " + x.speciesClass + System.Environment.NewLine
-                             + "Species Nomination: " + x.speciesNomination + System.Environment.NewLine
-                             + "Species Common Name: " + x.speciesCommonName + System.Environment.NewLine
+                finalString += "CommodityID: " + (x.commodityID ?? string.Empty) + System.Environment.NewLine
+                             + "Commodity Description: " + (x.commodityDescription ?? string.Empty) + System.Environment.NewLine
+                             + "Complement ID: " + (x.complementID.ToString() ?? string.Empty) + System.Environment.NewLine
+                             + "Complement Name: " + (x.complementName ?? string.Empty) + System.Environment.NewLine
+                             + "SpeciesID: " + (x.speciesID ?? string.Empty) + System.Environment.NewLine
+                             + "Species Name: " + (x.speciesName ?? string.Empty) + System.Environment.NewLine
+                             + "Species Type: " + (x.speciesType ?? string.Empty) + System.Environment.NewLine
+                             + "Species Class Name: " + (x.speciesClassName ?? string.Empty) + System.Environment.NewLine
+                             + "Species Class: " + (x.speciesClass ?? string.Empty) + System.Environment.NewLine
+                             + "Species Nomination: " + (x.speciesNomination ?? string.Empty) + System.Environment.NewLine
+                             + "Species Common Name: " + (x.speciesCommonName ?? string.Empty) + System.Environment.NewLine
                              + System.Environment.NewLine + "-------------" + System.Environment.NewLine;
             });
 
             notificationFromContext.defraimp_FormattedCommodityComplementsText = finalString;
-            notificationFromContext.defraimp_CommoditySpeciesName = serializedObject.FirstOrDefault().speciesName;
+            notificationFromContext.defraimp_CommoditySpeciesName = serializedObject.FirstOrDefault().speciesName ?? string.Empty;
 
             return finalString;
         }
@@ -96,8 +96,8 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
 
             serializedObject.ForEach(x =>
             {
-                finalString += "ComplementID: " + x.complementID.ToString() + System.Environment.NewLine
-                             + "SpeciesID: " + x.speciesID + System.Environment.NewLine
+                finalString += "ComplementID: " + (x.complementID.ToString() ?? string.Empty) + System.Environment.NewLine
+                             + "SpeciesID: " + (x.speciesID ?? string.Empty) + System.Environment.NewLine
                              + System.Environment.NewLine;
 
                 x.keyDataPair.ForEach(y =>
@@ -109,11 +109,11 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                 finalString += "Identifiers:" + System.Environment.NewLine;
                 x.identifiers.ForEach(z =>
                 {
-                    commodityIdTypes = "SpeciesNumber: " + z.speciesNumber
-                                 + "; Microchip: " + z.data.microchip
-                                 + "; Passport: " + z.data.passport
-                                 + "; leg_ring: " + z.data.leg_ring
-                                 + "; tattoo: " + z.data.tattoo + System.Environment.NewLine
+                    commodityIdTypes = "SpeciesNumber: " + (z.speciesNumber ?? string.Empty)
+                                 + "; Microchip: " + (z.data.microchip ?? string.Empty)
+                                 + "; Passport: " + (z.data.passport ?? string.Empty)
+                                 + "; leg_ring: " + (z.data.leg_ring ?? string.Empty)
+                                 + "; tattoo: " + (z.data.tattoo ?? string.Empty) + System.Environment.NewLine
                                  + System.Environment.NewLine;
 
                     finalString += commodityIdTypes;
@@ -124,8 +124,8 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
             });
 
             notificationFromContext.defraimp_FormattedIdentificationofAnimalsText = finalString;
-            notificationFromContext.defraimp_CommodityId = serializedObject.FirstOrDefault().complementID.ToString();
-            notificationFromContext.defraimp_CommoditySpeciesId = serializedObject.FirstOrDefault().speciesID;
+            notificationFromContext.defraimp_CommodityId = serializedObject.FirstOrDefault()?.complementID.ToString() ?? string.Empty;
+            notificationFromContext.defraimp_CommoditySpeciesId = serializedObject.FirstOrDefault()?.speciesID ?? string.Empty;
             notificationFromContext.defraimp_CommodityIDTypes = commodityIdTypes;
 
             return finalString;

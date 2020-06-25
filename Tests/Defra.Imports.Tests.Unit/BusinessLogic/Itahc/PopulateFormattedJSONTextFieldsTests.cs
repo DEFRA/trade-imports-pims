@@ -48,5 +48,29 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             Assert.NotNull(itahcFromContext.defraimp_formattedIdentificationOfAnimalsText);
             Assert.Equal(identificationParameter, itahcFromContext.defraimp_formattedIdentificationOfAnimalsText);
         }
+
+        [Fact]
+        public void ValidateParameterSetIfList()
+        {
+            var identificationParameter = "Key: official_ident" + Environment.NewLine
+                                        + "Data: 2344" + Environment.NewLine
+                                        + Environment.NewLine
+                                        + "Key: age" + Environment.NewLine
+                                        + "Data: 2" + Environment.NewLine
+                                        + Environment.NewLine
+                                        + "----------" + Environment.NewLine
+                                        + Environment.NewLine;
+
+            var itahcFromContext = new defraimp_itahc()
+            {
+                defraimp_IdentificationOfAnimalsText = @"{'IdentificationParameterSet':[{'IdentificationParameter':[{'Key':'official_ident','Data':'2344'},{'Key':'age','Data':'2'}]}]}"
+            };
+
+            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahcFromContext);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            Assert.NotNull(itahcFromContext.defraimp_formattedIdentificationOfAnimalsText);
+            Assert.Equal(identificationParameter, itahcFromContext.defraimp_formattedIdentificationOfAnimalsText);
+        }
     }
 }

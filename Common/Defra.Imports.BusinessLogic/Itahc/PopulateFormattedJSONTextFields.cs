@@ -1,6 +1,7 @@
 ﻿using Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects;
 using Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects.IdentificationParameterSetObjects;
 using Defra.Imports.Model;
+using Microsoft.Xrm.Sdk;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -57,29 +58,33 @@ namespace Defra.Imports.BusinessLogic.Itahc
                 serializedObject = (CommodityComplementObject)serializer.ReadObject(DeserializeMemoryStream);
             }
 
-            var finalString = "CommodityCode: " + serializedObject.CommodityComplement.CommodityCode + System.Environment.NewLine
+            var finalString = "CommodityCode: " + (serializedObject.CommodityComplement.CommodityCode ?? string.Empty) + System.Environment.NewLine
                             + System.Environment.NewLine
-                            + "ComplementID: " + serializedObject.CommodityComplement.ComplementID + System.Environment.NewLine
+                            + "ComplementID: " + (serializedObject.CommodityComplement.ComplementID ?? string.Empty) + System.Environment.NewLine
                             + System.Environment.NewLine
-                            + "SpeciesType: " + serializedObject.CommodityComplement.SpeciesType + System.Environment.NewLine
+                            + "SpeciesType: " + (serializedObject.CommodityComplement.SpeciesType ?? string.Empty) + System.Environment.NewLine
                             + System.Environment.NewLine
-                            + "SpeciesModel: " + serializedObject.CommodityComplement.SpeciesModel + System.Environment.NewLine
+                            + "SpeciesModel: " + (serializedObject.CommodityComplement.SpeciesModel ?? string.Empty) + System.Environment.NewLine
                             + System.Environment.NewLine
                             + "Species:" + System.Environment.NewLine
-                            + "SpeciesID: " + serializedObject.CommodityComplement.Species.SpeciesID + System.Environment.NewLine
-                            + "SpeciesNomination: " + serializedObject.CommodityComplement.Species.SpeciesNomination;
+                            + "SpeciesID: " + (serializedObject.CommodityComplement.Species?.SpeciesID ?? string.Empty) + System.Environment.NewLine
+                            + "SpeciesNomination: " + (serializedObject.CommodityComplement.Species?.SpeciesNomination ?? string.Empty);
 
             itahcFromContext.defraimp_FormattedCommodityComplementsText = finalString;
-            itahcFromContext.defraimp_CommodityCode = serializedObject.CommodityComplement.CommodityCode;
-            itahcFromContext.defraimp_SpeciesId = serializedObject.CommodityComplement.Species.SpeciesID;
-            itahcFromContext.defraimp_SpeciesNomination = serializedObject.CommodityComplement.Species.SpeciesNomination;
-            itahcFromContext.defraimp_ComplementId = serializedObject.CommodityComplement.ComplementID;
+            itahcFromContext.defraimp_CommodityCode = serializedObject.CommodityComplement.CommodityCode ?? string.Empty;
+            itahcFromContext.defraimp_SpeciesId = serializedObject.CommodityComplement.Species?.SpeciesID ?? string.Empty;
+            itahcFromContext.defraimp_SpeciesNomination = serializedObject.CommodityComplement.Species?.SpeciesNomination ?? string.Empty;
+            itahcFromContext.defraimp_ComplementId = serializedObject.CommodityComplement.ComplementID ?? string.Empty;
 
             return finalString;
         }
 
         private string ProcessIdentificationParameterSetJson(string json)
         {
+            var finalString = string.Empty;
+            var commodityIdTypes = string.Empty;
+            var passportNumber = string.Empty;
+            
             var serializedObject = new IdentificationParameterSetObject();
 
             using (MemoryStream DeserializeMemoryStream = new MemoryStream())
@@ -94,30 +99,78 @@ namespace Defra.Imports.BusinessLogic.Itahc
                 serializedObject = (IdentificationParameterSetObject)serializer.ReadObject(DeserializeMemoryStream);
             }
 
-            var finalString = string.Empty;
-            var commodityIdTypes = string.Empty;
-            var passportNumber = string.Empty;
-
-            serializedObject.IdentificationParameterSet.IdentificationParameter.ForEach(x =>
+            if(serializedObject.IdentificationParameterSet.IdentificationParameter != null)
             {
-                finalString += "Key: " + x.Key + System.Environment.NewLine
-                             + "Data: " + x.Data + System.Environment.NewLine
-                             + System.Environment.NewLine;
+                serializedObject.IdentificationParameterSet.IdentificationParameter.ForEach(x =>
+                {
+                    finalString += "Key: " + x.Key + System.Environment.NewLine
+                                    + "Data: " + x.Data + System.Environment.NewLine
+                                    + System.Environment.NewLine;
 
-                if (x.Key.Trim().Equals("identsystem"))
+                    if (x.Key.Trim().Equals("identsystem"))
+                    {
+                        commodityIdTypes += x.Data.Trim() + ": ";
+                    }
+                    else if (x.Key.Trim().Equals("identnumber"))
+                    {
+                        commodityIdTypes += x.Data.Trim() + System.Environment.NewLine;
+                    }
+
+                    if (x.Key.Trim().Equals("passportnumber"))
+                    {
+                        passportNumber = x.Data.Trim();
+                    }
+                });
+            }
+            else
+            {
+                var serializedList = new IdentificationParameterSetList();
+
+                using (MemoryStream DeserializeMemoryStream = new MemoryStream())
                 {
-                    commodityIdTypes += x.Data.Trim() + ": ";
-                }
-                else if (x.Key.Trim().Equals("identnumber"))
-                {
-                    commodityIdTypes += x.Data.Trim() + System.Environment.NewLine;
+                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(IdentificationParameterSetList));
+
+                    StreamWriter writer = new StreamWriter(DeserializeMemoryStream);
+                    writer.Write(json.Replace("'", "\""));
+                    writer.Flush();
+
+                    DeserializeMemoryStream.Position = 0;
+                    serializedList = (IdentificationParameterSetList)serializer.ReadObject(DeserializeMemoryStream);
                 }
 
-                if (x.Key.Trim().Equals("passportnumber"))
+                serializedList.IdentificationParameterSet.ForEach(x =>
                 {
-                    passportNumber = x.Data.Trim();
-                }
-            });
+                    x.IdentificationParameter.ForEach(y =>
+                    {
+                        finalString += "Key: " + y.Key + System.Environment.NewLine
+                                 + "Data: " + y.Data + System.Environment.NewLine
+                                 + System.Environment.NewLine;
+
+                        if (y.Key.Trim().Equals("identsystem"))
+                        {
+                            commodityIdTypes += y.Data.Trim() + ": ";
+                        }
+                        else if (y.Key.Trim().Equals("identnumber"))
+                        {
+                            commodityIdTypes += y.Data.Trim() + System.Environment.NewLine;
+                        }
+
+                        if (y.Key.Trim().Equals("passportnumber"))
+                        {
+                            passportNumber = y.Data.Trim();
+                        }
+                    });
+
+                    finalString += "----------" + Environment.NewLine
+                                 + Environment.NewLine;
+
+                    commodityIdTypes += "----------" + Environment.NewLine
+                                 + Environment.NewLine;
+
+                    passportNumber += "----------" + Environment.NewLine
+                                 + Environment.NewLine;
+                });
+            }
 
             itahcFromContext.defraimp_formattedIdentificationOfAnimalsText = finalString;
             itahcFromContext.defraimp_CommodityIdTypes = commodityIdTypes;

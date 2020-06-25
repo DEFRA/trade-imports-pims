@@ -51,6 +51,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\JsonFormatterClassObjects\CommodityComplementObjects\Species.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\JsonFormatterClassObjects\IdentificationParameterSetObjects\IdentificationParameter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\JsonFormatterClassObjects\IdentificationParameterSetObjects\IdentificationParameterSet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Itahc\JsonFormatterClassObjects\IdentificationParameterSetObjects\IdentificationParameterSetList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\JsonFormatterClassObjects\IdentificationParameterSetObjects\IdentificationParameterSetObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\PopulateFormattedJSONTextFields.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\PopulateReplacesAndReplacedByBusinessLogic.cs" />
