@@ -60,6 +60,11 @@
       <FriendlyName>Find potentially related Import Records for Match Record</FriendlyName>
       <WorkflowActivityGroupName>Defra.Imports.Workflows.MatchRecord</WorkflowActivityGroupName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.Utils.AssociateImportRecordToMatchRecord, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="9c369c26-eab6-ea11-a812-000d3ad82cac" Name="AssociateImportRecordToMatchRecord">
+      <Description>Associates an Import Record to a Match Record</Description>
+      <FriendlyName>Associate Import Record to Match Record</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Utils</WorkflowActivityGroupName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.Utils.CountRecordsByFetchXml, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="7003e50e-9d04-ea11-a811-000d3ab35da5" Name="CountRecordsByFetchXml">
       <Description>Counts records using a FetchXML query</Description>
       <FriendlyName>Counts records by FetchXML</FriendlyName>
