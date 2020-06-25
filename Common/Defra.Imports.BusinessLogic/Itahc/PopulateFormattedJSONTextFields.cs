@@ -118,7 +118,7 @@ namespace Defra.Imports.BusinessLogic.Itahc
 
                     if (x.Key.Trim().Equals("passportnumber"))
                     {
-                        passportNumber = x.Data.Trim();
+                        passportNumber += x.Data.Trim() + Environment.NewLine;
                     }
                 });
             }
@@ -157,7 +157,7 @@ namespace Defra.Imports.BusinessLogic.Itahc
 
                         if (y.Key.Trim().Equals("passportnumber"))
                         {
-                            passportNumber = y.Data.Trim();
+                            passportNumber += y.Data.Trim() + Environment.NewLine;
                         }
                     });
 
