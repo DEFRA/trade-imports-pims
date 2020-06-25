@@ -887,16 +887,17 @@
                       <mxswa:CreateEntity EntityId="{x:Null}" DisplayName="CreateStep9: Create the Import Record" Entity="[CreatedEntities(&quot;CreateStep9_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" />
                       <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;CreateStep9_localParameter&quot;)]" Value="[CreatedEntities(&quot;CreateStep9_localParameter#Temp&quot;)]" />
                     </Sequence>
-                    <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="CustomActivityStep11: Associate the Import Record to the Match Record">
+                    <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="CustomActivityStep16">
                       <mxswa:ActivityReference.Properties>
                         <sco:Collection x:TypeArguments="Variable" x:Key="Variables">
-                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep11_1" />
-                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep11_1_converted" />
-                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep11_2" />
-                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep11_2_converted" />
-                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep11_3" />
-                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep11_4" />
-                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep11_3_converted" />
+                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep16_1" />
+                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep16_1_converted" />
+                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep16_2" />
+                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep16_3" />
+                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep16_2_converted" />
+                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep16_4" />
+                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep16_5" />
+                          <Variable x:TypeArguments="x:Object" Name="CustomActivityStep16_4_converted" />
                         </sco:Collection>
                         <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
                           <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
@@ -906,68 +907,75 @@
                               <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                                 <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                               </InArgument>
-                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep11_1]</OutArgument>
+                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep16_1]</OutArgument>
                             </mxswa:ActivityReference.Arguments>
                           </mxswa:ActivityReference>
                           <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConvertCrmXrmTypes, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConvertCrmXrmTypes">
                             <mxswa:ActivityReference.Arguments>
-                              <InArgument x:TypeArguments="x:Object" x:Key="Value">[CustomActivityStep11_1]</InArgument>
+                              <InArgument x:TypeArguments="x:Object" x:Key="Value">[CustomActivityStep16_1]</InArgument>
                               <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                                 <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                               </InArgument>
-                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep11_1_converted]</OutArgument>
+                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep16_1_converted]</OutArgument>
                             </mxswa:ActivityReference.Arguments>
                           </mxswa:ActivityReference>
-                          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
-                            <mxswa:ActivityReference.Arguments>
-                              <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
-                              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.String, "defraimp_potentiallyrelatedimportrecords", "String" }]</InArgument>
-                              <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
-                              </InArgument>
-                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep11_2]</OutArgument>
-                            </mxswa:ActivityReference.Arguments>
-                          </mxswa:ActivityReference>
-                          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConvertCrmXrmTypes, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConvertCrmXrmTypes">
-                            <mxswa:ActivityReference.Arguments>
-                              <InArgument x:TypeArguments="x:Object" x:Key="Value">[CustomActivityStep11_2]</InArgument>
-                              <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
-                              </InArgument>
-                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep11_2_converted]</OutArgument>
-                            </mxswa:ActivityReference.Arguments>
-                          </mxswa:ActivityReference>
-                          <mxswa:GetEntityProperty Attribute="!Process_Custom_Attribute_URL_" Entity="[CreatedEntities(&quot;CreateStep9_localParameter&quot;)]" EntityName="defraimp_importapplication" Value="[CustomActivityStep11_4]">
+                          <mxswa:GetEntityProperty Attribute="defraimp_matchrecordid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_matchrecord" Value="[CustomActivityStep16_3]">
                             <mxswa:GetEntityProperty.TargetType>
                               <InArgument x:TypeArguments="s:Type">
-                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                               </InArgument>
                             </mxswa:GetEntityProperty.TargetType>
                           </mxswa:GetEntityProperty>
                           <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
                             <mxswa:ActivityReference.Arguments>
                               <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
-                              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CustomActivityStep11_4 }]</InArgument>
+                              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CustomActivityStep16_3 }]</InArgument>
                               <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                               </InArgument>
-                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep11_3]</OutArgument>
+                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep16_2]</OutArgument>
                             </mxswa:ActivityReference.Arguments>
                           </mxswa:ActivityReference>
                           <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConvertCrmXrmTypes, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConvertCrmXrmTypes">
                             <mxswa:ActivityReference.Arguments>
-                              <InArgument x:TypeArguments="x:Object" x:Key="Value">[CustomActivityStep11_3]</InArgument>
+                              <InArgument x:TypeArguments="x:Object" x:Key="Value">[CustomActivityStep16_2]</InArgument>
                               <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                               </InArgument>
-                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep11_3_converted]</OutArgument>
+                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep16_2_converted]</OutArgument>
                             </mxswa:ActivityReference.Arguments>
                           </mxswa:ActivityReference>
-                          <mxswa:ActivityReference AssemblyQualifiedName="msdyncrmWorkflowTools.AssociateEntity, msdyncrmWorkflowTools, Version=1.0.52.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" DisplayName="CustomActivityStep11: Associate the Import Record to the Match Record">
+                          <mxswa:GetEntityProperty Attribute="defraimp_importapplicationid" Entity="[CreatedEntities(&quot;CreateStep9_localParameter&quot;)]" EntityName="defraimp_importapplication" Value="[CustomActivityStep16_5]">
+                            <mxswa:GetEntityProperty.TargetType>
+                              <InArgument x:TypeArguments="s:Type">
+                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                              </InArgument>
+                            </mxswa:GetEntityProperty.TargetType>
+                          </mxswa:GetEntityProperty>
+                          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
                             <mxswa:ActivityReference.Arguments>
-                              <InArgument x:TypeArguments="x:String" x:Key="RelationshipName">[DirectCast(CustomActivityStep11_1_converted, System.String)]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="RelationshipEntityName">[DirectCast(CustomActivityStep11_2_converted, System.String)]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="RecordURL">[DirectCast(CustomActivityStep11_3_converted, System.String)]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
+                              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CustomActivityStep16_5 }]</InArgument>
+                              <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                              </InArgument>
+                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep16_4]</OutArgument>
+                            </mxswa:ActivityReference.Arguments>
+                          </mxswa:ActivityReference>
+                          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConvertCrmXrmTypes, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConvertCrmXrmTypes">
+                            <mxswa:ActivityReference.Arguments>
+                              <InArgument x:TypeArguments="x:Object" x:Key="Value">[CustomActivityStep16_4]</InArgument>
+                              <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
+                              </InArgument>
+                              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CustomActivityStep16_4_converted]</OutArgument>
+                            </mxswa:ActivityReference.Arguments>
+                          </mxswa:ActivityReference>
+                          <mxswa:ActivityReference AssemblyQualifiedName="Defra.Imports.Workflows.Utils.AssociateImportRecordToMatchRecord, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" DisplayName="CustomActivityStep16">
+                            <mxswa:ActivityReference.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="RelationshipName">[DirectCast(CustomActivityStep16_1_converted, System.String)]</InArgument>
+                              <InArgument x:TypeArguments="mxs:EntityReference" x:Key="MatchRecord">[DirectCast(CustomActivityStep16_2_converted, Microsoft.Xrm.Sdk.EntityReference)]</InArgument>
+                              <InArgument x:TypeArguments="mxs:EntityReference" x:Key="ImportRecord">[DirectCast(CustomActivityStep16_4_converted, Microsoft.Xrm.Sdk.EntityReference)]</InArgument>
                             </mxswa:ActivityReference.Arguments>
                           </mxswa:ActivityReference>
                         </sco:Collection>
