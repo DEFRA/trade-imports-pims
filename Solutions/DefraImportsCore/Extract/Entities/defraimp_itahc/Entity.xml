@@ -2537,7 +2537,7 @@
           </Descriptions>
         </attribute>
         <attribute PhysicalName="defraimp_PassportNumber">
-          <Type>nvarchar</Type>
+          <Type>ntext</Type>
           <Name>defraimp_passportnumber</Name>
           <LogicalName>defraimp_passportnumber</LogicalName>
           <RequiredLevel>none</RequiredLevel>
@@ -2549,7 +2549,7 @@
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>0.0.0.63</IntroducedVersion>
+          <IntroducedVersion>0.0.0.64</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -2566,9 +2566,8 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>200</MaxLength>
-          <Length>400</Length>
+          <Format></Format>
+          <MaxLength>200000</MaxLength>
           <displaynames>
             <displayname description="Passport Number" languagecode="1033" />
           </displaynames>

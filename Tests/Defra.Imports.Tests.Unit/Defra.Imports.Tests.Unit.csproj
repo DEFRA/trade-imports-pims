@@ -165,6 +165,7 @@
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\P3DetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\UnkownDetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\Factories\DetermineInspectionFactoryTests.cs" />
+    <Compile Include="BusinessLogic\ImporterNotification\FormatCommodityComplementAndIdentificationJsonTests.cs" />
     <Compile Include="BusinessLogic\Itahc\PopulateFormattedJSONTextFieldsTests.cs" />
     <Compile Include="BusinessLogic\Itahc\PopulateReplacesAndReplacedByBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\Utils\FieldMappingConfigParserTests.cs" />

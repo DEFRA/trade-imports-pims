@@ -215,21 +215,25 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{c04e8178-d81c-037b-e7c6-a760446ad272}" showlabel="true" locklevel="0">
+                      <cell id="{c04e8178-d81c-037b-e7c6-a760446ad272}" showlabel="true" locklevel="0" rowspan="3">
                         <labels>
                           <label description="Commodity Id Types" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commodityidtypes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidtypes" disabled="false" />
+                        <control id="defraimp_commodityidtypes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidtypes" disabled="false" uniqueid="{eedcd9be-5606-3115-dd9d-dedd802ace0b}" />
                       </cell>
                     </row>
+                    <row></row>
+                    <row></row>
                     <row>
-                      <cell id="{b6b23c17-966d-ec1c-a172-d1d23490a5d2}" showlabel="true" locklevel="0">
+                      <cell id="{05721498-de14-b094-884e-9e3200d11ea4}" showlabel="true" locklevel="0" rowspan="3">
                         <labels>
                           <label description="Passport Number" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_passportnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_passportnumber" disabled="false" />
+                        <control id="defraimp_passportnumber" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_passportnumber" disabled="false" uniqueid="{5e790add-2995-8e80-cd54-aee486b69778}" />
                       </cell>
                     </row>
+                    <row></row>
+                    <row />
                     <row>
                       <cell id="{a399dcca-fb81-48af-8ac5-7b92ae7c5ff6}" showlabel="true" locklevel="0">
                         <labels>

@@ -226,7 +226,7 @@
                     <row />
                     <row />
                     <row />
-                    <row></row>
+                    <row />
                     <row>
                       <cell id="{bb94c0a6-090d-e3c3-c4b7-3169b57478d8}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
@@ -235,41 +235,6 @@
                         <control id="defraimp_formattedidentificationofanimalstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_formattedidentificationofanimalstext" disabled="false" uniqueid="{4a1a6e91-97de-5193-787d-7ebd61d54873}" />
                       </cell>
                     </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row></row>
-                    <row>
-                      <cell showlabel="false" locklevel="0" id="{2037343f-068b-44df-b16e-857d0544a20a}" rowspan="10" colspan="1" auto="false">
-                        <labels>
-                          <label description="New SG control 1587393384221" languagecode="1033" />
-                        </labels>
-                        <control id="Subgrid_1" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{c198b686-e37c-5942-4260-34c7c6843b29}">
-                          <parameters>
-                            <TargetEntityType>defraimp_commoditycomplement</TargetEntityType>
-                            <ViewId>{5AE9B2DB-D505-4BAE-93F8-6CB86A9DA5DC}</ViewId>
-                            <ViewIds>{5AE9B2DB-D505-4BAE-93F8-6CB86A9DA5DC}</ViewIds>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification</RelationshipName>
-                            <RecordsPerPage>8</RecordsPerPage>
-                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
-                            <IsUserView>false</IsUserView>
-                            <EnableQuickFind>false</EnableQuickFind>
-                            <EnableJumpBar>false</EnableJumpBar>
-                            <AutoExpand>Fixed</AutoExpand>
-                            <ChartGridMode>All</ChartGridMode>
-                            <VisualizationId />
-                            <IsUserChart>false</IsUserChart>
-                            <EnableChartPicker>true</EnableChartPicker>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
                     <row />
                     <row />
                     <row />
