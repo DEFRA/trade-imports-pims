@@ -64,29 +64,32 @@ namespace Defra.Imports.BusinessLogic.Utils
                 IFieldMappingConfigParser fieldMappingConfigReader = new FieldMappingConfigParser();
                 Dictionary<string, string> fieldMappingConfig = fieldMappingConfigReader.ParseMappingConfig(_mappingXml);
 
-                // Retrieve the entity to map from
-                ICrmRepository entityToMapFromRepo = _repositoryFactory.GetRepository(_entityFromRef.LogicalName);
-                Entity entityToMapFrom = entityToMapFromRepo.Retrieve(_entityFromRef.Id, fieldMappingConfig.Keys.ToArray());
-
-                // Retrieve the entity to map to
-                ICrmRepository entityToMapToRepo = _repositoryFactory.GetRepository(_entityToRef.LogicalName);
-                Entity entityToMapTo = entityToMapToRepo.Retrieve(_entityToRef.Id, fieldMappingConfig.Values.ToArray());
-
-                // Pass each of these to the mapper
-                IGenericEntityMapper<Entity, Entity> genericEntityMapper = new GenericEntityMapper<Entity, Entity>(fieldMappingConfig);
-
-                bool shouldOverwriteFields = _shouldOverwriteExisting;
-                if (shouldOverwriteFields)
+                if (fieldMappingConfig.Count > 0)
                 {
-                    entityToMapTo = genericEntityMapper.MapAllFields(entityToMapFrom, entityToMapTo);
-                }
-                else
-                {
-                    entityToMapTo = genericEntityMapper.MapEmptyFields(entityToMapFrom, entityToMapTo);
-                }
+                    // Retrieve the entity to map from
+                    ICrmRepository entityToMapFromRepo = _repositoryFactory.GetRepository(_entityFromRef.LogicalName);
+                    Entity entityToMapFrom = entityToMapFromRepo.Retrieve(_entityFromRef.Id, fieldMappingConfig.Keys.ToArray());
 
-                // Perform an update on the map to entity
-                entityToMapToRepo.Update(entityToMapTo);
+                    // Retrieve the entity to map to
+                    ICrmRepository entityToMapToRepo = _repositoryFactory.GetRepository(_entityToRef.LogicalName);
+                    Entity entityToMapTo = entityToMapToRepo.Retrieve(_entityToRef.Id, fieldMappingConfig.Values.ToArray());
+
+                    // Pass each of these to the mapper
+                    IGenericEntityMapper<Entity, Entity> genericEntityMapper = new GenericEntityMapper<Entity, Entity>(fieldMappingConfig);
+
+                    bool shouldOverwriteFields = _shouldOverwriteExisting;
+                    if (shouldOverwriteFields)
+                    {
+                        entityToMapTo = genericEntityMapper.MapAllFields(entityToMapFrom, entityToMapTo);
+                    }
+                    else
+                    {
+                        entityToMapTo = genericEntityMapper.MapEmptyFields(entityToMapFrom, entityToMapTo);
+                    }
+
+                    // Perform an update on the map to entity
+                    entityToMapToRepo.Update(entityToMapTo);
+                }
             }
         }
     }

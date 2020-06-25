@@ -180,13 +180,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{85971988-6564-4cc5-7c3e-692e3858bd29}" showlabel="false" userspacer="true">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{61f5d394-4156-4aa5-86d2-9b6390626d99}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Commodity Code" languagecode="1033" />
@@ -216,6 +209,50 @@
                           <label description="Country of Origin" languagecode="1033" />
                         </labels>
                         <control id="defraimp_countryoforiginmatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_countryoforiginmatchrating" disabled="true" uniqueid="{370cb183-7a65-2210-a718-c4a921074568}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_10" id="{662936ba-a2b6-32a7-42a9-926665552674}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Commodities" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_10_section_1" showlabel="true" showbar="false" locklevel="0" id="{d8b48670-9c03-6902-57a5-405de476e6c5}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Commodities - ITAHC / Importer Notification" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{16cca12e-4a43-9483-c039-390d9b143b86}" showlabel="false" colspan="1" auto="false">
+                        <labels>
+                          <label description="ITAHC Commodities" languagecode="1033" />
+                        </labels>
+                        <control id="ITAHC_Commodities" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="defraimp_itahc" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="defraimp_itahc"&gt;f3440302-d569-4010-9282-9c28a5bf52ac&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{4adec53e-9cea-e90c-4dd9-3ca3387d6d16}" showlabel="false" colspan="1" auto="false">
+                        <labels>
+                          <label description="Importer Notification Commodities" languagecode="1033" />
+                        </labels>
+                        <control id="ImporterNotification_Commodities" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="defraimp_importernotification" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="defraimp_importernotification"&gt;c674aecd-4884-4546-844f-9f4b0177aebf&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                   </rows>

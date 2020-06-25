@@ -68,21 +68,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{812b2a6a-6920-93ea-6ce2-141b453736a8}" showlabel="false" locklevel="0">
-                        <labels>
-                          <label description="QuickViewSpacer" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_quickviewspacer" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_quickviewspacer" disabled="true" uniqueid="{931e1ea3-e624-1b0b-6384-b3113b8a3527}" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{b66b810b-9830-2464-c75e-930047a635ce}" showlabel="false" userspacer="true">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{3e87ee32-e69f-4cd3-afa9-29645d03b918}" showlabel="true" locklevel="0" labelid="{c56f56e0-cb70-438f-905c-a28b934dd96a}">
                         <labels>
                           <label description="Commodity Id" languagecode="1033" />

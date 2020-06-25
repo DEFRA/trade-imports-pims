@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c674aecd-4884-4546-844f-9f4b0177aebf}</formid>
+    <IntroducedVersion>0.0.0.63</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{382dbc2c-6285-4fe4-898c-ae2346f80729}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="Import Notification Commodities" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{0b97d072-4f49-48dd-a9fb-f47799f7738f}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Import Notification Commodities" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{7610a2dc-89b4-073d-9298-408b0631c09a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity ID Types" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commodityidtypes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidtypes" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="8">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Commodities Quick View" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

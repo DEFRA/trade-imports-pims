@@ -2888,7 +2888,7 @@
           <MaxLength>255</MaxLength>
           <Length>510</Length>
           <displaynames>
-            <displayname description="Place of Origin Harvest Address City" languagecode="1033" />
+            <displayname description="Place of Origin Address City" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -2927,7 +2927,7 @@
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
           <displaynames>
-            <displayname description="Place of Origin Harvest Address Country Id" languagecode="1033" />
+            <displayname description="Place of Origin Address Country Id" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -2967,7 +2967,7 @@
           <MaxLength>255</MaxLength>
           <Length>510</Length>
           <displaynames>
-            <displayname description="Place of Origin Harvest Address Postcode" languagecode="1033" />
+            <displayname description="Place of Origin Address Postcode" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -3007,7 +3007,7 @@
           <MaxLength>255</MaxLength>
           <Length>510</Length>
           <displaynames>
-            <displayname description="Place of Origin Harvest Address Street" languagecode="1033" />
+            <displayname description="Place of Origin Address Street" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -3047,7 +3047,7 @@
           <MaxLength>100</MaxLength>
           <Length>200</Length>
           <displaynames>
-            <displayname description="Place of Origin Harvest Approval Number" languagecode="1033" />
+            <displayname description="Place of Origin Approval Number" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -3087,7 +3087,7 @@
           <MaxLength>100</MaxLength>
           <Length>200</Length>
           <displaynames>
-            <displayname description="Place of Origin Harvest General Number" languagecode="1033" />
+            <displayname description="Place of Origin General Number" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -3127,7 +3127,7 @@
           <MaxLength>255</MaxLength>
           <Length>510</Length>
           <displaynames>
-            <displayname description="Place of Origin Harvest Name" languagecode="1033" />
+            <displayname description="Place of Origin Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -3166,7 +3166,7 @@
           <MinValue>0</MinValue>
           <MaxValue>2147483647</MaxValue>
           <displaynames>
-            <displayname description="Place of Origin Harvest Traces Id" languagecode="1033" />
+            <displayname description="Place of Origin Traces Id" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -3206,7 +3206,7 @@
           <MaxLength>100</MaxLength>
           <Length>200</Length>
           <displaynames>
-            <displayname description="Place of Origin Harvest Type" languagecode="1033" />
+            <displayname description="Place of Origin Type" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
