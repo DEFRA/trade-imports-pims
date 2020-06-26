@@ -101,6 +101,37 @@
                     </row>
                   </rows>
                 </section>
+                <section name="{3cee0e17-65aa-4452-98b8-3e7f9ba8e22d}_section_3" showlabel="true" showbar="false" locklevel="0" id="{1654b16a-1de1-36a7-ea44-787d9750d1b1}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="DOCOM Controls" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ecb3395c-a2ab-346c-03ab-2d05514a9134}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date Importer Contacted" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_dateimportercontacted" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateimportercontacted" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{53cc0789-3b83-ce7a-8ad6-2de80ad3e0c2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date Consignment Received" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_dateconsignmentreceived" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateconsignmentreceived" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b01ee680-a1ce-9a8c-91b3-2232624ae999}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date control added to TRACES" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_datecontroladdedtotraces" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_datecontroladdedtotraces" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
               </sections>
             </column>
             <column width="50%">
@@ -996,7 +1027,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
