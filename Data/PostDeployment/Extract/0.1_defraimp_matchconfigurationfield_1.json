@@ -1,0 +1,401 @@
+{
+  "RecordsCount": 9,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraimp_matchconfigurationfield",
+      "Id": "0d30e038-4fb1-ea11-a812-000d3ab6d757",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_matchfieldtype",
+          "AttributeValue": {
+            "Value": 714100000
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defraimp_datasetonefieldname",
+          "AttributeValue": "defraimp_name",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_datasettwofieldname",
+          "AttributeValue": "defraimp_veterinaryinformationveterinarydocument",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Certificate Reference",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_weighting",
+          "AttributeValue": 1,
+          "AttributeType": "System.Int32"
+        },
+        {
+          "AttributeName": "defraimp_matchconfigurationid",
+          "AttributeValue": {
+            "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
+            "LogicalName": "defraimp_matchconfiguration",
+            "Name": "ITAHC to Notification Match Configuration",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_matchconfigurationfield",
+      "Id": "fab989ac-beb7-ea11-a812-000d3ab6d757",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_matchfieldtype",
+          "AttributeValue": {
+            "Value": 714100002
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defraimp_datasetonefieldname",
+          "AttributeValue": "defraimp_speciesid",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_datasettwofieldname",
+          "AttributeValue": "defraimp_commodityspeciesid",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Species",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_weighting",
+          "AttributeValue": 1,
+          "AttributeType": "System.Int32"
+        },
+        {
+          "AttributeName": "defraimp_matchconfigurationid",
+          "AttributeValue": {
+            "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
+            "LogicalName": "defraimp_matchconfiguration",
+            "Name": "ITAHC to Notification Match Configuration",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_matchconfigurationfield",
+      "Id": "eeaced05-bbaf-ea11-a812-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_matchfieldtype",
+          "AttributeValue": {
+            "Value": 714100003
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defraimp_datasetonefieldname",
+          "AttributeValue": "defraimp_placeofdestinationaddresspostcode",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_datasettwofieldname",
+          "AttributeValue": "defraimp_placeofdestinationaddresspostalzipcode",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Destination Postcode",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_weighting",
+          "AttributeValue": 1,
+          "AttributeType": "System.Int32"
+        },
+        {
+          "AttributeName": "defraimp_matchconfigurationid",
+          "AttributeValue": {
+            "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
+            "LogicalName": "defraimp_matchconfiguration",
+            "Name": "ITAHC to Notification Match Configuration",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_matchconfigurationfield",
+      "Id": "fcb52b1e-bbaf-ea11-a812-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_matchfieldtype",
+          "AttributeValue": {
+            "Value": 714100003
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defraimp_datasetonefieldname",
+          "AttributeValue": "defraimp_placeofdestinationname",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_datasettwofieldname",
+          "AttributeValue": "defraimp_placeofdestinationcompanyname",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Destination Name",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_weighting",
+          "AttributeValue": 1,
+          "AttributeType": "System.Int32"
+        },
+        {
+          "AttributeName": "defraimp_matchconfigurationid",
+          "AttributeValue": {
+            "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
+            "LogicalName": "defraimp_matchconfiguration",
+            "Name": "ITAHC to Notification Match Configuration",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_matchconfigurationfield",
+      "Id": "3a4fec3c-bbaf-ea11-a812-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_matchfieldtype",
+          "AttributeValue": {
+            "Value": 714100003
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defraimp_datasetonefieldname",
+          "AttributeValue": "defraimp_placeoforiginharvestaddresspostcode",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_datasettwofieldname",
+          "AttributeValue": "defraimp_consignoraddresspostalzipcode",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Origin Postcode",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_weighting",
+          "AttributeValue": 1,
+          "AttributeType": "System.Int32"
+        },
+        {
+          "AttributeName": "defraimp_matchconfigurationid",
+          "AttributeValue": {
+            "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
+            "LogicalName": "defraimp_matchconfiguration",
+            "Name": "ITAHC to Notification Match Configuration",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_matchconfigurationfield",
+      "Id": "14cc3f55-bbaf-ea11-a812-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_matchfieldtype",
+          "AttributeValue": {
+            "Value": 714100003
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defraimp_datasetonefieldname",
+          "AttributeValue": "defraimp_placeoforiginharvestname",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_datasettwofieldname",
+          "AttributeValue": "defraimp_consignorcompanyname",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Origin Name",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_weighting",
+          "AttributeValue": 1,
+          "AttributeType": "System.Int32"
+        },
+        {
+          "AttributeName": "defraimp_matchconfigurationid",
+          "AttributeValue": {
+            "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
+            "LogicalName": "defraimp_matchconfiguration",
+            "Name": "ITAHC to Notification Match Configuration",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_matchconfigurationfield",
+      "Id": "2bf6b785-bbaf-ea11-a812-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_matchfieldtype",
+          "AttributeValue": {
+            "Value": 714100003
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defraimp_datasetonefieldname",
+          "AttributeValue": "defraimp_quantity",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_datasettwofieldname",
+          "AttributeValue": "defraimp_commoditiesnumberofanimals",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Quantity",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_weighting",
+          "AttributeValue": 1,
+          "AttributeType": "System.Int32"
+        },
+        {
+          "AttributeName": "defraimp_matchconfigurationid",
+          "AttributeValue": {
+            "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
+            "LogicalName": "defraimp_matchconfiguration",
+            "Name": "ITAHC to Notification Match Configuration",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_matchconfigurationfield",
+      "Id": "b4dd0db6-bbaf-ea11-a812-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_matchfieldtype",
+          "AttributeValue": {
+            "Value": 714100002
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defraimp_datasetonefieldname",
+          "AttributeValue": "defraimp_commoditycode",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_datasettwofieldname",
+          "AttributeValue": "defraimp_commodityid",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Commodity Code",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_weighting",
+          "AttributeValue": 1,
+          "AttributeType": "System.Int32"
+        },
+        {
+          "AttributeName": "defraimp_matchconfigurationid",
+          "AttributeValue": {
+            "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
+            "LogicalName": "defraimp_matchconfiguration",
+            "Name": "ITAHC to Notification Match Configuration",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_matchconfigurationfield",
+      "Id": "c7e6dbe5-bbaf-ea11-a812-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_matchfieldtype",
+          "AttributeValue": {
+            "Value": 714100002
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defraimp_datasetonefieldname",
+          "AttributeValue": "defraimp_countryoforiginisocode",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_datasettwofieldname",
+          "AttributeValue": "defraimp_commoditiescountryoforigin",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Country Of Origin",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_weighting",
+          "AttributeValue": 1,
+          "AttributeType": "System.Int32"
+        },
+        {
+          "AttributeName": "defraimp_matchconfigurationid",
+          "AttributeValue": {
+            "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
+            "LogicalName": "defraimp_matchconfiguration",
+            "Name": "ITAHC to Notification Match Configuration",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    }
+  ]
+}
