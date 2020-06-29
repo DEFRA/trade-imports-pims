@@ -104,6 +104,11 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                 {
                     finalString += y.key + ": " + y.data + System.Environment.NewLine
                                  + System.Environment.NewLine;
+
+                    if (y.key.Equals("imp_number_animal"))
+                    {
+                        notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
+                    }
                 });
 
                 finalString += "Identifiers:" + System.Environment.NewLine;

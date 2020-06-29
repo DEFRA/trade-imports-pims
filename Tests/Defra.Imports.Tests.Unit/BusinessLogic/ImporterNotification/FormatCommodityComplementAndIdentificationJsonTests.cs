@@ -53,6 +53,18 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
             Assert.Equal(commodityComplement, notificationFromContext.defraimp_FormattedCommodityComplementsText);
             Assert.NotNull(notificationFromContext.defraimp_FormattedIdentificationofAnimalsText);
             Assert.Equal(identificationOfAnimals, notificationFromContext.defraimp_FormattedIdentificationofAnimalsText);
+            Assert.Equal(2, notificationFromContext.defraimp_commoditiesnumberofanimals);
+        }
+
+        [Fact]
+        public void NoValueNumberOfAnimalsTest()
+        {
+            var notificationFromContext = new defraimp_ImporterNotification()
+            {
+                defraimp_IdentificationOfAnimalsText = @"[{'complementID':106400,'speciesID':'22392','keyDataPair':[{'key':'dummy','data':'2'}],'identifiers':[{'speciesNumber':1,'data':{'microchip':'jfsjhd28745837','passport':'83453889'}},{'speciesNumber':2,'data':{'microchip':'jgkjdg738567389','passport':'836783'}}]}]"
+            };
+
+            Assert.Null(notificationFromContext.defraimp_commoditiesnumberofanimals);
         }
     }
 }
