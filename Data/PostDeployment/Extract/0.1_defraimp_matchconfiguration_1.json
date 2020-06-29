@@ -1,0 +1,42 @@
+{
+  "RecordsCount": 1,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraimp_matchconfiguration",
+      "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_datasetonequery",
+          "AttributeValue": "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>\n  <entity name='defraimp_itahc'>\n    <all-attributes />\n    <filter type='and'>\n      <condition attribute='createdon' operator='last-x-days' value='14' />\n    </filter>\n  </entity>\n</fetch>",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_datasettwoquery",
+          "AttributeValue": "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>\n  <entity name='defraimp_importernotification'>\n    <all-attributes />\n    <filter type='and'>\n      <condition attribute='createdon' operator='last-x-days' value='14' />\n    </filter>\n  </entity>\n</fetch>",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_key",
+          "AttributeValue": "defraimp_itahc-defraimp_importernotification",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "ITAHC to Notification Match Configuration",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_matchthreshold",
+          "AttributeValue": 70,
+          "AttributeType": "System.Int32"
+        },
+        {
+          "AttributeName": "defraimp_isenabled",
+          "AttributeValue": true,
+          "AttributeType": "System.Boolean"
+        }
+      ]
+    }
+  ]
+}

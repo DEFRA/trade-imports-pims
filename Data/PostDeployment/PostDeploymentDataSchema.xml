@@ -121,4 +121,28 @@
       <relationship name="teamroles" manyToMany="true" isreflexive="false" relatedEntityName="teamroles" m2mTargetEntity="role" m2mTargetEntityPrimaryKey="roleid" />
     </relationships>
   </entity>
+  <entity name="defraimp_matchconfigurationfield" displayname="Match Configuration Field" etc="10207" primaryidfield="defraimp_matchconfigurationfieldid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Data Set One Field Name" name="defraimp_datasetonefieldname" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Weighting" name="defraimp_weighting" type="integer" primaryKey="false" customfield="false" />
+      <field displayname="Match Configuration Field" name="defraimp_matchconfigurationfieldid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Match Configuration" name="defraimp_matchconfigurationid" type="entityreference" primaryKey="false" lookupType="defraimp_matchconfiguration" customfield="false" />
+      <field displayname="Match Field Type" name="defraimp_matchfieldtype" type="optionsetvalue" primaryKey="false" customfield="false" />
+      <field displayname="Data Set Two Field Name" name="defraimp_datasettwofieldname" type="string" primaryKey="false" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraimp_matchconfiguration" displayname="Match Configuration" etc="10206" primaryidfield="defraimp_matchconfigurationid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="key" name="defraimp_key" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Data Set Two Query" name="defraimp_datasettwoquery" type="memo" primaryKey="false" customfield="false" />
+      <field displayname="Is Enabled" name="defraimp_isenabled" type="bool" primaryKey="false" customfield="false" />
+      <field displayname="Match Threshold" name="defraimp_matchthreshold" type="integer" primaryKey="false" customfield="false" />
+      <field displayname="Data Set One Query" name="defraimp_datasetonequery" type="memo" primaryKey="false" customfield="false" />
+      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Match Configuration" name="defraimp_matchconfigurationid" type="guid" primaryKey="true" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
 </entities>

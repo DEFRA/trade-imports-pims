@@ -132,11 +132,11 @@
                         </labels>
                         <control id="defraimp_quantity" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="defraimp_quantity" disabled="false" />
                       </cell>
-                      <cell id="{43f9d165-44ac-490f-a0ba-97899657825d}" showlabel="true" locklevel="0">
+                      <cell id="{e320bcd1-9c00-a17a-5e06-8c555ea9e968}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="(For Testing) Country Of Origin ISO Code" languagecode="1033" />
+                          <label description="Departure Date Time" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_countryoforiginisocode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_countryoforiginisocode" disabled="false" />
+                        <control id="defraimp_departuredatetime" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_departuredatetime" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -146,11 +146,11 @@
                         </labels>
                         <control id="defraimp_numberofpackages" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofpackages" disabled="false" />
                       </cell>
-                      <cell id="{e320bcd1-9c00-a17a-5e06-8c555ea9e968}" showlabel="true" locklevel="0">
+                      <cell id="{27381112-705b-8edc-8d76-97d4a489209a}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Departure Date Time" languagecode="1033" />
+                          <label description="Estimated Journey Time" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_departuredatetime" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_departuredatetime" disabled="false" />
+                        <control id="defraimp_estimatedjourneytime" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="defraimp_estimatedjourneytime" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -160,11 +160,10 @@
                         </labels>
                         <control id="defraimp_centralcompetentauthority" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_centralcompetentauthority" disabled="false" />
                       </cell>
-                      <cell id="{27381112-705b-8edc-8d76-97d4a489209a}" showlabel="true" locklevel="0">
+                      <cell id="{79284256-a85e-4125-9de8-47ba50541807}" showlabel="false">
                         <labels>
-                          <label description="Estimated Journey Time" languagecode="1033" />
+                          <label description="" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_estimatedjourneytime" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="defraimp_estimatedjourneytime" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -174,7 +173,7 @@
                         </labels>
                         <control id="defraimp_localcompetentauthority" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_localcompetentauthority" disabled="false" />
                       </cell>
-                      <cell id="{79284256-a85e-4125-9de8-47ba50541807}" showlabel="false">
+                      <cell showlabel="true" locklevel="0" id="{381d0658-8e9e-495e-89b2-b4ab45689c70}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -222,8 +221,8 @@
                         <control id="defraimp_commodityidtypes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidtypes" disabled="false" uniqueid="{eedcd9be-5606-3115-dd9d-dedd802ace0b}" />
                       </cell>
                     </row>
-                    <row></row>
-                    <row></row>
+                    <row />
+                    <row />
                     <row>
                       <cell id="{05721498-de14-b094-884e-9e3200d11ea4}" showlabel="true" locklevel="0" rowspan="3">
                         <labels>
@@ -232,7 +231,7 @@
                         <control id="defraimp_passportnumber" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_passportnumber" disabled="false" uniqueid="{5e790add-2995-8e80-cd54-aee486b69778}" />
                       </cell>
                     </row>
-                    <row></row>
+                    <row />
                     <row />
                     <row>
                       <cell id="{a399dcca-fb81-48af-8ac5-7b92ae7c5ff6}" showlabel="true" locklevel="0">
@@ -713,14 +712,6 @@
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
                         </control>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{43566b45-9817-4391-9c75-b8dad1ab324a}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="(For Testing) Country ISO Code" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_placeofdestinationaddresscountryisocode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationaddresscountryisocode" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -1246,7 +1237,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

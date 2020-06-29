@@ -131,11 +131,11 @@
                         </labels>
                         <control id="defraimp_commoditiesanimalscertifiedas" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_commoditiesanimalscertifiedas" disabled="false" />
                       </cell>
-                      <cell id="{d0900c4f-edac-4d72-ad40-1c6e68bb2e1b}" showlabel="true" locklevel="0">
+                      <cell id="{cad201e2-317d-4afa-8ab3-6696f2c599de}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="(For Testing) Country of Origin ISO Code" languagecode="1033" />
+                          <label description="Region of Origin" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditiescountryoforigin" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commoditiescountryoforigin" disabled="false" />
+                        <control id="defraimp_commoditiesregionoforigin" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commoditiesregionoforigin" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -145,11 +145,11 @@
                         </labels>
                         <control id="defraimp_commoditiesnumberofanimals" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofanimals" disabled="false" />
                       </cell>
-                      <cell id="{cad201e2-317d-4afa-8ab3-6696f2c599de}" showlabel="true" locklevel="0">
+                      <cell id="{d099a1e5-fb7b-4596-9ec4-ac246fb10ee4}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Region of Origin" languagecode="1033" />
+                          <label description="Arrival Date" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditiesregionoforigin" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commoditiesregionoforigin" disabled="false" />
+                        <control id="defraimp_arrivaldate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_arrivaldate" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -158,11 +158,10 @@
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell id="{d099a1e5-fb7b-4596-9ec4-ac246fb10ee4}" showlabel="true" locklevel="0">
+                      <cell showlabel="true" locklevel="0" id="{f7894155-0765-425b-b127-001f0d04f4f0}">
                         <labels>
-                          <label description="Arrival Date" languagecode="1033" />
+                          <label description="" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_arrivaldate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_arrivaldate" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -1159,14 +1158,6 @@
                           <label description="Country" languagecode="1033" />
                         </labels>
                         <control id="defraimp_placeofdestinationcountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeofdestinationcountryid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{563351cd-8805-45b2-89c0-e04508f84857}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="(For Testing) Country ISO Code" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_placeofdestinationaddresscountryisocode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationaddresscountryisocode" disabled="false" />
                       </cell>
                     </row>
                     <row>

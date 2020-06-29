@@ -33,6 +33,8 @@
     <AppModuleComponent type="1" schemaName="defraimp_importernotification" />
     <AppModuleComponent type="1" schemaName="defraimp_inspectioncoveragerule" />
     <AppModuleComponent type="1" schemaName="defraimp_itahc" />
+    <AppModuleComponent type="1" schemaName="defraimp_matchconfiguration" />
+    <AppModuleComponent type="1" schemaName="defraimp_matchrecord" />
     <AppModuleComponent type="1" schemaName="defraimp_placeoforigin" />
     <AppModuleComponent type="1" schemaName="defraimp_importinspection" />
   </AppModuleComponents>
