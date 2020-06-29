@@ -93,7 +93,6 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
 
             var finalString = string.Empty;
             var commodityIdTypes = string.Empty;
-            var numberOfAnimals = string.Empty;
 
             serializedObject.ForEach(x =>
             {
@@ -108,7 +107,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
 
                     if (y.key.Equals("imp_number_animal"))
                     {
-                        numberOfAnimals = y.data.Trim();
+                        notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
                     }
                 });
 
@@ -133,7 +132,6 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
             notificationFromContext.defraimp_CommodityId = serializedObject.FirstOrDefault()?.complementID.ToString() ?? string.Empty;
             notificationFromContext.defraimp_CommoditySpeciesId = serializedObject.FirstOrDefault()?.speciesID ?? string.Empty;
             notificationFromContext.defraimp_CommodityIDTypes = commodityIdTypes;
-            notificationFromContext.defraimp_commoditiesnumberofanimals = !string.IsNullOrEmpty(numberOfAnimals) ? Convert.ToInt32(numberOfAnimals) : 0;
 
             return finalString;
         }
