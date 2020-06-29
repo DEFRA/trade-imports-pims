@@ -192,6 +192,8 @@
     <RolePrivilege name="prvReaddefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvReaddefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvReaddefraimp_itahc" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_MatchConfiguration" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvReaddefraimp_matchrecord" level="Global" />
     <RolePrivilege name="prvReaddefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvReaddefraimp_parametersetidentifier" level="Global" />
