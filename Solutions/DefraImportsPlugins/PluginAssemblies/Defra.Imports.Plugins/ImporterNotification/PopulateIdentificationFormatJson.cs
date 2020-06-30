@@ -37,7 +37,9 @@ namespace Defra.Imports.Plugins.ImporterNotification
         {
             var notificationFromContext = ((Entity)context.InputParameters["Target"]).ToEntity<defraimp_ImporterNotification>();
 
-            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext);
+            var notificationPreImage = (context.MessageName.ToLower() == "update") ? context.PreEntityImages["PreImage"].ToEntity<defraimp_ImporterNotification>() : null;
+
+            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext, notificationPreImage);
             populateFormattedJSONTextFields.FormatIntegrationData();
         }
     }
