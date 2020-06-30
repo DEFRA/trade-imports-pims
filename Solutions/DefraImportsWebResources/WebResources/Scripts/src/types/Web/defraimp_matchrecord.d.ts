@@ -1,6 +1,9 @@
 declare namespace WebApi {
   interface defraimp_matchrecord_Base extends WebEntity {
     createdon?: Date | null;
+    defraimp_appendrecordstoimportrecords?: boolean | null;
+    defraimp_closerecordascompleted?: boolean | null;
+    defraimp_closerecordasrejected?: boolean | null;
     defraimp_commoditycodematchrating?: string | null;
     defraimp_copyconsigneefrom?: boolean | null;
     defraimp_copyconsignorfrom?: boolean | null;
@@ -12,13 +15,17 @@ declare namespace WebApi {
     defraimp_dateofimportmatchrating?: string | null;
     defraimp_destinationpostcode?: string | null;
     defraimp_destinationpostcodematchrating?: string | null;
+    defraimp_isrecordvalidmatch?: boolean | null;
     defraimp_itahcnumbermatchrating?: string | null;
     defraimp_matchrecordid?: string | null;
     defraimp_name?: string | null;
     defraimp_organisationnamematchrating?: string | null;
     defraimp_overallmatchrating?: string | null;
     defraimp_overwriteexistingfieldsonimportrecord?: boolean | null;
+    defraimp_placeoforiginnamematchrating?: string | null;
+    defraimp_placeoforiginpostcodematchrating?: string | null;
     defraimp_quantitymatchrating?: string | null;
+    defraimp_rejectedreason?: string | null;
     defraimp_speciesmatchrating?: string | null;
     importsequencenumber?: number | null;
     modifiedon?: Date | null;
@@ -53,6 +60,9 @@ declare namespace WebApi {
     createdby_guid: WebAttribute<defraimp_matchrecord_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
     createdon: WebAttribute<defraimp_matchrecord_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
     createdonbehalfby_guid: WebAttribute<defraimp_matchrecord_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+    defraimp_appendrecordstoimportrecords: WebAttribute<defraimp_matchrecord_Select, { defraimp_appendrecordstoimportrecords: boolean | null }, {  }>;
+    defraimp_closerecordascompleted: WebAttribute<defraimp_matchrecord_Select, { defraimp_closerecordascompleted: boolean | null }, {  }>;
+    defraimp_closerecordasrejected: WebAttribute<defraimp_matchrecord_Select, { defraimp_closerecordasrejected: boolean | null }, {  }>;
     defraimp_commoditycodematchrating: WebAttribute<defraimp_matchrecord_Select, { defraimp_commoditycodematchrating: string | null }, {  }>;
     defraimp_copyconsigneefrom: WebAttribute<defraimp_matchrecord_Select, { defraimp_copyconsigneefrom: boolean | null }, {  }>;
     defraimp_copyconsignorfrom: WebAttribute<defraimp_matchrecord_Select, { defraimp_copyconsignorfrom: boolean | null }, {  }>;
@@ -66,6 +76,7 @@ declare namespace WebApi {
     defraimp_destinationpostcodematchrating: WebAttribute<defraimp_matchrecord_Select, { defraimp_destinationpostcodematchrating: string | null }, {  }>;
     defraimp_importernotification_guid: WebAttribute<defraimp_matchrecord_Select, { defraimp_importernotification_guid: string | null }, { defraimp_importernotification_formatted?: string }>;
     defraimp_importrecord_guid: WebAttribute<defraimp_matchrecord_Select, { defraimp_importrecord_guid: string | null }, { defraimp_importrecord_formatted?: string }>;
+    defraimp_isrecordvalidmatch: WebAttribute<defraimp_matchrecord_Select, { defraimp_isrecordvalidmatch: boolean | null }, {  }>;
     defraimp_itahc_guid: WebAttribute<defraimp_matchrecord_Select, { defraimp_itahc_guid: string | null }, { defraimp_itahc_formatted?: string }>;
     defraimp_itahcnumbermatchrating: WebAttribute<defraimp_matchrecord_Select, { defraimp_itahcnumbermatchrating: string | null }, {  }>;
     defraimp_matchrecordid: WebAttribute<defraimp_matchrecord_Select, { defraimp_matchrecordid: string | null }, {  }>;
@@ -73,7 +84,10 @@ declare namespace WebApi {
     defraimp_organisationnamematchrating: WebAttribute<defraimp_matchrecord_Select, { defraimp_organisationnamematchrating: string | null }, {  }>;
     defraimp_overallmatchrating: WebAttribute<defraimp_matchrecord_Select, { defraimp_overallmatchrating: string | null }, {  }>;
     defraimp_overwriteexistingfieldsonimportrecord: WebAttribute<defraimp_matchrecord_Select, { defraimp_overwriteexistingfieldsonimportrecord: boolean | null }, {  }>;
+    defraimp_placeoforiginnamematchrating: WebAttribute<defraimp_matchrecord_Select, { defraimp_placeoforiginnamematchrating: string | null }, {  }>;
+    defraimp_placeoforiginpostcodematchrating: WebAttribute<defraimp_matchrecord_Select, { defraimp_placeoforiginpostcodematchrating: string | null }, {  }>;
     defraimp_quantitymatchrating: WebAttribute<defraimp_matchrecord_Select, { defraimp_quantitymatchrating: string | null }, {  }>;
+    defraimp_rejectedreason: WebAttribute<defraimp_matchrecord_Select, { defraimp_rejectedreason: string | null }, {  }>;
     defraimp_speciesmatchrating: WebAttribute<defraimp_matchrecord_Select, { defraimp_speciesmatchrating: string | null }, {  }>;
     importsequencenumber: WebAttribute<defraimp_matchrecord_Select, { importsequencenumber: number | null }, {  }>;
     modifiedby_guid: WebAttribute<defraimp_matchrecord_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
@@ -97,6 +111,9 @@ declare namespace WebApi {
     createdby_guid: XQW.Guid;
     createdon: Date;
     createdonbehalfby_guid: XQW.Guid;
+    defraimp_appendrecordstoimportrecords: boolean;
+    defraimp_closerecordascompleted: boolean;
+    defraimp_closerecordasrejected: boolean;
     defraimp_commoditycodematchrating: string;
     defraimp_copyconsigneefrom: boolean;
     defraimp_copyconsignorfrom: boolean;
@@ -110,6 +127,7 @@ declare namespace WebApi {
     defraimp_destinationpostcodematchrating: string;
     defraimp_importernotification_guid: XQW.Guid;
     defraimp_importrecord_guid: XQW.Guid;
+    defraimp_isrecordvalidmatch: boolean;
     defraimp_itahc_guid: XQW.Guid;
     defraimp_itahcnumbermatchrating: string;
     defraimp_matchrecordid: XQW.Guid;
@@ -117,7 +135,10 @@ declare namespace WebApi {
     defraimp_organisationnamematchrating: string;
     defraimp_overallmatchrating: string;
     defraimp_overwriteexistingfieldsonimportrecord: boolean;
+    defraimp_placeoforiginnamematchrating: string;
+    defraimp_placeoforiginpostcodematchrating: string;
     defraimp_quantitymatchrating: string;
+    defraimp_rejectedreason: string;
     defraimp_speciesmatchrating: string;
     importsequencenumber: number;
     modifiedby_guid: XQW.Guid;

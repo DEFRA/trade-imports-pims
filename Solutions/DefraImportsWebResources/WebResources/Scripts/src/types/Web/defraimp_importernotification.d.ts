@@ -14,8 +14,10 @@ declare namespace WebApi {
     defraimp_commoditiestotalnetweight?: number | null;
     defraimp_commoditycomplementid?: number | null;
     defraimp_commoditycomplementname?: string | null;
+    defraimp_commoditycomplementstext?: string | null;
     defraimp_commoditydescription?: string | null;
     defraimp_commodityid?: string | null;
+    defraimp_commodityidtypes?: string | null;
     defraimp_commodityspeciesclass?: string | null;
     defraimp_commodityspeciesclassname?: string | null;
     defraimp_commodityspeciescommonname?: string | null;
@@ -82,6 +84,9 @@ declare namespace WebApi {
     defraimp_departuredate?: Date | null;
     defraimp_departuretime?: string | null;
     defraimp_estimatedjourneytimeinminutes?: number | null;
+    defraimp_formattedcommoditycomplementstext?: string | null;
+    defraimp_formattedidentificationofanimalstext?: string | null;
+    defraimp_identificationofanimalstext?: string | null;
     defraimp_importeraddressaddressline1?: string | null;
     defraimp_importeraddressaddressline2?: string | null;
     defraimp_importeraddressaddressline3?: string | null;
@@ -162,6 +167,7 @@ declare namespace WebApi {
     defraimp_placeoforiginharveststatus?: string | null;
     defraimp_placeoforiginharvesttype?: string | null;
     defraimp_portofentry?: string | null;
+    defraimp_quickviewspacer?: string | null;
     defraimp_responsiblefortransport?: string | null;
     defraimp_routetransitingstates?: string | null;
     defraimp_status?: defraimp_importernotificationstatus | null;
@@ -238,8 +244,10 @@ declare namespace WebApi {
     defraimp_commoditiestotalnetweight: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commoditiestotalnetweight: number | null }, {  }>;
     defraimp_commoditycomplementid: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commoditycomplementid: number | null }, {  }>;
     defraimp_commoditycomplementname: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commoditycomplementname: string | null }, {  }>;
+    defraimp_commoditycomplementstext: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commoditycomplementstext: string | null }, {  }>;
     defraimp_commoditydescription: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commoditydescription: string | null }, {  }>;
     defraimp_commodityid: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commodityid: string | null }, {  }>;
+    defraimp_commodityidtypes: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commodityidtypes: string | null }, {  }>;
     defraimp_commodityspeciesclass: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commodityspeciesclass: string | null }, {  }>;
     defraimp_commodityspeciesclassname: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commodityspeciesclassname: string | null }, {  }>;
     defraimp_commodityspeciescommonname: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commodityspeciescommonname: string | null }, {  }>;
@@ -311,6 +319,9 @@ declare namespace WebApi {
     defraimp_departuredate: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_departuredate: Date | null }, { defraimp_departuredate_formatted?: string }>;
     defraimp_departuretime: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_departuretime: string | null }, {  }>;
     defraimp_estimatedjourneytimeinminutes: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_estimatedjourneytimeinminutes: number | null }, {  }>;
+    defraimp_formattedcommoditycomplementstext: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_formattedcommoditycomplementstext: string | null }, {  }>;
+    defraimp_formattedidentificationofanimalstext: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_formattedidentificationofanimalstext: string | null }, {  }>;
+    defraimp_identificationofanimalstext: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_identificationofanimalstext: string | null }, {  }>;
     defraimp_importeraddressaddressline1: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importeraddressaddressline1: string | null }, {  }>;
     defraimp_importeraddressaddressline2: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importeraddressaddressline2: string | null }, {  }>;
     defraimp_importeraddressaddressline3: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importeraddressaddressline3: string | null }, {  }>;
@@ -395,6 +406,7 @@ declare namespace WebApi {
     defraimp_placeoforiginharveststatus: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_placeoforiginharveststatus: string | null }, {  }>;
     defraimp_placeoforiginharvesttype: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_placeoforiginharvesttype: string | null }, {  }>;
     defraimp_portofentry: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_portofentry: string | null }, {  }>;
+    defraimp_quickviewspacer: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_quickviewspacer: string | null }, {  }>;
     defraimp_responsiblefortransport: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_responsiblefortransport: string | null }, {  }>;
     defraimp_routetransitingstates: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_routetransitingstates: string | null }, {  }>;
     defraimp_status: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_status: defraimp_importernotificationstatus | null }, { defraimp_status_formatted?: string }>;
@@ -457,8 +469,10 @@ declare namespace WebApi {
     defraimp_commoditiestotalnetweight: any;
     defraimp_commoditycomplementid: number;
     defraimp_commoditycomplementname: string;
+    defraimp_commoditycomplementstext: string;
     defraimp_commoditydescription: string;
     defraimp_commodityid: string;
+    defraimp_commodityidtypes: string;
     defraimp_commodityspeciesclass: string;
     defraimp_commodityspeciesclassname: string;
     defraimp_commodityspeciescommonname: string;
@@ -530,6 +544,9 @@ declare namespace WebApi {
     defraimp_departuredate: Date;
     defraimp_departuretime: string;
     defraimp_estimatedjourneytimeinminutes: any;
+    defraimp_formattedcommoditycomplementstext: string;
+    defraimp_formattedidentificationofanimalstext: string;
+    defraimp_identificationofanimalstext: string;
     defraimp_importeraddressaddressline1: string;
     defraimp_importeraddressaddressline2: string;
     defraimp_importeraddressaddressline3: string;
@@ -614,6 +631,7 @@ declare namespace WebApi {
     defraimp_placeoforiginharveststatus: string;
     defraimp_placeoforiginharvesttype: string;
     defraimp_portofentry: string;
+    defraimp_quickviewspacer: string;
     defraimp_responsiblefortransport: string;
     defraimp_routetransitingstates: string;
     defraimp_status: defraimp_importernotificationstatus;

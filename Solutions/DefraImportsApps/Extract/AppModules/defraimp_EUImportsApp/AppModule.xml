@@ -23,7 +23,6 @@
     <AppModuleComponent type="1" schemaName="defraexp_configurationparameter" />
     <AppModuleComponent type="1" schemaName="defraimp_counterhistory" />
     <AppModuleComponent type="1" schemaName="defra_country" />
-    <AppModuleComponent type="1" schemaName="defraimp_cved" />
     <AppModuleComponent type="1" schemaName="defraimp_docom" />
     <AppModuleComponent type="1" schemaName="defraimp_goldbronzecommodity" />
     <AppModuleComponent type="1" schemaName="defraimp_importcountrycommodityrisklevel" />

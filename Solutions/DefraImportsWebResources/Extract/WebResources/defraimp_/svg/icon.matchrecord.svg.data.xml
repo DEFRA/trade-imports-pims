@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{d379bea8-c3ba-ea11-a812-000d3ad82cac}</WebResourceId>
+  <Name>defraimp_/svg/icon.matchrecord.svg</Name>
+  <DisplayName>icon.matchrecord.svg</DisplayName>
+  <WebResourceType>11</WebResourceType>
+  <IntroducedVersion>0.0.0.22</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/defraimp_svgiconmatchrecordsvgD379BEA8-C3BA-EA11-A812-000D3AD82CAC</FileName>
+</WebResource>

@@ -18,7 +18,6 @@ declare namespace Form.defraimp_importernotification.Quick {
       get(name: "defraimp_transporteraddresspostalzipcode"): Xrm.Attribute<string>;
       get(name: "defraimp_transporterapprovalnumber"): Xrm.Attribute<string>;
       get(name: "defraimp_transportercompanyname"): Xrm.Attribute<string>;
-      get(name: "defraimp_transporterindividualname"): Xrm.Attribute<string>;
       get(name: "defraimp_transporterotheridentifier"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -34,7 +33,6 @@ declare namespace Form.defraimp_importernotification.Quick {
       get(name: "defraimp_transporteraddresspostalzipcode"): Xrm.StringControl;
       get(name: "defraimp_transporterapprovalnumber"): Xrm.StringControl;
       get(name: "defraimp_transportercompanyname"): Xrm.StringControl;
-      get(name: "defraimp_transporterindividualname"): Xrm.StringControl;
       get(name: "defraimp_transporterotheridentifier"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -58,7 +56,6 @@ declare namespace Form.defraimp_importernotification.Quick {
     getAttribute(attributeName: "defraimp_transporteraddresspostalzipcode"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_transporterapprovalnumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_transportercompanyname"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_transporterindividualname"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_transporterotheridentifier"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "defraimp_transporteraddressaddressline1"): Xrm.StringControl;
@@ -69,7 +66,6 @@ declare namespace Form.defraimp_importernotification.Quick {
     getControl(controlName: "defraimp_transporteraddresspostalzipcode"): Xrm.StringControl;
     getControl(controlName: "defraimp_transporterapprovalnumber"): Xrm.StringControl;
     getControl(controlName: "defraimp_transportercompanyname"): Xrm.StringControl;
-    getControl(controlName: "defraimp_transporterindividualname"): Xrm.StringControl;
     getControl(controlName: "defraimp_transporterotheridentifier"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }

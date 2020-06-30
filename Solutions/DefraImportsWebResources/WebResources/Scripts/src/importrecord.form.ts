@@ -74,4 +74,83 @@ namespace DefraImports.ImportRecord {
       moveCompletionDateAttr.setValue(null);
     }
   }
+
+  export function showRelevantSections(executionObj: Xrm.ExecutionContext<any>)
+  {
+    let formContext = executionObj.getFormContext() as Form.defraimp_importapplication.Main.Information;
+    const importApplicationType = formContext.getAttribute("defraimp_importapplicationtype").getValue();
+
+    if (importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
+    {
+      //Hide any existing sections first
+        hideCHEDASections(formContext);
+        hideCHEDPSections(formContext);
+
+        //Show the ITAHC section
+        showITAHCSections(formContext);
+    }
+    else if (importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.CHEDA)
+    {
+      //Hide any existing sections first
+      hideITAHCSections(formContext);
+      hideCHEDPSections(formContext);
+
+      //Show the CHEDA section
+      showCHEDASections(formContext);
+    }
+    else if (importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.CHEDP)
+    {
+      //Hide any existing sections first
+      hideITAHCSections(formContext);
+      hideCHEDASections(formContext);
+
+      //Show the CHEDP section
+      showCHEDPSections(formContext);
+    }
+    else
+    {
+      //Hide all sections
+      hideITAHCSections(formContext);
+      hideCHEDASections(formContext);
+      hideCHEDPSections(formContext);
+    }
+  }
+
+  function showITAHCSections(formContext: Form.defraimp_importapplication.Main.Information)
+  {
+    formContext.ui.tabs.get("Summary").sections.get("iv66_section").setVisible(true);
+    formContext.ui.tabs.get("AdditionalITAHC_Tab").setVisible(true);
+  }
+
+  function hideITAHCSections(formContext: Form.defraimp_importapplication.Main.Information)
+  {
+    formContext.ui.tabs.get("Summary").sections.get("iv66_section").setVisible(false);
+    formContext.ui.tabs.get("AdditionalITAHC_Tab").setVisible(false);
+  }
+
+  function showCHEDASections(formContext: Form.defraimp_importapplication.Main.Information)
+  {
+    formContext.ui.tabs.get("Summary").sections.get("cheda_section").setVisible(true);
+    formContext.ui.tabs.get("Transporter_Tab").sections.get("transport_information_section").setVisible(true);
+  }
+
+  function hideCHEDASections(formContext: Form.defraimp_importapplication.Main.Information)
+  {
+    formContext.ui.tabs.get("Summary").sections.get("cheda_section").setVisible(false);
+    formContext.ui.tabs.get("Transporter_Tab").sections.get("transport_information_section").setVisible(false);
+  }
+
+  function showCHEDPSections(formContext: Form.defraimp_importapplication.Main.Information)
+  {
+    formContext.ui.tabs.get("Summary").sections.get("chedp_section").setVisible(true);
+    formContext.ui.tabs.get("Summary").sections.get("chedp_controls_section").setVisible(true);
+    formContext.ui.tabs.get("Transporter_Tab").sections.get("transport_information_section").setVisible(true);
+  }
+
+  function hideCHEDPSections(formContext: Form.defraimp_importapplication.Main.Information)
+  {
+    formContext.ui.tabs.get("Summary").sections.get("chedp_section").setVisible(false);
+    formContext.ui.tabs.get("Summary").sections.get("chedp_controls_section").setVisible(false);
+    formContext.ui.tabs.get("Transporter_Tab").sections.get("transport_information_section").setVisible(false);
+  }
 }

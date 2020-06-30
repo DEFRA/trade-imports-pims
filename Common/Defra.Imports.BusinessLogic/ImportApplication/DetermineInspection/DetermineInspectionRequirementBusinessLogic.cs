@@ -94,7 +94,12 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 if (_preImageImportApplication.statecode == defraimp_importapplicationState.Active && _postImageImportApplication.statecode == defraimp_importapplicationState.Active)
                 {
                     ManageRiskLevelChange(previousRiskLevel, currentRiskLevel);
-                    ManageITAHCRemoval(previousRiskLevel);
+
+                    if (_preImageImportApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
+                    {
+                        ManageITAHCRemoval(previousRiskLevel);
+                    }
+
                     ManagePlaceOfOriginChange(previousRiskLevel);
 
                     DealWithDeterminingInspection();
