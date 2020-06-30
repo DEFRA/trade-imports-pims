@@ -30,7 +30,7 @@
             _riskLevelCounterManager = determineInspectionContext.RiskLevelCounterManager;
 
             //Does the import application have a primary ITAHC?
-            if (_importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC && _importApplication.defraimp_PrimaryITAHCId != null)
+            if (ValidImportApplicationTypeForInspection(_importApplication))
             {
                 // Has the record not been counted yet?
                 if (_importApplication.defraimp_ImportRecordCounted != true)

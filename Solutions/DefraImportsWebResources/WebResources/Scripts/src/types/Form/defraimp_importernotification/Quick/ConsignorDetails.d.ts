@@ -18,7 +18,6 @@ declare namespace Form.defraimp_importernotification.Quick {
       get(name: "defraimp_consignoraddresspostalzipcode"): Xrm.Attribute<string>;
       get(name: "defraimp_consignorapprovalnumber"): Xrm.Attribute<string>;
       get(name: "defraimp_consignorcompanyname"): Xrm.Attribute<string>;
-      get(name: "defraimp_consignorindividualname"): Xrm.Attribute<string>;
       get(name: "defraimp_consignorotheridentifier"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -34,7 +33,6 @@ declare namespace Form.defraimp_importernotification.Quick {
       get(name: "defraimp_consignoraddresspostalzipcode"): Xrm.StringControl;
       get(name: "defraimp_consignorapprovalnumber"): Xrm.StringControl;
       get(name: "defraimp_consignorcompanyname"): Xrm.StringControl;
-      get(name: "defraimp_consignorindividualname"): Xrm.StringControl;
       get(name: "defraimp_consignorotheridentifier"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -58,7 +56,6 @@ declare namespace Form.defraimp_importernotification.Quick {
     getAttribute(attributeName: "defraimp_consignoraddresspostalzipcode"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_consignorapprovalnumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_consignorcompanyname"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_consignorindividualname"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_consignorotheridentifier"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "defraimp_consignoraddressaddressline1"): Xrm.StringControl;
@@ -69,7 +66,6 @@ declare namespace Form.defraimp_importernotification.Quick {
     getControl(controlName: "defraimp_consignoraddresspostalzipcode"): Xrm.StringControl;
     getControl(controlName: "defraimp_consignorapprovalnumber"): Xrm.StringControl;
     getControl(controlName: "defraimp_consignorcompanyname"): Xrm.StringControl;
-    getControl(controlName: "defraimp_consignorindividualname"): Xrm.StringControl;
     getControl(controlName: "defraimp_consignorotheridentifier"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }

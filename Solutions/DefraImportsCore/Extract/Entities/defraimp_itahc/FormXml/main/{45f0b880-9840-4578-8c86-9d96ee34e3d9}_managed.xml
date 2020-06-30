@@ -206,11 +206,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{bc038ec7-64c9-2137-e2a9-8a7a05704316}" showlabel="true" locklevel="0">
+                      <cell id="{12a25005-8ddc-ec2c-db6b-36553e9eae86}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Complement Id" languagecode="1033" />
+                          <label description="Commodity Type" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_complementid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_complementid" disabled="false" />
+                        <control id="defraimp_commoditytype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytype" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -223,40 +223,6 @@
                     </row>
                     <row />
                     <row />
-                    <row>
-                      <cell id="{05721498-de14-b094-884e-9e3200d11ea4}" showlabel="true" locklevel="0" rowspan="3">
-                        <labels>
-                          <label description="Passport Number" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_passportnumber" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_passportnumber" disabled="false" uniqueid="{5e790add-2995-8e80-cd54-aee486b69778}" />
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row>
-                      <cell id="{a399dcca-fb81-48af-8ac5-7b92ae7c5ff6}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Species ID" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_speciesid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_speciesid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{12a25005-8ddc-ec2c-db6b-36553e9eae86}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Commodity Type" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_commoditytype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytype" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{88035405-8be4-45a4-eee4-d01c3379b048}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Species Nomination" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_speciesnomination" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_speciesnomination" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>

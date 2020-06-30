@@ -152,7 +152,7 @@ export function onAppendItahc(primaryControl: Form.defraimp_matchrecord.Main.Inf
       var selectedImportRecords = [];
 
       selectedRows.forEach(element => {
-          selectedImportRecords.push(element.data.entity.getEntityReference());
+          selectedImportRecords.push(element.getData().getEntity().getEntityReference());
       });
 
       return selectedImportRecords;

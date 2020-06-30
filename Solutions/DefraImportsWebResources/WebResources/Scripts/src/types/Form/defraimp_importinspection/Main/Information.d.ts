@@ -78,6 +78,8 @@ declare namespace Form.defraimp_importinspection.Main {
       get(name: "defraimp_previousinspection"): Xrm.LookupAttribute<"defraimp_importinspection">;
       get(name: "defraimp_reactorsorirsidentified"): Xrm.OptionSetAttribute<defraimp_importinspection_defraimp_reactorsorirsidentified>;
       get(name: "defraimp_reasonfornoncompliance"): Xrm.OptionSetAttribute<defraimp_reasonfornoncompliance>;
+      get(name: "defraimp_reasonfornotvisiting"): Xrm.OptionSetAttribute<defraimp_reasonfornotvisiting>;
+      get(name: "defraimp_reasonforunsatisfactoryvisit"): Xrm.OptionSetAttribute<defraimp_reasonforunsatisfactoryvisit>;
       get(name: "defraimp_reasoniv17returned"): Xrm.Attribute<string>;
       get(name: "defraimp_reasonnotvisited"): Xrm.Attribute<string>;
       get(name: "defraimp_reasontimeframemissed"): Xrm.Attribute<string>;
@@ -136,6 +138,8 @@ declare namespace Form.defraimp_importinspection.Main {
       get(name: "defraimp_previousinspection"): Xrm.LookupControl<"defraimp_importinspection">;
       get(name: "defraimp_reactorsorirsidentified"): Xrm.OptionSetControl<defraimp_importinspection_defraimp_reactorsorirsidentified>;
       get(name: "defraimp_reasonfornoncompliance"): Xrm.OptionSetControl<defraimp_reasonfornoncompliance>;
+      get(name: "defraimp_reasonfornotvisiting"): Xrm.OptionSetControl<defraimp_reasonfornotvisiting>;
+      get(name: "defraimp_reasonforunsatisfactoryvisit"): Xrm.OptionSetControl<defraimp_reasonforunsatisfactoryvisit>;
       get(name: "defraimp_reasoniv17returned"): Xrm.StringControl;
       get(name: "defraimp_reasonnotvisited"): Xrm.StringControl;
       get(name: "defraimp_reasontimeframemissed"): Xrm.StringControl;
@@ -207,6 +211,8 @@ declare namespace Form.defraimp_importinspection.Main {
     getAttribute(attributeName: "defraimp_previousinspection"): Xrm.LookupAttribute<"defraimp_importinspection">;
     getAttribute(attributeName: "defraimp_reactorsorirsidentified"): Xrm.OptionSetAttribute<defraimp_importinspection_defraimp_reactorsorirsidentified>;
     getAttribute(attributeName: "defraimp_reasonfornoncompliance"): Xrm.OptionSetAttribute<defraimp_reasonfornoncompliance>;
+    getAttribute(attributeName: "defraimp_reasonfornotvisiting"): Xrm.OptionSetAttribute<defraimp_reasonfornotvisiting>;
+    getAttribute(attributeName: "defraimp_reasonforunsatisfactoryvisit"): Xrm.OptionSetAttribute<defraimp_reasonforunsatisfactoryvisit>;
     getAttribute(attributeName: "defraimp_reasoniv17returned"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_reasonnotvisited"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_reasontimeframemissed"): Xrm.Attribute<string>;
@@ -260,6 +266,8 @@ declare namespace Form.defraimp_importinspection.Main {
     getControl(controlName: "defraimp_previousinspection"): Xrm.LookupControl<"defraimp_importinspection">;
     getControl(controlName: "defraimp_reactorsorirsidentified"): Xrm.OptionSetControl<defraimp_importinspection_defraimp_reactorsorirsidentified>;
     getControl(controlName: "defraimp_reasonfornoncompliance"): Xrm.OptionSetControl<defraimp_reasonfornoncompliance>;
+    getControl(controlName: "defraimp_reasonfornotvisiting"): Xrm.OptionSetControl<defraimp_reasonfornotvisiting>;
+    getControl(controlName: "defraimp_reasonforunsatisfactoryvisit"): Xrm.OptionSetControl<defraimp_reasonforunsatisfactoryvisit>;
     getControl(controlName: "defraimp_reasoniv17returned"): Xrm.StringControl;
     getControl(controlName: "defraimp_reasonnotvisited"): Xrm.StringControl;
     getControl(controlName: "defraimp_reasontimeframemissed"): Xrm.StringControl;

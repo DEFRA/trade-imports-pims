@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="defraimp_reasonfornotvisiting" localizedName="Reason For Not Visiting" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>0.0.0.67</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Reason For Not Visiting" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="714100000">
+      <labels>
+        <label description="Additional Inspection Required" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100001">
+      <labels>
+        <label description="Cancelled" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100002">
+      <labels>
+        <label description="Resolved, Not Required" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100003">
+      <labels>
+        <label description="Lack of field resource" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

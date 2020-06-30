@@ -20,11 +20,11 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{0c4e1858-279c-bdb9-7b14-5de681bbdaec}" showlabel="true" locklevel="0">
+                      <cell id="{0c4e1858-279c-bdb9-7b14-5de681bbdaec}" showlabel="false" locklevel="0">
                         <labels>
                           <label description="Commodity Id Types" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commodityidtypes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidtypes" disabled="false" />
+                        <control id="defraimp_commodityidtypes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidtypes" disabled="false" uniqueid="{aadc6d2e-3ce6-2a7c-1549-8d0766173869}" />
                       </cell>
                     </row>
                   </rows>

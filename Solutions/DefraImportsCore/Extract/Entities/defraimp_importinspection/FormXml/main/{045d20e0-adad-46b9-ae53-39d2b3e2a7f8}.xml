@@ -5,7 +5,7 @@
     <IntroducedVersion>0.0.0.2</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form shownavigationbar="true" showImage="false" maxWidth="1920">
+    <form shownavigationbar="true" showImage="false" maxWidth="1920" headerdensity="HighWithControls">
       <tabs>
         <tab id="{e4254c81-e79c-4d25-9530-02ff7f875fe8}" name="{e4254c81-e79c-4d25-9530-02ff7f875fe8}" showlabel="true" expanded="true" locklevel="0" IsUserDefined="1" verticallayout="true">
           <labels>
@@ -556,6 +556,22 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{327ecf63-b70d-4090-9087-8f5971c297df}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Reason For Unsatisfactory Visit" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_reasonforunsatisfactoryvisit" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_reasonforunsatisfactoryvisit" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e4b07d3a-1848-4918-8cda-f173f6758b11}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Reason For Not Visiting" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_reasonfornotvisiting" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_reasonfornotvisiting" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{4bba11ac-89a7-e0c4-a845-c3619e34d696}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Fully Compliant Visit?" languagecode="1033" />
@@ -770,7 +786,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -948,6 +964,30 @@
           </Handlers>
         </event>
       </events>
+      <footer id="{4ab4b473-4d16-43f4-89d4-6733fdeda9ec}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{9bede3da-1d33-477f-a503-407649b67fb0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5c3ac475-1a99-492c-9a2f-af3af0966fca}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b87d9396-d30c-422c-b0e3-5a828f7cc499}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
