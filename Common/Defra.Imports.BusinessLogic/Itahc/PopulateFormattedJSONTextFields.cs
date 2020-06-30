@@ -146,15 +146,17 @@ namespace Defra.Imports.BusinessLogic.Itahc
                         finalString += "Key: " + y.Key + System.Environment.NewLine
                                  + "Data: " + y.Data + System.Environment.NewLine
                                  + System.Environment.NewLine;
-
-                        commodityIdTypes +=
+                        if (y.Key.Trim().Equals("species"))
+                        {
+                            commodityIdTypes += "SpeciesID: " + y.Data.Trim() + "; ";
+                        }
                         if (y.Key.Trim().Equals("identsystem"))
                         {
                             commodityIdTypes += y.Data.Trim() + ": ";
                         }
                         else if (y.Key.Trim().Equals("identnumber"))
                         {
-                            commodityIdTypes += y.Data.Trim() "; ";
+                            commodityIdTypes += y.Data.Trim() + "; ";
                         }
 
                         if (y.Key.Trim().Equals("passportnumber"))
