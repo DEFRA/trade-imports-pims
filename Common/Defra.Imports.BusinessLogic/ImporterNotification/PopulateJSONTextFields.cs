@@ -35,7 +35,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
             }
         }
 
-        private string ProcessCommodityComplementJson(string json)
+        private List<CommodityComplementObject> ProcessCommodityComplementJson(string json)
         {
             var serializedObject = new List<CommodityComplementObject>();
 
@@ -72,10 +72,10 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
             notificationFromContext.defraimp_FormattedCommodityComplementsText = finalString;
             notificationFromContext.defraimp_CommoditySpeciesName = serializedObject.FirstOrDefault().speciesName ?? string.Empty;
 
-            return finalString;
+            return serializedObject;
         }
 
-        private string ProcessIdentificationJson(string json)
+        private string ProcessIdentificationJson(string json, List<CommodityComplementObject> commodityComplementObject)
         {
             var serializedObject = new List<IdentificationOfAnimals>();
 
@@ -93,9 +93,15 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
 
             var finalString = string.Empty;
             var commodityIdTypes = string.Empty;
+            var speciesName = string.Empty;
 
             serializedObject.ForEach(x =>
             {
+                if (x.speciesID != null)
+                {
+                    speciesName = commodityComplementObject.Where(complement => complement.speciesID.Trim() == x.speciesID.Trim()).Select(complement => complement.speciesNomination).FirstOrDefault();
+                }
+
                 finalString += "ComplementID: " + (x.complementID.ToString() ?? string.Empty) + System.Environment.NewLine
                              + "SpeciesID: " + (x.speciesID ?? string.Empty) + System.Environment.NewLine
                              + System.Environment.NewLine;
@@ -114,7 +120,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                 finalString += "Identifiers:" + System.Environment.NewLine;
                 x.identifiers.ForEach(z =>
                 {
-                    commodityIdTypes = "SpeciesNumber: " + (z.speciesNumber ?? string.Empty)
+                    commodityIdTypes = "SpeciesName: " + speciesName
                                  + "; Microchip: " + (z.data.microchip ?? string.Empty)
                                  + "; Passport: " + (z.data.passport ?? string.Empty)
                                  + "; leg_ring: " + (z.data.leg_ring ?? string.Empty)

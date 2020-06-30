@@ -13,17 +13,17 @@ namespace Defra.Imports.Plugins.ImporterNotification
 {
     [CrmPluginRegistration(
      MessageNameEnum.Create,
-     nameof(defraimp_ImporterNotification),
+     "defraimp_importernotification",
      StageEnum.PreOperation,
      ExecutionModeEnum.Synchronous,
-     "defraimp_itahcid",
+     "defraimp_importernotificationid",
      "Create Step - Importer Notification Format JSON",
      0,
      IsolationModeEnum.Sandbox)]
 
     [CrmPluginRegistration(
       MessageNameEnum.Update,
-      nameof(defraimp_ImporterNotification),
+      "defraimp_importernotification",
       StageEnum.PreOperation,
       ExecutionModeEnum.Synchronous,
       "defraimp_identificationofanimalstext, defraimp_commoditycomplementstext",
