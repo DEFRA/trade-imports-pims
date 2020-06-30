@@ -29,5 +29,21 @@
 
             return coverageRule;
         }
+
+        public bool ValidImportApplicationTypeForInspection(defraimp_importapplication importApplication)
+        {
+            if (importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC && importApplication.defraimp_PrimaryITAHCId != null)
+            {
+                return true;
+            }
+            else if (importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.CHEDA)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

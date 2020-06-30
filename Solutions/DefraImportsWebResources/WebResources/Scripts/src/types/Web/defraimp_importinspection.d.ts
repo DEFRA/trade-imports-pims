@@ -32,6 +32,8 @@ declare namespace WebApi {
     defraimp_othernoncompliancereason?: string | null;
     defraimp_reactorsorirsidentified?: defraimp_importinspection_defraimp_reactorsorirsidentified | null;
     defraimp_reasonfornoncompliance?: defraimp_reasonfornoncompliance | null;
+    defraimp_reasonfornotvisiting?: defraimp_reasonfornotvisiting | null;
+    defraimp_reasonforunsatisfactoryvisit?: defraimp_reasonforunsatisfactoryvisit | null;
     defraimp_reasoniv17returned?: string | null;
     defraimp_reasonnotvisited?: string | null;
     defraimp_reasontimeframemissed?: string | null;
@@ -116,6 +118,8 @@ declare namespace WebApi {
     defraimp_previousinspection_guid: WebAttribute<defraimp_importinspection_Select, { defraimp_previousinspection_guid: string | null }, { defraimp_previousinspection_formatted?: string }>;
     defraimp_reactorsorirsidentified: WebAttribute<defraimp_importinspection_Select, { defraimp_reactorsorirsidentified: defraimp_importinspection_defraimp_reactorsorirsidentified | null }, { defraimp_reactorsorirsidentified_formatted?: string }>;
     defraimp_reasonfornoncompliance: WebAttribute<defraimp_importinspection_Select, { defraimp_reasonfornoncompliance: defraimp_reasonfornoncompliance | null }, { defraimp_reasonfornoncompliance_formatted?: string }>;
+    defraimp_reasonfornotvisiting: WebAttribute<defraimp_importinspection_Select, { defraimp_reasonfornotvisiting: defraimp_reasonfornotvisiting | null }, { defraimp_reasonfornotvisiting_formatted?: string }>;
+    defraimp_reasonforunsatisfactoryvisit: WebAttribute<defraimp_importinspection_Select, { defraimp_reasonforunsatisfactoryvisit: defraimp_reasonforunsatisfactoryvisit | null }, { defraimp_reasonforunsatisfactoryvisit_formatted?: string }>;
     defraimp_reasoniv17returned: WebAttribute<defraimp_importinspection_Select, { defraimp_reasoniv17returned: string | null }, {  }>;
     defraimp_reasonnotvisited: WebAttribute<defraimp_importinspection_Select, { defraimp_reasonnotvisited: string | null }, {  }>;
     defraimp_reasontimeframemissed: WebAttribute<defraimp_importinspection_Select, { defraimp_reasontimeframemissed: string | null }, {  }>;
@@ -188,6 +192,8 @@ declare namespace WebApi {
     defraimp_previousinspection_guid: XQW.Guid;
     defraimp_reactorsorirsidentified: defraimp_importinspection_defraimp_reactorsorirsidentified;
     defraimp_reasonfornoncompliance: defraimp_reasonfornoncompliance;
+    defraimp_reasonfornotvisiting: defraimp_reasonfornotvisiting;
+    defraimp_reasonforunsatisfactoryvisit: defraimp_reasonforunsatisfactoryvisit;
     defraimp_reasoniv17returned: string;
     defraimp_reasonnotvisited: string;
     defraimp_reasontimeframemissed: string;
@@ -250,6 +256,8 @@ declare namespace WebApi {
     defraimp_previousinspection_formatted?: string;
     defraimp_reactorsorirsidentified_formatted?: string;
     defraimp_reasonfornoncompliance_formatted?: string;
+    defraimp_reasonfornotvisiting_formatted?: string;
+    defraimp_reasonforunsatisfactoryvisit_formatted?: string;
     defraimp_regionareaallocatedtoid_formatted?: string;
     defraimp_relatedimportapplication_formatted?: string;
     defraimp_relateditahc_formatted?: string;

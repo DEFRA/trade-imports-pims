@@ -199,8 +199,8 @@
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>text</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
+          <MaxLength>255</MaxLength>
+          <Length>510</Length>
           <displaynames>
             <displayname description="Commodity Description" languagecode="1033" />
           </displaynames>

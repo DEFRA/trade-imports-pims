@@ -10,32 +10,30 @@ declare namespace Form.defraimp_importernotification.Quick {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "defraimp_placeoforiginharvestaddressaddressline1"): Xrm.Attribute<string>;
-      get(name: "defraimp_placeoforiginharvestaddressaddressline2"): Xrm.Attribute<string>;
-      get(name: "defraimp_placeoforiginharvestaddressaddressline3"): Xrm.Attribute<string>;
-      get(name: "defraimp_placeoforiginharvestaddresscity"): Xrm.Attribute<string>;
-      get(name: "defraimp_placeoforiginharvestaddresscountryid"): Xrm.LookupAttribute<"defra_country">;
-      get(name: "defraimp_placeoforiginharvestaddresspostalzipcode"): Xrm.Attribute<string>;
-      get(name: "defraimp_placeoforiginharvestapprovalnumber"): Xrm.Attribute<string>;
-      get(name: "defraimp_placeoforiginharvestcompanyname"): Xrm.Attribute<string>;
-      get(name: "defraimp_placeoforiginharvestindividualname"): Xrm.Attribute<string>;
-      get(name: "defraimp_placeoforiginharvestotheridentifier"): Xrm.Attribute<string>;
+      get(name: "defraimp_consignoraddressaddressline1"): Xrm.Attribute<string>;
+      get(name: "defraimp_consignoraddressaddressline2"): Xrm.Attribute<string>;
+      get(name: "defraimp_consignoraddressaddressline3"): Xrm.Attribute<string>;
+      get(name: "defraimp_consignoraddresscity"): Xrm.Attribute<string>;
+      get(name: "defraimp_consignoraddresscountryid"): Xrm.LookupAttribute<"defra_country">;
+      get(name: "defraimp_consignoraddresspostalzipcode"): Xrm.Attribute<string>;
+      get(name: "defraimp_consignorapprovalnumber"): Xrm.Attribute<string>;
+      get(name: "defraimp_consignorcompanyname"): Xrm.Attribute<string>;
+      get(name: "defraimp_consignorotheridentifier"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "defraimp_placeoforiginharvestaddressaddressline1"): Xrm.StringControl;
-      get(name: "defraimp_placeoforiginharvestaddressaddressline2"): Xrm.StringControl;
-      get(name: "defraimp_placeoforiginharvestaddressaddressline3"): Xrm.StringControl;
-      get(name: "defraimp_placeoforiginharvestaddresscity"): Xrm.StringControl;
-      get(name: "defraimp_placeoforiginharvestaddresscountryid"): Xrm.LookupControl<"defra_country">;
-      get(name: "defraimp_placeoforiginharvestaddresspostalzipcode"): Xrm.StringControl;
-      get(name: "defraimp_placeoforiginharvestapprovalnumber"): Xrm.StringControl;
-      get(name: "defraimp_placeoforiginharvestcompanyname"): Xrm.StringControl;
-      get(name: "defraimp_placeoforiginharvestindividualname"): Xrm.StringControl;
-      get(name: "defraimp_placeoforiginharvestotheridentifier"): Xrm.StringControl;
+      get(name: "defraimp_consignoraddressaddressline1"): Xrm.StringControl;
+      get(name: "defraimp_consignoraddressaddressline2"): Xrm.StringControl;
+      get(name: "defraimp_consignoraddressaddressline3"): Xrm.StringControl;
+      get(name: "defraimp_consignoraddresscity"): Xrm.StringControl;
+      get(name: "defraimp_consignoraddresscountryid"): Xrm.LookupControl<"defra_country">;
+      get(name: "defraimp_consignoraddresspostalzipcode"): Xrm.StringControl;
+      get(name: "defraimp_consignorapprovalnumber"): Xrm.StringControl;
+      get(name: "defraimp_consignorcompanyname"): Xrm.StringControl;
+      get(name: "defraimp_consignorotheridentifier"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -50,27 +48,25 @@ declare namespace Form.defraimp_importernotification.Quick {
     }
   }
   interface PlaceofOriginDetails extends Xrm.PageBase<PlaceofOriginDetails.Attributes,PlaceofOriginDetails.Tabs,PlaceofOriginDetails.Controls> {
-    getAttribute(attributeName: "defraimp_placeoforiginharvestaddressaddressline1"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_placeoforiginharvestaddressaddressline2"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_placeoforiginharvestaddressaddressline3"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_placeoforiginharvestaddresscity"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_placeoforiginharvestaddresscountryid"): Xrm.LookupAttribute<"defra_country">;
-    getAttribute(attributeName: "defraimp_placeoforiginharvestaddresspostalzipcode"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_placeoforiginharvestapprovalnumber"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_placeoforiginharvestcompanyname"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_placeoforiginharvestindividualname"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_placeoforiginharvestotheridentifier"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_consignoraddressaddressline1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_consignoraddressaddressline2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_consignoraddressaddressline3"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_consignoraddresscity"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_consignoraddresscountryid"): Xrm.LookupAttribute<"defra_country">;
+    getAttribute(attributeName: "defraimp_consignoraddresspostalzipcode"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_consignorapprovalnumber"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_consignorcompanyname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_consignorotheridentifier"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "defraimp_placeoforiginharvestaddressaddressline1"): Xrm.StringControl;
-    getControl(controlName: "defraimp_placeoforiginharvestaddressaddressline2"): Xrm.StringControl;
-    getControl(controlName: "defraimp_placeoforiginharvestaddressaddressline3"): Xrm.StringControl;
-    getControl(controlName: "defraimp_placeoforiginharvestaddresscity"): Xrm.StringControl;
-    getControl(controlName: "defraimp_placeoforiginharvestaddresscountryid"): Xrm.LookupControl<"defra_country">;
-    getControl(controlName: "defraimp_placeoforiginharvestaddresspostalzipcode"): Xrm.StringControl;
-    getControl(controlName: "defraimp_placeoforiginharvestapprovalnumber"): Xrm.StringControl;
-    getControl(controlName: "defraimp_placeoforiginharvestcompanyname"): Xrm.StringControl;
-    getControl(controlName: "defraimp_placeoforiginharvestindividualname"): Xrm.StringControl;
-    getControl(controlName: "defraimp_placeoforiginharvestotheridentifier"): Xrm.StringControl;
+    getControl(controlName: "defraimp_consignoraddressaddressline1"): Xrm.StringControl;
+    getControl(controlName: "defraimp_consignoraddressaddressline2"): Xrm.StringControl;
+    getControl(controlName: "defraimp_consignoraddressaddressline3"): Xrm.StringControl;
+    getControl(controlName: "defraimp_consignoraddresscity"): Xrm.StringControl;
+    getControl(controlName: "defraimp_consignoraddresscountryid"): Xrm.LookupControl<"defra_country">;
+    getControl(controlName: "defraimp_consignoraddresspostalzipcode"): Xrm.StringControl;
+    getControl(controlName: "defraimp_consignorapprovalnumber"): Xrm.StringControl;
+    getControl(controlName: "defraimp_consignorcompanyname"): Xrm.StringControl;
+    getControl(controlName: "defraimp_consignorotheridentifier"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }
 }

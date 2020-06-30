@@ -40,7 +40,7 @@
                         <labels>
                           <label description="Commodity Type" languagecode="1033" />
                         </labels>
-                        <control disabled="false" id="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytypeid" />
+                        <control disabled="false" id="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytypeid" uniqueid="{15a331a1-255e-1e0d-8079-066c7761e8b8}" />
                       </cell>
                     </row>
                     <row>
@@ -136,23 +136,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{73ce3368-3152-323d-5d66-1cb678a70cad}" showlabel="true" locklevel="0" visible="false">
-                        <labels>
-                          <label description="Primary CVED" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_primarycvedid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_primarycvedid" disabled="false" uniqueid="{7d199360-0948-c153-6701-202c91039b2c}">
-                          <parameters>
-                            <AutoResolve>true</AutoResolve>
-                            <DisableMru>false</DisableMru>
-                            <DisableQuickFind>false</DisableQuickFind>
-                            <DisableViewPicker>false</DisableViewPicker>
-                            <DefaultViewId>{6411D923-3547-4D7D-8EA0-1102FAC560BE}</DefaultViewId>
-                            <AllowFilterOff>false</AllowFilterOff>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{b4440dc1-861b-3389-e80d-eb644b9b9806}" locklevel="0" showlabel="true">
                         <labels>
                           <label description="Date of Import" languagecode="1033" />
@@ -178,7 +161,7 @@
                     </row>
                   </rows>
                 </section>
-                <section name="IV66" showlabel="true" showbar="false" locklevel="0" id="{256027dd-2b6b-0450-042e-0860e3e06bb6}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <section name="iv66_section" showlabel="true" showbar="false" locklevel="0" id="{256027dd-2b6b-0450-042e-0860e3e06bb6}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
                   <labels>
                     <label description="IV66" languagecode="1033" />
                   </labels>
@@ -418,7 +401,7 @@
                     </row>
                   </rows>
                 </section>
-                <section id="{14e024ab-d977-1708-37c7-423a7e6b71aa}" name="DOCOM_Section" locklevel="0" showlabel="true" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" showbar="false">
+                <section id="{14e024ab-d977-1708-37c7-423a7e6b71aa}" name="DOCOM_Section" locklevel="0" showlabel="true" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" showbar="false" visible="false">
                   <labels>
                     <label description="DOCOM" languagecode="1033" />
                   </labels>
@@ -445,6 +428,123 @@
                           <label description="Date Confirmed on Traces" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_dateconfirmedontraces" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateconfirmedontraces" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="cheda_section" showlabel="true" showbar="false" locklevel="0" id="{7ad76086-0b34-ce48-2e3a-c2065c36822b}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                  <labels>
+                    <label description="CHED-A" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{7ee5c747-01a6-a639-c596-cca5d5486359}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Local Reference Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_localreferencenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_localreferencenumber" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="chedp_section" showlabel="true" showbar="false" locklevel="0" id="{7204a4c1-ba2c-9de1-5029-656b17651305}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                  <labels>
+                    <label description="CHED-P" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b57e7ec7-e201-8d65-16e7-3c3dbe28349b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Article 8 (Monitored)" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_article8monitored" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_article8monitored" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a38be516-a89a-4066-71e0-ac928e455037}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Article 15 (Re-Import)" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_article15reimport" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_article15reimport" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cb3550d9-d9be-a452-5717-76a81b502616}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Local Reference Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_localreferencenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_localreferencenumber" disabled="false" uniqueid="{a15a6cbd-4c93-2d19-cc1e-9c74374731d6}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cdc50eb3-e877-7745-71d6-34b3722e2048}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Seal Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_sealnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_sealnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ae77c08e-2b83-a063-4a47-7ca8e0a2804c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Container Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_containernumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_containernumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b36e1785-cd3d-12ed-01d8-766e7463e830}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Document Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_documentnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_documentnumber" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="chedp_controls_section" showlabel="true" showbar="false" locklevel="0" id="{bd053e27-7eb5-6689-7483-9be32c0b462c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                  <labels>
+                    <label description="Controls" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ae8c9256-2b3d-96e2-6883-e7d73ab3bb21}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date of Confirmation from Importer" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_dateofconfirmationfromimporter" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateofconfirmationfromimporter" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{717a5ee8-8518-d22c-a501-610e28069adc}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date of Email to Importer" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_dateofemailtoimporter" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateofemailtoimporter" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{10591147-4ed4-331b-e588-7b12a0969c2e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date of Confirmation to BIP" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_dateofconfirmationtobip" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateofconfirmationtobip" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{02b4341b-ce42-2540-20b4-ac7a1c22cacc}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Notified to BIP Within 15 Days?" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_notifiedtobipwithin15days" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_notifiedtobipwithin15days" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{42623ce6-3c85-2341-1c59-505e6037624c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignment Conforming?" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignmentconforming" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_consignmentconforming" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -1030,6 +1130,29 @@
                     </row>
                   </rows>
                 </section>
+                <section name="transport_information_section" showlabel="true" showbar="false" locklevel="0" id="{9440ea78-3616-3650-b79c-c04ac5a98c30}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                  <labels>
+                    <label description="Transport Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{1b8e2bbd-cb46-bb8e-6900-bc2c9174873e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Means of Transport" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransport" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_meansoftransport" disabled="false" uniqueid="{4ced50e6-8585-a81e-6646-63c254ac33d9}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{30ca8118-36ce-1d77-33d0-24de066471b2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Documentation Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_documentationnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_documentationnumber" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
               </sections>
             </column>
             <column width="50%">
@@ -1202,7 +1325,7 @@
             </column>
           </columns>
         </tab>
-        <tab id="{3aac944e-cdb5-88dd-c8e3-5e70a7087ab6}" name="AdditionalITAHC_Tab" locklevel="0" expanded="true" showlabel="true" IsUserDefined="0">
+        <tab id="{3aac944e-cdb5-88dd-c8e3-5e70a7087ab6}" name="AdditionalITAHC_Tab" locklevel="0" expanded="true" showlabel="true" IsUserDefined="0" visible="false">
           <labels>
             <label description="Additional ITAHC" languagecode="1033" />
           </labels>
@@ -1583,11 +1706,17 @@
         <event name="onload" application="false" active="false">
           <Handlers>
             <Handler functionName="DefraImports.ImportRecord.onLoad" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{5153c27b-cdc5-166e-7e9e-253b3390c3ed}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="DefraImports.ImportRecord.showRelevantSections" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{a45bc5a5-93e8-829d-dcdb-9021c1802a5a}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
         <event name="onsave" application="false" active="false">
           <Handlers>
             <Handler functionName="DefraImports.ImportRecord.onSave" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{91961c5c-592c-c24a-8211-3d040274d2b3}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="defraimp_importapplicationtype">
+          <Handlers>
+            <Handler functionName="DefraImports.ImportRecord.showRelevantSections" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{d9792219-dab2-12a9-41cd-c0bd4d62e918}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

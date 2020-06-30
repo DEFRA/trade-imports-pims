@@ -18,7 +18,6 @@ declare namespace Form.defraimp_importernotification.Quick {
       get(name: "defraimp_placeofdestinationapprovalnumber"): Xrm.Attribute<string>;
       get(name: "defraimp_placeofdestinationcompanyname"): Xrm.Attribute<string>;
       get(name: "defraimp_placeofdestinationcountryid"): Xrm.LookupAttribute<"defra_country">;
-      get(name: "defraimp_placeofdestinationindividualname"): Xrm.Attribute<string>;
       get(name: "defraimp_placeofdestinationotheridentifier"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -34,7 +33,6 @@ declare namespace Form.defraimp_importernotification.Quick {
       get(name: "defraimp_placeofdestinationapprovalnumber"): Xrm.StringControl;
       get(name: "defraimp_placeofdestinationcompanyname"): Xrm.StringControl;
       get(name: "defraimp_placeofdestinationcountryid"): Xrm.LookupControl<"defra_country">;
-      get(name: "defraimp_placeofdestinationindividualname"): Xrm.StringControl;
       get(name: "defraimp_placeofdestinationotheridentifier"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -58,7 +56,6 @@ declare namespace Form.defraimp_importernotification.Quick {
     getAttribute(attributeName: "defraimp_placeofdestinationapprovalnumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_placeofdestinationcompanyname"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_placeofdestinationcountryid"): Xrm.LookupAttribute<"defra_country">;
-    getAttribute(attributeName: "defraimp_placeofdestinationindividualname"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_placeofdestinationotheridentifier"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "defraimp_placeofdestinationaddressaddressline1"): Xrm.StringControl;
@@ -69,7 +66,6 @@ declare namespace Form.defraimp_importernotification.Quick {
     getControl(controlName: "defraimp_placeofdestinationapprovalnumber"): Xrm.StringControl;
     getControl(controlName: "defraimp_placeofdestinationcompanyname"): Xrm.StringControl;
     getControl(controlName: "defraimp_placeofdestinationcountryid"): Xrm.LookupControl<"defra_country">;
-    getControl(controlName: "defraimp_placeofdestinationindividualname"): Xrm.StringControl;
     getControl(controlName: "defraimp_placeofdestinationotheridentifier"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }

@@ -123,7 +123,7 @@ var DefraImports;
             var selectedRows = primaryControl.getControl("RelatedImportRecords").getGrid().getSelectedRows();
             var selectedImportRecords = [];
             selectedRows.forEach(function (element) {
-                selectedImportRecords.push(element.data.entity.getEntityReference());
+                selectedImportRecords.push(element.getData().getEntity().getEntityReference());
             });
             return selectedImportRecords;
         }

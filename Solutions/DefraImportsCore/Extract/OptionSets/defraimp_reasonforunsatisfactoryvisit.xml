@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="defraimp_reasonforunsatisfactoryvisit" localizedName="Reason For Unsatisfactory Visit" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>0.0.0.67</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Reason For Unsatisfactory Visit" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="714100000">
+      <labels>
+        <label description="Non-Compliant welfare" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100001">
+      <labels>
+        <label description="Non-Compliant documentary check" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100002">
+      <labels>
+        <label description="Quarantined" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

@@ -183,9 +183,9 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{3ae70e83-edb1-431c-92e5-9e2029b81317}" showlabel="true" locklevel="0">
+                      <cell id="{cd86019c-6eeb-4c78-a109-2fe35bdcad36}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Commodity Id" languagecode="1033" />
+                          <label description="Commodity Code" languagecode="1033" />
                         </labels>
                         <control id="defraimp_commodityid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commodityid" disabled="false" />
                       </cell>
@@ -196,22 +196,6 @@
                           <label description="Commodity ID Types" languagecode="1033" />
                         </labels>
                         <control id="defraimp_commodityidtypes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidtypes" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{dd01b726-a29d-42cc-9b44-0998e28c0bcd}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Commodity Species Id" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_commodityspeciesid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commodityspeciesid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{1962b765-56b6-1e63-6904-6e2e912b3042}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Commodity Species Name" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_commodityspeciesname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_commodityspeciesname" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -1644,7 +1628,7 @@
         </controlDescription>
       </controlDescriptions>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
