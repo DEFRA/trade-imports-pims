@@ -24,14 +24,11 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
         /// </summary>
         public void FormatIntegrationData()
         {
+            var complementObject = ProcessCommodityComplementJson(notificationFromContext.defraimp_CommodityComplementsText);
+
             if (this.notificationFromContext.Contains("defraimp_identificationofanimalstext") && !string.IsNullOrEmpty(notificationFromContext.defraimp_IdentificationOfAnimalsText))
             {
-                ProcessIdentificationJson(notificationFromContext.defraimp_IdentificationOfAnimalsText);
-            }
-
-            if(this.notificationFromContext.Contains("defraimp_commoditycomplementstext") && !string.IsNullOrEmpty(notificationFromContext.defraimp_CommodityComplementsText))
-            {
-                ProcessCommodityComplementJson(notificationFromContext.defraimp_CommodityComplementsText);
+                ProcessIdentificationJson(notificationFromContext.defraimp_IdentificationOfAnimalsText, complementObject);
             }
         }
 
@@ -51,26 +48,29 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                 serializedObject = (List<CommodityComplementObject>)serializer.ReadObject(DeSerializememoryStream);
             }
 
-            var finalString = string.Empty;
-
-            serializedObject.ForEach(x =>
+            if (this.notificationFromContext.Contains("defraimp_commoditycomplementstext") && !string.IsNullOrEmpty(notificationFromContext.defraimp_CommodityComplementsText))
             {
-                finalString += "CommodityID: " + (x.commodityID ?? string.Empty) + System.Environment.NewLine
-                             + "Commodity Description: " + (x.commodityDescription ?? string.Empty) + System.Environment.NewLine
-                             + "Complement ID: " + (x.complementID.ToString() ?? string.Empty) + System.Environment.NewLine
-                             + "Complement Name: " + (x.complementName ?? string.Empty) + System.Environment.NewLine
-                             + "SpeciesID: " + (x.speciesID ?? string.Empty) + System.Environment.NewLine
-                             + "Species Name: " + (x.speciesName ?? string.Empty) + System.Environment.NewLine
-                             + "Species Type: " + (x.speciesType ?? string.Empty) + System.Environment.NewLine
-                             + "Species Class Name: " + (x.speciesClassName ?? string.Empty) + System.Environment.NewLine
-                             + "Species Class: " + (x.speciesClass ?? string.Empty) + System.Environment.NewLine
-                             + "Species Nomination: " + (x.speciesNomination ?? string.Empty) + System.Environment.NewLine
-                             + "Species Common Name: " + (x.speciesCommonName ?? string.Empty) + System.Environment.NewLine
-                             + System.Environment.NewLine + "-------------" + System.Environment.NewLine;
-            });
+                var finalString = string.Empty;
 
-            notificationFromContext.defraimp_FormattedCommodityComplementsText = finalString;
-            notificationFromContext.defraimp_CommoditySpeciesName = serializedObject.FirstOrDefault().speciesName ?? string.Empty;
+                serializedObject.ForEach(x =>
+                {
+                    finalString += "CommodityID: " + (x.commodityID ?? string.Empty) + System.Environment.NewLine
+                                 + "Commodity Description: " + (x.commodityDescription ?? string.Empty) + System.Environment.NewLine
+                                 + "Complement ID: " + (x.complementID.ToString() ?? string.Empty) + System.Environment.NewLine
+                                 + "Complement Name: " + (x.complementName ?? string.Empty) + System.Environment.NewLine
+                                 + "SpeciesID: " + (x.speciesID ?? string.Empty) + System.Environment.NewLine
+                                 + "Species Name: " + (x.speciesName ?? string.Empty) + System.Environment.NewLine
+                                 + "Species Type: " + (x.speciesType ?? string.Empty) + System.Environment.NewLine
+                                 + "Species Class Name: " + (x.speciesClassName ?? string.Empty) + System.Environment.NewLine
+                                 + "Species Class: " + (x.speciesClass ?? string.Empty) + System.Environment.NewLine
+                                 + "Species Nomination: " + (x.speciesNomination ?? string.Empty) + System.Environment.NewLine
+                                 + "Species Common Name: " + (x.speciesCommonName ?? string.Empty) + System.Environment.NewLine
+                                 + System.Environment.NewLine + "-------------" + System.Environment.NewLine;
+                });
+
+                notificationFromContext.defraimp_FormattedCommodityComplementsText = finalString;
+                notificationFromContext.defraimp_CommoditySpeciesName = serializedObject.FirstOrDefault().speciesName ?? string.Empty;
+            }
 
             return serializedObject;
         }
