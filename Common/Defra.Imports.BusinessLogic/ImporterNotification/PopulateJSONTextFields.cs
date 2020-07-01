@@ -163,6 +163,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
         {
             var imageValue = (preImage != null) ? preImage.GetAttributeValue<string>(value) : string.Empty;
             var validValue = (target.Contains(value)) ? target.GetAttributeValue<string>(value) : imageValue;
+
             return validValue;
         }
     }
