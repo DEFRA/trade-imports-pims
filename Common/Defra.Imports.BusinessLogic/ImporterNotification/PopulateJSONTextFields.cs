@@ -1,6 +1,7 @@
 ﻿using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.CommodityComplementObjects;
 using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.IdentificationOfAnimalsObjects;
 using Defra.Imports.Model;
+using Microsoft.Xrm.Sdk;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,10 +14,12 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
     public class PopulateJSONTextFields
     {
         private defraimp_ImporterNotification notificationFromContext;
+        private defraimp_ImporterNotification notificationPreImage;
 
-        public PopulateJSONTextFields(defraimp_ImporterNotification _notificationFromContext)
+        public PopulateJSONTextFields(defraimp_ImporterNotification _notificationFromContext, defraimp_ImporterNotification _notificationPreImage)
         {
             this.notificationFromContext = _notificationFromContext;
+            this.notificationPreImage = _notificationPreImage;
         }
 
         /// <summary>
@@ -24,116 +27,144 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
         /// </summary>
         public void FormatIntegrationData()
         {
-            if (this.notificationFromContext.Contains("defraimp_identificationofanimalstext") && !string.IsNullOrEmpty(notificationFromContext.defraimp_IdentificationOfAnimalsText))
-            {
-                ProcessIdentificationJson(notificationFromContext.defraimp_IdentificationOfAnimalsText);
-            }
+            var commodityJson = GetValueFromFields(notificationPreImage, notificationFromContext, "defraimp_commoditycomplementstext");
+            var identJson = GetValueFromFields(notificationPreImage, notificationFromContext, "defraimp_identificationofanimalstext");
 
-            if(this.notificationFromContext.Contains("defraimp_commoditycomplementstext") && !string.IsNullOrEmpty(notificationFromContext.defraimp_CommodityComplementsText))
-            {
-                ProcessCommodityComplementJson(notificationFromContext.defraimp_CommodityComplementsText);
-            }
+            var complementObject = ProcessCommodityComplementJson(commodityJson);
+
+            ProcessIdentificationJson(identJson, complementObject);
         }
 
-        private string ProcessCommodityComplementJson(string json)
+        private List<CommodityComplementObject> ProcessCommodityComplementJson(string commodityJson)
         {
             var serializedObject = new List<CommodityComplementObject>();
 
-            using (MemoryStream DeSerializememoryStream = new MemoryStream())
+            if (!string.IsNullOrEmpty(commodityJson))
             {
-                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<CommodityComplementObject>));
+                using (MemoryStream DeSerializememoryStream = new MemoryStream())
+                {
+                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<CommodityComplementObject>));
 
-                StreamWriter writer = new StreamWriter(DeSerializememoryStream);
-                writer.Write(json.Replace("'", "\""));
-                writer.Flush();
+                    StreamWriter writer = new StreamWriter(DeSerializememoryStream);
+                    writer.Write(commodityJson.Replace("'", "\""));
+                    writer.Flush();
 
-                DeSerializememoryStream.Position = 0;
-                serializedObject = (List<CommodityComplementObject>)serializer.ReadObject(DeSerializememoryStream);
+                    DeSerializememoryStream.Position = 0;
+                    serializedObject = (List<CommodityComplementObject>)serializer.ReadObject(DeSerializememoryStream);
+                }
             }
 
             var finalString = string.Empty;
 
-            serializedObject.ForEach(x =>
+            if (this.notificationFromContext.Contains("defraimp_commoditycomplementstext") && !string.IsNullOrEmpty(commodityJson))
             {
-                finalString += "CommodityID: " + (x.commodityID ?? string.Empty) + System.Environment.NewLine
-                             + "Commodity Description: " + (x.commodityDescription ?? string.Empty) + System.Environment.NewLine
-                             + "Complement ID: " + (x.complementID.ToString() ?? string.Empty) + System.Environment.NewLine
-                             + "Complement Name: " + (x.complementName ?? string.Empty) + System.Environment.NewLine
-                             + "SpeciesID: " + (x.speciesID ?? string.Empty) + System.Environment.NewLine
-                             + "Species Name: " + (x.speciesName ?? string.Empty) + System.Environment.NewLine
-                             + "Species Type: " + (x.speciesType ?? string.Empty) + System.Environment.NewLine
-                             + "Species Class Name: " + (x.speciesClassName ?? string.Empty) + System.Environment.NewLine
-                             + "Species Class: " + (x.speciesClass ?? string.Empty) + System.Environment.NewLine
-                             + "Species Nomination: " + (x.speciesNomination ?? string.Empty) + System.Environment.NewLine
-                             + "Species Common Name: " + (x.speciesCommonName ?? string.Empty) + System.Environment.NewLine
-                             + System.Environment.NewLine + "-------------" + System.Environment.NewLine;
-            });
+                serializedObject.ForEach(x =>
+                {
+                    finalString += "CommodityID: " + (x.commodityID ?? string.Empty) + System.Environment.NewLine
+                                    + "Commodity Description: " + (x.commodityDescription ?? string.Empty) + System.Environment.NewLine
+                                    + "Complement ID: " + (x.complementID.ToString() ?? string.Empty) + System.Environment.NewLine
+                                    + "Complement Name: " + (x.complementName ?? string.Empty) + System.Environment.NewLine
+                                    + "SpeciesID: " + (x.speciesID ?? string.Empty) + System.Environment.NewLine
+                                    + "Species Name: " + (x.speciesName ?? string.Empty) + System.Environment.NewLine
+                                    + "Species Type: " + (x.speciesType ?? string.Empty) + System.Environment.NewLine
+                                    + "Species Class Name: " + (x.speciesClassName ?? string.Empty) + System.Environment.NewLine
+                                    + "Species Class: " + (x.speciesClass ?? string.Empty) + System.Environment.NewLine
+                                    + "Species Nomination: " + (x.speciesNomination ?? string.Empty) + System.Environment.NewLine
+                                    + "Species Common Name: " + (x.speciesCommonName ?? string.Empty) + System.Environment.NewLine
+                                    + System.Environment.NewLine + "-------------" + System.Environment.NewLine;
+                });
 
-            notificationFromContext.defraimp_FormattedCommodityComplementsText = finalString;
-            notificationFromContext.defraimp_CommoditySpeciesName = serializedObject.FirstOrDefault().speciesName ?? string.Empty;
+                notificationFromContext.defraimp_FormattedCommodityComplementsText = finalString;
+                notificationFromContext.defraimp_CommoditySpeciesName = serializedObject.FirstOrDefault().speciesName ?? string.Empty;
+            }
 
-            return finalString;
+            return serializedObject;
         }
 
-        private string ProcessIdentificationJson(string json)
+        private List<IdentificationOfAnimals> ProcessIdentificationJson(string json, List<CommodityComplementObject> commodityComplementObject)
         {
-            var serializedObject = new List<IdentificationOfAnimals>();
-
-            using (MemoryStream DeSerializeMemoryStream = new MemoryStream())
+            if (!string.IsNullOrEmpty(json))
             {
-                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<IdentificationOfAnimals>));
+                var serializedObject = new List<IdentificationOfAnimals>();
 
-                StreamWriter writer = new StreamWriter(DeSerializeMemoryStream);
-                writer.Write(json.Replace("'", "\""));
-                writer.Flush();
+                using (MemoryStream DeSerializeMemoryStream = new MemoryStream())
+                {
+                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<IdentificationOfAnimals>));
 
-                DeSerializeMemoryStream.Position = 0;
-                serializedObject = (List<IdentificationOfAnimals>)serializer.ReadObject(DeSerializeMemoryStream);
+                    StreamWriter writer = new StreamWriter(DeSerializeMemoryStream);
+                    writer.Write(json.Replace("'", "\""));
+                    writer.Flush();
+
+                    DeSerializeMemoryStream.Position = 0;
+                    serializedObject = (List<IdentificationOfAnimals>)serializer.ReadObject(DeSerializeMemoryStream);
+                }
+
+                var finalString = string.Empty;
+                var commodityIdTypes = string.Empty;
+                var speciesName = string.Empty;
+
+                serializedObject.ForEach(x =>
+                {
+                    if (x.speciesID != null && commodityComplementObject != null && commodityComplementObject.Any())
+                    {
+                        speciesName = commodityComplementObject.Where(complement => complement.speciesID.Trim() == x.speciesID.Trim()).Select(complement => complement.speciesNomination).FirstOrDefault();
+                    }
+
+                    finalString += "ComplementID: " + (x.complementID.ToString() ?? string.Empty) + System.Environment.NewLine
+                                 + "SpeciesID: " + (x.speciesID ?? string.Empty) + System.Environment.NewLine
+                                 + System.Environment.NewLine;
+
+                    x.keyDataPair.ForEach(y =>
+                    {
+                        finalString += y.key + ": " + y.data + System.Environment.NewLine
+                                     + System.Environment.NewLine;
+
+                        if (y.key.Equals("imp_number_animal"))
+                        {
+                            notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
+                        }
+                    });
+
+                    finalString += "Identifiers:" + System.Environment.NewLine;
+                    x.identifiers.ForEach(z =>
+                    {
+                        if (!string.IsNullOrEmpty(speciesName))
+                            commodityIdTypes = "SpeciesName: " + speciesName + "; ";
+                        if (z.data.microchip != null)
+                            commodityIdTypes += "Microchip: " + (z.data.microchip ?? string.Empty) + "; ";
+                        if (z.data.passport != null)
+                            commodityIdTypes += "Passport: " + (z.data.passport ?? string.Empty) + "; ";
+                        if (z.data.leg_ring != null)
+                            commodityIdTypes += "leg_ring: " + (z.data.leg_ring ?? string.Empty) + "; ";
+                        if (z.data.tattoo != null)
+                            commodityIdTypes += "tattoo: " + (z.data.tattoo ?? string.Empty) + "; ";
+
+                        commodityIdTypes += System.Environment.NewLine + System.Environment.NewLine;
+
+                        finalString += commodityIdTypes;
+                    });
+
+                    finalString += "-----------------" + System.Environment.NewLine
+                                 + System.Environment.NewLine;
+                });
+
+                notificationFromContext.defraimp_FormattedIdentificationofAnimalsText = finalString;
+                notificationFromContext.defraimp_CommodityId = serializedObject.FirstOrDefault()?.complementID.ToString() ?? string.Empty;
+                notificationFromContext.defraimp_CommoditySpeciesId = serializedObject.FirstOrDefault()?.speciesID ?? string.Empty;
+                notificationFromContext.defraimp_CommodityIDTypes = commodityIdTypes;
+
+                return serializedObject;
             }
 
-            var finalString = string.Empty;
-            var commodityIdTypes = string.Empty;
+            return null;
+        }
 
-            serializedObject.ForEach(x =>
-            {
-                finalString += "ComplementID: " + (x.complementID.ToString() ?? string.Empty) + System.Environment.NewLine
-                             + "SpeciesID: " + (x.speciesID ?? string.Empty) + System.Environment.NewLine
-                             + System.Environment.NewLine;
+        private string GetValueFromFields(Entity preImage, Entity target, string value)
+        {
+            var imageValue = (preImage != null) ? preImage.GetAttributeValue<string>(value) : string.Empty;
+            var validValue = (target.Contains(value)) ? target.GetAttributeValue<string>(value) : imageValue;
 
-                x.keyDataPair.ForEach(y =>
-                {
-                    finalString += y.key + ": " + y.data + System.Environment.NewLine
-                                 + System.Environment.NewLine;
-
-                    if (y.key.Equals("imp_number_animal"))
-                    {
-                        notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
-                    }
-                });
-
-                finalString += "Identifiers:" + System.Environment.NewLine;
-                x.identifiers.ForEach(z =>
-                {
-                    commodityIdTypes = "SpeciesNumber: " + (z.speciesNumber ?? string.Empty)
-                                 + "; Microchip: " + (z.data.microchip ?? string.Empty)
-                                 + "; Passport: " + (z.data.passport ?? string.Empty)
-                                 + "; leg_ring: " + (z.data.leg_ring ?? string.Empty)
-                                 + "; tattoo: " + (z.data.tattoo ?? string.Empty) + System.Environment.NewLine
-                                 + System.Environment.NewLine;
-
-                    finalString += commodityIdTypes;
-                });
-
-                finalString += "-----------------" + System.Environment.NewLine
-                             + System.Environment.NewLine;
-            });
-
-            notificationFromContext.defraimp_FormattedIdentificationofAnimalsText = finalString;
-            notificationFromContext.defraimp_CommodityId = serializedObject.FirstOrDefault()?.complementID.ToString() ?? string.Empty;
-            notificationFromContext.defraimp_CommoditySpeciesId = serializedObject.FirstOrDefault()?.speciesID ?? string.Empty;
-            notificationFromContext.defraimp_CommodityIDTypes = commodityIdTypes;
-
-            return finalString;
+            return validValue;
         }
     }
 }

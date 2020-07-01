@@ -33,12 +33,14 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
                                         + "imp_number_animal: 2" + Environment.NewLine
                                         + Environment.NewLine
                                         + "Identifiers:" + Environment.NewLine
-                                        + "SpeciesNumber: 1; Microchip: jfsjhd28745837; Passport: 83453889; leg_ring: ; tattoo: " + Environment.NewLine
+                                        + "SpeciesName: Canis familiaris; Microchip: jfsjhd28745837; Passport: 83453889; " + Environment.NewLine
                                         + Environment.NewLine
-                                        + "SpeciesNumber: 2; Microchip: jgkjdg738567389; Passport: 836783; leg_ring: ; tattoo: " + Environment.NewLine
+                                        + "SpeciesName: Canis familiaris; Microchip: jgkjdg738567389; Passport: 836783; " + Environment.NewLine
                                         + Environment.NewLine
                                         + "-----------------" + Environment.NewLine
                                         + Environment.NewLine;
+
+            defraimp_ImporterNotification notificationImage = null;
 
             var notificationFromContext = new defraimp_ImporterNotification()
             {
@@ -46,7 +48,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
                 defraimp_IdentificationOfAnimalsText = @"[{'complementID':106400,'speciesID':'22392','keyDataPair':[{'key':'imp_number_animal','data':'2'}],'identifiers':[{'speciesNumber':1,'data':{'microchip':'jfsjhd28745837','passport':'83453889'}},{'speciesNumber':2,'data':{'microchip':'jgkjdg738567389','passport':'836783'}}]}]"
             };
 
-            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext);
+            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext, notificationImage);
             populateFormattedJSONTextFields.FormatIntegrationData();
 
             Assert.NotNull(notificationFromContext.defraimp_FormattedCommodityComplementsText);

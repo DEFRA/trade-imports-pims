@@ -13,17 +13,17 @@ namespace Defra.Imports.Plugins.ImporterNotification
 {
     [CrmPluginRegistration(
      MessageNameEnum.Create,
-     nameof(defraimp_ImporterNotification),
+     "defraimp_importernotification",
      StageEnum.PreOperation,
      ExecutionModeEnum.Synchronous,
-     "defraimp_itahcid",
+     "defraimp_importernotificationid",
      "Create Step - Importer Notification Format JSON",
      0,
      IsolationModeEnum.Sandbox)]
 
     [CrmPluginRegistration(
       MessageNameEnum.Update,
-      nameof(defraimp_ImporterNotification),
+      "defraimp_importernotification",
       StageEnum.PreOperation,
       ExecutionModeEnum.Synchronous,
       "defraimp_identificationofanimalstext, defraimp_commoditycomplementstext",
@@ -37,7 +37,9 @@ namespace Defra.Imports.Plugins.ImporterNotification
         {
             var notificationFromContext = ((Entity)context.InputParameters["Target"]).ToEntity<defraimp_ImporterNotification>();
 
-            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext);
+            var notificationPreImage = (context.MessageName.ToLower() == "update") ? context.PreEntityImages["PreImage"].ToEntity<defraimp_ImporterNotification>() : null;
+
+            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext, notificationPreImage);
             populateFormattedJSONTextFields.FormatIntegrationData();
         }
     }

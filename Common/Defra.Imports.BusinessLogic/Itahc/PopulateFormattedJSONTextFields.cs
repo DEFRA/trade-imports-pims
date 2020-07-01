@@ -113,11 +113,12 @@ namespace Defra.Imports.BusinessLogic.Itahc
                     }
                     else if (x.Key.Trim().Equals("identnumber"))
                     {
-                        commodityIdTypes += x.Data.Trim() + System.Environment.NewLine;
+                        commodityIdTypes += x.Data.Trim() + "; ";
                     }
 
                     if (x.Key.Trim().Equals("passportnumber"))
                     {
+                        commodityIdTypes += x.Key.Trim() + ": " + x.Data.Trim() + Environment.NewLine;
                         passportNumber += x.Data.Trim() + Environment.NewLine;
                     }
                 });
@@ -145,18 +146,22 @@ namespace Defra.Imports.BusinessLogic.Itahc
                         finalString += "Key: " + y.Key + System.Environment.NewLine
                                  + "Data: " + y.Data + System.Environment.NewLine
                                  + System.Environment.NewLine;
-
+                        if (y.Key.Trim().Equals("species"))
+                        {
+                            commodityIdTypes += "SpeciesID: " + y.Data.Trim() + "; ";
+                        }
                         if (y.Key.Trim().Equals("identsystem"))
                         {
                             commodityIdTypes += y.Data.Trim() + ": ";
                         }
                         else if (y.Key.Trim().Equals("identnumber"))
                         {
-                            commodityIdTypes += y.Data.Trim() + System.Environment.NewLine;
+                            commodityIdTypes += y.Data.Trim() + "; ";
                         }
 
                         if (y.Key.Trim().Equals("passportnumber"))
                         {
+                            commodityIdTypes += y.Key.Trim() + ": " + y.Data.Trim() + Environment.NewLine;
                             passportNumber += y.Data.Trim() + Environment.NewLine;
                         }
                     });
