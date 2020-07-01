@@ -27,9 +27,6 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
         /// </summary>
         public void FormatIntegrationData()
         {
-            //var imageCommodityJson = (notificationPreImage != null) ? notificationPreImage.defraimp_CommodityComplementsText : string.Empty;
-            //var commodityJson = (this.notificationFromContext.Contains("defraimp_commoditycomplementstext")) ? notificationFromContext.defraimp_CommodityComplementsText : imageCommodityJson;
-
             var commodityJson = GetValueFromFields(notificationPreImage, notificationFromContext, "defraimp_commoditycomplementstext");
             var identJson = GetValueFromFields(notificationPreImage, notificationFromContext, "defraimp_identificationofanimalstext");
 
