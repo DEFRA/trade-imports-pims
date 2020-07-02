@@ -49,12 +49,15 @@ namespace Defra.Imports.Repositories.Annotations
 
         public void CreateAnnotations(List<Annotation> listOfAnnotations)
         {
-            listOfAnnotations.ForEach(x =>
+            if (listOfAnnotations.Any())
             {
-                CrmContext.AddObject(x);
-            });
+                listOfAnnotations.ForEach(x =>
+                {
+                    CrmContext.AddObject(x);
+                });
 
-            CrmContext.SaveChanges();
+                CrmContext.SaveChanges();
+            }
         }
 
         #endregion Create Methods
