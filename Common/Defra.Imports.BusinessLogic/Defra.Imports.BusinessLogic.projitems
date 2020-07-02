@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)CrmPluginRegistrationAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\InArgumentExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Import Query\AddNotesToCloneImportQuery.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\InspectionsSinceLastCheckCounterManagerBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Strategies\TBDetermineInspection.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ILogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\Severity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\TracingServiceLogWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IAnnotationRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Interfaces\InnRelationshipAssociator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\NNRelationshipAssociator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugin.cs" />
