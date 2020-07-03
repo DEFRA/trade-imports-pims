@@ -3,7 +3,7 @@
   <CustomActions>
     <CustomAction Id="defraimp.defraimp_importquery.CloneQuery.Button.CustomAction" Location="Mscrm.Form.defraimp_importquery.MainTab.Save.Controls._children" Sequence="25">
       <CommandUIDefinition>
-        <Button Command="defraimp.defraimp_importquery.CloneQuery.Command" Id="defraimp.defraimp_importquery.CloneQuery.Button" LabelText="$LocLabels:defraimp.defraimp_importquery.CloneQuery.Button.LabelText" Sequence="25" TemplateAlias="o1" />
+        <Button Command="defraimp.defraimp_importquery.CloneQuery.Command" Id="defraimp.defraimp_importquery.CloneQuery.Button" LabelText="$LocLabels:defraimp.defraimp_importquery.CloneQuery.Button.LabelText" Sequence="25" TemplateAlias="o1" ModernImage="$webresource:defraimp_/svg/icon.importqueryclone.svg" />
       </CommandUIDefinition>
     </CustomAction>
   </CustomActions>
