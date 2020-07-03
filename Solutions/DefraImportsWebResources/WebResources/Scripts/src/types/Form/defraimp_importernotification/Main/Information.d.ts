@@ -103,8 +103,6 @@ declare namespace Form.defraimp_importernotification.Main {
       get(name: "defraimp_commoditycomplementstext"): Xrm.Attribute<string>;
       get(name: "defraimp_commodityid"): Xrm.Attribute<string>;
       get(name: "defraimp_commodityidtypes"): Xrm.Attribute<string>;
-      get(name: "defraimp_commodityspeciesid"): Xrm.Attribute<string>;
-      get(name: "defraimp_commodityspeciesname"): Xrm.Attribute<string>;
       get(name: "defraimp_consigneeaddressaddressline1"): Xrm.Attribute<string>;
       get(name: "defraimp_consigneeaddressaddressline2"): Xrm.Attribute<string>;
       get(name: "defraimp_consigneeaddressaddressline3"): Xrm.Attribute<string>;
@@ -233,8 +231,6 @@ declare namespace Form.defraimp_importernotification.Main {
       get(name: "defraimp_commoditycomplementstext"): Xrm.StringControl;
       get(name: "defraimp_commodityid"): Xrm.StringControl;
       get(name: "defraimp_commodityidtypes"): Xrm.StringControl;
-      get(name: "defraimp_commodityspeciesid"): Xrm.StringControl;
-      get(name: "defraimp_commodityspeciesname"): Xrm.StringControl;
       get(name: "defraimp_consigneeaddressaddressline1"): Xrm.StringControl;
       get(name: "defraimp_consigneeaddressaddressline2"): Xrm.StringControl;
       get(name: "defraimp_consigneeaddressaddressline3"): Xrm.StringControl;
@@ -396,8 +392,6 @@ declare namespace Form.defraimp_importernotification.Main {
     getAttribute(attributeName: "defraimp_commoditycomplementstext"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commodityid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commodityidtypes"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_commodityspeciesid"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_commodityspeciesname"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_consigneeaddressaddressline1"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_consigneeaddressaddressline2"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_consigneeaddressaddressline3"): Xrm.Attribute<string>;
@@ -521,8 +515,6 @@ declare namespace Form.defraimp_importernotification.Main {
     getControl(controlName: "defraimp_commoditycomplementstext"): Xrm.StringControl;
     getControl(controlName: "defraimp_commodityid"): Xrm.StringControl;
     getControl(controlName: "defraimp_commodityidtypes"): Xrm.StringControl;
-    getControl(controlName: "defraimp_commodityspeciesid"): Xrm.StringControl;
-    getControl(controlName: "defraimp_commodityspeciesname"): Xrm.StringControl;
     getControl(controlName: "defraimp_consigneeaddressaddressline1"): Xrm.StringControl;
     getControl(controlName: "defraimp_consigneeaddressaddressline2"): Xrm.StringControl;
     getControl(controlName: "defraimp_consigneeaddressaddressline3"): Xrm.StringControl;

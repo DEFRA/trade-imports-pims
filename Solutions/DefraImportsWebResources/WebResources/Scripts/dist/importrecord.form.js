@@ -15,7 +15,7 @@ var DefraImports;
         function onLoad(executionObj) {
             var formContext = executionObj.getFormContext();
             storeWasManualPostImportCheckSet(formContext);
-        } 
+        }
         ImportRecord.onLoad = onLoad;
         function onSave(executionObj) {
             var formContext = executionObj.getFormContext();

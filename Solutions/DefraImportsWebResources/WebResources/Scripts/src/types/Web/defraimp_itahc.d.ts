@@ -119,6 +119,7 @@ declare namespace WebApi {
     defraimp_defraimp_importapplication_defraimp_itahc?: defraimp_importapplication_Result[] | null;
     defraimp_defraimp_itahc_defraimp_importapplication?: defraimp_importapplication_Result[] | null;
     defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC?: defraimp_importinspection_Result[] | null;
+    defraimp_defraimp_itahc_defraimp_importquery_ITAHC?: defraimp_importquery_Result[] | null;
     defraimp_defraimp_itahc_defraimp_itahc?: defraimp_itahc_Result[] | null;
     defraimp_defraimp_itahc_defraimp_matchrecord_ITAHC?: defraimp_matchrecord_Result[] | null;
     defraimp_defraimp_itahc_defraimp_rb?: defraimp_itahc_Result[] | null;
@@ -410,6 +411,7 @@ declare namespace WebApi {
     defraimp_defraimp_importapplication_defraimp_itahc: WebExpand<defraimp_itahc_Expand, defraimp_importapplication_Select, defraimp_importapplication_Filter, { defraimp_defraimp_importapplication_defraimp_itahc: defraimp_importapplication_Result[] }>;
     defraimp_defraimp_itahc_defraimp_importapplication: WebExpand<defraimp_itahc_Expand, defraimp_importapplication_Select, defraimp_importapplication_Filter, { defraimp_defraimp_itahc_defraimp_importapplication: defraimp_importapplication_Result[] }>;
     defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC: WebExpand<defraimp_itahc_Expand, defraimp_importinspection_Select, defraimp_importinspection_Filter, { defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC: defraimp_importinspection_Result[] }>;
+    defraimp_defraimp_itahc_defraimp_importquery_ITAHC: WebExpand<defraimp_itahc_Expand, defraimp_importquery_Select, defraimp_importquery_Filter, { defraimp_defraimp_itahc_defraimp_importquery_ITAHC: defraimp_importquery_Result[] }>;
     defraimp_defraimp_itahc_defraimp_itahc: WebExpand<defraimp_itahc_Expand, defraimp_itahc_Select, defraimp_itahc_Filter, { defraimp_defraimp_itahc_defraimp_itahc: defraimp_itahc_Result[] }>;
     defraimp_defraimp_itahc_defraimp_matchrecord_ITAHC: WebExpand<defraimp_itahc_Expand, defraimp_matchrecord_Select, defraimp_matchrecord_Filter, { defraimp_defraimp_itahc_defraimp_matchrecord_ITAHC: defraimp_matchrecord_Result[] }>;
     defraimp_defraimp_itahc_defraimp_rb: WebExpand<defraimp_itahc_Expand, defraimp_itahc_Select, defraimp_itahc_Filter, { defraimp_defraimp_itahc_defraimp_rb: defraimp_itahc_Result[] }>;
@@ -475,6 +477,7 @@ declare namespace WebApi {
     defraimp_defraimp_importapplication_defraimp_itahc: WebMappingRetrieve<WebApi.defraimp_importapplication_Select,WebApi.defraimp_importapplication_Expand,WebApi.defraimp_importapplication_Filter,WebApi.defraimp_importapplication_Fixed,WebApi.defraimp_importapplication_Result,WebApi.defraimp_importapplication_FormattedResult>;
     defraimp_defraimp_itahc_defraimp_importapplication: WebMappingRetrieve<WebApi.defraimp_importapplication_Select,WebApi.defraimp_importapplication_Expand,WebApi.defraimp_importapplication_Filter,WebApi.defraimp_importapplication_Fixed,WebApi.defraimp_importapplication_Result,WebApi.defraimp_importapplication_FormattedResult>;
     defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;
+    defraimp_defraimp_itahc_defraimp_importquery_ITAHC: WebMappingRetrieve<WebApi.defraimp_importquery_Select,WebApi.defraimp_importquery_Expand,WebApi.defraimp_importquery_Filter,WebApi.defraimp_importquery_Fixed,WebApi.defraimp_importquery_Result,WebApi.defraimp_importquery_FormattedResult>;
     defraimp_defraimp_itahc_defraimp_itahc: WebMappingRetrieve<WebApi.defraimp_itahc_Select,WebApi.defraimp_itahc_Expand,WebApi.defraimp_itahc_Filter,WebApi.defraimp_itahc_Fixed,WebApi.defraimp_itahc_Result,WebApi.defraimp_itahc_FormattedResult>;
     defraimp_defraimp_itahc_defraimp_matchrecord_ITAHC: WebMappingRetrieve<WebApi.defraimp_matchrecord_Select,WebApi.defraimp_matchrecord_Expand,WebApi.defraimp_matchrecord_Filter,WebApi.defraimp_matchrecord_Fixed,WebApi.defraimp_matchrecord_Result,WebApi.defraimp_matchrecord_FormattedResult>;
     defraimp_defraimp_itahc_defraimp_rb: WebMappingRetrieve<WebApi.defraimp_itahc_Select,WebApi.defraimp_itahc_Expand,WebApi.defraimp_itahc_Filter,WebApi.defraimp_itahc_Fixed,WebApi.defraimp_itahc_Result,WebApi.defraimp_itahc_FormattedResult>;
