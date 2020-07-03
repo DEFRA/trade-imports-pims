@@ -81,6 +81,7 @@
       <RootComponent type="61" schemaName="defraimp_/data/FieldMappingCertificateToImportRecord.xml" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/data/matchfieldmappingimporternotificationtoimportrecord" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/data/matchfieldmappingitahctoimportrecord" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/js/importquery.ribbon.js" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/js/importrecord.form.js" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/js/importrecord.ribbon.js" behavior="0" />
       <RootComponent type="61" schemaName="defraimp_/js/itahc.ribbon.js" behavior="0" />
