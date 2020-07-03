@@ -1,14 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <CustomActions />
+  <CustomActions>
+    <CustomAction Id="defraimp.defraimp_importquery.CloneQuery.Button.CustomAction" Location="Mscrm.Form.defraimp_importquery.MainTab.Save.Controls._children" Sequence="25">
+      <CommandUIDefinition>
+        <Button Command="defraimp.defraimp_importquery.CloneQuery.Command" Id="defraimp.defraimp_importquery.CloneQuery.Button" LabelText="$LocLabels:defraimp.defraimp_importquery.CloneQuery.Button.LabelText" Sequence="25" TemplateAlias="o1" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
   <Templates>
     <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
   </Templates>
-  <CommandDefinitions />
+  <CommandDefinitions>
+    <CommandDefinition Id="defraimp.defraimp_importquery.CloneQuery.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="defraimp.defraimp_importquery.CloneQuery.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="DefraImports.ImportQuery.CloneImportQueryButton" Library="$webresource:defraimp_/js/importquery.ribbon.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
   <RuleDefinitions>
     <TabDisplayRules />
-    <DisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="defraimp.defraimp_importquery.CloneQuery.DisplayRule">
+        <FormStateRule State="Create" Default="false" InvertResult="true" />
+      </DisplayRule>
+    </DisplayRules>
     <EnableRules />
   </RuleDefinitions>
-  <LocLabels />
+  <LocLabels>
+    <LocLabel Id="defraimp.defraimp_importquery.CloneQuery.Button.LabelText">
+      <Titles>
+        <Title description="Clone Query" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
 </RibbonDiffXml>

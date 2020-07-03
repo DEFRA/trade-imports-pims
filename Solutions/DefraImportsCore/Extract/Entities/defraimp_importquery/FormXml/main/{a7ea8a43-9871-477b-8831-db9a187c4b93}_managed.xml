@@ -5,7 +5,7 @@
     <IntroducedVersion>0.0.0.2</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{49f4b33c-4b29-433a-8a2c-48c233359f20}" IsUserDefined="1">
           <labels>
@@ -171,6 +171,32 @@
             </column>
           </columns>
         </tab>
+        <tab name="tab_2" id="{5b03ed8a-a42e-530a-6b4d-397acb282cb1}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+          <labels>
+            <label description="Hidden Information" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" showlabel="false" showbar="false" locklevel="0" id="{d79c9670-27bd-bd28-7141-735154647eed}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{611a2b42-953e-a88b-c046-9eb1d13ec1ed}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Original Query" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_originalquery" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_originalquery" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
       </tabs>
       <header id="{7befab72-1e6f-4229-a575-12862d935cea}" celllabelposition="Top" columns="1111" labelwidth="115">
         <rows>
@@ -233,6 +259,9 @@
         </NavBarAreas>
       </Navigation>
       <controlDescriptions />
+      <formLibraries>
+        <Library name="defraimp_/js/importquery.ribbon.js" libraryUniqueId="{a73a1131-1b6e-ce2c-123c-730841838d1e}" />
+      </formLibraries>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
