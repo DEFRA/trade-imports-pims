@@ -170,7 +170,6 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_placeoforiginid"): Xrm.LookupAttribute<"defraimp_placeoforigin">;
       get(name: "defraimp_placeoforiginorganisation"): Xrm.Attribute<string>;
       get(name: "defraimp_pointofentry"): Xrm.Attribute<string>;
-      get(name: "defraimp_primarycvedid"): Xrm.LookupAttribute<"defraimp_cved">;
       get(name: "defraimp_primarydocomid"): Xrm.LookupAttribute<"defraimp_docom">;
       get(name: "defraimp_primaryimporternotificationid"): Xrm.LookupAttribute<"defraimp_importernotification">;
       get(name: "defraimp_primaryitahcid"): Xrm.LookupAttribute<"defraimp_itahc">;
@@ -285,7 +284,6 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin">;
       get(name: "defraimp_placeoforiginorganisation"): Xrm.StringControl;
       get(name: "defraimp_pointofentry"): Xrm.StringControl;
-      get(name: "defraimp_primarycvedid"): Xrm.LookupControl<"defraimp_cved">;
       get(name: "defraimp_primarydocomid"): Xrm.LookupControl<"defraimp_docom">;
       get(name: "defraimp_primaryimporternotificationid"): Xrm.LookupControl<"defraimp_importernotification">;
       get(name: "defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc">;
@@ -443,7 +441,6 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_placeoforiginid"): Xrm.LookupAttribute<"defraimp_placeoforigin">;
     getAttribute(attributeName: "defraimp_placeoforiginorganisation"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_pointofentry"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_primarycvedid"): Xrm.LookupAttribute<"defraimp_cved">;
     getAttribute(attributeName: "defraimp_primarydocomid"): Xrm.LookupAttribute<"defraimp_docom">;
     getAttribute(attributeName: "defraimp_primaryimporternotificationid"): Xrm.LookupAttribute<"defraimp_importernotification">;
     getAttribute(attributeName: "defraimp_primaryitahcid"): Xrm.LookupAttribute<"defraimp_itahc">;
@@ -553,7 +550,6 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin">;
     getControl(controlName: "defraimp_placeoforiginorganisation"): Xrm.StringControl;
     getControl(controlName: "defraimp_pointofentry"): Xrm.StringControl;
-    getControl(controlName: "defraimp_primarycvedid"): Xrm.LookupControl<"defraimp_cved">;
     getControl(controlName: "defraimp_primarydocomid"): Xrm.LookupControl<"defraimp_docom">;
     getControl(controlName: "defraimp_primaryimporternotificationid"): Xrm.LookupControl<"defraimp_importernotification">;
     getControl(controlName: "defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc">;

@@ -91,6 +91,7 @@
   <EntityRelationship Name="defraimp_defraimp_importinspection_defraimp_importinspection_NextInspection" />
   <EntityRelationship Name="defraimp_defraimp_importinspection_defraimp_importinspection_PreviousInspection" />
   <EntityRelationship Name="defraimp_defraimp_importinspection_defraimp_sample" />
+  <EntityRelationship Name="defraimp_defraimp_importquery_defraimp_importquery_OriginalQuery" />
   <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_importapplication_importrisklevelid" />
   <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_importapplication_PreviousImportRiskLevelId" />
   <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_importcountrycommodityrisklevel_risklevelid" />

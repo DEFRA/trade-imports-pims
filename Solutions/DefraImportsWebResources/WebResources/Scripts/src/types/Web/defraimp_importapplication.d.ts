@@ -124,6 +124,7 @@ declare namespace WebApi {
     defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication?: defraimp_importinspection_Result[] | null;
     defraimp_defraimp_importapplication_defraimp_itahc?: defraimp_itahc_Result[] | null;
     defraimp_defraimp_matchrecord_defraimp_Im?: defraimp_matchrecord_Result[] | null;
+    defraimp_importapplication_defraimp_importqueries?: defraimp_importquery_Result[] | null;
   }
   interface defraimp_importapplication extends defraimp_importapplication_Base, defraimp_importapplication_Relationships {
     defraimp_CommodityTypeId_bind$defraexp_commoditytypes?: string | null;
@@ -445,6 +446,7 @@ declare namespace WebApi {
     defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication: WebExpand<defraimp_importapplication_Expand, defraimp_importinspection_Select, defraimp_importinspection_Filter, { defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication: defraimp_importinspection_Result[] }>;
     defraimp_defraimp_importapplication_defraimp_itahc: WebExpand<defraimp_importapplication_Expand, defraimp_itahc_Select, defraimp_itahc_Filter, { defraimp_defraimp_importapplication_defraimp_itahc: defraimp_itahc_Result[] }>;
     defraimp_defraimp_matchrecord_defraimp_Im: WebExpand<defraimp_importapplication_Expand, defraimp_matchrecord_Select, defraimp_matchrecord_Filter, { defraimp_defraimp_matchrecord_defraimp_Im: defraimp_matchrecord_Result[] }>;
+    defraimp_importapplication_defraimp_importqueries: WebExpand<defraimp_importapplication_Expand, defraimp_importquery_Select, defraimp_importquery_Filter, { defraimp_importapplication_defraimp_importqueries: defraimp_importquery_Result[] }>;
     defraimp_previousplaceoforiginid: WebExpand<defraimp_importapplication_Expand, defraimp_placeoforigin_Select, defraimp_placeoforigin_Filter, { defraimp_previousplaceoforiginid: defraimp_placeoforigin_Result }>;
   }
   interface defraimp_importapplication_FormattedResult {
@@ -543,6 +545,7 @@ declare namespace WebApi {
     defraimp_defraimp_importapplication_defraimp_importinspection_RelatedImportApplication: WebMappingRetrieve<WebApi.defraimp_importinspection_Select,WebApi.defraimp_importinspection_Expand,WebApi.defraimp_importinspection_Filter,WebApi.defraimp_importinspection_Fixed,WebApi.defraimp_importinspection_Result,WebApi.defraimp_importinspection_FormattedResult>;
     defraimp_defraimp_importapplication_defraimp_itahc: WebMappingRetrieve<WebApi.defraimp_itahc_Select,WebApi.defraimp_itahc_Expand,WebApi.defraimp_itahc_Filter,WebApi.defraimp_itahc_Fixed,WebApi.defraimp_itahc_Result,WebApi.defraimp_itahc_FormattedResult>;
     defraimp_defraimp_matchrecord_defraimp_Im: WebMappingRetrieve<WebApi.defraimp_matchrecord_Select,WebApi.defraimp_matchrecord_Expand,WebApi.defraimp_matchrecord_Filter,WebApi.defraimp_matchrecord_Fixed,WebApi.defraimp_matchrecord_Result,WebApi.defraimp_matchrecord_FormattedResult>;
+    defraimp_importapplication_defraimp_importqueries: WebMappingRetrieve<WebApi.defraimp_importquery_Select,WebApi.defraimp_importquery_Expand,WebApi.defraimp_importquery_Filter,WebApi.defraimp_importquery_Fixed,WebApi.defraimp_importquery_Result,WebApi.defraimp_importquery_FormattedResult>;
   }
 }
 interface WebEntitiesRetrieve {
