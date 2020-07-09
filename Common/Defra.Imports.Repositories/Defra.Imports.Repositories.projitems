@@ -9,6 +9,7 @@
     <Import_RootNamespace>Defra.Imports.Repositories</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Annotations\AnnotationsRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Autonumber\AutonumberRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Autonumber\IAutonumberRespoitory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConfigurationParameter\ConfigurationParameterRepository.cs" />

@@ -10,6 +10,29 @@ declare namespace WebApi {
   interface WebEntity_Fixed {
     "@odata.etag": string;
   }
+  interface ActivityParty_Base extends WebEntity {
+  }
+  interface ActivityParty_Fixed extends WebEntity_Fixed {
+    activitypartyid: string;
+  }
+  interface ActivityParty extends ActivityParty_Base, ActivityParty_Relationships {
+  }
+  interface ActivityParty_Relationships {
+  }
+  interface ActivityParty_Result extends ActivityParty_Base, ActivityParty_Relationships {
+  }
+  interface ActivityParty_FormattedResult {
+  }
+  interface ActivityParty_Select {
+  }
+  interface ActivityParty_Expand {
+  }
+  interface ActivityParty_Filter {
+  }
+  interface ActivityParty_Create extends ActivityParty {
+  }
+  interface ActivityParty_Update extends ActivityParty {
+  }
   interface defraimp_defraimp_importapplication_defraimp_ita_Base extends WebEntity {
   }
   interface defraimp_defraimp_importapplication_defraimp_ita_Fixed extends WebEntity_Fixed {
@@ -101,6 +124,29 @@ declare namespace WebApi {
   interface defraimp_importinspection_Create extends defraimp_importinspection {
   }
   interface defraimp_importinspection_Update extends defraimp_importinspection {
+  }
+  interface defraimp_importquery_Base extends WebEntity {
+  }
+  interface defraimp_importquery_Fixed extends WebEntity_Fixed {
+    activityid: string;
+  }
+  interface defraimp_importquery extends defraimp_importquery_Base, defraimp_importquery_Relationships {
+  }
+  interface defraimp_importquery_Relationships {
+  }
+  interface defraimp_importquery_Result extends defraimp_importquery_Base, defraimp_importquery_Relationships {
+  }
+  interface defraimp_importquery_FormattedResult {
+  }
+  interface defraimp_importquery_Select {
+  }
+  interface defraimp_importquery_Expand {
+  }
+  interface defraimp_importquery_Filter {
+  }
+  interface defraimp_importquery_Create extends defraimp_importquery {
+  }
+  interface defraimp_importquery_Update extends defraimp_importquery {
   }
   interface defraimp_itahc_Base extends WebEntity {
   }
