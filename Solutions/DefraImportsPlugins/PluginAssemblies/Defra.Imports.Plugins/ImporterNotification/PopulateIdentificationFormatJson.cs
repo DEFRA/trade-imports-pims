@@ -26,10 +26,13 @@ namespace Defra.Imports.Plugins.ImporterNotification
       "defraimp_importernotification",
       StageEnum.PreOperation,
       ExecutionModeEnum.Synchronous,
-      "defraimp_identificationofanimalstext, defraimp_commoditycomplementstext",
+      "defraimp_identificationofanimalstext,defraimp_commoditycomplementstext",
       "Update Step - Importer Notification Format JSON",
       0,
-      IsolationModeEnum.Sandbox)]
+      IsolationModeEnum.Sandbox,
+      Image1Attributes = "defraimp_commoditycomplementstext,defraimp_identificationofanimalstext",
+      Image1Name = "PreImage",
+      Image1Type = ImageTypeEnum.PreImage)]
 
     public class PopulateIdentificationFormatJson : Plugin
     {

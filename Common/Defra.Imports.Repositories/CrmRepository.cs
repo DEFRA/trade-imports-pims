@@ -144,6 +144,37 @@ namespace Defra.Imports.Repositories
         }
 
         /// <inheritdoc/>
+        public virtual void BulkUpdate(IEnumerable<Entity> entityList, int batchSize = 100)
+        {
+            var multipleRequest = new ExecuteMultipleRequest()
+            {
+                Settings = new ExecuteMultipleSettings()
+                {
+                    ContinueOnError = false,
+                    ReturnResponses = true,
+                },
+
+                Requests = new OrganizationRequestCollection(),
+            };
+
+            foreach (var entity in entityList)
+            {
+                var updateRequest = new UpdateRequest { Target = entity };
+                multipleRequest.Requests.Add(updateRequest);
+                if (multipleRequest.Requests.Count == batchSize)
+                {
+                    var multipleResponse = (ExecuteMultipleResponse)this.OrgService.Execute(multipleRequest);
+                    multipleRequest.Requests.Clear();
+                }
+            }
+
+            if (multipleRequest.Requests.Count > 0)
+            {
+                var multipleResponse = (ExecuteMultipleResponse)this.OrgService.Execute(multipleRequest);
+            }
+        }
+
+        /// <inheritdoc/>
         public virtual void BulkDelete(IEnumerable<Entity> entities, int batchSize = 100)
         {
             var multipleRequest = new ExecuteMultipleRequest()

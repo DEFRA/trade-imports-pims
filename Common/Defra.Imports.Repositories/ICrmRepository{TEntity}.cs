@@ -85,6 +85,13 @@ namespace Defra.Imports.Repositories
         void Delete(TEntity entity);
 
         /// <summary>
+        /// Update multiple record
+        /// </summary>
+        /// <param name="entities">the entities to update</param>
+        /// <param name="batchSize">The number of records to update per batch.</param>
+        void BulkUpdate(IEnumerable<TEntity> entities, int batchSize = 100);
+
+        /// <summary>
         /// Delete multiple records.
         /// </summary>
         /// <param name="entities">The entities to delete.</param>

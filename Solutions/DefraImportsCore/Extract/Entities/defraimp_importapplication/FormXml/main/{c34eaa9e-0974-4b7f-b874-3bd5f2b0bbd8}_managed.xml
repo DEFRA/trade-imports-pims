@@ -323,6 +323,14 @@
                         <control disabled="true" id="defraimp_movedtocompletiondate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_movedtocompletiondate" uniqueid="{ba3135e4-4eaa-bb6e-e700-724a7e324ca7}" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{97758bbb-701b-0ba4-6d00-92549b1c01eb}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="[Do not remove] Importing From Charity" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_importingfromcharity" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_importingfromcharity" disabled="false" uniqueid="{881774d7-7b28-61c3-1b7b-b245c7e9e983}" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -618,6 +626,45 @@
                     <row />
                   </rows>
                 </section>
+                <section name="Summary_section_15" showlabel="false" showbar="false" locklevel="0" id="{74d7eb28-3ea5-9e89-e28c-510b41d753b5}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b8e321de-5b77-6ca0-0275-0c454a5ba01b}" showlabel="true" colspan="1" auto="false" rowspan="7">
+                        <labels>
+                          <label description="Watch Flags" languagecode="1033" />
+                        </labels>
+                        <control id="Subgrid_WatchFlags" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{e5250746-9cbd-eed8-bb19-3760dd436977}">
+                          <parameters>
+                            <ViewId>{311DB657-FDC0-EA11-A812-000D3AD82CAC}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>defraimp_defraimp_importapplication_defraimp_watchflag_ImportApplicationId</RelationshipName>
+                            <TargetEntityType>defraimp_watchflag</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{66B775C9-F4B9-4477-9C1C-664D6455B73B},{311DB657-FDC0-EA11-A812-000D3AD82CAC}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
               </sections>
             </column>
           </columns>
@@ -732,6 +779,107 @@
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
                         </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Charity_Tab" id="{2577d079-54ce-715b-c444-0a481182dd93}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+          <labels>
+            <label description="Charity" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section name="tab_11_section_1" showlabel="false" showbar="false" locklevel="0" id="{5e319822-9d3b-6940-61c2-63d4e0a6c4db}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{07e8ac90-7922-5924-d1da-49ad8d6d7178}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Charity Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_charityname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_charityname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{140de7a7-bee0-0249-c324-d2d009d484d2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Line 1" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_charityaddressline1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_charityaddressline1" disabled="false" uniqueid="{badeb784-7ba6-a418-9074-21a381cae7a1}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{67021d1a-0898-8c57-2de1-9ce8091772a5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Line 2" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_charityaddressline2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_charityaddressline2" disabled="false" uniqueid="{b7a09811-da3d-3762-9cb4-b86078425d8a}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8524c1d7-b6b9-89bd-a531-dd7317e13537}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Line 3" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_charityaddressline3" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_charityaddressline3" disabled="false" uniqueid="{8157e156-a2e9-cb76-9924-d9929b35eaec}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ecbbe7ab-5e3e-978c-c3c3-b263ec481c19}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="City" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_charityaddresscity" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_charityaddresscity" disabled="false" uniqueid="{b5588349-e8bb-8168-54cb-3a103c526418}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b5536c9a-7e27-3e73-207c-5e6c424168ea}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_charityaddresspostcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_charityaddresspostcode" disabled="false" uniqueid="{31d59da0-8880-66a5-4bdc-1d2de13022b4}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8a112d91-122d-9311-a913-1e5d6047e86a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Country" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_charityaddresscountry" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_charityaddresscountry" disabled="false" uniqueid="{e239a013-8c22-ddac-8624-345deac26821}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{4A0AC1F7-910F-456E-B501-2A4237C76A3A}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="tab_11_section_2" showlabel="false" showbar="false" locklevel="0" id="{819a5270-5541-dbd2-bb68-6ca7a1d376c0}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b5b4cee6-4823-929c-09bb-651d85792686}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>

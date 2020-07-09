@@ -28,6 +28,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{7b8c767b-db40-994c-251d-b74c10c9e51e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Devolved Office" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_devolvedoffice" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_devolvedoffice" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{88299321-73cd-b2e8-9127-e49e56b2d8ee}" locklevel="0" showlabel="true">
                         <labels>
                           <label description="TRACES Notification Received Date" languagecode="1033" />
@@ -177,6 +185,29 @@
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="{3c395eba-c343-45a3-a58b-ea5860aa2036}_section_4" id="2daf63ca-31bc-4ae9-bb94-ca904fa9fd60" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Watch Flags" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{b5a4cf88-061f-4241-81b0-c5e164716152}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Watch Flags" languagecode="1033" />
+                        </labels>
+                        <control id="Subgrid_WatchFlags" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>defraimp_watchflag</TargetEntityType>
+                            <ViewId>{311DB657-FDC0-EA11-A812-000D3AD82CAC}</ViewId>
+                            <ViewIds>{66B775C9-F4B9-4477-9C1C-664D6455B73B},{311DB657-FDC0-EA11-A812-000D3AD82CAC}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>defraimp_defraimp_itahc_defraimp_watchflag_ItahcId</RelationshipName>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                   </rows>

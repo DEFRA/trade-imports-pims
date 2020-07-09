@@ -17,7 +17,7 @@ namespace Defra.Imports.Plugins.ImportQuery
      "defraimp_importquery",
      StageEnum.PostOperation,
      ExecutionModeEnum.Synchronous,
-     "defraimp_importqueryid",
+     "activityid",
      "Create Step - Import Query Clone Processes",
      0,
      IsolationModeEnum.Sandbox)]

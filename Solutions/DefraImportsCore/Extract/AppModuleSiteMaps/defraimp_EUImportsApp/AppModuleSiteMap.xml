@@ -28,6 +28,7 @@
         <SubArea Id="NewSubArea_0be8e14f" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_importquery" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="NewSubArea_8f67151e" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_importinspection" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="NewSubArea_1f6e64ea" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_matchrecord" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_95757a3d" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_watchlist" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
       <Group Id="NewGroup_96fc7e81" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>

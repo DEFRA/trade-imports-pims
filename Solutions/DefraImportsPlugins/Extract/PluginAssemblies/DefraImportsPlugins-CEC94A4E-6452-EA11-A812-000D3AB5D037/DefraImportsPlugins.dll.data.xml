@@ -5,6 +5,9 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <FileName>/PluginAssemblies/DefraImportsPlugins-CEC94A4E-6452-EA11-A812-000D3AB5D037/DefraImportsPlugins.dll</FileName>
   <PluginTypes>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.AssociateWatchFlagsFromPrimaryItahc, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="6a4eb54d-e8c1-ea11-a812-000d3ab6d757" Name="Defra.Imports.Plugins.ImportApplication.AssociateWatchFlagsFromPrimaryItahc">
+      <FriendlyName>Defra.Imports.Plugins.ImportApplication.AssociateWatchFlagsFromPrimaryItahc</FriendlyName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="38779195-e069-ea11-a811-000d3ab5d511" Name="Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement">
       <FriendlyName>Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement</FriendlyName>
     </PluginType>
@@ -21,7 +24,10 @@
       <FriendlyName>Defra.Imports.Plugins.ImporterNotification.PopulateIdentificationFormatJson</FriendlyName>
     </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportQuery.CloneProcessesImportQuery, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="d6c5d3d4-60f2-495e-b869-ac2b2efe6379" Name="Defra.Imports.Plugins.ImportQuery.CloneProcessesImportQuery">
-      <FriendlyName>415d58ee-0610-415a-a2d4-a5a20f6790ba</FriendlyName>
+      <FriendlyName>Defra.Imports.Plugins.ImportQuery.CloneProcessesImportQuery</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.Itahc.FlagRecordOnWatchList, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="12506dd4-5bc0-ea11-a812-000d3ad82cac" Name="Defra.Imports.Plugins.Itahc.FlagRecordOnWatchList">
+      <FriendlyName>Defra.Imports.Plugins.Itahc.FlagRecordOnWatchList</FriendlyName>
     </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.Itahc.PopulateIntegrationFormattedValues, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="41bab120-57e0-4f44-88a8-29815f0f3a68" Name="Defra.Imports.Plugins.Itahc.PopulateIntegrationFormattedValues">
       <FriendlyName>Defra.Imports.Plugins.Itahc.PopulateIntegrationFormattedValues</FriendlyName>

@@ -2721,7 +2721,7 @@
           <MaxLength>255</MaxLength>
           <Length>510</Length>
           <displaynames>
-            <displayname description="Second Consignor Address Line 1" languagecode="1033" />
+            <displayname description="Charity Address Line 1" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="1st line of address" languagecode="1033" />
@@ -2761,7 +2761,7 @@
           <MaxLength>255</MaxLength>
           <Length>510</Length>
           <displaynames>
-            <displayname description="Second Consignor Address Line 2" languagecode="1033" />
+            <displayname description="Charity Address Line 2" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="2nd line of address" languagecode="1033" />
@@ -2801,7 +2801,7 @@
           <MaxLength>255</MaxLength>
           <Length>510</Length>
           <displaynames>
-            <displayname description="Second Consignor Address Line 3" languagecode="1033" />
+            <displayname description="Charity Address Line 3" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="3rd line of address" languagecode="1033" />
@@ -2841,7 +2841,7 @@
           <MaxLength>58</MaxLength>
           <Length>116</Length>
           <displaynames>
-            <displayname description="Second Consignor Address City" languagecode="1033" />
+            <displayname description="Charity Address City" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="City" languagecode="1033" />
@@ -2880,7 +2880,7 @@
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
           <displaynames>
-            <displayname description="Second Consignor Address Country" languagecode="1033" />
+            <displayname description="Charity Address Country" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -2920,7 +2920,7 @@
           <MaxLength>100</MaxLength>
           <Length>200</Length>
           <displaynames>
-            <displayname description="Second Consignor Address Country ISO Code" languagecode="1033" />
+            <displayname description="Charity Address Country ISO Code" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="country 2-digits ISO code" languagecode="1033" />
@@ -2960,7 +2960,7 @@
           <MaxLength>255</MaxLength>
           <Length>510</Length>
           <displaynames>
-            <displayname description="Second Consignor Email" languagecode="1033" />
+            <displayname description="Charity Consignor Email" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Email address" languagecode="1033" />
@@ -3000,7 +3000,7 @@
           <MaxLength>32</MaxLength>
           <Length>64</Length>
           <displaynames>
-            <displayname description="Second Consignor Address Postcode" languagecode="1033" />
+            <displayname description="Charity Address Postcode" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Post / zip code" languagecode="1033" />
@@ -3040,7 +3040,7 @@
           <MaxLength>30</MaxLength>
           <Length>60</Length>
           <displaynames>
-            <displayname description="Second Consignor Telephone" languagecode="1033" />
+            <displayname description="Charity Telephone" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Telephone number" languagecode="1033" />
@@ -3080,7 +3080,7 @@
           <MaxLength>11</MaxLength>
           <Length>22</Length>
           <displaynames>
-            <displayname description="Second Consignor UK Telephone" languagecode="1033" />
+            <displayname description="Charity UK Telephone" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="UK phone number" languagecode="1033" />
@@ -3120,7 +3120,7 @@
           <MaxLength>100</MaxLength>
           <Length>200</Length>
           <displaynames>
-            <displayname description="Second Consignor Approval Number" languagecode="1033" />
+            <displayname description="Charity Approval Number" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Approval Number which identifies an Economic Operator unambiguously per type of organisation per country." languagecode="1033" />
@@ -3160,7 +3160,7 @@
           <MaxLength>255</MaxLength>
           <Length>510</Length>
           <displaynames>
-            <displayname description="Second Consignor Company Name" languagecode="1033" />
+            <displayname description="Charity Company Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Name of organisation" languagecode="1033" />
@@ -3200,7 +3200,7 @@
           <MaxLength>100</MaxLength>
           <Length>200</Length>
           <displaynames>
-            <displayname description="Second Consignor Id" languagecode="1033" />
+            <displayname description="Charity Id" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="The unique identifier of this organisation" languagecode="1033" />
@@ -3240,7 +3240,7 @@
           <MaxLength>255</MaxLength>
           <Length>510</Length>
           <displaynames>
-            <displayname description="Second Consignor Individual Name" languagecode="1033" />
+            <displayname description="Charity Individual Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Individual name" languagecode="1033" />
@@ -3280,7 +3280,7 @@
           <MaxLength>3</MaxLength>
           <Length>6</Length>
           <displaynames>
-            <displayname description="Second Consignor International Telephone ISO Code" languagecode="1033" />
+            <displayname description="Charity International Telephone ISO Code" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Country code of phone number" languagecode="1033" />
@@ -3320,7 +3320,7 @@
           <MaxLength>12</MaxLength>
           <Length>24</Length>
           <displaynames>
-            <displayname description="Second Consignor International Telephone" languagecode="1033" />
+            <displayname description="Charity International Telephone" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Phone number" languagecode="1033" />
@@ -3360,7 +3360,7 @@
           <MaxLength>100</MaxLength>
           <Length>200</Length>
           <displaynames>
-            <displayname description="Second Consignor Other Identifier" languagecode="1033" />
+            <displayname description="Charity Other Identifier" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Optional Business General Number often named Aggregation Code which identifies an Economic Operator." languagecode="1033" />
@@ -3400,7 +3400,7 @@
           <MaxLength>100</MaxLength>
           <Length>200</Length>
           <displaynames>
-            <displayname description="Second Consignor Status" languagecode="1033" />
+            <displayname description="Charity Status" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Status of organisation" languagecode="1033" />
@@ -3440,7 +3440,7 @@
           <MaxLength>100</MaxLength>
           <Length>200</Length>
           <displaynames>
-            <displayname description="Second Consignor Type" languagecode="1033" />
+            <displayname description="Charity Type" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Type of organisation" languagecode="1033" />
@@ -3640,6 +3640,45 @@
           <Length>200</Length>
           <displaynames>
             <displayname description="Departure Time" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="defraimp_DevolvedOffice">
+          <Type>lookup</Type>
+          <Name>defraimp_devolvedoffice</Name>
+          <LogicalName>defraimp_devolvedoffice</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>0.0.0.69</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <LookupStyle>single</LookupStyle>
+          <LookupTypes />
+          <displaynames>
+            <displayname description="Devolved Office" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
