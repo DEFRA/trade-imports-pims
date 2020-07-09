@@ -66,6 +66,8 @@ var DefraImports;
         function showRelevantSections(executionObj) {
             var formContext = executionObj.getFormContext();
             var importApplicationType = formContext.getAttribute("defraimp_importapplicationtype").getValue();
+            //Check if we are importing from a charity and show the relevant section
+            showHideCharitySection(formContext);
             if (importApplicationType == 714100000 /* ITAHC */) {
                 //Hide any existing sections first
                 hideCHEDASections(formContext);
@@ -120,6 +122,11 @@ var DefraImports;
             formContext.ui.tabs.get("Summary").sections.get("chedp_section").setVisible(false);
             formContext.ui.tabs.get("Summary").sections.get("chedp_controls_section").setVisible(false);
             formContext.ui.tabs.get("Transporter_Tab").sections.get("transport_information_section").setVisible(false);
+        }
+        function showHideCharitySection(formContext) {
+            var importingFromCharity = formContext.getAttribute("defraimp_importingfromcharity").getValue();
+            //Set visibility to whatever value Importing from Charity is
+            formContext.ui.tabs.get("Charity_Tab").setVisible(importingFromCharity);
         }
     })(ImportRecord = DefraImports.ImportRecord || (DefraImports.ImportRecord = {}));
 })(DefraImports || (DefraImports = {}));

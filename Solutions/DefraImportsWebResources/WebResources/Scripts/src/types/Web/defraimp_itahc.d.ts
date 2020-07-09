@@ -129,6 +129,7 @@ declare namespace WebApi {
     defraimp_ConsigneeAddressCountryId_bind$defra_countries?: string | null;
     defraimp_ConsignorAddressCountryId_bind$defra_countries?: string | null;
     defraimp_CountryOfOriginId_bind$defra_countries?: string | null;
+    defraimp_DevolvedOffice_bind$teams?: string | null;
     defraimp_PlaceOfDestinationAddressCountryId_bind$defra_countries?: string | null;
     defraimp_PlaceOfLoadingAddressCountryId_bind$defra_countries?: string | null;
     defraimp_PlaceOfOriginHarvestAddressCountryId_bind$defra_countries?: string | null;
@@ -183,6 +184,7 @@ declare namespace WebApi {
     defraimp_declarationphone: WebAttribute<defraimp_itahc_Select, { defraimp_declarationphone: string | null }, {  }>;
     defraimp_declarationsignaturedate: WebAttribute<defraimp_itahc_Select, { defraimp_declarationsignaturedate: Date | null }, { defraimp_declarationsignaturedate_formatted?: string }>;
     defraimp_departuredatetime: WebAttribute<defraimp_itahc_Select, { defraimp_departuredatetime: Date | null }, { defraimp_departuredatetime_formatted?: string }>;
+    defraimp_devolvedoffice_guid: WebAttribute<defraimp_itahc_Select, { defraimp_devolvedoffice_guid: string | null }, { defraimp_devolvedoffice_formatted?: string }>;
     defraimp_estimatedjourneytime: WebAttribute<defraimp_itahc_Select, { defraimp_estimatedjourneytime: number | null }, {  }>;
     defraimp_formattedcommoditycomplementstext: WebAttribute<defraimp_itahc_Select, { defraimp_formattedcommoditycomplementstext: string | null }, {  }>;
     defraimp_formattedidentificationofanimalstext: WebAttribute<defraimp_itahc_Select, { defraimp_formattedidentificationofanimalstext: string | null }, {  }>;
@@ -315,6 +317,7 @@ declare namespace WebApi {
     defraimp_declarationphone: string;
     defraimp_declarationsignaturedate: Date;
     defraimp_departuredatetime: Date;
+    defraimp_devolvedoffice_guid: XQW.Guid;
     defraimp_estimatedjourneytime: any;
     defraimp_formattedcommoditycomplementstext: string;
     defraimp_formattedidentificationofanimalstext: string;
@@ -428,6 +431,7 @@ declare namespace WebApi {
     defraimp_countryoforiginid_formatted?: string;
     defraimp_declarationsignaturedate_formatted?: string;
     defraimp_departuredatetime_formatted?: string;
+    defraimp_devolvedoffice_formatted?: string;
     defraimp_officialvetcapacity_formatted?: string;
     defraimp_officialvetsignaturedate_formatted?: string;
     defraimp_placeofdestinationaddresscountryid_formatted?: string;
@@ -456,6 +460,7 @@ declare namespace WebApi {
     defraimp_consigneeaddresscountryid_guid: string | null;
     defraimp_consignoraddresscountryid_guid: string | null;
     defraimp_countryoforiginid_guid: string | null;
+    defraimp_devolvedoffice_guid: string | null;
     defraimp_placeofdestinationaddresscountryid_guid: string | null;
     defraimp_placeofloadingaddresscountryid_guid: string | null;
     defraimp_placeoforiginharvestaddresscountryid_guid: string | null;

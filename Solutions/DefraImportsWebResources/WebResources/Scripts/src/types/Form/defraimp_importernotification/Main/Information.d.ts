@@ -1,6 +1,14 @@
 declare namespace Form.defraimp_importernotification.Main {
   namespace Information {
     namespace Tabs {
+      interface Charity_Tab extends Xrm.SectionCollectionBase {
+        get(name: "tab_13_section_2"): Xrm.PageSection;
+        get(name: "tab_2_section_2"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
       interface commoditycomplements_tab extends Xrm.SectionCollectionBase {
         get(name: "commoditycomplements_tab_section_3"): Xrm.PageSection;
         get(name: "tab_10_section_1"): Xrm.PageSection;
@@ -17,8 +25,8 @@ declare namespace Form.defraimp_importernotification.Main {
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
       interface consigners_tab extends Xrm.SectionCollectionBase {
+        get(name: "consigners_tab_section_2"): Xrm.PageSection;
         get(name: "tab_2_section_1"): Xrm.PageSection;
-        get(name: "tab_2_section_2"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -153,6 +161,7 @@ declare namespace Form.defraimp_importernotification.Main {
       get(name: "defraimp_consignortype"): Xrm.Attribute<string>;
       get(name: "defraimp_countryoforiginid"): Xrm.LookupAttribute<"defra_country">;
       get(name: "defraimp_cphnumber"): Xrm.Attribute<string>;
+      get(name: "defraimp_devolvedoffice"): Xrm.LookupAttribute<"team">;
       get(name: "defraimp_formattedcommoditycomplementstext"): Xrm.Attribute<string>;
       get(name: "defraimp_formattedidentificationofanimalstext"): Xrm.Attribute<string>;
       get(name: "defraimp_identificationofanimalstext"): Xrm.Attribute<string>;
@@ -293,6 +302,7 @@ declare namespace Form.defraimp_importernotification.Main {
       get(name: "defraimp_consignortype1"): Xrm.StringControl;
       get(name: "defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country">;
       get(name: "defraimp_cphnumber"): Xrm.StringControl;
+      get(name: "defraimp_devolvedoffice"): Xrm.LookupControl<"team">;
       get(name: "defraimp_formattedcommoditycomplementstext"): Xrm.StringControl;
       get(name: "defraimp_formattedidentificationofanimalstext"): Xrm.StringControl;
       get(name: "defraimp_identificationofanimalstext"): Xrm.StringControl;
@@ -365,6 +375,7 @@ declare namespace Form.defraimp_importernotification.Main {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "Charity_Tab"): Xrm.PageTab<Tabs.Charity_Tab>;
       get(name: "commoditycomplements_tab"): Xrm.PageTab<Tabs.commoditycomplements_tab>;
       get(name: "consignee_tab"): Xrm.PageTab<Tabs.consignee_tab>;
       get(name: "consigners_tab"): Xrm.PageTab<Tabs.consigners_tab>;
@@ -442,6 +453,7 @@ declare namespace Form.defraimp_importernotification.Main {
     getAttribute(attributeName: "defraimp_consignortype"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_countryoforiginid"): Xrm.LookupAttribute<"defra_country">;
     getAttribute(attributeName: "defraimp_cphnumber"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_devolvedoffice"): Xrm.LookupAttribute<"team">;
     getAttribute(attributeName: "defraimp_formattedcommoditycomplementstext"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_formattedidentificationofanimalstext"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_identificationofanimalstext"): Xrm.Attribute<string>;
@@ -577,6 +589,7 @@ declare namespace Form.defraimp_importernotification.Main {
     getControl(controlName: "defraimp_consignortype1"): Xrm.StringControl;
     getControl(controlName: "defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country">;
     getControl(controlName: "defraimp_cphnumber"): Xrm.StringControl;
+    getControl(controlName: "defraimp_devolvedoffice"): Xrm.LookupControl<"team">;
     getControl(controlName: "defraimp_formattedcommoditycomplementstext"): Xrm.StringControl;
     getControl(controlName: "defraimp_formattedidentificationofanimalstext"): Xrm.StringControl;
     getControl(controlName: "defraimp_identificationofanimalstext"): Xrm.StringControl;

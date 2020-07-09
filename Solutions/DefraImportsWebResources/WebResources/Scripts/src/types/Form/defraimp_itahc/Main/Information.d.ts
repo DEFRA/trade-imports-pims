@@ -130,6 +130,7 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_declarationphone"): Xrm.Attribute<string>;
       get(name: "defraimp_declarationsignaturedate"): Xrm.DateAttribute;
       get(name: "defraimp_departuredatetime"): Xrm.DateAttribute;
+      get(name: "defraimp_devolvedoffice"): Xrm.LookupAttribute<"team">;
       get(name: "defraimp_estimatedjourneytime"): Xrm.NumberAttribute;
       get(name: "defraimp_formattedcommoditycomplementstext"): Xrm.Attribute<string>;
       get(name: "defraimp_formattedidentificationofanimalstext"): Xrm.Attribute<string>;
@@ -232,6 +233,7 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_declarationphone"): Xrm.StringControl;
       get(name: "defraimp_declarationsignaturedate"): Xrm.DateControl;
       get(name: "defraimp_departuredatetime"): Xrm.DateControl;
+      get(name: "defraimp_devolvedoffice"): Xrm.LookupControl<"team">;
       get(name: "defraimp_estimatedjourneytime"): Xrm.NumberControl;
       get(name: "defraimp_formattedcommoditycomplementstext"): Xrm.StringControl;
       get(name: "defraimp_formattedidentificationofanimalstext"): Xrm.StringControl;
@@ -355,6 +357,7 @@ declare namespace Form.defraimp_itahc.Main {
     getAttribute(attributeName: "defraimp_declarationphone"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_declarationsignaturedate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_departuredatetime"): Xrm.DateAttribute;
+    getAttribute(attributeName: "defraimp_devolvedoffice"): Xrm.LookupAttribute<"team">;
     getAttribute(attributeName: "defraimp_estimatedjourneytime"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_formattedcommoditycomplementstext"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_formattedidentificationofanimalstext"): Xrm.Attribute<string>;
@@ -452,6 +455,7 @@ declare namespace Form.defraimp_itahc.Main {
     getControl(controlName: "defraimp_declarationphone"): Xrm.StringControl;
     getControl(controlName: "defraimp_declarationsignaturedate"): Xrm.DateControl;
     getControl(controlName: "defraimp_departuredatetime"): Xrm.DateControl;
+    getControl(controlName: "defraimp_devolvedoffice"): Xrm.LookupControl<"team">;
     getControl(controlName: "defraimp_estimatedjourneytime"): Xrm.NumberControl;
     getControl(controlName: "defraimp_formattedcommoditycomplementstext"): Xrm.StringControl;
     getControl(controlName: "defraimp_formattedidentificationofanimalstext"): Xrm.StringControl;

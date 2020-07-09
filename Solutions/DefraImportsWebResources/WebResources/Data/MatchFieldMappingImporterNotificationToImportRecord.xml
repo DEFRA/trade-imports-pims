@@ -2,6 +2,15 @@
   <Generic>
     <FieldMapping mapfrom="defraimp_cphnumber" mapto="defraimp_importercphnumber" />
     <FieldMapping mapfrom="defraimp_submissiondate" mapto="defraimp_dateiv66received" />
+    <FieldMapping mapfrom="defraimp_devolvedoffice" mapto="defraimp_devolvedofficeid" />
+    <FieldMapping mapfrom="defraimp_importingfromcharity" mapto="defraimp_importingfromcharity" />
+    <FieldMapping mapfrom="defraimp_consignortwocompanyname" mapto="defraimp_charityname" />
+    <FieldMapping mapfrom="defraimp_consignortwoaddressaddressline1" mapto="defraimp_charityaddressline1" />
+    <FieldMapping mapfrom="defraimp_consignortwoaddressaddressline2" mapto="defraimp_charityaddressline2" />
+    <FieldMapping mapfrom="defraimp_consignortwoaddressaddressline3" mapto="defraimp_charityaddressline3" />
+    <FieldMapping mapfrom="defraimp_consignortwoaddresscity" mapto="defraimp_charityaddresscity" />
+    <FieldMapping mapfrom="defraimp_consignortwoaddresspostalzipcode" mapto="defraimp_charityaddresspostcode" />
+    <FieldMapping mapfrom="defraimp_consignortwoaddresscountry" mapto="defraimp_charityaddresscountry" />   
   </Generic>
   <Consignor>
     <FieldMapping mapfrom="defraimp_consigneeindividualname" mapto="defraimp_importercontactname" />

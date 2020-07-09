@@ -8,6 +8,14 @@ declare namespace Form.defraimp_importapplication.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
+      interface Charity_Tab extends Xrm.SectionCollectionBase {
+        get(name: "tab_11_section_1"): Xrm.PageSection;
+        get(name: "tab_11_section_2"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
       interface Destinations_Tab extends Xrm.SectionCollectionBase {
         get(name: "ConsignmentFinal_Section"): Xrm.PageSection;
         get(name: "PlaceofDestination_Section"): Xrm.PageSection;
@@ -91,6 +99,13 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_certificatenoncompliancereason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_certificatenoncompliancereason>;
       get(name: "defraimp_certificatenoncompliancereasonother"): Xrm.Attribute<string>;
       get(name: "defraimp_certificateverified"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "defraimp_charityaddresscity"): Xrm.Attribute<string>;
+      get(name: "defraimp_charityaddresscountry"): Xrm.LookupAttribute<"defra_country">;
+      get(name: "defraimp_charityaddressline1"): Xrm.Attribute<string>;
+      get(name: "defraimp_charityaddressline2"): Xrm.Attribute<string>;
+      get(name: "defraimp_charityaddressline3"): Xrm.Attribute<string>;
+      get(name: "defraimp_charityaddresspostcode"): Xrm.Attribute<string>;
+      get(name: "defraimp_charityname"): Xrm.Attribute<string>;
       get(name: "defraimp_commoditynotes"): Xrm.Attribute<string>;
       get(name: "defraimp_commoditytypeid"): Xrm.LookupAttribute<"defraexp_commoditytype">;
       get(name: "defraimp_completionsummary"): Xrm.Attribute<string>;
@@ -122,6 +137,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_importeremail"): Xrm.Attribute<string>;
       get(name: "defraimp_importerorganisation"): Xrm.Attribute<string>;
       get(name: "defraimp_importertelephone"): Xrm.Attribute<string>;
+      get(name: "defraimp_importingfromcharity"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_importrisklevelid"): Xrm.LookupAttribute<"defraimp_importrisklevel">;
       get(name: "defraimp_importrisklevelstatus"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_importrisklevelstatus>;
       get(name: "defraimp_inspectiondeclinedreason"): Xrm.Attribute<string>;
@@ -207,6 +223,13 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "WebResource_UploadFiles"): Xrm.WebResourceControl;
       get(name: "defraimp_article15reimport"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_article8monitored"): Xrm.OptionSetControl<boolean>;
+      get(name: "defraimp_charityaddresscity"): Xrm.StringControl;
+      get(name: "defraimp_charityaddresscountry"): Xrm.LookupControl<"defra_country">;
+      get(name: "defraimp_charityaddressline1"): Xrm.StringControl;
+      get(name: "defraimp_charityaddressline2"): Xrm.StringControl;
+      get(name: "defraimp_charityaddressline3"): Xrm.StringControl;
+      get(name: "defraimp_charityaddresspostcode"): Xrm.StringControl;
+      get(name: "defraimp_charityname"): Xrm.StringControl;
       get(name: "defraimp_commoditynotes"): Xrm.StringControl;
       get(name: "defraimp_commoditytypeid"): Xrm.LookupControl<"defraexp_commoditytype">;
       get(name: "defraimp_consignmentconforming"): Xrm.OptionSetControl<boolean>;
@@ -236,6 +259,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_importeremail"): Xrm.StringControl;
       get(name: "defraimp_importerorganisation"): Xrm.StringControl;
       get(name: "defraimp_importertelephone"): Xrm.StringControl;
+      get(name: "defraimp_importingfromcharity"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_importrisklevelid"): Xrm.LookupControl<"defraimp_importrisklevel">;
       get(name: "defraimp_importrisklevelstatus"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_importrisklevelstatus>;
       get(name: "defraimp_inspectiondeclinedreason"): Xrm.StringControl;
@@ -340,6 +364,7 @@ declare namespace Form.defraimp_importapplication.Main {
     }
     interface Tabs extends Xrm.TabCollectionBase {
       get(name: "AdditionalITAHC_Tab"): Xrm.PageTab<Tabs.AdditionalITAHC_Tab>;
+      get(name: "Charity_Tab"): Xrm.PageTab<Tabs.Charity_Tab>;
       get(name: "Destinations_Tab"): Xrm.PageTab<Tabs.Destinations_Tab>;
       get(name: "Importer_Tab"): Xrm.PageTab<Tabs.Importer_Tab>;
       get(name: "PlaceofOrigin_Tab"): Xrm.PageTab<Tabs.PlaceofOrigin_Tab>;
@@ -362,6 +387,13 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_certificatenoncompliancereason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_certificatenoncompliancereason>;
     getAttribute(attributeName: "defraimp_certificatenoncompliancereasonother"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_certificateverified"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "defraimp_charityaddresscity"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_charityaddresscountry"): Xrm.LookupAttribute<"defra_country">;
+    getAttribute(attributeName: "defraimp_charityaddressline1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_charityaddressline2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_charityaddressline3"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_charityaddresspostcode"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_charityname"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commoditynotes"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commoditytypeid"): Xrm.LookupAttribute<"defraexp_commoditytype">;
     getAttribute(attributeName: "defraimp_completionsummary"): Xrm.Attribute<string>;
@@ -393,6 +425,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_importeremail"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_importerorganisation"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_importertelephone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_importingfromcharity"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_importrisklevelid"): Xrm.LookupAttribute<"defraimp_importrisklevel">;
     getAttribute(attributeName: "defraimp_importrisklevelstatus"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_importrisklevelstatus>;
     getAttribute(attributeName: "defraimp_inspectiondeclinedreason"): Xrm.Attribute<string>;
@@ -473,6 +506,13 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "WebResource_UploadFiles"): Xrm.WebResourceControl;
     getControl(controlName: "defraimp_article15reimport"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_article8monitored"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "defraimp_charityaddresscity"): Xrm.StringControl;
+    getControl(controlName: "defraimp_charityaddresscountry"): Xrm.LookupControl<"defra_country">;
+    getControl(controlName: "defraimp_charityaddressline1"): Xrm.StringControl;
+    getControl(controlName: "defraimp_charityaddressline2"): Xrm.StringControl;
+    getControl(controlName: "defraimp_charityaddressline3"): Xrm.StringControl;
+    getControl(controlName: "defraimp_charityaddresspostcode"): Xrm.StringControl;
+    getControl(controlName: "defraimp_charityname"): Xrm.StringControl;
     getControl(controlName: "defraimp_commoditynotes"): Xrm.StringControl;
     getControl(controlName: "defraimp_commoditytypeid"): Xrm.LookupControl<"defraexp_commoditytype">;
     getControl(controlName: "defraimp_consignmentconforming"): Xrm.OptionSetControl<boolean>;
@@ -502,6 +542,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_importeremail"): Xrm.StringControl;
     getControl(controlName: "defraimp_importerorganisation"): Xrm.StringControl;
     getControl(controlName: "defraimp_importertelephone"): Xrm.StringControl;
+    getControl(controlName: "defraimp_importingfromcharity"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_importrisklevelid"): Xrm.LookupControl<"defraimp_importrisklevel">;
     getControl(controlName: "defraimp_importrisklevelstatus"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_importrisklevelstatus>;
     getControl(controlName: "defraimp_inspectiondeclinedreason"): Xrm.StringControl;

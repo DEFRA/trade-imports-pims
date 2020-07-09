@@ -8,6 +8,12 @@ declare namespace WebApi {
     defraimp_certificatenoncompliancereasonother?: string | null;
     defraimp_certificatenumber?: string | null;
     defraimp_certificateverified?: boolean | null;
+    defraimp_charityaddresscity?: string | null;
+    defraimp_charityaddressline1?: string | null;
+    defraimp_charityaddressline2?: string | null;
+    defraimp_charityaddressline3?: string | null;
+    defraimp_charityaddresspostcode?: string | null;
+    defraimp_charityname?: string | null;
     defraimp_commodityidentifiers?: string | null;
     defraimp_commoditynotes?: string | null;
     defraimp_completionsummary?: string | null;
@@ -38,6 +44,7 @@ declare namespace WebApi {
     defraimp_importeremail?: string | null;
     defraimp_importerorganisation?: string | null;
     defraimp_importertelephone?: string | null;
+    defraimp_importingfromcharity?: boolean | null;
     defraimp_importrecordcounted?: boolean | null;
     defraimp_importrisklevelstatus?: defraimp_importapplication_defraimp_importrisklevelstatus | null;
     defraimp_inspectioncompleted?: boolean | null;
@@ -127,6 +134,7 @@ declare namespace WebApi {
     defraimp_importapplication_defraimp_importqueries?: defraimp_importquery_Result[] | null;
   }
   interface defraimp_importapplication extends defraimp_importapplication_Base, defraimp_importapplication_Relationships {
+    defraimp_CharityAddressCountry_bind$defra_countries?: string | null;
     defraimp_CommodityTypeId_bind$defraexp_commoditytypes?: string | null;
     defraimp_CountryofOriginId_bind$defra_countries?: string | null;
     defraimp_DevolvedOfficeId_bind$teams?: string | null;
@@ -163,6 +171,13 @@ declare namespace WebApi {
     defraimp_certificatenoncompliancereasonother: WebAttribute<defraimp_importapplication_Select, { defraimp_certificatenoncompliancereasonother: string | null }, {  }>;
     defraimp_certificatenumber: WebAttribute<defraimp_importapplication_Select, { defraimp_certificatenumber: string | null }, {  }>;
     defraimp_certificateverified: WebAttribute<defraimp_importapplication_Select, { defraimp_certificateverified: boolean | null }, {  }>;
+    defraimp_charityaddresscity: WebAttribute<defraimp_importapplication_Select, { defraimp_charityaddresscity: string | null }, {  }>;
+    defraimp_charityaddresscountry_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_charityaddresscountry_guid: string | null }, { defraimp_charityaddresscountry_formatted?: string }>;
+    defraimp_charityaddressline1: WebAttribute<defraimp_importapplication_Select, { defraimp_charityaddressline1: string | null }, {  }>;
+    defraimp_charityaddressline2: WebAttribute<defraimp_importapplication_Select, { defraimp_charityaddressline2: string | null }, {  }>;
+    defraimp_charityaddressline3: WebAttribute<defraimp_importapplication_Select, { defraimp_charityaddressline3: string | null }, {  }>;
+    defraimp_charityaddresspostcode: WebAttribute<defraimp_importapplication_Select, { defraimp_charityaddresspostcode: string | null }, {  }>;
+    defraimp_charityname: WebAttribute<defraimp_importapplication_Select, { defraimp_charityname: string | null }, {  }>;
     defraimp_commodityidentifiers: WebAttribute<defraimp_importapplication_Select, { defraimp_commodityidentifiers: string | null }, {  }>;
     defraimp_commoditynotes: WebAttribute<defraimp_importapplication_Select, { defraimp_commoditynotes: string | null }, {  }>;
     defraimp_commoditytypeid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_commoditytypeid_guid: string | null }, { defraimp_commoditytypeid_formatted?: string }>;
@@ -198,6 +213,7 @@ declare namespace WebApi {
     defraimp_importeremail: WebAttribute<defraimp_importapplication_Select, { defraimp_importeremail: string | null }, {  }>;
     defraimp_importerorganisation: WebAttribute<defraimp_importapplication_Select, { defraimp_importerorganisation: string | null }, {  }>;
     defraimp_importertelephone: WebAttribute<defraimp_importapplication_Select, { defraimp_importertelephone: string | null }, {  }>;
+    defraimp_importingfromcharity: WebAttribute<defraimp_importapplication_Select, { defraimp_importingfromcharity: boolean | null }, {  }>;
     defraimp_importrecordcounted: WebAttribute<defraimp_importapplication_Select, { defraimp_importrecordcounted: boolean | null }, {  }>;
     defraimp_importrisklevelid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_importrisklevelid_guid: string | null }, { defraimp_importrisklevelid_formatted?: string }>;
     defraimp_importrisklevelstatus: WebAttribute<defraimp_importapplication_Select, { defraimp_importrisklevelstatus: defraimp_importapplication_defraimp_importrisklevelstatus | null }, { defraimp_importrisklevelstatus_formatted?: string }>;
@@ -306,6 +322,13 @@ declare namespace WebApi {
     defraimp_certificatenoncompliancereasonother: string;
     defraimp_certificatenumber: string;
     defraimp_certificateverified: boolean;
+    defraimp_charityaddresscity: string;
+    defraimp_charityaddresscountry_guid: XQW.Guid;
+    defraimp_charityaddressline1: string;
+    defraimp_charityaddressline2: string;
+    defraimp_charityaddressline3: string;
+    defraimp_charityaddresspostcode: string;
+    defraimp_charityname: string;
     defraimp_commodityidentifiers: string;
     defraimp_commoditynotes: string;
     defraimp_commoditytypeid_guid: XQW.Guid;
@@ -341,6 +364,7 @@ declare namespace WebApi {
     defraimp_importeremail: string;
     defraimp_importerorganisation: string;
     defraimp_importertelephone: string;
+    defraimp_importingfromcharity: boolean;
     defraimp_importrecordcounted: boolean;
     defraimp_importrisklevelid_guid: XQW.Guid;
     defraimp_importrisklevelstatus: defraimp_importapplication_defraimp_importrisklevelstatus;
@@ -454,6 +478,7 @@ declare namespace WebApi {
     createdon_formatted?: string;
     createdonbehalfby_formatted?: string;
     defraimp_certificatenoncompliancereason_formatted?: string;
+    defraimp_charityaddresscountry_formatted?: string;
     defraimp_commoditytypeid_formatted?: string;
     defraimp_countryoforiginid_formatted?: string;
     defraimp_dateconfirmedontraces_formatted?: string;
@@ -509,6 +534,7 @@ declare namespace WebApi {
     "@odata.etag": string;
     createdby_guid: string | null;
     createdonbehalfby_guid: string | null;
+    defraimp_charityaddresscountry_guid: string | null;
     defraimp_commoditytypeid_guid: string | null;
     defraimp_countryoforiginid_guid: string | null;
     defraimp_destinationaddresscountryid_guid: string | null;
