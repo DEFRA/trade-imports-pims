@@ -1,5 +1,6 @@
 <FieldMappings>
   <Generic>
+      <FieldMapping mapfrom="defraimp_devolvedoffice" mapto="defraimp_devolvedofficeid" />
   </Generic>
   <Consignor>
     <FieldMapping mapfrom="defraimp_consigneename" mapto="defraimp_importerorganisation" />

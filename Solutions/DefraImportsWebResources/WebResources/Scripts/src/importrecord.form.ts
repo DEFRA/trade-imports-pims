@@ -80,6 +80,9 @@ namespace DefraImports.ImportRecord {
     let formContext = executionObj.getFormContext() as Form.defraimp_importapplication.Main.Information;
     const importApplicationType = formContext.getAttribute("defraimp_importapplicationtype").getValue();
 
+    //Check if we are importing from a charity and show the relevant section
+    showHideCharitySection(formContext);
+
     if (importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
     {
       //Hide any existing sections first
@@ -152,5 +155,13 @@ namespace DefraImports.ImportRecord {
     formContext.ui.tabs.get("Summary").sections.get("chedp_section").setVisible(false);
     formContext.ui.tabs.get("Summary").sections.get("chedp_controls_section").setVisible(false);
     formContext.ui.tabs.get("Transporter_Tab").sections.get("transport_information_section").setVisible(false);
+  }
+
+  function showHideCharitySection(formContext: Form.defraimp_importapplication.Main.Information)
+  {
+    const importingFromCharity = formContext.getAttribute("defraimp_importingfromcharity").getValue();
+   
+    //Set visibility to whatever value Importing from Charity is
+    formContext.ui.tabs.get("Charity_Tab").setVisible(importingFromCharity);
   }
 }

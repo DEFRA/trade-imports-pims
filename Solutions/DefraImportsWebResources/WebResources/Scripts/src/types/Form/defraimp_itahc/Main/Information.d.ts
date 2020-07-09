@@ -104,7 +104,6 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_commoditycomplementstext"): Xrm.Attribute<string>;
       get(name: "defraimp_commodityidtypes"): Xrm.Attribute<string>;
       get(name: "defraimp_commoditytype"): Xrm.LookupAttribute<"defraexp_commoditytype">;
-      get(name: "defraimp_complementid"): Xrm.Attribute<string>;
       get(name: "defraimp_consigneeaddresscity"): Xrm.Attribute<string>;
       get(name: "defraimp_consigneeaddresscountryid"): Xrm.LookupAttribute<"defra_country">;
       get(name: "defraimp_consigneeaddresspostcode"): Xrm.Attribute<string>;
@@ -131,6 +130,7 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_declarationphone"): Xrm.Attribute<string>;
       get(name: "defraimp_declarationsignaturedate"): Xrm.DateAttribute;
       get(name: "defraimp_departuredatetime"): Xrm.DateAttribute;
+      get(name: "defraimp_devolvedoffice"): Xrm.LookupAttribute<"team">;
       get(name: "defraimp_estimatedjourneytime"): Xrm.NumberAttribute;
       get(name: "defraimp_formattedcommoditycomplementstext"): Xrm.Attribute<string>;
       get(name: "defraimp_formattedidentificationofanimalstext"): Xrm.Attribute<string>;
@@ -151,7 +151,6 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_officialvetphone"): Xrm.Attribute<string>;
       get(name: "defraimp_officialvetsignaturedate"): Xrm.DateAttribute;
       get(name: "defraimp_ovname"): Xrm.Attribute<string>;
-      get(name: "defraimp_passportnumber"): Xrm.Attribute<string>;
       get(name: "defraimp_placeofdestinationaddresscity"): Xrm.Attribute<string>;
       get(name: "defraimp_placeofdestinationaddresscountryid"): Xrm.LookupAttribute<"defra_country">;
       get(name: "defraimp_placeofdestinationaddresspostcode"): Xrm.Attribute<string>;
@@ -183,8 +182,6 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_relatedimportrecord"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_replacedbyid"): Xrm.LookupAttribute<"defraimp_itahc">;
       get(name: "defraimp_replacesid"): Xrm.LookupAttribute<"defraimp_itahc">;
-      get(name: "defraimp_speciesid"): Xrm.Attribute<string>;
-      get(name: "defraimp_speciesnomination"): Xrm.Attribute<string>;
       get(name: "defraimp_tracesreceiveddate"): Xrm.DateAttribute;
       get(name: "defraimp_transporteraddresscity"): Xrm.Attribute<string>;
       get(name: "defraimp_transporteraddresscountryid"): Xrm.LookupAttribute<"defra_country">;
@@ -210,7 +207,6 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_commoditycomplementstext"): Xrm.StringControl;
       get(name: "defraimp_commodityidtypes"): Xrm.StringControl;
       get(name: "defraimp_commoditytype"): Xrm.LookupControl<"defraexp_commoditytype">;
-      get(name: "defraimp_complementid"): Xrm.StringControl;
       get(name: "defraimp_consigneeaddresscity"): Xrm.StringControl;
       get(name: "defraimp_consigneeaddresscountryid"): Xrm.LookupControl<"defra_country">;
       get(name: "defraimp_consigneeaddresspostcode"): Xrm.StringControl;
@@ -237,6 +233,7 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_declarationphone"): Xrm.StringControl;
       get(name: "defraimp_declarationsignaturedate"): Xrm.DateControl;
       get(name: "defraimp_departuredatetime"): Xrm.DateControl;
+      get(name: "defraimp_devolvedoffice"): Xrm.LookupControl<"team">;
       get(name: "defraimp_estimatedjourneytime"): Xrm.NumberControl;
       get(name: "defraimp_formattedcommoditycomplementstext"): Xrm.StringControl;
       get(name: "defraimp_formattedidentificationofanimalstext"): Xrm.StringControl;
@@ -257,7 +254,6 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_officialvetphone"): Xrm.StringControl;
       get(name: "defraimp_officialvetsignaturedate"): Xrm.DateControl;
       get(name: "defraimp_ovname"): Xrm.StringControl;
-      get(name: "defraimp_passportnumber"): Xrm.StringControl;
       get(name: "defraimp_placeofdestinationaddresscity"): Xrm.StringControl;
       get(name: "defraimp_placeofdestinationaddresscountryid"): Xrm.LookupControl<"defra_country">;
       get(name: "defraimp_placeofdestinationaddresspostcode"): Xrm.StringControl;
@@ -289,8 +285,6 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_relatedimportrecord"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_replacedbyid"): Xrm.LookupControl<"defraimp_itahc">;
       get(name: "defraimp_replacesid"): Xrm.LookupControl<"defraimp_itahc">;
-      get(name: "defraimp_speciesid"): Xrm.StringControl;
-      get(name: "defraimp_speciesnomination"): Xrm.StringControl;
       get(name: "defraimp_tracesreceiveddate"): Xrm.DateControl;
       get(name: "defraimp_transporteraddresscity"): Xrm.StringControl;
       get(name: "defraimp_transporteraddresscountryid"): Xrm.LookupControl<"defra_country">;
@@ -337,7 +331,6 @@ declare namespace Form.defraimp_itahc.Main {
     getAttribute(attributeName: "defraimp_commoditycomplementstext"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commodityidtypes"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commoditytype"): Xrm.LookupAttribute<"defraexp_commoditytype">;
-    getAttribute(attributeName: "defraimp_complementid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_consigneeaddresscity"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_consigneeaddresscountryid"): Xrm.LookupAttribute<"defra_country">;
     getAttribute(attributeName: "defraimp_consigneeaddresspostcode"): Xrm.Attribute<string>;
@@ -364,6 +357,7 @@ declare namespace Form.defraimp_itahc.Main {
     getAttribute(attributeName: "defraimp_declarationphone"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_declarationsignaturedate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_departuredatetime"): Xrm.DateAttribute;
+    getAttribute(attributeName: "defraimp_devolvedoffice"): Xrm.LookupAttribute<"team">;
     getAttribute(attributeName: "defraimp_estimatedjourneytime"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_formattedcommoditycomplementstext"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_formattedidentificationofanimalstext"): Xrm.Attribute<string>;
@@ -384,7 +378,6 @@ declare namespace Form.defraimp_itahc.Main {
     getAttribute(attributeName: "defraimp_officialvetphone"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_officialvetsignaturedate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_ovname"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_passportnumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_placeofdestinationaddresscity"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_placeofdestinationaddresscountryid"): Xrm.LookupAttribute<"defra_country">;
     getAttribute(attributeName: "defraimp_placeofdestinationaddresspostcode"): Xrm.Attribute<string>;
@@ -416,8 +409,6 @@ declare namespace Form.defraimp_itahc.Main {
     getAttribute(attributeName: "defraimp_relatedimportrecord"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_replacedbyid"): Xrm.LookupAttribute<"defraimp_itahc">;
     getAttribute(attributeName: "defraimp_replacesid"): Xrm.LookupAttribute<"defraimp_itahc">;
-    getAttribute(attributeName: "defraimp_speciesid"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_speciesnomination"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_tracesreceiveddate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_transporteraddresscity"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_transporteraddresscountryid"): Xrm.LookupAttribute<"defra_country">;
@@ -438,7 +429,6 @@ declare namespace Form.defraimp_itahc.Main {
     getControl(controlName: "defraimp_commoditycomplementstext"): Xrm.StringControl;
     getControl(controlName: "defraimp_commodityidtypes"): Xrm.StringControl;
     getControl(controlName: "defraimp_commoditytype"): Xrm.LookupControl<"defraexp_commoditytype">;
-    getControl(controlName: "defraimp_complementid"): Xrm.StringControl;
     getControl(controlName: "defraimp_consigneeaddresscity"): Xrm.StringControl;
     getControl(controlName: "defraimp_consigneeaddresscountryid"): Xrm.LookupControl<"defra_country">;
     getControl(controlName: "defraimp_consigneeaddresspostcode"): Xrm.StringControl;
@@ -465,6 +455,7 @@ declare namespace Form.defraimp_itahc.Main {
     getControl(controlName: "defraimp_declarationphone"): Xrm.StringControl;
     getControl(controlName: "defraimp_declarationsignaturedate"): Xrm.DateControl;
     getControl(controlName: "defraimp_departuredatetime"): Xrm.DateControl;
+    getControl(controlName: "defraimp_devolvedoffice"): Xrm.LookupControl<"team">;
     getControl(controlName: "defraimp_estimatedjourneytime"): Xrm.NumberControl;
     getControl(controlName: "defraimp_formattedcommoditycomplementstext"): Xrm.StringControl;
     getControl(controlName: "defraimp_formattedidentificationofanimalstext"): Xrm.StringControl;
@@ -485,7 +476,6 @@ declare namespace Form.defraimp_itahc.Main {
     getControl(controlName: "defraimp_officialvetphone"): Xrm.StringControl;
     getControl(controlName: "defraimp_officialvetsignaturedate"): Xrm.DateControl;
     getControl(controlName: "defraimp_ovname"): Xrm.StringControl;
-    getControl(controlName: "defraimp_passportnumber"): Xrm.StringControl;
     getControl(controlName: "defraimp_placeofdestinationaddresscity"): Xrm.StringControl;
     getControl(controlName: "defraimp_placeofdestinationaddresscountryid"): Xrm.LookupControl<"defra_country">;
     getControl(controlName: "defraimp_placeofdestinationaddresspostcode"): Xrm.StringControl;
@@ -517,8 +507,6 @@ declare namespace Form.defraimp_itahc.Main {
     getControl(controlName: "defraimp_relatedimportrecord"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_replacedbyid"): Xrm.LookupControl<"defraimp_itahc">;
     getControl(controlName: "defraimp_replacesid"): Xrm.LookupControl<"defraimp_itahc">;
-    getControl(controlName: "defraimp_speciesid"): Xrm.StringControl;
-    getControl(controlName: "defraimp_speciesnomination"): Xrm.StringControl;
     getControl(controlName: "defraimp_tracesreceiveddate"): Xrm.DateControl;
     getControl(controlName: "defraimp_transporteraddresscity"): Xrm.StringControl;
     getControl(controlName: "defraimp_transporteraddresscountryid"): Xrm.LookupControl<"defra_country">;
