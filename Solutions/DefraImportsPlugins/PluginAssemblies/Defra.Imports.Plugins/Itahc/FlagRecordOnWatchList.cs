@@ -28,7 +28,10 @@ namespace Defra.Imports.Plugins.Itahc
         {
             var itahcFromContext = ((Entity)context.InputParameters["Target"]).ToEntity<defraimp_itahc>();
 
-            FlagRecordOnWatchListBusinessLogic flagRecordLogic = new FlagRecordOnWatchListBusinessLogic(orgSvc, itahcFromContext);
+            var watchListRepo = new CrmRepository<ImportsContext, defraimp_WatchList>(orgSvc);
+            var watchFlagRepo = new CrmRepository<ImportsContext, defraimp_WatchFlag>(orgSvc);
+
+            FlagRecordOnWatchListBusinessLogic flagRecordLogic = new FlagRecordOnWatchListBusinessLogic(orgSvc, itahcFromContext, watchListRepo, watchFlagRepo);
             flagRecordLogic.FlagRecordIfOnWatchList();
         }
     }

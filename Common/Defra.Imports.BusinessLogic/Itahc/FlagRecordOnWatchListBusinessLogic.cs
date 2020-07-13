@@ -21,15 +21,15 @@ namespace Defra.Imports.BusinessLogic.Itahc
 
         private defraimp_itahc _itahcFromContext;
         private IOrganizationService _orgSvc;
-        private CrmRepository<ImportsContext, defraimp_WatchList> _watchListRepo;
-        private CrmRepository<ImportsContext, defraimp_WatchFlag> _watchFlagRepo;
+        private ICrmRepository<defraimp_WatchList> _watchListRepo;
+        private ICrmRepository<defraimp_WatchFlag> _watchFlagRepo;
 
-        public FlagRecordOnWatchListBusinessLogic(IOrganizationService orgSvc, defraimp_itahc itahcFromContext)
+        public FlagRecordOnWatchListBusinessLogic(IOrganizationService orgSvc, defraimp_itahc itahcFromContext, ICrmRepository<defraimp_WatchList> watchListRepo, ICrmRepository<defraimp_WatchFlag> watchFlagRepo)
         {
             this._itahcFromContext = itahcFromContext;
             this._orgSvc = orgSvc;
-            this._watchListRepo = new CrmRepository<ImportsContext, defraimp_WatchList>(orgSvc);
-            this._watchFlagRepo = new CrmRepository<ImportsContext, defraimp_WatchFlag>(orgSvc);
+            this._watchListRepo = watchListRepo;
+            this._watchFlagRepo = watchFlagRepo;
         }
 
         public void FlagRecordIfOnWatchList()
