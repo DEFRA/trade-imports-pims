@@ -19,14 +19,14 @@
     <RolePrivilege name="prvAppendTodefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importapplication" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_MatchConfiguration" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importcountrycommodityrisklevel" level="Global" />
-    <RolePrivilege name="prvCreatedefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
-    <RolePrivilege name="prvDeletedefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvReadAuditPartitions" level="Global" />
     <RolePrivilege name="prvReadAuditSummary" level="Global" />
     <RolePrivilege name="prvReaddefraexp_configurationparameter" level="Global" />
@@ -49,6 +49,8 @@
     <RolePrivilege name="prvReadSharePointDocument" level="Global" />
     <RolePrivilege name="prvSharedefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvSharedefraimp_importapplication" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_MatchConfiguration" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvSharedefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvWritedefraexp_configurationparameter" level="Global" />
     <RolePrivilege name="prvWritedefraimp_autonumber" level="Global" />

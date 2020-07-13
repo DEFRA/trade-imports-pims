@@ -40,7 +40,7 @@
                         <labels>
                           <label description="key" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_key" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_key" disabled="false" />
+                        <control id="defraimp_key" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_key" disabled="true" />
                       </cell>
                     </row>
                     <row>
