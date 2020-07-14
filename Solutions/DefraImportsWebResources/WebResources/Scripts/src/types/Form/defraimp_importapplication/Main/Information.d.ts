@@ -50,10 +50,10 @@ declare namespace Form.defraimp_importapplication.Main {
       interface Summary extends Xrm.SectionCollectionBase {
         get(name: "CommodityIdentifiers_Section"): Xrm.PageSection;
         get(name: "Commodity_Section"): Xrm.PageSection;
-        get(name: "DOCOM_Section"): Xrm.PageSection;
         get(name: "GeneralComments_Sectiom"): Xrm.PageSection;
         get(name: "Hidden_Section"): Xrm.PageSection;
         get(name: "IV65_Section"): Xrm.PageSection;
+        get(name: "Summary_section_15"): Xrm.PageSection;
         get(name: "Summary_section_5"): Xrm.PageSection;
         get(name: "Timeline_Section"): Xrm.PageSection;
         get(name: "Warble Fly Treatment"): Xrm.PageSection;
@@ -112,9 +112,6 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_consignmentconforming"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_containernumber"): Xrm.Attribute<string>;
       get(name: "defraimp_countryoforiginid"): Xrm.LookupAttribute<"defra_country">;
-      get(name: "defraimp_dateconfirmedontraces"): Xrm.DateAttribute;
-      get(name: "defraimp_dateconsignmentreceived"): Xrm.DateAttribute;
-      get(name: "defraimp_dateimportercontacted"): Xrm.DateAttribute;
       get(name: "defraimp_dateiv66received"): Xrm.DateAttribute;
       get(name: "defraimp_dateofconfirmationfromimporter"): Xrm.DateAttribute;
       get(name: "defraimp_dateofconfirmationtobip"): Xrm.DateAttribute;
@@ -186,7 +183,6 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_placeoforiginid"): Xrm.LookupAttribute<"defraimp_placeoforigin">;
       get(name: "defraimp_placeoforiginorganisation"): Xrm.Attribute<string>;
       get(name: "defraimp_pointofentry"): Xrm.Attribute<string>;
-      get(name: "defraimp_primarydocomid"): Xrm.LookupAttribute<"defraimp_docom">;
       get(name: "defraimp_primaryimporternotificationid"): Xrm.LookupAttribute<"defraimp_importernotification">;
       get(name: "defraimp_primaryitahcid"): Xrm.LookupAttribute<"defraimp_itahc">;
       get(name: "defraimp_purpose"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_purpose>;
@@ -219,6 +215,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "CountriesofTransit"): Xrm.SubGridControl<"defra_country">;
       get(name: "RelatedInspections"): Xrm.SubGridControl<"defraimp_importinspection">;
       get(name: "RelatedQueries"): Xrm.BaseControl;
+      get(name: "Subgrid_WatchFlags"): Xrm.SubGridControl<"defraimp_watchflag">;
       get(name: "WebResource_FilesAndAttachments"): Xrm.WebResourceControl;
       get(name: "WebResource_UploadFiles"): Xrm.WebResourceControl;
       get(name: "defraimp_article15reimport"): Xrm.OptionSetControl<boolean>;
@@ -235,9 +232,6 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_consignmentconforming"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_containernumber"): Xrm.StringControl;
       get(name: "defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country">;
-      get(name: "defraimp_dateconfirmedontraces"): Xrm.DateControl;
-      get(name: "defraimp_dateconsignmentreceived"): Xrm.DateControl;
-      get(name: "defraimp_dateimportercontacted"): Xrm.DateControl;
       get(name: "defraimp_dateiv66received"): Xrm.DateControl;
       get(name: "defraimp_dateofconfirmationfromimporter"): Xrm.DateControl;
       get(name: "defraimp_dateofconfirmationtobip"): Xrm.DateControl;
@@ -308,7 +302,6 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin">;
       get(name: "defraimp_placeoforiginorganisation"): Xrm.StringControl;
       get(name: "defraimp_pointofentry"): Xrm.StringControl;
-      get(name: "defraimp_primarydocomid"): Xrm.LookupControl<"defraimp_docom">;
       get(name: "defraimp_primaryimporternotificationid"): Xrm.LookupControl<"defraimp_importernotification">;
       get(name: "defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc">;
       get(name: "defraimp_purpose"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_purpose>;
@@ -400,9 +393,6 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_consignmentconforming"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_containernumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_countryoforiginid"): Xrm.LookupAttribute<"defra_country">;
-    getAttribute(attributeName: "defraimp_dateconfirmedontraces"): Xrm.DateAttribute;
-    getAttribute(attributeName: "defraimp_dateconsignmentreceived"): Xrm.DateAttribute;
-    getAttribute(attributeName: "defraimp_dateimportercontacted"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_dateiv66received"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_dateofconfirmationfromimporter"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_dateofconfirmationtobip"): Xrm.DateAttribute;
@@ -474,7 +464,6 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_placeoforiginid"): Xrm.LookupAttribute<"defraimp_placeoforigin">;
     getAttribute(attributeName: "defraimp_placeoforiginorganisation"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_pointofentry"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_primarydocomid"): Xrm.LookupAttribute<"defraimp_docom">;
     getAttribute(attributeName: "defraimp_primaryimporternotificationid"): Xrm.LookupAttribute<"defraimp_importernotification">;
     getAttribute(attributeName: "defraimp_primaryitahcid"): Xrm.LookupAttribute<"defraimp_itahc">;
     getAttribute(attributeName: "defraimp_purpose"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_purpose>;
@@ -502,6 +491,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "CountriesofTransit"): Xrm.SubGridControl<"defra_country">;
     getControl(controlName: "RelatedInspections"): Xrm.SubGridControl<"defraimp_importinspection">;
     getControl(controlName: "RelatedQueries"): Xrm.BaseControl;
+    getControl(controlName: "Subgrid_WatchFlags"): Xrm.SubGridControl<"defraimp_watchflag">;
     getControl(controlName: "WebResource_FilesAndAttachments"): Xrm.WebResourceControl;
     getControl(controlName: "WebResource_UploadFiles"): Xrm.WebResourceControl;
     getControl(controlName: "defraimp_article15reimport"): Xrm.OptionSetControl<boolean>;
@@ -518,9 +508,6 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_consignmentconforming"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_containernumber"): Xrm.StringControl;
     getControl(controlName: "defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country">;
-    getControl(controlName: "defraimp_dateconfirmedontraces"): Xrm.DateControl;
-    getControl(controlName: "defraimp_dateconsignmentreceived"): Xrm.DateControl;
-    getControl(controlName: "defraimp_dateimportercontacted"): Xrm.DateControl;
     getControl(controlName: "defraimp_dateiv66received"): Xrm.DateControl;
     getControl(controlName: "defraimp_dateofconfirmationfromimporter"): Xrm.DateControl;
     getControl(controlName: "defraimp_dateofconfirmationtobip"): Xrm.DateControl;
@@ -591,7 +578,6 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin">;
     getControl(controlName: "defraimp_placeoforiginorganisation"): Xrm.StringControl;
     getControl(controlName: "defraimp_pointofentry"): Xrm.StringControl;
-    getControl(controlName: "defraimp_primarydocomid"): Xrm.LookupControl<"defraimp_docom">;
     getControl(controlName: "defraimp_primaryimporternotificationid"): Xrm.LookupControl<"defraimp_importernotification">;
     getControl(controlName: "defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc">;
     getControl(controlName: "defraimp_purpose"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_purpose>;

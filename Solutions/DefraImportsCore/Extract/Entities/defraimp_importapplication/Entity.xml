@@ -1793,11 +1793,6 @@
                   <label description="ITAHC" languagecode="1033" />
                 </labels>
               </option>
-              <option value="714100001" ExternalValue="" Color="#0000ff">
-                <labels>
-                  <label description="DOCOM" languagecode="1033" />
-                </labels>
-              </option>
               <option value="714100002" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="CHEDA" languagecode="1033" />
@@ -4885,45 +4880,6 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Primary CVED" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="defraimp_PrimaryDOCOMId">
-          <Type>lookup</Type>
-          <Name>defraimp_primarydocomid</Name>
-          <LogicalName>defraimp_primarydocomid</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>0.0.0.4</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>1</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
-          <displaynames>
-            <displayname description="Primary DOCOM" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />

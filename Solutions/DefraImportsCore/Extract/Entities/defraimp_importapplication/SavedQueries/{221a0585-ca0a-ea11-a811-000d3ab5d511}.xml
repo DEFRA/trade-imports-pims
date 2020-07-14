@@ -14,7 +14,6 @@
           <cell name="createdby" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="createdon" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_primaryitahcid" width="100" />
-          <cell name="defraimp_primarydocomid" width="100" />
           <cell name="defraimp_importercontactname" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
           <cell name="defraimp_importercphnumber" width="100" />
           <cell name="defraimp_importeraddress1" width="150" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
@@ -99,7 +98,6 @@
           <attribute name="defraimp_name" />
           <order descending="false" attribute="defraimp_name" />
           <attribute name="defraimp_primaryitahcid" />
-          <attribute name="defraimp_primarydocomid" />
           <attribute name="defraimp_importertelephone" />
           <attribute name="defraimp_importerorganisation" />
           <attribute name="defraimp_importeremail" />

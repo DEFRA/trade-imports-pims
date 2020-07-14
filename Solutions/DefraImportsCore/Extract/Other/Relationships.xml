@@ -127,7 +127,6 @@
   <EntityRelationship Name="defraimp_defraimp_watchlist_defraimp_watchflag_WatchListId" />
   <EntityRelationship Name="defraimp_goldbronzecountriesnn" />
   <EntityRelationship Name="defraimp_importapplication_defraimp_importqueries" />
-  <EntityRelationship Name="defraimp_importapplication_PrimaryDOCOMId" />
   <EntityRelationship Name="defraimp_importapplication_ProcessSession" />
   <EntityRelationship Name="defraimp_importcountrycommodityrisklevel_ProcessSession" />
   <EntityRelationship Name="defraimp_ImporterNotification_CountriesofTransit" />

@@ -183,20 +183,17 @@
                         <Variable x:TypeArguments="x:Object" Name="CreateStep7_53" />
                       </Sequence.Variables>
                       <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;CreateStep7_localParameter#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importapplication&quot;)]" />
-                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
-                        <mxswa:ActivityReference.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
-                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.Guid, "dfa3493b-79c0-e911-a9ab-000d3ab20be2", "Key" }]</InArgument>
-                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                      <mxswa:GetEntityProperty Attribute="defraimp_devolvedoffice" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_itahc" Value="[CreateStep7_2]">
+                        <mxswa:GetEntityProperty.TargetType>
+                          <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
-                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep7_2]</OutArgument>
-                        </mxswa:ActivityReference.Arguments>
-                      </mxswa:ActivityReference>
+                        </mxswa:GetEntityProperty.TargetType>
+                      </mxswa:GetEntityProperty>
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
                         <mxswa:ActivityReference.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
-                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.EntityReference, "team", "defra-custmstr-eue-dev-imp", CreateStep7_2, "Lookup" }]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
+                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep7_2 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
