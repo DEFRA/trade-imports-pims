@@ -14508,24 +14508,6 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
-		/// 1:N defraimp_importapplication_PrimaryDOCOMId
-		/// </summary>
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_importapplication_PrimaryDOCOMId")]
-		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_importapplication> defraimp_importapplication_PrimaryDOCOMId
-		{
-			get
-			{
-				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_importapplication>("defraimp_importapplication_PrimaryDOCOMId", null);
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_importapplication_PrimaryDOCOMId");
-				this.SetRelatedEntities<Defra.Imports.Model.defraimp_importapplication>("defraimp_importapplication_PrimaryDOCOMId", null, value);
-				this.OnPropertyChanged("defraimp_importapplication_PrimaryDOCOMId");
-			}
-		}
-		
-		/// <summary>
 		/// N:1 defraimp_defra_country_defraimp_docom_ConsigneeAddressCountryId
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_consigneeaddresscountryid")]
@@ -15284,9 +15266,6 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ITAHC = 714100000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DOCOM = 714100001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CHEDA = 714100002,
@@ -17643,24 +17622,6 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_primarydocomid")]
-		public Microsoft.Xrm.Sdk.EntityReference defraimp_PrimaryDOCOMId
-		{
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_primarydocomid");
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_PrimaryDOCOMId");
-				this.SetAttributeValue("defraimp_primarydocomid", value);
-				this.OnPropertyChanged("defraimp_PrimaryDOCOMId");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_primaryimporternotificationid")]
 		public Microsoft.Xrm.Sdk.EntityReference defraimp_PrimaryImporterNotificationId
 		{
@@ -18807,25 +18768,6 @@ namespace Defra.Imports.Model
 						"d", null, value);
 				this.OnPropertyChanged("defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforigini" +
 						"d");
-			}
-		}
-		
-		/// <summary>
-		/// N:1 defraimp_importapplication_PrimaryDOCOMId
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_primarydocomid")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_importapplication_PrimaryDOCOMId")]
-		public Defra.Imports.Model.defraimp_docom defraimp_importapplication_PrimaryDOCOMId
-		{
-			get
-			{
-				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_docom>("defraimp_importapplication_PrimaryDOCOMId", null);
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_importapplication_PrimaryDOCOMId");
-				this.SetRelatedEntity<Defra.Imports.Model.defraimp_docom>("defraimp_importapplication_PrimaryDOCOMId", null, value);
-				this.OnPropertyChanged("defraimp_importapplication_PrimaryDOCOMId");
 			}
 		}
 	}

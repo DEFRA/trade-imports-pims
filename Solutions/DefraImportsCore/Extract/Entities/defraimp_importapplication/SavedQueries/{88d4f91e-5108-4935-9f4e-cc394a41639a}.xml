@@ -43,7 +43,6 @@
           </filter>
           <filter type="or" isquickfindfields="1">
             <condition attribute="defraimp_primaryitahcid" operator="like" value="{0}" />
-            <condition attribute="defraimp_primarydocomid" operator="like" value="{0}" />
             <condition attribute="defraimp_placeoforiginorganisation" operator="like" value="{0}" />
             <condition attribute="defraimp_placeofdestinationtelephone" operator="like" value="{0}" />
             <condition attribute="defraimp_placeofdestinationorganisation" operator="like" value="{0}" />
@@ -60,11 +59,11 @@
             <condition attribute="defraimp_importeremail" operator="like" value="{0}" />
             <condition attribute="defraimp_importercontactname" operator="like" value="{0}" />
             <condition attribute="defraimp_importeraddresspostcode" operator="like" value="{0}" />
+            <condition attribute="defraimp_importrisklevelid" operator="like" value="{0}" />
             <condition attribute="defraimp_dateofimport" operator="on" value="{3}" />
             <condition attribute="defraimp_countryoforiginid" operator="like" value="{0}" />
             <condition attribute="defraimp_commoditytypeid" operator="like" value="{0}" />
             <condition attribute="defraimp_commodityidentifiers" operator="like" value="{0}" />
-            <condition attribute="defraimp_importrisklevelid" operator="like" value="{0}" />
           </filter>
           <attribute name="defraimp_placeoforiginorganisation" />
           <attribute name="defraimp_placeofdestinationorganisation" />

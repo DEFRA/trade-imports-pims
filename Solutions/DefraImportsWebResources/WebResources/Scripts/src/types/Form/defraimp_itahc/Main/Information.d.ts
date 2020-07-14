@@ -3,6 +3,7 @@ declare namespace Form.defraimp_itahc.Main {
     namespace Tabs {
       interface _3c395ebac34345a3a58bea5860aa2036 extends Xrm.SectionCollectionBase {
         get(name: "{3c395eba-c343-45a3-a58b-ea5860aa2036}_column_2_section_1"): Xrm.PageSection;
+        get(name: "{3c395eba-c343-45a3-a58b-ea5860aa2036}_section_4"): Xrm.PageSection;
         get(name: "{d0d7eecb-7ea7-40b8-bba2-42299867f7b8}"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
@@ -199,6 +200,7 @@ declare namespace Form.defraimp_itahc.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "Subgrid_WatchFlags"): Xrm.SubGridControl<"defraimp_watchflag">;
       get(name: "WebResource_MultipleUploads"): Xrm.WebResourceControl;
       get(name: "WebResource_UploadFiles"): Xrm.WebResourceControl;
       get(name: "defraimp_animalcertifiedas"): Xrm.OptionSetControl<defraimp_animalcertifiedas>;
@@ -421,6 +423,7 @@ declare namespace Form.defraimp_itahc.Main {
     getAttribute(attributeName: "defraimp_transportertype"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "Subgrid_WatchFlags"): Xrm.SubGridControl<"defraimp_watchflag">;
     getControl(controlName: "WebResource_MultipleUploads"): Xrm.WebResourceControl;
     getControl(controlName: "WebResource_UploadFiles"): Xrm.WebResourceControl;
     getControl(controlName: "defraimp_animalcertifiedas"): Xrm.OptionSetControl<defraimp_animalcertifiedas>;

@@ -22,4 +22,5 @@
   <FieldMapping mapfrom="defraimp_countryoforiginid" mapto="defraimp_countryoforiginid" />
   <FieldMapping mapfrom="defraimp_commoditytype" mapto="defraimp_commoditytypeid" />
   <FieldMapping mapfrom="defraimp_quantity" mapto="defraimp_quantity" />
+  <FieldMapping mapfrom="defraimp_devolvedoffice" mapto="defraimp_devolvedofficeid" />
 </FieldMappings>

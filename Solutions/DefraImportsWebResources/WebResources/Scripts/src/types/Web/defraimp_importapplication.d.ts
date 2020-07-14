@@ -144,7 +144,6 @@ declare namespace WebApi {
     defraimp_PlaceofOriginid_bind$defraimp_placeoforigins?: string | null;
     defraimp_PreviousImportRiskLevelId_bind$defraimp_importrisklevels?: string | null;
     defraimp_PrimaryCVEDId_bind$defraimp_cveds?: string | null;
-    defraimp_PrimaryDOCOMId_bind$defraimp_docoms?: string | null;
     defraimp_PrimaryITAHCId_bind$defraimp_itahcs?: string | null;
     defraimp_PrimaryImporterNotificationId_bind$defraimp_importernotifications?: string | null;
     defraimp_RegionAreaAllocatedtoId_bind$defraimp_apharegions?: string | null;
@@ -269,7 +268,6 @@ declare namespace WebApi {
     defraimp_previousimportrisklevelid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_previousimportrisklevelid_guid: string | null }, { defraimp_previousimportrisklevelid_formatted?: string }>;
     defraimp_previousplaceoforiginid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_previousplaceoforiginid_guid: string | null }, { defraimp_previousplaceoforiginid_formatted?: string }>;
     defraimp_primarycvedid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_primarycvedid_guid: string | null }, { defraimp_primarycvedid_formatted?: string }>;
-    defraimp_primarydocomid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_primarydocomid_guid: string | null }, { defraimp_primarydocomid_formatted?: string }>;
     defraimp_primaryimporternotificationid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_primaryimporternotificationid_guid: string | null }, { defraimp_primaryimporternotificationid_formatted?: string }>;
     defraimp_primaryitahcid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_primaryitahcid_guid: string | null }, { defraimp_primaryitahcid_formatted?: string }>;
     defraimp_purpose: WebAttribute<defraimp_importapplication_Select, { defraimp_purpose: defraimp_importapplication_defraimp_purpose | null }, { defraimp_purpose_formatted?: string }>;
@@ -420,7 +418,6 @@ declare namespace WebApi {
     defraimp_previousimportrisklevelid_guid: XQW.Guid;
     defraimp_previousplaceoforiginid_guid: XQW.Guid;
     defraimp_primarycvedid_guid: XQW.Guid;
-    defraimp_primarydocomid_guid: XQW.Guid;
     defraimp_primaryimporternotificationid_guid: XQW.Guid;
     defraimp_primaryitahcid_guid: XQW.Guid;
     defraimp_purpose: defraimp_importapplication_defraimp_purpose;
@@ -511,7 +508,6 @@ declare namespace WebApi {
     defraimp_previousimportrisklevelid_formatted?: string;
     defraimp_previousplaceoforiginid_formatted?: string;
     defraimp_primarycvedid_formatted?: string;
-    defraimp_primarydocomid_formatted?: string;
     defraimp_primaryimporternotificationid_formatted?: string;
     defraimp_primaryitahcid_formatted?: string;
     defraimp_purpose_formatted?: string;
@@ -547,7 +543,6 @@ declare namespace WebApi {
     defraimp_previousimportrisklevelid_guid: string | null;
     defraimp_previousplaceoforiginid_guid: string | null;
     defraimp_primarycvedid_guid: string | null;
-    defraimp_primarydocomid_guid: string | null;
     defraimp_primaryimporternotificationid_guid: string | null;
     defraimp_primaryitahcid_guid: string | null;
     defraimp_regionareaallocatedtoid_guid: string | null;
