@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{efb07300-b912-ea11-a811-000d3ab5d037}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" preview="1" icon="1">
+        <row name="result" id="defraimp_importinspectionid">
+          <cell name="defraimp_relatedimportapplication" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_relateditahc" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="200" />
+          <cell name="defraimp_samworkschedulenumber" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="150" />
+          <cell name="defraimp_customernumber" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_cphnumber" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_dateofvisit" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_replyfromahodue" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_inspectionoutcome" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="defraimp_importinspection">
+          <filter type="and">
+            <condition attribute="defraimp_replyfromahodue" operator="next-x-days" value="30" />
+          </filter>
+          <link-entity name="defraimp_importapplication" from="defraimp_importapplicationid" to="defraimp_relatedimportapplication" alias="aa">
+            <filter type="and">
+              <condition attribute="defraimp_commoditytypeid" operator="in">
+                <value uiname="DOG" uitype="defraexp_commoditytype">{195545A7-BBD3-E911-A870-000D3AB1DCDD}</value>
+                <value uiname="CAT" uitype="defraexp_commoditytype">{035545A7-BBD3-E911-A870-000D3AB1DCDD}</value>
+                <value uiname="FERRET" uitype="defraexp_commoditytype">{235545A7-BBD3-E911-A870-000D3AB1DCDD}</value>
+              </condition>
+            </filter>
+          </link-entity>
+          <attribute name="defraimp_relateditahc" />
+          <attribute name="defraimp_samworkschedulenumber" />
+          <attribute name="defraimp_inspectionoutcome" />
+          <attribute name="defraimp_relatedimportapplication" />
+          <attribute name="createdon" />
+          <attribute name="defraimp_customernumber" />
+          <attribute name="defraimp_cphnumber" />
+          <attribute name="defraimp_replyfromahodue" />
+          <attribute name="defraimp_dateofvisit" />
+          <order descending="true" attribute="createdon" />
+          <attribute name="defraimp_importinspectionid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.6</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="4. Post Import Checks for Dogs/Cats/Ferrets Due Within 30 Days" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

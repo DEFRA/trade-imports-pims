@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="defraimp_officialvetcapacity" localizedName="Official Vet - Capacity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>0.0.0.25</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Official Vet - Capacity" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="714100000">
+      <labels>
+        <label description="OfficialInspector" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="714100001">
+      <labels>
+        <label description="VeterinaryInspector" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

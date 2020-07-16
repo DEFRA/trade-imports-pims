@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{0776f391-e2e0-47bd-9211-b97fbf2156bb}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1920">
+      <tabs>
+        <tab id="{aaf7935e-11bd-40cf-804f-153a30364065}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{388203f2-fbf4-41c0-993b-98ffebf967ff}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{86c953c1-11e1-101e-9a0c-cb7d0c9c7910}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{65116e41-c40c-ac12-8814-2786d5032c1c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Approval Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_approvalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_approvalnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8d8cd6a3-294d-d085-35d3-64784183b76b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="General Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_generalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_generalnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9b787969-3e47-e377-4853-d681ea13c665}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Traces Id" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_tracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_tracesid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{81327655-00e4-b100-935d-3d08d4b78867}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Address Line 1" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_addressline1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_addressline1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5a8d379e-ec23-6ae9-4a76-0aa90d7d7b41}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Address Line 2" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_addressline2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_addressline2" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{722a218a-d7b4-6773-e0d2-65e49075c08d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Address Line 3" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_addressline3" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_addressline3" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{490c214b-59ad-b4c7-3bc7-ad37d953735d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="City" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_city" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_city" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{872cd9eb-00b5-e6a2-4683-cc3a8e9d03b6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_postcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_postcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ba32dc81-2737-a5a4-11ce-1dec62ed0b56}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Country" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_country" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_country" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{210936c2-7281-4b40-9f26-58e07938157e}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{223fedea-825f-4d30-9ec8-08ddf0d80579}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{d185b17f-d0e2-4fd9-a288-bb89c06f213e}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d3d94ebb-060e-4a57-bbb8-1d94434bebb8}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="quick create form" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

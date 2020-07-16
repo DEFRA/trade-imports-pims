@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{87d36880-d208-4d56-9821-07654699ddfb}</formid>
+    <IntroducedVersion>0.0.0.56</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{a6826396-d852-4461-94d7-9ad3099fcc77}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="Place of Destination Details" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{e6796600-82f8-46f4-881b-6c48291df4a0}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ddc4839c-1b57-648b-a39c-009a02ab1141}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Destination Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5313915d-6419-ada1-ab53-e02709925167}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Destination Address Street" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationaddressstreet" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationaddressstreet" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3aeb2c51-96d0-abdd-b159-38a1c2cd78b5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Destination Address City" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationaddresscity" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationaddresscity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b61aa5c9-c414-7ada-ec11-282b27225674}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Destination Address Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationaddresspostcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationaddresspostcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{20bb4bcd-a4dc-275e-7c70-26197c864b77}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Destination Address Country" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationaddresscountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeofdestinationaddresscountryid" disabled="false" uniqueid="{7dabdaae-4cba-3816-6cc4-b29906ee1be7}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{4A0AC1F7-910F-456E-B501-2A4237C76A3A}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0e6b4b36-e8b3-a6e8-5a18-caa5ed219432}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Destination Approval Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationapprovalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationapprovalnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{38c2d386-989a-be4c-25b3-c83670332619}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Destination General Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationgeneralnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_placeofdestinationgeneralnumber" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="5">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Place of Destination Details" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

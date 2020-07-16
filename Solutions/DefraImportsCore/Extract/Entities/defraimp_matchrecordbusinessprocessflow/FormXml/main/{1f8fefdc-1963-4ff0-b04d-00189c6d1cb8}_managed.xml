@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{1f8fefdc-1963-4ff0-b04d-00189c6d1cb8}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{a3705a62-bcac-4fa1-8ad6-247bfbc51f89}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{ce3b6d3a-cb67-4e3c-a16a-eb6d60b0cac4}">
+          <labels>
+            <label description="Confirm Match" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{a3705a62-bcac-4fa1-8ad6-247bfbc51f89}" name="StageStep3_section1" labelid="{7cec84f5-3b86-43dc-b9d1-46a70b9906e9}">
+                  <labels>
+                    <label description="Confirm Match" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{9080bb42-9079-4810-a7e4-3084c7348e7e}" showlabel="true" visible="true" labelid="{3a0e6886-852f-4f39-bfe6-37d1f31bd1d0}">
+                        <labels>
+                          <label description="Is this Record a Valid Match?" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow:defraimp_isrecordvalidmatch" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_isrecordvalidmatch" relationship="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow" isrequired="false" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{d3e86630-cf6a-43ee-b193-31b3bd654c04}" name="StageStep7" locklevel="0" expanded="true" visible="false" labelid="{8953e539-ba49-4d24-b82b-c9ef14243a66}">
+          <labels>
+            <label description="Complete Match" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{d3e86630-cf6a-43ee-b193-31b3bd654c04}" name="StageStep7_section1" labelid="{e14e2c0a-2c53-47ea-b0dc-07e9715a1f8c}">
+                  <labels>
+                    <label description="Complete Match" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{858d2fcb-1470-4470-a73e-dac07029bf6e}" showlabel="true" visible="true" labelid="{ddf396c0-84de-4120-af02-0f0e810ea6c0}">
+                        <labels>
+                          <label description="Have you Appended Records to Import Record? " languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow:defraimp_appendrecordstoimportrecords" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_appendrecordstoimportrecords" relationship="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow" isrequired="true" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{676718a8-544a-43a9-9b5f-31471fd8ec1e}" showlabel="true" visible="true" labelid="{ad078e8f-7682-424d-b891-4a6cf3021b36}">
+                        <labels>
+                          <label description="Close Record as Completed?" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow:defraimp_closerecordascompleted" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_closerecordascompleted" relationship="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow" isrequired="true" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{bc974345-5054-4257-a96d-d8f5725979b2}" name="StageStep13" locklevel="0" expanded="true" visible="false" labelid="{e63da6cd-7311-4565-bb59-818ff2b926fc}">
+          <labels>
+            <label description="Reject Match" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{bc974345-5054-4257-a96d-d8f5725979b2}" name="StageStep13_section1" labelid="{8c202211-26f0-4613-99a6-4acf8565602e}">
+                  <labels>
+                    <label description="Reject Match" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{90783c71-525f-43a3-8381-c400300cafb7}" showlabel="true" visible="true" labelid="{d5f23a16-57e7-482a-9d4e-014edce4cee0}">
+                        <labels>
+                          <label description="Close Record as Rejected?" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow:defraimp_closerecordasrejected" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_closerecordasrejected" relationship="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow" isrequired="true" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3521c9d2-d226-459e-ae73-5fdd09651992}" showlabel="true" visible="true" labelid="{5f33a258-ce10-4639-9dbd-1f0fd0bad128}">
+                        <labels>
+                          <label description="Rejected Reason" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow:defraimp_rejectedreason" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="defraimp_rejectedreason" relationship="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow" isrequired="false" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

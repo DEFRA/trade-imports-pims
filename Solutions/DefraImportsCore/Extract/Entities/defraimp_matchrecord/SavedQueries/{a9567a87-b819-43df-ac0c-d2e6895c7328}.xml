@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{a9567a87-b819-43df-ac0c-d2e6895c7328}</savedqueryid>
+    <layoutxml>
+      <grid name="defraimp_matchrecords" jump="defraimp_name" select="1" icon="1" preview="0">
+        <row name="defraimp_matchrecord" id="defraimp_matchrecordid">
+          <cell name="defraimp_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="defraimp_matchrecord">
+          <attribute name="defraimp_matchrecordid" />
+          <attribute name="defraimp_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.50</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Match Record Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{00f70d67-555c-41ea-8d75-c34f7e79ced9}</formid>
+    <IntroducedVersion>0.0.0.56</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{087b38f2-94f5-4453-9743-6ff61efa628c}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{61de5c09-e21f-45b7-8ec6-0b8930772a3c}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{033e99b9-b590-abaa-beb2-a05a6c272795}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignee Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consigneename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consigneename" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bc9164b2-7a76-cc57-0443-b2ee829601cc}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignee Address Street" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consigneeaddressstreet" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consigneeaddressstreet" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b87b1e11-ae56-cba1-658e-a32e45897603}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignee Address City" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consigneeaddresscity" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consigneeaddresscity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{162388b5-d156-5783-1661-956ea565b66c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignee Address Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consigneeaddresspostcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consigneeaddresspostcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dacddec5-14a3-54b8-49d3-873c03cc0346}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignee Address Country" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consigneeaddresscountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_consigneeaddresscountryid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a9cb7e06-aded-a4c8-9e78-18ceabb7b5e7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignee Approval Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consigneeapprovalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consigneeapprovalnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{75d08228-4b45-078e-801a-39ca24a7dcab}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignee General Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consigneegeneralnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consigneegeneralnumber" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="3">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Consignee Details" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

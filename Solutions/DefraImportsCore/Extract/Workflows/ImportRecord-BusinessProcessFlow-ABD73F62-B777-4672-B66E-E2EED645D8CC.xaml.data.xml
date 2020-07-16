@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{abd73f62-b777-4672-b66e-e2eed645d8cc}" Name="Import Record - Business Process Flow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ImportRecord-BusinessProcessFlow-ABD73F62-B777-4672-B66E-E2EED645D8CC.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <processroleassignment>&lt;DisplayConditions&gt;&lt;Role Id="{627090ff-40a3-4053-8790-584edc5be201}" /&gt;&lt;Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" /&gt;&lt;/DisplayConditions&gt;</processroleassignment>
+  <RunAs>1</RunAs>
+  <UniqueName>defraimp_importapplicationbusinessprocessflow</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>0.0.0.1</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Import Record - Business Process Flow" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{1c16277f-6754-4aa9-a45b-dcbc4eef7125}">
+      <label languagecode="1033" description="Triage" />
+    </steplabels>
+    <steplabels id="{93e56c3c-ed2b-4fc2-b618-0507fb7f6246}">
+      <label languagecode="1033" description="Commodity Type" />
+    </steplabels>
+    <steplabels id="{fbecea24-1d69-44a7-bea8-e78717ef4940}">
+      <label languagecode="1033" description="Country of Origin" />
+    </steplabels>
+    <steplabels id="{7c7b066a-ede8-4322-b68a-a4b2ca96fbca}">
+      <label languagecode="1033" description="Primary ITAHC" />
+    </steplabels>
+    <steplabels id="{bf52be99-318e-44f1-aa9d-79ee915c55fb}">
+      <label languagecode="1033" description="Verified Place of Origin" />
+    </steplabels>
+    <steplabels id="{52e7aef7-f4ca-4585-b941-eb1b921593db}">
+      <label languagecode="1033" description="Region / Area Allocated to" />
+    </steplabels>
+    <steplabels id="{2102c8d6-217c-4d92-ab16-9e05bb3b7e8c}">
+      <label languagecode="1033" description="Assigned To" />
+    </steplabels>
+    <steplabels id="{735dbc53-a795-4524-8bb5-7eb1c32a25d9}">
+      <label languagecode="1033" description="Risk Assessment" />
+    </steplabels>
+    <steplabels id="{5d2860c0-04c8-4a24-a08d-ac7b57fede2e}">
+      <label languagecode="1033" description="Import Risk Level" />
+    </steplabels>
+    <steplabels id="{5f26f0c4-b821-49d9-b307-12c14b41ea2e}">
+      <label languagecode="1033" description="Risk Level Verified?" />
+    </steplabels>
+    <steplabels id="{9ff7cab4-7681-47fd-9b34-e7adc397bdbc}">
+      <label languagecode="1033" description="Certificate Verified?" />
+    </steplabels>
+    <steplabels id="{b0fc50f4-dbe1-4678-ba99-018db5240808}">
+      <label languagecode="1033" description="Certificate Compliant First Time?" />
+    </steplabels>
+    <steplabels id="{b261e263-241a-4f62-8874-d6ebcbb325cc}">
+      <label languagecode="1033" description="Certificate Non Compliance Reason" />
+    </steplabels>
+    <steplabels id="{d6226f31-7036-4a85-bd10-8288f5e6d79b}">
+      <label languagecode="1033" description="Certificate Non Compliance Reason - Other" />
+    </steplabels>
+    <steplabels id="{9c7440a2-b506-4003-b740-90fb7ec36275}">
+      <label languagecode="1033" description="Post Import Checks Required?" />
+    </steplabels>
+    <steplabels id="{e331341b-c04a-4b87-932b-883e0b141ff0}">
+      <label languagecode="1033" description="Manual Post Import Check Decision" />
+    </steplabels>
+    <steplabels id="{e63a2475-5030-4730-a45f-199ef5f95604}">
+      <label languagecode="1033" description="Post Import Checks Declined Reason" />
+    </steplabels>
+    <steplabels id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}">
+      <label languagecode="1033" description="Completion" />
+    </steplabels>
+    <steplabels id="{13b576ae-93dc-41dc-8ee0-a0ff0f90f52f}">
+      <label languagecode="1033" description="Move to Completion?" />
+    </steplabels>
+    <steplabels id="{ac711d36-f162-4ba9-92d3-cbeb3835bd5a}">
+      <label languagecode="1033" description="Moved to Completion Date" />
+    </steplabels>
+    <steplabels id="{a927b17e-d768-4293-98bc-600c493db897}">
+      <label languagecode="1033" description="Completion Summary" />
+    </steplabels>
+    <steplabels id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}">
+      <label languagecode="1033" description="Post Import Check" />
+    </steplabels>
+    <steplabels id="{ab0739a9-bc5d-427e-a912-c156b25c7857}">
+      <label languagecode="1033" description="Post Import Checks Requested?" />
+    </steplabels>
+    <steplabels id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}">
+      <label languagecode="1033" description="Completion" />
+    </steplabels>
+    <steplabels id="{9d684bf9-d794-4e35-9866-747a828b2d8c}">
+      <label languagecode="1033" description="Move to Completion?" />
+    </steplabels>
+    <steplabels id="{632c5b6c-ff03-4c98-9767-cc5767015893}">
+      <label languagecode="1033" description="Moved to Completion Date" />
+    </steplabels>
+    <steplabels id="{674fe31f-a72f-4493-9433-4b1bd2d0a2ca}">
+      <label languagecode="1033" description="Completion Summary" />
+    </steplabels>
+    <steplabels id="{b3ef7e60-84d4-4ad0-8b09-3535c2d4054a}">
+      <label languagecode="1033" description="Reset Trust Level to Bronze?" />
+    </steplabels>
+  </labels>
+</Workflow>

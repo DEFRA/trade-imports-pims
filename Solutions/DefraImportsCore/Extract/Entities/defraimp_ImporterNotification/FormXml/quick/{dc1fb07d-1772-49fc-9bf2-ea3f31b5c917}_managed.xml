@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{dc1fb07d-1772-49fc-9bf2-ea3f31b5c917}</formid>
+    <IntroducedVersion>0.0.0.56</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{081516de-a173-4b99-8cc5-75db6d14dd4a}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="Consignor Details" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{92f527cf-f671-4cb9-b47a-8880d18bac16}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ec8816c5-9b3e-a75a-7ba3-1da6dcaba46d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignor Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignorcompanyname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignorcompanyname" disabled="false" uniqueid="{adda3ead-0006-a065-23da-94884829529c}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a1d351ba-708a-0adb-bc5a-75684cd98d5b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignor Address Line 1" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddressaddressline1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignoraddressaddressline1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c453e11e-adb0-65bd-3c93-3d11d0e10133}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignor Address Line 2" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddressaddressline2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignoraddressaddressline2" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{804b1039-72b4-e264-9e27-25ce6d9146cc}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignor Address Line 3" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddressaddressline3" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignoraddressaddressline3" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{95999e57-b37a-3826-39ab-86d3456a612e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignor Address City" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddresscity" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignoraddresscity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7598b5bb-2ec3-9293-796a-227cb65092e8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignor Address Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddresspostalzipcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignoraddresspostalzipcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{76b4790e-061e-5cb6-9d3e-bac1a4e03d09}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignor Address Country" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddresscountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_consignoraddresscountryid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7682c797-9956-6d55-2b42-ba282315cd22}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignor Approval Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignorapprovalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignorapprovalnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{03125eea-0ec8-b733-2376-72045b12bd44}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignor Other Identifier" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignorotheridentifier" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_consignorotheridentifier" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="2">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Consignor Details" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>
