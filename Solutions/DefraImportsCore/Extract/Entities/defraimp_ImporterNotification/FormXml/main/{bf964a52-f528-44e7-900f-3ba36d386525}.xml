@@ -199,75 +199,21 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{dc0a1cec-1c2a-2308-8a18-4262b99beab8}" showlabel="true" locklevel="0">
+                      <cell id="{5867ac2e-12a1-4675-a354-6708c498442f}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Description" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditydescription" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commoditydescription" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dc0a1cec-1c2a-2308-8a18-4262b99beab8}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
                           <label description="Commodity ID Types" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commodityidtypes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidtypes" disabled="false" />
+                        <control id="defraimp_commodityidtypes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidtypes" disabled="false" uniqueid="{3a66e5d7-aa96-c6d8-eebc-567b2ee1d02e}" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{5c78830c-4d9a-82be-2dc0-e34e4d7bc09e}" showlabel="true" locklevel="0" rowspan="5">
-                        <labels>
-                          <label description="Formatted Commodity Complements Text" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_formattedcommoditycomplementstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_formattedcommoditycomplementstext" disabled="false" uniqueid="{73e29055-4727-d136-60c1-21d14a327598}" />
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row>
-                      <cell id="{bb94c0a6-090d-e3c3-c4b7-3169b57478d8}" showlabel="true" locklevel="0" rowspan="5">
-                        <labels>
-                          <label description="Formatted Identification of Animals Text" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_formattedidentificationofanimalstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_formattedidentificationofanimalstext" disabled="false" uniqueid="{4a1a6e91-97de-5193-787d-7ebd61d54873}" />
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                  </rows>
-                </section>
-                <section name="commoditycomplements_tab_section_3" id="ac3c435b-ea4b-439b-ac19-2f189e2f95ae" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
-                  <labels>
-                    <label description="Commodity Parameter Sets" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell showlabel="false" locklevel="0" id="{7cfbefcd-e164-4581-ae90-82355f98114f}" rowspan="10" colspan="1" auto="false">
-                        <labels>
-                          <label description="New SG control 1587393438493" languagecode="1033" />
-                        </labels>
-                        <control id="Subgrid_2" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{800c477a-5874-0c05-665c-173be9236686}">
-                          <parameters>
-                            <TargetEntityType>defraimp_commoditycomplementparameterset</TargetEntityType>
-                            <ViewId>{50D2FED3-22F5-480A-83F8-D26DF3747706}</ViewId>
-                            <ViewIds>{50D2FED3-22F5-480A-83F8-D26DF3747706}</ViewIds>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNotification</RelationshipName>
-                            <RecordsPerPage>8</RecordsPerPage>
-                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
-                            <IsUserView>false</IsUserView>
-                            <EnableQuickFind>false</EnableQuickFind>
-                            <EnableJumpBar>false</EnableJumpBar>
-                            <AutoExpand>Fixed</AutoExpand>
-                            <ChartGridMode>All</ChartGridMode>
-                            <VisualizationId />
-                            <IsUserChart>false</IsUserChart>
-                            <EnableChartPicker>true</EnableChartPicker>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
                     <row />
                     <row />
                     <row />

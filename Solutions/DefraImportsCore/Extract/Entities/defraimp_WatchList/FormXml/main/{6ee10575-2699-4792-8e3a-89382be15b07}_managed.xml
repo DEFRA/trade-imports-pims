@@ -95,6 +95,14 @@
                   </labels>
                   <rows>
                     <row>
+                      <cell id="{28c7b803-c39e-47ea-ae69-332502c4f322}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Comments" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_comments" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="defraimp_comments" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{5d8d35bb-602d-1811-5c32-1c722b2170a1}" showlabel="true" rowspan="1" auto="false" colspan="1">
                         <labels>
                           <label description="Note Text" languagecode="1033" />
