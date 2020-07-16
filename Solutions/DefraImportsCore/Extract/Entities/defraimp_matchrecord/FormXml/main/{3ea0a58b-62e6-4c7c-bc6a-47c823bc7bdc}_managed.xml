@@ -14,29 +14,6 @@
           <columns>
             <column width="34%">
               <sections>
-                <section name="{617b6bdb-417c-4095-a242-6e77ff7946ca}_section_5" id="02492293-2e31-4f6d-94a8-bfb3a81273de" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
-                  <labels>
-                    <label description="Hide" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{e56a8ce7-a6e3-43d6-9c9d-09e5d0141d2f}">
-                        <labels>
-                          <label description="Owner" languagecode="1033" />
-                        </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{9e35663c-8fad-4f92-9fb2-15e63ab56696}">
-                        <labels>
-                          <label description="Name" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" uniqueid="{79029ddd-c50b-38c7-029b-2b63831426d3}" />
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
                 <section name="_section_350" id="73c29631-bd9f-4d8d-b176-aae5a77d9a31" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="ITAHC Match Details" languagecode="1033" />
@@ -47,7 +24,7 @@
                         <labels>
                           <label description="ITAHC" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_itahc" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_itahc" disabled="false" uniqueid="{42a982d2-1b5a-e8d9-8a02-d70e7b6bea80}">
+                        <control id="defraimp_itahc" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_itahc" disabled="true" uniqueid="{42a982d2-1b5a-e8d9-8a02-d70e7b6bea80}">
                           <parameters>
                             <AutoResolve>true</AutoResolve>
                             <DisableMru>false</DisableMru>
@@ -74,6 +51,29 @@
                     </row>
                   </rows>
                 </section>
+                <section name="{617b6bdb-417c-4095-a242-6e77ff7946ca}_section_5" id="02492293-2e31-4f6d-94a8-bfb3a81273de" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
+                  <labels>
+                    <label description="Hide" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e56a8ce7-a6e3-43d6-9c9d-09e5d0141d2f}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9e35663c-8fad-4f92-9fb2-15e63ab56696}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" uniqueid="{79029ddd-c50b-38c7-029b-2b63831426d3}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
               </sections>
             </column>
             <column width="33%">
@@ -88,7 +88,7 @@
                         <labels>
                           <label description="Importer Notification" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_importernotification" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importernotification" disabled="false" uniqueid="{300498ad-a4bc-e218-2e25-7d884e3603cd}">
+                        <control id="defraimp_importernotification" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importernotification" disabled="true" uniqueid="{300498ad-a4bc-e218-2e25-7d884e3603cd}">
                           <parameters>
                             <AutoResolve>true</AutoResolve>
                             <DisableMru>false</DisableMru>

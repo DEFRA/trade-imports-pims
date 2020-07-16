@@ -221,7 +221,7 @@
             <label description="Commodities" languagecode="1033" />
           </labels>
           <columns>
-            <column width="50%">
+            <column width="100%">
               <sections>
                 <section name="tab_12_section_1" showlabel="false" showbar="false" locklevel="0" id="{e93e843e-a72a-9c90-a38b-759269d0cb25}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
                   <labels>
@@ -245,44 +245,19 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{c04e8178-d81c-037b-e7c6-a760446ad272}" showlabel="true" locklevel="0" rowspan="3">
+                      <cell id="{9af0ff96-6bea-4cfb-acae-769932b2e34a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Species Nomination" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_speciesnomination" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_speciesnomination" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c04e8178-d81c-037b-e7c6-a760446ad272}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
                           <label description="Commodity Id Types" languagecode="1033" />
                         </labels>
                         <control id="defraimp_commodityidtypes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidtypes" disabled="false" uniqueid="{eedcd9be-5606-3115-dd9d-dedd802ace0b}" />
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                  </rows>
-                </section>
-              </sections>
-            </column>
-            <column width="50%">
-              <sections>
-                <section name="tab_12_section_2" showlabel="false" showbar="false" locklevel="0" id="{e76294c8-dd9d-5d96-d856-b5a5569b2d15}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
-                  <labels>
-                    <label description="Section" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{d4e316c7-5a18-18cb-e4dc-1ea688b058ad}" showlabel="true" locklevel="0" rowspan="5">
-                        <labels>
-                          <label description="Formatted Commodity Complements Text" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_formattedcommoditycomplementstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_formattedcommoditycomplementstext" disabled="false" uniqueid="{9725b243-6858-e570-ceb0-c82798d5a6db}" />
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row>
-                      <cell id="{85814dc3-d3b7-790a-23bc-34a50ba422de}" showlabel="true" locklevel="0" rowspan="5">
-                        <labels>
-                          <label description="Formatted Identification Of Animals Text" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_formattedidentificationofanimalstext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_formattedidentificationofanimalstext" disabled="false" uniqueid="{1b9212a8-0995-cda4-7792-a712618a4d44}" />
                       </cell>
                     </row>
                     <row />
@@ -1234,7 +1209,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

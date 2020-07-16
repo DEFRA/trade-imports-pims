@@ -120,7 +120,7 @@
     <RolePrivilege name="prvAssignWorkflow" level="Local" />
     <RolePrivilege name="prvAssignWorkflowSession" level="Basic" />
     <RolePrivilege name="prvCreateAccount" level="Basic" />
-    <RolePrivilege name="prvCreateActivity" level="Basic" />
+    <RolePrivilege name="prvCreateActivity" level="Local" />
     <RolePrivilege name="prvCreateContact" level="Basic" />
     <RolePrivilege name="prvCreatedefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvCreatedefraexp_exportapplicationlifecycle" level="Global" />

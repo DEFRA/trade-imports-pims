@@ -474,7 +474,71 @@
                                       <mxswa:UpdateEntity DisplayName="UpdateStep19" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importapplication" />
                                       <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;primaryEntity&quot;)]" Value="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" />
                                     </Sequence>
-                                    <Sequence DisplayName="UpdateStep14: Add 1 to the Verified Place of Origin quota">
+                                    <Sequence DisplayName="UpdateStep25: Increment the Verified Place of Origin Number of Applications since last Post Import Check Required counter by its previous value before it was reset">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="x:Object" Name="UpdateStep25_1" />
+                                        <Variable x:TypeArguments="x:Object" Name="UpdateStep25_2" />
+                                        <Variable x:TypeArguments="x:Object" Name="UpdateStep25_3" />
+                                        <Variable x:TypeArguments="x:Object" Name="UpdateStep25_4" />
+                                        <Variable x:TypeArguments="x:Object" Name="UpdateStep25_5" />
+                                      </Sequence.Variables>
+                                      <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" Value="[New Entity(&quot;defraimp_placeoforigin&quot;)]" />
+                                      <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;).Id]" Value="[InputEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin&quot;).Id]" />
+                                      <mxswa:GetEntityProperty Attribute="defraimp_numberofapplicationssincelastinspection" Entity="[InputEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin&quot;)]" EntityName="defraimp_placeoforigin" Value="[UpdateStep25_3]">
+                                        <mxswa:GetEntityProperty.TargetType>
+                                          <InArgument x:TypeArguments="s:Type">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                        </mxswa:GetEntityProperty.TargetType>
+                                      </mxswa:GetEntityProperty>
+                                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+                                        <mxswa:ActivityReference.Arguments>
+                                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
+                                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { UpdateStep25_3 }]</InArgument>
+                                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[UpdateStep25_2]</OutArgument>
+                                        </mxswa:ActivityReference.Arguments>
+                                      </mxswa:ActivityReference>
+                                      <mxswa:GetEntityProperty Attribute="defraimp_previousnumberofapplicationssincelastins" Entity="[InputEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin&quot;)]" EntityName="defraimp_placeoforigin" Value="[UpdateStep25_5]">
+                                        <mxswa:GetEntityProperty.TargetType>
+                                          <InArgument x:TypeArguments="s:Type">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                        </mxswa:GetEntityProperty.TargetType>
+                                      </mxswa:GetEntityProperty>
+                                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+                                        <mxswa:ActivityReference.Arguments>
+                                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
+                                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { UpdateStep25_5 }]</InArgument>
+                                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[UpdateStep25_4]</OutArgument>
+                                        </mxswa:ActivityReference.Arguments>
+                                      </mxswa:ActivityReference>
+                                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+                                        <mxswa:ActivityReference.Arguments>
+                                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">Add</InArgument>
+                                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { UpdateStep25_2, UpdateStep25_4 }]</InArgument>
+                                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[UpdateStep25_1]</OutArgument>
+                                        </mxswa:ActivityReference.Arguments>
+                                      </mxswa:ActivityReference>
+                                      <mxswa:SetEntityProperty Attribute="defraimp_numberofapplicationssincelastinspection" Entity="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" EntityName="defraimp_placeoforigin" Value="[UpdateStep25_1]">
+                                        <mxswa:SetEntityProperty.TargetType>
+                                          <InArgument x:TypeArguments="s:Type">
+                                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                                          </InArgument>
+                                        </mxswa:SetEntityProperty.TargetType>
+                                      </mxswa:SetEntityProperty>
+                                      <mxswa:UpdateEntity DisplayName="UpdateStep25" Entity="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" EntityName="defraimp_placeoforigin" />
+                                      <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin&quot;)]" Value="[CreatedEntities(&quot;related_defraimp_placeoforiginid#defraimp_placeoforigin#Temp&quot;)]" />
+                                    </Sequence>
+                                    <Sequence DisplayName="UpdateStep14: Add 1 to the Verified Place of Origin quota and reset Previous Number of Applications since Last Post Import Check counter.">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="x:Object" Name="UpdateStep14_1" />
                                         <Variable x:TypeArguments="x:Object" Name="UpdateStep14_2" />
