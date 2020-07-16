@@ -245,14 +245,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{9af0ff96-6bea-4cfb-acae-769932b2e34a}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Species Nomination" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_speciesnomination" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_speciesnomination" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{c04e8178-d81c-037b-e7c6-a760446ad272}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
                           <label description="Commodity Id Types" languagecode="1033" />
@@ -1209,7 +1201,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
