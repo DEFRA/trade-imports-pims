@@ -68,5 +68,42 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
 
             Assert.Null(notificationFromContext.defraimp_commoditiesnumberofanimals);
         }
+
+        [Fact]
+        public void NoIdentifiersInIdentificationOfAnimalsTextShouldntFail()
+        {
+            defraimp_ImporterNotification notificationImage = null;
+
+            var notificationFromContext = new defraimp_ImporterNotification()
+            {
+                defraimp_CommodityComplementsText = @"[{'commodityID':'05040000','commodityDescription':'Guts, bladders and stomachs of animals (other than fish), whole and pieces thereof, fresh, chilled, frozen, salted, in brine, dried or smoked','complementID':6960,'complementName':'Equus spp.','speciesID':'13050','speciesName':'Equus spp.','speciesTypeName':'Casing','speciesType':'11','speciesClass':'6960','speciesNomination':'Equus spp.'}]",
+                defraimp_IdentificationOfAnimalsText = @"[{'complementID':6960,'speciesID':'13050','keyDataPair':[{'key':'quantity','data':'1'}]}]",
+            };
+
+            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext, notificationImage);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            Assert.Equal(String.Empty, notificationFromContext.defraimp_CommodityIDTypes);
+            Assert.NotNull(notificationFromContext.defraimp_FormattedIdentificationofAnimalsText);
+        }
+
+        [Fact]
+        public void IDTypesShouldFormatCorrectlyWithMultipleAnimals()
+        {
+            defraimp_ImporterNotification notificationImage = null;
+
+            var notificationFromContext = new defraimp_ImporterNotification()
+            {
+                defraimp_CommodityComplementsText = @"[{'commodityID':'01061900','commodityDescription':'Dogs','complementID':106400,'complementName':'Canis familiaris','speciesID':'22392','speciesName':'Canis familiaris','speciesType':'2','speciesClassName':'Carnivora','speciesClass':'106400','speciesNomination':'Canis familiaris','speciesCommonName':'Dogs'}]",
+                defraimp_IdentificationOfAnimalsText = @"[{'complementID':106400,'speciesID':'22392','keyDataPair':[{'key':'imp_number_animal','data':'2'}],'identifiers':[{'speciesNumber':1,'data':{'microchip':'jsd857439','passport':'285798345'}},{'speciesNumber':2,'data':{'microchip':'jsdfj84275394','passport':'34534'}}]}]",
+            };
+
+            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext, notificationImage);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            Assert.True(notificationFromContext.defraimp_CommodityIDTypes.Contains("SpeciesName: Canis familiaris; Microchip: jsd857439; Passport: 285798345;"));
+            Assert.True(notificationFromContext.defraimp_CommodityIDTypes.Contains("SpeciesName: Canis familiaris; Microchip: jsdfj84275394; Passport: 34534;"));
+            Assert.NotNull(notificationFromContext.defraimp_FormattedIdentificationofAnimalsText);
+        }
     }
 }

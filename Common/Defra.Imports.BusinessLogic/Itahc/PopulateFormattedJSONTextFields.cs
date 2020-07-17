@@ -1,4 +1,5 @@
 ﻿using Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects;
+using Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects.Formatters;
 using Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects.IdentificationParameterSetObjects;
 using Defra.Imports.Model;
 using Microsoft.Xrm.Sdk;
@@ -14,10 +15,13 @@ namespace Defra.Imports.BusinessLogic.Itahc
     public class PopulateFormattedJSONTextFields
     {
         private defraimp_itahc itahcFromContext;
+        private IdentificationParameterFormatter identParameterFormatter;
 
         public PopulateFormattedJSONTextFields(defraimp_itahc _itahcFromContext)
         {
             this.itahcFromContext = _itahcFromContext;
+            this.identParameterFormatter = new IdentificationParameterFormatter();
+
         }
 
         /// <summary>
@@ -81,12 +85,27 @@ namespace Defra.Imports.BusinessLogic.Itahc
 
         private string ProcessIdentificationParameterSetJson(string json)
         {
-            var finalString = string.Empty;
-            var commodityIdTypes = string.Empty;
-            var passportNumber = string.Empty;
-            
-            var serializedObject = new IdentificationParameterSetObject();
+            var serializedObject = DeserializeParameterSetObject(json);
+            if(serializedObject.IdentificationParameterSet.IdentificationParameter != null)
+            {
+                this.identParameterFormatter.BuildFormattedAttributes(serializedObject);
+            }
+            else
+            {
+                var serializedList = DeserializeParameterSetList(json);
+                this.identParameterFormatter.BuildFormattedAttributes(serializedList);
+            }
 
+            itahcFromContext.defraimp_formattedIdentificationOfAnimalsText = identParameterFormatter.FinalString;
+            itahcFromContext.defraimp_CommodityIdTypes = identParameterFormatter.CommodityIdTypes;
+            itahcFromContext.defraimp_PassportNumber = identParameterFormatter.PassportNumber;
+
+            return identParameterFormatter.FinalString;
+        }
+
+        private IdentificationParameterSetObject DeserializeParameterSetObject(string json)
+        {
+            var serializedObject = new IdentificationParameterSetObject();
             using (MemoryStream DeserializeMemoryStream = new MemoryStream())
             {
                 DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(IdentificationParameterSetObject));
@@ -98,90 +117,24 @@ namespace Defra.Imports.BusinessLogic.Itahc
                 DeserializeMemoryStream.Position = 0;
                 serializedObject = (IdentificationParameterSetObject)serializer.ReadObject(DeserializeMemoryStream);
             }
+            return serializedObject;
+        }
 
-            if(serializedObject.IdentificationParameterSet.IdentificationParameter != null)
+        private IdentificationParameterSetList DeserializeParameterSetList(string json)
+        {
+            var serializedList = new IdentificationParameterSetList();
+            using (MemoryStream DeserializeMemoryStream = new MemoryStream())
             {
-                serializedObject.IdentificationParameterSet.IdentificationParameter.ForEach(x =>
-                {
-                    finalString += "Key: " + x.Key + System.Environment.NewLine
-                                    + "Data: " + x.Data + System.Environment.NewLine
-                                    + System.Environment.NewLine;
+                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(IdentificationParameterSetList));
 
-                    if (x.Key.Trim().Equals("identsystem"))
-                    {
-                        commodityIdTypes += x.Data.Trim() + ": ";
-                    }
-                    else if (x.Key.Trim().Equals("identnumber"))
-                    {
-                        commodityIdTypes += x.Data.Trim() + "; ";
-                    }
+                StreamWriter writer = new StreamWriter(DeserializeMemoryStream);
+                writer.Write(json.Replace("'", "\""));
+                writer.Flush();
 
-                    if (x.Key.Trim().Equals("passportnumber"))
-                    {
-                        commodityIdTypes += x.Key.Trim() + ": " + x.Data.Trim() + Environment.NewLine;
-                        passportNumber += x.Data.Trim() + Environment.NewLine;
-                    }
-                });
+                DeserializeMemoryStream.Position = 0;
+                serializedList = (IdentificationParameterSetList)serializer.ReadObject(DeserializeMemoryStream);
             }
-            else
-            {
-                var serializedList = new IdentificationParameterSetList();
-
-                using (MemoryStream DeserializeMemoryStream = new MemoryStream())
-                {
-                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(IdentificationParameterSetList));
-
-                    StreamWriter writer = new StreamWriter(DeserializeMemoryStream);
-                    writer.Write(json.Replace("'", "\""));
-                    writer.Flush();
-
-                    DeserializeMemoryStream.Position = 0;
-                    serializedList = (IdentificationParameterSetList)serializer.ReadObject(DeserializeMemoryStream);
-                }
-
-                serializedList.IdentificationParameterSet.ForEach(x =>
-                {
-                    x.IdentificationParameter.ForEach(y =>
-                    {
-                        finalString += "Key: " + y.Key + System.Environment.NewLine
-                                 + "Data: " + y.Data + System.Environment.NewLine
-                                 + System.Environment.NewLine;
-                        if (y.Key.Trim().Equals("species"))
-                        {
-                            commodityIdTypes += "SpeciesID: " + y.Data.Trim() + "; ";
-                        }
-                        if (y.Key.Trim().Equals("identsystem"))
-                        {
-                            commodityIdTypes += y.Data.Trim() + ": ";
-                        }
-                        else if (y.Key.Trim().Equals("identnumber"))
-                        {
-                            commodityIdTypes += y.Data.Trim() + "; ";
-                        }
-
-                        if (y.Key.Trim().Equals("passportnumber"))
-                        {
-                            commodityIdTypes += y.Key.Trim() + ": " + y.Data.Trim() + Environment.NewLine;
-                            passportNumber += y.Data.Trim() + Environment.NewLine;
-                        }
-                    });
-
-                    finalString += "----------" + Environment.NewLine
-                                 + Environment.NewLine;
-
-                    commodityIdTypes += "----------" + Environment.NewLine
-                                 + Environment.NewLine;
-
-                    passportNumber += "----------" + Environment.NewLine
-                                 + Environment.NewLine;
-                });
-            }
-
-            itahcFromContext.defraimp_formattedIdentificationOfAnimalsText = finalString;
-            itahcFromContext.defraimp_CommodityIdTypes = commodityIdTypes;
-            itahcFromContext.defraimp_PassportNumber = passportNumber;
-
-            return finalString;
+            return serializedList;
         }
     }
 }

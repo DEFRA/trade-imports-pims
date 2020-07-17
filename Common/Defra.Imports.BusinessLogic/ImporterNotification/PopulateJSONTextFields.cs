@@ -37,22 +37,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
 
         private List<CommodityComplementObject> ProcessCommodityComplementJson(string commodityJson)
         {
-            var serializedObject = new List<CommodityComplementObject>();
-
-            if (!string.IsNullOrEmpty(commodityJson))
-            {
-                using (MemoryStream DeSerializememoryStream = new MemoryStream())
-                {
-                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<CommodityComplementObject>));
-
-                    StreamWriter writer = new StreamWriter(DeSerializememoryStream);
-                    writer.Write(commodityJson.Replace("'", "\""));
-                    writer.Flush();
-
-                    DeSerializememoryStream.Position = 0;
-                    serializedObject = (List<CommodityComplementObject>)serializer.ReadObject(DeSerializememoryStream);
-                }
-            }
+            var serializedObject = DeserializeCommodityComplementsObject(commodityJson);
 
             var finalString = string.Empty;
 
@@ -85,19 +70,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
         {
             if (!string.IsNullOrEmpty(json))
             {
-                var serializedObject = new List<IdentificationOfAnimals>();
-
-                using (MemoryStream DeSerializeMemoryStream = new MemoryStream())
-                {
-                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<IdentificationOfAnimals>));
-
-                    StreamWriter writer = new StreamWriter(DeSerializeMemoryStream);
-                    writer.Write(json.Replace("'", "\""));
-                    writer.Flush();
-
-                    DeSerializeMemoryStream.Position = 0;
-                    serializedObject = (List<IdentificationOfAnimals>)serializer.ReadObject(DeSerializeMemoryStream);
-                }
+                var serializedObject = DeserializeIdentificationOfAnimalsList(json);
 
                 var finalString = string.Empty;
                 var commodityIdTypes = string.Empty;
@@ -114,35 +87,29 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                                  + "SpeciesID: " + (x.speciesID ?? string.Empty) + System.Environment.NewLine
                                  + System.Environment.NewLine;
 
-                    x.keyDataPair.ForEach(y =>
+                    if(x.keyDataPair != null)
                     {
-                        finalString += y.key + ": " + y.data + System.Environment.NewLine
-                                     + System.Environment.NewLine;
-
-                        if (y.key.Equals("imp_number_animal"))
+                        x.keyDataPair.ForEach(y =>
                         {
-                            notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
-                        }
-                    });
+                            finalString += y.key + ": " + y.data + System.Environment.NewLine
+                                         + System.Environment.NewLine;
+
+                            if (y.key.Equals("imp_number_animal"))
+                            {
+                                notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
+                            }
+                        });
+                    }
 
                     finalString += "Identifiers:" + System.Environment.NewLine;
-                    x.identifiers.ForEach(z =>
+                    if(x.identifiers != null)
                     {
-                        if (!string.IsNullOrEmpty(speciesName))
-                            commodityIdTypes = "SpeciesName: " + speciesName + "; ";
-                        if (z.data.microchip != null)
-                            commodityIdTypes += "Microchip: " + (z.data.microchip ?? string.Empty) + "; ";
-                        if (z.data.passport != null)
-                            commodityIdTypes += "Passport: " + (z.data.passport ?? string.Empty) + "; ";
-                        if (z.data.leg_ring != null)
-                            commodityIdTypes += "leg_ring: " + (z.data.leg_ring ?? string.Empty) + "; ";
-                        if (z.data.tattoo != null)
-                            commodityIdTypes += "tattoo: " + (z.data.tattoo ?? string.Empty) + "; ";
-
-                        commodityIdTypes += System.Environment.NewLine + System.Environment.NewLine;
-
-                        finalString += commodityIdTypes;
-                    });
+                        x.identifiers.ForEach(z =>
+                        {
+                            commodityIdTypes = AddIdentifierToCommodityIdTypes(commodityIdTypes, speciesName, z);
+                            finalString += commodityIdTypes;
+                        });
+                    }
 
                     finalString += "-----------------" + System.Environment.NewLine
                                  + System.Environment.NewLine;
@@ -157,6 +124,65 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
             }
 
             return null;
+        }
+
+        private string AddIdentifierToCommodityIdTypes(string commodityIdTypes, string speciesName, Identifiers z)
+        {
+            if (!string.IsNullOrEmpty(speciesName))
+                commodityIdTypes += $"SpeciesName: {speciesName}; ";
+            if (z.data.microchip != null)
+                commodityIdTypes += $"Microchip: {(z.data.microchip ?? string.Empty)}; ";
+            if (z.data.passport != null)
+                commodityIdTypes += $"Passport: {(z.data.passport ?? string.Empty)}; ";
+            if (z.data.leg_ring != null)
+                commodityIdTypes += $"leg_ring: {(z.data.leg_ring ?? string.Empty)}; ";
+            if (z.data.tattoo != null)
+                commodityIdTypes += $"tattoo: {(z.data.tattoo ?? string.Empty)}; ";
+
+            commodityIdTypes += System.Environment.NewLine + System.Environment.NewLine;
+
+            return commodityIdTypes;
+        }
+
+        private List<CommodityComplementObject> DeserializeCommodityComplementsObject(string commodityJson)
+        {
+            var serializedObject = new List<CommodityComplementObject>();
+
+            if (!string.IsNullOrEmpty(commodityJson))
+            {
+                using (MemoryStream DeSerializememoryStream = new MemoryStream())
+                {
+                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<CommodityComplementObject>));
+
+                    StreamWriter writer = new StreamWriter(DeSerializememoryStream);
+                    writer.Write(commodityJson.Replace("'", "\""));
+                    writer.Flush();
+
+                    DeSerializememoryStream.Position = 0;
+                    serializedObject = (List<CommodityComplementObject>)serializer.ReadObject(DeSerializememoryStream);
+                }
+            }
+
+            return serializedObject;
+        }
+
+        private List<IdentificationOfAnimals> DeserializeIdentificationOfAnimalsList(string json)
+        {
+            var serializedObject = new List<IdentificationOfAnimals>();
+
+            using (MemoryStream DeSerializeMemoryStream = new MemoryStream())
+            {
+                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<IdentificationOfAnimals>));
+
+                StreamWriter writer = new StreamWriter(DeSerializeMemoryStream);
+                writer.Write(json.Replace("'", "\""));
+                writer.Flush();
+
+                DeSerializeMemoryStream.Position = 0;
+                serializedObject = (List<IdentificationOfAnimals>)serializer.ReadObject(DeSerializeMemoryStream);
+            }
+
+            return serializedObject;
         }
 
         private string GetValueFromFields(Entity preImage, Entity target, string value)

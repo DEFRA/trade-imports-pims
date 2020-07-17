@@ -1,0 +1,134 @@
+{
+  "id": 548741,
+  "referenceNumber": "IMP.GB.2020.1548741",
+  "version": 1,
+  "lastUpdated": "2020-07-16T10:32:25.34Z",
+  "lastUpdatedBy": {
+    "displayName": "210120t1 tester",
+    "userId": "e2c982db-373c-ea11-a812-000d3a20ffa1"
+  },
+  "type": "IMP",
+  "status": "SUBMITTED",
+  "partOne": {
+    "personResponsible": {
+      "name": "210120t1 tester",
+      "companyName": "210120t1 tester",
+      "address": [
+        "12 BUTTERMERE AVENUE, MANCHESTER, M22 1TH"
+      ],
+      "country": "GB",
+      "tracesID": 1001,
+      "phone": "01612222222",
+      "email": "210120t1@viks.33mail.com",
+      "contactId": "e2c982db-373c-ea11-a812-000d3a20ffa1"
+    },
+    "consignor": {
+      "id": "da2c8163-9fe5-4ac4-b98a-6942024bb358",
+      "type": "exporter",
+      "status": "nonapproved",
+      "companyName": "Viktest140420",
+      "address": {
+        "addressLine1": "1 the road",
+        "city": "town town",
+        "postalZipCode": "PR1 3EE",
+        "countryISOCode": "EC",
+        "telephone": "01612222222",
+        "email": "tester@tester.com"
+      }
+    },
+    "importer": {
+      "id": "cb4f081e-f4cb-4784-ac91-623be14f135a",
+      "type": "consignee",
+      "status": "nonapproved",
+      "companyName": "vikperm140420",
+      "address": {
+        "addressLine1": "1 the boulevard",
+        "addressLine2": "1",
+        "addressLine3": "1",
+        "city": "Normandy",
+        "postalZipCode": "PR1 3EE",
+        "countryISOCode": "AT",
+        "telephone": "01612222222",
+        "email": "tester@tester.com"
+      }
+    },
+    "placeOfDestination": {
+      "id": "cb4f081e-f4cb-4784-ac91-623be14f135a",
+      "type": "consignee",
+      "status": "nonapproved",
+      "companyName": "vikperm140420",
+      "address": {
+        "addressLine1": "1 the boulevard",
+        "addressLine2": "1",
+        "addressLine3": "1",
+        "city": "Normandy",
+        "postalZipCode": "PR1 3EE",
+        "countryISOCode": "AT",
+        "telephone": "01612222222",
+        "email": "tester@tester.com"
+      }
+    },
+    "commodities": {
+      "commodityComplement": [
+        {
+          "commodityID": "05040000",
+          "commodityDescription": "Guts, bladders and stomachs of animals (other than fish), whole and pieces thereof, fresh, chilled, frozen, salted, in brine, dried or smoked",
+          "complementID": 6960,
+          "complementName": "Equus spp.",
+          "speciesID": "13050",
+          "speciesName": "Equus spp.",
+          "speciesTypeName": "Casing",
+          "speciesType": "11",
+          "speciesClass": "6960",
+          "speciesNomination": "Equus spp."
+        }
+      ],
+      "complementParameterSet": [
+        {
+          "complementID": 6960,
+          "speciesID": "13050",
+          "keyDataPair": [
+            {
+              "key": "quantity",
+              "data": "1"
+            }
+          ]
+        }
+      ],
+      "countryOfOrigin": "BE",
+      "consignedCountry": "BE",
+      "animalsCertifiedAs": "Animal feeding stuff"
+    },
+    "arrivalDate": "2020-07-16",
+    "transporter": {
+      "id": "805ea106-1af0-4381-b7f4-965af1f691f0",
+      "type": "commercial transporter",
+      "status": "approved",
+      "companyName": "N/A",
+      "individualName": "JR & DL OGDEN",
+      "approvalNumber": "UK/LEEDS/T1/00098126?",
+      "address": {
+        "addressLine1": "OWLET HALL FARM",
+        "addressLine2": "CLAPHAM ROAD",
+        "addressLine3": "AUSTWICK",
+        "city": "VIA LANCASTER",
+        "postalZipCode": "LA2 8AD",
+        "countryISOCode": "GB"
+      }
+    },
+    "meansOfTransport": {},
+    "meansOfTransportFromEntryPoint": {},
+    "veterinaryInformation": {},
+    "route": {
+      "transitingStates": [
+        "AT"
+      ]
+    },
+    "submissionDate": "2020-07-16T10:32:30.521981Z",
+    "submittedBy": {
+      "displayName": "210120t1 tester",
+      "userId": "e2c982db-373c-ea11-a812-000d3a20ffa1"
+    },
+    "complexCommoditySelected": true
+  }
+}

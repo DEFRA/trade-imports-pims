@@ -70,6 +70,26 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
+        [Fact]
+        [ExcludeFromCodeCoverage]
+        public void SendToSBQueue_NotificationWithNoIdentifiers_NotificationShouldBeCreatedSuccessfully()
+        {
+            // Arrange
+            string expectedReferenceNumber = "IMP.GB.2020.1548741";
+            string jsonContents = ReadTestData("NOTIFICATION_NO_IDENTIFIERS.json");
+
+            // Act
+            SendServiceBusMessage(jsonContents);
+            Thread.Sleep(150000);
+
+            // Assert
+            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            Assert.True(notifications.Count > 0);
+
+            // Clear down
+            ClearDownDynamicsEntities(notifications);
+        }
+
         private List<Entity> GetNotificationsByReference(string referenceNumber)
         {
             QueryExpression qe = new QueryExpression("defraimp_importernotification");

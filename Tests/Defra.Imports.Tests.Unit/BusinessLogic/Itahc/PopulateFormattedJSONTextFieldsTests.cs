@@ -72,5 +72,50 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             Assert.NotNull(itahcFromContext.defraimp_formattedIdentificationOfAnimalsText);
             Assert.Equal(identificationParameter, itahcFromContext.defraimp_formattedIdentificationOfAnimalsText);
         }
+
+        [Fact]
+        public void ValidateCommodityIdTypesIsPopulated()
+        {
+            // Arrange
+            string commodityComplementJson = @"{'CommodityComplement':{'CommodityCode':'0101','ComplementID':'126700','SpeciesModel':'10319','Species':{'SpeciesID':'8698562','SpeciesNomination':'Equus cabalus'}}}";
+            string identificationOfAnimalsJson = @"{'IdentificationParameterSet':[{'IdentificationParameter':[{'Key':'complement','Data':'126700'},{'Key':'species','Data':'8698562'},{'Key':'identnumber','Data':'A 123456'}]},{'IdentificationParameter':[{'Key':'complement','Data':'126700'},{'Key':'species','Data':'8698562'},{'Key':'identnumber','Data':'B 123456'}]},{'IdentificationParameter':[{'Key':'complement','Data':'126700'},{'Key':'species','Data':'8698562'},{'Key':'identnumber','Data':'C 123456'}]},{'IdentificationParameter':[{'Key':'complement','Data':'126700'},{'Key':'species','Data':'8698562'},{'Key':'identnumber','Data':'D 123456'}]},{'IdentificationParameter':[{'Key':'complement','Data':'126700'},{'Key':'species','Data':'8698562'},{'Key':'identnumber','Data':'E 123123'}]}]}";
+
+            var itahc = new defraimp_itahc()
+            {
+                defraimp_CommodityComplementsText = commodityComplementJson,
+                defraimp_IdentificationOfAnimalsText = identificationOfAnimalsJson
+            };
+
+            // Act
+            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahc);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            // Assert
+            Assert.NotNull(itahc.defraimp_CommodityIdTypes);
+        }
+
+        [Fact]
+        public void CommodityIDTypeShouldBeFormattedCorrectlyForMultipleAnimals()
+        {
+            // Arrange
+            string commodityComplementJson = @"{'CommodityComplement':{'CommodityCode':'0102','ComplementID':'239300','SpeciesType':'domestique','SpeciesModel':'10998','Species':{'SpeciesID':'10537542','SpeciesNomination':'Bos taurus'}}}";
+            string identificationOfAnimalsJson = @"{'IdentificationParameterSet':[{'IdentificationParameter':[{'Key':'official_ident','Data':'UK123456'},{'Key':'numpassportemp','Data':''},{'Key':'bovex_state','Data':''}]},{'IdentificationParameter':[{'Key':'official_ident','Data':'UK234567'},{'Key':'numpassportemp','Data':''},{'Key':'bovex_state','Data':''}]},{'IdentificationParameter':[{'Key':'official_ident','Data':'UK345678'},{'Key':'numpassportemp','Data':''},{'Key':'bovex_state','Data':''}]},{'IdentificationParameter':[{'Key':'official_ident','Data':'UK456789'},{'Key':'numpassportemp','Data':''},{'Key':'bovex_state','Data':''}]},{'IdentificationParameter':[{'Key':'official_ident','Data':'UK567890'},{'Key':'numpassportemp','Data':''},{'Key':'bovex_state','Data':''}]},{'IdentificationParameter':[{'Key':'official_ident','Data':'UK678901'},{'Key':'numpassportemp','Data':''},{'Key':'bovex_state','Data':''}]},{'IdentificationParameter':[{'Key':'official_ident','Data':'UK789012'},{'Key':'numpassportemp','Data':''},{'Key':'bovex_state','Data':''}]},{'IdentificationParameter':[{'Key':'official_ident','Data':'UK890123'},{'Key':'numpassportemp','Data':''},{'Key':'bovex_state','Data':''}]},{'IdentificationParameter':[{'Key':'official_ident','Data':'UK901234'},{'Key':'numpassportemp','Data':''},{'Key':'bovex_state','Data':''}]},{'IdentificationParameter':[{'Key':'official_ident','Data':'UK012345'},{'Key':'numpassportemp','Data':''},{'Key':'bovex_state','Data':''}]}]}";
+
+            var itahc = new defraimp_itahc()
+            {
+                defraimp_CommodityComplementsText = commodityComplementJson,
+                defraimp_IdentificationOfAnimalsText = identificationOfAnimalsJson
+            };
+
+            // Act
+            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahc);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            // Assert
+            Assert.NotNull(itahc.defraimp_CommodityIdTypes);
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("official_ident: UK123456; numpassportemp: ; bovex_state: ;"));
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("official_ident: UK567890; numpassportemp: ; bovex_state: ;"));
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("official_ident: UK012345; numpassportemp: ; bovex_state: ;"));
+        }
     }
 }
