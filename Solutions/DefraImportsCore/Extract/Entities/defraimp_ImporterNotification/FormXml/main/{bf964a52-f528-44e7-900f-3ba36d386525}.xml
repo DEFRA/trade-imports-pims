@@ -20,6 +20,14 @@
                   </labels>
                   <rows>
                     <row>
+                      <cell id="{92609b79-3108-5db6-39b3-0b28258ca242}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Is Matched?" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_ismatched" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_ismatched" disabled="false" uniqueid="{acc31065-7ad8-84c0-b06d-d17bdcb832db}" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{c054c282-f3d6-4cf6-944e-036d99ee708d}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Reference Number" languagecode="1033" />

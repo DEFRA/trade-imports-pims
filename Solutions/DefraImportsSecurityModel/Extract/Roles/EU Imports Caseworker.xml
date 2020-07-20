@@ -21,6 +21,7 @@
     <RolePrivilege name="prvAppenddefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_matchrecord" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_matchrecordbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_parametersetkeydatapair" level="Global" />
@@ -65,6 +66,7 @@
     <RolePrivilege name="prvAppendTodefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_matchrecord" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_matchrecordbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_parametersetkeydatapair" level="Global" />
@@ -135,7 +137,7 @@
     <RolePrivilege name="prvCreatedefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_itahc" level="Global" />
-    <RolePrivilege name="prvCreatedefraimp_matchrecord" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_matchrecordbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_parametersetkeydatapair" level="Global" />
@@ -165,6 +167,7 @@
     <RolePrivilege name="prvDeletedefraexp_certificatelifecycle" level="Global" />
     <RolePrivilege name="prvDeletedefraexp_exportapplicationlifecycle" level="Global" />
     <RolePrivilege name="prvDeletedefraimp_importapplicationbusinessprocessflow" level="Global" />
+    <RolePrivilege name="prvDeletedefraimp_matchrecordbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvDeleteExpiredProcess" level="Global" />
     <RolePrivilege name="prvDeleteLeadToOpportunitySalesProcess" level="Global" />
     <RolePrivilege name="prvDeleteNewProcess" level="Global" />
@@ -220,6 +223,7 @@
     <RolePrivilege name="prvReaddefraimp_MatchConfiguration" level="Global" />
     <RolePrivilege name="prvReaddefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvReaddefraimp_matchrecord" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_matchrecordbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvReaddefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvReaddefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvReaddefraimp_parametersetkeydatapair" level="Global" />
@@ -315,6 +319,7 @@
     <RolePrivilege name="prvWritedefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvWritedefraimp_itahc" level="Global" />
     <RolePrivilege name="prvWritedefraimp_matchrecord" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_matchrecordbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvWritedefraimp_notificationpermanentaddress" level="Global" />
     <RolePrivilege name="prvWritedefraimp_parametersetidentifier" level="Global" />
     <RolePrivilege name="prvWritedefraimp_parametersetkeydatapair" level="Global" />
