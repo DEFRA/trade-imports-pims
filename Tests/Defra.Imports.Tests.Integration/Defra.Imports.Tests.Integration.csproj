@@ -178,6 +178,9 @@
     <None Include="TestData\NOTIFICATION_5_CANCELLED.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\NOTIFICATION_CONTAINING_SINGLE_QUOTE.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\NOTIFICATION_NO_IDENTIFIERS.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -1,0 +1,179 @@
+{
+  "id": 548770,
+  "referenceNumber": "IMP.GB.2020.1462664",
+  "version": 2,
+  "lastUpdated": "2020-07-20T11:21:41.610366Z",
+  "lastUpdatedBy": {
+    "displayName": "John Smith",
+    "userId": "7d9a2c99-439b-ea11-a812-000d3a29a00b"
+  },
+  "type": "IMP",
+  "status": "AMEND",
+  "partOne": {
+    "personResponsible": {
+      "name": "John Smith",
+      "companyName": "John Smith",
+      "address": [
+        "27 BLUE CAP ROAD, STRATFORD-UPON-AVON, STRATFORD-ON-AVON, CV37 6TQ"
+      ],
+      "country": "GB",
+      "tracesID": 1001,
+      "phone": "0786554332",
+      "email": "euimports@barkerswoofwoofs.33mail.com",
+      "contactId": "7d9a2c99-439b-ea11-a812-000d3a29a00b"
+    },
+    "consignor": {
+      "id": "dc067e6a-70c1-4cbc-8cd0-1bf62af81c9f",
+      "type": "exporter",
+      "status": "nonapproved",
+      "companyName": "dsfgj",
+      "address": {
+        "addressLine1": "edfghjk",
+        "city": "ertyu",
+        "postalZipCode": "dsfgh",
+        "countryISOCode": "BS",
+        "telephone": "345678",
+        "email": "n@n.com"
+      }
+    },
+    "importer": {
+      "id": "6d328d5d-057f-4056-adb7-c57470ac1306",
+      "type": "destination",
+      "status": "approved",
+      "companyName": "Biotec Services International Limited t/a PCI",
+      "approvalNumber": "58/110/8011/ABP/INT",
+      "otherIdentifier": "ABP",
+      "address": {
+        "addressLine1": "n/a",
+        "city": "Bridgend",
+        "postalZipCode": "CF31 3RT",
+        "countryISOCode": "GB"
+      }
+    },
+    "placeOfDestination": {
+      "id": "6d328d5d-057f-4056-adb7-c57470ac1306",
+      "type": "destination",
+      "status": "approved",
+      "companyName": "Biotec Services International Limited t/a PCI",
+      "approvalNumber": "58/110/8011/ABP/INT",
+      "otherIdentifier": "ABP",
+      "address": {
+        "addressLine1": "n/a",
+        "city": "Bridgend",
+        "postalZipCode": "CF31 3RT",
+        "countryISOCode": "GB"
+      }
+    },
+    "commodities": {
+      "commodityComplement": [
+        {
+          "commodityID": "05111000",
+          "commodityDescription": "Semen - Cattle",
+          "complementID": 2,
+          "complementName": "Bos taurus",
+          "speciesID": "121693",
+          "speciesName": "Bos taurus",
+          "speciesType": "2",
+          "speciesNomination": "Bos taurus",
+          "speciesCommonName": "Semen - Cattle"
+        },
+        {
+          "commodityID": "97050000",
+          "commodityDescription": "Collections and collectors' pieces of zoological, botanical, mineralogical, anatomical, historical, archaeological, palaeontological, ethnographic or numismatic interest",
+          "complementID": 7900,
+          "complementName": "Antilocaparidae",
+          "speciesID": "7900",
+          "speciesName": "Antilocaparidae",
+          "speciesTypeName": "Game trophies",
+          "speciesType": "25",
+          "speciesClass": "7900",
+          "speciesNomination": "Antilocaparidae"
+        },
+        {
+          "commodityID": "5101",
+          "commodityDescription": "Wool, not carded or combed",
+          "complementID": 5101,
+          "speciesType": "5101",
+          "speciesClass": "5101"
+        }
+      ],
+      "complementParameterSet": [
+        {
+          "complementID": 2,
+          "speciesID": "121693",
+          "keyDataPair": [
+            {
+              "key": "number_of_units",
+              "data": "10"
+            }
+          ],
+          "identifiers": [
+            {
+              "speciesNumber": 1,
+              "data": {
+                "donor_id": "4567",
+                "collection_date": "10/05/2020"
+              }
+            },
+            {
+              "speciesNumber": 2,
+              "data": {
+                "donor_id": "45678",
+                "collection_date": "10/05/2020"
+              }
+            }
+          ]
+        },
+        {
+          "complementID": 7900,
+          "speciesID": "7900",
+          "keyDataPair": [
+            {
+              "key": "number_of_units",
+              "data": "1"
+            }
+          ],
+          "identifiers": [
+            {
+              "speciesNumber": 1,
+              "data": {
+                "donor_id": "4567",
+                "collection_date": "10/05/2020"
+              }
+            }
+          ]
+        },
+        {
+          "complementID": 5101,
+          "keyDataPair": [
+            {
+              "key": "number_of_units",
+              "data": "1"
+            }
+          ],
+          "identifiers": [
+            {
+              "speciesNumber": 1,
+              "data": {
+                "donor_id": "ertyu",
+                "collection_date": "10/05/2020"
+              }
+            }
+          ]
+        }
+      ],
+      "countryOfOrigin": "CH",
+      "animalsCertifiedAs": "Artificial reproduction"
+    },
+    "arrivalDate": "2020-06-10",
+    "meansOfTransport": {},
+    "meansOfTransportFromEntryPoint": {},
+    "veterinaryInformation": {},
+    "submissionDate": "2020-06-08T13:22:17.458559Z",
+    "submittedBy": {
+      "displayName": "John Smith",
+      "userId": "7d9a2c99-439b-ea11-a812-000d3a29a00b"
+    },
+    "complexCommoditySelected": true
+  }
+}

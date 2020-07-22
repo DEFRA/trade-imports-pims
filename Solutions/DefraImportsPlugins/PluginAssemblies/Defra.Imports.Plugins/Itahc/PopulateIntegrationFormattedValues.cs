@@ -35,10 +35,19 @@ namespace Defra.Imports.Plugins.Itahc
     {
         protected override void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)
         {
-            var itahcFromContext = ((Entity)context.InputParameters["Target"]).ToEntity<defraimp_itahc>();
 
-            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahcFromContext);
-            populateFormattedJSONTextFields.FormatIntegrationData();
+            var itahcFromContext = ((Entity)context.InputParameters["Target"]).ToEntity<defraimp_itahc>();
+            try
+            {
+                var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahcFromContext);
+                populateFormattedJSONTextFields.FormatIntegrationData();
+            }
+            catch(Exception e)
+            {
+                itahcFromContext.defraimp_CommodityIdTypes = "Error extracting and formatting id types. View the tracing service for more details";
+                logWriter.Log(Severity.Error, nameof(PopulateIntegrationFormattedValues), $"{e.Message}{Environment.NewLine}{e.StackTrace}");
+            }
+
         }
     }
 }

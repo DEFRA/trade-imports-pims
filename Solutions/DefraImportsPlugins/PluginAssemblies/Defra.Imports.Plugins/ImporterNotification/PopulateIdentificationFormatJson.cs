@@ -39,11 +39,18 @@ namespace Defra.Imports.Plugins.ImporterNotification
         protected override void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)
         {
             var notificationFromContext = ((Entity)context.InputParameters["Target"]).ToEntity<defraimp_ImporterNotification>();
-
             var notificationPreImage = (context.MessageName.ToLower() == "update") ? context.PreEntityImages["PreImage"].ToEntity<defraimp_ImporterNotification>() : null;
 
-            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext, notificationPreImage);
-            populateFormattedJSONTextFields.FormatIntegrationData();
+            try
+            {
+                var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext, notificationPreImage);
+                populateFormattedJSONTextFields.FormatIntegrationData();
+            }
+            catch(Exception e)
+            {
+                notificationFromContext.defraimp_CommodityIDTypes = "Error extracting and formatting id types. View the tracing service for more details";
+                logWriter.Log(Severity.Error, nameof(PopulateIdentificationFormatJson), $"{e.Message}{Environment.NewLine}{e.StackTrace}");
+            }
         }
     }
 }

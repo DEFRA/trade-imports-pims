@@ -38,7 +38,6 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
         private List<CommodityComplementObject> ProcessCommodityComplementJson(string commodityJson)
         {
             var serializedObject = DeserializeCommodityComplementsObject(commodityJson);
-
             var finalString = string.Empty;
 
             if (this.notificationFromContext.Contains("defraimp_commoditycomplementstext") && !string.IsNullOrEmpty(commodityJson))
@@ -60,7 +59,6 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                 });
 
                 notificationFromContext.defraimp_FormattedCommodityComplementsText = finalString;
-                notificationFromContext.defraimp_CommoditySpeciesName = serializedObject.FirstOrDefault().speciesName ?? string.Empty;
             }
 
             return serializedObject;
@@ -107,17 +105,16 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                         x.identifiers.ForEach(z =>
                         {
                             commodityIdTypes = AddIdentifierToCommodityIdTypes(commodityIdTypes, speciesName, z);
-                            finalString += commodityIdTypes;
+                            //finalString += commodityIdTypes;
                         });
                     }
-
+                    
+                    finalString += commodityIdTypes;
                     finalString += "-----------------" + System.Environment.NewLine
                                  + System.Environment.NewLine;
                 });
 
                 notificationFromContext.defraimp_FormattedIdentificationofAnimalsText = finalString;
-                notificationFromContext.defraimp_CommodityId = serializedObject.FirstOrDefault()?.complementID.ToString() ?? string.Empty;
-                notificationFromContext.defraimp_CommoditySpeciesId = serializedObject.FirstOrDefault()?.speciesID ?? string.Empty;
                 notificationFromContext.defraimp_CommodityIDTypes = commodityIdTypes;
 
                 return serializedObject;

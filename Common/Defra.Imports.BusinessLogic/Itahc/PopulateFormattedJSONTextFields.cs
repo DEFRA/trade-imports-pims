@@ -75,10 +75,6 @@ namespace Defra.Imports.BusinessLogic.Itahc
                             + "SpeciesNomination: " + (serializedObject.CommodityComplement.Species?.SpeciesNomination ?? string.Empty);
 
             itahcFromContext.defraimp_FormattedCommodityComplementsText = finalString;
-            itahcFromContext.defraimp_CommodityCode = serializedObject.CommodityComplement.CommodityCode ?? string.Empty;
-            itahcFromContext.defraimp_SpeciesId = serializedObject.CommodityComplement.Species?.SpeciesID ?? string.Empty;
-            itahcFromContext.defraimp_SpeciesNomination = serializedObject.CommodityComplement.Species?.SpeciesNomination ?? string.Empty;
-            itahcFromContext.defraimp_ComplementId = serializedObject.CommodityComplement.ComplementID ?? string.Empty;
 
             return finalString;
         }
