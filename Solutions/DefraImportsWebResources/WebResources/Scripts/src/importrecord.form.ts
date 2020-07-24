@@ -26,11 +26,55 @@ namespace DefraImports.ImportRecord {
     storeWasManualPostImportCheckSet(formContext);
   }
 
+  export function onChangeOfManualPostImportCheckDecision(executionObj: Xrm.ExecutionContext<any>)
+  {
+    const formContext = executionObj.getFormContext() as Form.defraimp_importapplication.Main.Information;
+    setSystemDeterminedInspectionValues(formContext);
+  }
+
   function storeWasManualPostImportCheckSet(formContext: Form.defraimp_importapplication.Main.Information) {
     let manualPostImportCheckAttr = formContext.getAttribute("defraimp_manualpostimportcheckdecision");
 
     if (manualPostImportCheckAttr.getValue() !== null) {
       wasManualPostImportCheckSet = true;
+    }
+  }
+
+  function setSystemDeterminedInspectionValues(formContext: Form.defraimp_importapplication.Main.Information)
+  {
+    let currentManualPostImportCheckAttr = formContext.getAttribute("defraimp_manualpostimportcheckdecision");
+
+    if (currentManualPostImportCheckAttr.getValue() == defraimp_importapplication_defraimp_manualpostimportcheckdecision.UseSystemDecision)
+    {
+        var originalInspectionRequiredValue = formContext.getAttribute("defraimp_inspectionrequiredoriginalvalue").getValue();
+        var originalInspectionRequiredReasonValue = formContext.getAttribute("defraimp_inspectionrequiredreasonoriginalvalue").getValue();
+        formContext.getAttribute("defraimp_inspectionrequired").setValue(originalInspectionRequiredValue);
+        formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(originalInspectionRequiredReasonValue);
+    }
+    else if (currentManualPostImportCheckAttr.getValue() == defraimp_importapplication_defraimp_manualpostimportcheckdecision.ManualCheckOther)
+    {
+      formContext.getAttribute("defraimp_inspectionrequired").setValue(defraimp_importapplication_defraimp_inspectionrequired.Yes);
+      formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(defraimp_importapplication_defraimp_inspectionrequiredreason.ManuallyRequestedPostImportCheck);
+    }
+    else if (currentManualPostImportCheckAttr.getValue() == defraimp_importapplication_defraimp_manualpostimportcheckdecision.ManualCheckQuarantine)
+    {
+      formContext.getAttribute("defraimp_inspectionrequired").setValue(defraimp_importapplication_defraimp_inspectionrequired.Yes);
+      formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(defraimp_importapplication_defraimp_inspectionrequiredreason.Quarantine);
+    }
+    else if (currentManualPostImportCheckAttr.getValue() == defraimp_importapplication_defraimp_manualpostimportcheckdecision.ManualCheckTB)
+    {
+      formContext.getAttribute("defraimp_inspectionrequired").setValue(defraimp_importapplication_defraimp_inspectionrequired.Yes);
+      formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(defraimp_importapplication_defraimp_inspectionrequiredreason.TB);
+    }
+    else if (currentManualPostImportCheckAttr.getValue() == defraimp_importapplication_defraimp_manualpostimportcheckdecision.DoNotPostImportCheck)
+    {
+      formContext.getAttribute("defraimp_inspectionrequired").setValue(defraimp_importapplication_defraimp_inspectionrequired.No);
+      formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(defraimp_importapplication_defraimp_inspectionrequiredreason.NoInspectionRequired);
+      
+      if (formContext.getAttribute("defraimp_inspectiondeclinedreason").getValue() === null || formContext.getAttribute("defraimp_inspectiondeclinedreason").getValue() === "")
+      {
+        formContext.getAttribute("defraimp_inspectiondeclinedreason").setValue("System Required Post Import Check Skipped");
+      }
     }
   }
 

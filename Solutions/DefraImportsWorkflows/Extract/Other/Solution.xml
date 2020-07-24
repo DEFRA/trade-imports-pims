@@ -6,7 +6,7 @@
       <LocalizedName description="Defra.Imports.Workflows" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.54</Version>
+    <Version>0.0.0.55</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -1270,19 +1270,11 @@
         <Dependent key="147" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="127" type="2" schemaName="defraimp_inspectionrequired" displayName="Post Import Checks Required?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="147" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
-      </MissingDependency>
-      <MissingDependency>
         <Required key="11" type="2" schemaName="defraimp_importapplicationid" displayName="Import Record" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="147" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="3" type="2" schemaName="defraimp_name" displayName="Name" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent key="147" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="149" type="2" schemaName="defraimp_inspectionrequiredreason" displayName="Post Import Checks Required Reason" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="147" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
@@ -1294,11 +1286,15 @@
         <Dependent key="147" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="150" type="2" schemaName="defraimp_importrecordcounted" displayName="Import Record Counted" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required key="149" type="2" schemaName="defraimp_importrecordcounted" displayName="Import Record Counted" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="147" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="151" type="2" schemaName="defraimp_inspectionquotacounter" displayName="Inspection Quota Counter" parentSchemaName="defraimp_placeoforigin" parentDisplayName="Place of Origin" solution="Active" />
+        <Required key="150" type="2" schemaName="defraimp_inspectionquotacounter" displayName="Inspection Quota Counter" parentSchemaName="defraimp_placeoforigin" parentDisplayName="Place of Origin" solution="Active" />
+        <Dependent key="147" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="151" type="2" schemaName="defraimp_inspectionrequiredreasonoriginalvalue" displayName="Post Import Checks Required Reason Original Value" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent key="147" type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>

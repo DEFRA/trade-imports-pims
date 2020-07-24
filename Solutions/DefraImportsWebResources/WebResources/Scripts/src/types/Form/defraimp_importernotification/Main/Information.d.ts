@@ -10,7 +10,6 @@ declare namespace Form.defraimp_importernotification.Main {
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
       interface commoditycomplements_tab extends Xrm.SectionCollectionBase {
-        get(name: "commoditycomplements_tab_section_3"): Xrm.PageSection;
         get(name: "tab_10_section_1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
@@ -109,6 +108,7 @@ declare namespace Form.defraimp_importernotification.Main {
       get(name: "defraimp_commoditiesnumberofanimals"): Xrm.NumberAttribute;
       get(name: "defraimp_commoditiesregionoforigin"): Xrm.Attribute<string>;
       get(name: "defraimp_commoditycomplementstext"): Xrm.Attribute<string>;
+      get(name: "defraimp_commoditydescription"): Xrm.Attribute<string>;
       get(name: "defraimp_commodityid"): Xrm.Attribute<string>;
       get(name: "defraimp_commodityidtypes"): Xrm.Attribute<string>;
       get(name: "defraimp_consigneeaddressaddressline1"): Xrm.Attribute<string>;
@@ -162,8 +162,6 @@ declare namespace Form.defraimp_importernotification.Main {
       get(name: "defraimp_countryoforiginid"): Xrm.LookupAttribute<"defra_country">;
       get(name: "defraimp_cphnumber"): Xrm.Attribute<string>;
       get(name: "defraimp_devolvedoffice"): Xrm.LookupAttribute<"team">;
-      get(name: "defraimp_formattedcommoditycomplementstext"): Xrm.Attribute<string>;
-      get(name: "defraimp_formattedidentificationofanimalstext"): Xrm.Attribute<string>;
       get(name: "defraimp_identificationofanimalstext"): Xrm.Attribute<string>;
       get(name: "defraimp_importeraddressaddressline1"): Xrm.Attribute<string>;
       get(name: "defraimp_importeraddressaddressline2"): Xrm.Attribute<string>;
@@ -178,6 +176,7 @@ declare namespace Form.defraimp_importernotification.Main {
       get(name: "defraimp_importerstatus"): Xrm.Attribute<string>;
       get(name: "defraimp_importertype"): Xrm.Attribute<string>;
       get(name: "defraimp_importingfromcharity"): Xrm.Attribute<any>;
+      get(name: "defraimp_ismatched"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_isplaceofdestinationthepermanentaddress"): Xrm.Attribute<any>;
       get(name: "defraimp_lastupdated"): Xrm.DateAttribute;
       get(name: "defraimp_lastupdatedbydisplayname"): Xrm.Attribute<string>;
@@ -230,7 +229,6 @@ declare namespace Form.defraimp_importernotification.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "Subgrid_2"): Xrm.SubGridControl<"defraimp_commoditycomplementparameterset">;
       get(name: "Subgrid_3"): Xrm.SubGridControl<"defraimp_notificationpermanentaddress">;
       get(name: "Subgrid_4"): Xrm.SubGridControl<"defra_country">;
       get(name: "defraimp_arrivaldate"): Xrm.DateControl;
@@ -238,6 +236,7 @@ declare namespace Form.defraimp_importernotification.Main {
       get(name: "defraimp_commoditiesnumberofanimals"): Xrm.NumberControl;
       get(name: "defraimp_commoditiesregionoforigin"): Xrm.StringControl;
       get(name: "defraimp_commoditycomplementstext"): Xrm.StringControl;
+      get(name: "defraimp_commoditydescription"): Xrm.StringControl;
       get(name: "defraimp_commodityid"): Xrm.StringControl;
       get(name: "defraimp_commodityidtypes"): Xrm.StringControl;
       get(name: "defraimp_consigneeaddressaddressline1"): Xrm.StringControl;
@@ -303,8 +302,6 @@ declare namespace Form.defraimp_importernotification.Main {
       get(name: "defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country">;
       get(name: "defraimp_cphnumber"): Xrm.StringControl;
       get(name: "defraimp_devolvedoffice"): Xrm.LookupControl<"team">;
-      get(name: "defraimp_formattedcommoditycomplementstext"): Xrm.StringControl;
-      get(name: "defraimp_formattedidentificationofanimalstext"): Xrm.StringControl;
       get(name: "defraimp_identificationofanimalstext"): Xrm.StringControl;
       get(name: "defraimp_importeraddressaddressline1"): Xrm.StringControl;
       get(name: "defraimp_importeraddressaddressline2"): Xrm.StringControl;
@@ -319,6 +316,7 @@ declare namespace Form.defraimp_importernotification.Main {
       get(name: "defraimp_importerstatus"): Xrm.StringControl;
       get(name: "defraimp_importertype"): Xrm.StringControl;
       get(name: "defraimp_importingfromcharity"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "defraimp_ismatched"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_isplaceofdestinationthepermanentaddress"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "defraimp_lastupdated"): Xrm.DateControl;
       get(name: "defraimp_lastupdatedbydisplayname"): Xrm.StringControl;
@@ -401,6 +399,7 @@ declare namespace Form.defraimp_importernotification.Main {
     getAttribute(attributeName: "defraimp_commoditiesnumberofanimals"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_commoditiesregionoforigin"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commoditycomplementstext"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_commoditydescription"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commodityid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commodityidtypes"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_consigneeaddressaddressline1"): Xrm.Attribute<string>;
@@ -454,8 +453,6 @@ declare namespace Form.defraimp_importernotification.Main {
     getAttribute(attributeName: "defraimp_countryoforiginid"): Xrm.LookupAttribute<"defra_country">;
     getAttribute(attributeName: "defraimp_cphnumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_devolvedoffice"): Xrm.LookupAttribute<"team">;
-    getAttribute(attributeName: "defraimp_formattedcommoditycomplementstext"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_formattedidentificationofanimalstext"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_identificationofanimalstext"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_importeraddressaddressline1"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_importeraddressaddressline2"): Xrm.Attribute<string>;
@@ -470,6 +467,7 @@ declare namespace Form.defraimp_importernotification.Main {
     getAttribute(attributeName: "defraimp_importerstatus"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_importertype"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_importingfromcharity"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "defraimp_ismatched"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_isplaceofdestinationthepermanentaddress"): Xrm.Attribute<any>;
     getAttribute(attributeName: "defraimp_lastupdated"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_lastupdatedbydisplayname"): Xrm.Attribute<string>;
@@ -517,7 +515,6 @@ declare namespace Form.defraimp_importernotification.Main {
     getAttribute(attributeName: "defraimp_veterinaryinformationveterinarydocument"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "Subgrid_2"): Xrm.SubGridControl<"defraimp_commoditycomplementparameterset">;
     getControl(controlName: "Subgrid_3"): Xrm.SubGridControl<"defraimp_notificationpermanentaddress">;
     getControl(controlName: "Subgrid_4"): Xrm.SubGridControl<"defra_country">;
     getControl(controlName: "defraimp_arrivaldate"): Xrm.DateControl;
@@ -525,6 +522,7 @@ declare namespace Form.defraimp_importernotification.Main {
     getControl(controlName: "defraimp_commoditiesnumberofanimals"): Xrm.NumberControl;
     getControl(controlName: "defraimp_commoditiesregionoforigin"): Xrm.StringControl;
     getControl(controlName: "defraimp_commoditycomplementstext"): Xrm.StringControl;
+    getControl(controlName: "defraimp_commoditydescription"): Xrm.StringControl;
     getControl(controlName: "defraimp_commodityid"): Xrm.StringControl;
     getControl(controlName: "defraimp_commodityidtypes"): Xrm.StringControl;
     getControl(controlName: "defraimp_consigneeaddressaddressline1"): Xrm.StringControl;
@@ -590,8 +588,6 @@ declare namespace Form.defraimp_importernotification.Main {
     getControl(controlName: "defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country">;
     getControl(controlName: "defraimp_cphnumber"): Xrm.StringControl;
     getControl(controlName: "defraimp_devolvedoffice"): Xrm.LookupControl<"team">;
-    getControl(controlName: "defraimp_formattedcommoditycomplementstext"): Xrm.StringControl;
-    getControl(controlName: "defraimp_formattedidentificationofanimalstext"): Xrm.StringControl;
     getControl(controlName: "defraimp_identificationofanimalstext"): Xrm.StringControl;
     getControl(controlName: "defraimp_importeraddressaddressline1"): Xrm.StringControl;
     getControl(controlName: "defraimp_importeraddressaddressline2"): Xrm.StringControl;
@@ -606,6 +602,7 @@ declare namespace Form.defraimp_importernotification.Main {
     getControl(controlName: "defraimp_importerstatus"): Xrm.StringControl;
     getControl(controlName: "defraimp_importertype"): Xrm.StringControl;
     getControl(controlName: "defraimp_importingfromcharity"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "defraimp_ismatched"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_isplaceofdestinationthepermanentaddress"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "defraimp_lastupdated"): Xrm.DateControl;
     getControl(controlName: "defraimp_lastupdatedbydisplayname"): Xrm.StringControl;

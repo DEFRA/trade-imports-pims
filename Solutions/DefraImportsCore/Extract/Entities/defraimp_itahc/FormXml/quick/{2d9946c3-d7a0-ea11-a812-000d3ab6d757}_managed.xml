@@ -64,7 +64,7 @@
                         <labels>
                           <label description="Departure Date Time" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_departuredatetime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_departuredatetime" disabled="false" />
+                        <control id="defraimp_departuredatetime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_departuredatetime" disabled="false" uniqueid="{e1db6a2e-db6d-764d-b59a-c6b144ab3688}" />
                       </cell>
                     </row>
                     <row>

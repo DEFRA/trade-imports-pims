@@ -108,6 +108,7 @@ declare namespace WebApi {
     defraimp_importertype?: string | null;
     defraimp_importingfromcharity?: boolean | null;
     defraimp_ipaffsid?: number | null;
+    defraimp_ismatched?: boolean | null;
     defraimp_isplaceofdestinationthepermanentaddress?: boolean | null;
     defraimp_lastupdated?: Date | null;
     defraimp_lastupdatedbydisplayname?: string | null;
@@ -346,6 +347,7 @@ declare namespace WebApi {
     defraimp_importertype: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importertype: string | null }, {  }>;
     defraimp_importingfromcharity: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importingfromcharity: boolean | null }, {  }>;
     defraimp_ipaffsid: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_ipaffsid: number | null }, {  }>;
+    defraimp_ismatched: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_ismatched: boolean | null }, {  }>;
     defraimp_isplaceofdestinationthepermanentaddress: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_isplaceofdestinationthepermanentaddress: boolean | null }, {  }>;
     defraimp_lastupdated: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_lastupdated: Date | null }, { defraimp_lastupdated_formatted?: string }>;
     defraimp_lastupdatedbydisplayname: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_lastupdatedbydisplayname: string | null }, {  }>;
@@ -572,6 +574,7 @@ declare namespace WebApi {
     defraimp_importertype: string;
     defraimp_importingfromcharity: boolean;
     defraimp_ipaffsid: number;
+    defraimp_ismatched: boolean;
     defraimp_isplaceofdestinationthepermanentaddress: boolean;
     defraimp_lastupdated: Date;
     defraimp_lastupdatedbydisplayname: string;

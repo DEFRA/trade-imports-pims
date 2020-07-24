@@ -23,10 +23,43 @@ var DefraImports;
             storeWasManualPostImportCheckSet(formContext);
         }
         ImportRecord.onSave = onSave;
+        function onChangeOfManualPostImportCheckDecision(executionObj) {
+            var formContext = executionObj.getFormContext();
+            setSystemDeterminedInspectionValues(formContext);
+        }
+        ImportRecord.onChangeOfManualPostImportCheckDecision = onChangeOfManualPostImportCheckDecision;
         function storeWasManualPostImportCheckSet(formContext) {
             var manualPostImportCheckAttr = formContext.getAttribute("defraimp_manualpostimportcheckdecision");
             if (manualPostImportCheckAttr.getValue() !== null) {
                 wasManualPostImportCheckSet = true;
+            }
+        }
+        function setSystemDeterminedInspectionValues(formContext) {
+            var currentManualPostImportCheckAttr = formContext.getAttribute("defraimp_manualpostimportcheckdecision");
+            if (currentManualPostImportCheckAttr.getValue() == 714100004 /* UseSystemDecision */) {
+                var originalInspectionRequiredValue = formContext.getAttribute("defraimp_inspectionrequiredoriginalvalue").getValue();
+                var originalInspectionRequiredReasonValue = formContext.getAttribute("defraimp_inspectionrequiredreasonoriginalvalue").getValue();
+                formContext.getAttribute("defraimp_inspectionrequired").setValue(originalInspectionRequiredValue);
+                formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(originalInspectionRequiredReasonValue);
+            }
+            else if (currentManualPostImportCheckAttr.getValue() == 714100000 /* ManualCheckOther */) {
+                formContext.getAttribute("defraimp_inspectionrequired").setValue(714100000 /* Yes */);
+                formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(714100013 /* ManuallyRequestedPostImportCheck */);
+            }
+            else if (currentManualPostImportCheckAttr.getValue() == 714100003 /* ManualCheckQuarantine */) {
+                formContext.getAttribute("defraimp_inspectionrequired").setValue(714100000 /* Yes */);
+                formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(714100010 /* Quarantine */);
+            }
+            else if (currentManualPostImportCheckAttr.getValue() == 714100002 /* ManualCheckTB */) {
+                formContext.getAttribute("defraimp_inspectionrequired").setValue(714100000 /* Yes */);
+                formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(714100011 /* TB */);
+            }
+            else if (currentManualPostImportCheckAttr.getValue() == 714100001 /* DoNotPostImportCheck */) {
+                formContext.getAttribute("defraimp_inspectionrequired").setValue(714100001 /* No */);
+                formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(714100004 /* NoInspectionRequired */);
+                if (formContext.getAttribute("defraimp_inspectiondeclinedreason").getValue() === null || formContext.getAttribute("defraimp_inspectiondeclinedreason").getValue() === "") {
+                    formContext.getAttribute("defraimp_inspectiondeclinedreason").setValue("System Required Post Import Check Skipped");
+                }
             }
         }
         function preventSaveIfPostImportChecksIsUpdatedToBlank(executionObj) {

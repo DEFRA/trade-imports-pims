@@ -52,7 +52,9 @@ declare namespace WebApi {
     defraimp_inspectionoutcome?: defraimp_importapplication_defraimp_inspectionoutcome | null;
     defraimp_inspectionrequested?: boolean | null;
     defraimp_inspectionrequired?: defraimp_importapplication_defraimp_inspectionrequired | null;
+    defraimp_inspectionrequiredoriginalvalue?: number | null;
     defraimp_inspectionrequiredreason?: defraimp_importapplication_defraimp_inspectionrequiredreason | null;
+    defraimp_inspectionrequiredreasonoriginalvalue?: number | null;
     defraimp_iv65responseduedate?: Date | null;
     defraimp_iv65responsereceiveddate?: Date | null;
     defraimp_iv65sent?: boolean | null;
@@ -221,7 +223,9 @@ declare namespace WebApi {
     defraimp_inspectionoutcome: WebAttribute<defraimp_importapplication_Select, { defraimp_inspectionoutcome: defraimp_importapplication_defraimp_inspectionoutcome | null }, { defraimp_inspectionoutcome_formatted?: string }>;
     defraimp_inspectionrequested: WebAttribute<defraimp_importapplication_Select, { defraimp_inspectionrequested: boolean | null }, {  }>;
     defraimp_inspectionrequired: WebAttribute<defraimp_importapplication_Select, { defraimp_inspectionrequired: defraimp_importapplication_defraimp_inspectionrequired | null }, { defraimp_inspectionrequired_formatted?: string }>;
+    defraimp_inspectionrequiredoriginalvalue: WebAttribute<defraimp_importapplication_Select, { defraimp_inspectionrequiredoriginalvalue: number | null }, {  }>;
     defraimp_inspectionrequiredreason: WebAttribute<defraimp_importapplication_Select, { defraimp_inspectionrequiredreason: defraimp_importapplication_defraimp_inspectionrequiredreason | null }, { defraimp_inspectionrequiredreason_formatted?: string }>;
+    defraimp_inspectionrequiredreasonoriginalvalue: WebAttribute<defraimp_importapplication_Select, { defraimp_inspectionrequiredreasonoriginalvalue: number | null }, {  }>;
     defraimp_iv65responseduedate: WebAttribute<defraimp_importapplication_Select, { defraimp_iv65responseduedate: Date | null }, { defraimp_iv65responseduedate_formatted?: string }>;
     defraimp_iv65responsereceiveddate: WebAttribute<defraimp_importapplication_Select, { defraimp_iv65responsereceiveddate: Date | null }, { defraimp_iv65responsereceiveddate_formatted?: string }>;
     defraimp_iv65sent: WebAttribute<defraimp_importapplication_Select, { defraimp_iv65sent: boolean | null }, {  }>;
@@ -371,7 +375,9 @@ declare namespace WebApi {
     defraimp_inspectionoutcome: defraimp_importapplication_defraimp_inspectionoutcome;
     defraimp_inspectionrequested: boolean;
     defraimp_inspectionrequired: defraimp_importapplication_defraimp_inspectionrequired;
+    defraimp_inspectionrequiredoriginalvalue: number;
     defraimp_inspectionrequiredreason: defraimp_importapplication_defraimp_inspectionrequiredreason;
+    defraimp_inspectionrequiredreasonoriginalvalue: number;
     defraimp_iv65responseduedate: Date;
     defraimp_iv65responsereceiveddate: Date;
     defraimp_iv65sent: boolean;
