@@ -3,4 +3,5 @@ declare const enum defraimp_importapplication_defraimp_manualpostimportcheckdeci
   DoNotPostImportCheck = 714100001,
   ManualCheckTB = 714100002,
   ManualCheckQuarantine = 714100003,
+  UseSystemDecision = 714100004,
 }

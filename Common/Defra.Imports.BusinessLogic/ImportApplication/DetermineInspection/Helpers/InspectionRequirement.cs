@@ -32,6 +32,8 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Help
                 Id = ImportApplication.Id,
                 defraimp_InspectionRequired = InspectionRequired,
                 defraimp_InspectionRequiredReason = InspectionRequiredReason,
+                defraimp_InspectionRequiredOriginalValue = (int?)InspectionRequired,
+                defraimp_inspectionrequiredreasonoriginalvalue = (int?)InspectionRequiredReason
             };
 
             if (InspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.No)

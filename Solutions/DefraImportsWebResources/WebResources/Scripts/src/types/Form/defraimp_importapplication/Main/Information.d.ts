@@ -141,7 +141,9 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_inspectionoutcome"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionoutcome>;
       get(name: "defraimp_inspectionrequested"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_inspectionrequired"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionrequired>;
+      get(name: "defraimp_inspectionrequiredoriginalvalue"): Xrm.NumberAttribute;
       get(name: "defraimp_inspectionrequiredreason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionrequiredreason>;
+      get(name: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberAttribute;
       get(name: "defraimp_iv65responseduedate"): Xrm.DateAttribute;
       get(name: "defraimp_iv65responsereceiveddate"): Xrm.DateAttribute;
       get(name: "defraimp_iv65sent"): Xrm.Attribute<any>;
@@ -259,7 +261,9 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_inspectiondeclinedreason"): Xrm.StringControl;
       get(name: "defraimp_inspectionoutcome"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionoutcome>;
       get(name: "defraimp_inspectionrequired"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequired>;
+      get(name: "defraimp_inspectionrequiredoriginalvalue"): Xrm.NumberControl;
       get(name: "defraimp_inspectionrequiredreason"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequiredreason>;
+      get(name: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberControl;
       get(name: "defraimp_iv65responseduedate"): Xrm.DateControl;
       get(name: "defraimp_iv65responsereceiveddate"): Xrm.DateControl;
       get(name: "defraimp_iv65sent"): Xrm.Control<Xrm.Attribute<any>>;
@@ -422,7 +426,9 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_inspectionoutcome"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionoutcome>;
     getAttribute(attributeName: "defraimp_inspectionrequested"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_inspectionrequired"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionrequired>;
+    getAttribute(attributeName: "defraimp_inspectionrequiredoriginalvalue"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_inspectionrequiredreason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionrequiredreason>;
+    getAttribute(attributeName: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_iv65responseduedate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_iv65responsereceiveddate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_iv65sent"): Xrm.Attribute<any>;
@@ -535,7 +541,9 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_inspectiondeclinedreason"): Xrm.StringControl;
     getControl(controlName: "defraimp_inspectionoutcome"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionoutcome>;
     getControl(controlName: "defraimp_inspectionrequired"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequired>;
+    getControl(controlName: "defraimp_inspectionrequiredoriginalvalue"): Xrm.NumberControl;
     getControl(controlName: "defraimp_inspectionrequiredreason"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequiredreason>;
+    getControl(controlName: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberControl;
     getControl(controlName: "defraimp_iv65responseduedate"): Xrm.DateControl;
     getControl(controlName: "defraimp_iv65responsereceiveddate"): Xrm.DateControl;
     getControl(controlName: "defraimp_iv65sent"): Xrm.Control<Xrm.Attribute<any>>;

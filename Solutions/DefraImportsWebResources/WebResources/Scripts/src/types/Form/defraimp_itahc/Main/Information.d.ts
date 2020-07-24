@@ -89,7 +89,6 @@ declare namespace Form.defraimp_itahc.Main {
       }
       interface tab_commodities extends Xrm.SectionCollectionBase {
         get(name: "tab_12_section_1"): Xrm.PageSection;
-        get(name: "tab_12_section_2"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -133,8 +132,6 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_departuredatetime"): Xrm.DateAttribute;
       get(name: "defraimp_devolvedoffice"): Xrm.LookupAttribute<"team">;
       get(name: "defraimp_estimatedjourneytime"): Xrm.NumberAttribute;
-      get(name: "defraimp_formattedcommoditycomplementstext"): Xrm.Attribute<string>;
-      get(name: "defraimp_formattedidentificationofanimalstext"): Xrm.Attribute<string>;
       get(name: "defraimp_healthcertificatenumber"): Xrm.Attribute<string>;
       get(name: "defraimp_identificationofanimalstext"): Xrm.Attribute<string>;
       get(name: "defraimp_localcompetentauthority"): Xrm.Attribute<string>;
@@ -237,8 +234,6 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_departuredatetime"): Xrm.DateControl;
       get(name: "defraimp_devolvedoffice"): Xrm.LookupControl<"team">;
       get(name: "defraimp_estimatedjourneytime"): Xrm.NumberControl;
-      get(name: "defraimp_formattedcommoditycomplementstext"): Xrm.StringControl;
-      get(name: "defraimp_formattedidentificationofanimalstext"): Xrm.StringControl;
       get(name: "defraimp_healthcertificatenumber"): Xrm.StringControl;
       get(name: "defraimp_identificationofanimalstext"): Xrm.StringControl;
       get(name: "defraimp_localcompetentauthority"): Xrm.StringControl;
@@ -361,8 +356,6 @@ declare namespace Form.defraimp_itahc.Main {
     getAttribute(attributeName: "defraimp_departuredatetime"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_devolvedoffice"): Xrm.LookupAttribute<"team">;
     getAttribute(attributeName: "defraimp_estimatedjourneytime"): Xrm.NumberAttribute;
-    getAttribute(attributeName: "defraimp_formattedcommoditycomplementstext"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_formattedidentificationofanimalstext"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_healthcertificatenumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_identificationofanimalstext"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_localcompetentauthority"): Xrm.Attribute<string>;
@@ -460,8 +453,6 @@ declare namespace Form.defraimp_itahc.Main {
     getControl(controlName: "defraimp_departuredatetime"): Xrm.DateControl;
     getControl(controlName: "defraimp_devolvedoffice"): Xrm.LookupControl<"team">;
     getControl(controlName: "defraimp_estimatedjourneytime"): Xrm.NumberControl;
-    getControl(controlName: "defraimp_formattedcommoditycomplementstext"): Xrm.StringControl;
-    getControl(controlName: "defraimp_formattedidentificationofanimalstext"): Xrm.StringControl;
     getControl(controlName: "defraimp_healthcertificatenumber"): Xrm.StringControl;
     getControl(controlName: "defraimp_identificationofanimalstext"): Xrm.StringControl;
     getControl(controlName: "defraimp_localcompetentauthority"): Xrm.StringControl;

@@ -18,6 +18,7 @@ declare namespace WebApi {
     defraimp_numberofsuccessfulapplications?: number | null;
     defraimp_placeoforiginid?: string | null;
     defraimp_postcode?: string | null;
+    defraimp_previousnumberofapplicationssincelastins?: number | null;
     defraimp_previoustrustlevel?: defraimp_trustlevel | null;
     defraimp_reasonlockedtobronze?: string | null;
     defraimp_reasonunlockedfrombronze?: string | null;
@@ -65,6 +66,7 @@ declare namespace WebApi {
     defraimp_numberofsuccessfulapplications: WebAttribute<defraimp_placeoforigin_Select, { defraimp_numberofsuccessfulapplications: number | null }, {  }>;
     defraimp_placeoforiginid: WebAttribute<defraimp_placeoforigin_Select, { defraimp_placeoforiginid: string | null }, {  }>;
     defraimp_postcode: WebAttribute<defraimp_placeoforigin_Select, { defraimp_postcode: string | null }, {  }>;
+    defraimp_previousnumberofapplicationssincelastins: WebAttribute<defraimp_placeoforigin_Select, { defraimp_previousnumberofapplicationssincelastins: number | null }, {  }>;
     defraimp_previoustrustlevel: WebAttribute<defraimp_placeoforigin_Select, { defraimp_previoustrustlevel: defraimp_trustlevel | null }, { defraimp_previoustrustlevel_formatted?: string }>;
     defraimp_reasonlockedtobronze: WebAttribute<defraimp_placeoforigin_Select, { defraimp_reasonlockedtobronze: string | null }, {  }>;
     defraimp_reasonunlockedfrombronze: WebAttribute<defraimp_placeoforigin_Select, { defraimp_reasonunlockedfrombronze: string | null }, {  }>;
@@ -106,6 +108,7 @@ declare namespace WebApi {
     defraimp_numberofsuccessfulapplications: number;
     defraimp_placeoforiginid: XQW.Guid;
     defraimp_postcode: string;
+    defraimp_previousnumberofapplicationssincelastins: number;
     defraimp_previoustrustlevel: defraimp_trustlevel;
     defraimp_reasonlockedtobronze: string;
     defraimp_reasonunlockedfrombronze: string;

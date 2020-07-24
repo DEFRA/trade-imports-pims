@@ -24,11 +24,6 @@ var DefraImports;
             Xrm.Navigation.openForm(formOptions, clone);
         }
         ImportQuery.CloneImportQueryButton = CloneImportQueryButton;
-        function onLoad(executionContext) {
-            var formContext = executionContext.getFormContext();
-            CloneImportQueryButton(formContext);
-        }
-        ImportQuery.onLoad = onLoad;
         var QueryLookup = /** @class */ (function () {
             function QueryLookup(_id, _name, _entityType) {
                 this.id = _id;

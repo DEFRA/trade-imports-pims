@@ -15388,6 +15388,9 @@ namespace Defra.Imports.Model
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UseSystemDecision = 714100004,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ManualCheckOther = 714100000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -16716,6 +16719,24 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_inspectionrequiredoriginalvalue")]
+		public System.Nullable<int> defraimp_InspectionRequiredOriginalValue
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("defraimp_inspectionrequiredoriginalvalue");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_InspectionRequiredOriginalValue");
+				this.SetAttributeValue("defraimp_inspectionrequiredoriginalvalue", value);
+				this.OnPropertyChanged("defraimp_InspectionRequiredOriginalValue");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_inspectionrequiredreason")]
 		public System.Nullable<Defra.Imports.Model.defraimp_importapplication_defraimp_inspectionrequiredreason> defraimp_InspectionRequiredReason
 		{
@@ -16743,6 +16764,24 @@ namespace Defra.Imports.Model
 					this.SetAttributeValue("defraimp_inspectionrequiredreason", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
 				}
 				this.OnPropertyChanged("defraimp_InspectionRequiredReason");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_inspectionrequiredreasonoriginalvalue")]
+		public System.Nullable<int> defraimp_inspectionrequiredreasonoriginalvalue
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("defraimp_inspectionrequiredreasonoriginalvalue");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_inspectionrequiredreasonoriginalvalue");
+				this.SetAttributeValue("defraimp_inspectionrequiredreasonoriginalvalue", value);
+				this.OnPropertyChanged("defraimp_inspectionrequiredreasonoriginalvalue");
 			}
 		}
 		
@@ -21430,6 +21469,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_IpaffsId");
 				this.SetAttributeValue("defraimp_ipaffsid", value);
 				this.OnPropertyChanged("defraimp_IpaffsId");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_ismatched")]
+		public System.Nullable<bool> defraimp_IsMatched
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("defraimp_ismatched");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_IsMatched");
+				this.SetAttributeValue("defraimp_ismatched", value);
+				this.OnPropertyChanged("defraimp_IsMatched");
 			}
 		}
 		
@@ -32084,6 +32141,24 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_previousnumberofapplicationssincelastins")]
+		public System.Nullable<int> defraimp_previousnumberofapplicationssincelastins
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("defraimp_previousnumberofapplicationssincelastins");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_previousnumberofapplicationssincelastins");
+				this.SetAttributeValue("defraimp_previousnumberofapplicationssincelastins", value);
+				this.OnPropertyChanged("defraimp_previousnumberofapplicationssincelastins");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_previoustrustlevel")]
 		public System.Nullable<Defra.Imports.Model.defraimp_trustlevel> defraimp_PreviousTrustLevel
 		{
@@ -33231,6 +33306,24 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_comments")]
+		public string defraimp_Comments
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_comments");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_Comments");
+				this.SetAttributeValue("defraimp_comments", value);
+				this.OnPropertyChanged("defraimp_Comments");
 			}
 		}
 		

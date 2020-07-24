@@ -311,7 +311,23 @@
                         <labels>
                           <label description="[Do not remove] Importing From Charity" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_importingfromcharity" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_importingfromcharity" disabled="false" uniqueid="{881774d7-7b28-61c3-1b7b-b245c7e9e983}" />
+                        <control id="defraimp_importingfromcharity" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_importingfromcharity" disabled="true" uniqueid="{881774d7-7b28-61c3-1b7b-b245c7e9e983}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9c75c575-a87a-7bcb-5bb8-2e94e497a782}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="[Do not remove] Inspection Required Original Value" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_inspectionrequiredoriginalvalue" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_inspectionrequiredoriginalvalue" disabled="true" uniqueid="{c5d5315c-7eba-0db5-d644-8a7ee5405205}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4d927c42-02e5-c135-791a-958ce2d084e2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="[Do not remove] Post Import Checks Required Reason Original Value" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_inspectionrequiredreasonoriginalvalue" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_inspectionrequiredreasonoriginalvalue" disabled="true" uniqueid="{84c27a92-a8de-7317-278e-0947b367d0ba}" />
                       </cell>
                     </row>
                   </rows>
@@ -387,7 +403,7 @@
                         <labels>
                           <label description="Manual Post Import Check Decision" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_manualpostimportcheckdecision" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_manualpostimportcheckdecision" disabled="false" />
+                        <control id="defraimp_manualpostimportcheckdecision" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_manualpostimportcheckdecision" disabled="false" uniqueid="{c6b66a35-0ca4-4285-8674-3c79c9cd7c00}" />
                       </cell>
                     </row>
                   </rows>
@@ -1817,6 +1833,11 @@
         <event name="onchange" application="false" active="false" attribute="defraimp_importapplicationtype">
           <Handlers>
             <Handler functionName="DefraImports.ImportRecord.showRelevantSections" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{d9792219-dab2-12a9-41cd-c0bd4d62e918}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="defraimp_manualpostimportcheckdecision">
+          <Handlers>
+            <Handler functionName="DefraImports.ImportRecord.onChangeOfManualPostImportCheckDecision" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{ea523db6-ed0b-294c-ce47-e99756e13c21}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>
