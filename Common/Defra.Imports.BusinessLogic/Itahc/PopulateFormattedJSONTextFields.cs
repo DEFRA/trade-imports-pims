@@ -14,13 +14,17 @@ namespace Defra.Imports.BusinessLogic.Itahc
 {
     public class PopulateFormattedJSONTextFields
     {
-        private defraimp_itahc itahcFromContext;
-        private IdentificationParameterFormatter identParameterFormatter;
+        private defraimp_itahc _itahcFromContext;
+        private defraimp_itahc _itahcPreImage;
+        private IdentificationParameterFormatter _identParameterFormatter;
 
-        public PopulateFormattedJSONTextFields(defraimp_itahc _itahcFromContext)
+        public PopulateFormattedJSONTextFields(defraimp_itahc itahcFromContext, defraimp_itahc itahcPreImage)
         {
-            this.itahcFromContext = _itahcFromContext;
-            this.identParameterFormatter = new IdentificationParameterFormatter();
+            this._itahcFromContext = itahcFromContext;
+            this._itahcPreImage = itahcPreImage;
+
+            string defaultSpeciesName = GetStringFieldFromTargetOrPreImage(_itahcFromContext, _itahcPreImage, "defraimp_speciesnomination");
+            this._identParameterFormatter = new IdentificationParameterFormatter(defaultSpeciesName);
 
         }
 
@@ -29,15 +33,36 @@ namespace Defra.Imports.BusinessLogic.Itahc
         /// </summary>
         public void FormatIntegrationData()
         {
-            if (this.itahcFromContext.Contains("defraimp_commoditycomplementstext") && !string.IsNullOrEmpty(itahcFromContext.defraimp_CommodityComplementsText))
+            CommodityComplementObject commodityComplements = null;
+
+            string commodityComplementsJson = GetStringFieldFromTargetOrPreImage(_itahcFromContext, _itahcPreImage, "defraimp_commoditycomplementstext");
+            string identificationParameterSetJson = GetStringFieldFromTargetOrPreImage(_itahcFromContext, _itahcPreImage, "defraimp_identificationofanimalstext");
+
+            if (!string.IsNullOrEmpty(commodityComplementsJson))
             {
-                ProcessCommodityComplementJson(this.itahcFromContext.defraimp_CommodityComplementsText);
+                commodityComplements = ProcessCommodityComplementJson(commodityComplementsJson);
             }
 
-            if (this.itahcFromContext.Contains("defraimp_identificationofanimalstext") && !string.IsNullOrEmpty(itahcFromContext.defraimp_IdentificationOfAnimalsText))
+            if (!string.IsNullOrEmpty(identificationParameterSetJson))
             {
-                ProcessIdentificationParameterSetJson(this.itahcFromContext.defraimp_IdentificationOfAnimalsText);
+                ProcessIdentificationParameterSetJson(identificationParameterSetJson, commodityComplements);
             }
+        }
+
+        private string GetStringFieldFromTargetOrPreImage(Entity target, Entity preImage, string fieldName)
+        {
+            String output = String.Empty;
+
+            if(target != null && target.Contains(fieldName) && !String.IsNullOrEmpty(target.GetAttributeValue<string>(fieldName)))
+            {
+                output = target.GetAttributeValue<string>(fieldName);
+            }
+            else if(preImage != null && preImage.Contains(fieldName) && !String.IsNullOrEmpty(preImage.GetAttributeValue<string>(fieldName)))
+            {
+                output = preImage.GetAttributeValue<string>(fieldName);
+            }
+
+            return output;
         }
 
         /// <summary>
@@ -46,7 +71,7 @@ namespace Defra.Imports.BusinessLogic.Itahc
         /// <param name="firstLevel"> First level of the Json </param>
         /// <param name="json"> Json string  </param>
         /// <returns> Returns a string with the formatted json values </returns>
-        private string ProcessCommodityComplementJson(string json)
+        private CommodityComplementObject ProcessCommodityComplementJson(string json)
         {
             var serializedObject = new CommodityComplementObject();
 
@@ -62,41 +87,23 @@ namespace Defra.Imports.BusinessLogic.Itahc
                 serializedObject = (CommodityComplementObject)serializer.ReadObject(DeserializeMemoryStream);
             }
 
-            var finalString = "CommodityCode: " + (serializedObject.CommodityComplement.CommodityCode ?? string.Empty) + System.Environment.NewLine
-                            + System.Environment.NewLine
-                            + "ComplementID: " + (serializedObject.CommodityComplement.ComplementID ?? string.Empty) + System.Environment.NewLine
-                            + System.Environment.NewLine
-                            + "SpeciesType: " + (serializedObject.CommodityComplement.SpeciesType ?? string.Empty) + System.Environment.NewLine
-                            + System.Environment.NewLine
-                            + "SpeciesModel: " + (serializedObject.CommodityComplement.SpeciesModel ?? string.Empty) + System.Environment.NewLine
-                            + System.Environment.NewLine
-                            + "Species:" + System.Environment.NewLine
-                            + "SpeciesID: " + (serializedObject.CommodityComplement.Species?.SpeciesID ?? string.Empty) + System.Environment.NewLine
-                            + "SpeciesNomination: " + (serializedObject.CommodityComplement.Species?.SpeciesNomination ?? string.Empty);
-
-            itahcFromContext.defraimp_FormattedCommodityComplementsText = finalString;
-
-            return finalString;
+            return serializedObject;
         }
 
-        private string ProcessIdentificationParameterSetJson(string json)
+        private void ProcessIdentificationParameterSetJson(string json, CommodityComplementObject commodityComplements)
         {
             var serializedObject = DeserializeParameterSetObject(json);
             if(serializedObject.IdentificationParameterSet.IdentificationParameter != null)
             {
-                this.identParameterFormatter.BuildFormattedAttributes(serializedObject);
+                this._identParameterFormatter.BuildFormattedAttributes(serializedObject, commodityComplements);
             }
             else
             {
                 var serializedList = DeserializeParameterSetList(json);
-                this.identParameterFormatter.BuildFormattedAttributes(serializedList);
+                this._identParameterFormatter.BuildFormattedAttributes(serializedList, commodityComplements);
             }
 
-            itahcFromContext.defraimp_formattedIdentificationOfAnimalsText = identParameterFormatter.FinalString;
-            itahcFromContext.defraimp_CommodityIdTypes = identParameterFormatter.CommodityIdTypes;
-            itahcFromContext.defraimp_PassportNumber = identParameterFormatter.PassportNumber;
-
-            return identParameterFormatter.FinalString;
+            _itahcFromContext.defraimp_CommodityIdTypes = _identParameterFormatter.CommodityIdTypes;
         }
 
         private IdentificationParameterSetObject DeserializeParameterSetObject(string json)

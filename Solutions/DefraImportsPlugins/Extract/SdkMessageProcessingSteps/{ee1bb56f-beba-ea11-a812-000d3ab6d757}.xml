@@ -15,5 +15,14 @@
   <IsHidden>0</IsHidden>
   <SupportedDeployment>0</SupportedDeployment>
   <IntroducedVersion>1.0</IntroducedVersion>
-  <SdkMessageProcessingStepImages />
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="PreImage">
+      <SdkMessageProcessingStepImageId>{08008696-a3cd-ea11-a812-000d3ad82cac}</SdkMessageProcessingStepImageId>
+      <Attributes>defraimp_commoditycomplementstext,defraimp_identificationofanimalstext,defraimp_speciesnomination</Attributes>
+      <EntityAlias>PreImage</EntityAlias>
+      <ImageType>0</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
 </SdkMessageProcessingStep>

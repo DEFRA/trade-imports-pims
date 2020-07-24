@@ -1,6 +1,7 @@
 ﻿using Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects.IdentificationParameterSetObjects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects.Formatters
@@ -8,78 +9,103 @@ namespace Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects.Formatters
     public class IdentificationParameterFormatter
     {
 
-        public string FinalString { get; private set; }
-
         public string CommodityIdTypes { get; private set; }
 
-        public string PassportNumber { get; private set; }
+        private string _defaultSpeciesNomination;
 
-        public IdentificationParameterFormatter()
+        private string _currenLine;
+
+        public IdentificationParameterFormatter(string defaultSpeciesNomination)
         {
-            FinalString = String.Empty;
             CommodityIdTypes = String.Empty;
-            PassportNumber = String.Empty;
+            _defaultSpeciesNomination = defaultSpeciesNomination;
+            _currenLine = String.Empty;
         }
 
-        public void BuildFormattedAttributes(IdentificationParameterSetObject identParameterSet)
+        public void BuildFormattedAttributes(IdentificationParameterSetObject identParameterSet, CommodityComplementObject commodityComplements)
         {
             ResetAttributes();
             identParameterSet.IdentificationParameterSet.IdentificationParameter.ForEach(x =>
             {
-                ExtractIdentParameterData(x);
+                _currenLine += ExtractIdentParameterData(x, commodityComplements);
             });
+
+            InjectSpeciesNameIfEmpty();
+
+            CommodityIdTypes += _currenLine;
+            _currenLine = String.Empty;
         }
 
-        public void BuildFormattedAttributes(IdentificationParameterSetList identParameterSetList)
+        public void BuildFormattedAttributes(IdentificationParameterSetList identParameterSetList, CommodityComplementObject commodityComplements)
         {
             ResetAttributes();
             identParameterSetList.IdentificationParameterSet.ForEach(x =>
             {
                 x.IdentificationParameter.ForEach(y =>
                 {
-                    ExtractIdentParameterData(y);
+                    _currenLine += ExtractIdentParameterData(y, commodityComplements);
                 });
 
-                FinalString += $"----------{Environment.NewLine}{Environment.NewLine}";
+                InjectSpeciesNameIfEmpty();
+
+                CommodityIdTypes += _currenLine;
                 CommodityIdTypes += $"{Environment.NewLine}{Environment.NewLine}";
-                PassportNumber += $"----------{Environment.NewLine}{Environment.NewLine}";
+                _currenLine = String.Empty;
             });
         }
 
         private void ResetAttributes()
         {
-            FinalString = String.Empty;
             CommodityIdTypes = String.Empty;
-            PassportNumber = String.Empty;
+            _currenLine = String.Empty;
         }
 
-        private void ExtractIdentParameterData(IdentificationParameter parameter)
+        private void InjectSpeciesNameIfEmpty()
         {
-            FinalString += "Key: " + parameter.Key + System.Environment.NewLine
-                 + "Data: " + parameter.Data + System.Environment.NewLine
-                 + System.Environment.NewLine;
+            // Inject species name if it doesn't exist
+            if (!_currenLine.Contains("SpeciesName"))
+            {
+                _currenLine = $"SpeciesName: {_defaultSpeciesNomination}; {_currenLine}";
+            }
+        }
+
+        private string ExtractIdentParameterData(IdentificationParameter parameter, CommodityComplementObject commodityComplements)
+        {
+            string extractedData = String.Empty;
 
             if (parameter.Key.Trim().Equals("species"))
             {
-                CommodityIdTypes += "SpeciesID: " + parameter.Data.Trim() + "; ";
+                string speciesNomination = _defaultSpeciesNomination;
+
+                // If there is more than once species pull it out from commodityComplements
+                if(commodityComplements.CommodityComplement.Species.Count >= 1)
+                {
+                    string speciesIdToSearchFor = parameter.Data.Trim();
+                    Species species = commodityComplements.CommodityComplement.Species.FirstOrDefault(e => e.SpeciesID == speciesIdToSearchFor);
+                    speciesNomination = species != null && !String.IsNullOrEmpty(species.SpeciesNomination) ? species.SpeciesNomination : _defaultSpeciesNomination;
+                }
+
+                extractedData  = $"SpeciesName: {speciesNomination}; ";
             }
             else if (parameter.Key.Trim().Equals("identsystem"))
             {
-                CommodityIdTypes += parameter.Data.Trim() + ": ";
+                extractedData = parameter.Data.Trim() + ": ";
             }
             else if (parameter.Key.Trim().Equals("identnumber"))
             {
-                CommodityIdTypes += parameter.Data.Trim() + "; ";
+                extractedData = parameter.Data.Trim() + "; ";
             }
-            else if (parameter.Key.Trim().Equals("passportnumber"))
+            else if(parameter.Key.Trim().Equals("complement"))
             {
-                CommodityIdTypes += parameter.Key.Trim() + ": " + parameter.Data.Trim() + "; ";
-                PassportNumber += parameter.Data.Trim() + Environment.NewLine;
+                // skip this value
             }
             else
             {
-                CommodityIdTypes += $"{parameter.Key.Trim()}: {parameter.Data.Trim()}; ";
+                extractedData = $"{parameter.Key.Trim()}: {parameter.Data.Trim()}; ";
             }
+
+            return extractedData;
+
         }
     }
 }

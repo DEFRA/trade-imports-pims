@@ -10,6 +10,6 @@ namespace Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects
         public string ComplementID { get; set; }
         public string SpeciesType { get; set; }
         public string SpeciesModel { get; set; }
-        public Species Species { get; set; }
+        public List<Species> Species { get; set; }
     }
 }

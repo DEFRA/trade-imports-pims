@@ -29,7 +29,10 @@ namespace Defra.Imports.Plugins.Itahc
       "defraimp_commoditycomplementstext,defraimp_identificationofanimalstext",
       "Update Step - ITAHC Format JSON",
       0,
-      IsolationModeEnum.Sandbox)]
+      IsolationModeEnum.Sandbox,
+      Image1Attributes = "defraimp_commoditycomplementstext,defraimp_identificationofanimalstext,defraimp_speciesnomination",
+      Image1Name = "PreImage",
+      Image1Type = ImageTypeEnum.PreImage)]
 
     public class PopulateIntegrationFormattedValues : Plugin
     {
@@ -37,9 +40,11 @@ namespace Defra.Imports.Plugins.Itahc
         {
 
             var itahcFromContext = ((Entity)context.InputParameters["Target"]).ToEntity<defraimp_itahc>();
+            var itachPreImage = (context.MessageName.ToLower() == "update") ? context.PreEntityImages["PreImage"].ToEntity<defraimp_itahc>() : null;
+
             try
             {
-                var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahcFromContext);
+                var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahcFromContext, itachPreImage);
                 populateFormattedJSONTextFields.FormatIntegrationData();
             }
             catch(Exception e)

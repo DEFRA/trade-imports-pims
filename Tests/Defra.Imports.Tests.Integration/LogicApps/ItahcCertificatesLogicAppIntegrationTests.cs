@@ -86,7 +86,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             // Assert
             List<string> certificateReferenceNumbers = GetCertificateReferenceNumbersFromXml(itahcXmlList);
             DataCollection<Entity> retrievedItahcs = GetCertificatesByReferenceNumbers("defraimp_itahc", certificateReferenceNumbers.ToArray(), Array.Empty<string>());
-            Assert.True(retrievedItahcs.Count == 48);
+            Assert.True(retrievedItahcs.Count == 50);
 
             // Clear Down
             ClearDownCertificateTest("itahc", retrievedItahcs);

@@ -12,68 +12,6 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
     public class PopulateFormattedJSONTextFieldsTests
     {
         [Fact]
-        public void CommodityComplementAndIdentificationFormattingTest()
-        {
-            var formattedCommodityComplement = "CommodityCode: 0103" + Environment.NewLine
-                                             + Environment.NewLine
-                                             + "ComplementID: 244110" + Environment.NewLine
-                                             + Environment.NewLine
-                                             + "SpeciesType: domestique" + Environment.NewLine
-                                             + Environment.NewLine
-                                             + "SpeciesModel: 11002" + Environment.NewLine
-                                             + Environment.NewLine
-                                             + "Species:" + Environment.NewLine
-                                             + "SpeciesID: 10650140" + Environment.NewLine
-                                             + "SpeciesNomination: Sus scrofa domesticus";
-
-            var identificationParameter = "Key: official_ident" + Environment.NewLine
-                                        + "Data: 2344" + Environment.NewLine
-                                        + Environment.NewLine
-                                        + "Key: age" + Environment.NewLine
-                                        + "Data: 2" + Environment.NewLine
-                                        + Environment.NewLine;
-
-
-            var itahcFromContext = new defraimp_itahc()
-            {
-                defraimp_CommodityComplementsText = @"{'CommodityComplement':{'CommodityCode':'0103','ComplementID':'244110','SpeciesType':'domestique','SpeciesModel':'11002','Species':{'SpeciesID':'10650140','SpeciesNomination':'Sus scrofa domesticus'}}}",
-                defraimp_IdentificationOfAnimalsText = @"{'IdentificationParameterSet':{'IdentificationParameter':[{'Key':'official_ident','Data':'2344'},{'Key':'age','Data':'2'}]}}"
-            };
-
-            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahcFromContext);
-            populateFormattedJSONTextFields.FormatIntegrationData();
-
-            Assert.NotNull(itahcFromContext.defraimp_FormattedCommodityComplementsText);
-            Assert.Equal(formattedCommodityComplement, itahcFromContext.defraimp_FormattedCommodityComplementsText);
-            Assert.NotNull(itahcFromContext.defraimp_formattedIdentificationOfAnimalsText);
-            Assert.Equal(identificationParameter, itahcFromContext.defraimp_formattedIdentificationOfAnimalsText);
-        }
-
-        [Fact]
-        public void ValidateParameterSetIfList()
-        {
-            var identificationParameter = "Key: official_ident" + Environment.NewLine
-                                        + "Data: 2344" + Environment.NewLine
-                                        + Environment.NewLine
-                                        + "Key: age" + Environment.NewLine
-                                        + "Data: 2" + Environment.NewLine
-                                        + Environment.NewLine
-                                        + "----------" + Environment.NewLine
-                                        + Environment.NewLine;
-
-            var itahcFromContext = new defraimp_itahc()
-            {
-                defraimp_IdentificationOfAnimalsText = @"{'IdentificationParameterSet':[{'IdentificationParameter':[{'Key':'official_ident','Data':'2344'},{'Key':'age','Data':'2'}]}]}"
-            };
-
-            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahcFromContext);
-            populateFormattedJSONTextFields.FormatIntegrationData();
-
-            Assert.NotNull(itahcFromContext.defraimp_formattedIdentificationOfAnimalsText);
-            Assert.Equal(identificationParameter, itahcFromContext.defraimp_formattedIdentificationOfAnimalsText);
-        }
-
-        [Fact]
         public void ValidateCommodityIdTypesIsPopulated()
         {
             // Arrange
@@ -83,11 +21,14 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             var itahc = new defraimp_itahc()
             {
                 defraimp_CommodityComplementsText = commodityComplementJson,
-                defraimp_IdentificationOfAnimalsText = identificationOfAnimalsJson
+                defraimp_IdentificationOfAnimalsText = identificationOfAnimalsJson,
+                defraimp_SpeciesNomination = "Equus cabalus"
             };
 
+            defraimp_itahc preImage = null;
+
             // Act
-            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahc);
+            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahc, preImage);
             populateFormattedJSONTextFields.FormatIntegrationData();
 
             // Assert
@@ -104,18 +45,125 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             var itahc = new defraimp_itahc()
             {
                 defraimp_CommodityComplementsText = commodityComplementJson,
-                defraimp_IdentificationOfAnimalsText = identificationOfAnimalsJson
+                defraimp_IdentificationOfAnimalsText = identificationOfAnimalsJson,
+                defraimp_SpeciesNomination = "Bos taurus"
             };
 
+            defraimp_itahc preImage = null;
+
             // Act
-            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahc);
+            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahc, preImage);
             populateFormattedJSONTextFields.FormatIntegrationData();
 
             // Assert
             Assert.NotNull(itahc.defraimp_CommodityIdTypes);
-            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("official_ident: UK123456; numpassportemp: ; bovex_state: ;"));
-            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("official_ident: UK567890; numpassportemp: ; bovex_state: ;"));
-            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("official_ident: UK012345; numpassportemp: ; bovex_state: ;"));
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("SpeciesName: Bos taurus; official_ident: UK123456; numpassportemp: ; bovex_state: ;"));
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("SpeciesName: Bos taurus; official_ident: UK567890; numpassportemp: ; bovex_state: ;"));
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("SpeciesName: Bos taurus; official_ident: UK012345; numpassportemp: ; bovex_state: ;"));
+        }
+
+        [Fact]
+        public void CommodityIDTypesShouldBeFormattedCorrectlyForMultipleSpecies()
+        {
+            // Arrange
+            string commodityComplementJson = @"{'CommodityComplement':{'CommodityCode':'01061900','ComplementID':'231547','SpeciesClass':'Carnivora','SpeciesModel':'10912','Species':[{'SpeciesID':'10476331','SpeciesNomination':'Felis catus'},{'SpeciesID':'10476330','SpeciesNomination':'Canis familiaris'}]}}";
+            string identificationOfAnimalsJson = @"{'IdentificationParameterSet':[{'IdentificationParameter':[{'Key':'complement','Data':'231547'},{'Key':'species','Data':'10476331'},{'Key':'identsystem','Data':'microchip'},{'Key':'identnumber','Data':'123'},{'Key':'passportnumber','Data':'741'},{'Key':'sexinfo','Data':'female'},{'Key':'age','Data':'6 MONTHS'},{'Key':'quantity','Data':'1'}]},{'IdentificationParameter':[{'Key':'complement','Data':'231547'},{'Key':'species','Data':'10476330'},{'Key':'identsystem','Data':'microchip'},{'Key':'identnumber','Data':'456'},{'Key':'passportnumber','Data':'852'},{'Key':'sexinfo','Data':'female'},{'Key':'age','Data':'6 MONTHS'},{'Key':'quantity','Data':'1'}]},{'IdentificationParameter':[{'Key':'complement','Data':'231547'},{'Key':'species','Data':'10476330'},{'Key':'identsystem','Data':'microchip'},{'Key':'identnumber','Data':'789'},{'Key':'passportnumber','Data':'963'},{'Key':'sexinfo','Data':'female'},{'Key':'age','Data':'6 MONTHS'},{'Key':'quantity','Data':'1'}]}]}";
+
+            var itahc = new defraimp_itahc()
+            {
+                defraimp_CommodityComplementsText = commodityComplementJson,
+                defraimp_IdentificationOfAnimalsText = identificationOfAnimalsJson
+            };
+
+            defraimp_itahc preImage = null;
+
+            // Act
+            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahc, preImage);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            // Assert
+            Assert.NotNull(itahc.defraimp_CommodityIdTypes);
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("SpeciesName: Felis catus; microchip: 123; passportnumber: 741; sexinfo: female; age: 6 MONTHS; quantity: 1;"));
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("SpeciesName: Canis familiaris; microchip: 456; passportnumber: 852; sexinfo: female; age: 6 MONTHS; quantity: 1;"));
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("SpeciesName: Canis familiaris; microchip: 789; passportnumber: 963; sexinfo: female; age: 6 MONTHS; quantity: 1;"));
+        }
+
+        [Fact]
+        public void CommodityIDTypesShouldUseSpeciesNameFromTargetWhenNotInParameterSet()
+        {
+            // Arrange
+            string commodityComplementJson = @"{'CommodityComplement':{'CommodityCode':'0103','ComplementID':'244110','SpeciesType':'domestique','SpeciesModel':'11002','Species':{'SpeciesID':'10650140','SpeciesNomination':'Sus scrofa domesticus'}}}";
+            string identificationOfAnimalsJson = @"{'IdentificationParameterSet':{'IdentificationParameter':[{'Key':'official_ident','Data':'2344'},{'Key':'age','Data':'2'}]}}";
+
+            var itahc = new defraimp_itahc()
+            {
+                defraimp_CommodityComplementsText = commodityComplementJson,
+                defraimp_IdentificationOfAnimalsText = identificationOfAnimalsJson,
+                defraimp_SpeciesNomination = "Sus scrofa domesticus"
+            };
+
+            defraimp_itahc preImage = null;
+
+            // Act
+            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahc, preImage);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            // Assert
+            Assert.NotNull(itahc.defraimp_CommodityIdTypes);
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains($"SpeciesName: {itahc.defraimp_SpeciesNomination}; official_ident: 2344; age: 2;"));
+        }
+
+        [Fact]
+        public void CommodityIDTypesShouldUseSpeciesNameFromPreImageWhenNotInTarget()
+        {
+            // Arrange
+            string commodityComplementJson = @"{'CommodityComplement':{'CommodityCode':'0103','ComplementID':'244110','SpeciesType':'domestique','SpeciesModel':'11002','Species':{'SpeciesID':'10650140','SpeciesNomination':'Sus scrofa domesticus'}}}";
+            string identificationOfAnimalsJson = @"{'IdentificationParameterSet':{'IdentificationParameter':[{'Key':'official_ident','Data':'2344'},{'Key':'age','Data':'2'}]}}";
+
+            var itahc = new defraimp_itahc()
+            {
+                defraimp_CommodityComplementsText = commodityComplementJson,
+                defraimp_IdentificationOfAnimalsText = identificationOfAnimalsJson,
+            };
+
+            defraimp_itahc preImage = new defraimp_itahc()
+            {
+                defraimp_SpeciesNomination = "Sus scrofa domesticus"
+            };
+
+            // Act
+            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahc, preImage);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            // Assert
+            Assert.NotNull(itahc.defraimp_CommodityIdTypes);
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains($"SpeciesName: {preImage.defraimp_SpeciesNomination}; official_ident: 2344; age: 2;"));
+        }
+
+        [Fact]
+        public void ShouldUseCommodityComplementsFromPreImageIfItDoesntExistOnTheTarget()
+        {
+            // Arrange
+            string commodityComplementJson = @"{'CommodityComplement':{'CommodityCode':'01061900','ComplementID':'231547','SpeciesClass':'Carnivora','SpeciesModel':'10912','Species':[{'SpeciesID':'10476331','SpeciesNomination':'Felis catus'},{'SpeciesID':'10476330','SpeciesNomination':'Canis familiaris'}]}}";
+            string identificationOfAnimalsJson = @"{'IdentificationParameterSet':[{'IdentificationParameter':[{'Key':'complement','Data':'231547'},{'Key':'species','Data':'10476331'},{'Key':'identsystem','Data':'microchip'},{'Key':'identnumber','Data':'123'},{'Key':'passportnumber','Data':'741'},{'Key':'sexinfo','Data':'female'},{'Key':'age','Data':'6 MONTHS'},{'Key':'quantity','Data':'1'}]},{'IdentificationParameter':[{'Key':'complement','Data':'231547'},{'Key':'species','Data':'10476330'},{'Key':'identsystem','Data':'microchip'},{'Key':'identnumber','Data':'456'},{'Key':'passportnumber','Data':'852'},{'Key':'sexinfo','Data':'female'},{'Key':'age','Data':'6 MONTHS'},{'Key':'quantity','Data':'1'}]},{'IdentificationParameter':[{'Key':'complement','Data':'231547'},{'Key':'species','Data':'10476330'},{'Key':'identsystem','Data':'microchip'},{'Key':'identnumber','Data':'789'},{'Key':'passportnumber','Data':'963'},{'Key':'sexinfo','Data':'female'},{'Key':'age','Data':'6 MONTHS'},{'Key':'quantity','Data':'1'}]}]}";
+
+            var itahc = new defraimp_itahc()
+            {
+                defraimp_IdentificationOfAnimalsText = identificationOfAnimalsJson
+            };
+
+            defraimp_itahc preImage = new defraimp_itahc()
+            {
+                defraimp_CommodityComplementsText = commodityComplementJson,
+            };
+
+            // Act
+            var populateFormattedJSONTextFields = new PopulateFormattedJSONTextFields(itahc, preImage);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            // Assert
+            Assert.NotNull(itahc.defraimp_CommodityIdTypes);
+            Assert.True(itahc.defraimp_CommodityIdTypes.Contains("SpeciesName: Felis catus; microchip: 123; passportnumber: 741; sexinfo: female; age: 6 MONTHS; quantity: 1;"));
         }
     }
 }
