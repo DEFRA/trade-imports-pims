@@ -123,5 +123,12 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Help
             InspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.NoInspectionRequiredGoldPlaceofOrigin;
             PerformInspectionRequiredUpdate();
         }
+
+        public void TBInpsection()
+        {
+            InspectionRequired = defraimp_importapplication_defraimp_inspectionrequired.Yes;
+            InspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.TB;
+            PerformInspectionRequiredUpdate();
+        }
     }
 }

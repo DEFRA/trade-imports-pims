@@ -37,6 +37,8 @@
                 {
                     // Increment the global counter first
                     _riskLevelCounterManager.IncrementGlobalCounter(_importApplication);
+
+                    _inspectionRequirement.TBInpsection();
                 }
             }
             else if (_importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
