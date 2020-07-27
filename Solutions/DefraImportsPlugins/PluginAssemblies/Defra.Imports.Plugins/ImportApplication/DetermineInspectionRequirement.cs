@@ -78,32 +78,28 @@
         protected override void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)
         {
             logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Fired plugin with message: " + context.MessageName + ". Depth = " + context.Depth);
+            logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Plugin executing");
 
-            // Ensure the depth is 1
-            if (context.Depth <= 1 || context.MessageName == "SetStateDynamicEntity" || IsITAHCUpdateMessage(context, logWriter))
+            // Try to retrieve a pre-image. This won't work if it's the correct step, so we will pass in a null object which the business logic will handle.
+            defraimp_importapplication preImageApplication = null;
+            if (context.PreEntityImages.Contains("PreImage"))
             {
-                logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Plugin executing");
-                // Try to retrieve a pre-image. This won't work if it's the correct step, so we will pass in a null object which the business logic will handle.
-                defraimp_importapplication preImageApplication = null;
-                if (context.PreEntityImages.Contains("PreImage"))
-                {
-                    logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Have Pre-Image");
-                    Entity preImage = (Entity)context.PreEntityImages["PreImage"];
-                    preImageApplication = preImage.ToEntity<defraimp_importapplication>();
-                }
-
-                // Get the post image
-                defraimp_importapplication postImageApplication = null;
-                if (context.PostEntityImages.Contains("PostImage"))
-                {
-                    logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Have Post-Image");
-                    Entity postImage = (Entity)context.PostEntityImages["PostImage"];
-                    postImageApplication = postImage.ToEntity<defraimp_importapplication>();
-                }
-
-                DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(preImageApplication, postImageApplication, repositoryFactory, logWriter);
-                determineInspectionRequirementBusinessLogic.RunLogic();
+                logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Have Pre-Image");
+                Entity preImage = (Entity)context.PreEntityImages["PreImage"];
+                preImageApplication = preImage.ToEntity<defraimp_importapplication>();
             }
+
+            // Get the post image
+            defraimp_importapplication postImageApplication = null;
+            if (context.PostEntityImages.Contains("PostImage"))
+            {
+                logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Have Post-Image");
+                Entity postImage = (Entity)context.PostEntityImages["PostImage"];
+                postImageApplication = postImage.ToEntity<defraimp_importapplication>();
+            }
+
+            DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(preImageApplication, postImageApplication, repositoryFactory, logWriter);
+            determineInspectionRequirementBusinessLogic.RunLogic();
         }
 
         bool IsITAHCUpdateMessage(IPluginExecutionContext context, TracingServiceLogWriter logWriter)
