@@ -105,5 +105,22 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
             Assert.True(notificationFromContext.defraimp_CommodityIDTypes.Contains("SpeciesName: Canis familiaris; Microchip: jsdfj84275394; Passport: 34534;"));
             Assert.NotNull(notificationFromContext.defraimp_FormattedIdentificationofAnimalsText);
         }
+
+        [Fact]
+        public void QuantityShouldGetPopulatedFromQuantityKeyDataPair()
+        {
+            defraimp_ImporterNotification notificationImage = null;
+
+            var notificationFromContext = new defraimp_ImporterNotification()
+            {
+                defraimp_CommodityComplementsText = @"[{'commodityID':'01069000','commodityDescription':'Animals other than mammals, birds, reptiles and insects.','complementID':183873,'complementName':'Lithobates (Rana) catesbeianus','speciesID':'60639','speciesName':'Lithobates (Rana) catesbeianus','speciesType':'2','speciesClassName':'Amphibia','speciesClass':'183873','speciesNomination':'Lithobates (Rana) catesbeianus'}]",
+                defraimp_IdentificationOfAnimalsText = @"[{'complementID':183873,'speciesID':'60639','keyDataPair':[{'key':'quantity','data':'1'}]}]",
+            };
+
+            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext, notificationImage);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            Assert.NotNull(notificationFromContext.defraimp_commoditiesnumberofanimals);
+        }
     }
 }

@@ -96,6 +96,10 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                             {
                                 notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
                             }
+                            else if(y.key.Equals("quantity"))
+                            {
+                                notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
+                            }
                         });
                     }
 
