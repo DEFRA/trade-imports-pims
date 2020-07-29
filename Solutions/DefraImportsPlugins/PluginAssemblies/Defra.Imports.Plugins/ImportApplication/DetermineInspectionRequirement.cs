@@ -15,6 +15,7 @@
     using Defra.Imports.Repositories;
     using Microsoft.Xrm.Sdk;
 
+    /*
     [CrmPluginRegistration(
        MessageNameEnum.Create,
        nameof(defraimp_importapplication),
@@ -26,7 +27,7 @@
        IsolationModeEnum.Sandbox,
        Image1Attributes = "defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted",
        Image1Name = "PostImage",
-       Image1Type = ImageTypeEnum.PostImage)]
+       Image1Type = ImageTypeEnum.PostImage)]*/
 
     [CrmPluginRegistration(
        MessageNameEnum.Update,
