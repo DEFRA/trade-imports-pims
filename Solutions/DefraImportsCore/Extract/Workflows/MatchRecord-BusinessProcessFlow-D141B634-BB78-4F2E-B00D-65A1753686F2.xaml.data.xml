@@ -37,7 +37,7 @@
       <label languagecode="1033" description="Complete Match" />
     </steplabels>
     <steplabels id="{858d2fcb-1470-4470-a73e-dac07029bf6e}">
-      <label languagecode="1033" description="Have you Appended Records to Import Record? " />
+      <label languagecode="1033" description="Have you created or updated an Import record for this Match?" />
     </steplabels>
     <steplabels id="{676718a8-544a-43a9-9b5f-31471fd8ec1e}">
       <label languagecode="1033" description="Close Record as Completed?" />

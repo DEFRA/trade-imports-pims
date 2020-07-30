@@ -22,7 +22,6 @@
     <fetchxml>
       <fetch version="1.0" mapping="logical">
         <entity name="defraimp_matchrecord">
-          <attribute name="defraimp_matchrecordid" />
           <attribute name="createdon" />
           <filter type="and">
             <condition attribute="statuscode" operator="eq" value="2" />
@@ -32,12 +31,13 @@
           <attribute name="defraimp_overallmatchrating" />
           <attribute name="statuscode" />
           <order attribute="createdon" descending="true" />
+          <attribute name="defraimp_matchrecordid" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>0.0.0.50</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Completed Match Records" languagecode="1033" />
+      <LocalizedName description="Match Records Verified by Case Worker" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

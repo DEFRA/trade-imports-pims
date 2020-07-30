@@ -29,15 +29,15 @@
           <filter type="and">
             <condition attribute="statuscode" operator="eq" value="1" />
           </filter>
-          <attribute name="defraimp_matchrecordid" />
           <attribute name="statuscode" />
           <order attribute="createdon" descending="true" />
+          <attribute name="defraimp_matchrecordid" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>0.0.0.50</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Unmatched Match Records" languagecode="1033" />
+      <LocalizedName description="Match Records not Verified by Case Worker" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
