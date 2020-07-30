@@ -76,14 +76,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{ef68b60c-cc47-4444-8431-bbe110dab365}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Species ID" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_speciesid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_speciesid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{dfdcfcf4-4825-426e-bfb4-81c845ea91ae}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Quantity / Weight (Grams)" languagecode="1033" />

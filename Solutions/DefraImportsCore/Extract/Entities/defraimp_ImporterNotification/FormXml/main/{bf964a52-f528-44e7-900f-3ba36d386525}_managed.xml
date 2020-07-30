@@ -174,7 +174,7 @@
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{f7894155-0765-425b-b127-001f0d04f4f0}">
+                      <cell showlabel="true" locklevel="0" id="{aaa98352-2feb-4473-9e1e-75061fbb4db7}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -1647,7 +1647,7 @@
         </controlDescription>
       </controlDescriptions>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

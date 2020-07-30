@@ -76,14 +76,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{c931298f-30a3-4647-bfab-f6deb0c4be6e}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Commodity Species Id" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_commodityspeciesid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commodityspeciesid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{d7d07307-787a-43ea-be02-06363d8322c3}" showlabel="true" locklevel="0" labelid="{9d540b24-bb2c-4ddc-9a58-ee259cb5c26e}">
                         <labels>
                           <label description="Commodities Number of Animals" languagecode="1033" />

@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 10,
+  "RecordsCount": 9,
   "ExportedEntities": [
     {
       "LogicalName": "defraimp_matchconfigurationfield",
@@ -26,50 +26,6 @@
         {
           "AttributeName": "defraimp_name",
           "AttributeValue": "Certificate Reference",
-          "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_weighting",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
-        },
-        {
-          "AttributeName": "defraimp_matchconfigurationid",
-          "AttributeValue": {
-            "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
-            "LogicalName": "defraimp_matchconfiguration",
-            "Name": "ITAHC to Notification Match Configuration",
-            "KeyAttributes": []
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
-        }
-      ]
-    },
-    {
-      "LogicalName": "defraimp_matchconfigurationfield",
-      "Id": "fab989ac-beb7-ea11-a812-000d3ab6d757",
-      "IsManyToMany": false,
-      "Attributes": [
-        {
-          "AttributeName": "defraimp_matchfieldtype",
-          "AttributeValue": {
-            "Value": 714100002
-          },
-          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
-        },
-        {
-          "AttributeName": "defraimp_datasetonefieldname",
-          "AttributeValue": "defraimp_speciesid",
-          "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_datasettwofieldname",
-          "AttributeValue": "defraimp_commodityspeciesid",
-          "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_name",
-          "AttributeValue": "Species",
           "AttributeType": "System.String"
         },
         {

@@ -188,14 +188,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{86fef79c-0c66-47b0-bea8-21286235a4cb}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Species" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_speciesmatchrating" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_speciesmatchrating" disabled="true" uniqueid="{d29ceeca-e831-d695-a381-ce7d5bbe3c7d}" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{06a27b05-5aab-4332-b133-3e8a62452966}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Quantity" languagecode="1033" />
@@ -751,7 +743,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
