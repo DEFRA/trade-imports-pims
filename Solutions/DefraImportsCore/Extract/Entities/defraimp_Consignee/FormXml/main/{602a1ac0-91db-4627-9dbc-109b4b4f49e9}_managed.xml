@@ -36,30 +36,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{aa53557b-8399-8364-e1b0-308932232766}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Approval Number" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_approvalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_approvalnumber" disabled="false" uniqueid="{476e1668-d595-132a-8827-73c95357745a}" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{e2e4c238-83e6-4eda-acd0-a480a3039319}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="General Number" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_generalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_generalnumber" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{d2543cc4-c541-913a-4ae3-2a1ee71a36cd}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Traces Id" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_tracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_tracesid" disabled="false" uniqueid="{948d453c-b7e1-acea-6060-0ec073a44521}" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{8689663a-2e15-50e7-b05e-1703d612a3a6}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Address Line 1" languagecode="1033" />

@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab verticallayout="true" id="{bc3575b5-53a6-43d5-9e3d-4f274a089cf3}" IsUserDefined="1">
           <labels>
@@ -33,30 +33,6 @@
                           <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{e2d93033-07a2-e66b-d982-e4d7d7b552cb}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Approval Number" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_approvalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_approvalnumber" disabled="false" uniqueid="{bbcbd366-80d0-2180-18ca-0015d64ca5bb}" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{987b9818-46d5-352e-ad7e-51594d2790bb}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="General Number" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_generalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_generalnumber" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{2d7c4ee3-3472-db9d-de06-3825757d9238}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Traces Id" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_tracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_tracesid" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -124,7 +100,7 @@
         </tab>
       </tabs>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -154,6 +130,51 @@
         </NavBarAreas>
       </Navigation>
       <controlDescriptions />
+      <header id="{60b29c2b-ea3b-47cb-a656-5fef87b1c514}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{6b3c0175-c544-4b3f-ba69-f89647a1d3e6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f7baac7d-9c90-4235-a011-cd7c1cbde113}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4fd34c43-9dd6-4ee8-a94a-d7ba45769c3a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{166b19e1-4cab-4cb6-9782-77f4cba26893}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{537721cf-03bd-446f-bf0a-4fd53a427913}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4b398578-146f-48bc-a82d-c26aaab418ec}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4e3734ee-9df6-4770-a958-1d8dfadeea39}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

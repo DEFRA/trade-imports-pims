@@ -36,38 +36,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{9bca4f4a-b770-4574-8ca6-c47ffd2e9fc2}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Local Veterinary Unit" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_localveterinaryunit" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_localveterinaryunit" disabled="false" uniqueid="{c98b65c6-3b35-a48d-ecd3-0452c0d7bce9}" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{9118a2de-1a17-08c2-432a-2b04b28b2a86}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Approval Number" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_approvalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_approvalnumber" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{0de3c3e7-8630-be17-1126-e99d8b111b92}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="General Number" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_generalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_generalnumber" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{802a5ee0-050d-70dd-9989-c22464dac068}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Traces Id" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_tracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_tracesid" disabled="false" uniqueid="{a324c2d9-b3b3-8ccc-0093-98a799284752}" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{3d38d054-8e95-4239-8bac-c495e9ea1b92}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Address Line 1" languagecode="1033" />

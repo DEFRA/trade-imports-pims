@@ -11,13 +11,12 @@ namespace Defra.Imports.BusinessLogic.Itahc
 {
     public class FlagRecordOnWatchListBusinessLogic
     {
-        private const string WATCH_DESTINATION_FIELD_NAME = "defraimp_placeofdestinationid";
-        private const string WATCH_CONSIGNEE_FIELD_NAME = "defraimp_consigneeid";
-        private const string WATCH_TRANSPORTER_FIELD_NAME = "defraimp_transporterid";
-        private const string WATCH_VETERINARIAN_FIELD_NAME = "defraimp_veterinarianid";
+        private const string WATCH_DESTINATION_LOOKUP_FIELD_NAME = "defraimp_placeofdestinationid";
+        private const string WATCH_CONSIGNEE_LOOKUP_FIELD_NAME = "defraimp_consigneeid";
+        private const string WATCH_TRANSPORTER__LOOKUP_FIELD_NAME = "defraimp_transporterid";
+        private const string WATCH_VETERINARIAN_LOOKUP_FIELD_NAME = "defraimp_veterinarianid";
 
-        private const string TRADER_SEARCH_FIELD_NAME = "defraimp_approvalnumber";
-        private const string VETERINARIAN_SEARCH_FIELD_NAME = "defraimp_localveterinaryunit";
+        private const string TRADER_SEARCH_FIELD_NAME = "defraimp_name";
 
         private defraimp_itahc _itahcFromContext;
         private IOrganizationService _orgSvc;
@@ -34,33 +33,33 @@ namespace Defra.Imports.BusinessLogic.Itahc
 
         public void FlagRecordIfOnWatchList()
         {
-            string destinationIdentifier = _itahcFromContext.defraimp_PlaceOfDestinationApprovalNumber;
-            string consigneeIdentifier = _itahcFromContext.defraimp_ConsigneeApprovalNumber;
-            string transporterIdentifier = _itahcFromContext.defraimp_TransporterApprovalNumber;
-            string veterinarianIdentifier = _itahcFromContext.defraimp_LocalVeterinaryUnit;
+            string itahcDestinationIdentifier = _itahcFromContext.defraimp_PlaceOfDestinationName;
+            string itahcConsigneeIdentifier = _itahcFromContext.defraimp_ConsigneeName;
+            string itahcTransporterIdentifier = _itahcFromContext.defraimp_TransporterName;
+            string itahcVeterinarianIdentifier = _itahcFromContext.defraimp_OVName;
 
             DateTime currentDate = DateTime.Now;
 
             List<defraimp_WatchList> watchRecords = GetWatchRecordsForDate(currentDate.Date);
 
-            if (!String.IsNullOrEmpty(destinationIdentifier))
+            if (!String.IsNullOrEmpty(itahcDestinationIdentifier))
             {
-                CheckAndAddFlag(watchRecords, defraimp_watchtype.PlaceofDestination, WATCH_DESTINATION_FIELD_NAME, "defraimp_placeofdestination", TRADER_SEARCH_FIELD_NAME, destinationIdentifier);
+                CheckAndAddFlag(watchRecords, defraimp_watchtype.PlaceofDestination, WATCH_DESTINATION_LOOKUP_FIELD_NAME, "defraimp_placeofdestination", TRADER_SEARCH_FIELD_NAME, itahcDestinationIdentifier);
             }
 
-            if (!String.IsNullOrEmpty(consigneeIdentifier))
+            if (!String.IsNullOrEmpty(itahcConsigneeIdentifier))
             {
-                CheckAndAddFlag(watchRecords, defraimp_watchtype.Consignee, WATCH_CONSIGNEE_FIELD_NAME, "defraimp_consignee", TRADER_SEARCH_FIELD_NAME, consigneeIdentifier);
+                CheckAndAddFlag(watchRecords, defraimp_watchtype.Consignee, WATCH_CONSIGNEE_LOOKUP_FIELD_NAME, "defraimp_consignee", TRADER_SEARCH_FIELD_NAME, itahcConsigneeIdentifier);
             }
 
-            if (!String.IsNullOrEmpty(transporterIdentifier))
+            if (!String.IsNullOrEmpty(itahcTransporterIdentifier))
             {
-                CheckAndAddFlag(watchRecords, defraimp_watchtype.Transporter, WATCH_TRANSPORTER_FIELD_NAME, "defraimp_transporter", TRADER_SEARCH_FIELD_NAME, transporterIdentifier);
+                CheckAndAddFlag(watchRecords, defraimp_watchtype.Transporter, WATCH_TRANSPORTER__LOOKUP_FIELD_NAME, "defraimp_transporter", TRADER_SEARCH_FIELD_NAME, itahcTransporterIdentifier);
             }
 
-            if(!String.IsNullOrEmpty(veterinarianIdentifier))
+            if(!String.IsNullOrEmpty(itahcVeterinarianIdentifier))
             {
-                CheckAndAddFlag(watchRecords, defraimp_watchtype.Veterinarian, WATCH_VETERINARIAN_FIELD_NAME, "defraimp_veterinarian", VETERINARIAN_SEARCH_FIELD_NAME, veterinarianIdentifier);
+                CheckAndAddFlag(watchRecords, defraimp_watchtype.Veterinarian, WATCH_VETERINARIAN_LOOKUP_FIELD_NAME, "defraimp_veterinarian", TRADER_SEARCH_FIELD_NAME, itahcVeterinarianIdentifier);
             }
         }
 

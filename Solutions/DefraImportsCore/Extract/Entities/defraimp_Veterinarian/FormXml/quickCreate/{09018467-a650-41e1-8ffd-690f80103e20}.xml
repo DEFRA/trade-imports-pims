@@ -28,38 +28,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{ec04bec6-a67e-6805-7ba3-0457d3c23254}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Local Veterinary Unit" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_localveterinaryunit" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_localveterinaryunit" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{e050c173-771a-84a4-e4ba-2b756c6b8b1e}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Approval Number" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_approvalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_approvalnumber" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{d12a88b1-c09c-a8c4-500c-a17a40ebd64e}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="General Number" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_generalnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_generalnumber" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{09cbc38d-a277-3405-a680-d5424cab569a}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Traces Id" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_tracesid" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_tracesid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{966b17e2-1bbe-e55a-1511-5370a5c9dc98}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Address Line 1" languagecode="1033" />
