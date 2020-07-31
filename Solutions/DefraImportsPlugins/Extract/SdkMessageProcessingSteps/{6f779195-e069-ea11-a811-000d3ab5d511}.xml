@@ -18,7 +18,7 @@
   <SdkMessageProcessingStepImages>
     <SdkMessageProcessingStepImage Name="PostImage">
       <SdkMessageProcessingStepImageId>{8e779195-e069-ea11-a811-000d3ab5d511}</SdkMessageProcessingStepImageId>
-      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted</Attributes>
+      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision</Attributes>
       <EntityAlias>PostImage</EntityAlias>
       <ImageType>1</ImageType>
       <MessagePropertyName>Target</MessagePropertyName>
@@ -26,7 +26,7 @@
     </SdkMessageProcessingStepImage>
     <SdkMessageProcessingStepImage Name="PreImage">
       <SdkMessageProcessingStepImageId>{7a779195-e069-ea11-a811-000d3ab5d511}</SdkMessageProcessingStepImageId>
-      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted</Attributes>
+      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision</Attributes>
       <EntityAlias>PreImage</EntityAlias>
       <ImageType>0</ImageType>
       <MessagePropertyName>Target</MessagePropertyName>

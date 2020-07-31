@@ -93,16 +93,20 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 // Update of active record
                 if (_preImageImportApplication.statecode == defraimp_importapplicationState.Active && _postImageImportApplication.statecode == defraimp_importapplicationState.Active)
                 {
-                    ManageRiskLevelChange(previousRiskLevel, currentRiskLevel);
-
-                    if (_preImageImportApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
+                    //Check if the record has not been overriden for a manual post import check
+                    if (_postImageImportApplication.defraimp_ManualPostImportCheckDecision == defraimp_importapplication_defraimp_manualpostimportcheckdecision.UseSystemDecision || _postImageImportApplication.defraimp_ManualPostImportCheckDecision == null)
                     {
-                        ManageITAHCRemoval(previousRiskLevel);
+                        ManageRiskLevelChange(previousRiskLevel, currentRiskLevel);
+
+                        if (_preImageImportApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
+                        {
+                            ManageITAHCRemoval(previousRiskLevel);
+                        }
+
+                        ManagePlaceOfOriginChange(previousRiskLevel);
+
+                        DealWithDeterminingInspection();
                     }
-
-                    ManagePlaceOfOriginChange(previousRiskLevel);
-
-                    DealWithDeterminingInspection();
                 } // Deactivate when the state was previously active but has been moved to a status of inactive (Note that we use state and statuscode here as we don't want this logic to run on Application Completion status reason)
                 else if (_preImageImportApplication.statecode == defraimp_importapplicationState.Active && _postImageImportApplication.statuscode == defraimp_importapplication_statuscode.Cancelled)
                 {
