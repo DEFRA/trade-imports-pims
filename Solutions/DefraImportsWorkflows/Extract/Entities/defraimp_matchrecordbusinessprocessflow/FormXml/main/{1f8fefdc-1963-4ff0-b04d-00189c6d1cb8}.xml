@@ -14,7 +14,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{a3705a62-bcac-4fa1-8ad6-247bfbc51f89}" name="StageStep3_section1" labelid="{7cec84f5-3b86-43dc-b9d1-46a70b9906e9}">
+                <section showbar="false" columns="1" id="{26c300ea-9ec9-99ca-4e64-8274b086a9e4}" name="StageStep3_section1" labelid="{7cec84f5-3b86-43dc-b9d1-46a70b9906e9}">
                   <labels>
                     <label description="Confirm Match" languagecode="1033" />
                   </labels>
@@ -40,7 +40,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{d3e86630-cf6a-43ee-b193-31b3bd654c04}" name="StageStep7_section1" labelid="{e14e2c0a-2c53-47ea-b0dc-07e9715a1f8c}">
+                <section showbar="false" columns="1" id="{1ac17fb0-7c59-196a-3343-17e540c3c321}" name="StageStep7_section1" labelid="{e14e2c0a-2c53-47ea-b0dc-07e9715a1f8c}">
                   <labels>
                     <label description="Complete Match" languagecode="1033" />
                   </labels>
@@ -48,7 +48,7 @@
                     <row>
                       <cell id="{858d2fcb-1470-4470-a73e-dac07029bf6e}" showlabel="true" visible="true" labelid="{ddf396c0-84de-4120-af02-0f0e810ea6c0}">
                         <labels>
-                          <label description="Have you Appended Records to Import Record? " languagecode="1033" />
+                          <label description="Have you created or updated an Import record for this Match?" languagecode="1033" />
                         </labels>
                         <control id="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow:defraimp_appendrecordstoimportrecords" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="defraimp_appendrecordstoimportrecords" relationship="bpf_defraimp_matchrecord_defraimp_matchrecordbusinessprocessflow" isrequired="true" disabled="false" />
                       </cell>
@@ -74,7 +74,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{bc974345-5054-4257-a96d-d8f5725979b2}" name="StageStep13_section1" labelid="{8c202211-26f0-4613-99a6-4acf8565602e}">
+                <section showbar="false" columns="1" id="{de41dc27-441b-5809-3829-0a61830d7c7b}" name="StageStep13_section1" labelid="{8c202211-26f0-4613-99a6-4acf8565602e}">
                   <labels>
                     <label description="Reject Match" languagecode="1033" />
                   </labels>

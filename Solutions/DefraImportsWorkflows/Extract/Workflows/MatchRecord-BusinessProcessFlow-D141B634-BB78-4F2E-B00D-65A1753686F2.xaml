@@ -164,7 +164,7 @@
                       </Sequence>
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Have you Appended Records to Import Record? " LabelId="858d2fcb-1470-4470-a73e-dac07029bf6e" LanguageCode="1033" />
+                      <mcwo:StepLabel Description="Have you created or updated an Import record for this Match?" LabelId="858d2fcb-1470-4470-a73e-dac07029bf6e" LanguageCode="1033" />
                     </sco:Collection>
                     <x:String x:Key="ProcessStepId">858d2fcb-1470-4470-a73e-dac07029bf6e</x:String>
                     <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
