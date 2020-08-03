@@ -26,10 +26,20 @@
     </layoutxml>
     <querytype>0</querytype>
     <fetchxml>
-      <fetch version="1.0" mapping="logical" distinct="true">
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
         <entity name="defraimp_importquery">
           <attribute name="subject" />
           <attribute name="createdon" />
+          <attribute name="statuscode" />
+          <attribute name="defraimp_querynumber" />
+          <attribute name="createdby" />
+          <attribute name="defraimp_querysentto" />
+          <attribute name="defraimp_itahc" />
+          <attribute name="ownerid" />
+          <attribute name="defraimp_dateresolved" />
+          <attribute name="defraimp_duedate" />
+          <attribute name="regardingobjectid" />
+          <order attribute="defraimp_querynumber" descending="true" />
           <filter type="and">
             <condition attribute="statecode" operator="in">
               <value>0</value>
@@ -41,16 +51,7 @@
               <condition attribute="partyid" operator="eq-userid" />
             </filter>
           </link-entity>
-          <attribute name="statuscode" />
-          <attribute name="defraimp_querynumber" />
-          <attribute name="createdby" />
-          <attribute name="defraimp_querysentto" />
-          <attribute name="defraimp_itahc" />
-          <attribute name="ownerid" />
-          <attribute name="defraimp_dateresolved" />
-          <attribute name="defraimp_duedate" />
-          <attribute name="regardingobjectid" />
-          <order attribute="defraimp_querynumber" descending="true" />
+          <attribute name="activityid" />
         </entity>
       </fetch>
     </fetchxml>
