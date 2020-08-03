@@ -94,7 +94,7 @@ namespace Defra.Imports.BusinessLogic.ImportApplication
                 if (_preImageImportApplication.statecode == defraimp_importapplicationState.Active && _postImageImportApplication.statecode == defraimp_importapplicationState.Active)
                 {
                     //Check if the record has not been overriden for a manual post import check
-                    if (_postImageImportApplication.defraimp_ManualPostImportCheckDecision == defraimp_importapplication_defraimp_manualpostimportcheckdecision.UseSystemDecision || _postImageImportApplication.defraimp_ManualPostImportCheckDecision == null)
+                    if (_postImageImportApplication.defraimp_ManualPostImportCheckDecision == defraimp_importapplication_defraimp_manualpostimportcheckdecision.UseSystemDecision)
                     {
                         ManageRiskLevelChange(previousRiskLevel, currentRiskLevel);
 

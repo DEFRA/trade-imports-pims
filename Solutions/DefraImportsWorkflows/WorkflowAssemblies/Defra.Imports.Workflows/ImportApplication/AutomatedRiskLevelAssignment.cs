@@ -47,9 +47,6 @@ IsolationModeEnum.Sandbox)]
           Id = importApplication.Id,
         };
 
-        // Set manual post import check to "Use system decision"
-        updatedImportApplication.defraimp_ManualPostImportCheckDecision = defraimp_importapplication_defraimp_manualpostimportcheckdecision.UseSystemDecision;
-
         //Check we have a country and commodity
         if (importApplication.defraimp_CountryofOriginId != null && importApplication.defraimp_CommodityTypeId != null)
         {
