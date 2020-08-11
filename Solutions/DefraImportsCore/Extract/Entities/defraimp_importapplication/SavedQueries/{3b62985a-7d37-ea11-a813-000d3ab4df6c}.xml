@@ -21,6 +21,7 @@
           <cell name="defraimp_commoditytypeid" width="100" />
           <cell name="defraimp_quantity" width="100" />
           <cell name="defraimp_workschedulenumber" width="100" />
+          <cell name="defraimp_generalcomments" width="100" disableSorting="1" />
           <cell name="createdon" width="100" />
         </row>
       </grid>
@@ -42,6 +43,7 @@
           <attribute name="defraimp_quantity" />
           <attribute name="defraimp_commodityidentifiers" />
           <attribute name="defraimp_workschedulenumber" />
+          <attribute name="defraimp_generalcomments" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>

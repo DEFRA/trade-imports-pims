@@ -556,13 +556,13 @@
                 </section>
                 <section id="{e0739eb4-8765-e4ee-1a79-4a346acbc84b}" name="CommodityIdentifiers_Section" locklevel="0" showlabel="true" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" showbar="false">
                   <labels>
-                    <label description="Commodity Identifiers" languagecode="1033" />
+                    <label description="Commodity Identifiers (ITAHC)" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
                       <cell id="{0d6ea39d-c2de-a6e2-5cde-9095b25870ca}" showlabel="false" colspan="1" auto="false">
                         <labels>
-                          <label description="Commodities Identifiers" languagecode="1033" />
+                          <label description="Commodities Identifiers (ITAHC)" languagecode="1033" />
                         </labels>
                         <control id="Commodities_Identifiers" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="defraimp_primaryitahcid" disabled="false">
                           <parameters>
@@ -571,6 +571,21 @@
                             <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
                           </parameters>
                         </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="CommodityIdentifiersManual_Section" showlabel="true" showbar="false" locklevel="0" id="{78303d78-c374-2e2b-216b-b33aed068901}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Commodity Identifiers (Manual)" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{183c1476-a8d7-b256-2de5-5eb3d6d53ec6}" showlabel="false" locklevel="0">
+                        <labels>
+                          <label description="Commodity Identifiers (Manual)" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commodityidentifiers" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commodityidentifiers" disabled="false" uniqueid="{2047b91e-26e5-dbac-796b-d8c9685de3dd}" />
                       </cell>
                     </row>
                   </rows>
