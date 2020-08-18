@@ -122,5 +122,23 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
 
             Assert.NotNull(notificationFromContext.defraimp_commoditiesnumberofanimals);
         }
+
+        [Fact]
+        public void MicrochipAndPassportNumberShouldGetPopulatedInIDTypes()
+        {
+            defraimp_ImporterNotification notificationImage = null;
+
+            var notificationFromContext = new defraimp_ImporterNotification()
+            {
+                defraimp_CommodityComplementsText = @"[{'commodityID':'01061900','commodityDescription':'Other','complementID':106400,'complementName':'Canis familiaris','speciesID':'42935','speciesName':'Canis familiaris','speciesType':'2','speciesClassName':'Carnivora','speciesClass':'106400','speciesNomination':'Canis familiaris'}]",
+                defraimp_IdentificationOfAnimalsText = @"[{'complementID':106400,'speciesID':'42935','keyDataPair':[{'key':'imp_number_animal','data':'1'}],'identifiers':[{'speciesNumber':1,'data':{'microchip':'900079000696650','passport':'HU202276920'}}]}]"
+            };
+
+            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext, notificationImage);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            Assert.True(notificationFromContext.defraimp_CommodityIDTypes.Contains("Microchip: 900079000696650;"));
+            Assert.True(notificationFromContext.defraimp_CommodityIDTypes.Contains("Passport: HU202276920;"));
+        }
     }
 }

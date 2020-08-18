@@ -19,6 +19,7 @@
   <EntityRelationship Name="business_unit_defraimp_importernotification" />
   <EntityRelationship Name="business_unit_defraimp_importinspection" />
   <EntityRelationship Name="business_unit_defraimp_inspectioncoveragerule" />
+  <EntityRelationship Name="business_unit_defraimp_ipaffsdocument" />
   <EntityRelationship Name="business_unit_defraimp_itahc" />
   <EntityRelationship Name="business_unit_defraimp_matchconfiguration" />
   <EntityRelationship Name="business_unit_defraimp_matchconfigurationfield" />
@@ -79,6 +80,7 @@
   <EntityRelationship Name="defraimp_defra_country_defraimp_placeoforigin_AddressCountry" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_transporter_Country" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_veterinarian_Country" />
+  <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_commoditytypemapping_CommodityType" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_docom_CommodityType" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_goldbronzecommodity_CommodityTypeid" />
   <EntityRelationship Name="defraimp_defraexp_commoditytype_defraimp_importapp" />
@@ -97,6 +99,7 @@
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_itahc" />
   <EntityRelationship Name="defraimp_defraimp_importapplication_defraimp_watchflag_ImportApplicationId" />
   <EntityRelationship Name="defraimp_defraimp_importernotification_defraimp_importapplication_PrimaryImporterNotificationId" />
+  <EntityRelationship Name="defraimp_defraimp_importernotification_defraimp_ipaffsdocument_ImporterNotificationId" />
   <EntityRelationship Name="defraimp_defraimp_importernotification_defraimp_matchrecord_ImporterNotification" />
   <EntityRelationship Name="defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_ImporterNotificationId" />
   <EntityRelationship Name="defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNotificationId" />
@@ -166,6 +169,8 @@
   <EntityRelationship Name="lk_defraimp_commoditycomplement_modifiedby" />
   <EntityRelationship Name="lk_defraimp_commoditycomplementparameterset_createdby" />
   <EntityRelationship Name="lk_defraimp_commoditycomplementparameterset_modifiedby" />
+  <EntityRelationship Name="lk_defraimp_commoditytypemapping_createdby" />
+  <EntityRelationship Name="lk_defraimp_commoditytypemapping_modifiedby" />
   <EntityRelationship Name="lk_defraimp_consignee_createdby" />
   <EntityRelationship Name="lk_defraimp_consignee_modifiedby" />
   <EntityRelationship Name="lk_defraimp_counterhistory_createdby" />
@@ -192,6 +197,8 @@
   <EntityRelationship Name="lk_defraimp_importrisklevel_modifiedby" />
   <EntityRelationship Name="lk_defraimp_inspectioncoveragerule_createdby" />
   <EntityRelationship Name="lk_defraimp_inspectioncoveragerule_modifiedby" />
+  <EntityRelationship Name="lk_defraimp_ipaffsdocument_createdby" />
+  <EntityRelationship Name="lk_defraimp_ipaffsdocument_modifiedby" />
   <EntityRelationship Name="lk_defraimp_itahc_createdby" />
   <EntityRelationship Name="lk_defraimp_itahc_modifiedby" />
   <EntityRelationship Name="lk_defraimp_matchconfiguration_createdby" />
@@ -229,6 +236,7 @@
   <EntityRelationship Name="msdyn_postalbum_defraimp_importqueries" />
   <EntityRelationship Name="opportunity_defraimp_importqueries" />
   <EntityRelationship Name="organization_defraimp_autonumber" />
+  <EntityRelationship Name="organization_defraimp_commoditytypemapping" />
   <EntityRelationship Name="organization_defraimp_importapplicationbusinessprocessflow" />
   <EntityRelationship Name="organization_defraimp_importcountrycommodityrisklevel" />
   <EntityRelationship Name="organization_defraimp_importrisklevel" />
@@ -245,6 +253,7 @@
   <EntityRelationship Name="owner_defraimp_importernotification" />
   <EntityRelationship Name="owner_defraimp_importinspection" />
   <EntityRelationship Name="owner_defraimp_inspectioncoveragerule" />
+  <EntityRelationship Name="owner_defraimp_ipaffsdocument" />
   <EntityRelationship Name="owner_defraimp_itahc" />
   <EntityRelationship Name="owner_defraimp_matchconfiguration" />
   <EntityRelationship Name="owner_defraimp_matchconfigurationfield" />
@@ -274,6 +283,7 @@
   <EntityRelationship Name="team_defraimp_importernotification" />
   <EntityRelationship Name="team_defraimp_importinspection" />
   <EntityRelationship Name="team_defraimp_inspectioncoveragerule" />
+  <EntityRelationship Name="team_defraimp_ipaffsdocument" />
   <EntityRelationship Name="team_defraimp_itahc" />
   <EntityRelationship Name="team_defraimp_matchconfiguration" />
   <EntityRelationship Name="team_defraimp_matchconfigurationfield" />
@@ -300,6 +310,7 @@
   <EntityRelationship Name="user_defraimp_importernotification" />
   <EntityRelationship Name="user_defraimp_importinspection" />
   <EntityRelationship Name="user_defraimp_inspectioncoveragerule" />
+  <EntityRelationship Name="user_defraimp_ipaffsdocument" />
   <EntityRelationship Name="user_defraimp_itahc" />
   <EntityRelationship Name="user_defraimp_matchconfiguration" />
   <EntityRelationship Name="user_defraimp_matchconfigurationfield" />

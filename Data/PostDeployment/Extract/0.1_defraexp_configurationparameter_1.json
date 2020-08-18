@@ -1,16 +1,11 @@
 {
-  "RecordsCount": 1,
+  "RecordsCount": 2,
   "ExportedEntities": [
     {
       "LogicalName": "defraexp_configurationparameter",
       "Id": "01cd59c3-fad9-e911-a863-000d3ab0da57",
       "IsManyToMany": false,
       "Attributes": [
-        {
-          "AttributeName": "defraexp_value",
-          "AttributeValue": "3",
-          "AttributeType": "System.String"
-        },
         {
           "AttributeName": "defraexp_key",
           "AttributeValue": "defraimp_inspectionCoverageCount",
@@ -29,6 +24,28 @@
         {
           "AttributeName": "defraexp_name",
           "AttributeValue": "Inspection Coverage Count",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_configurationparameter",
+      "Id": "68604929-79e0-ea11-a813-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_key",
+          "AttributeValue": "defraimp_ipaffs_url",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_description",
+          "AttributeValue": "The URL for the IPAFFS environment related to this instance of dynamics.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "IPAFFS URL",
           "AttributeType": "System.String"
         }
       ]

@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.20158" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.21048" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsApps</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Apps" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.19</Version>
+    <Version>0.0.0.22</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -83,87 +82,87 @@
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
-        <Required key="0" type="1" schemaName="defraimp_placeoforigin" displayName="Place of Origin" solution="Active" />
+        <Required key="0" type="1" schemaName="defraimp_commoditytypemapping" displayName="Commodity Type Mapping" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="2" type="1" schemaName="defraimp_veterinarian" displayName="Veterinarian" solution="Active" />
+        <Required key="2" type="1" schemaName="defraimp_placeoforigin" displayName="Place of Origin" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="3" type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="Active" />
+        <Required key="3" type="1" schemaName="defraimp_veterinarian" displayName="Veterinarian" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="4" type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Required key="4" type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="5" type="1" schemaName="defraimp_matchrecord" displayName="Match Record" solution="Active" />
+        <Required key="5" type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="6" type="1" schemaName="defraimp_docom" displayName="DOCOM" solution="Active" />
+        <Required key="6" type="1" schemaName="defraimp_matchrecord" displayName="Match Record" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="7" type="1" schemaName="defraimp_watchlist" displayName="Watch List" solution="Active" />
+        <Required key="7" type="1" schemaName="defraimp_docom" displayName="DOCOM" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="8" type="1" schemaName="defraimp_transporter" displayName="Transporter" solution="Active" />
+        <Required key="8" type="1" schemaName="defraimp_watchlist" displayName="Watch List" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="9" type="1" schemaName="defraimp_importinspection" displayName="Post Import Check" solution="Active" />
+        <Required key="9" type="1" schemaName="defraimp_transporter" displayName="Transporter" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="10" type="1" schemaName="defraimp_apharegion" displayName="APHA Region" solution="Active" />
+        <Required key="10" type="1" schemaName="defraimp_importinspection" displayName="Post Import Check" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="11" type="1" schemaName="defraimp_matchconfiguration" displayName="Match Configuration" solution="Active" />
+        <Required key="11" type="1" schemaName="defraimp_apharegion" displayName="APHA Region" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="12" type="1" schemaName="defraimp_goldbronzecommodity" displayName="Gold/Bronze Commodity" solution="Active" />
+        <Required key="12" type="1" schemaName="defraimp_matchconfiguration" displayName="Match Configuration" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="13" type="1" schemaName="defraexp_commoditytype" displayName="Commodity Type" solution="defraexports (0.0.0.37)" />
+        <Required key="13" type="1" schemaName="defraimp_goldbronzecommodity" displayName="Gold/Bronze Commodity" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="14" type="1" schemaName="defraimp_autonumber" displayName="Autonumber" solution="Active" />
+        <Required key="14" type="1" schemaName="defraexp_commoditytype" displayName="Commodity Type" solution="defraexports (0.0.0.37)" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="15" type="1" schemaName="defraimp_inspectioncoveragerule" displayName="Inspection Coverage Rule" solution="Active" />
+        <Required key="15" type="1" schemaName="defraimp_autonumber" displayName="Autonumber" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="16" type="1" schemaName="defraimp_counterhistory" displayName="Counter History" solution="Active" />
+        <Required key="16" type="1" schemaName="defraimp_inspectioncoveragerule" displayName="Inspection Coverage Rule" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="17" type="1" schemaName="defraimp_importernotification" displayName="Importer Notification" solution="Active" />
+        <Required key="17" type="1" schemaName="defraimp_counterhistory" displayName="Counter History" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="18" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
+        <Required key="18" type="1" schemaName="defraimp_importernotification" displayName="Importer Notification" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="19" type="1" schemaName="defraexp_configurationparameter" displayName="Configuration Parameter" solution="defraexports (0.0.0.37)" />
+        <Required key="19" type="1" schemaName="defraimp_ipaffsdocument" displayName="IPAFFS Document" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="20" type="1" schemaName="defraimp_placeofdestination" displayName="Place Of Destination" solution="Active" />
+        <Required key="20" type="1" schemaName="defraimp_importapplication" displayName="Import Record" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="21" type="1" schemaName="defraimp_consignee" displayName="Consignee" solution="Active" />
+        <Required key="21" type="1" schemaName="defraexp_configurationparameter" displayName="Configuration Parameter" solution="defraexports (0.0.0.37)" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
@@ -179,51 +178,59 @@
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="25" type="20" displayName="EU Imports Team Leader" solution="Active" id="{f9e6fead-cada-e911-a863-000d3ab0da57}" />
+        <Required key="25" type="1" schemaName="defraimp_placeofdestination" displayName="Place Of Destination" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="26" type="20" displayName="EU Imports Caseworker" solution="Active" id="{b1d76a5b-c7da-e911-a863-000d3ab0da57}" />
+        <Required key="26" type="1" schemaName="defraimp_consignee" displayName="Consignee" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="27" type="60" displayName="EU Imports - APHA Border Control Metrics" solution="Active" id="{f97149d6-b312-ea11-a811-000d3ab5d037}" />
+        <Required key="27" type="20" displayName="EU Imports Caseworker" solution="Active" id="{b1d76a5b-c7da-e911-a863-000d3ab0da57}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="28" type="60" displayName="EU Imports - CSC Capacity and Demand" solution="Active" id="{7721a0e0-3911-ea11-a811-000d3ab35da5}" />
+        <Required key="28" type="20" displayName="EU Imports Team Leader" solution="Active" id="{f9e6fead-cada-e911-a863-000d3ab0da57}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="29" type="60" displayName="EU Imports - Border Control Metrics" solution="Active" id="{a5086809-3f10-ea11-a811-000d3ab55801}" />
+        <Required key="29" type="60" displayName="EU Imports - Daily Stats" solution="Active" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="30" type="60" displayName="EU Imports - Import Queries" solution="Active" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" />
+        <Required key="30" type="60" displayName="EU Imports - Caseworker" solution="Active" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="31" type="60" displayName="EU Imports - Caseworker" solution="Active" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" />
+        <Required key="31" type="60" displayName="EU Imports - Import Queries" solution="Active" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="32" type="60" displayName="EU Imports - Daily IRMS Stats" solution="Active" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" />
+        <Required key="32" type="60" displayName="EU Imports - CSC Capacity and Demand" solution="Active" id="{7721a0e0-3911-ea11-a811-000d3ab35da5}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="33" type="60" displayName="EU Imports - Daily Stats" solution="Active" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
+        <Required key="33" type="60" displayName="EU Imports - Border Control Metrics" solution="Active" id="{a5086809-3f10-ea11-a811-000d3ab55801}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="34" type="60" displayName="EU Imports - Daily Huddle Stats" solution="Active" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
+        <Required key="34" type="60" displayName="EU Imports - APHA Border Control Metrics" solution="Active" id="{f97149d6-b312-ea11-a811-000d3ab5d037}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="35" type="62" schemaName="defraimp_EUImportsApp" solution="Active" />
+        <Required key="35" type="60" displayName="EU Imports - Daily Huddle Stats" solution="Active" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="36" type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
+        <Required key="36" type="60" displayName="EU Imports - Daily IRMS Stats" solution="Active" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="37" type="62" schemaName="defraimp_EUImportsApp" solution="Active" />
+        <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="38" type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
     </MissingDependencies>

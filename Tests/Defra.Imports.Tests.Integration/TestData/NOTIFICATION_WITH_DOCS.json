@@ -1,0 +1,176 @@
+{
+  "id": 499116,
+  "referenceNumber": "IMP.GB.2020.1499116",
+  "version": 1,
+  "lastUpdated": "2020-08-13T14:57:40.91Z",
+  "lastUpdatedBy": {
+    "displayName": "Draco Malfoy",
+    "userId": "38d5dbc8-8119-e911-a969-000d3a29ba60"
+  },
+  "type": "IMP",
+  "status": "SUBMITTED",
+  "partOne": {
+    "personResponsible": {
+      "name": "Draco Malfoy",
+      "companyId": "b8f5d9c9-8119-e911-a96a-000d3a29b5de",
+      "companyName": "Draco Company",
+      "address": [ "18", "VALLEY CLOSE", "TEIGNMOUTH", "TEIGNBRIDGE", "TQ14 9UF", "GB" ],
+      "country": "GB",
+      "tracesID": 1001,
+      "phone": "07840-148728",
+      "email": "hnkdsfkjb123@mailinator.com",
+      "contactId": "38d5dbc8-8119-e911-a969-000d3a29ba60"
+    },
+    "consignor": {
+      "id": "9c3bf041-59f8-4d55-bf11-6b69cbc60b82",
+      "type": "exporter",
+      "status": "nonapproved",
+      "companyName": "Cassin and Sons",
+      "address": {
+        "addressLine1": "0162 Deborah",
+        "addressLine2": "53102 Thompson Summit",
+        "addressLine3": "Nevada",
+        "city": "Curtmouth",
+        "postalZipCode": "33492-2",
+        "countryISOCode": "DE",
+        "internationalTelephone": {
+          "countryCode": "32",
+          "subscriberNumber": "1617777777"
+        },
+        "telephone": "321617777777",
+        "email": "ukoperator@email.com"
+      }
+    },
+    "importer": {
+      "id": "fee475a7-3399-4d47-aae9-61b9f29ecdf0",
+      "type": "destination",
+      "status": "nonapproved",
+      "companyName": "KrisKris",
+      "address": {
+        "addressLine1": "51887 Wilhelm",
+        "addressLine2": "03227 Domenica Ramp",
+        "addressLine3": "West Virginia",
+        "city": "Roelborough",
+        "postalZipCode": "CGx 9xU",
+        "countryISOCode": "GB",
+        "ukTelephone": "01615555555",
+        "telephone": "01615555555",
+        "email": "ukoperator@email.com"
+      }
+    },
+    "placeOfDestination": {
+      "id": "80e2902d-22c3-4f89-aa83-43c7fdce5f1d",
+      "type": "destination",
+      "status": "nonapproved",
+      "companyName": "Breitenberg Breitenberg and Breitenberg",
+      "address": {
+        "addressLine1": "08783 Sylvester",
+        "addressLine2": "0603 Effertz Road",
+        "addressLine3": "Idaho",
+        "city": "East Carey",
+        "postalZipCode": "DBz 5xh",
+        "countryISOCode": "GB",
+        "ukTelephone": "01615555555",
+        "telephone": "01615555555",
+        "email": "ukoperator@email.com"
+      }
+    },
+    "commodities": {
+      "commodityComplement": [
+        {
+          "commodityID": "0101",
+          "commodityDescription": "Live horses, asses, mules and hinnies",
+          "complementID": 26602,
+          "complementName": "Equus asinus",
+          "speciesID": "35403",
+          "speciesName": "Equus asinus",
+          "speciesType": "2",
+          "speciesClass": "26602",
+          "speciesNomination": "Equus asinus"
+        }
+      ],
+      "complementParameterSet": [
+        {
+          "complementID": 26602,
+          "speciesID": "35403",
+          "keyDataPair": [
+            {
+              "key": "imp_number_animal",
+              "data": "1"
+            }
+          ],
+          "identifiers": [
+            {
+              "speciesNumber": 1,
+              "data": {
+                "microchip": "1",
+                "passport": "1"
+              }
+            }
+          ]
+        }
+      ],
+      "countryOfOrigin": "AT",
+      "consignedCountry": "AT",
+      "animalsCertifiedAs": "Breeding"
+    },
+    "arrivalDate": "2020-08-02",
+    "transporter": {
+      "id": "64cc1fdb-9c02-4f14-95f5-c5db3b54945e",
+      "type": "private transporter",
+      "status": "nonapproved",
+      "companyName": "MonahanMonahan",
+      "address": {
+        "addressLine1": "497 Beth",
+        "addressLine2": "25662 Osinski Club",
+        "addressLine3": "Arizona",
+        "city": "Mayertshire",
+        "postalZipCode": "19229-5",
+        "countryISOCode": "DE",
+        "internationalTelephone": {
+          "countryCode": "32",
+          "subscriberNumber": "1617777777"
+        },
+        "telephone": "321617777777",
+        "email": "ukoperator@email.com"
+      }
+    },
+    "meansOfTransport": {},
+    "meansOfTransportFromEntryPoint": {},
+    "veterinaryInformation": {
+      "accompanyingDocuments": [
+        {
+          "documentType": "itahc",
+          "documentReference": "3123123",
+          "documentIssueDate": "2020-04-02",
+          "attachmentId": "0247472d-61b5-498e-878d-1722d2aebe9d",
+          "attachmentFilename": "example (4) (1) (1) (3).pdf",
+          "attachmentContentType": "application/pdf"
+        },
+        {
+          "documentType": "docom",
+          "documentReference": "3123123",
+          "documentIssueDate": "2020-04-02"
+        },
+        {
+          "documentType": "commercialInvoice",
+          "documentReference": "3123123",
+          "documentIssueDate": "2020-04-02"
+        },
+        {
+          "documentType": "other",
+          "documentReference": "DOC-96718",
+          "documentIssueDate": "2020-05-21"
+        }
+      ]
+    },
+    "route": { "transitingStates": [ "EN", "AT" ] },
+    "submissionDate": "2020-08-13T14:57:40.816551Z",
+    "submittedBy": {
+      "displayName": "Draco Malfoy",
+      "userId": "38d5dbc8-8119-e911-a969-000d3a29ba60"
+    },
+    "complexCommoditySelected": true,
+    "portOfEntry": "Reprehenderit expli"
+  }
+}

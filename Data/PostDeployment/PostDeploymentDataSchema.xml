@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <entity name="defra_country" displayname="Country" etc="10066" primaryidfield="defra_countryid" primarynamefield="defra_name" disableplugins="false">
     <fields>
@@ -61,7 +61,6 @@
   </entity>
   <entity name="defraexp_configurationparameter" displayname="Configuration Parameter" etc="10099" primaryidfield="defraexp_configurationparameterid" primarynamefield="defraexp_name" disableplugins="false">
     <fields>
-      <field displayname="Value" name="defraexp_value" type="string" primaryKey="false" customfield="false" />
       <field displayname="Key" name="defraexp_key" type="string" primaryKey="false" customfield="false" />
       <field displayname="Description" name="defraexp_description" type="memo" primaryKey="false" customfield="false" />
       <field displayname="Configuration Parameter" name="defraexp_configurationparameterid" type="guid" primaryKey="true" customfield="false" />

@@ -110,6 +110,25 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
+        [Fact]
+        [ExcludeFromCodeCoverage]
+        public void SendToSBQueue_NotificationWithDocuments_NotificationAndDocumentsShouldBeCreatedSuccesfully()
+        {
+            string expectedReferenceNumber = "IMP.GB.2020.1499116";
+            string jsonContents = ReadTestData("NOTIFICATION_WITH_DOCS.json");
+
+            // Act
+            SendServiceBusMessage(jsonContents);
+            Thread.Sleep(150000);
+
+            // Assert
+            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            Assert.True(notifications.Count > 0);
+
+            // Clear down
+            ClearDownDynamicsEntities(notifications);
+        }
+
         private List<Entity> GetNotificationsByReference(string referenceNumber)
         {
             QueryExpression qe = new QueryExpression("defraimp_importernotification");
