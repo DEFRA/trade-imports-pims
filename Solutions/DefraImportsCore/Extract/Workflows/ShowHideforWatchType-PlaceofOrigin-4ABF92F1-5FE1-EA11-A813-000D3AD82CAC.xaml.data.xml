@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{4d12828a-71bf-ea11-a812-000d3ad82cac}" Name="Show / Hide Based on Watch Type" Description="Click to add description" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/ShowHideBasedonWatchType-4D12828A-71BF-EA11-A812-000D3AD82CAC.xaml</XamlFileName>
+<Workflow WorkflowId="{4abf92f1-5fe1-ea11-a813-000d3ad82cac}" Name="Show / Hide for Watch Type - Place of Origin" Description="Click to add description" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ShowHideforWatchType-PlaceofOrigin-4ABF92F1-5FE1-EA11-A813-000D3AD82CAC.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>2</Category>
@@ -15,14 +15,14 @@
   <StatusCode>2</StatusCode>
   <RunAs>1</RunAs>
   <IsTransacted>1</IsTransacted>
-  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IntroducedVersion>0.0.0.1</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <BusinessProcessType>0</BusinessProcessType>
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <ProcessTriggerScope>1</ProcessTriggerScope>
   <PrimaryEntity>defraimp_WatchList</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Show / Hide Based on Watch Type" />
+    <LocalizedName languagecode="1033" description="Show / Hide for Watch Type - Place of Origin" />
   </LocalizedNames>
   <Descriptions>
     <Description languagecode="1033" description="Click to add description" />

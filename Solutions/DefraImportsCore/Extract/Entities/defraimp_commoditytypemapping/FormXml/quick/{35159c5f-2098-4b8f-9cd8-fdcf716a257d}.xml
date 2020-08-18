@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{bbdcd809-760e-4229-8702-c1d489297c96}">
                         <labels>
-                          <label description="Name" languagecode="1033" />
+                          <label description="Species Name" languagecode="1033" />
                         </labels>
                         <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" />
                       </cell>

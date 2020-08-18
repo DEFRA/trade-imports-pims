@@ -44,6 +44,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{2abddcd2-4773-d540-8cde-ab4a05822922}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodity Code" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditycode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_commoditycode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{3e66bccc-8c6d-918e-ac62-54c344c2608d}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Purpose" languagecode="1033" />
@@ -59,7 +67,7 @@
                         <control disabled="false" id="defraimp_commoditynotes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commoditynotes" uniqueid="{034cdbb1-ae15-2422-db89-7c5708ed6dc3}" />
                       </cell>
                     </row>
-                    <row />
+                    <row></row>
                     <row>
                       <cell id="{4a20d1c3-8208-1145-0487-d58594a3a92d}" locklevel="0" showlabel="true">
                         <labels>

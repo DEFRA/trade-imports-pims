@@ -135,7 +135,7 @@
           <Type>nvarchar</Type>
           <Name>defraimp_addresscity</Name>
           <LogicalName>defraimp_addresscity</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
+          <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
@@ -214,7 +214,7 @@
           <Type>nvarchar</Type>
           <Name>defraimp_addressline1</Name>
           <LogicalName>defraimp_addressline1</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
+          <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
@@ -827,7 +827,7 @@
           <Type>nvarchar</Type>
           <Name>defraimp_postcode</Name>
           <LogicalName>defraimp_postcode</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
+          <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>

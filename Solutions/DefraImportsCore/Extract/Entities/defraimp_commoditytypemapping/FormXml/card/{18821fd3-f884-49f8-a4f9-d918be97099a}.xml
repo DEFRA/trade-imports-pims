@@ -56,7 +56,7 @@
                     <row>
                       <cell id="{c83b9dc9-655e-4703-9e9e-583a317ec650}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Name" languagecode="1033" />
+                          <label description="Species Name" languagecode="1033" />
                         </labels>
                         <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" disabled="false" />
                       </cell>

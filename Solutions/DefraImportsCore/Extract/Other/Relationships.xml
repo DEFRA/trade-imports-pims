@@ -125,6 +125,7 @@
   <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_counterhistory_PlaceOfOriginId" />
   <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_importapplication_PlaceofOriginid" />
   <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_importapplication_previousplaceoforiginid" />
+  <EntityRelationship Name="defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId" />
   <EntityRelationship Name="defraimp_defraimp_transporter_defraimp_watchlist_TransporterId" />
   <EntityRelationship Name="defraimp_defraimp_veterinarian_defraimp_watchlist_VeterinarianId" />
   <EntityRelationship Name="defraimp_defraimp_watchlist_defraimp_watchflag_WatchListId" />

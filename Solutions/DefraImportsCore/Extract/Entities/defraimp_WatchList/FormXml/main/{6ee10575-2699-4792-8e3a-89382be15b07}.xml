@@ -56,7 +56,7 @@
                         <labels>
                           <label description="Place of Destination" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_placeofdestinationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeofdestinationid" disabled="false" />
+                        <control id="defraimp_placeofdestinationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeofdestinationid" disabled="false" uniqueid="{d53200e6-6a9c-e331-0857-be4b1cdb6a33}" />
                       </cell>
                     </row>
                     <row>
@@ -80,7 +80,15 @@
                         <labels>
                           <label description="Veterinarian" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_veterinarianid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_veterinarianid" disabled="false" />
+                        <control id="defraimp_veterinarianid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_veterinarianid" disabled="false" uniqueid="{6143b722-bade-6222-0926-eea6032ebca7}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9aed0263-bd36-2408-8809-56e048b39d18}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place Of Origin" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeoforiginid" disabled="false" uniqueid="{585ba627-e721-aede-5c70-33459d39ecb9}" />
                       </cell>
                     </row>
                   </rows>
@@ -178,7 +186,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
