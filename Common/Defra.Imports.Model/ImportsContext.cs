@@ -30941,6 +30941,24 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_copycommodityfrom")]
+		public System.Nullable<bool> defraimp_CopyCommodityFrom
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("defraimp_copycommodityfrom");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_CopyCommodityFrom");
+				this.SetAttributeValue("defraimp_copycommodityfrom", value);
+				this.OnPropertyChanged("defraimp_CopyCommodityFrom");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_copyconsigneefrom")]
 		public System.Nullable<bool> defraimp_CopyConsigneeFrom
 		{

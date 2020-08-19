@@ -14,9 +14,9 @@
         {
           "AttributeName": "defraimp_importrisklevelid",
           "AttributeValue": {
-            "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
+            "Id": "a4c3149e-b2d3-e911-a84e-000d3ab0d281",
             "LogicalName": "defraimp_importrisklevel",
-            "Name": "P1",
+            "Name": "P2",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -41,7 +41,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -167,7 +167,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -199,7 +199,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -241,7 +241,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -409,7 +409,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -451,7 +451,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -498,7 +498,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -540,7 +540,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -624,7 +624,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -671,7 +671,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -797,7 +797,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -829,7 +829,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -871,7 +871,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1039,7 +1039,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1081,7 +1081,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1128,7 +1128,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1170,7 +1170,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1254,7 +1254,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1301,7 +1301,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1427,7 +1427,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1459,7 +1459,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1501,7 +1501,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1669,7 +1669,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1711,7 +1711,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1758,7 +1758,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1800,7 +1800,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1884,7 +1884,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -1931,7 +1931,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2057,7 +2057,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2089,7 +2089,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2131,7 +2131,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2299,7 +2299,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2341,7 +2341,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2388,7 +2388,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2430,7 +2430,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2514,7 +2514,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2561,7 +2561,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2687,7 +2687,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2719,7 +2719,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2761,7 +2761,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2929,7 +2929,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2971,7 +2971,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3018,7 +3018,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3060,7 +3060,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3144,7 +3144,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3191,7 +3191,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3317,7 +3317,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3349,7 +3349,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3391,7 +3391,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3559,7 +3559,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3601,7 +3601,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3648,7 +3648,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3690,7 +3690,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3774,7 +3774,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3821,7 +3821,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3947,7 +3947,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -3979,7 +3979,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4021,7 +4021,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4189,7 +4189,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4231,7 +4231,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4278,7 +4278,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4320,7 +4320,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4404,7 +4404,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4451,7 +4451,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4577,7 +4577,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4609,7 +4609,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4651,7 +4651,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4819,7 +4819,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4861,7 +4861,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4908,7 +4908,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -4950,7 +4950,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5034,7 +5034,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5081,7 +5081,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5207,7 +5207,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5239,7 +5239,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5281,7 +5281,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5449,7 +5449,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5491,7 +5491,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5538,7 +5538,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5580,7 +5580,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5664,7 +5664,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5711,7 +5711,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5837,7 +5837,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5869,7 +5869,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -5911,7 +5911,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6079,7 +6079,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6121,7 +6121,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6168,7 +6168,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6210,7 +6210,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6294,7 +6294,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6341,7 +6341,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6467,7 +6467,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6499,7 +6499,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6541,7 +6541,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6709,7 +6709,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6751,7 +6751,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6798,7 +6798,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6840,7 +6840,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6924,7 +6924,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6971,7 +6971,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7097,7 +7097,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7129,7 +7129,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7171,7 +7171,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7339,7 +7339,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7381,7 +7381,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7428,7 +7428,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7470,7 +7470,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7554,7 +7554,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7601,7 +7601,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7727,7 +7727,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7759,7 +7759,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7801,7 +7801,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7969,7 +7969,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8011,7 +8011,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8058,7 +8058,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8100,7 +8100,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8184,7 +8184,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8226,7 +8226,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8347,7 +8347,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8379,7 +8379,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8421,7 +8421,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8589,7 +8589,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8631,7 +8631,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8673,7 +8673,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8715,7 +8715,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8799,7 +8799,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8846,7 +8846,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -8972,7 +8972,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9004,7 +9004,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9046,7 +9046,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9214,7 +9214,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9256,7 +9256,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9303,7 +9303,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9345,7 +9345,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9429,7 +9429,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9476,7 +9476,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9602,7 +9602,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9634,7 +9634,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9676,7 +9676,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9844,7 +9844,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9886,7 +9886,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9933,7 +9933,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -9975,7 +9975,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10059,7 +10059,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10106,7 +10106,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10232,7 +10232,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10264,7 +10264,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10306,7 +10306,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10474,7 +10474,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10516,7 +10516,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10563,7 +10563,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10605,7 +10605,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10689,7 +10689,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10736,7 +10736,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10862,7 +10862,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10894,7 +10894,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -10936,7 +10936,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11104,7 +11104,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11146,7 +11146,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11193,7 +11193,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11235,7 +11235,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11319,7 +11319,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11366,7 +11366,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11492,7 +11492,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11524,7 +11524,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11566,7 +11566,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11734,7 +11734,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11776,7 +11776,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11823,7 +11823,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11865,7 +11865,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11949,7 +11949,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -11996,7 +11996,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12122,7 +12122,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12154,7 +12154,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12196,7 +12196,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12364,7 +12364,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12406,7 +12406,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12453,7 +12453,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12495,7 +12495,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12579,7 +12579,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12621,7 +12621,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12742,7 +12742,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12774,7 +12774,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12816,7 +12816,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -12984,7 +12984,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13026,7 +13026,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13073,7 +13073,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13115,7 +13115,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13199,7 +13199,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13246,7 +13246,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13372,7 +13372,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13404,7 +13404,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13446,7 +13446,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13614,7 +13614,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13656,7 +13656,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13703,7 +13703,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13745,7 +13745,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13829,7 +13829,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -13876,7 +13876,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14002,7 +14002,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14034,7 +14034,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14076,7 +14076,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14244,7 +14244,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14286,7 +14286,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14333,7 +14333,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14375,7 +14375,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14459,7 +14459,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14506,7 +14506,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14632,7 +14632,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14664,7 +14664,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14706,7 +14706,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14874,7 +14874,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14916,7 +14916,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -14963,7 +14963,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15005,7 +15005,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15089,7 +15089,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15136,7 +15136,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15262,7 +15262,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15294,7 +15294,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15336,7 +15336,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15504,7 +15504,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15546,7 +15546,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15593,7 +15593,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15635,7 +15635,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15719,7 +15719,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15761,7 +15761,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15877,7 +15877,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15909,7 +15909,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -15951,7 +15951,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16119,7 +16119,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16161,7 +16161,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16203,7 +16203,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16245,7 +16245,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16329,7 +16329,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16376,7 +16376,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16502,7 +16502,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16534,7 +16534,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16576,7 +16576,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16744,7 +16744,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16786,7 +16786,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16833,7 +16833,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16875,7 +16875,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -16959,7 +16959,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17006,7 +17006,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17132,7 +17132,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17164,7 +17164,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17206,7 +17206,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17374,7 +17374,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17416,7 +17416,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17463,7 +17463,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17505,7 +17505,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17589,7 +17589,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17636,7 +17636,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17762,7 +17762,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17794,7 +17794,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -17836,7 +17836,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18004,7 +18004,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18046,7 +18046,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18093,7 +18093,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18135,7 +18135,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18219,7 +18219,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18266,7 +18266,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18392,7 +18392,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18424,7 +18424,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18466,7 +18466,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18634,7 +18634,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18676,7 +18676,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18723,7 +18723,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18765,7 +18765,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18849,7 +18849,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -18896,7 +18896,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19022,7 +19022,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19054,7 +19054,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19096,7 +19096,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19264,7 +19264,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19306,7 +19306,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19353,7 +19353,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19395,7 +19395,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19479,7 +19479,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19526,7 +19526,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19652,7 +19652,7 @@
           "AttributeValue": {
             "Id": "095545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Slaughter",
+            "Name": "CATTLE SLAUGHTER",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19684,7 +19684,7 @@
           "AttributeValue": {
             "Id": "075545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Cattle Production",
+            "Name": "CATTLE PRODUCTION",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19726,7 +19726,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19894,7 +19894,7 @@
           "AttributeValue": {
             "Id": "4a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Poultry - Adult",
+            "Name": "POULTRY - ADULT",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19936,7 +19936,7 @@
           "AttributeValue": {
             "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SPF Eggs",
+            "Name": "SPF EGGS",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -19983,7 +19983,7 @@
           "AttributeValue": {
             "Id": "3c5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Non-Domestic Ungulates",
+            "Name": "NON-DOMESTIC UNGULATES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -20025,7 +20025,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -20109,7 +20109,7 @@
           "AttributeValue": {
             "Id": "3e5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "Other mammals, Insects, Reptiles",
+            "Name": "OTHER MAMMALS, INSECTS, REPTILES",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -20156,7 +20156,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"

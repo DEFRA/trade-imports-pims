@@ -120,10 +120,15 @@ namespace Defra.Imports.BusinessLogic.Utils
                 fieldsToMap.AddRange(ParseMappingConfig("PlaceOfOrigin", _mappingXml));
             }
 
-            //False is Importer Notification, true is ITAHC
             if (_matchRecord.defraimp_CopyTransporterFrom == true)
             {
                 fieldsToMap.AddRange(ParseMappingConfig("Transporter", _mappingXml));
+            }
+
+            //False is Importer Notification, true is ITAHC
+            if (_matchRecord.defraimp_CopyCommodityFrom == true)
+            {
+                fieldsToMap.AddRange(ParseMappingConfig("Commodity", _mappingXml));
             }
 
             return fieldsToMap;
@@ -164,6 +169,12 @@ namespace Defra.Imports.BusinessLogic.Utils
             if (_matchRecord.defraimp_CopyTransporterFrom == false)
             {
                 fieldsToMap.AddRange(ParseMappingConfig("Transporter", _mappingXml));
+            }
+
+            //False is Importer Notification, true is ITAHC
+            if (_matchRecord.defraimp_CopyCommodityFrom == false)
+            {
+                fieldsToMap.AddRange(ParseMappingConfig("Commodity", _mappingXml));
             }
 
             return fieldsToMap;

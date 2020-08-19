@@ -40,7 +40,16 @@
                         <labels>
                           <label description="Commodity Type" languagecode="1033" />
                         </labels>
-                        <control disabled="false" id="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytypeid" uniqueid="{15a331a1-255e-1e0d-8079-066c7761e8b8}" />
+                        <control disabled="true" id="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytypeid" uniqueid="{15a331a1-255e-1e0d-8079-066c7761e8b8}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{50C06169-2E75-4BDB-85AC-E795CB1077ED}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
@@ -49,6 +58,22 @@
                           <label description="Commodity Code" languagecode="1033" />
                         </labels>
                         <control id="defraimp_commoditycode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_commoditycode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0dee20a1-adc4-04ca-2757-719a76565b58}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="TRACES Species ID" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_tracesspeciesid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_tracesspeciesid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2b528e0d-d0c0-dc94-21c1-6b87313ca748}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="IPAFFS Species ID" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_ipaffsspeciesid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_ipaffsspeciesid" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -67,7 +92,7 @@
                         <control disabled="false" id="defraimp_commoditynotes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_commoditynotes" uniqueid="{034cdbb1-ae15-2422-db89-7c5708ed6dc3}" />
                       </cell>
                     </row>
-                    <row></row>
+                    <row />
                     <row>
                       <cell id="{4a20d1c3-8208-1145-0487-d58594a3a92d}" locklevel="0" showlabel="true">
                         <labels>

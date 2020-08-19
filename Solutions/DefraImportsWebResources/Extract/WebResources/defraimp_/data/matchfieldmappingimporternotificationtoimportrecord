@@ -10,7 +10,7 @@
     <FieldMapping mapfrom="defraimp_consignortwoaddressaddressline3" mapto="defraimp_charityaddressline3" />
     <FieldMapping mapfrom="defraimp_consignortwoaddresscity" mapto="defraimp_charityaddresscity" />
     <FieldMapping mapfrom="defraimp_consignortwoaddresspostalzipcode" mapto="defraimp_charityaddresspostcode" />
-    <FieldMapping mapfrom="defraimp_consignortwoaddresscountry" mapto="defraimp_charityaddresscountry" />   
+    <FieldMapping mapfrom="defraimp_consignortwoaddresscountry" mapto="defraimp_charityaddresscountry" /> 
   </Generic>
   <Consignor>
     <FieldMapping mapfrom="defraimp_consigneeindividualname" mapto="defraimp_importercontactname" />
@@ -62,5 +62,7 @@
   </Transporter>
   <Commodity>
     <FieldMapping mapfrom="defraimp_commoditiesnumberofanimals" mapto="defraimp_quantity" />
+    <FieldMapping mapfrom="defraimp_commodityid" mapto="defraimp_commoditycode" /> 
+    <FieldMapping mapfrom="defraimp_commodityspeciesid" mapto="defraimp_ipaffsspeciesid" /> 
   </Commodity>
 </FieldMappings>

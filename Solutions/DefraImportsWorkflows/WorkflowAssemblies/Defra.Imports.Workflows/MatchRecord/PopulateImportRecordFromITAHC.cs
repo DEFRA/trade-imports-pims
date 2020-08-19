@@ -58,7 +58,7 @@ namespace Defra.Imports.Workflows.MatchRecord
 
             IRepositoryFactory repoFactory = new RepositoryFactory(orgSvc);
             ICrmRepository<defraimp_matchrecord> matchRecordRepo = new CrmRepository<ImportsContext, defraimp_matchrecord>(orgSvc);
-            defraimp_matchrecord matchRecord = matchRecordRepo.Retrieve(matchRecordRef.Id, new string[] {"defraimp_copyconsigneefrom", "defraimp_copyconsignorfrom", "defraimp_copyplaceofdestinationfrom", "defraimp_copyplaceoforiginfrom","defraimp_copytransporterfrom"});
+            defraimp_matchrecord matchRecord = matchRecordRepo.Retrieve(matchRecordRef.Id, new string[] {"defraimp_copyconsigneefrom", "defraimp_copyconsignorfrom", "defraimp_copyplaceofdestinationfrom", "defraimp_copyplaceoforiginfrom","defraimp_copytransporterfrom", "defraimp_copycommodityfrom"});
 
             MatchXmlGenerator itahcMatchXmlGenerator = new MatchXmlGenerator(repoFactory, matchRecord, fieldMappingResource);
             string itahcXml = itahcMatchXmlGenerator.GenerateITAHCMatchXml();

@@ -144,4 +144,13 @@
     </fields>
     <relationships />
   </entity>
+<entity name="defraimp_commoditytypemapping" displayname="Commodity Type Mapping" etc="10235" primaryidfield="defraimp_commoditytypemappingid" primarynamefield="defraimp_name" disableplugins="false">    <fields>
+      <field displayname="Commodity Type" name="defraimp_commoditytype" type="entityreference" primaryKey="false" lookupType="defraexp_commoditytype" customfield="false" />
+      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Commodity Code" name="defraimp_commoditycode" type="string" primaryKey="false" customfield="true" />
+      <field displayname="IPAFFS Species ID" name="defraimp_ipaffsspeciesid" type="string" primaryKey="false" customfield="true" />
+      <field displayname="TRACES Species ID" name="defraimp_tracesspeciesid" type="string" primaryKey="false" customfield="true" />
+    </fields>
+    <relationships />
+  </entity>
 </entities>

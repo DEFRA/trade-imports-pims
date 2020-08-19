@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{8aa67ee4-35e2-ea11-a813-000d3ab6d757}</WebResourceId>
+  <Name>defraimp_/png/icon.commoditytypemapping.32.png</Name>
+  <DisplayName>icon.commoditytypemapping.32.png</DisplayName>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>0.0.0.28</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/defraimp_pngiconcommoditytypemapping32png8AA67EE4-35E2-EA11-A813-000D3AB6D757</FileName>
+</WebResource>

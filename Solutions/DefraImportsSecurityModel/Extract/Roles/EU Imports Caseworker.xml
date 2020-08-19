@@ -53,6 +53,7 @@
     <RolePrivilege name="prvAppendTodefraimp_autonumber" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_commoditycomplement" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_commoditycomplementparameterset" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_commoditytypemapping" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_Consignee" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_counterhistory" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_cved" level="Global" />
@@ -207,6 +208,7 @@
     <RolePrivilege name="prvReaddefraimp_autonumber" level="Global" />
     <RolePrivilege name="prvReaddefraimp_commoditycomplement" level="Global" />
     <RolePrivilege name="prvReaddefraimp_commoditycomplementparameterset" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_commoditytypemapping" level="Global" />
     <RolePrivilege name="prvReaddefraimp_Consignee" level="Global" />
     <RolePrivilege name="prvReaddefraimp_counterhistory" level="Global" />
     <RolePrivilege name="prvReaddefraimp_cved" level="Global" />

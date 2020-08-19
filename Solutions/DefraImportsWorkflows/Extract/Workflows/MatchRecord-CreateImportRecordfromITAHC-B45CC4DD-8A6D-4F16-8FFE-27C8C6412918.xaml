@@ -116,12 +116,15 @@
       <mxswa:ActivityReference.Properties>
         <sco:Collection x:TypeArguments="Variable" x:Key="Variables">
           <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep6_condition" />
-          <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep6_1" />
+          <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep6_1" />
+          <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep6_2" />
+          <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep6_3" />
+          <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep6_4" />
           <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep7_condition" />
           <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep7_1" />
         </sco:Collection>
         <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-          <mxswa:GetEntityProperty Attribute="defraimp_commoditytype" Entity="[InputEntities(&quot;itahc#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[ConditionBranchStep6_1]">
+          <mxswa:GetEntityProperty Attribute="defraimp_commoditytype" Entity="[CreatedEntities(&quot;itahc#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[ConditionBranchStep6_2]">
             <mxswa:GetEntityProperty.TargetType>
               <InArgument x:TypeArguments="s:Type">
                 <mxswa:ReferenceLiteral x:TypeArguments="s:Type">
@@ -134,7 +137,32 @@
             <mxswa:ActivityReference.Arguments>
               <InArgument x:TypeArguments="mxsq:ConditionOperator" x:Key="ConditionOperator">NotNull</InArgument>
               <x:Null x:Key="Parameters" />
-              <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep6_1]</InArgument>
+              <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep6_2]</InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep6_1]</OutArgument>
+            </mxswa:ActivityReference.Arguments>
+          </mxswa:ActivityReference>
+          <mxswa:GetEntityProperty Attribute="defraimp_commoditytype" Entity="[CreatedEntities(&quot;itahc#defraimp_itahc&quot;)]" EntityName="defraimp_itahc" Value="[ConditionBranchStep6_4]">
+            <mxswa:GetEntityProperty.TargetType>
+              <InArgument x:TypeArguments="s:Type">
+                <mxswa:ReferenceLiteral x:TypeArguments="s:Type">
+                  <x:Null />
+                </mxswa:ReferenceLiteral>
+              </InArgument>
+            </mxswa:GetEntityProperty.TargetType>
+          </mxswa:GetEntityProperty>
+          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateCondition, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateCondition">
+            <mxswa:ActivityReference.Arguments>
+              <InArgument x:TypeArguments="mxsq:ConditionOperator" x:Key="ConditionOperator">Null</InArgument>
+              <x:Null x:Key="Parameters" />
+              <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep6_4]</InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep6_3]</OutArgument>
+            </mxswa:ActivityReference.Arguments>
+          </mxswa:ActivityReference>
+          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateLogicalCondition, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateLogicalCondition">
+            <mxswa:ActivityReference.Arguments>
+              <InArgument x:TypeArguments="mxsq:LogicalOperator" x:Key="LogicalOperator">Or</InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="LeftOperand">[ConditionBranchStep6_1]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="RightOperand">[ConditionBranchStep6_3]</InArgument>
               <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep6_condition]</OutArgument>
             </mxswa:ActivityReference.Arguments>
           </mxswa:ActivityReference>
@@ -1252,7 +1280,7 @@
                 <mxswa:ActivityReference.Properties>
                   <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                   <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                    <Sequence DisplayName="StopWorkflowStep8: Show a message to Require a Commodity Type">
+                    <Sequence DisplayName="StopWorkflowStep8: [To be removed} Show a message to Require a Commodity Type">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Object" Name="StopWorkflowStep8_1" />
                         <Variable x:TypeArguments="x:String" Default="408e4c64-2454-4b47-8b46-3a5bbdfbc313" Name="stepLabelLabelId" />
@@ -1269,7 +1297,7 @@
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[StopWorkflowStep8_1]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <TerminateWorkflow DisplayName="StopWorkflowStep8: Show a message to Require a Commodity Type" Exception="[New Microsoft.Xrm.Sdk.InvalidPluginExecutionException(Microsoft.Xrm.Sdk.OperationStatus.Canceled)]" Reason="[DirectCast(StopWorkflowStep8_1, System.String)]" />
+                      <TerminateWorkflow DisplayName="StopWorkflowStep8: [To be removed} Show a message to Require a Commodity Type" Exception="[New Microsoft.Xrm.Sdk.InvalidPluginExecutionException(Microsoft.Xrm.Sdk.OperationStatus.Canceled)]" Reason="[DirectCast(StopWorkflowStep8_1, System.String)]" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
