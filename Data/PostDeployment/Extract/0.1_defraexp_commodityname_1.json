@@ -847,7 +847,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -869,7 +869,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2123,7 +2123,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -2453,7 +2453,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6083,7 +6083,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6897,7 +6897,7 @@
           "AttributeValue": {
             "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "EQUINE",
+            "Name": "HORSE",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -6963,7 +6963,7 @@
           "AttributeValue": {
             "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "SHEEP",
+            "Name": "SHEEP (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
@@ -7029,7 +7029,7 @@
           "AttributeValue": {
             "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
             "LogicalName": "defraexp_commoditytype",
-            "Name": "PIGS",
+            "Name": "PIG (DOMESTIC)",
             "KeyAttributes": []
           },
           "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
