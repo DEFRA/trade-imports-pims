@@ -53,15 +53,8 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             SetupWatchListMockRepo(watchListId, watchType, traderEntityName, traderId);
 
             // Act =====
-            FlagRecordOnWatchListBusinessLogic logicToRun = new FlagRecordOnWatchListBusinessLogic(_mockOrgService.Object, target, _mockWatchListRepo.Object, _mockWatchFlagRepo.Object);
-            logicToRun.FlagRecordIfOnWatchList();
-
-            // Assert =====
-            _mockWatchFlagRepo.Verify(
-                r => r.Create(
-                    It.Is<defraimp_WatchFlag>(
-                        e => e.defraimp_ItahcId.Id == target.Id &&
-                             e.defraimp_WatchListId.Id == watchListId)));
+            // Assert ====
+            RunAndVerifyCreatedWatchFlag(target, watchListId);
         }
 
         [Fact]
@@ -90,15 +83,8 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             SetupWatchListMockRepo(watchListId, watchType, placeOfDestinationEntityName, placeOfDestinationId);
 
             // Act =====
-            FlagRecordOnWatchListBusinessLogic logicToRun = new FlagRecordOnWatchListBusinessLogic(_mockOrgService.Object, target, _mockWatchListRepo.Object, _mockWatchFlagRepo.Object);
-            logicToRun.FlagRecordIfOnWatchList();
-
-            // Assert =====
-            _mockWatchFlagRepo.Verify(
-                r => r.Create(
-                    It.Is<defraimp_WatchFlag>(
-                        e => e.defraimp_ItahcId.Id == target.Id &&
-                             e.defraimp_WatchListId.Id == watchListId)));
+            // Assert ====
+            RunAndVerifyCreatedWatchFlag(target, watchListId);
         }
 
         [Fact]
@@ -119,7 +105,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             };
 
             // Setup the trader mock repo
-            SetupTraderMockRepo("defraimp_veterinarian", traderId, "defraimp_name", traderIdentifier);
+            SetupTraderMockRepo(traderEntityName, traderId, "defraimp_name", traderIdentifier);
 
             // Setup the watch list repo
             Guid watchListId = Guid.NewGuid();
@@ -127,15 +113,38 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             SetupWatchListMockRepo(watchListId, watchType, traderEntityName, traderId);
 
             // Act =====
-            FlagRecordOnWatchListBusinessLogic logicToRun = new FlagRecordOnWatchListBusinessLogic(_mockOrgService.Object, target, _mockWatchListRepo.Object, _mockWatchFlagRepo.Object);
-            logicToRun.FlagRecordIfOnWatchList();
-
             // Assert =====
-            _mockWatchFlagRepo.Verify(
-                r => r.Create(
-                    It.Is<defraimp_WatchFlag>(
-                        e => e.defraimp_ItahcId.Id == target.Id &&
-                             e.defraimp_WatchListId.Id == watchListId)));
+            RunAndVerifyCreatedWatchFlag(target, watchListId);
+        }
+
+        [Fact]
+        public void FlagRecordIfOnWatchList_ItahcWithPlaceOfOriginNameAndAMatchingWatchList_ShouldCreateAWatchFlag()
+        {
+            // Arrange =====
+            string traderEntityName = "defraimp_placeoforigin";
+            Guid traderId = Guid.NewGuid();
+            string traderIdentifier = "12345";
+
+            // Setup the target
+            Guid targetId = Guid.NewGuid();
+            defraimp_itahc target = new defraimp_itahc()
+            {
+                Id = targetId,
+                defraimp_itahcId = targetId,
+                defraimp_PlaceOfOriginHarvestName = traderIdentifier
+            };
+
+            // Setup the trader mock repo
+            SetupTraderMockRepo(traderEntityName, traderId, "defraimp_name", traderIdentifier);
+
+            // Setup the watch list repo
+            Guid watchListId = Guid.NewGuid();
+            defraimp_watchtype watchType = defraimp_watchtype.PlaceofOrigin;
+            SetupWatchListMockRepo(watchListId, watchType, traderEntityName, traderId);
+
+            // Act =====
+            // Assert =====
+            RunAndVerifyCreatedWatchFlag(target, watchListId);
         }
 
         private void SetupTraderMockRepo(string traderEntityName, Guid traderId, string traderIdentifierFieldName, string traderIdentifier)
@@ -176,10 +185,27 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
                     It.IsAny<Expression<Func<defraimp_WatchList, defraimp_WatchList>>>())).Returns(stubbedWatchListQueryable);
         }
 
+        private void RunAndVerifyCreatedWatchFlag(defraimp_itahc target, Guid watchListId)
+        {
+            // Act =====
+            FlagRecordOnWatchListBusinessLogic logicToRun = new FlagRecordOnWatchListBusinessLogic(_mockOrgService.Object, target, _mockWatchListRepo.Object, _mockWatchFlagRepo.Object);
+            logicToRun.FlagRecordIfOnWatchList();
+
+            // Assert =====
+            _mockWatchFlagRepo.Verify(
+                r => r.Create(
+                    It.Is<defraimp_WatchFlag>(
+                        e => e.defraimp_ItahcId.Id == target.Id &&
+                             e.defraimp_WatchListId.Id == watchListId)));
+        }
+
         private void SetTraderIdForWatchType(defraimp_WatchList stubbedWatchList, defraimp_watchtype watchType, string traderEntityName, Guid traderId)
         {
             switch (watchType)
             {
+                case defraimp_watchtype.PlaceofOrigin:
+                    stubbedWatchList.defraimp_PlaceOfOriginId = new EntityReference(traderEntityName, traderId);
+                    break;
                 case defraimp_watchtype.PlaceofDestination:
                     stubbedWatchList.defraimp_PlaceOfDestinationId = new EntityReference(traderEntityName, traderId);
                     break;

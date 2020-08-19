@@ -28,11 +28,8 @@ namespace Defra.Imports.Tests.Unit.Workflows.ImportApplication
         }
 
         [Fact]
-        public void Execute_AnyImportApplication_SetsTheManualImportCheckDecisionToBlank()
+        public void Execute_AnyImportApplication_DoesNotSetTheManualImportCheckDecisionToBlank()
         {
-            // Arrange
-
-
             // Act
             this.WorkflowInvoker.Invoke(_inputs);
 
@@ -40,8 +37,8 @@ namespace Defra.Imports.Tests.Unit.Workflows.ImportApplication
             string manualCheckAttributeName = "defraimp_manualpostimportcheckdecision";
             OrgSvcMock.Verify(
                 o => o.Update(
-                    It.Is<Entity>(
-                        e => e.Attributes.Contains(manualCheckAttributeName))
+                    It.Is<defraimp_importapplication>(
+                        e => !e.Attributes.Contains(manualCheckAttributeName))
                 )
             );
         }
