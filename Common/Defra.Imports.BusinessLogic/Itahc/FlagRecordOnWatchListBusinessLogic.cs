@@ -11,6 +11,7 @@ namespace Defra.Imports.BusinessLogic.Itahc
 {
     public class FlagRecordOnWatchListBusinessLogic
     {
+        private const string WATCH_ORIGIN_LOOKUP_FIELD_NAME = "defraimp_placeoforiginid";
         private const string WATCH_DESTINATION_LOOKUP_FIELD_NAME = "defraimp_placeofdestinationid";
         private const string WATCH_CONSIGNEE_LOOKUP_FIELD_NAME = "defraimp_consigneeid";
         private const string WATCH_TRANSPORTER__LOOKUP_FIELD_NAME = "defraimp_transporterid";
@@ -33,6 +34,7 @@ namespace Defra.Imports.BusinessLogic.Itahc
 
         public void FlagRecordIfOnWatchList()
         {
+            string itahcOriginIdentifier = _itahcFromContext.defraimp_PlaceOfOriginHarvestName;
             string itahcDestinationIdentifier = _itahcFromContext.defraimp_PlaceOfDestinationName;
             string itahcConsigneeIdentifier = _itahcFromContext.defraimp_ConsigneeName;
             string itahcTransporterIdentifier = _itahcFromContext.defraimp_TransporterName;
@@ -41,6 +43,11 @@ namespace Defra.Imports.BusinessLogic.Itahc
             DateTime currentDate = DateTime.Now;
 
             List<defraimp_WatchList> watchRecords = GetWatchRecordsForDate(currentDate.Date);
+
+            if (!string.IsNullOrEmpty(itahcOriginIdentifier))
+            {
+                CheckAndAddFlag(watchRecords, defraimp_watchtype.PlaceofOrigin, WATCH_ORIGIN_LOOKUP_FIELD_NAME, "defraimp_placeoforigin", TRADER_SEARCH_FIELD_NAME, itahcOriginIdentifier);
+            }
 
             if (!String.IsNullOrEmpty(itahcDestinationIdentifier))
             {
@@ -57,7 +64,7 @@ namespace Defra.Imports.BusinessLogic.Itahc
                 CheckAndAddFlag(watchRecords, defraimp_watchtype.Transporter, WATCH_TRANSPORTER__LOOKUP_FIELD_NAME, "defraimp_transporter", TRADER_SEARCH_FIELD_NAME, itahcTransporterIdentifier);
             }
 
-            if(!String.IsNullOrEmpty(itahcVeterinarianIdentifier))
+            if (!String.IsNullOrEmpty(itahcVeterinarianIdentifier))
             {
                 CheckAndAddFlag(watchRecords, defraimp_watchtype.Veterinarian, WATCH_VETERINARIAN_LOOKUP_FIELD_NAME, "defraimp_veterinarian", TRADER_SEARCH_FIELD_NAME, itahcVeterinarianIdentifier);
             }
@@ -77,6 +84,7 @@ namespace Defra.Imports.BusinessLogic.Itahc
                     defraimp_StartDate = e.defraimp_StartDate,
                     defraimp_EndDate = e.defraimp_EndDate,
                     defraimp_WatchType = e.defraimp_WatchType,
+                    defraimp_PlaceOfOriginId = e.defraimp_PlaceOfOriginId,
                     defraimp_PlaceOfDestinationId = e.defraimp_PlaceOfDestinationId,
                     defraimp_ConsigneeId = e.defraimp_ConsigneeId,
                     defraimp_TransporterId = e.defraimp_TransporterId,
@@ -84,10 +92,10 @@ namespace Defra.Imports.BusinessLogic.Itahc
                 }).ToList();
         }
 
-        private void CheckAndAddFlag(List<defraimp_WatchList> watchRecords, defraimp_watchtype watchType, string watchEconomicOperatorAttributeName, string economicOperatorEntityName,  string attributeName, object attributeValue)
+        private void CheckAndAddFlag(List<defraimp_WatchList> watchRecords, defraimp_watchtype watchType, string watchEconomicOperatorAttributeName, string economicOperatorEntityName, string attributeName, object attributeValue)
         {
             // Filter the previously retrieved watch records by the type
-            List<defraimp_WatchList> filteredWatchRecords = watchRecords.Where(e => 
+            List<defraimp_WatchList> filteredWatchRecords = watchRecords.Where(e =>
                 e.defraimp_WatchType == watchType &&
                 e.Attributes.Contains(watchEconomicOperatorAttributeName) &&
                 e[watchEconomicOperatorAttributeName] != null).ToList();

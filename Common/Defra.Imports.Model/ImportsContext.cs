@@ -371,6 +371,9 @@ namespace Defra.Imports.Model
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PlaceofOrigin = 714100004,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PlaceofDestination = 714100000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -3253,6 +3256,36 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("DocumentBody");
 				this.SetAttributeValue("documentbody", value);
 				this.OnPropertyChanged("DocumentBody");
+			}
+		}
+		
+		/// <summary>
+		/// Dummy attribute associated with the note attachment
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("dummyfilename")]
+		public string DummyFileName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("dummyfilename");
+			}
+			set
+			{
+				this.OnPropertyChanging("DummyFileName");
+				this.SetAttributeValue("dummyfilename", value);
+				this.OnPropertyChanged("DummyFileName");
+			}
+		}
+		
+		/// <summary>
+		/// Dummy attribute associated with the note regarding
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("dummyregarding")]
+		public string DummyRegarding
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("dummyregarding");
 			}
 		}
 		
@@ -15846,6 +15879,24 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_commoditycode")]
+		public string defraimp_CommodityCode
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_commoditycode");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_CommodityCode");
+				this.SetAttributeValue("defraimp_commoditycode", value);
+				this.OnPropertyChanged("defraimp_CommodityCode");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_commodityidentifiers")]
 		public string defraimp_CommodityIdentifiers
 		{
@@ -16782,6 +16833,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_inspectionrequiredreasonoriginalvalue");
 				this.SetAttributeValue("defraimp_inspectionrequiredreasonoriginalvalue", value);
 				this.OnPropertyChanged("defraimp_inspectionrequiredreasonoriginalvalue");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_ipaffsspeciesid")]
+		public string defraimp_IPAFFSSpeciesID
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_ipaffsspeciesid");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_IPAFFSSpeciesID");
+				this.SetAttributeValue("defraimp_ipaffsspeciesid", value);
+				this.OnPropertyChanged("defraimp_IPAFFSSpeciesID");
 			}
 		}
 		
@@ -17832,6 +17901,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_SealNumber");
 				this.SetAttributeValue("defraimp_sealnumber", value);
 				this.OnPropertyChanged("defraimp_SealNumber");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_tracesspeciesid")]
+		public string defraimp_TRACESSpeciesID
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_tracesspeciesid");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_TRACESSpeciesID");
+				this.SetAttributeValue("defraimp_tracesspeciesid", value);
+				this.OnPropertyChanged("defraimp_TRACESSpeciesID");
 			}
 		}
 		
@@ -32558,6 +32645,24 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_WatchList> defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_WatchList>("defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_WatchList>("defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId");
+			}
+		}
+		
+		/// <summary>
 		/// N:1 defraimp_defra_country_defraimp_placeoforigin_AddressCountry
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_addresscountry")]
@@ -33402,6 +33507,24 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_placeoforiginid")]
+		public Microsoft.Xrm.Sdk.EntityReference defraimp_PlaceOfOriginId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_placeoforiginid");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_PlaceOfOriginId");
+				this.SetAttributeValue("defraimp_placeoforiginid", value);
+				this.OnPropertyChanged("defraimp_PlaceOfOriginId");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_startdate")]
 		public System.Nullable<System.DateTime> defraimp_StartDate
 		{
@@ -33798,6 +33921,25 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_watchlist_Annotations");
 				this.SetRelatedEntities<Defra.Imports.Model.Annotation>("defraimp_watchlist_Annotations", null, value);
 				this.OnPropertyChanged("defraimp_watchlist_Annotations");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_placeoforiginid")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId")]
+		public Defra.Imports.Model.defraimp_placeoforigin defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_placeoforigin>("defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId");
+				this.SetRelatedEntity<Defra.Imports.Model.defraimp_placeoforigin>("defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId");
 			}
 		}
 	}
