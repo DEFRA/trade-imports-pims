@@ -34,7 +34,8 @@
     <FieldMapping mapfrom="defraimp_transporteraddresscountryid" mapto="defraimp_transporteraddresscountryid" />
   </Transporter>
   <Commodity>
-    <FieldMapping mapfrom="defraimp_commoditytype" mapto="defraimp_commoditytypeid" />
     <FieldMapping mapfrom="defraimp_quantity" mapto="defraimp_quantity" />
+    <FieldMapping mapfrom="defraimp_speciesid" mapto="defraimp_tracesspeciesid" />
+    <FieldMapping mapfrom="defraimp_commoditycode" mapto="defraimp_commoditycode" />
   </Commodity>
 </FieldMappings>

@@ -316,11 +316,29 @@
                         </labels>
                         <control id="defraimp_copytransporterfrom" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_copytransporterfrom" disabled="false" uniqueid="{760a80c4-eed2-7561-b329-a04a1d955720}" />
                       </cell>
+                      <cell id="{64c7068e-987b-9e17-0157-e15a331e1ed7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Copy Commodity From" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_copycommodityfrom" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_copycommodityfrom" disabled="false" uniqueid="{ee3c1073-2546-b1e0-5542-38e0a3676e6e}" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{5bc9e881-5dc7-56e2-8baa-56089958bb70}" showlabel="true" locklevel="0" visible="false">
                         <labels>
-                          <label description="Copy Key Details From" languagecode="1033" />
+                          <label description="[Do not remove] Copy Key Details From" languagecode="1033" />
                         </labels>
                         <control id="defraimp_copykeydetailsfrom" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_copykeydetailsfrom" disabled="false" uniqueid="{e1505415-22ab-a949-8c1c-e9412c0203d8}" />
+                      </cell>
+                      <cell id="{bb3e75c1-5e8d-c051-7bd6-e68d24683389}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{deb74d32-219e-07d0-b809-273449274310}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>
@@ -743,7 +761,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -924,6 +942,28 @@
           <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
             <parameters>
               <value>defraimp_copytransporterfrom</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{ee3c1073-2546-b1e0-5542-38e0a3676e6e}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>defraimp_copycommodityfrom</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_copycommodityfrom</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_copycommodityfrom</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>defraimp_copycommodityfrom</value>
             </parameters>
           </customControl>
         </controlDescription>

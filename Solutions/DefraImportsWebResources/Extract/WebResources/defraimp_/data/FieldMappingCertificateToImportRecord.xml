@@ -1,4 +1,6 @@
 <FieldMappings>
+  <FieldMapping mapfrom="defraimp_speciesid" mapto="defraimp_tracesspeciesid" />
+  <FieldMapping mapfrom="defraimp_commoditycode" mapto="defraimp_commoditycode" />
   <FieldMapping mapfrom="defraimp_consigneename" mapto="defraimp_importerorganisation" />
   <FieldMapping mapfrom="defraimp_consigneeaddressstreet" mapto="defraimp_importeraddress1" />
   <FieldMapping mapfrom="defraimp_consigneeaddresspostcode" mapto="defraimp_importeraddresspostcode" />
