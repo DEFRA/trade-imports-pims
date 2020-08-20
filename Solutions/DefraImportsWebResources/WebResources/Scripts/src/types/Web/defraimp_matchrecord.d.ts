@@ -5,6 +5,7 @@ declare namespace WebApi {
     defraimp_closerecordascompleted?: boolean | null;
     defraimp_closerecordasrejected?: boolean | null;
     defraimp_commoditycodematchrating?: string | null;
+    defraimp_copycommodityfrom?: boolean | null;
     defraimp_copyconsigneefrom?: boolean | null;
     defraimp_copyconsignorfrom?: boolean | null;
     defraimp_copykeydetailsfrom?: boolean | null;
@@ -64,6 +65,7 @@ declare namespace WebApi {
     defraimp_closerecordascompleted: WebAttribute<defraimp_matchrecord_Select, { defraimp_closerecordascompleted: boolean | null }, {  }>;
     defraimp_closerecordasrejected: WebAttribute<defraimp_matchrecord_Select, { defraimp_closerecordasrejected: boolean | null }, {  }>;
     defraimp_commoditycodematchrating: WebAttribute<defraimp_matchrecord_Select, { defraimp_commoditycodematchrating: string | null }, {  }>;
+    defraimp_copycommodityfrom: WebAttribute<defraimp_matchrecord_Select, { defraimp_copycommodityfrom: boolean | null }, {  }>;
     defraimp_copyconsigneefrom: WebAttribute<defraimp_matchrecord_Select, { defraimp_copyconsigneefrom: boolean | null }, {  }>;
     defraimp_copyconsignorfrom: WebAttribute<defraimp_matchrecord_Select, { defraimp_copyconsignorfrom: boolean | null }, {  }>;
     defraimp_copykeydetailsfrom: WebAttribute<defraimp_matchrecord_Select, { defraimp_copykeydetailsfrom: boolean | null }, {  }>;
@@ -115,6 +117,7 @@ declare namespace WebApi {
     defraimp_closerecordascompleted: boolean;
     defraimp_closerecordasrejected: boolean;
     defraimp_commoditycodematchrating: string;
+    defraimp_copycommodityfrom: boolean;
     defraimp_copyconsigneefrom: boolean;
     defraimp_copyconsignorfrom: boolean;
     defraimp_copykeydetailsfrom: boolean;

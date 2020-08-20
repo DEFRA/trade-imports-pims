@@ -180,6 +180,7 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_relatedimportrecord"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_replacedbyid"): Xrm.LookupAttribute<"defraimp_itahc">;
       get(name: "defraimp_replacesid"): Xrm.LookupAttribute<"defraimp_itahc">;
+      get(name: "defraimp_speciesid"): Xrm.Attribute<string>;
       get(name: "defraimp_tracesreceiveddate"): Xrm.DateAttribute;
       get(name: "defraimp_transporteraddresscity"): Xrm.Attribute<string>;
       get(name: "defraimp_transporteraddresscountryid"): Xrm.LookupAttribute<"defra_country">;
@@ -282,6 +283,7 @@ declare namespace Form.defraimp_itahc.Main {
       get(name: "defraimp_relatedimportrecord"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_replacedbyid"): Xrm.LookupControl<"defraimp_itahc">;
       get(name: "defraimp_replacesid"): Xrm.LookupControl<"defraimp_itahc">;
+      get(name: "defraimp_speciesid"): Xrm.StringControl;
       get(name: "defraimp_tracesreceiveddate"): Xrm.DateControl;
       get(name: "defraimp_transporteraddresscity"): Xrm.StringControl;
       get(name: "defraimp_transporteraddresscountryid"): Xrm.LookupControl<"defra_country">;
@@ -404,6 +406,7 @@ declare namespace Form.defraimp_itahc.Main {
     getAttribute(attributeName: "defraimp_relatedimportrecord"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_replacedbyid"): Xrm.LookupAttribute<"defraimp_itahc">;
     getAttribute(attributeName: "defraimp_replacesid"): Xrm.LookupAttribute<"defraimp_itahc">;
+    getAttribute(attributeName: "defraimp_speciesid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_tracesreceiveddate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_transporteraddresscity"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_transporteraddresscountryid"): Xrm.LookupAttribute<"defra_country">;
@@ -501,6 +504,7 @@ declare namespace Form.defraimp_itahc.Main {
     getControl(controlName: "defraimp_relatedimportrecord"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_replacedbyid"): Xrm.LookupControl<"defraimp_itahc">;
     getControl(controlName: "defraimp_replacesid"): Xrm.LookupControl<"defraimp_itahc">;
+    getControl(controlName: "defraimp_speciesid"): Xrm.StringControl;
     getControl(controlName: "defraimp_tracesreceiveddate"): Xrm.DateControl;
     getControl(controlName: "defraimp_transporteraddresscity"): Xrm.StringControl;
     getControl(controlName: "defraimp_transporteraddresscountryid"): Xrm.LookupControl<"defra_country">;
