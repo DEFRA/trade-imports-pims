@@ -1,6 +1,7 @@
 ﻿using Defra.Imports.BusinessLogic;
 using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
 using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies;
+using Defra.Imports.BusinessLogic.Logging;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
 using Defra.Imports.Model;
 using Defra.Imports.Repositories;
@@ -18,6 +19,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
 {
     public class DetermineInpsectionBaseTests
     {
+        protected Mock<ILogWriter> _logWriter;
         protected defraimp_importapplication _importApplication;
         protected Mock<ICrmRepository<defraimp_importapplication>> _mockImportApplicationRepo;
         protected Mock<ICrmRepository<defraimp_inspectioncoveragerule>> _mockCoverageRulesRepo;
@@ -27,6 +29,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
 
         public DetermineInpsectionBaseTests()
         {
+            _logWriter = new Mock<ILogWriter>();
             _importApplication = new defraimp_importapplication();
             _mockImportApplicationRepo = new Mock<ICrmRepository<defraimp_importapplication>>();
             _mockCoverageRulesRepo = new Mock<ICrmRepository<defraimp_inspectioncoveragerule>>();

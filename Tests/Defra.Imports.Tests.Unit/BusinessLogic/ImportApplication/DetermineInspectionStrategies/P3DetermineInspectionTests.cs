@@ -1,6 +1,7 @@
 ﻿using Defra.Imports.BusinessLogic.ImportApplication;
 using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies;
 using Defra.Imports.Model;
+using Microsoft.Xrm.Sdk;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -22,60 +23,72 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
         }
 
         [Fact]
-        public void ExecuteInspection_WithAnyValues_ShouldRetrieveTheCountOfTheP2Counter()
+        public void ExecuteInspection_TypeOfItahcAndPrimaryItahc_ShouldRetrieveTheCountOfTheP3CounterAndUpdateCountedToTrue()
         {
             // Arrange
+            _importApplication.defraimp_ImportApplicationType = defraimp_importapplication_defraimp_importapplicationtype.ITAHC;
+            EntityReference itahcEntityRef = new EntityReference(defraimp_itahc.EntityLogicalName, Guid.NewGuid());
+            _importApplication.defraimp_PrimaryITAHCId = itahcEntityRef;
+
             SetupCoverageRulesRepoToReturnRules();
+            SetupP3AutonumberRepo(1);
+            SetupRiskLevelCounterManager();
 
             // Act
             _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
 
             // Assert
             _mockAutoNumberRepo.Verify(r => r.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME));
-
+            _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(o => o.defraimp_ImportRecordCounted == true)));
         }
 
         [Fact]
-        public void ExecuteInspection_CurrentCountMoreThanTheCoverageRule_ResetsTheCounterToZero()
+        public void ExecuteInspection_QuotaEquals0_ShouldUpdateImportApplicationToNoInspectionRequired()
         {
             // Arrange
+            _importApplication.defraimp_ImportApplicationType = defraimp_importapplication_defraimp_importapplicationtype.ITAHC;
+            EntityReference itahcEntityRef = new EntityReference(defraimp_itahc.EntityLogicalName, Guid.NewGuid());
+            _importApplication.defraimp_PrimaryITAHCId = itahcEntityRef;
+
             SetupCoverageRulesRepoToReturnRules();
-            SetupAutoNumberRepoToReturnValue(ImportApplicationConstants.P3_COUNTER_NAME, 3);
+            SetupP3AutonumberRepo(1);
+            SetupRiskLevelCounterManager();
 
             // Act
             _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
 
             // Assert
-            _mockAutoNumberRepo.Verify(r => r.SetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME, 0), Times.Once);
+            _mockImportApplicationRepo.Verify(
+                r => r.Update(
+                    It.Is<defraimp_importapplication>(o => o.defraimp_InspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.No)
+                )
+            );
 
         }
 
         [Fact]
-        public void ExecuteInspection_CurrentCountMoreThanTheCoverageRule_UpdatesImportApplicationInspectionRequiredToYes()
+        public void ExecuteInspection_QuotaEqualsMoreThan0_ShouldUpdateImportApplicationToInspectionRequired()
         {
             // Arrange
-            SetupCurrentCountMoreThanCoverageRule();
+            _importApplication.defraimp_ImportApplicationType = defraimp_importapplication_defraimp_importapplicationtype.ITAHC;
+            EntityReference itahcEntityRef = new EntityReference(defraimp_itahc.EntityLogicalName, Guid.NewGuid());
+            _importApplication.defraimp_PrimaryITAHCId = itahcEntityRef;
+
+            SetupCoverageRulesRepoToReturnRules();
+            SetupP3AutonumberRepo(1);
+            SetupP3QuotaAutonumberRepo(1);
+
+            SetupRiskLevelCounterManager();
 
             // Act
             _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
 
             // Assert
-            _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => e.defraimp_importapplicationId == _importApplication.defraimp_importapplicationId)), Times.Once);
-            _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => e.defraimp_InspectionRequired.Value == defraimp_importapplication_defraimp_inspectionrequired.Yes)), Times.Once);
-
-        }
-
-        [Fact]
-        public void ExecuteInspection_CurrentCountLessThanTheCoverageRule_DoesntSetTheInspectionDeclinedReason()
-        {
-            // Arrange
-            SetupCurrentCountMoreThanCoverageRule();
-
-            // Act
-            _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
-
-            // Assert
-            _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => string.IsNullOrEmpty(e.defraimp_InspectionDeclinedReason))), Times.Once);
+            _mockImportApplicationRepo.Verify(
+                r => r.Update(
+                    It.Is<defraimp_importapplication>(o => o.defraimp_InspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.Yes)
+                )
+            );
         }
 
         private void SetupCurrentCountMoreThanCoverageRule()
@@ -85,32 +98,42 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _importApplication.defraimp_importapplicationId = Guid.NewGuid();
         }
 
-        [Fact]
-        public void ExecuteInspection_CurrentCountLessThanTheCoverageRule_UpdatesImportApplicationInspectionRequiredToNo()
+        private void SetupP3AutonumberRepo(int currentCount)
         {
-            // Arrange
-            SetupCurrentCountLessThanCoverageRule();
-
-            // Act
-            _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
-
-            // Assert
-            _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => e.defraimp_importapplicationId == _importApplication.defraimp_importapplicationId)), Times.Once);
-            _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => e.defraimp_InspectionRequired.Value == defraimp_importapplication_defraimp_inspectionrequired.No)), Times.Once);
-
+            _mockAutoNumberRepo.Setup(r => r.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME)).Returns(1);
+            defraimp_autonumber autoNumberStub = new defraimp_autonumber()
+            {
+                defraimp_autonumberId = Guid.NewGuid(),
+                defraimp_CurrentNumber = 1,
+                defraimp_Key = ImportApplicationConstants.P3_QUOTA_COUNTER_NAME,
+                defraimp_name = "P3 Counter"
+            };
+            _mockAutoNumberRepo.Setup(r => r.GetAutonumberWithKey(ImportApplicationConstants.P3_COUNTER_NAME)).Returns(autoNumberStub);
         }
 
-        [Fact]
-        public void ExecuteInspection_CurrentCountLessThanTheCoverageRule_SetsTheInspectionDeclinedReason()
+        private void SetupP3QuotaAutonumberRepo(int quotaCount)
         {
-            // Arrange
-            SetupCurrentCountLessThanCoverageRule();
+            _mockAutoNumberRepo.Setup(r => r.GetAutonumberValue(ImportApplicationConstants.P3_QUOTA_COUNTER_NAME)).Returns(1);
+            defraimp_autonumber autoNumberStub = new defraimp_autonumber()
+            {
+                defraimp_autonumberId = Guid.NewGuid(),
+                defraimp_CurrentNumber = 1,
+                defraimp_Key = ImportApplicationConstants.P3_QUOTA_COUNTER_NAME,
+                defraimp_name = "P3 Quota Counter"
+            };
+            _mockAutoNumberRepo.Setup(r => r.GetAutonumberWithKey(ImportApplicationConstants.P3_QUOTA_COUNTER_NAME)).Returns(autoNumberStub);
+        }
 
-            // Act
-            _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
+        private void SetupRiskLevelCounterManager()
+        {
+            _determineInspectionContext.RiskLevelCounterManager = new AutonumberRiskCounterManager(
+            _determineInspectionContext.ImportApplicationRepo,
+            _determineInspectionContext.AutoNumberRepo,
+            "P3",
+            _determineInspectionContext.CoverageRulesRepo,
+            _logWriter.Object);
 
-            // Assert
-            _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(e => !string.IsNullOrEmpty(e.defraimp_InspectionDeclinedReason))), Times.Once);
+            _determineInspectionContext.RiskLevelCounterManager.CounterTransactionEvent += (CounterTransactionDetail transactionDetails) => { };
         }
 
         private void SetupCurrentCountLessThanCoverageRule()
