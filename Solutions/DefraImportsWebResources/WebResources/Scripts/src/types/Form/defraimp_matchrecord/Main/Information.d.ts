@@ -80,6 +80,7 @@ declare namespace Form.defraimp_matchrecord.Main {
       get(name: "defraimp_closerecordascompleted"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_closerecordasrejected"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_commoditycodematchrating"): Xrm.Attribute<string>;
+      get(name: "defraimp_copycommodityfrom"): Xrm.Attribute<any>;
       get(name: "defraimp_copyconsigneefrom"): Xrm.Attribute<any>;
       get(name: "defraimp_copyconsignorfrom"): Xrm.Attribute<any>;
       get(name: "defraimp_copykeydetailsfrom"): Xrm.Attribute<any>;
@@ -101,7 +102,6 @@ declare namespace Form.defraimp_matchrecord.Main {
       get(name: "defraimp_placeoforiginpostcodematchrating"): Xrm.Attribute<string>;
       get(name: "defraimp_quantitymatchrating"): Xrm.Attribute<string>;
       get(name: "defraimp_rejectedreason"): Xrm.Attribute<string>;
-      get(name: "defraimp_speciesmatchrating"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "statecode"): Xrm.OptionSetAttribute<defraimp_matchrecord_statecode>;
       get(name: "statuscode"): Xrm.OptionSetAttribute<defraimp_matchrecord_statuscode>;
@@ -113,6 +113,7 @@ declare namespace Form.defraimp_matchrecord.Main {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "RelatedImportRecords"): Xrm.SubGridControl<"defraimp_importapplication">;
       get(name: "defraimp_commoditycodematchrating"): Xrm.StringControl;
+      get(name: "defraimp_copycommodityfrom"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "defraimp_copyconsigneefrom"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "defraimp_copyconsignorfrom"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "defraimp_copykeydetailsfrom"): Xrm.Control<Xrm.Attribute<any>>;
@@ -131,7 +132,6 @@ declare namespace Form.defraimp_matchrecord.Main {
       get(name: "defraimp_placeoforiginnamematchrating"): Xrm.StringControl;
       get(name: "defraimp_placeoforiginpostcodematchrating"): Xrm.StringControl;
       get(name: "defraimp_quantitymatchrating"): Xrm.StringControl;
-      get(name: "defraimp_speciesmatchrating"): Xrm.StringControl;
       get(name: "header_defraimp_overallmatchrating"): Xrm.StringControl;
       get(name: "header_process_defraimp_appendrecordstoimportrecords"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_defraimp_appendrecordstoimportrecords1"): Xrm.OptionSetControl<boolean> | null;
@@ -187,6 +187,7 @@ declare namespace Form.defraimp_matchrecord.Main {
     getAttribute(attributeName: "defraimp_closerecordascompleted"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_closerecordasrejected"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_commoditycodematchrating"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_copycommodityfrom"): Xrm.Attribute<any>;
     getAttribute(attributeName: "defraimp_copyconsigneefrom"): Xrm.Attribute<any>;
     getAttribute(attributeName: "defraimp_copyconsignorfrom"): Xrm.Attribute<any>;
     getAttribute(attributeName: "defraimp_copykeydetailsfrom"): Xrm.Attribute<any>;
@@ -208,13 +209,13 @@ declare namespace Form.defraimp_matchrecord.Main {
     getAttribute(attributeName: "defraimp_placeoforiginpostcodematchrating"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_quantitymatchrating"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_rejectedreason"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_speciesmatchrating"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<defraimp_matchrecord_statecode>;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<defraimp_matchrecord_statuscode>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "RelatedImportRecords"): Xrm.SubGridControl<"defraimp_importapplication">;
     getControl(controlName: "defraimp_commoditycodematchrating"): Xrm.StringControl;
+    getControl(controlName: "defraimp_copycommodityfrom"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "defraimp_copyconsigneefrom"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "defraimp_copyconsignorfrom"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "defraimp_copykeydetailsfrom"): Xrm.Control<Xrm.Attribute<any>>;
@@ -233,7 +234,6 @@ declare namespace Form.defraimp_matchrecord.Main {
     getControl(controlName: "defraimp_placeoforiginnamematchrating"): Xrm.StringControl;
     getControl(controlName: "defraimp_placeoforiginpostcodematchrating"): Xrm.StringControl;
     getControl(controlName: "defraimp_quantitymatchrating"): Xrm.StringControl;
-    getControl(controlName: "defraimp_speciesmatchrating"): Xrm.StringControl;
     getControl(controlName: "header_defraimp_overallmatchrating"): Xrm.StringControl;
     getControl(controlName: "header_process_defraimp_appendrecordstoimportrecords"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_defraimp_appendrecordstoimportrecords1"): Xrm.OptionSetControl<boolean> | null;

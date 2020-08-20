@@ -3,6 +3,7 @@ declare namespace WebApi {
     createdon?: Date | null;
     defraimp_arrivaldate?: Date | null;
     defraimp_arrivaltime?: string | null;
+    defraimp_caseworkerintervention?: boolean | null;
     defraimp_commoditiesanimalscertifiedas?: defraimp_animalcertifiedas | null;
     defraimp_commoditiescommodityintendedfor?: string | null;
     defraimp_commoditiesconsignedcountry?: string | null;
@@ -86,6 +87,7 @@ declare namespace WebApi {
     defraimp_estimatedjourneytimeinminutes?: number | null;
     defraimp_formattedcommoditycomplementstext?: string | null;
     defraimp_formattedidentificationofanimalstext?: string | null;
+    defraimp_hasmultiplecommoditycodes?: boolean | null;
     defraimp_identificationofanimalstext?: string | null;
     defraimp_importeraddressaddressline1?: string | null;
     defraimp_importeraddressaddressline2?: string | null;
@@ -235,6 +237,7 @@ declare namespace WebApi {
     createdonbehalfby_guid: WebAttribute<defraimp_ImporterNotification_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
     defraimp_arrivaldate: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_arrivaldate: Date | null }, { defraimp_arrivaldate_formatted?: string }>;
     defraimp_arrivaltime: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_arrivaltime: string | null }, {  }>;
+    defraimp_caseworkerintervention: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_caseworkerintervention: boolean | null }, {  }>;
     defraimp_commoditiesanimalscertifiedas: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commoditiesanimalscertifiedas: defraimp_animalcertifiedas | null }, { defraimp_commoditiesanimalscertifiedas_formatted?: string }>;
     defraimp_commoditiescommodityintendedfor: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commoditiescommodityintendedfor: string | null }, {  }>;
     defraimp_commoditiesconsignedcountry: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_commoditiesconsignedcountry: string | null }, {  }>;
@@ -324,6 +327,7 @@ declare namespace WebApi {
     defraimp_estimatedjourneytimeinminutes: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_estimatedjourneytimeinminutes: number | null }, {  }>;
     defraimp_formattedcommoditycomplementstext: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_formattedcommoditycomplementstext: string | null }, {  }>;
     defraimp_formattedidentificationofanimalstext: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_formattedidentificationofanimalstext: string | null }, {  }>;
+    defraimp_hasmultiplecommoditycodes: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_hasmultiplecommoditycodes: boolean | null }, {  }>;
     defraimp_identificationofanimalstext: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_identificationofanimalstext: string | null }, {  }>;
     defraimp_importeraddressaddressline1: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importeraddressaddressline1: string | null }, {  }>;
     defraimp_importeraddressaddressline2: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importeraddressaddressline2: string | null }, {  }>;
@@ -462,6 +466,7 @@ declare namespace WebApi {
     createdonbehalfby_guid: XQW.Guid;
     defraimp_arrivaldate: Date;
     defraimp_arrivaltime: string;
+    defraimp_caseworkerintervention: boolean;
     defraimp_commoditiesanimalscertifiedas: defraimp_animalcertifiedas;
     defraimp_commoditiescommodityintendedfor: string;
     defraimp_commoditiesconsignedcountry: string;
@@ -551,6 +556,7 @@ declare namespace WebApi {
     defraimp_estimatedjourneytimeinminutes: any;
     defraimp_formattedcommoditycomplementstext: string;
     defraimp_formattedidentificationofanimalstext: string;
+    defraimp_hasmultiplecommoditycodes: boolean;
     defraimp_identificationofanimalstext: string;
     defraimp_importeraddressaddressline1: string;
     defraimp_importeraddressaddressline2: string;

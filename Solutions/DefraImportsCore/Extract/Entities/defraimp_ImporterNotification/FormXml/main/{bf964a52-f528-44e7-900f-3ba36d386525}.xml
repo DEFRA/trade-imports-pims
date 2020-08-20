@@ -121,6 +121,29 @@
             </column>
             <column width="50%">
               <sections>
+                <section name="caseworker_intervention_section" showlabel="true" showbar="false" locklevel="0" id="{6b6cd242-2cc1-2b59-3203-c4772da84735}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                  <labels>
+                    <label description="Caseworker Intervention" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e1daee12-e587-18b7-3ea6-01b5c4ea53a5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Has Multiple Commodity Codes" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_hasmultiplecommoditycodes" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_hasmultiplecommoditycodes" disabled="true" uniqueid="{c854cb60-673c-e81d-9b4e-6b8adea29c8a}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b68ac68a-b0b1-04d9-0241-7daa1b750aa9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Has a Caseworker Intervened?" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_caseworkerintervention" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_caseworkerintervention" disabled="false" uniqueid="{ed94584e-7a57-b777-9a4c-ce4736badde5}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
                 <section name="_section_632" id="1b9e2d8a-dbe8-4cb9-9158-81bc3af2fcda" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
                   <labels>
                     <label description="Consignment Details" languagecode="1033" />
@@ -1729,11 +1752,22 @@
         <event name="onload" application="false" active="false">
           <Handlers>
             <Handler functionName="DefraImports.ImporterNotification.showHideCharity" libraryName="defraimp_/js/importernotification.form.js" handlerUniqueId="{ceb5e324-b0b7-0853-6b93-606168a75126}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="DefraImports.ImporterNotification.checkForMultipleCommodities" libraryName="defraimp_/js/importernotification.form.js" handlerUniqueId="{34bbe893-3980-b5dd-eea6-61267c282ce8}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
         <event name="onchange" application="false" active="false" attribute="defraimp_importingfromcharity">
           <Handlers>
             <Handler functionName="DefraImports.ImporterNotification.showHideCharity" libraryName="defraimp_/js/importernotification.form.js" handlerUniqueId="{14bedea9-03d8-01b9-37e1-8985c6e10084}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="defraimp_hasmultiplecommoditycodes">
+          <Handlers>
+            <Handler functionName="DefraImports.ImporterNotification.checkForMultipleCommodities" libraryName="defraimp_/js/importernotification.form.js" handlerUniqueId="{0edb0a04-c954-e32e-d281-b53bcbae7e13}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="defraimp_caseworkerintervention">
+          <Handlers>
+            <Handler functionName="DefraImports.ImporterNotification.checkForMultipleCommodities" libraryName="defraimp_/js/importernotification.form.js" handlerUniqueId="{a986820b-04c1-8c59-e433-c9debbaea1b3}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

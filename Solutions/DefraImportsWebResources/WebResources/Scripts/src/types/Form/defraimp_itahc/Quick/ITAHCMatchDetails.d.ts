@@ -19,7 +19,6 @@ declare namespace Form.defraimp_itahc.Quick {
       get(name: "defraimp_placeoforiginharvestaddresspostcode"): Xrm.Attribute<string>;
       get(name: "defraimp_placeoforiginharvestname"): Xrm.Attribute<string>;
       get(name: "defraimp_quantity"): Xrm.NumberAttribute;
-      get(name: "defraimp_speciesid"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
@@ -35,7 +34,6 @@ declare namespace Form.defraimp_itahc.Quick {
       get(name: "defraimp_placeoforiginharvestaddresspostcode"): Xrm.StringControl;
       get(name: "defraimp_placeoforiginharvestname"): Xrm.StringControl;
       get(name: "defraimp_quantity"): Xrm.NumberControl;
-      get(name: "defraimp_speciesid"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -59,7 +57,6 @@ declare namespace Form.defraimp_itahc.Quick {
     getAttribute(attributeName: "defraimp_placeoforiginharvestaddresspostcode"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_placeoforiginharvestname"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_quantity"): Xrm.NumberAttribute;
-    getAttribute(attributeName: "defraimp_speciesid"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "defraimp_commoditycode"): Xrm.StringControl;
     getControl(controlName: "defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country">;
@@ -70,7 +67,6 @@ declare namespace Form.defraimp_itahc.Quick {
     getControl(controlName: "defraimp_placeoforiginharvestaddresspostcode"): Xrm.StringControl;
     getControl(controlName: "defraimp_placeoforiginharvestname"): Xrm.StringControl;
     getControl(controlName: "defraimp_quantity"): Xrm.NumberControl;
-    getControl(controlName: "defraimp_speciesid"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }
 }

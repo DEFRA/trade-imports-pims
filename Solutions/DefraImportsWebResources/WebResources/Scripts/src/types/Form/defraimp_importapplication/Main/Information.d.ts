@@ -48,6 +48,7 @@ declare namespace Form.defraimp_importapplication.Main {
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
       interface Summary extends Xrm.SectionCollectionBase {
+        get(name: "CommodityIdentifiersManual_Section"): Xrm.PageSection;
         get(name: "CommodityIdentifiers_Section"): Xrm.PageSection;
         get(name: "Commodity_Section"): Xrm.PageSection;
         get(name: "GeneralComments_Sectiom"): Xrm.PageSection;
@@ -106,6 +107,8 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_charityaddressline3"): Xrm.Attribute<string>;
       get(name: "defraimp_charityaddresspostcode"): Xrm.Attribute<string>;
       get(name: "defraimp_charityname"): Xrm.Attribute<string>;
+      get(name: "defraimp_commoditycode"): Xrm.Attribute<string>;
+      get(name: "defraimp_commodityidentifiers"): Xrm.Attribute<string>;
       get(name: "defraimp_commoditynotes"): Xrm.Attribute<string>;
       get(name: "defraimp_commoditytypeid"): Xrm.LookupAttribute<"defraexp_commoditytype">;
       get(name: "defraimp_completionsummary"): Xrm.Attribute<string>;
@@ -144,6 +147,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_inspectionrequiredoriginalvalue"): Xrm.NumberAttribute;
       get(name: "defraimp_inspectionrequiredreason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionrequiredreason>;
       get(name: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberAttribute;
+      get(name: "defraimp_ipaffsspeciesid"): Xrm.Attribute<string>;
       get(name: "defraimp_iv65responseduedate"): Xrm.DateAttribute;
       get(name: "defraimp_iv65responsereceiveddate"): Xrm.DateAttribute;
       get(name: "defraimp_iv65sent"): Xrm.Attribute<any>;
@@ -193,6 +197,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_resettrustleveltobronze"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_risklevelverified"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_sealnumber"): Xrm.Attribute<string>;
+      get(name: "defraimp_tracesspeciesid"): Xrm.Attribute<string>;
       get(name: "defraimp_transporteraddresscity"): Xrm.Attribute<string>;
       get(name: "defraimp_transporteraddresscountryid"): Xrm.LookupAttribute<"defra_country">;
       get(name: "defraimp_transporteraddressline1"): Xrm.Attribute<string>;
@@ -229,6 +234,8 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_charityaddressline3"): Xrm.StringControl;
       get(name: "defraimp_charityaddresspostcode"): Xrm.StringControl;
       get(name: "defraimp_charityname"): Xrm.StringControl;
+      get(name: "defraimp_commoditycode"): Xrm.StringControl;
+      get(name: "defraimp_commodityidentifiers"): Xrm.StringControl;
       get(name: "defraimp_commoditynotes"): Xrm.StringControl;
       get(name: "defraimp_commoditytypeid"): Xrm.LookupControl<"defraexp_commoditytype">;
       get(name: "defraimp_consignmentconforming"): Xrm.OptionSetControl<boolean>;
@@ -264,6 +271,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_inspectionrequiredoriginalvalue"): Xrm.NumberControl;
       get(name: "defraimp_inspectionrequiredreason"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequiredreason>;
       get(name: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberControl;
+      get(name: "defraimp_ipaffsspeciesid"): Xrm.StringControl;
       get(name: "defraimp_iv65responseduedate"): Xrm.DateControl;
       get(name: "defraimp_iv65responsereceiveddate"): Xrm.DateControl;
       get(name: "defraimp_iv65sent"): Xrm.Control<Xrm.Attribute<any>>;
@@ -312,6 +320,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_quantity"): Xrm.NumberControl;
       get(name: "defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion">;
       get(name: "defraimp_sealnumber"): Xrm.StringControl;
+      get(name: "defraimp_tracesspeciesid"): Xrm.StringControl;
       get(name: "defraimp_transporteraddresscity"): Xrm.StringControl;
       get(name: "defraimp_transporteraddresscountryid"): Xrm.LookupControl<"defra_country">;
       get(name: "defraimp_transporteraddressline1"): Xrm.StringControl;
@@ -391,6 +400,8 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_charityaddressline3"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_charityaddresspostcode"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_charityname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_commoditycode"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_commodityidentifiers"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commoditynotes"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commoditytypeid"): Xrm.LookupAttribute<"defraexp_commoditytype">;
     getAttribute(attributeName: "defraimp_completionsummary"): Xrm.Attribute<string>;
@@ -429,6 +440,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_inspectionrequiredoriginalvalue"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_inspectionrequiredreason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionrequiredreason>;
     getAttribute(attributeName: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "defraimp_ipaffsspeciesid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_iv65responseduedate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_iv65responsereceiveddate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_iv65sent"): Xrm.Attribute<any>;
@@ -478,6 +490,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_resettrustleveltobronze"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_risklevelverified"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_sealnumber"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_tracesspeciesid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_transporteraddresscity"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_transporteraddresscountryid"): Xrm.LookupAttribute<"defra_country">;
     getAttribute(attributeName: "defraimp_transporteraddressline1"): Xrm.Attribute<string>;
@@ -509,6 +522,8 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_charityaddressline3"): Xrm.StringControl;
     getControl(controlName: "defraimp_charityaddresspostcode"): Xrm.StringControl;
     getControl(controlName: "defraimp_charityname"): Xrm.StringControl;
+    getControl(controlName: "defraimp_commoditycode"): Xrm.StringControl;
+    getControl(controlName: "defraimp_commodityidentifiers"): Xrm.StringControl;
     getControl(controlName: "defraimp_commoditynotes"): Xrm.StringControl;
     getControl(controlName: "defraimp_commoditytypeid"): Xrm.LookupControl<"defraexp_commoditytype">;
     getControl(controlName: "defraimp_consignmentconforming"): Xrm.OptionSetControl<boolean>;
@@ -544,6 +559,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_inspectionrequiredoriginalvalue"): Xrm.NumberControl;
     getControl(controlName: "defraimp_inspectionrequiredreason"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequiredreason>;
     getControl(controlName: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberControl;
+    getControl(controlName: "defraimp_ipaffsspeciesid"): Xrm.StringControl;
     getControl(controlName: "defraimp_iv65responseduedate"): Xrm.DateControl;
     getControl(controlName: "defraimp_iv65responsereceiveddate"): Xrm.DateControl;
     getControl(controlName: "defraimp_iv65sent"): Xrm.Control<Xrm.Attribute<any>>;
@@ -592,6 +608,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_quantity"): Xrm.NumberControl;
     getControl(controlName: "defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion">;
     getControl(controlName: "defraimp_sealnumber"): Xrm.StringControl;
+    getControl(controlName: "defraimp_tracesspeciesid"): Xrm.StringControl;
     getControl(controlName: "defraimp_transporteraddresscity"): Xrm.StringControl;
     getControl(controlName: "defraimp_transporteraddresscountryid"): Xrm.LookupControl<"defra_country">;
     getControl(controlName: "defraimp_transporteraddressline1"): Xrm.StringControl;

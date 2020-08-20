@@ -13,7 +13,6 @@ declare namespace Form.defraimp_importernotification.Quick {
       get(name: "defraimp_arrivaldate"): Xrm.DateAttribute;
       get(name: "defraimp_commoditiesnumberofanimals"): Xrm.NumberAttribute;
       get(name: "defraimp_commodityid"): Xrm.Attribute<string>;
-      get(name: "defraimp_commodityspeciesid"): Xrm.Attribute<string>;
       get(name: "defraimp_consignoraddresspostalzipcode"): Xrm.Attribute<string>;
       get(name: "defraimp_consignorcompanyname"): Xrm.Attribute<string>;
       get(name: "defraimp_countryoforiginid"): Xrm.LookupAttribute<"defra_country">;
@@ -30,7 +29,6 @@ declare namespace Form.defraimp_importernotification.Quick {
       get(name: "defraimp_arrivaldate"): Xrm.DateControl;
       get(name: "defraimp_commoditiesnumberofanimals"): Xrm.NumberControl;
       get(name: "defraimp_commodityid"): Xrm.StringControl;
-      get(name: "defraimp_commodityspeciesid"): Xrm.StringControl;
       get(name: "defraimp_consignoraddresspostalzipcode"): Xrm.StringControl;
       get(name: "defraimp_consignorcompanyname"): Xrm.StringControl;
       get(name: "defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country">;
@@ -55,7 +53,6 @@ declare namespace Form.defraimp_importernotification.Quick {
     getAttribute(attributeName: "defraimp_arrivaldate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_commoditiesnumberofanimals"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_commodityid"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_commodityspeciesid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_consignoraddresspostalzipcode"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_consignorcompanyname"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_countryoforiginid"): Xrm.LookupAttribute<"defra_country">;
@@ -67,7 +64,6 @@ declare namespace Form.defraimp_importernotification.Quick {
     getControl(controlName: "defraimp_arrivaldate"): Xrm.DateControl;
     getControl(controlName: "defraimp_commoditiesnumberofanimals"): Xrm.NumberControl;
     getControl(controlName: "defraimp_commodityid"): Xrm.StringControl;
-    getControl(controlName: "defraimp_commodityspeciesid"): Xrm.StringControl;
     getControl(controlName: "defraimp_consignoraddresspostalzipcode"): Xrm.StringControl;
     getControl(controlName: "defraimp_consignorcompanyname"): Xrm.StringControl;
     getControl(controlName: "defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country">;

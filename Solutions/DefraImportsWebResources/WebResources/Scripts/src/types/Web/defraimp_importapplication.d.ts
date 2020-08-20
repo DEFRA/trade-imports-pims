@@ -14,6 +14,7 @@ declare namespace WebApi {
     defraimp_charityaddressline3?: string | null;
     defraimp_charityaddresspostcode?: string | null;
     defraimp_charityname?: string | null;
+    defraimp_commoditycode?: string | null;
     defraimp_commodityidentifiers?: string | null;
     defraimp_commoditynotes?: string | null;
     defraimp_completionsummary?: string | null;
@@ -55,6 +56,7 @@ declare namespace WebApi {
     defraimp_inspectionrequiredoriginalvalue?: number | null;
     defraimp_inspectionrequiredreason?: defraimp_importapplication_defraimp_inspectionrequiredreason | null;
     defraimp_inspectionrequiredreasonoriginalvalue?: number | null;
+    defraimp_ipaffsspeciesid?: string | null;
     defraimp_iv65responseduedate?: Date | null;
     defraimp_iv65responsereceiveddate?: Date | null;
     defraimp_iv65sent?: boolean | null;
@@ -100,6 +102,7 @@ declare namespace WebApi {
     defraimp_resettrustleveltobronze?: boolean | null;
     defraimp_risklevelverified?: boolean | null;
     defraimp_sealnumber?: string | null;
+    defraimp_tracesspeciesid?: string | null;
     defraimp_transporteraddress?: string | null;
     defraimp_transporteraddresscity?: string | null;
     defraimp_transporteraddressline1?: string | null;
@@ -179,6 +182,7 @@ declare namespace WebApi {
     defraimp_charityaddressline3: WebAttribute<defraimp_importapplication_Select, { defraimp_charityaddressline3: string | null }, {  }>;
     defraimp_charityaddresspostcode: WebAttribute<defraimp_importapplication_Select, { defraimp_charityaddresspostcode: string | null }, {  }>;
     defraimp_charityname: WebAttribute<defraimp_importapplication_Select, { defraimp_charityname: string | null }, {  }>;
+    defraimp_commoditycode: WebAttribute<defraimp_importapplication_Select, { defraimp_commoditycode: string | null }, {  }>;
     defraimp_commodityidentifiers: WebAttribute<defraimp_importapplication_Select, { defraimp_commodityidentifiers: string | null }, {  }>;
     defraimp_commoditynotes: WebAttribute<defraimp_importapplication_Select, { defraimp_commoditynotes: string | null }, {  }>;
     defraimp_commoditytypeid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_commoditytypeid_guid: string | null }, { defraimp_commoditytypeid_formatted?: string }>;
@@ -226,6 +230,7 @@ declare namespace WebApi {
     defraimp_inspectionrequiredoriginalvalue: WebAttribute<defraimp_importapplication_Select, { defraimp_inspectionrequiredoriginalvalue: number | null }, {  }>;
     defraimp_inspectionrequiredreason: WebAttribute<defraimp_importapplication_Select, { defraimp_inspectionrequiredreason: defraimp_importapplication_defraimp_inspectionrequiredreason | null }, { defraimp_inspectionrequiredreason_formatted?: string }>;
     defraimp_inspectionrequiredreasonoriginalvalue: WebAttribute<defraimp_importapplication_Select, { defraimp_inspectionrequiredreasonoriginalvalue: number | null }, {  }>;
+    defraimp_ipaffsspeciesid: WebAttribute<defraimp_importapplication_Select, { defraimp_ipaffsspeciesid: string | null }, {  }>;
     defraimp_iv65responseduedate: WebAttribute<defraimp_importapplication_Select, { defraimp_iv65responseduedate: Date | null }, { defraimp_iv65responseduedate_formatted?: string }>;
     defraimp_iv65responsereceiveddate: WebAttribute<defraimp_importapplication_Select, { defraimp_iv65responsereceiveddate: Date | null }, { defraimp_iv65responsereceiveddate_formatted?: string }>;
     defraimp_iv65sent: WebAttribute<defraimp_importapplication_Select, { defraimp_iv65sent: boolean | null }, {  }>;
@@ -281,6 +286,7 @@ declare namespace WebApi {
     defraimp_resettrustleveltobronze: WebAttribute<defraimp_importapplication_Select, { defraimp_resettrustleveltobronze: boolean | null }, {  }>;
     defraimp_risklevelverified: WebAttribute<defraimp_importapplication_Select, { defraimp_risklevelverified: boolean | null }, {  }>;
     defraimp_sealnumber: WebAttribute<defraimp_importapplication_Select, { defraimp_sealnumber: string | null }, {  }>;
+    defraimp_tracesspeciesid: WebAttribute<defraimp_importapplication_Select, { defraimp_tracesspeciesid: string | null }, {  }>;
     defraimp_transporteraddress: WebAttribute<defraimp_importapplication_Select, { defraimp_transporteraddress: string | null }, {  }>;
     defraimp_transporteraddresscity: WebAttribute<defraimp_importapplication_Select, { defraimp_transporteraddresscity: string | null }, {  }>;
     defraimp_transporteraddresscountryid_guid: WebAttribute<defraimp_importapplication_Select, { defraimp_transporteraddresscountryid_guid: string | null }, { defraimp_transporteraddresscountryid_formatted?: string }>;
@@ -331,6 +337,7 @@ declare namespace WebApi {
     defraimp_charityaddressline3: string;
     defraimp_charityaddresspostcode: string;
     defraimp_charityname: string;
+    defraimp_commoditycode: string;
     defraimp_commodityidentifiers: string;
     defraimp_commoditynotes: string;
     defraimp_commoditytypeid_guid: XQW.Guid;
@@ -378,6 +385,7 @@ declare namespace WebApi {
     defraimp_inspectionrequiredoriginalvalue: number;
     defraimp_inspectionrequiredreason: defraimp_importapplication_defraimp_inspectionrequiredreason;
     defraimp_inspectionrequiredreasonoriginalvalue: number;
+    defraimp_ipaffsspeciesid: string;
     defraimp_iv65responseduedate: Date;
     defraimp_iv65responsereceiveddate: Date;
     defraimp_iv65sent: boolean;
@@ -433,6 +441,7 @@ declare namespace WebApi {
     defraimp_resettrustleveltobronze: boolean;
     defraimp_risklevelverified: boolean;
     defraimp_sealnumber: string;
+    defraimp_tracesspeciesid: string;
     defraimp_transporteraddress: string;
     defraimp_transporteraddresscity: string;
     defraimp_transporteraddresscountryid_guid: XQW.Guid;
