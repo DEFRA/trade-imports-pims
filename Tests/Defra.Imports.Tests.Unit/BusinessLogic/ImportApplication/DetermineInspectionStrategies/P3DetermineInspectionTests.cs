@@ -43,6 +43,29 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
         }
 
         [Fact]
+        public void ExecuteInspection_CountHigherThanRule_ShouldUpdateImportApplicationToInspectionRequired()
+        {
+            // Arrange
+            _importApplication.defraimp_ImportApplicationType = defraimp_importapplication_defraimp_importapplicationtype.ITAHC;
+            EntityReference itahcEntityRef = new EntityReference(defraimp_itahc.EntityLogicalName, Guid.NewGuid());
+            _importApplication.defraimp_PrimaryITAHCId = itahcEntityRef;
+
+            SetupCoverageRulesRepoToReturnRules();
+            SetupP3AutonumberRepo(3);
+            SetupRiskLevelCounterManager();
+
+            // Act
+            _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
+
+            // Assert
+            _mockImportApplicationRepo.Verify(
+                r => r.Update(
+                    It.Is<defraimp_importapplication>(o => o.defraimp_InspectionRequired == defraimp_importapplication_defraimp_inspectionrequired.Yes)
+                )
+            );
+        }
+
+        [Fact]
         public void ExecuteInspection_QuotaEquals0_ShouldUpdateImportApplicationToNoInspectionRequired()
         {
             // Arrange
@@ -100,11 +123,11 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
 
         private void SetupP3AutonumberRepo(int currentCount)
         {
-            _mockAutoNumberRepo.Setup(r => r.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME)).Returns(1);
+            _mockAutoNumberRepo.Setup(r => r.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME)).Returns(currentCount);
             defraimp_autonumber autoNumberStub = new defraimp_autonumber()
             {
                 defraimp_autonumberId = Guid.NewGuid(),
-                defraimp_CurrentNumber = 1,
+                defraimp_CurrentNumber = currentCount,
                 defraimp_Key = ImportApplicationConstants.P3_QUOTA_COUNTER_NAME,
                 defraimp_name = "P3 Counter"
             };
