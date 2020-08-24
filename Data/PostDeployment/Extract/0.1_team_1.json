@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 4,
+  "RecordsCount": 6,
   "ExportedEntities": [
     {
       "LogicalName": "team",
@@ -107,6 +107,68 @@
         {
           "AttributeName": "name",
           "AttributeValue": "IRMS - Wales",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "18785ed4-b5e3-ea11-a813-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "UNKNOWN",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "c82c940b-b6e3-ea11-a813-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "NON-GB",
           "AttributeType": "System.String"
         },
         {

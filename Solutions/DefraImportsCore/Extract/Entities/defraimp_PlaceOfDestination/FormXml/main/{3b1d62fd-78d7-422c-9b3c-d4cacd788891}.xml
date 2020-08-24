@@ -72,7 +72,7 @@
                         <labels>
                           <label description="Postcode" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_postcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_postcode" disabled="false" />
+                        <control id="defraimp_postcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_postcode" disabled="false" uniqueid="{65ea7ea6-1e3b-7463-e372-e9a99eb142c6}" />
                       </cell>
                     </row>
                     <row>
@@ -98,9 +98,83 @@
             </column>
           </columns>
         </tab>
+        <tab name="tab_2" id="{479a3584-18ad-4bab-a2aa-0b4c8d9373e1}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Files and Attachments" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" showlabel="false" showbar="false" locklevel="0" id="{69cc7326-72a4-3152-66c7-ddd5d9ee5a04}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d6c8734d-0b01-e67c-d1d8-7cee51a6ab0b}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                        <labels>
+                          <label description="Files and Attachments" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_FilesAndAttachments" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>msdyn_filesandattachments</Url>
+                            <PassParameters>false</PassParameters>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>true</Border>
+                            <WebResourceId>{24C6F2C3-66C3-E511-80E1-3863BB34FDE8}</WebResourceId>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false">
+                            <dependencies />
+                          </event>
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{a8234048-bc75-b722-8c07-a7b510e680b9}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                        <labels>
+                          <label description="Upload Files" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_UploadFiles" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>msdyn_multiple_uploads</Url>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>true</Border>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <WebResourceId>{D72ED98F-E5BA-E511-80F4-3863BB2E0660}</WebResourceId>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false">
+                            <dependencies />
+                          </event>
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
       </tabs>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

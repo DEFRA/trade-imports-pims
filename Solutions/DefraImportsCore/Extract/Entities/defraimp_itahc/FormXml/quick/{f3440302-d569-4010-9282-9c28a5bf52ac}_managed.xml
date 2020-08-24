@@ -20,7 +20,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{0c4e1858-279c-bdb9-7b14-5de681bbdaec}" showlabel="false" locklevel="0">
+                      <cell id="{0c4e1858-279c-bdb9-7b14-5de681bbdaec}" showlabel="false" locklevel="0" rowspan="5" auto="true">
                         <labels>
                           <label description="Commodity Id Types" languagecode="1033" />
                         </labels>

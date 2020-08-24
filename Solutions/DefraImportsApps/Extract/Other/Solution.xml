@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.21048" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.21347" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsApps</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Apps" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.23</Version>
+    <Version>0.0.0.24</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -178,7 +178,7 @@
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="25" type="1" schemaName="defraimp_placeofdestination" displayName="Place Of Destination" solution="Active" />
+        <Required key="25" type="1" schemaName="defraimp_placeofdestination" displayName="Place of Destination" solution="Active" />
         <Dependent key="1" type="80" schemaName="defraimp_EUImportsApp" displayName="EU Imports" />
       </MissingDependency>
       <MissingDependency>

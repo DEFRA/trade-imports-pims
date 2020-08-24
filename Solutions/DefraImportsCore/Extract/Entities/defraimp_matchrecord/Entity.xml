@@ -384,7 +384,7 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
+          <AppDefaultValue>1</AppDefaultValue>
           <optionset Name="defraimp_matchrecord_defraimp_copycommodityfrom">
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>0.0.0.87</IntroducedVersion>
@@ -445,7 +445,7 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
+          <AppDefaultValue>1</AppDefaultValue>
           <optionset Name="defraimp_defraimp_matchrecord_copyconsigneefrom">
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>0.0.0.56</IntroducedVersion>
@@ -457,14 +457,14 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
-              <option value="1">
-                <labels>
-                  <label description="ITAHC" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0">
+              <option value="0" Color="#0000ff">
                 <labels>
                   <label description="Importer Notification" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1" Color="#0000ff">
+                <labels>
+                  <label description="ITAHC" languagecode="1033" />
                 </labels>
               </option>
             </options>
@@ -506,7 +506,7 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
+          <AppDefaultValue>1</AppDefaultValue>
           <optionset Name="defraimp_defraimp_matchrecord_copyconsignorfrom">
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>0.0.0.56</IntroducedVersion>
@@ -518,14 +518,14 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
-              <option value="1">
-                <labels>
-                  <label description="ITAHC" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0">
+              <option value="0" Color="#0000ff">
                 <labels>
                   <label description="Importer Notification" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1" Color="#0000ff">
+                <labels>
+                  <label description="ITAHC" languagecode="1033" />
                 </labels>
               </option>
             </options>
@@ -567,7 +567,7 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
+          <AppDefaultValue>1</AppDefaultValue>
           <optionset Name="defraimp_defraimp_matchrecord_copykeydetailsfrom">
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>0.0.0.56</IntroducedVersion>
@@ -579,14 +579,14 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
-              <option value="1">
-                <labels>
-                  <label description="ITAHC" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0">
+              <option value="0" Color="#0000ff">
                 <labels>
                   <label description="Importer Notification" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1" Color="#0000ff">
+                <labels>
+                  <label description="ITAHC" languagecode="1033" />
                 </labels>
               </option>
             </options>
@@ -628,7 +628,7 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
+          <AppDefaultValue>1</AppDefaultValue>
           <optionset Name="defraimp_defraimp_matchrecord_copyplaceofdestinationfrom">
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>0.0.0.56</IntroducedVersion>
@@ -640,14 +640,14 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
-              <option value="1">
-                <labels>
-                  <label description="ITAHC" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0">
+              <option value="0" Color="#0000ff">
                 <labels>
                   <label description="Importer Notification" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1" Color="#0000ff">
+                <labels>
+                  <label description="ITAHC" languagecode="1033" />
                 </labels>
               </option>
             </options>
@@ -689,7 +689,7 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
+          <AppDefaultValue>1</AppDefaultValue>
           <optionset Name="defraimp_defraimp_matchrecord_copyplaceoforiginfrom">
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>0.0.0.56</IntroducedVersion>
@@ -701,14 +701,14 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
-              <option value="1">
-                <labels>
-                  <label description="ITAHC" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0">
+              <option value="0" Color="#0000ff">
                 <labels>
                   <label description="Importer Notification" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1" Color="#0000ff">
+                <labels>
+                  <label description="ITAHC" languagecode="1033" />
                 </labels>
               </option>
             </options>
@@ -750,7 +750,7 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
+          <AppDefaultValue>1</AppDefaultValue>
           <optionset Name="defraimp_defraimp_matchrecord_copytransporterfrom">
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>0.0.0.56</IntroducedVersion>
@@ -762,14 +762,14 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
-              <option value="1">
-                <labels>
-                  <label description="ITAHC" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0">
+              <option value="0" Color="#0000ff">
                 <labels>
                   <label description="Importer Notification" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1" Color="#0000ff">
+                <labels>
+                  <label description="ITAHC" languagecode="1033" />
                 </labels>
               </option>
             </options>
@@ -1346,7 +1346,7 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
+          <AppDefaultValue>1</AppDefaultValue>
           <optionset Name="defraimp_defraimp_matchrecord_overwriteexistingfieldsonimportrecord">
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>0.0.0.56</IntroducedVersion>
@@ -1358,12 +1358,12 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
-              <option value="1">
+              <option value="1" Color="#0000ff">
                 <labels>
                   <label description="Yes" languagecode="1033" />
                 </labels>
               </option>
-              <option value="0">
+              <option value="0" Color="#0000ff">
                 <labels>
                   <label description="No" languagecode="1033" />
                 </labels>
