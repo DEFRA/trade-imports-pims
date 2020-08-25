@@ -28,6 +28,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{7dabef90-31e0-4544-92b1-6149797ce159}" locklevel="0">
+                        <labels>
+                          <label description="Devolved Office" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_devolvedoffice" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_devolvedoffice" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{bfebcfcd-becc-47ad-bbc7-4c8e1db3c4fd}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Local Reference Number" languagecode="1033" />
@@ -1027,7 +1035,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

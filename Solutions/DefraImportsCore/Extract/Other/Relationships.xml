@@ -129,6 +129,7 @@
   <EntityRelationship Name="defraimp_defraimp_transporter_defraimp_watchlist_TransporterId" />
   <EntityRelationship Name="defraimp_defraimp_veterinarian_defraimp_watchlist_VeterinarianId" />
   <EntityRelationship Name="defraimp_defraimp_watchlist_defraimp_watchflag_WatchListId" />
+  <EntityRelationship Name="defraimp_docom_DevolvedOffice_Team" />
   <EntityRelationship Name="defraimp_goldbronzecountriesnn" />
   <EntityRelationship Name="defraimp_importapplication_defraimp_importqueries" />
   <EntityRelationship Name="defraimp_importapplication_ProcessSession" />

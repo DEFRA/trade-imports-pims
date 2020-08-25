@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="EU Imports - Daily Stats" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{588c9da2-5b10-ea11-a811-000d3ab55801}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="dashboard">
+      <form>
+        <tabs>
+          <tab showlabel="false" verticallayout="true" id="{4ca27792-e8e1-4394-a4ed-6da9585b2747}">
+            <labels>
+              <label description="Tab" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="false" showbar="false" columns="111" id="{26dfa488-81b2-44ae-8760-c0d9df3b19c3}">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell colspan="1" rowspan="12" showlabel="false" id="{1dbe4ee9-92f9-4963-8b35-415be96f358f}" auto="false">
+                          <labels>
+                            <label description="ITAHC" languagecode="1033" />
+                          </labels>
+                          <control id="Componentb6aa96c" uniqueid="{23bba569-5abe-935a-b57a-cb8d82db7a93}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>defraimp_itahc</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>10</RecordsPerPage>
+                              <HeaderColorCode />
+                              <ViewId>{26038162-5C10-EA11-A811-000D3AB55801}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{97EE0E9F-5C10-EA11-A811-000D3AB55801}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="false" id="{444e7f21-7547-457d-9312-6d9fd6dde7db}" auto="false">
+                          <labels>
+                            <label description="Import Notification" languagecode="1033" />
+                          </labels>
+                          <control id="Component6348839" uniqueid="{2586c42c-cbbb-4b22-385a-cb6b560b78c2}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>defraimp_importapplication</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{7E5E2D4C-950F-EA11-A811-000D3AB5D511}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{7E5E2D4C-950F-EA11-A811-000D3AB5D511},{DD020992-1353-4A60-8EAD-C0E0925163E4}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{B541443A-7E16-EA11-A811-000D3AB5D511}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="false" id="{389161cf-7aef-43d6-9aba-d4fe46746e07}" auto="false">
+                          <labels>
+                            <label description="Post Import Check" languagecode="1033" />
+                          </labels>
+                          <control id="Componentf75a52d" uniqueid="{351402e1-2552-d0e3-4d47-beb071a6452a}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>10</RecordsPerPage>
+                              <HeaderColorCode />
+                              <ViewId>{5EEC871D-5D10-EA11-A811-000D3AB55801}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{F23D5B47-5D10-EA11-A811-000D3AB55801}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row>
+                        <cell colspan="1" rowspan="12" showlabel="false" id="{829871bb-7585-42cf-af20-4eb716ba3487}" auto="false">
+                          <labels>
+                            <label description="Import Query" languagecode="1033" />
+                          </labels>
+                          <control id="Component73df4c5" uniqueid="{38b7bc16-2b61-6d7e-08ca-8c5a1109947c}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>defraimp_importquery</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{576C3E3A-5F10-EA11-A811-000D3AB55801}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{7E1F0B8E-5F10-EA11-A811-000D3AB55801}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="false" ispreviewcell="true" id="{e9b2cea2-243c-468e-9890-0a37b7f8030c}">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="false" ispreviewcell="true" id="{b1775efa-5d41-4e80-aeac-12f2ae590e79}">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>0.0.0.2</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>
