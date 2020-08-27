@@ -11,6 +11,7 @@
     <RolePrivilege name="prvAppenddefraimp_MatchConfiguration" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_postcoderegion" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importcountrycommodityrisklevel" level="Global" />
@@ -18,16 +19,19 @@
     <RolePrivilege name="prvAppendTodefraimp_MatchConfiguration" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_postcoderegion" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_MatchConfiguration" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_postcoderegion" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_commoditytypemapping" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importcountrycommodityrisklevel" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_postcoderegion" level="Global" />
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
     <RolePrivilege name="prvReadAuditPartitions" level="Global" />
     <RolePrivilege name="prvReadAuditSummary" level="Global" />
@@ -42,6 +46,7 @@
     <RolePrivilege name="prvReaddefraimp_MatchConfiguration" level="Global" />
     <RolePrivilege name="prvReaddefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvReaddefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_postcoderegion" level="Global" />
     <RolePrivilege name="prvReadPluginAssembly" level="Global" />
     <RolePrivilege name="prvReadPluginType" level="Global" />
     <RolePrivilege name="prvReadRecordAuditHistory" level="Global" />
@@ -55,6 +60,7 @@
     <RolePrivilege name="prvSharedefraimp_MatchConfiguration" level="Global" />
     <RolePrivilege name="prvSharedefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvSharedefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_postcoderegion" level="Global" />
     <RolePrivilege name="prvWritedefraexp_configurationparameter" level="Global" />
     <RolePrivilege name="prvWritedefraimp_autonumber" level="Global" />
     <RolePrivilege name="prvWritedefraimp_commoditytypemapping" level="Global" />
@@ -66,6 +72,7 @@
     <RolePrivilege name="prvWritedefraimp_MatchConfiguration" level="Global" />
     <RolePrivilege name="prvWritedefraimp_MatchConfigurationField" level="Global" />
     <RolePrivilege name="prvWritedefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_postcoderegion" level="Global" />
     <RolePrivilege name="prvWriteSharePointData" level="Global" />
   </RolePrivileges>
 </Role>

@@ -110,6 +110,7 @@
     <Compile Include="ImporterNotification\PopulateIdentificationFormatJson.cs" />
     <Compile Include="ImportQuery\CloneProcessesImportQuery.cs" />
     <Compile Include="Itahc\FlagRecordOnWatchList.cs" />
+    <Compile Include="Itahc\PopulateDevolvedOffice.cs" />
     <Compile Include="Itahc\PopulateIntegrationFormattedValues.cs" />
     <Compile Include="Itahc\PopulateReplacesAndReplacedBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -62,6 +62,42 @@
     },
     {
       "type": "shell",
+      "label": "Export Managed Solution To Temp",
+      "command": [
+        "powershell",
+        "-ExecutionPolicy ByPass",
+        "-File build.ps1",
+        "-Target \"ExportManagedSolutionToTemp\"",
+        "-ScriptArgs \"--solution=${input:solution}\""
+      ],
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "label": "Export Unmanaged Solution To Temp",
+      "command": [
+        "powershell",
+        "-ExecutionPolicy ByPass",
+        "-File build.ps1",
+        "-Target \"ExportUnmanagedSolutionToTemp\"",
+        "-ScriptArgs \"--solution=${input:solution}\""
+      ],
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "label": "Extract Solution From Temp",
+      "command": [
+        "powershell",
+        "-ExecutionPolicy ByPass",
+        "-File build.ps1",
+        "-Target \"ExtractSolutionFromTemp\"",
+        "-ScriptArgs \"--solution=${input:solution}\""
+      ],
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
       "label": "Pack Solution",
       "command": [
         "powershell",

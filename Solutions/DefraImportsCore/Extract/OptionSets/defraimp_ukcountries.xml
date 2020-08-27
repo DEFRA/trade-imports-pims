@@ -44,5 +44,13 @@
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
+    <option value="714100004" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Channel Islands" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
   </options>
 </optionset>

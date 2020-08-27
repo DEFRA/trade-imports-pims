@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 2,
+  "RecordsCount": 3,
   "ExportedEntities": [
     {
       "LogicalName": "defraexp_configurationparameter",
@@ -46,6 +46,28 @@
         {
           "AttributeName": "defraexp_name",
           "AttributeValue": "IPAFFS URL",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_configurationparameter",
+      "Id": "cc3cd258-42e8-ea11-a817-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_key",
+          "AttributeValue": "defraimp_unknown_devolved_office_id",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_description",
+          "AttributeValue": "The Guid of the devolved office that is set when no matching office is found using the destination postcode.\nThe PopulateDevolvedOffice.cs plugin uses it.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Unknown Devolved Office ID",
           "AttributeType": "System.String"
         }
       ]

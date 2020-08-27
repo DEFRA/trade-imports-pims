@@ -69,6 +69,25 @@ Task("ExtractSolution")
       Directory($"{SolutionsFolder}/{solution}").Path.Combine("Extract"));
   });
 
+Task("ExportManagedSolutionToTemp")
+  .Does(() => {
+    var tempDirectory = DirectoryPath.FromString(EnvironmentVariable("TEMP"));
+    XrmExportSolution(GetConnectionString(solution, true), solution, tempDirectory, isManaged: true);
+  });
+
+Task("ExportUnmanagedSolutionToTemp")
+  .Does(() => {
+    var tempDirectory = DirectoryPath.FromString(EnvironmentVariable("TEMP"));
+    XrmExportSolution(GetConnectionString(solution, true), solution, tempDirectory, isManaged: false);
+  });
+
+Task("ExtractSolutionFromTemp")
+  .Does(() => {
+    var tempDirectory = DirectoryPath.FromString(EnvironmentVariable("TEMP"));
+    var outputPath = Directory($"{SolutionsFolder}/{solution}").Path.Combine("Extract");
+    SolutionPackagerExtract(tempDirectory.CombineWithFilePath($"{solution}.zip"), outputPath, SolutionPackageType.Both);
+  });
+
 // build targets 
 Task("BuildTestProjects")
   .Does(() => {

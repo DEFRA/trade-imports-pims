@@ -57,6 +57,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\JsonFormatterClassObjects\IdentificationParameterSetObjects\IdentificationParameterSet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\JsonFormatterClassObjects\IdentificationParameterSetObjects\IdentificationParameterSetList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\JsonFormatterClassObjects\IdentificationParameterSetObjects\IdentificationParameterSetObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Itahc\PopulateDevolvedOfficeBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\PopulateFormattedJSONTextFields.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\PopulateReplacesAndReplacedByBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ConsoleLogWriter.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Logging\Severity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\TracingServiceLogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IAnnotationRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RepoInterfaces\IPostcodeRegionRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Interfaces\InnRelationshipAssociator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\NNRelationshipAssociator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugin.cs" />

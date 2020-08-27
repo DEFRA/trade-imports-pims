@@ -123,7 +123,6 @@
   <entity name="defraimp_matchconfigurationfield" displayname="Match Configuration Field" etc="10207" primaryidfield="defraimp_matchconfigurationfieldid" primarynamefield="defraimp_name" disableplugins="false">
     <fields>
       <field displayname="Data Set One Field Name" name="defraimp_datasetonefieldname" type="string" primaryKey="false" customfield="false" />
-      <field displayname="Weighting" name="defraimp_weighting" type="integer" primaryKey="false" customfield="false" />
       <field displayname="Match Configuration Field" name="defraimp_matchconfigurationfieldid" type="guid" primaryKey="true" customfield="false" />
       <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
       <field displayname="Match Configuration" name="defraimp_matchconfigurationid" type="entityreference" primaryKey="false" lookupType="defraimp_matchconfiguration" customfield="false" />
@@ -144,12 +143,24 @@
     </fields>
     <relationships />
   </entity>
-<entity name="defraimp_commoditytypemapping" displayname="Commodity Type Mapping" etc="10235" primaryidfield="defraimp_commoditytypemappingid" primarynamefield="defraimp_name" disableplugins="false">    <fields>
+  <entity name="defraimp_commoditytypemapping" displayname="Commodity Type Mapping" etc="10235" primaryidfield="defraimp_commoditytypemappingid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
       <field displayname="Commodity Type" name="defraimp_commoditytype" type="entityreference" primaryKey="false" lookupType="defraexp_commoditytype" customfield="false" />
       <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
       <field displayname="Commodity Code" name="defraimp_commoditycode" type="string" primaryKey="false" customfield="true" />
       <field displayname="IPAFFS Species ID" name="defraimp_ipaffsspeciesid" type="string" primaryKey="false" customfield="true" />
       <field displayname="TRACES Species ID" name="defraimp_tracesspeciesid" type="string" primaryKey="false" customfield="true" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="defraimp_postcoderegion" displayname="Postcode Region" etc="10237" primaryidfield="defraimp_postcoderegionid" primarynamefield="defraimp_postcodeprefix" disableplugins="false">
+    <fields>
+      <field displayname="Devolved Office" name="defraimp_devolvedoffice" type="entityreference" primaryKey="false" lookupType="team" customfield="false" />
+      <field displayname="Postcode Prefix" name="defraimp_postcodeprefix" type="string" primaryKey="false" customfield="false" />
+      <field displayname="UK Region" name="defraimp_ukregion" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Postcode Region" name="defraimp_postcoderegionid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="UK Country" name="defraimp_ukcountry" type="optionsetvalue" primaryKey="false" customfield="false" />
+      <field displayname="Postcode District" name="defraimp_postcodedistrict" type="string" primaryKey="false" customfield="false" />
     </fields>
     <relationships />
   </entity>

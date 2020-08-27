@@ -51,7 +51,7 @@
     </fetchxml>
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Import Notifications without Verified Match" languagecode="1033" />
+      <LocalizedName description="Importer Notifications without Verified Match" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

@@ -64,6 +64,7 @@
           <Title LCID="1033" Title="Regions" />
         </Titles>
         <SubArea Id="NewSubArea_87589f0e" Entity="defraimp_apharegion" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_e332ece9" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="defraimp_postcoderegion" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
       <Group Id="NewGroup_aed14192" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>

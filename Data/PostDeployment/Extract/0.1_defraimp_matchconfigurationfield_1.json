@@ -29,11 +29,6 @@
           "AttributeType": "System.String"
         },
         {
-          "AttributeName": "defraimp_weighting",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
-        },
-        {
           "AttributeName": "defraimp_matchconfigurationid",
           "AttributeValue": {
             "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
@@ -71,11 +66,6 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Destination Postcode Pre Scoring",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_weighting",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
         },
         {
           "AttributeName": "defraimp_matchconfigurationid",
@@ -117,11 +107,6 @@
           "AttributeType": "System.String"
         },
         {
-          "AttributeName": "defraimp_weighting",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
-        },
-        {
           "AttributeName": "defraimp_matchconfigurationid",
           "AttributeValue": {
             "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
@@ -159,11 +144,6 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Destination Name",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_weighting",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
         },
         {
           "AttributeName": "defraimp_matchconfigurationid",
@@ -205,11 +185,6 @@
           "AttributeType": "System.String"
         },
         {
-          "AttributeName": "defraimp_weighting",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
-        },
-        {
           "AttributeName": "defraimp_matchconfigurationid",
           "AttributeValue": {
             "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
@@ -247,11 +222,6 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Origin Name",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_weighting",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
         },
         {
           "AttributeName": "defraimp_matchconfigurationid",
@@ -293,11 +263,6 @@
           "AttributeType": "System.String"
         },
         {
-          "AttributeName": "defraimp_weighting",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
-        },
-        {
           "AttributeName": "defraimp_matchconfigurationid",
           "AttributeValue": {
             "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
@@ -337,11 +302,6 @@
           "AttributeType": "System.String"
         },
         {
-          "AttributeName": "defraimp_weighting",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
-        },
-        {
           "AttributeName": "defraimp_matchconfigurationid",
           "AttributeValue": {
             "Id": "a4ef3005-30b6-ea11-a812-000d3ad82cac",
@@ -379,11 +339,6 @@
           "AttributeName": "defraimp_name",
           "AttributeValue": "Country Of Origin",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraimp_weighting",
-          "AttributeValue": 1,
-          "AttributeType": "System.Int32"
         },
         {
           "AttributeName": "defraimp_matchconfigurationid",

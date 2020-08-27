@@ -29,6 +29,9 @@
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.Itahc.FlagRecordOnWatchList, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="12506dd4-5bc0-ea11-a812-000d3ad82cac" Name="Defra.Imports.Plugins.Itahc.FlagRecordOnWatchList">
       <FriendlyName>Defra.Imports.Plugins.Itahc.FlagRecordOnWatchList</FriendlyName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.Itahc.PopulateDevolvedOffice, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="55f3f1ed-b3e7-ea11-a817-000d3ab6d757" Name="Defra.Imports.Plugins.Itahc.PopulateDevolvedOffice">
+      <FriendlyName>Defra.Imports.Plugins.Itahc.PopulateDevolvedOffice</FriendlyName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.Itahc.PopulateIntegrationFormattedValues, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="41bab120-57e0-4f44-88a8-29815f0f3a68" Name="Defra.Imports.Plugins.Itahc.PopulateIntegrationFormattedValues">
       <FriendlyName>Defra.Imports.Plugins.Itahc.PopulateIntegrationFormattedValues</FriendlyName>
     </PluginType>

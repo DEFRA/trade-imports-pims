@@ -29,6 +29,7 @@
   <EntityRelationship Name="business_unit_defraimp_parametersetkeydatapair" />
   <EntityRelationship Name="business_unit_defraimp_placeofdestination" />
   <EntityRelationship Name="business_unit_defraimp_placeoforigin" />
+  <EntityRelationship Name="business_unit_defraimp_postcoderegion" />
   <EntityRelationship Name="business_unit_defraimp_sampletest" />
   <EntityRelationship Name="business_unit_defraimp_transporter" />
   <EntityRelationship Name="business_unit_defraimp_veterinarian" />
@@ -155,6 +156,7 @@
   <EntityRelationship Name="defraimp_team_defraimp_importapplication" />
   <EntityRelationship Name="defraimp_team_defraimp_importernotification_DevolvedOffice" />
   <EntityRelationship Name="defraimp_team_defraimp_itahc_DevolvedOffice" />
+  <EntityRelationship Name="defraimp_team_defraimp_postcoderegion_DevolvedOffice" />
   <EntityRelationship Name="entitlement_defraimp_importqueries" />
   <EntityRelationship Name="entitlementtemplate_defraimp_importqueries" />
   <EntityRelationship Name="incident_defraimp_importqueries" />
@@ -223,6 +225,8 @@
   <EntityRelationship Name="lk_defraimp_placeofdestination_modifiedby" />
   <EntityRelationship Name="lk_defraimp_placeoforigin_createdby" />
   <EntityRelationship Name="lk_defraimp_placeoforigin_modifiedby" />
+  <EntityRelationship Name="lk_defraimp_postcoderegion_createdby" />
+  <EntityRelationship Name="lk_defraimp_postcoderegion_modifiedby" />
   <EntityRelationship Name="lk_defraimp_sampletest_createdby" />
   <EntityRelationship Name="lk_defraimp_sampletest_modifiedby" />
   <EntityRelationship Name="lk_defraimp_transporter_createdby" />
@@ -265,6 +269,7 @@
   <EntityRelationship Name="owner_defraimp_parametersetkeydatapair" />
   <EntityRelationship Name="owner_defraimp_placeofdestination" />
   <EntityRelationship Name="owner_defraimp_placeoforigin" />
+  <EntityRelationship Name="owner_defraimp_postcoderegion" />
   <EntityRelationship Name="owner_defraimp_sampletest" />
   <EntityRelationship Name="owner_defraimp_transporter" />
   <EntityRelationship Name="owner_defraimp_veterinarian" />
@@ -295,6 +300,7 @@
   <EntityRelationship Name="team_defraimp_parametersetkeydatapair" />
   <EntityRelationship Name="team_defraimp_placeofdestination" />
   <EntityRelationship Name="team_defraimp_placeoforigin" />
+  <EntityRelationship Name="team_defraimp_postcoderegion" />
   <EntityRelationship Name="team_defraimp_sampletest" />
   <EntityRelationship Name="team_defraimp_transporter" />
   <EntityRelationship Name="team_defraimp_veterinarian" />
@@ -322,6 +328,7 @@
   <EntityRelationship Name="user_defraimp_parametersetkeydatapair" />
   <EntityRelationship Name="user_defraimp_placeofdestination" />
   <EntityRelationship Name="user_defraimp_placeoforigin" />
+  <EntityRelationship Name="user_defraimp_postcoderegion" />
   <EntityRelationship Name="user_defraimp_sampletest" />
   <EntityRelationship Name="user_defraimp_transporter" />
   <EntityRelationship Name="user_defraimp_veterinarian" />

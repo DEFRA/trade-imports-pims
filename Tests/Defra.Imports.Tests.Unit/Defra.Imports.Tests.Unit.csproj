@@ -168,6 +168,7 @@
     <Compile Include="BusinessLogic\ImporterNotification\AssociateWatchFlagsFromPrimaryItahcBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\ImporterNotification\FormatCommodityComplementAndIdentificationJsonTests.cs" />
     <Compile Include="BusinessLogic\Itahc\FlagRecordOnWatchListBusinessLogicTests.cs" />
+    <Compile Include="BusinessLogic\Itahc\PopulateDevolvedOfficeBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\Itahc\PopulateFormattedJSONTextFieldsTests.cs" />
     <Compile Include="BusinessLogic\Itahc\PopulateReplacesAndReplacedByBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\Utils\FieldMappingConfigParserTests.cs" />

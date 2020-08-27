@@ -27,6 +27,7 @@
     <RolePrivilege name="prvAppenddefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_PlaceOfDestination" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_postcoderegion" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_sampletest" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_Transporter" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_Veterinarian" level="Global" />
@@ -73,6 +74,7 @@
     <RolePrivilege name="prvAppendTodefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_PlaceOfDestination" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_postcoderegion" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_sampletest" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_Transporter" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_Veterinarian" level="Global" />
@@ -232,6 +234,7 @@
     <RolePrivilege name="prvReaddefraimp_parametersetkeydatapair" level="Global" />
     <RolePrivilege name="prvReaddefraimp_PlaceOfDestination" level="Global" />
     <RolePrivilege name="prvReaddefraimp_placeoforigin" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_postcoderegion" level="Global" />
     <RolePrivilege name="prvReaddefraimp_sampletest" level="Global" />
     <RolePrivilege name="prvReaddefraimp_Transporter" level="Global" />
     <RolePrivilege name="prvReaddefraimp_Veterinarian" level="Global" />
