@@ -20,7 +20,8 @@ var solution = Argument<string>("solution", "");
 // Build package
 Task("Default")
   .IsDependentOn("PackAll")
-  .IsDependentOn("BuildDeploymentProject");
+  .IsDependentOn("BuildDeploymentProject")
+  .IsDependentOn("BuildUnitTestProjects");
 
 Task("BuildDeploymentProject")
   .Does(() => {
@@ -93,6 +94,15 @@ Task("BuildTestProjects")
   .Does(() => {
     var nugetSettings = new NuGetRestoreSettings { ConfigFile = "NuGet.config" };
     foreach (var testProject in GetFiles($"{TestsFolder}/**/*.csproj")) 
+    {
+      BuildCSharpProject(testProject.FullPath, nugetSettings, new MSBuildSettings { Configuration = "Debug" });
+    }
+  });
+
+Task("BuildUnitTestProjects")
+  .Does(() => {
+    var nugetSettings = new NuGetRestoreSettings { ConfigFile = "NuGet.config" };
+    foreach (var testProject in GetFiles($"{TestsFolder}/*.Unit/*.csproj")) 
     {
       BuildCSharpProject(testProject.FullPath, nugetSettings, new MSBuildSettings { Configuration = "Debug" });
     }
