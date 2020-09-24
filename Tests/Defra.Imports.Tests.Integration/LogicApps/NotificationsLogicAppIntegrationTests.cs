@@ -129,6 +129,50 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
+        [Fact]
+        [ExcludeFromCodeCoverage]
+        public void SendToSBQueue_NotificationWithCountryOfDestination_NotificationShouldBeCreatedSuccesfully()
+        {
+            string expectedReferenceNumber = "IMP.GB.2020.1586510";
+            string jsonContents = ReadTestData("NOTIFICATION_COUNTRY_OF_DESTINATION.json");
+
+            // Act
+            SendServiceBusMessage(jsonContents);
+            Thread.Sleep(150000);
+
+            // Assert
+            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            Assert.True(notifications.Count > 0);
+
+            // Clear down
+            ClearDownDynamicsEntities(notifications);
+        }
+
+        [Fact]
+        [ExcludeFromCodeCoverage]
+        public void SendToSBQueue_SequentialNotificationsWithDocument_NotificationShouldUpdateSequentially()
+        {
+            string expectedReferenceNumber = "IMP.GB.2020.1589711";
+            string jsonContents1A = ReadTestData("NOTIFICATION_SEQUENTIAL_1_A.json");
+            string jsonContents1B = ReadTestData("NOTIFICATION_SEQUENTIAL_1_B.json");
+            string jsonContents2A = ReadTestData("NOTIFICATION_SEQUENTIAL_2_A.json");
+            string jsonContents2B = ReadTestData("NOTIFICATION_SEQUENTIAL_2_B.json");
+
+            // Act
+            SendServiceBusMessage(jsonContents1A);
+            SendServiceBusMessage(jsonContents1B);
+            SendServiceBusMessage(jsonContents2A);
+            SendServiceBusMessage(jsonContents2B);
+            Thread.Sleep(150000);
+
+            // Assert
+            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            Assert.True(notifications.Count > 0);
+
+            // Clear down
+            ClearDownDynamicsEntities(notifications);
+        }
+
         private List<Entity> GetNotificationsByReference(string referenceNumber)
         {
             QueryExpression qe = new QueryExpression("defraimp_importernotification");

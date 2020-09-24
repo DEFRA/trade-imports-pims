@@ -67,6 +67,7 @@
       <field displayname="Additional Notes" name="defraexp_additionalnotes" type="memo" primaryKey="false" customfield="false" />
       <field displayname="Name" name="defraexp_name" type="string" primaryKey="false" customfield="false" />
       <field displayname="Number of Days" name="defraexp_numberofdays" type="integer" primaryKey="false" customfield="false" />
+      <field displayname="Value" name="defraexp_value" type="string" primaryKey="false" customfield="false" />
     </fields>
     <relationships />
   </entity>

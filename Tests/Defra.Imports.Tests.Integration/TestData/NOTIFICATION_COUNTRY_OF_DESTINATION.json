@@ -1,0 +1,174 @@
+{
+  "id": 586510,
+  "referenceNumber": "IMP.GB.2020.1586510",
+  "version": 1,
+  "lastUpdated": "2020-09-10T14:43:38.41Z",
+  "lastUpdatedBy": {
+    "displayName": "Gary Admin-Tester",
+    "userId": "79f6dc68-2144-e911-a96a-000d3a29ba60"
+  },
+  "type": "IMP",
+  "countryOfDestination": "GB",
+  "status": "SUBMITTED",
+  "partOne": {
+    "personResponsible": {
+      "name": "Gary Admin-Tester",
+      "companyId": "767ceb6a-2144-e911-a96c-000d3a29b5de",
+      "companyName": "Defra Test BIP",
+      "address": [
+        "Animal and Plant Health Agency",
+        "Woodham Lane",
+        "New Haw",
+        "Addlestone",
+        "Surrey",
+        "KT15 3NB",
+        "GB"
+      ],
+      "country": "GB",
+      "tracesID": 1001,
+      "phone": "020 8225 7295",
+      "email": "DefraTestBIP@anthunt3.33mail.com",
+      "contactId": "79f6dc68-2144-e911-a96a-000d3a29ba60"
+    },
+    "consignor": {
+      "id": "9c3bf041-59f8-4d55-bf11-6b69cbc60b82",
+      "type": "exporter",
+      "status": "nonapproved",
+      "companyName": "Cassin and Sons",
+      "address": {
+        "addressLine1": "0162 Deborah",
+        "addressLine2": "53102 Thompson Summit",
+        "addressLine3": "Nevada",
+        "city": "Curtmouth",
+        "postalZipCode": "33492-2",
+        "countryISOCode": "DE",
+        "internationalTelephone": {
+          "countryCode": "32",
+          "subscriberNumber": "1617777777"
+        },
+        "telephone": "321617777777",
+        "email": "ukoperator@email.com"
+      }
+    },
+    "importer": {
+      "id": "9c16113c-e211-46e8-8d1c-a83a2ff30857",
+      "type": "consignee",
+      "status": "nonapproved",
+      "companyName": "Blick Blick and Blick",
+      "address": {
+        "addressLine1": "46185 Audra",
+        "addressLine2": "9871 Lueilwitz Tunnel",
+        "addressLine3": "Nevada",
+        "city": "Lake Daxbury",
+        "postalZipCode": "cbU 0Bx",
+        "countryISOCode": "GB",
+        "ukTelephone": "01615555555",
+        "telephone": "01615555555",
+        "email": "ukoperator@email.com"
+      }
+    },
+    "placeOfDestination": {
+      "id": "0b6adcae-f653-442a-8931-7607f343e91e",
+      "type": "consignee",
+      "status": "nonapproved",
+      "companyName": "Bradtke Bradtke and Bradtke",
+      "address": {
+        "addressLine1": "214 Grant",
+        "addressLine2": "6938 Russel Viaduct",
+        "addressLine3": "Pennsylvania",
+        "city": "Heatherton",
+        "postalZipCode": "fDc 9DS",
+        "countryISOCode": "GB",
+        "ukTelephone": "01615555555",
+        "telephone": "01615555555",
+        "email": "ukoperator@email.com"
+      }
+    },
+    "commodities": {
+      "commodityComplement": [
+        {
+          "commodityID": "01063100",
+          "commodityDescription": "Birds of Prey - Falcons",
+          "complementID": 2,
+          "complementName": "Falconiformes",
+          "speciesID": "113311",
+          "speciesName": "Falconiformes",
+          "speciesType": "2",
+          "speciesNomination": "Falconiformes",
+          "speciesCommonName": "Birds of Prey - Falcons"
+        }
+      ],
+      "complementParameterSet": [
+        {
+          "complementID": 2,
+          "speciesID": "113311",
+          "keyDataPair": [
+            {
+              "key": "imp_number_animal",
+              "data": "1"
+            }
+          ],
+          "identifiers": [
+            {
+              "speciesNumber": 1,
+              "data": {
+                "microchip": "123",
+                "leg_ring": "123"
+              }
+            }
+          ]
+        }
+      ],
+      "countryOfOrigin": "AT",
+      "consignedCountry": "AT",
+      "animalsCertifiedAs": "Breeding"
+    },
+    "arrivalDate": "2021-01-01",
+    "transporter": {
+      "id": "e826f859-f4a3-461a-ae19-88b65465b5af",
+      "type": "private transporter",
+      "status": "nonapproved",
+      "companyName": "Turcotte Group",
+      "address": {
+        "addressLine1": "096 Adolf",
+        "addressLine2": "32396 Madalyn Avenue",
+        "addressLine3": "Michigan",
+        "city": "West Delmer",
+        "postalZipCode": "41343",
+        "countryISOCode": "FR",
+        "internationalTelephone": {
+          "countryCode": "32",
+          "subscriberNumber": "1617777777"
+        },
+        "telephone": "321617777777",
+        "email": "ukoperator@email.com"
+      }
+    },
+    "meansOfTransport": {},
+    "meansOfTransportFromEntryPoint": {},
+    "veterinaryInformation": {
+      "accompanyingDocuments": [
+        {
+          "documentType": "itahc",
+          "documentReference": "123123",
+          "documentIssueDate": "2020-01-01",
+          "attachmentId": "961ebd2b-ed4f-4353-a695-fd7d7fbe579d",
+          "attachmentFilename": "test (1) (1) (2).pdf",
+          "attachmentContentType": "application/pdf"
+        }
+      ]
+    },
+    "route": {
+      "transitingStates": [
+        "EN"
+      ]
+    },
+    "submissionDate": "2020-09-10T14:43:42.336889Z",
+    "submittedBy": {
+      "displayName": "Gary Admin-Tester",
+      "userId": "79f6dc68-2144-e911-a96a-000d3a29ba60"
+    },
+    "complexCommoditySelected": false,
+    "portOfEntry": "123123"
+  }
+}

@@ -25,6 +25,11 @@
           "AttributeName": "defraexp_name",
           "AttributeValue": "Inspection Coverage Count",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_value",
+          "AttributeValue": "3",
+          "AttributeType": "System.String"
         }
       ]
     },
@@ -47,6 +52,11 @@
           "AttributeName": "defraexp_name",
           "AttributeValue": "IPAFFS URL",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_value",
+          "AttributeValue": "https://imports-proxy.azurewebsites.net/notification/integration",
+          "AttributeType": "System.String"
         }
       ]
     },
@@ -68,6 +78,11 @@
         {
           "AttributeName": "defraexp_name",
           "AttributeValue": "Unknown Devolved Office ID",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_value",
+          "AttributeValue": "18785ed4-b5e3-ea11-a813-000d3ad82cac",
           "AttributeType": "System.String"
         }
       ]

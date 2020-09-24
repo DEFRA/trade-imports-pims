@@ -160,6 +160,9 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Defra.Imports.Tests.Integration.ruleset" />
+    <None Include="TestData\NOTIFICATION_COUNTRY_OF_DESTINATION.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\NOTIFICATION1.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -182,6 +185,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData\NOTIFICATION_NO_IDENTIFIERS.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NOTIFICATION_SEQUENTIAL_1_A.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NOTIFICATION_SEQUENTIAL_1_B.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NOTIFICATION_SEQUENTIAL_2_A.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NOTIFICATION_SEQUENTIAL_2_B.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData\NOTIFICATION_WITH_DOCS.json">
