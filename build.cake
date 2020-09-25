@@ -1,10 +1,9 @@
 using System.Text.RegularExpressions;
 
-#addin nuget:?package=Cake.Xrm.Sdk&version=0.1.7
-#addin nuget:?package=Cake.Xrm.SolutionPackager&version=0.1.7
-#addin nuget:?package=Cake.Xrm.DataMigration&version=0.1.6
-#addin nuget:?package=Cake.Xrm.Spkl&version=0.1.6
-#addin nuget:?package=Cake.Xrm.XrmDefinitelyTyped&version=0.1.6
+#addin nuget:?package=Cake.Xrm.Sdk&version=0.1.9
+#addin nuget:?package=Cake.Xrm.SolutionPackager&version=0.1.9
+#addin nuget:?package=Cake.Xrm.DataMigration&version=0.1.8
+#addin nuget:?package=Cake.Xrm.Spkl&version=0.1.7
 #addin nuget:?package=Cake.Npm&version=0.17.0
 #addin nuget:?package=Cake.Json&version=3.0.0
 
@@ -57,10 +56,10 @@ Task("GenerateModel")
       GetConnectionString(solution, false));
   });
 
-Task("GenerateTypes")
-  .Does(() => {
-    XrmDefinitelyTypedGenerate(Directory($"{SolutionsFolder}/{solution}").Path.CombineWithFilePath("XrmDefinitelyTyped.exe.config"), GetConnectionString($"{solution}", false));
-  });
+// Task("GenerateTypes")
+//   .Does(() => {
+//     XrmDefinitelyTypedGenerate(Directory($"{SolutionsFolder}/{solution}").Path.CombineWithFilePath("XrmDefinitelyTyped.exe.config"), GetConnectionString($"{solution}", false));
+//   });
 
 Task("ExtractSolution")
   .Does(() => {

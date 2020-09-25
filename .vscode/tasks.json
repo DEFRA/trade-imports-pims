@@ -38,18 +38,6 @@
     },
     {
       "type": "shell",
-      "label": "Generate Types",
-      "command": [
-        "powershell",
-        "-ExecutionPolicy ByPass",
-        "-File build.ps1",
-        "-Target \"GenerateTypes\"",
-        "-ScriptArgs \"--solution=${input:solution}\""
-      ],
-      "problemMatcher": []
-    },
-    {
-      "type": "shell",
       "label": "Extract Solution",
       "command": [
         "powershell",
