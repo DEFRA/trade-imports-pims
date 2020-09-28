@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build"
-  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.3\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.3\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" />
   <Import Project="..\packages\Microsoft.NetFramework.Analyzers.2.9.3\build\Microsoft.NetFramework.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetFramework.Analyzers.2.9.3\build\Microsoft.NetFramework.Analyzers.props')" />
   <Import Project="..\packages\Microsoft.NetCore.Analyzers.2.9.3\build\Microsoft.NetCore.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetCore.Analyzers.2.9.3\build\Microsoft.NetCore.Analyzers.props')" />
@@ -52,9 +51,6 @@
     <Reference Include="Capgemini.DataScrambler, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Capgemini.Xrm.DataMigration.Engine.3.0.0.9\lib\net462\Capgemini.DataScrambler.dll</HintPath>
     </Reference>
-    <Reference Include="Capgemini.PowerApps.Deployment, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Capgemini.Xrm.Deployment.PackageDeployer.3.0.4\lib\net462\Capgemini.PowerApps.Deployment.dll</HintPath>
-    </Reference>
     <Reference Include="Capgemini.Xrm.DataMigration.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Capgemini.Xrm.DataMigration.Engine.3.0.0.9\lib\net462\Capgemini.Xrm.DataMigration.Core.dll</HintPath>
     </Reference>
@@ -69,6 +65,9 @@
     </Reference>
     <Reference Include="Capgemini.Xrm.Deployment, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Capgemini.Xrm.Deployment.2.1.1\lib\net462\Capgemini.Xrm.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="Capgemini.Xrm.Deployment.PackageDeployer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Capgemini.Xrm.Deployment.PackageDeployer.2.1.1\lib\net462\Capgemini.Xrm.Deployment.PackageDeployer.dll</HintPath>
     </Reference>
     <Reference Include="CsvHelper, Version=15.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.15.0.5\lib\net45\CsvHelper.dll</HintPath>
