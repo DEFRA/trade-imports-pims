@@ -52,11 +52,6 @@
           "AttributeName": "defraexp_name",
           "AttributeValue": "IPAFFS URL",
           "AttributeType": "System.String"
-        },
-        {
-          "AttributeName": "defraexp_value",
-          "AttributeValue": "https://imports-proxy.azurewebsites.net/notification/integration",
-          "AttributeType": "System.String"
         }
       ]
     },
