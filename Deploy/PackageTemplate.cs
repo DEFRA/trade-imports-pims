@@ -1,7 +1,7 @@
 namespace Defra.Imports.Deployment
 {
     using System.ComponentModel.Composition;
-    using Capgemini.Xrm.Deployment.PackageDeployer;
+    using Capgemini.PowerApps.Deployment;
     using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
 
     /// <summary>
