@@ -20,6 +20,9 @@
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImporterNotification.PopulateCountriesOfTransit, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="f766ad15-b18f-ea11-a811-000d3ab6d757" Name="Defra.Imports.Plugins.ImporterNotification.PopulateCountriesOfTransit">
       <FriendlyName>Defra.Imports.Plugins.ImporterNotification.PopulateCountriesOfTransit</FriendlyName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImporterNotification.PopulateDevolvedOffice, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="2556544c-7917-eb11-a813-000d3ad82cac" Name="Defra.Imports.Plugins.ImporterNotification.PopulateDevolvedOffice">
+      <FriendlyName>Defra.Imports.Plugins.ImporterNotification.PopulateDevolvedOffice</FriendlyName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImporterNotification.PopulateIdentificationFormatJson, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="dd3a6446-52c5-4132-bcb9-c7259c19bc8c" Name="Defra.Imports.Plugins.ImporterNotification.PopulateIdentificationFormatJson">
       <FriendlyName>Defra.Imports.Plugins.ImporterNotification.PopulateIdentificationFormatJson</FriendlyName>
     </PluginType>
