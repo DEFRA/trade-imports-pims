@@ -63,6 +63,14 @@
                         <control id="azureactivedirectoryobjectid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="azureactivedirectoryobjectid" disabled="true" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{19c6d20a-099d-8cd8-1465-0440147b0218}">
+                        <labels>
+                          <label description="Membership Type" languagecode="1033" />
+                        </labels>
+                        <control id="membershiptype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="membershiptype" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
                 <section name="Description" showlabel="false" showbar="false" locklevel="0" id="{510EDF68-06A4-4C18-8DE1-150251BD0A19}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top">
@@ -177,6 +185,11 @@
         <event name="onchange" application="true" active="true" attribute="teamtype">
           <InternalHandlers>
             <Handler functionName="Mscrm.teamtype_onchange" libraryName="Team_main_system_library.js" handlerUniqueId="3BAEE412-4718-4EC5-992E-0769C108749B" enabled="true" passExecutionContext="true" />
+          </InternalHandlers>
+        </event>
+        <event name="onchange" application="true" active="true" attribute="membershiptype">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.membershiptype_onchange" libraryName="Team_main_system_library.js" handlerUniqueId="3BAEE412-4718-4EC5-992E-0769C1087491" enabled="true" passExecutionContext="true" />
           </InternalHandlers>
         </event>
       </events>

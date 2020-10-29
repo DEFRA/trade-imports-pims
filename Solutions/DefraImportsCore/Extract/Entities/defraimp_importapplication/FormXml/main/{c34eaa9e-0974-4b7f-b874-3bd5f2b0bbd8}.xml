@@ -40,7 +40,7 @@
                         <labels>
                           <label description="Commodity Type" languagecode="1033" />
                         </labels>
-                        <control disabled="true" id="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytypeid" uniqueid="{15a331a1-255e-1e0d-8079-066c7761e8b8}">
+                        <control disabled="false" id="defraimp_commoditytypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditytypeid" uniqueid="{15a331a1-255e-1e0d-8079-066c7761e8b8}">
                           <parameters>
                             <AutoResolve>true</AutoResolve>
                             <DisableMru>false</DisableMru>
