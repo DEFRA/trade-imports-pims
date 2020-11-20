@@ -130,16 +130,25 @@ namespace DefraImports.ImportRecord {
     if (importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
     {
       //Hide any existing sections first
-        hideCHEDASections(formContext);
-        hideCHEDPSections(formContext);
+      hideCHEDASections(formContext);
+      hideCHEDPSections(formContext);
+      hideIMPSections(formContext);
 
-        //Show the ITAHC section
-        showITAHCSections(formContext);
+      //Show the ITAHC section
+      showITAHCSections(formContext);
+    }
+    else if(importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.IMP) {
+      hideCHEDASections(formContext);
+      hideCHEDPSections(formContext);
+      hideITAHCSections(formContext);
+
+      showIMPSections(formContext);
     }
     else if (importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.CHEDA)
     {
       //Hide any existing sections first
       hideITAHCSections(formContext);
+      hideIMPSections(formContext);
       hideCHEDPSections(formContext);
 
       //Show the CHEDA section
@@ -149,6 +158,7 @@ namespace DefraImports.ImportRecord {
     {
       //Hide any existing sections first
       hideITAHCSections(formContext);
+      hideIMPSections(formContext);
       hideCHEDASections(formContext);
 
       //Show the CHEDP section
@@ -158,6 +168,7 @@ namespace DefraImports.ImportRecord {
     {
       //Hide all sections
       hideITAHCSections(formContext);
+      hideIMPSections(formContext);
       hideCHEDASections(formContext);
       hideCHEDPSections(formContext);
     }
@@ -169,10 +180,20 @@ namespace DefraImports.ImportRecord {
     formContext.ui.tabs.get("AdditionalITAHC_Tab").setVisible(true);
   }
 
+  function showIMPSections(formContext: Form.defraimp_importapplication.Main.Information) 
+  {
+    formContext.ui.tabs.get("Summary").sections.get("iv66_section").setVisible(true);
+  }
+
   function hideITAHCSections(formContext: Form.defraimp_importapplication.Main.Information)
   {
     formContext.ui.tabs.get("Summary").sections.get("iv66_section").setVisible(false);
     formContext.ui.tabs.get("AdditionalITAHC_Tab").setVisible(false);
+  }
+
+  function hideIMPSections(formContext: Form.defraimp_importapplication.Main.Information) 
+  {
+    formContext.ui.tabs.get("Summary").sections.get("iv66_section").setVisible(false);
   }
 
   function showCHEDASections(formContext: Form.defraimp_importapplication.Main.Information)

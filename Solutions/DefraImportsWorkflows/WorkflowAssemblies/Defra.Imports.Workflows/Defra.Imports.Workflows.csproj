@@ -96,6 +96,8 @@
     <Compile Include="ImportApplication\AutomatedRiskLevelAssignment.cs" />
     <Compile Include="ImportApplication\DetermineInspectionRequirement.cs" />
     <Compile Include="ImportApplication\InspectionPlaceOfOriginChange.cs" />
+    <Compile Include="ImportApplication\MapFieldsFromNotificationToImportRecord.cs" />
+    <Compile Include="ImportApplication\PopulateCountriesOfTransitFromNotification.cs" />
     <Compile Include="ImportApplication\RandomRiskAssessment.cs" />
     <Compile Include="ImportApplication\DecrementPlaceOfOriginCounters.cs" />
     <Compile Include="MatchRecord\PopulateImportRecordFromImporterNotification.cs" />

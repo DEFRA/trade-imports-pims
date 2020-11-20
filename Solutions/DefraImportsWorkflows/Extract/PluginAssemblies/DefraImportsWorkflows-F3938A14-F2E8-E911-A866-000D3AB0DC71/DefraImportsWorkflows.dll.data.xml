@@ -40,6 +40,16 @@
       <FriendlyName>Maps fields from one record to another using a mapping web resource</FriendlyName>
       <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.MapFieldsFromNotificationToImportRecord, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="e919d7d9-772a-eb11-a813-000d3ad82cac" Name="MapFieldsFromNotificationToImportRecord">
+      <Description>Maps fields from notification record to import record using a xml mapping web resource</Description>
+      <FriendlyName>Maps fields from notification record to import record using a mapping web resource</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.PopulateCountriesOfTransitFromNotification, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="58088a8b-952a-eb11-a813-000d3ab6d757" Name="PopulateCountriesOfTransitFromNotification">
+      <Description>Populate the countries of transit on the import record from the importer notification</Description>
+      <FriendlyName>Populate the countries of transit on the import record from the importer notification</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.IncrementAutonumber, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="38257f11-f2e8-e911-a857-000d3ab0d388" Name="IncrementAutonumber">
       <Description>Increments the auto number counter for a specific record</Description>
       <FriendlyName>Increment the specified autonumber attribute</FriendlyName>

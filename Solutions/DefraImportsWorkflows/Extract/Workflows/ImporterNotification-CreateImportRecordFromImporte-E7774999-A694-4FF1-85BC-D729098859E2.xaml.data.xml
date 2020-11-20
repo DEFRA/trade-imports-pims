@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{e7774999-a694-4ff1-85bc-d729098859e2}" Name="Importer Notification - Create Import Record From Importer Notification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ImporterNotification-CreateImportRecordFromImporte-E7774999-A694-4FF1-85BC-D729098859E2.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>1</Subprocess>
+  <Category>0</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>1</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <CreateStage>40</CreateStage>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>0.0.0.58</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <PrimaryEntity>defraimp_ImporterNotification</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Importer Notification - Create Import Record From Importer Notification" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{19d528d0-e75f-4032-99e7-1c198b92bafc}">
+      <label languagecode="1033" description="Importer Notification has a status of cancelled." />
+    </steplabels>
+    <steplabels id="{f5c70e71-1b08-4241-aedd-7ab4134f7f60}">
+      <label languagecode="1033" description="Commodity Code Required" />
+    </steplabels>
+  </labels>
+</Workflow>

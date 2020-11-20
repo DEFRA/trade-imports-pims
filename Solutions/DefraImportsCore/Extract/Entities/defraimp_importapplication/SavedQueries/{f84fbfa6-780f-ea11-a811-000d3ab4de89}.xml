@@ -16,14 +16,17 @@
     </layoutxml>
     <querytype>0</querytype>
     <fetchxml>
-      <fetch distinct="false" version="1.0" output-format="xml-platform" mapping="logical">
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
         <entity name="defraimp_importapplication">
           <attribute name="defraimp_name" />
           <order attribute="defraimp_name" descending="false" />
           <filter type="and">
-            <condition value="714100000" attribute="defraimp_importapplicationtype" operator="eq" />
+            <condition attribute="defraimp_importapplicationtype" operator="in">
+              <value>714100000</value>
+              <value>714100001</value>
+            </condition>
             <condition attribute="defraimp_movedtocompletiondate" operator="yesterday" />
-            <condition value="1" attribute="defraimp_movetocompletion" operator="eq" />
+            <condition attribute="defraimp_movetocompletion" operator="eq" value="1" />
           </filter>
           <attribute name="defraimp_importapplicationid" />
         </entity>

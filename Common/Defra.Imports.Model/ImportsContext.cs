@@ -15,7 +15,7 @@ namespace Defra.Imports.Model
 	
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_trustlevel
 	{
 		
@@ -27,7 +27,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_reasonfornoncompliance
 	{
 		
@@ -48,7 +48,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_officialvetcapacity
 	{
 		
@@ -60,7 +60,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_animalcertifiedas
 	{
 		
@@ -141,10 +141,16 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ZooCollection = 714100025,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RejectedorReturnedConsignment = 714100026,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Transit = 714100027,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_certificatestatus
 	{
 		
@@ -177,7 +183,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importernotificationstatus
 	{
 		
@@ -213,7 +219,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importernotificationtype
 	{
 		
@@ -231,7 +237,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importregions
 	{
 		
@@ -246,7 +252,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_placeofdestinationtype
 	{
 		
@@ -279,7 +285,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_ukcountries
 	{
 		
@@ -300,7 +306,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_reasonforunsatisfactoryvisit
 	{
 		
@@ -315,7 +321,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_reasonfornotvisiting
 	{
 		
@@ -333,7 +339,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_matchfieldtype
 	{
 		
@@ -351,7 +357,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_meansoftransport
 	{
 		
@@ -369,7 +375,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_watchtype
 	{
 		
@@ -390,7 +396,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum goal_fiscalperiod
 	{
 		
@@ -492,7 +498,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum goal_fiscalyear
 	{
 		
@@ -705,7 +711,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum metric_goaltype
 	{
 		
@@ -720,7 +726,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum componentstate
 	{
 		
@@ -738,7 +744,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_applicationchannel
 	{
 		
@@ -753,7 +759,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum allocationtype
 	{
 		
@@ -765,7 +771,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum workflowlog_objecttypecode
 	{
 		
@@ -780,7 +786,16 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_apiversionoptions
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_2 = 162450000,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum qooiproduct_propertiesconfigurationstatus
 	{
 		
@@ -795,7 +810,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum purchasetimeframe
 	{
 		
@@ -816,7 +831,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum need
 	{
 		
@@ -834,7 +849,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_iotaggregation
 	{
 		
@@ -858,7 +873,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_exportpurpose
 	{
 		
@@ -876,7 +891,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_playbookactivity_priority
 	{
 		
@@ -891,7 +906,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum connectionrole_category
 	{
 		
@@ -921,7 +936,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum isinherited
 	{
 		
@@ -933,7 +948,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_visualizationconfigtype
 	{
 		
@@ -948,7 +963,22 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_suggestiontype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeArticleSuggestion = 192360000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SimilarCaseSuggestion = 192360001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		BotSuggestion = 192360002,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum initialcommunication
 	{
 		
@@ -960,7 +990,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum activity_mailmergetypecode
 	{
 		
@@ -990,7 +1020,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_additionalchecksconfigmovetost
 	{
 		
@@ -1035,7 +1065,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum orginsightsconfiguration_plotoption
 	{
 		
@@ -1074,7 +1104,22 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_panelstateoptions
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Docked = 162450002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Hidden = 162450001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Minimized = 162450000,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum convert_campaign_response_deactivate_status
 	{
 		
@@ -1086,7 +1131,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_organisationloa
 	{
 		
@@ -1104,7 +1149,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_organisationtype
 	{
 		
@@ -1134,7 +1179,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum servicestage
 	{
 		
@@ -1149,7 +1194,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum addlistcampaign
 	{
 		
@@ -1161,7 +1206,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum incidentresolutionformtype
 	{
 		
@@ -1176,7 +1221,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum budgetstatus
 	{
 		
@@ -1194,7 +1239,76 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum selection_rule_quantity
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		All = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_1 = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_2 = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_3 = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_4 = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_5 = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_6 = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_7 = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_8 = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_9 = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_10 = 10,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_11 = 11,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_12 = 12,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_13 = 13,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_14 = 14,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_15 = 15,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_16 = 16,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_17 = 17,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_18 = 18,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_19 = 19,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number_20 = 20,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum sharepointdocumentlocation_locationtype
 	{
 		
@@ -1206,7 +1320,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_upgradestatus
 	{
 		
@@ -1221,7 +1335,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum convert_campaign_response_to_lead_option
 	{
 		
@@ -1233,7 +1347,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_bookableresourcetype
 	{
 		
@@ -1263,7 +1377,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum qooidetail_skippricecalculation
 	{
 		
@@ -1281,7 +1395,25 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_propertytype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Number = 192350000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		String = 192350001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Boolean = 192350002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Datetime = 192350003,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum activitypointer_deliveryprioritycode
 	{
 		
@@ -1296,7 +1428,73 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum chatbotlanguage
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		English = 1033,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Spanish = 1034,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Portuguese_Brazilian = 1046,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		French = 1036,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Dutch = 1043,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Norwegian = 1044,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Danish = 1030,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Swedish = 1053,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Italian = 1040,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		German = 1031,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chinese_Simplified = 2052,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chinese_Traditional = 1028,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Arabic = 1025,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Japanese = 1041,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Korean = 1042,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Hindi = 1081,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Indonesian = 1057,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Russian = 1049,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Polish = 1045,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Turkish = 1055,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_creationsource
 	{
 		
@@ -1311,7 +1509,22 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum serviceappointment_status
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Completed = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Canceled = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NoShow = 10,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum lead_salesstage
 	{
 		
@@ -1320,7 +1533,19 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum selection_rule_sites
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Thesamesite = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnySite = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_organisationhierarchylevel
 	{
 		
@@ -1338,7 +1563,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum delete_recurringappointmentmaster
 	{
 		
@@ -1350,7 +1575,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum connectortype
 	{
 		
@@ -1362,7 +1587,19 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_desktopnotificationvisibility
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Never = 509180000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Whenappisinbackground = 509180001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum sla_slaenabledentities
 	{
 		
@@ -1371,7 +1608,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_addresstype
 	{
 		
@@ -1407,7 +1644,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum cascadecaseclosurepreference
 	{
 		
@@ -1419,7 +1656,31 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdynce_contentstate
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Released = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Draft = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_extensiontype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		System = 387300000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Custom = 387300001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_organisationrole
 	{
 		
@@ -1467,7 +1728,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum bulkemail_recipients
 	{
 		
@@ -1482,7 +1743,19 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_notificationtheme
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Dark = 509180000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Light = 509180001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum componenttype
 	{
 		
@@ -1758,7 +2031,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_suggestedpriority
 	{
 		
@@ -1776,7 +2049,22 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum selection_rule_criteria
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Random_default = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		LeastBusy = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MostBusy = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum activitypointer_activitytypecode
 	{
 		
@@ -1836,10 +2124,13 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportQuery = 10129,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CustomerVoicealert = 10251,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum workflow_runas
 	{
 		
@@ -1851,7 +2142,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum qooi_pricingerrorcode
 	{
 		
@@ -1974,7 +2265,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum orginsightsconfiguration_lookback
 	{
 		
@@ -1992,7 +2283,28 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_suggestioncontroltype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AdaptiveCard = 192360000,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_relationship_cardinality
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		One = 387300000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Many = 387300001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum sharepoint_validationstatus
 	{
 		
@@ -2013,7 +2325,22 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum botsharingroletypes
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chatbotmanager = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chatbotauthor = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chatbotreviewer = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum convert_campaign_response_to_lead_qualify_status
 	{
 		
@@ -2022,7 +2349,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_iotmappingtype
 	{
 		
@@ -2037,7 +2364,31 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum serviceappointment_starttime
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnyTime = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SpecificTime = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RangeofTimes = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Morning = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Afternoon = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Evening = 6,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_exportapplicationcancellationreason
 	{
 		
@@ -2052,7 +2403,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum emailserverprofile_authenticationprotocol
 	{
 		
@@ -2073,7 +2424,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_title
 	{
 		
@@ -2097,7 +2448,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum sharepointsite_servicetype
 	{
 		
@@ -2115,7 +2466,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum convert_campaign_response_to_lead_disqualify_status
 	{
 		
@@ -2133,7 +2484,19 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum officedocument_documenttype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MicrosoftExcel = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MicrosoftWord = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_exportapplicationrejectionreason
 	{
 		
@@ -2151,7 +2514,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_iotsearchtype
 	{
 		
@@ -2163,7 +2526,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum mobileofflineenabledentities
 	{
 		
@@ -2328,10 +2691,55 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MatchRecordBusinessProcessFlow = 10199,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTSettings = 10187,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTDeviceCommand = 10179,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Connection = 3234,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ConnectionRole = 3231,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTAlert = 10176,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTDevice = 10177,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTDeviceCategory = 10178,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTDeviceCommandDefinition = 10180,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTDeviceDataHistory = 10181,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTDeviceProperty = 10182,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTDeviceRegistrationHistory = 10183,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTPropertyDefinition = 10184,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTProvider = 10185,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTProviderInstance = 10186,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ImageDescriptor = 1007,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum convertrule_channelactivity
 	{
 		
@@ -2364,16 +2772,31 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportQuery = 10129,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CustomerVoicealert = 10251,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum selectedmobileofflineenabledentityrelationships
 	{
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_sessiontypeoptions
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Entity = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Generic = 0,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum knowledgearticle_expirationstate
 	{
 		
@@ -2388,7 +2811,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_levelofassurance
 	{
 		
@@ -2403,7 +2826,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum socialactivity_postmessagetype
 	{
 		
@@ -2415,7 +2838,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_618status
 	{
 		
@@ -2433,7 +2856,37 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum serviceappointment_startdate
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AsSoonasPossible = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SpecificDate = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RangeofDates = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Today = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Tomorrow = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ThisWeek = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NextWeek = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NextMonth = 8,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_origin
 	{
 		
@@ -2445,7 +2898,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum syncattributemapping_syncdirection
 	{
 		
@@ -2463,7 +2916,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum workflow_stage
 	{
 		
@@ -2475,7 +2928,19 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_attachmenttype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Image = 700610000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Video = 700610001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum convert_campaign_response_option
 	{
 		
@@ -2493,7 +2958,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum convert_campaign_response_qualify_lead_options
 	{
 		
@@ -2505,7 +2970,13 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum documenttemplate_associatedentitytypecode
+	{
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum entitytype
 	{
 		
@@ -2514,7 +2985,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_invitationtype
 	{
 		
@@ -2523,7 +2994,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_deviceevent
 	{
 		
@@ -2538,7 +3009,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_equineregistration
 	{
 		
@@ -2550,7 +3021,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_ehcconfigurationoptions
 	{
 		
@@ -2562,7 +3033,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum dependencytype
 	{
 		
@@ -2580,7 +3051,25 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum resourcetype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		User = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		FacilityEquipment = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Team = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ResourceGroup = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum socialprofile_community
 	{
 		
@@ -2595,7 +3084,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_enrolmentstatus
 	{
 		
@@ -2616,7 +3105,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum field_security_permission_type
 	{
 		
@@ -2628,7 +3117,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum purchaseprocess
 	{
 		
@@ -2643,7 +3132,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_timerangetype
 	{
 		
@@ -2658,7 +3147,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_jntestoptionset
 	{
 		
@@ -2673,7 +3162,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum opportunity_salesstage
 	{
 		
@@ -2691,7 +3180,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum photo_resolution
 	{
 		
@@ -2715,7 +3204,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_playbookactivity_time
 	{
 		
@@ -2793,7 +3282,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum convert_campaign_response_sales_entity_type
 	{
 		
@@ -2808,7 +3297,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum flipswitch_options
 	{
 		
@@ -2820,7 +3309,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum qooiproduct_producttype
 	{
 		
@@ -2841,7 +3330,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum processstage_category
 	{
 		
@@ -2871,7 +3360,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum qooi_skippricecalculation
 	{
 		
@@ -2883,7 +3372,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_ehcstatus
 	{
 		
@@ -2901,7 +3390,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum bookableresourcecharacteristictype
 	{
 		
@@ -2913,7 +3402,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum activity_typecode
 	{
 		
@@ -2934,7 +3423,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum sharepoint_validationstatusreason
 	{
 		
@@ -2961,7 +3450,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum incident_caseorigincode
 	{
 		
@@ -2988,7 +3477,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum recurrencerule_monthofyear
 	{
 		
@@ -3033,7 +3522,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_iotsource
 	{
 		
@@ -3048,7 +3537,52 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum customapifieldtype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Boolean = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DateTime = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Decimal = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Entity = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EntityCollection = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EntityReference = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Float = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Integer = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Money = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Picklist = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		String = 10,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		StringArray = 11,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Guid = 12,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum msdyn_iotfielddataformat
 	{
 		
@@ -3060,7 +3594,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_journeylogstatus
 	{
 		
@@ -3081,7 +3615,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum principalsyncattributemapping_syncdirection
 	{
 		
@@ -3099,7 +3633,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum convert_campaign_response_options
 	{
 		
@@ -3117,7 +3651,34 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public enum msdyn_applicationtype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EntityList = 509180000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EntityRecord = 509180001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebResource = 509180002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Control = 509180003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Dashboard = 509180004,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Search = 509180005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ThirdPartyWebsite = 509180006,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_certifierdecision
 	{
 		
@@ -3133,7 +3694,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("annotation")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class Annotation : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -3271,12 +3832,6 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetAttributeValue<string>("dummyfilename");
-			}
-			set
-			{
-				this.OnPropertyChanging("DummyFileName");
-				this.SetAttributeValue("dummyfilename", value);
-				this.OnPropertyChanged("DummyFileName");
 			}
 		}
 		
@@ -3732,7 +4287,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_accountrolecode
 	{
 		
@@ -3747,7 +4302,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_address1_addresstypecode
 	{
 		
@@ -3765,7 +4320,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_address1_freighttermscode
 	{
 		
@@ -3777,7 +4332,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_address1_shippingmethodcode
 	{
 		
@@ -3804,7 +4359,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_address2_addresstypecode
 	{
 		
@@ -3813,7 +4368,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_address2_freighttermscode
 	{
 		
@@ -3822,7 +4377,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_address2_shippingmethodcode
 	{
 		
@@ -3831,7 +4386,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_address3_addresstypecode
 	{
 		
@@ -3840,7 +4395,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_address3_freighttermscode
 	{
 		
@@ -3849,7 +4404,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_address3_shippingmethodcode
 	{
 		
@@ -3858,7 +4413,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_customersizecode
 	{
 		
@@ -3867,7 +4422,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_customertypecode
 	{
 		
@@ -3876,7 +4431,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_educationcode
 	{
 		
@@ -3885,7 +4440,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_familystatuscode
 	{
 		
@@ -3903,7 +4458,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_gendercode
 	{
 		
@@ -3915,7 +4470,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_haschildrencode
 	{
 		
@@ -3924,7 +4479,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_leadsourcecode
 	{
 		
@@ -3933,7 +4488,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_msdyn_orgchangestatus
 	{
 		
@@ -3948,7 +4503,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_paymenttermscode
 	{
 		
@@ -3966,7 +4521,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_preferredappointmentdaycode
 	{
 		
@@ -3993,7 +4548,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_preferredappointmenttimecode
 	{
 		
@@ -4008,7 +4563,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_preferredcontactmethodcode
 	{
 		
@@ -4029,7 +4584,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_shippingmethodcode
 	{
 		
@@ -4038,7 +4593,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum ContactState
 	{
 		
@@ -4050,7 +4605,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_statuscode
 	{
 		
@@ -4062,7 +4617,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum contact_territorycode
 	{
 		
@@ -4075,7 +4630,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("contact")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class Contact : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -9177,7 +9732,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_countryState
 	{
 		
@@ -9189,7 +9744,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defra_country_statuscode
 	{
 		
@@ -9205,7 +9760,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defra_country")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defra_country : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -10481,7 +11036,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_configurationparameterState
 	{
 		
@@ -10493,7 +11048,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraexp_configurationparameter_statuscode
 	{
 		
@@ -10509,7 +11064,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraexp_configurationparameter")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraexp_configurationparameter : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -10970,7 +11525,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_autonumberState
 	{
 		
@@ -10982,7 +11537,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_autonumber_statuscode
 	{
 		
@@ -10998,7 +11553,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_autonumber")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_autonumber : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -11383,7 +11938,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_counterhistory_defraimp_counterhistorytype
 	{
 		
@@ -11395,7 +11950,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_counterhistory_defraimp_operation
 	{
 		
@@ -11422,9 +11977,15 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_counterhistory_defraimp_reason
 	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ImporterNotificationRemoved = 714100016,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MissingImporterNotification = 714100017,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		NegativeThresholdReachedBalanceQuota = 714100015,
@@ -11476,7 +12037,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_counterhistoryState
 	{
 		
@@ -11488,7 +12049,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_counterhistory_statuscode
 	{
 		
@@ -11504,7 +12065,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_counterhistory")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_counterhistory : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -12121,7 +12682,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_docom_defraimp_purpose
 	{
 		
@@ -12139,7 +12700,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_docom_defraimp_receivingcategory
 	{
 		
@@ -12160,7 +12721,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_docomState
 	{
 		
@@ -12172,7 +12733,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_docom_statuscode
 	{
 		
@@ -12188,7 +12749,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_docom")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_docom : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -14734,7 +15295,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_goldbronzecommodityState
 	{
 		
@@ -14746,7 +15307,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_goldbronzecommodity_statuscode
 	{
 		
@@ -14762,7 +15323,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_goldbronzecommodity")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_goldbronzecommodity : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -15173,7 +15734,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_goldbronzecountriesnn")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_goldbronzecountriesnn : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -15290,7 +15851,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importapplication_defraimp_certificatenoncompliancereason
 	{
 		
@@ -15314,9 +15875,12 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importapplication_defraimp_importapplicationtype
 	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IMP = 714100001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ITAHC = 714100000,
@@ -15329,7 +15893,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importapplication_defraimp_importrisklevelstatus
 	{
 		
@@ -15350,7 +15914,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importapplication_defraimp_inspectionoutcome
 	{
 		
@@ -15368,7 +15932,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importapplication_defraimp_inspectionrequired
 	{
 		
@@ -15386,21 +15950,39 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importapplication_defraimp_inspectionrequiredreason
 	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		BronzePlaceofOrigin = 714100005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		GoldPlaceofOriginInspectionCoverage = 714100006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ManuallyAssignedHighRisk = 714100012,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ManuallyRequestedPostImportCheck = 714100013,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NoInspectionRequired = 714100004,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NoInspectionRequiredGoldPlaceofOrigin = 714100008,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PlaceofOriginLockedtoBronze = 714100007,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrimaryImporterNotificationMissing = 714100015,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrimaryITAHCMissing = 714100014,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Quarantine = 714100010,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TB = 714100011,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskLevelUnknown = 714100000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RandomP1Inspection = 714100001,
@@ -15412,32 +15994,17 @@ namespace Defra.Imports.Model
 		RandomP3Inspection = 714100003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NoInspectionRequired = 714100004,
+		RiskLevelUnknown = 714100000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BronzePlaceofOrigin = 714100005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PlaceofOriginLockedtoBronze = 714100007,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GoldPlaceofOriginInspectionCoverage = 714100006,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NoInspectionRequiredGoldPlaceofOrigin = 714100008,
+		TB = 714100011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		VerifiedPlaceofOriginMissing = 714100009,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PrimaryITAHCMissing = 714100014,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ManuallyRequestedPostImportCheck = 714100013,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importapplication_defraimp_manualpostimportcheckdecision
 	{
 		
@@ -15458,7 +16025,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importapplication_defraimp_purpose
 	{
 		
@@ -15515,7 +16082,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importapplicationState
 	{
 		
@@ -15527,7 +16094,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importapplication_statuscode
 	{
 		
@@ -15558,7 +16125,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_importapplication")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_importapplication : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -15627,6 +16194,39 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_animalcertifiedas")]
+		public System.Nullable<Defra.Imports.Model.defraimp_animalcertifiedas> defraimp_animalcertifiedas
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("defraimp_animalcertifiedas");
+				if ((optionSet != null))
+				{
+					return ((Defra.Imports.Model.defraimp_animalcertifiedas)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_animalcertifiedas), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_animalcertifiedas");
+				if ((value == null))
+				{
+					this.SetAttributeValue("defraimp_animalcertifiedas", null);
+				}
+				else
+				{
+					this.SetAttributeValue("defraimp_animalcertifiedas", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("defraimp_animalcertifiedas");
 			}
 		}
 		
@@ -18919,8 +19519,129 @@ namespace Defra.Imports.Model
 		}
 	}
 	
+	/// <summary>
+	/// 
+	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_importapplication_defra_country")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public partial class defraimp_importapplication_defra_country : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	{
+		
+		/// <summary>
+		/// Default Constructor.
+		/// </summary>
+		public defraimp_importapplication_defra_country() : 
+				base(EntityLogicalName)
+		{
+		}
+		
+		public const string EntityLogicalName = "defraimp_importapplication_defra_country";
+		
+		public const int EntityTypeCode = 10132;
+		
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+		
+		public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
+		
+		private void OnPropertyChanged(string propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void OnPropertyChanging(string propertyName)
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs(propertyName));
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defra_countryid")]
+		public System.Nullable<System.Guid> defra_countryid
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("defra_countryid");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importapplication_defra_countryid")]
+		public System.Nullable<System.Guid> defraimp_importapplication_defra_countryId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("defraimp_importapplication_defra_countryid");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importapplication_defra_countryid")]
+		public override System.Guid Id
+		{
+			get
+			{
+				return base.Id;
+			}
+			set
+			{
+				base.Id = value;
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importapplicationid")]
+		public System.Nullable<System.Guid> defraimp_importapplicationid
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("defraimp_importapplicationid");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("versionnumber")]
+		public System.Nullable<long> VersionNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+		
+		/// <summary>
+		/// N:N defraimp_defraimp_importapplication_defra_country
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importapplication_defra_country")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_importapplication> defraimp_defraimp_importapplication_defra_country
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_importapplication>("defraimp_defraimp_importapplication_defra_country", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_importapplication_defra_country");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_importapplication>("defraimp_defraimp_importapplication_defra_country", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_importapplication_defra_country");
+			}
+		}
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importcountrycommodityrisklevelState
 	{
 		
@@ -18932,7 +19653,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importcountrycommodityrisklevel_statuscode
 	{
 		
@@ -18948,7 +19669,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_importcountrycommodityrisklevel")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_importcountrycommodityrisklevel : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -19392,7 +20113,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_ImporterNotificationState
 	{
 		
@@ -19404,7 +20125,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importernotification_statuscode
 	{
 		
@@ -19420,7 +20141,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_importernotification")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_ImporterNotification : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -22753,6 +23474,42 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_portofexit")]
+		public string defraimp_portofexit
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_portofexit");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_portofexit");
+				this.SetAttributeValue("defraimp_portofexit", value);
+				this.OnPropertyChanged("defraimp_portofexit");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_portofexitdate")]
+		public System.Nullable<System.DateTime> defraimp_portofexitdate
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("defraimp_portofexitdate");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_portofexitdate");
+				this.SetAttributeValue("defraimp_portofexitdate", value);
+				this.OnPropertyChanged("defraimp_portofexitdate");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_quickviewspacer")]
 		public string defraimp_QuickViewSpacer
 		{
@@ -23833,8 +24590,129 @@ namespace Defra.Imports.Model
 		}
 	}
 	
+	/// <summary>
+	/// 
+	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_importernotification_countriesoftransit")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public partial class defraimp_ImporterNotification_CountriesofTransit : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	{
+		
+		/// <summary>
+		/// Default Constructor.
+		/// </summary>
+		public defraimp_ImporterNotification_CountriesofTransit() : 
+				base(EntityLogicalName)
+		{
+		}
+		
+		public const string EntityLogicalName = "defraimp_importernotification_countriesoftransit";
+		
+		public const int EntityTypeCode = 10172;
+		
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+		
+		public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
+		
+		private void OnPropertyChanged(string propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void OnPropertyChanging(string propertyName)
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs(propertyName));
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defra_countryid")]
+		public System.Nullable<System.Guid> defra_countryid
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("defra_countryid");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importernotification_countriesoftransitid")]
+		public System.Nullable<System.Guid> defraimp_ImporterNotification_CountriesofTransitId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("defraimp_importernotification_countriesoftransitid");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importernotification_countriesoftransitid")]
+		public override System.Guid Id
+		{
+			get
+			{
+				return base.Id;
+			}
+			set
+			{
+				base.Id = value;
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importernotificationid")]
+		public System.Nullable<System.Guid> defraimp_importernotificationid
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("defraimp_importernotificationid");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("versionnumber")]
+		public System.Nullable<long> VersionNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+		
+		/// <summary>
+		/// N:N defraimp_ImporterNotification_CountriesofTransit
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_ImporterNotification_CountriesofTransit")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defra_country> defraimp_ImporterNotification_CountriesofTransit1
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defra_country>("defraimp_ImporterNotification_CountriesofTransit", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_ImporterNotification_CountriesofTransit1");
+				this.SetRelatedEntities<Defra.Imports.Model.defra_country>("defraimp_ImporterNotification_CountriesofTransit", null, value);
+				this.OnPropertyChanged("defraimp_ImporterNotification_CountriesofTransit1");
+			}
+		}
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importinspection_defraimp_inspectionoutcome
 	{
 		
@@ -23852,7 +24730,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importinspection_defraimp_reactorsorirsidentified
 	{
 		
@@ -23864,7 +24742,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importinspectionState
 	{
 		
@@ -23876,7 +24754,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importinspection_statuscode
 	{
 		
@@ -23910,7 +24788,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_importinspection")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_importinspection : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -25453,7 +26331,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importquery_instancetypecode
 	{
 		
@@ -25474,7 +26352,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importquery_prioritycode
 	{
 		
@@ -25489,7 +26367,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importqueryState
 	{
 		
@@ -25507,7 +26385,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importquery_statuscode
 	{
 		
@@ -25529,7 +26407,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_importquery")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_importquery : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -27113,7 +27991,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importrisklevelState
 	{
 		
@@ -27125,7 +28003,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_importrisklevel_statuscode
 	{
 		
@@ -27141,7 +28019,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_importrisklevel")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_importrisklevel : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -27552,7 +28430,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_inspectioncoverageruleState
 	{
 		
@@ -27564,7 +28442,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_inspectioncoveragerule_statuscode
 	{
 		
@@ -27580,7 +28458,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_inspectioncoveragerule")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_inspectioncoveragerule : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -28024,7 +28902,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_itahcState
 	{
 		
@@ -28036,7 +28914,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_itahc_statuscode
 	{
 		
@@ -28052,7 +28930,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_itahc")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_itahc : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -30817,7 +31695,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_matchrecordState
 	{
 		
@@ -30829,7 +31707,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_matchrecord_statuscode
 	{
 		
@@ -30851,7 +31729,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_matchrecord")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_matchrecord : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -31855,7 +32733,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_placeoforiginState
 	{
 		
@@ -31867,7 +32745,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_placeoforigin_statuscode
 	{
 		
@@ -31883,7 +32761,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_placeoforigin")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_placeoforigin : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -32758,7 +33636,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_postcoderegionState
 	{
 		
@@ -32770,7 +33648,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_postcoderegion_statuscode
 	{
 		
@@ -32786,7 +33664,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_postcoderegion")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_postcoderegion : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -33248,7 +34126,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_potentiallyrelatedimportrecords")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_PotentiallyRelatedImportRecords : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -33365,7 +34243,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_WatchFlagState
 	{
 		
@@ -33377,7 +34255,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_watchflag_statuscode
 	{
 		
@@ -33393,7 +34271,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_watchflag")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_WatchFlag : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -33875,7 +34753,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_WatchListState
 	{
 		
@@ -33887,7 +34765,7 @@ namespace Defra.Imports.Model
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum defraimp_watchlist_statuscode
 	{
 		
@@ -33903,7 +34781,7 @@ namespace Defra.Imports.Model
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_watchlist")]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class defraimp_WatchList : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
@@ -34508,7 +35386,7 @@ namespace Defra.Imports.Model
 	/// <summary>
 	/// Represents a source of entities bound to a CRM service. It tracks and manages changes made to the retrieved entities.
 	/// </summary>
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.0.0.9154")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public partial class ImportsContext : Microsoft.Xrm.Sdk.Client.OrganizationServiceContext
 	{
 		
@@ -34631,6 +35509,17 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_importapplication_defra_country"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_importapplication_defra_country> defraimp_importapplication_defra_countrySet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_importapplication_defra_country>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_importcountrycommodityrisklevel"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_importcountrycommodityrisklevel> defraimp_importcountrycommodityrisklevelSet
@@ -34649,6 +35538,17 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.CreateQuery<Defra.Imports.Model.defraimp_ImporterNotification>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_ImporterNotification_CountriesofTransit"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_ImporterNotification_CountriesofTransit> defraimp_ImporterNotification_CountriesofTransitSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_ImporterNotification_CountriesofTransit>();
 			}
 		}
 		

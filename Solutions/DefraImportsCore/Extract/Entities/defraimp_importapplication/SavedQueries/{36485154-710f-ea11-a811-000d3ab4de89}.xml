@@ -32,13 +32,16 @@
           <attribute name="defraimp_commoditytypeid" />
           <attribute name="defraimp_placeoforiginorganisation" />
           <attribute name="defraimp_placeofdestinationorganisation" />
+          <attribute name="defraimp_primaryitahcid" />
           <order descending="true" attribute="createdon" />
           <filter type="and">
-            <condition attribute="defraimp_importapplicationtype" operator="eq" value="714100000" />
+            <condition attribute="defraimp_importapplicationtype" operator="in">
+              <value>714100000</value>
+              <value>714100001</value>
+            </condition>
             <condition attribute="defraimp_regionareaallocatedtoid" operator="eq" uiname="North (Not Allocated)" uitype="defraimp_apharegion" value="{D4FE672A-4605-EA11-A811-000D3AB35DA5}" />
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="defraimp_primaryitahcid" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>

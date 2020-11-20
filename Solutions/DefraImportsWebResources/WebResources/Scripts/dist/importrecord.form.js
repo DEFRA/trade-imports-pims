@@ -105,12 +105,20 @@ var DefraImports;
                 //Hide any existing sections first
                 hideCHEDASections(formContext);
                 hideCHEDPSections(formContext);
+                hideIMPSections(formContext);
                 //Show the ITAHC section
                 showITAHCSections(formContext);
+            }
+            else if (importApplicationType == 714100001 /* IMP */) {
+                hideCHEDASections(formContext);
+                hideCHEDPSections(formContext);
+                hideITAHCSections(formContext);
+                showIMPSections(formContext);
             }
             else if (importApplicationType == 714100002 /* CHEDA */) {
                 //Hide any existing sections first
                 hideITAHCSections(formContext);
+                hideIMPSections(formContext);
                 hideCHEDPSections(formContext);
                 //Show the CHEDA section
                 showCHEDASections(formContext);
@@ -118,6 +126,7 @@ var DefraImports;
             else if (importApplicationType == 714100003 /* CHEDP */) {
                 //Hide any existing sections first
                 hideITAHCSections(formContext);
+                hideIMPSections(formContext);
                 hideCHEDASections(formContext);
                 //Show the CHEDP section
                 showCHEDPSections(formContext);
@@ -125,6 +134,7 @@ var DefraImports;
             else {
                 //Hide all sections
                 hideITAHCSections(formContext);
+                hideIMPSections(formContext);
                 hideCHEDASections(formContext);
                 hideCHEDPSections(formContext);
             }
@@ -134,9 +144,15 @@ var DefraImports;
             formContext.ui.tabs.get("Summary").sections.get("iv66_section").setVisible(true);
             formContext.ui.tabs.get("AdditionalITAHC_Tab").setVisible(true);
         }
+        function showIMPSections(formContext) {
+            formContext.ui.tabs.get("Summary").sections.get("iv66_section").setVisible(true);
+        }
         function hideITAHCSections(formContext) {
             formContext.ui.tabs.get("Summary").sections.get("iv66_section").setVisible(false);
             formContext.ui.tabs.get("AdditionalITAHC_Tab").setVisible(false);
+        }
+        function hideIMPSections(formContext) {
+            formContext.ui.tabs.get("Summary").sections.get("iv66_section").setVisible(false);
         }
         function showCHEDASections(formContext) {
             formContext.ui.tabs.get("Summary").sections.get("cheda_section").setVisible(true);

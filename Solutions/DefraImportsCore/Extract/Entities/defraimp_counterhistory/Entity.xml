@@ -592,6 +592,16 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
+              <option value="714100016" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Importer Notification Removed" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100017" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Missing Importer Notification" languagecode="1033" />
+                </labels>
+              </option>
               <option value="714100015" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Negative Threshold Reached - Balance Quota" languagecode="1033" />

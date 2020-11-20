@@ -1,14 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <CustomActions />
+  <CustomActions>
+    <CustomAction Id="defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Button.CustomAction" Location="Mscrm.Form.defraimp_importernotification.MainTab.Save.Controls._children" Sequence="95">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Button.Alt" Command="defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Command" Id="defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Button" Image32by32="$webresource:Service/_imgs/ribbon/NewRecord_32.png" Image16by16="$webresource:Service/_imgs/ribbon/NewRecord_16.png" LabelText="$LocLabels:defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Button.LabelText" Sequence="95" TemplateAlias="isv" ToolTipTitle="$LocLabels:defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Button.ToolTipTitle" ToolTipDescription="$LocLabels:defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Button.ToolTipDescription" ModernImage="New" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
   <Templates>
     <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
   </Templates>
-  <CommandDefinitions />
+  <CommandDefinitions>
+    <CommandDefinition Id="defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Command">
+      <EnableRules>
+        <EnableRule Id="defraimp.defraimp_importernotification.CreateImportRecordFromNotification.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="DefraImports.ImporterNotification.onCreateImportRecordFromNotification" Library="$webresource:defraimp_/js/importernotification.ribbon.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
   <RuleDefinitions>
     <TabDisplayRules />
     <DisplayRules />
-    <EnableRules />
+    <EnableRules>
+      <EnableRule Id="defraimp.defraimp_importernotification.CreateImportRecordFromNotification.EnableRule">
+        <EntityRule EntityName="defraimp_importernotification" AppliesTo="PrimaryEntity" Default="true" />
+      </EnableRule>
+    </EnableRules>
   </RuleDefinitions>
-  <LocLabels />
+  <LocLabels>
+    <LocLabel Id="defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Button.Alt">
+      <Titles>
+        <Title description="Create Import Record From Notification" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Button.LabelText">
+      <Titles>
+        <Title description="Create Import Record From Notification" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Create a new Import Record using this notifications data" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importernotification.CreateImportRecordFromNotification.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Create Import Record From Notification" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
 </RibbonDiffXml>

@@ -131,6 +131,45 @@
             <Description description="Unique identifier of the delegate user who created the record." languagecode="1033" />
           </Descriptions>
         </attribute>
+        <attribute PhysicalName="defraimp_animalcertifiedas">
+          <Type>picklist</Type>
+          <Name>defraimp_animalcertifiedas</Name>
+          <LogicalName>defraimp_animalcertifiedas</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>0.0.0.95</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>defraimp_animalcertifiedas</OptionSetName>
+          <displaynames>
+            <displayname description="Purpose" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
         <attribute PhysicalName="defraimp_Article15ReImport">
           <Type>bit</Type>
           <Name>defraimp_article15reimport</Name>
@@ -1828,6 +1867,11 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
+              <option value="714100001" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="IMP" languagecode="1033" />
+                </labels>
+              </option>
               <option value="714100000" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="ITAHC" languagecode="1033" />
@@ -2912,24 +2956,54 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
+              <option value="714100005" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Bronze Place of Origin" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100006" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Gold Place of Origin - Inspection Coverage" languagecode="1033" />
+                </labels>
+              </option>
               <option value="714100012" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Manually Assigned High Risk" languagecode="1033" />
                 </labels>
               </option>
+              <option value="714100013" ExternalValue="" Color="">
+                <labels>
+                  <label description="Manually Requested Post Import Check" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100004" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="No Inspection Required" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100008" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="No Inspection Required - Gold Place of Origin" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100007" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Place of Origin Locked to Bronze" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100015" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Primary Importer Notification Missing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="714100014" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Primary ITAHC Missing" languagecode="1033" />
+                </labels>
+              </option>
               <option value="714100010" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Quarantine" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="714100011" ExternalValue="" Color="#0000ff">
-                <labels>
-                  <label description="TB" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="714100000" ExternalValue="" Color="#0000ff">
-                <labels>
-                  <label description="Risk Level Unknown" languagecode="1033" />
                 </labels>
               </option>
               <option value="714100001" ExternalValue="" Color="#0000ff">
@@ -2947,44 +3021,19 @@
                   <label description="Random P3 Inspection" languagecode="1033" />
                 </labels>
               </option>
-              <option value="714100004" ExternalValue="" Color="#0000ff">
+              <option value="714100000" ExternalValue="" Color="#0000ff">
                 <labels>
-                  <label description="No Inspection Required" languagecode="1033" />
+                  <label description="Risk Level Unknown" languagecode="1033" />
                 </labels>
               </option>
-              <option value="714100005" ExternalValue="" Color="#0000ff">
+              <option value="714100011" ExternalValue="" Color="#0000ff">
                 <labels>
-                  <label description="Bronze Place of Origin" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="714100007" ExternalValue="" Color="#0000ff">
-                <labels>
-                  <label description="Place of Origin Locked to Bronze" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="714100006" ExternalValue="" Color="#0000ff">
-                <labels>
-                  <label description="Gold Place of Origin - Inspection Coverage" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="714100008" ExternalValue="" Color="#0000ff">
-                <labels>
-                  <label description="No Inspection Required - Gold Place of Origin" languagecode="1033" />
+                  <label description="TB" languagecode="1033" />
                 </labels>
               </option>
               <option value="714100009" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Verified Place of Origin Missing" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="714100014" ExternalValue="" Color="#0000ff">
-                <labels>
-                  <label description="Primary ITAHC Missing" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="714100013" ExternalValue="" Color="">
-                <labels>
-                  <label description="Manually Requested Post Import Check" languagecode="1033" />
                 </labels>
               </option>
             </options>
@@ -4922,8 +4971,8 @@
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>text</Format>
-          <MaxLength>15</MaxLength>
-          <Length>30</Length>
+          <MaxLength>255</MaxLength>
+          <Length>510</Length>
           <displaynames>
             <displayname description="Port of Entry" languagecode="1033" />
           </displaynames>
@@ -5256,7 +5305,7 @@
             </options>
           </optionset>
           <displaynames>
-            <displayname description="Purpose" languagecode="1033" />
+            <displayname description="(Deprecated) Purpose" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
