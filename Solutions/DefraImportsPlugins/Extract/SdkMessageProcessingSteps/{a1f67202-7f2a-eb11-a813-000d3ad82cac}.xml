@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="Delete Step" SdkMessageProcessingStepId="{abc22096-e069-ea11-a811-000d3ab55801}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SdkMessageProcessingStep Name="Delete Step" SdkMessageProcessingStepId="{a1f67202-7f2a-eb11-a813-000d3ad82cac}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SdkMessageId>a1bdbb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
   <PluginTypeName>Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4</PluginTypeName>
   <PluginTypeId>38779195-e069-ea11-a811-000d3ab5d511</PluginTypeId>
@@ -17,8 +17,8 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <SdkMessageProcessingStepImages>
     <SdkMessageProcessingStepImage Name="PreImage">
-      <SdkMessageProcessingStepImageId>{c1c22096-e069-ea11-a811-000d3ab55801}</SdkMessageProcessingStepImageId>
-      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision</Attributes>
+      <SdkMessageProcessingStepImageId>{a8f67202-7f2a-eb11-a813-000d3ad82cac}</SdkMessageProcessingStepImageId>
+      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision,defraimp_primaryimporternotificationid</Attributes>
       <EntityAlias>PreImage</EntityAlias>
       <ImageType>0</ImageType>
       <MessagePropertyName>Target</MessagePropertyName>

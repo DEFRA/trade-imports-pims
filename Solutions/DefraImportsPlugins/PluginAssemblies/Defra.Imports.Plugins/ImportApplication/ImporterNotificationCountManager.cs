@@ -12,11 +12,11 @@
     nameof(defraimp_importapplication),
     StageEnum.PostOperation,
     ExecutionModeEnum.Synchronous,
-    "defraimp_placeoforiginid,defraimp_primaryitahcid",
+    "defraimp_placeoforiginid,defraimp_primaryimporternotificationid",
     "Create Step",
     0,
     IsolationModeEnum.Sandbox,
-    Image1Attributes = "defraimp_placeoforiginid,defraimp_primaryitahcid",
+    Image1Attributes = "defraimp_placeoforiginid,defraimp_primaryimporternotificationid",
     Image1Name = "PostImage",
     Image1Type = ImageTypeEnum.PostImage)]
 
@@ -25,14 +25,14 @@
         nameof(defraimp_importapplication),
         StageEnum.PostOperation,
         ExecutionModeEnum.Synchronous,
-        "defraimp_placeoforiginid,defraimp_primaryitahcid",
+        "defraimp_placeoforiginid,defraimp_primaryimporternotificationid",
         "Update Step",
         0,
         IsolationModeEnum.Sandbox,
-        Image1Attributes = "defraimp_placeoforiginid,defraimp_primaryitahcid",
+        Image1Attributes = "defraimp_placeoforiginid,defraimp_primaryimporternotificationid",
         Image1Name = "PreImage",
         Image1Type = ImageTypeEnum.PreImage,
-        Image2Attributes = "defraimp_placeoforiginid,defraimp_primaryitahcid",
+        Image2Attributes = "defraimp_placeoforiginid,defraimp_primaryimporternotificationid",
         Image2Name = "PostImage",
         Image2Type = ImageTypeEnum.PostImage)]
 
@@ -41,15 +41,15 @@
     nameof(defraimp_importapplication),
     StageEnum.PostOperation,
     ExecutionModeEnum.Synchronous,
-    "defraimp_placeoforiginid,defraimp_primaryitahcid",
+    "defraimp_placeoforiginid,defraimp_primaryimporternotificationid",
     "Delete Step",
     0,
     IsolationModeEnum.Sandbox,
-    Image1Attributes = "defraimp_placeoforiginid,defraimp_primaryitahcid",
+    Image1Attributes = "defraimp_placeoforiginid,defraimp_primaryimporternotificationid",
     Image1Name = "PreImage",
     Image1Type = ImageTypeEnum.PreImage)]
 
-    public class PrimaryITAHCCountManager : Plugin
+    public class ImporterNotificationCountManager : Plugin
     {
         protected override void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)
         {
@@ -67,8 +67,8 @@
                 ImportsContext crmContext = new ImportsContext(orgSvc);
 
                 // Start the business logic
-                PrimaryITAHCCountManagerBusinessLogic primaryITAHCCountManagerBusinessLogic = new PrimaryITAHCCountManagerBusinessLogic(preImageApplication, postImageApplication, crmContext, placeOfOriginRepo, logWriter);
-                primaryITAHCCountManagerBusinessLogic.RunLogic();
+                PrimaryImpoterNotificationCountManagerBusinessLogic counterManagerBusinessLogic = new PrimaryImpoterNotificationCountManagerBusinessLogic(preImageApplication, postImageApplication, crmContext, placeOfOriginRepo, logWriter);
+                counterManagerBusinessLogic.RunLogic();
             }
         }
     }

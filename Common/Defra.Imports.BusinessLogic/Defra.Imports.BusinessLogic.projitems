@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Import Query\AddNotesToCloneImportQuery.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\InspectionsSinceLastCheckCounterManagerBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\PrimaryImpoterNotificationCountManagerBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Strategies\TBDetermineInspection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\PopulateCountriesOfTransitFromNotificationBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Auditor\CounterTransactionDetail.cs" />

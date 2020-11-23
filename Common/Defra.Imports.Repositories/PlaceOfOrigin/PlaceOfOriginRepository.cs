@@ -46,7 +46,7 @@
             }
         }
 
-        public int GetPrimaryITAHCCounterValue(Guid placeOfOriginId)
+        public int GetHealthCertificateCounterValue(Guid placeOfOriginId)
         {
             defraimp_placeoforigin placeOfOriginRecord = Find(placeOfOriginId);
             if (placeOfOriginRecord != null)
@@ -164,9 +164,9 @@
             orgSvc.Update(updatedPlaceOfOriginRecord);
         }
 
-        public void IncrementNumberOfPrimaryITAHCCounter(Guid placeOfOriginId)
+        public void IncrementHealthCertificateCounter(Guid placeOfOriginId)
         {
-            int currentCounterValue = GetPrimaryITAHCCounterValue(placeOfOriginId);
+            int currentCounterValue = GetHealthCertificateCounterValue(placeOfOriginId);
             defraimp_placeoforigin updatedPlaceOfOriginRecord = new defraimp_placeoforigin
             {
                 Id = placeOfOriginId,
@@ -176,9 +176,9 @@
             orgSvc.Update(updatedPlaceOfOriginRecord);
         }
 
-        public void DecrementNumberOfPrimaryITAHCCounter(Guid placeOfOriginId)
+        public void DecrementHealthCertificateCounter(Guid placeOfOriginId)
         {
-            int currentCounterValue = GetPrimaryITAHCCounterValue(placeOfOriginId);
+            int currentCounterValue = GetHealthCertificateCounterValue(placeOfOriginId);
             defraimp_placeoforigin updatedPlaceOfOriginRecord = new defraimp_placeoforigin
             {
                 Id = placeOfOriginId,

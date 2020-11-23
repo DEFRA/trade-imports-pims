@@ -66,6 +66,20 @@ namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Help
             PerformInspectionRequiredUpdate();
         }
 
+        public void TracesDisabled()
+        {
+            InspectionRequired = defraimp_importapplication_defraimp_inspectionrequired.Undetermined;
+            InspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.TRACESisdisabledUseImporterNotificationsinstead;
+            PerformInspectionRequiredUpdate();
+        }
+
+        public void PrimaryImporterNotificationMissing()
+        {
+            InspectionRequired = defraimp_importapplication_defraimp_inspectionrequired.Undetermined;
+            InspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.PrimaryImporterNotificationMissing;
+            PerformInspectionRequiredUpdate();
+        }
+
         //Requirements - Standard Requirements
         public void NoInspectionRequired()
         {

@@ -1,8 +1,5 @@
 ﻿namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
     using System.Linq;
     using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
     using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers;
@@ -12,6 +9,15 @@
 
     public abstract class AbstractDetermineInspection
     {
+        protected IRepositoryFactory repositoryFactory;
+        protected defraimp_importapplication importApplication;
+        protected InspectionRequirement inspectionRequirement;
+        protected AbstractRiskCounterManager riskLevelCounterManager;
+        protected IAutonumberRepository autoNumberRepo;
+        protected ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo;
+        protected ICrmRepository<defraimp_importapplication> importApplicationRepo;
+        protected ConfigurationParameterRepository configurationParameterRepo;
+
         public abstract void ExecuteInspection(DetermineInspectionContext determineInspectionContext);
 
         public defraimp_inspectioncoveragerule GetCoverageRule(ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo, string coverageRuleKey)
@@ -30,9 +36,22 @@
             return coverageRule;
         }
 
-        public bool ValidImportApplicationTypeForInspection(defraimp_importapplication importApplication)
+        protected bool ValidImportApplicationTypeForInspection(defraimp_importapplication importApplication)
         {
             if (importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC && importApplication.defraimp_PrimaryITAHCId != null)
+            {
+                bool tracesEnabled = bool.Parse(this.configurationParameterRepo.GetConfigurationParameterValueByKey("defraimp_traces_enabled"));
+
+                if (tracesEnabled)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if (importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.IMP && importApplication.defraimp_PrimaryImporterNotificationId != null)
             {
                 return true;
             }
@@ -43,6 +62,32 @@
             else
             {
                 return false;
+            }
+        }
+
+        protected void MissingCertificateError()
+        {
+            if (importApplication?.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
+            {
+                bool tracesEnabled = bool.Parse(this.configurationParameterRepo.GetConfigurationParameterValueByKey("defraimp_traces_enabled"));
+
+                if (tracesEnabled)
+                {
+                    // No Primary ITAHC
+                    inspectionRequirement?.PrimaryITAHCMissing();
+                }
+                else
+                {
+                    // TRACES is disabled
+                    inspectionRequirement?.TracesDisabled();
+
+                }
+
+            }
+            else if (importApplication?.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.IMP)
+            {
+                // No Primary Importer Notification
+                inspectionRequirement?.PrimaryImporterNotificationMissing();
             }
         }
     }

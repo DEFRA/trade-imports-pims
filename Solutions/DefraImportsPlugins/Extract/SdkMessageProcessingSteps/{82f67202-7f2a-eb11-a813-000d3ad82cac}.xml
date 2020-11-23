@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="Set State Step" SdkMessageProcessingStepId="{ae779195-e069-ea11-a811-000d3ab5d511}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SdkMessageId>1dbebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+<SdkMessageProcessingStep Name="Set State Step" SdkMessageProcessingStepId="{82f67202-7f2a-eb11-a813-000d3ad82cac}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>1cbebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
   <PluginTypeName>Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4</PluginTypeName>
   <PluginTypeId>38779195-e069-ea11-a811-000d3ab5d511</PluginTypeId>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
@@ -17,16 +17,16 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <SdkMessageProcessingStepImages>
     <SdkMessageProcessingStepImage Name="PostImage">
-      <SdkMessageProcessingStepImageId>{c3779195-e069-ea11-a811-000d3ab5d511}</SdkMessageProcessingStepImageId>
-      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted</Attributes>
+      <SdkMessageProcessingStepImageId>{8ef67202-7f2a-eb11-a813-000d3ad82cac}</SdkMessageProcessingStepImageId>
+      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision,defraimp_primaryimporternotificationid</Attributes>
       <EntityAlias>PostImage</EntityAlias>
       <ImageType>1</ImageType>
       <MessagePropertyName>EntityMoniker</MessagePropertyName>
       <IsCustomizable>1</IsCustomizable>
     </SdkMessageProcessingStepImage>
     <SdkMessageProcessingStepImage Name="PreImage">
-      <SdkMessageProcessingStepImageId>{b4779195-e069-ea11-a811-000d3ab5d511}</SdkMessageProcessingStepImageId>
-      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted</Attributes>
+      <SdkMessageProcessingStepImageId>{8af67202-7f2a-eb11-a813-000d3ad82cac}</SdkMessageProcessingStepImageId>
+      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision,defraimp_primaryimporternotificationid</Attributes>
       <EntityAlias>PreImage</EntityAlias>
       <ImageType>0</ImageType>
       <MessagePropertyName>EntityMoniker</MessagePropertyName>

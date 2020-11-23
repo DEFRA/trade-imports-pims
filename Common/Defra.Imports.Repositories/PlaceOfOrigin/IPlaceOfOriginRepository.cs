@@ -10,7 +10,7 @@
 
         int GetQuotaCounterValue(Guid placeOfOriginId);
 
-        int GetPrimaryITAHCCounterValue(Guid placeOfOriginId);
+        int GetHealthCertificateCounterValue(Guid placeOfOriginId);
 
         defraimp_placeoforigin Find(Guid placeOfOriginId);
 
@@ -26,9 +26,9 @@
 
         void SetQuotaCounter(Guid placeOfOriginId, int value);
 
-        void IncrementNumberOfPrimaryITAHCCounter(Guid placeOfOriginId);
+        void IncrementHealthCertificateCounter(Guid placeOfOriginId);
 
-        void DecrementNumberOfPrimaryITAHCCounter(Guid placeOfOriginId);
+        void DecrementHealthCertificateCounter(Guid placeOfOriginId);
 
         void SetNumberOfRecordsSinceLastCheckValue(Guid placeOfOriginId, int value);
 

@@ -15955,6 +15955,9 @@ namespace Defra.Imports.Model
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TRACESisdisabledUseImporterNotificationsinstead = 714100016,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BronzePlaceofOrigin = 714100005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]

@@ -1,41 +1,28 @@
 ﻿namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
     using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers;
-    using Defra.Imports.BusinessLogic.RepoInterfaces;
     using Defra.Imports.Model;
-    using Defra.Imports.Repositories;
-    using Microsoft.Xrm.Sdk;
 
     public class P3DetermineInspection : AbstractDetermineInspection
     {
-        private defraimp_importapplication _importApplication;
-        private IAutonumberRepository _autoNumberRepo;
-        private ICrmRepository<defraimp_inspectioncoveragerule> _coverageRulesRepo;
-        private ICrmRepository<defraimp_importapplication> _importApplicationRepo;
-        private InspectionRequirement _inspectionRequirement;
-        private AbstractRiskCounterManager _riskLevelCounterManager;
-
         public override void ExecuteInspection(DetermineInspectionContext determineInspectionContext)
         {
-            _importApplication = determineInspectionContext.ImportApplication;
-            _importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
-            _autoNumberRepo = determineInspectionContext.AutoNumberRepo;
-            _coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
-            _inspectionRequirement = new InspectionRequirement(_importApplication, _importApplicationRepo);
-            _riskLevelCounterManager = determineInspectionContext.RiskLevelCounterManager;
+            this.importApplication = determineInspectionContext.ImportApplication;
+            this.importApplicationRepo = determineInspectionContext.ImportApplicationRepo;
+            this.autoNumberRepo = determineInspectionContext.AutoNumberRepo;
+            this.coverageRulesRepo = determineInspectionContext.CoverageRulesRepo;
+            this.inspectionRequirement = new InspectionRequirement(importApplication, importApplicationRepo);
+            this.riskLevelCounterManager = determineInspectionContext.RiskLevelCounterManager;
+            this.configurationParameterRepo = determineInspectionContext.ConfigurationParameterRepo;
 
             //Does the import application have a primary ITAHC?
-            if (ValidImportApplicationTypeForInspection(_importApplication))
+            if (ValidImportApplicationTypeForInspection(importApplication))
             {
                 // Has the record not been counted yet?
-                if (_importApplication.defraimp_ImportRecordCounted != true)
+                if (importApplication.defraimp_ImportRecordCounted != true)
                 {
-                    int quotaCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_QUOTA_COUNTER_NAME);
+                    int quotaCount = autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_QUOTA_COUNTER_NAME);
 
                     if (quotaCount > 0)
                     {
@@ -47,41 +34,40 @@
                     }
                 }
             }
-            else if (_importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
+            else
             {
-                // Flag the application as missing an ITAHC
-                _inspectionRequirement.PrimaryITAHCMissing();
+                MissingCertificateError();
             }
         }
 
         private void DealWithP3QuotaInspection()
         {
             // Decrement the quota counter list
-            _riskLevelCounterManager.DecrementQuota(ref _importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection);
+            riskLevelCounterManager.DecrementQuota(ref importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection);
 
             // Flag the application for inspection
-            _inspectionRequirement.P3Inspection();
+            inspectionRequirement.P3Inspection();
         }
 
         private void DealWithNormalP3Inspection()
         {
             // Get the threashold
-            defraimp_inspectioncoveragerule coverageRule = GetCoverageRule(_coverageRulesRepo, ImportApplicationConstants.P3_COVERAGE_RULE_KEY);
+            defraimp_inspectioncoveragerule coverageRule = GetCoverageRule(coverageRulesRepo, ImportApplicationConstants.P3_COVERAGE_RULE_KEY);
 
             // Increment the counter and get the value
-            _riskLevelCounterManager.IncrementNumber(ref _importApplication, defraimp_counterhistory_defraimp_reason.ValidP3);
+            riskLevelCounterManager.IncrementNumber(ref importApplication, defraimp_counterhistory_defraimp_reason.ValidP3);
 
-            int currentCount = _autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
+            int currentCount = autoNumberRepo.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME);
             if (currentCount >= coverageRule.defraimp_NumberOfRecordsUntilInspection)
             {
                 // Reset the counter
-                _riskLevelCounterManager.SetNumberValue(ref _importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection, 0);
+                riskLevelCounterManager.SetNumberValue(ref importApplication, defraimp_counterhistory_defraimp_reason.WasFlaggedforInspection, 0);
 
-                _inspectionRequirement.P3Inspection();
+                inspectionRequirement.P3Inspection();
             }
             else
             {
-                _inspectionRequirement.NoInspectionRequired();
+                inspectionRequirement.NoInspectionRequired();
             }
         }
     }

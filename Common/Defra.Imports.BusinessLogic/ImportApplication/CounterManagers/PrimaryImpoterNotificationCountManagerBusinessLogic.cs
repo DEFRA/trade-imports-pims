@@ -4,7 +4,7 @@
     using Defra.Imports.Model;
     using Defra.Imports.Repositories;
 
-    class PrimaryITAHCCountManagerBusinessLogic
+    class PrimaryImpoterNotificationCountManagerBusinessLogic
     {
         defraimp_importapplication preImageImportApplication;
         defraimp_importapplication postOperationImportApplication;
@@ -12,7 +12,7 @@
         ILogWriter logWriter;
         ImportsContext crmContext;
 
-        public PrimaryITAHCCountManagerBusinessLogic(defraimp_importapplication preImageImportApplication, defraimp_importapplication postOperationImportApplication, ImportsContext crmContext, IPlaceOfOriginRepository placeOfOriginRepo, ILogWriter logWriter)
+        public PrimaryImpoterNotificationCountManagerBusinessLogic(defraimp_importapplication preImageImportApplication, defraimp_importapplication postOperationImportApplication, ImportsContext crmContext, IPlaceOfOriginRepository placeOfOriginRepo, ILogWriter logWriter)
         {
             this.preImageImportApplication = preImageImportApplication;
             this.postOperationImportApplication = postOperationImportApplication;
@@ -28,7 +28,7 @@
             bool tracesEnabled = bool.Parse(configurationParameterRepository.GetConfigurationParameterValueByKey("defraimp_traces_enabled"));
 
             // Is traces enabled?
-            if (tracesEnabled)
+            if (!tracesEnabled)
             {
                 // Ensure we have a pre-image import application. We won't receive this on create.
                 defraimp_placeoforigin preImagePlaceOfOrigin = preImageImportApplication?.defraimp_PlaceofOriginid != null ? placeOfOriginRepo.Find(preImageImportApplication.defraimp_PlaceofOriginid.Id) : null;
@@ -39,17 +39,17 @@
                 if (preImagePlaceOfOrigin != null && postOperationPlaceOfOrigin != null)
                 {
                     // Did the record have a Health Certificate but no longer has one?
-                    if (preImageImportApplication.defraimp_PrimaryITAHCId != null && postOperationImportApplication.defraimp_PrimaryITAHCId == null)
+                    if (preImageImportApplication.defraimp_PrimaryImporterNotificationId != null && postOperationImportApplication.defraimp_PrimaryImporterNotificationId == null)
                     {
                         // Decrement the number of Health Certificates
                         placeOfOriginRepo.DecrementHealthCertificateCounter(preImagePlaceOfOrigin.Id);
                     } // Have we added a Health Certificate?
-                    else if (preImageImportApplication.defraimp_PrimaryITAHCId == null && postOperationImportApplication.defraimp_PrimaryITAHCId != null)
+                    else if (preImageImportApplication.defraimp_PrimaryImporterNotificationId == null && postOperationImportApplication.defraimp_PrimaryImporterNotificationId != null)
                     {
                         // increment the counter
                         placeOfOriginRepo.IncrementHealthCertificateCounter(postOperationPlaceOfOrigin.Id);
                     } // Else if both have a Health Certificate
-                    else if (preImageImportApplication.defraimp_PrimaryITAHCId != null && postOperationImportApplication.defraimp_PrimaryITAHCId != null)
+                    else if (preImageImportApplication.defraimp_PrimaryImporterNotificationId != null && postOperationImportApplication.defraimp_PrimaryImporterNotificationId != null)
                     {
                         // Has the Place of Origin changed?
                         if (preImagePlaceOfOrigin.Id != postOperationPlaceOfOrigin.Id)
@@ -62,7 +62,7 @@
                 else if (preImagePlaceOfOrigin == null && postOperationPlaceOfOrigin != null)
                 {
                     // Do we currently have a Health Certificate?
-                    if (postOperationImportApplication.defraimp_PrimaryITAHCId != null)
+                    if (postOperationImportApplication.defraimp_PrimaryImporterNotificationId != null)
                     {
                         // We've added a new place of origin to a record with a valid Health Certificate, increment the counter
                         placeOfOriginRepo.IncrementHealthCertificateCounter(postOperationPlaceOfOrigin.Id);
@@ -71,7 +71,7 @@
                 else if (preImagePlaceOfOrigin != null && postOperationPlaceOfOrigin == null)
                 {
                     // Did we have a Health Certificate?
-                    if (preImageImportApplication.defraimp_PrimaryITAHCId != null)
+                    if (preImageImportApplication.defraimp_PrimaryImporterNotificationId != null)
                     {
                         // We've removed the place of origin and we had a Health Certificate previously, so decrement the counter
                         placeOfOriginRepo.DecrementHealthCertificateCounter(preImagePlaceOfOrigin.Id);

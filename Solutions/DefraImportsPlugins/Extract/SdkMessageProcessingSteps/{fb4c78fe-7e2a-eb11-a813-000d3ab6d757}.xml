@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="Update Step" SdkMessageProcessingStepId="{6f779195-e069-ea11-a811-000d3ab5d511}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SdkMessageProcessingStep Name="Update Step" SdkMessageProcessingStepId="{fb4c78fe-7e2a-eb11-a813-000d3ab6d757}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SdkMessageId>20bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
   <PluginTypeName>Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4</PluginTypeName>
   <PluginTypeId>38779195-e069-ea11-a811-000d3ab5d511</PluginTypeId>
   <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
-  <FilteringAttributes>defraimp_primaryitahcid,defraimp_importrisklevelid,defraimp_placeoforiginid</FilteringAttributes>
+  <FilteringAttributes>defraimp_primaryitahcid,defraimp_importrisklevelid,defraimp_placeoforiginid,defraimp_primaryimporternotificationid</FilteringAttributes>
   <InvocationSource>1</InvocationSource>
   <Mode>0</Mode>
   <Rank>0</Rank>
@@ -17,16 +17,16 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <SdkMessageProcessingStepImages>
     <SdkMessageProcessingStepImage Name="PostImage">
-      <SdkMessageProcessingStepImageId>{8e779195-e069-ea11-a811-000d3ab5d511}</SdkMessageProcessingStepImageId>
-      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision</Attributes>
+      <SdkMessageProcessingStepImageId>{14ef75fc-7e2a-eb11-a813-000d3ad82cac}</SdkMessageProcessingStepImageId>
+      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision,defraimp_primaryimporternotificationid</Attributes>
       <EntityAlias>PostImage</EntityAlias>
       <ImageType>1</ImageType>
       <MessagePropertyName>Target</MessagePropertyName>
       <IsCustomizable>1</IsCustomizable>
     </SdkMessageProcessingStepImage>
     <SdkMessageProcessingStepImage Name="PreImage">
-      <SdkMessageProcessingStepImageId>{7a779195-e069-ea11-a811-000d3ab5d511}</SdkMessageProcessingStepImageId>
-      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision</Attributes>
+      <SdkMessageProcessingStepImageId>{0fef75fc-7e2a-eb11-a813-000d3ad82cac}</SdkMessageProcessingStepImageId>
+      <Attributes>defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision,defraimp_primaryimporternotificationid</Attributes>
       <EntityAlias>PreImage</EntityAlias>
       <ImageType>0</ImageType>
       <MessagePropertyName>Target</MessagePropertyName>

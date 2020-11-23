@@ -11,6 +11,9 @@
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="38779195-e069-ea11-a811-000d3ab5d511" Name="Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement">
       <FriendlyName>Defra.Imports.Plugins.ImportApplication.DetermineInspectionRequirement</FriendlyName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.ImporterNotificationCountManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="0f0b07f1-642a-eb11-a813-000d3ad82cac" Name="Defra.Imports.Plugins.ImportApplication.ImporterNotificationCountManager">
+      <FriendlyName>Defra.Imports.Plugins.ImportApplication.ImporterNotificationCountManager</FriendlyName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="5d222690-e069-ea11-a811-000d3ab55801" Name="Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager">
       <FriendlyName>Defra.Imports.Plugins.ImportApplication.InspectionsSinceLastCheckCounterManager</FriendlyName>
     </PluginType>
