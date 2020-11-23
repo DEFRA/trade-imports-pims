@@ -24,6 +24,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
         protected Mock<ICrmRepository<defraimp_importapplication>> _mockImportApplicationRepo;
         protected Mock<ICrmRepository<defraimp_inspectioncoveragerule>> _mockCoverageRulesRepo;
         protected Mock<IAutonumberRepository> _mockAutoNumberRepo;
+        protected Mock<IConfigurationParameterRepository> _mockConfigurationParameterRepo;
         protected Mock<IRepositoryFactory> _mockRepositoryFactory;
         protected DetermineInspectionContext _determineInspectionContext;
 
@@ -34,6 +35,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _mockImportApplicationRepo = new Mock<ICrmRepository<defraimp_importapplication>>();
             _mockCoverageRulesRepo = new Mock<ICrmRepository<defraimp_inspectioncoveragerule>>();
             _mockAutoNumberRepo = new Mock<IAutonumberRepository>();
+            _mockConfigurationParameterRepo = new Mock<IConfigurationParameterRepository>();
             _mockRepositoryFactory = new Mock<IRepositoryFactory>();
 
             _determineInspectionContext = new DetermineInspectionContext()
@@ -42,6 +44,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
                 ImportApplicationRepo = _mockImportApplicationRepo.Object,
                 CoverageRulesRepo = _mockCoverageRulesRepo.Object,
                 AutoNumberRepo = _mockAutoNumberRepo.Object,
+                ConfigurationParameterRepo = _mockConfigurationParameterRepo.Object,
                 RepositoryFactory = _mockRepositoryFactory.Object
             };
 

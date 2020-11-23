@@ -184,7 +184,13 @@
     <None Include="TestData\NOTIFICATION_CONTAINING_SINGLE_QUOTE.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\NOTIFICATION_NO_DESTINATION_POSTCODE.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\NOTIFICATION_NO_IDENTIFIERS.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NOTIFICATION_PORT_OF_EXIT.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData\NOTIFICATION_SEQUENTIAL_1_A.json">

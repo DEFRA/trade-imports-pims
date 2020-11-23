@@ -31,6 +31,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _importApplication.defraimp_PrimaryITAHCId = itahcEntityRef;
 
             SetupCoverageRulesRepoToReturnRules();
+            SetupConfigurationParameterRepoToReturnTracesEnabled("True");
             SetupP3AutonumberRepo(1);
             SetupRiskLevelCounterManager();
 
@@ -51,6 +52,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _importApplication.defraimp_PrimaryITAHCId = itahcEntityRef;
 
             SetupCoverageRulesRepoToReturnRules();
+            SetupConfigurationParameterRepoToReturnTracesEnabled("True");
             SetupP3AutonumberRepo(3);
             SetupRiskLevelCounterManager();
 
@@ -74,6 +76,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _importApplication.defraimp_PrimaryITAHCId = itahcEntityRef;
 
             SetupCoverageRulesRepoToReturnRules();
+            SetupConfigurationParameterRepoToReturnTracesEnabled("True");
             SetupP3AutonumberRepo(1);
             SetupRiskLevelCounterManager();
 
@@ -98,6 +101,7 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             _importApplication.defraimp_PrimaryITAHCId = itahcEntityRef;
 
             SetupCoverageRulesRepoToReturnRules();
+            SetupConfigurationParameterRepoToReturnTracesEnabled("True");
             SetupP3AutonumberRepo(1);
             SetupP3QuotaAutonumberRepo(1);
 
@@ -119,6 +123,13 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
             SetupCoverageRulesRepoToReturnRules();
             SetupAutoNumberRepoToReturnValue(ImportApplicationConstants.P3_COUNTER_NAME, 3);
             _importApplication.defraimp_importapplicationId = Guid.NewGuid();
+        }
+
+        private void SetupConfigurationParameterRepoToReturnTracesEnabled(string tracesEnabled)
+        {
+            _mockConfigurationParameterRepo
+                .Setup(r => r.GetConfigurationParameterValueByKey("defraimp_traces_enabled"))
+                .Returns(tracesEnabled);
         }
 
         private void SetupP3AutonumberRepo(int currentCount)

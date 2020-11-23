@@ -174,5 +174,25 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
             _mockPostcodeRegionRepo.Verify(r => r.FindPostcodeRegionByPostcodePrefix(It.IsAny<string>()), Times.Never);
         }
 
+        [Fact]
+        public void UpdateDevolvedOfficeForTarget_TargetWithNullDestinationPostcodeAttribute_ShouldSetDevolvedOfficeToUnknown()
+        {
+            // Arrange
+            Guid unknownDevolvedOfficeId = Guid.NewGuid();
+
+            _target.Attributes.Add(_postcodeFieldName, null);
+
+            _mockConfigurationParameterRepo
+                .Setup(r => r.GetConfigurationParameterValueByKey("defraimp_unknown_devolved_office_id"))
+                .Returns(unknownDevolvedOfficeId.ToString());
+
+            // Act
+            _PopulateDevolvedOfficeBusinessLogic.UpdateDevolvedOfficeForTarget(_postcodeFieldName, _devolvedOfficeFieldName);
+
+            // Assert
+            Assert.True(_target.Contains(_devolvedOfficeFieldName));
+            Assert.Equal(unknownDevolvedOfficeId, _target.GetAttributeValue<EntityReference>(_devolvedOfficeFieldName).Id);
+        }
+
     }
 }

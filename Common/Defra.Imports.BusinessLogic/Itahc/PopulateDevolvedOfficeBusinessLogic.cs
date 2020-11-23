@@ -10,24 +10,33 @@ namespace Defra.Imports.BusinessLogic.Itahc
 {
     public class PopulateDevolvedOfficeBusinessLogic
     {
-        private Entity _target;
-        private IPostcodeRegionRepository _postcodeRegionRepo;
-        private IConfigurationParameterRepository _configParameterRepo;
+        private Entity target;
+        private IPostcodeRegionRepository postcodeRegionRepo;
+        private IConfigurationParameterRepository configParameterRepo;
 
         public PopulateDevolvedOfficeBusinessLogic(Entity target, IPostcodeRegionRepository postcodeRegionRepository, IConfigurationParameterRepository configParameterRepo)
         {
-            this._target = target;
-            this._postcodeRegionRepo = postcodeRegionRepository;
-            this._configParameterRepo = configParameterRepo;
+            this.target = target;
+            this.postcodeRegionRepo = postcodeRegionRepository;
+            this.configParameterRepo = configParameterRepo;
         }
 
         public void UpdateDevolvedOfficeForTarget(string postcodeFieldName, string devolvedOfficeFieldName)
         {
-           if(_target.Attributes.Contains(postcodeFieldName) && _target[postcodeFieldName].GetType() == typeof(string))
+            if(this.target.Attributes.Contains(postcodeFieldName))
             {
-                string sanitizedPostcode = _target.GetAttributeValue<string>(postcodeFieldName).Replace(" ", String.Empty).ToLower();
-                defraimp_postcoderegion postcodeRegion = FindPostcodeRegionForMultiplePrefixes(sanitizedPostcode, 4);
-                SetDevolvedOfficeOnTargetEntity(postcodeRegion, devolvedOfficeFieldName);
+                defraimp_postcoderegion postcodeRegion = null;
+                if (this.target[postcodeFieldName] != null && this.target[postcodeFieldName].GetType() == typeof(string))
+                {
+                    string postcodeVal = this.target.GetAttributeValue<string>(postcodeFieldName);
+
+                    if (postcodeVal != null)
+                    {
+                        string sanitizedPostcode = postcodeVal.Replace(" ", String.Empty).ToLower();
+                        postcodeRegion = this.FindPostcodeRegionForMultiplePrefixes(sanitizedPostcode, 4);
+                    }
+                }
+                this.SetDevolvedOfficeOnTargetEntity(postcodeRegion, devolvedOfficeFieldName);
             }
         }
 
@@ -40,7 +49,7 @@ namespace Defra.Imports.BusinessLogic.Itahc
                 if (sanitizedPostcode.Length >= i && postcodeRegion == null)
                 {
                     string postcodePrefix = sanitizedPostcode.Substring(0, i);
-                    postcodeRegion = _postcodeRegionRepo.FindPostcodeRegionByPostcodePrefix(postcodePrefix);
+                    postcodeRegion = this.postcodeRegionRepo.FindPostcodeRegionByPostcodePrefix(postcodePrefix);
                     if (postcodeRegion != null)
                     {
                         break;
@@ -56,20 +65,20 @@ namespace Defra.Imports.BusinessLogic.Itahc
         {
             if(postcoderegion != null)
             {
-                _target[devolvedOfficeFieldName] = postcoderegion.defraimp_DevolvedOffice;
+                this.target[devolvedOfficeFieldName] = postcoderegion.defraimp_DevolvedOffice;
             }
             else
             {
-                SetUnknownDevolvedOffice(devolvedOfficeFieldName);
+                this.SetUnknownDevolvedOffice(devolvedOfficeFieldName);
             }
         }
 
         private void SetUnknownDevolvedOffice(string devolvedOfficeFieldName)
         {
-            string unknownDevolvedOffice = _configParameterRepo.GetConfigurationParameterValueByKey("defraimp_unknown_devolved_office_id");
+            string unknownDevolvedOffice = this.configParameterRepo.GetConfigurationParameterValueByKey("defraimp_unknown_devolved_office_id");
             Guid unknownDevolvedOfficeGuid = new Guid(unknownDevolvedOffice);
             EntityReference unknownOfficeRef = new EntityReference("team", unknownDevolvedOfficeGuid);
-            _target[devolvedOfficeFieldName] = unknownOfficeRef;
+            this.target[devolvedOfficeFieldName] = unknownOfficeRef;
         }
     }
 }

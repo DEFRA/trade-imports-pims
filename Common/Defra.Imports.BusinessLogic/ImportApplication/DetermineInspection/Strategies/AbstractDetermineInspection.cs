@@ -16,7 +16,7 @@
         protected IAutonumberRepository autoNumberRepo;
         protected ICrmRepository<defraimp_inspectioncoveragerule> coverageRulesRepo;
         protected ICrmRepository<defraimp_importapplication> importApplicationRepo;
-        protected ConfigurationParameterRepository configurationParameterRepo;
+        protected IConfigurationParameterRepository configurationParameterRepo;
 
         public abstract void ExecuteInspection(DetermineInspectionContext determineInspectionContext);
 

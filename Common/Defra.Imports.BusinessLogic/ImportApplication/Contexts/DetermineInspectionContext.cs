@@ -22,6 +22,6 @@
 
         public IImportRiskCounterAuditor ImportRiskCounterAuditor { get; set; }
 
-        public ConfigurationParameterRepository ConfigurationParameterRepo { get; set; }
+        public IConfigurationParameterRepository ConfigurationParameterRepo { get; set; }
     }
 }

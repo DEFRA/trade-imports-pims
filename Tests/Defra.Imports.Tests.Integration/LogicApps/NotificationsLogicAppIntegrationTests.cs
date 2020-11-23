@@ -173,6 +173,44 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
+        [Fact]
+        [ExcludeFromCodeCoverage]
+        public void SendToSBQueue_NotificationWithPortOfExitDetails_ShouldCreateNotifictionWithPortOfExitDetails()
+        {
+            string expectedReferenceNumber = "IMP.GB.2020.19999999";
+            string jsonContents = this.ReadTestData("NOTIFICATION_PORT_OF_EXIT.json");
+
+            // Act
+            this.SendServiceBusMessage(jsonContents);
+            Thread.Sleep(150000);
+
+            // Assert
+            List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
+            Assert.True(notifications.Count > 0);
+
+            // Clear down
+            this.ClearDownDynamicsEntities(notifications);
+        }
+
+        [Fact]
+        [ExcludeFromCodeCoverage]
+        public void SendToSBQueue_NotificationWithoutDestinationPostcode_ShouldCreateNotificationWithDevolvedOfficeUnknown()
+        {
+            string expectedReferenceNumber = "IMP.GB.2020.1111111";
+            string jsonContents = this.ReadTestData("NOTIFICATION_NO_DESTINATION_POSTCODE.json");
+
+            // Act
+            this.SendServiceBusMessage(jsonContents);
+            Thread.Sleep(150000);
+
+            // Assert
+            List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
+            Assert.True(notifications.Count > 0);
+
+            // Clear down
+            this.ClearDownDynamicsEntities(notifications);
+        }
+
         private List<Entity> GetNotificationsByReference(string referenceNumber)
         {
             QueryExpression qe = new QueryExpression("defraimp_importernotification");
