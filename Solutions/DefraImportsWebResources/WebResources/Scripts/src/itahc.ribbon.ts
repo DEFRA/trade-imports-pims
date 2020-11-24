@@ -1,4 +1,9 @@
 namespace DefraImports.Itahc {
+  class TRACESConfigParamaterConstants
+  {
+    static entityName = "defraexp_configurationparameter";
+    static entityId = "{2bb103d9-b629-eb11-a813-000d3ad82cac}"
+  }
 
   class CreateImportRecordFromItahcRequest {
     public entity: Xrm.Lookup;
@@ -23,8 +28,25 @@ namespace DefraImports.Itahc {
   }
 
   export function onCreateImportRecordFromItahc(primaryControl: Form.defraimp_itahc.Main.Information): void {
-    Xrm.Utility.showProgressIndicator("Loading");
-    callCreateImportRecordFromItahcAction(primaryControl);
+    checkTracesEnabled(primaryControl);
+  }
+
+  function checkTracesEnabled(primaryControl: Form.defraimp_itahc.Main.Information): void {
+    Xrm.WebApi.retrieveRecord(TRACESConfigParamaterConstants.entityName, TRACESConfigParamaterConstants.entityId, "?$select=defraexp_value").then(
+      (result) => {
+        const tracesEnbaled = (/true/i).test(result.defraexp_value);
+        if (tracesEnbaled) {
+          Xrm.Utility.showProgressIndicator("Loading");
+          callCreateImportRecordFromItahcAction(primaryControl);
+        }
+        else {
+          alert("Access TRACES is not enabled. Please create Import Records from Importer Notifications instead");
+        }
+      },
+      (error) => {
+        alert(error.message);
+      }
+    );
   }
 
   function callCreateImportRecordFromItahcAction(primaryControl: Form.defraimp_itahc.Main.Information): void {

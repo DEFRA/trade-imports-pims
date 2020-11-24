@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 3,
+  "RecordsCount": 4,
   "ExportedEntities": [
     {
       "LogicalName": "defraexp_configurationparameter",
@@ -55,7 +55,39 @@
         },
         {
           "AttributeName": "defraexp_value",
-          "AttributeValue": "https://importnotification-int-tst.azure.defra.cloud/notification/tst",
+          "AttributeValue": "https://imports-proxy.azurewebsites.net/notification/integration",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_configurationparameter",
+      "Id": "2bb103d9-b629-eb11-a813-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_key",
+          "AttributeValue": "defraimp_traces_enabled",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_description",
+          "AttributeValue": "Determines whether TRACEs functionality is used by this system",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_additionalnotes",
+          "AttributeValue": "Set to True or False.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Traces Enabled",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_value",
+          "AttributeValue": "False",
           "AttributeType": "System.String"
         }
       ]
