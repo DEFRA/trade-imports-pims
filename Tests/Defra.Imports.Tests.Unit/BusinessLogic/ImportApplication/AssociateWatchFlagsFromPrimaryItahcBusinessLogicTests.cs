@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
+namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication
 {
     public class AssociateWatchFlagsFromPrimaryItahcBusinessLogicTests
     {

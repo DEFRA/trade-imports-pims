@@ -14,6 +14,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\InArgumentExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Import Query\AddNotesToCloneImportQuery.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\AssociateWatchFlagsFromPrimaryNotificationBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\AssociateWatchFlags\AssociateWatchFlagsBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\InspectionsSinceLastCheckCounterManagerBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\PrimaryImpoterNotificationCountManagerBusinessLogic.cs" />
@@ -42,6 +44,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\ImportApplicationConstants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\PrimaryITAHCCountManagerBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\AssociateWatchFlagsFromPrimaryItahcBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\FlagRecordsOnWatchListNotificationBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\FlagRecordsOnWatchList\FlagRecordParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\FlagRecordsOnWatchList\FlagRecordsOnWatchListBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\CommodityComplementObjects\CommodityComplementObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\IdentificationOfAnimalsObjects\Data.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\IdentificationOfAnimalsObjects\IdentificationOfAnimals.cs" />

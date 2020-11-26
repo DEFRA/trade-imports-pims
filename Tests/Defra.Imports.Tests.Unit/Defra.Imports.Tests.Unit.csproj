@@ -158,6 +158,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BusinessLogic\ImportApplication\AssociateWatchFlagsFromNotificationBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionRequirementBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\DetermineInpsectionBaseTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\P1DetermineInspectionTests.cs" />
@@ -165,7 +166,8 @@
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\P3DetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\UnkownDetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\Factories\DetermineInspectionFactoryTests.cs" />
-    <Compile Include="BusinessLogic\ImporterNotification\AssociateWatchFlagsFromPrimaryItahcBusinessLogicTests.cs" />
+    <Compile Include="BusinessLogic\ImportApplication\AssociateWatchFlagsFromPrimaryItahcBusinessLogicTests.cs" />
+    <Compile Include="BusinessLogic\ImporterNotification\FlagRecordsOnWatchListNotificationBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\ImporterNotification\FormatCommodityComplementAndIdentificationJsonTests.cs" />
     <Compile Include="BusinessLogic\Itahc\FlagRecordOnWatchListBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\Itahc\PopulateDevolvedOfficeBusinessLogicTests.cs" />

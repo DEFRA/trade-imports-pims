@@ -102,11 +102,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImportApplication\AssociateWatchFlagsFromNotification.cs" />
     <Compile Include="ImportApplication\AssociateWatchFlagsFromPrimaryItahc.cs" />
     <Compile Include="ImportApplication\InspectionsSinceLastCheckCounterManager.cs" />
     <Compile Include="ImportApplication\DetermineInspectionRequirement.cs" />
     <Compile Include="ImportApplication\ImporterNotificationCountManager.cs" />
     <Compile Include="ImportApplication\PrimaryITAHCCountManager.cs" />
+    <Compile Include="ImporterNotification\FlagRecordOnWatchListNotification.cs" />
     <Compile Include="ImporterNotification\PopulateCountriesOfTransit.cs" />
     <Compile Include="ImporterNotification\PopulateDevolvedOffice.cs" />
     <Compile Include="ImporterNotification\PopulateIdentificationFormatJson.cs" />

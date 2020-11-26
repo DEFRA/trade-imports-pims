@@ -24380,6 +24380,24 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_WatchFlag> defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_WatchFlag>("defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_WatchFlag>("defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId");
+			}
+		}
+		
+		/// <summary>
 		/// N:N defraimp_ImporterNotification_CountriesofTransit
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_ImporterNotification_CountriesofTransit")]
@@ -34367,6 +34385,24 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importernotificationid")]
+		public Microsoft.Xrm.Sdk.EntityReference defraimp_ImporterNotificationId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defraimp_importernotificationid");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_ImporterNotificationId");
+				this.SetAttributeValue("defraimp_importernotificationid", value);
+				this.OnPropertyChanged("defraimp_ImporterNotificationId");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_itahcid")]
 		public Microsoft.Xrm.Sdk.EntityReference defraimp_ItahcId
 		{
@@ -34713,6 +34749,25 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_defraimp_importapplication_defraimp_watchflag_ImportApplicationId");
 				this.SetRelatedEntity<Defra.Imports.Model.defraimp_importapplication>("defraimp_defraimp_importapplication_defraimp_watchflag_ImportApplicationId", null, value);
 				this.OnPropertyChanged("defraimp_defraimp_importapplication_defraimp_watchflag_ImportApplicationId");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_importernotificationid")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId")]
+		public Defra.Imports.Model.defraimp_ImporterNotification defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_ImporterNotification>("defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId");
+				this.SetRelatedEntity<Defra.Imports.Model.defraimp_ImporterNotification>("defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId");
 			}
 		}
 		
