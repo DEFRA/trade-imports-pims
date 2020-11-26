@@ -50,6 +50,12 @@
     <CodeAnalysisRuleSet>Defra.Imports.tests.integration.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentAssertions, Version=5.10.3.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentAssertions.5.10.3\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="Marktek.Fluent.Testing.Engine, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Marktek.Fluent.Testing.Engine.3.0.0.4\lib\net451\Marktek.Fluent.Testing.Engine.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Azure.Services.AppAuthentication, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Azure.Services.AppAuthentication.1.0.3\lib\net452\Microsoft.Azure.Services.AppAuthentication.dll</HintPath>
     </Reference>
@@ -81,6 +87,9 @@
       <HintPath>..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework" />
+    <Reference Include="StructureMap, Version=4.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\StructureMap.4.7.1\lib\net45\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.Activities.Presentation" />
@@ -115,6 +124,9 @@
     </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
@@ -140,6 +152,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonDateServiceFixture.cs" />
+    <Compile Include="Dynamics\Common\TestCaseBase.cs" />
+    <Compile Include="Dynamics\ImporterNotification\Assertions\ImporterNotificationHasCorrectDevolvedOffice.cs" />
+    <Compile Include="Dynamics\ImporterNotification\Assertions\Validators\DevolvedOfficeIsValue.cs" />
+    <Compile Include="Dynamics\ImporterNotification\SampleRecords\UnknownImporterNotification.cs" />
+    <Compile Include="Dynamics\ImporterNotification\SampleRecords\NonGBImporterNotification.cs" />
+    <Compile Include="Dynamics\ImporterNotification\SampleRecords\WalesImporterNotification.cs" />
+    <Compile Include="Dynamics\ImporterNotification\SampleRecords\ScotlandImporterNotification.cs" />
+    <Compile Include="Dynamics\ImporterNotification\SampleRecords\EnglandImporterNotification.cs" />
+    <Compile Include="Dynamics\ImporterNotification\Scenarios\CreateImporterNotification.cs" />
+    <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_OnCreate_ShouldHaveDevolvedOffice.cs" />
     <Compile Include="Dynamics\ImportApplication\P2RiskCounterIntegrationTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IntegrationTests.cs" />
@@ -241,6 +264,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

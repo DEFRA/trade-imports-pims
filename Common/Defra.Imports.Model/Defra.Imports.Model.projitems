@@ -12,6 +12,7 @@
     <None Include="$(MSBuildThisFileDirectory)spkl.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\TeamConstants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportsContext.cs" />
   </ItemGroup>
 </Project>
