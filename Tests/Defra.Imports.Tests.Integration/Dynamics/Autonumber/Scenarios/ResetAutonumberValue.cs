@@ -4,7 +4,7 @@ using System;
 
 namespace Defra.Imports.Tests.Integration.Dynamics.Autonumber.Scenarios
 {
-    class SetAutonumberValue : IExecutableAction<defraimp_importapplication, Guid>
+    class SetAutonumberValue : IWaitableAction
     {
         private readonly ImportsContext context;
         private readonly Guid autonumberId;
@@ -16,7 +16,7 @@ namespace Defra.Imports.Tests.Integration.Dynamics.Autonumber.Scenarios
             this.autonumberId = autonumberId;
         }
 
-        public void Execute(Guid id)
+        public void Execute()
         {
             defraimp_autonumber importApplicationToUpdate = new defraimp_autonumber
             {

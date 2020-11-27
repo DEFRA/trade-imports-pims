@@ -166,7 +166,10 @@
     <Compile Include="Dynamics\ImportApplication\Scenarios\AssignCommodityAndCountryOfOriginToImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\CreateImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\SetManualPostImportCheckDecision.cs" />
-    <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfRiskLevel_RequireInspection.cs" />
+    <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfP2RiskRating_DetermineInspection.cs" />
+    <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfP3RiskRating_DetermineInspection.cs" />
+    <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfTBRiskRating_DetermineInspection.cs" />
+    <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfP1RiskRating_DetermineInspection.cs" />
     <Compile Include="Dynamics\ImporterNotification\Assertions\ImporterNotificationValidateDevolvedOffice.cs" />
     <Compile Include="Dynamics\ImporterNotification\Assertions\Validators\DevolvedOfficeIsValue.cs" />
     <Compile Include="Dynamics\ImporterNotification\SampleRecords\UnknownImporterNotification.cs" />

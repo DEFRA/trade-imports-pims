@@ -26,12 +26,12 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
             var expectedRiskLevel = RiskLevels.P1;
             var expectedInspectionRequiredValue = defraimp_importapplication_defraimp_inspectionrequired.Yes;
             var expectedInspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.RandomP1Inspection;
-           
+
             recordService
+                .WaitFor(new SetAutonumberValue(context, Autonumbers.p1RecordCount.Id, 0))
+                .WaitFor(new SetAutonumberValue(context, Autonumbers.p1QuotaCount.Id, 0))
                 .CreateRecord(new CreateImporterNotification(context, sampleImporterNotificationData.ImporterNotification))
                 .CreateRecord(new CreateImportApplication(context, sampleImportApplicationData.ImportApplication))
-                .ExecuteAction(new SetAutonumberValue(context, Autonumbers.p1RecordCount.Id, 0))
-                .ExecuteAction(new SetAutonumberValue(context, Autonumbers.p1QuotaCount.Id, 0))
                 .Delay(2000)
                 .ExecuteAction(new AssignImporterNotificationToImportApplication(context, sampleImporterNotificationData.ImporterNotification))
                 .Delay(2000)
@@ -54,10 +54,10 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
             var sampleImporterNotificationData = new EnglandImporterNotification(Guid.NewGuid());
 
             recordService
+                .WaitFor(new SetAutonumberValue(context, Autonumbers.p1RecordCount.Id, 0))
+                .WaitFor(new SetAutonumberValue(context, Autonumbers.p1QuotaCount.Id, 0))
                 .CreateRecord(new CreateImporterNotification(context, sampleImporterNotificationData.ImporterNotification))
                 .CreateRecord(new CreateImportApplication(context, sampleImportApplicationData.ImportApplication))
-                .ExecuteAction(new SetAutonumberValue(context, Autonumbers.p1RecordCount.Id, 0))
-                .ExecuteAction(new SetAutonumberValue(context, Autonumbers.p1QuotaCount.Id, 0))
                 .Delay(2000)
                 .ExecuteAction(new AssignImporterNotificationToImportApplication(context, sampleImporterNotificationData.ImporterNotification))
                 .Delay(2000)
@@ -80,10 +80,10 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
             var expectedInspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.RandomP1Inspection;
 
             recordService
+                .WaitFor(new SetAutonumberValue(context, Autonumbers.p1RecordCount.Id, 0))
+                .WaitFor(new SetAutonumberValue(context, Autonumbers.p1QuotaCount.Id, 1))
                 .CreateRecord(new CreateImporterNotification(context, sampleImporterNotificationData.ImporterNotification))
                 .CreateRecord(new CreateImportApplication(context, sampleImportApplicationData.ImportApplication))
-                .ExecuteAction(new SetAutonumberValue(context, Autonumbers.p1RecordCount.Id, 0))
-                .ExecuteAction(new SetAutonumberValue(context, Autonumbers.p1QuotaCount.Id, 1))
                 .Delay(2000)
                 .ExecuteAction(new AssignImporterNotificationToImportApplication(context, sampleImporterNotificationData.ImporterNotification))
                 .Delay(2000)
