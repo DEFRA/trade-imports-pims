@@ -14,6 +14,7 @@ namespace Defra.Imports.Tests.Integration.Dynamics.Autonumber.Scenarios
         {
             this.context = context;
             this.autonumberId = autonumberId;
+            this.value = value;
         }
 
         public void Execute()
