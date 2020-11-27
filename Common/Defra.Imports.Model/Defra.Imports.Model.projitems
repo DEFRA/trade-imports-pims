@@ -12,7 +12,11 @@
     <None Include="$(MSBuildThisFileDirectory)spkl.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Constants\TeamConstants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ReferenceData\Autonumbers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ReferenceData\CommodityTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ReferenceData\Countries.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ReferenceData\RiskLevels.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ReferenceData\Teams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportsContext.cs" />
   </ItemGroup>
 </Project>

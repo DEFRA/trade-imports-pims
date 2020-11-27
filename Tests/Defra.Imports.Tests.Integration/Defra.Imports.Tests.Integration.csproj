@@ -153,8 +153,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonDateServiceFixture.cs" />
+    <Compile Include="Dynamics\Autonumber\Assertions\AutonumberRecordValidateCurrentNumber.cs" />
+    <Compile Include="Dynamics\Autonumber\Assertions\Validators\CurrentNumberIsValue.cs" />
+    <Compile Include="Dynamics\Autonumber\Scenarios\ResetAutonumberValue.cs" />
     <Compile Include="Dynamics\Common\TestCaseBase.cs" />
-    <Compile Include="Dynamics\ImporterNotification\Assertions\ImporterNotificationHasCorrectDevolvedOffice.cs" />
+    <Compile Include="Dynamics\ImportApplication\Assertions\ImportApplicationValidateInspectionRequired.cs" />
+    <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasInspectionRequiredReason.cs" />
+    <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasRiskLevel.cs" />
+    <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationRequiresInspection.cs" />
+    <Compile Include="Dynamics\ImportApplication\SampleRecords\BasicImportApplication.cs" />
+    <Compile Include="Dynamics\ImportApplication\Scenarios\AssignImporterNotificationToImportApplication.cs" />
+    <Compile Include="Dynamics\ImportApplication\Scenarios\AssignCommodityAndCountryOfOriginToImportApplication.cs" />
+    <Compile Include="Dynamics\ImportApplication\Scenarios\CreateImportApplication.cs" />
+    <Compile Include="Dynamics\ImportApplication\Scenarios\SetManualPostImportCheckDecision.cs" />
+    <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfRiskLevel_RequireInspection.cs" />
+    <Compile Include="Dynamics\ImporterNotification\Assertions\ImporterNotificationValidateDevolvedOffice.cs" />
     <Compile Include="Dynamics\ImporterNotification\Assertions\Validators\DevolvedOfficeIsValue.cs" />
     <Compile Include="Dynamics\ImporterNotification\SampleRecords\UnknownImporterNotification.cs" />
     <Compile Include="Dynamics\ImporterNotification\SampleRecords\NonGBImporterNotification.cs" />
