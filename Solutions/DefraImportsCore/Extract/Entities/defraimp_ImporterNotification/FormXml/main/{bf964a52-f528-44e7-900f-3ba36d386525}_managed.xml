@@ -1338,7 +1338,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="transporter_tab" id="1a04ebb2-9cb5-404e-aba4-fbab9fa79281" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
+        <tab name="transporter_tab" id="1a04ebb2-9cb5-404e-aba4-fbab9fa79281" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
           <labels>
             <label description="Transporter" languagecode="1033" />
           </labels>
@@ -1470,6 +1470,22 @@
                           <label description="Port of Entry" languagecode="1033" />
                         </labels>
                         <control id="defraimp_portofentry" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_portofentry" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b2649dee-28e1-75d4-8502-9b80c58353b9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Port of Exit" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_portofexit" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_portofexit" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4c8a6075-e28b-e6c4-b1b3-047d568a0055}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Port of Exit Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_portofexitdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_portofexitdate" disabled="false" />
                       </cell>
                     </row>
                     <row>
