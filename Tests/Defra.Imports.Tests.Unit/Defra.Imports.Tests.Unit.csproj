@@ -167,6 +167,7 @@
     <Compile Include="BusinessLogic\ImportApplication\DetermineInspectionStrategies\UnkownDetermineInspectionTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\Factories\DetermineInspectionFactoryTests.cs" />
     <Compile Include="BusinessLogic\ImportApplication\AssociateWatchFlagsFromPrimaryItahcBusinessLogicTests.cs" />
+    <Compile Include="BusinessLogic\ImportApplication\PopulateCountriesOfTransitFromNotificationBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\ImporterNotification\FlagRecordsOnWatchListNotificationBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\ImporterNotification\FormatCommodityComplementAndIdentificationJsonTests.cs" />
     <Compile Include="BusinessLogic\Itahc\FlagRecordOnWatchListBusinessLogicTests.cs" />

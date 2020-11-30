@@ -154,9 +154,16 @@
   <ItemGroup>
     <Compile Include="CommonDateServiceFixture.cs" />
     <Compile Include="Dynamics\Autonumber\Assertions\AutonumberRecordValidateCurrentNumber.cs" />
+    <Compile Include="Dynamics\Autonumber\Assertions\AutonumberRecordValidateValues.cs" />
+    <Compile Include="Dynamics\Autonumber\Assertions\Validators\AutoNumberHasKey.cs" />
     <Compile Include="Dynamics\Autonumber\Assertions\Validators\CurrentNumberIsValue.cs" />
     <Compile Include="Dynamics\Autonumber\Scenarios\ResetAutonumberValue.cs" />
+    <Compile Include="Dynamics\Autonumber\TestCases\AutoNumber_ShouldHaveCorrectAutoNumberRecords.cs" />
     <Compile Include="Dynamics\Common\TestCaseBase.cs" />
+    <Compile Include="Dynamics\ConfigurationParameter\Assertions\ConfigurationParameterValidateValues.cs" />
+    <Compile Include="Dynamics\ConfigurationParameter\Assertions\Validators\ConfigurationParameterHasValue.cs" />
+    <Compile Include="Dynamics\ConfigurationParameter\Assertions\Validators\ConfigurationParameterHasKey.cs" />
+    <Compile Include="Dynamics\ConfigurationParameter\TestCases\ConfigurationParameter_ShouldHaveCorrectConfigRecords.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\ImportApplicationValidateInspectionRequired.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasInspectionRequiredReason.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasRiskLevel.cs" />
@@ -280,7 +287,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Dynamics\ConfigurationParameter\Scenarios\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
