@@ -15,6 +15,7 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
     using Microsoft.Xrm.Sdk;
     using Xunit;
 
+    [Collection("RiskRatingTests")]
     public class ImportApplication_OnUpdate_OfP1RiskRating_DetermineInspection : TestCasesBase
     {
         [Fact]
@@ -92,6 +93,25 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
                 .AssertAgainst(new ImportApplicationValidateInspectionRequired(context, expectedRiskLevel, expectedInspectionRequiredValue, expectedInspectionRequiredReason))
                 .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p1RecordCount.Id, 0))
                 .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p1QuotaCount.Id, 0));
+        }
+
+        [Fact]
+        public void ImportApplication_Should_Increase_Global_Count_If_P1()
+        {
+            var recordService = new RecordService<Guid>(Guid.NewGuid());
+            var sampleImportApplicationData = new BasicImportApplication(recordService.AggregateId);
+            var sampleImporterNotificationData = new EnglandImporterNotification(Guid.NewGuid());
+
+            recordService
+                .WaitFor(new SetAutonumberValue(context, Autonumbers.p3RecordCount.Id, 0))
+                .CreateRecord(new CreateImporterNotification(context, sampleImporterNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImportApplication(context, sampleImportApplicationData.ImportApplication))
+                .Delay(2000)
+                .ExecuteAction(new AssignImporterNotificationToImportApplication(context, sampleImporterNotificationData.ImporterNotification))
+                .Delay(2000)
+                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(context, Countries.Romania, CommodityTypes.Cattle))
+                .Delay(5000)
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p3RecordCount.Id, 1));
         }
     }
 }
