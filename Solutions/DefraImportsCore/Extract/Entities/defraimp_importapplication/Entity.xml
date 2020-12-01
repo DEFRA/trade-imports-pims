@@ -3340,7 +3340,7 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>1</AppDefaultValue>
+          <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="defraimp_importapplication_defraimp_iv66receivedinrequiredtimescale">
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>0.0.0.9</IntroducedVersion>
