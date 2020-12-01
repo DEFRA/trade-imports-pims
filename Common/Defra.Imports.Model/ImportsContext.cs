@@ -35731,4 +35731,47 @@ namespace Defra.Imports.Model
 			}
 		}
 	}
+	
+	[System.Runtime.Serialization.DataContractAttribute(Namespace="http://schemas.microsoft.com/xrm/2011/defraimp/")]
+	[Microsoft.Xrm.Sdk.Client.RequestProxyAttribute("defraimp_CreateImportRecordFromNotification")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public partial class defraimp_CreateImportRecordFromNotificationRequest : Microsoft.Xrm.Sdk.OrganizationRequest
+	{
+		
+		public Microsoft.Xrm.Sdk.EntityReference Target
+		{
+			get
+			{
+				if (this.Parameters.Contains("Target"))
+				{
+					return ((Microsoft.Xrm.Sdk.EntityReference)(this.Parameters["Target"]));
+				}
+				else
+				{
+					return default(Microsoft.Xrm.Sdk.EntityReference);
+				}
+			}
+			set
+			{
+				this.Parameters["Target"] = value;
+			}
+		}
+		
+		public defraimp_CreateImportRecordFromNotificationRequest()
+		{
+			this.RequestName = "defraimp_CreateImportRecordFromNotification";
+			this.Target = default(Microsoft.Xrm.Sdk.EntityReference);
+		}
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute(Namespace="http://schemas.microsoft.com/xrm/2011/defraimp/")]
+	[Microsoft.Xrm.Sdk.Client.ResponseProxyAttribute("defraimp_CreateImportRecordFromNotification")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
+	public partial class defraimp_CreateImportRecordFromNotificationResponse : Microsoft.Xrm.Sdk.OrganizationResponse
+	{
+		
+		public defraimp_CreateImportRecordFromNotificationResponse()
+		{
+		}
+	}
 }

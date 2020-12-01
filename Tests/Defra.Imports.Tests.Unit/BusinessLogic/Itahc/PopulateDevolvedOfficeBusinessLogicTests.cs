@@ -163,18 +163,6 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.Itahc
         }
 
         [Fact]
-        public void UpdateDevolvedOfficeForTarget_TargetWithoutPostcodeField_DoesNotRunLogic()
-        {
-            // Arrange
-
-            // Act
-            _PopulateDevolvedOfficeBusinessLogic.UpdateDevolvedOfficeForTarget(_postcodeFieldName, _devolvedOfficeFieldName);
-
-            // Assert
-            _mockPostcodeRegionRepo.Verify(r => r.FindPostcodeRegionByPostcodePrefix(It.IsAny<string>()), Times.Never);
-        }
-
-        [Fact]
         public void UpdateDevolvedOfficeForTarget_TargetWithNullDestinationPostcodeAttribute_ShouldSetDevolvedOfficeToUnknown()
         {
             // Arrange

@@ -1,8 +1,8 @@
 {
   "earlyboundtypes": [
     {
-      "entities": "contact,defraimp_autonumber,defraimp_countryoftransit,defraimp_importnotification,defraimp_importrisklevel,defraimp_importcountrycommodityrisklevel,defraexp_configurationparameter,defraimp_importapplication,defraimp_inspectioncoveragerule,defraimp_itahc,defraimp_placeoforigin,defraimp_goldbronzecommodity",
-      "actions": "",
+      "entities": "contact,defraimp_autonumber,defraimp_counterhistory,defraimp_importrisklevel,defraimp_importcountrycommodityrisklevel,defraexp_configurationparameter,defraimp_importapplication,defraimp_inspectioncoveragerule,defraimp_itahc,defraimp_docom,defraimp_importernotification,defraimp_placeoforigin,defraimp_goldbronzecommodity,defraimp_goldbronzecountriesnn,defraimp_importinspection,defraimp_importquery,defra_country,defraimp_matchrecord,defraimp_potentiallyrelatedimportrecords,annotation,defraimp_watchlist,defraimp_watchflag,defraimp_postcoderegion,defraimp_importapplication_defra_country,defraimp_importernotification_countriesoftransit",
+      "actions": "defraimp_CreateImportRecordFromNotification",
       "generateOptionsetEnums": true,
       "generateStateEnums": true,
       "generateGlobalOptionsets": true,

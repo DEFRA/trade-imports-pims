@@ -23,21 +23,18 @@ namespace Defra.Imports.BusinessLogic.Itahc
 
         public void UpdateDevolvedOfficeForTarget(string postcodeFieldName, string devolvedOfficeFieldName)
         {
-            if(this.target.Attributes.Contains(postcodeFieldName))
+            defraimp_postcoderegion postcodeRegion = null;
+            if (this.target.Attributes.Contains(postcodeFieldName) && this.target[postcodeFieldName] != null && this.target[postcodeFieldName].GetType() == typeof(string))
             {
-                defraimp_postcoderegion postcodeRegion = null;
-                if (this.target[postcodeFieldName] != null && this.target[postcodeFieldName].GetType() == typeof(string))
-                {
-                    string postcodeVal = this.target.GetAttributeValue<string>(postcodeFieldName);
+                string postcodeVal = this.target.GetAttributeValue<string>(postcodeFieldName);
 
-                    if (postcodeVal != null)
-                    {
-                        string sanitizedPostcode = postcodeVal.Replace(" ", String.Empty).ToLower();
-                        postcodeRegion = this.FindPostcodeRegionForMultiplePrefixes(sanitizedPostcode, 4);
-                    }
+                if (postcodeVal != null)
+                {
+                    string sanitizedPostcode = postcodeVal.Replace(" ", String.Empty).ToLower();
+                    postcodeRegion = this.FindPostcodeRegionForMultiplePrefixes(sanitizedPostcode, 4);
                 }
-                this.SetDevolvedOfficeOnTargetEntity(postcodeRegion, devolvedOfficeFieldName);
             }
+            this.SetDevolvedOfficeOnTargetEntity(postcodeRegion, devolvedOfficeFieldName);
         }
 
         private defraimp_postcoderegion FindPostcodeRegionForMultiplePrefixes(string sanitizedPostcode, int maximumPrefixLength)
