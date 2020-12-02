@@ -28,28 +28,6 @@ Create a git branch from master using the following naming convention:
 
 For example, `feature/1722-view-and-maintain-accounts`.
 
-### Create a development solution
-
-A development solution should be created in the development environment which will exist until your branch is merged with master. The solution should be created with the following convention:
-
-- Unique Name: `ds_<key>_<description>`
-- Display Name: `<description>`
-
-Using the above branch as an example, we would create a solution with the following values:
-
-- Unique Name: `ds_1722_ViewAndMaintainAccounts`
-- Display Name: `View and Maintain Accounts`
-
-The following rules need to be adhered to when working in your development solution:
-
-- Only one development solution can make changes to a component (e.g. relationship, field, view, form, assembly or process) at a time. Check other development solutions if you are unsure. Multiple development solutions modifying the same components will mean that either:
-  - Unfinished customisations will be added to the build
-  - Developent solutions cannot be merged because of dependencies added by other development solutions
-- Avoid locking out shared components for longer than required by modifying them last if possible
-- Add only the components that you require to your solution. Do not check 'Add all assets' or 'Include entity metadata' when adding entities.
-- Do not add dependencies when prompted. These should already exist in the target system (the staging environment).
-- Avoid changes to managed components where possible. There may be a couple of exceptions.
-
 ### Processes and plugins
 
 - Plugin steps can't be scoped so alternatives should be considered when dealing with out-of-the-box entities and messsages.
