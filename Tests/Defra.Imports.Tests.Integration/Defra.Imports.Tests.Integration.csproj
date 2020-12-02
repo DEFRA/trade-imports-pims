@@ -169,10 +169,12 @@
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasRiskLevel.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationRequiresInspection.cs" />
     <Compile Include="Dynamics\ImportApplication\SampleRecords\BasicImportApplication.cs" />
+    <Compile Include="Dynamics\ImportApplication\Scenarios\AssignPlaceOfOriginToImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\AssignImporterNotificationToImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\AssignCommodityAndCountryOfOriginToImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\CreateImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\SetManualPostImportCheckDecision.cs" />
+    <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfP1GBRiskRating_DetermineInspection.cs" />
     <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfP2RiskRating_DetermineInspection.cs" />
     <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfP3RiskRating_DetermineInspection.cs" />
     <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfTBRiskRating_DetermineInspection.cs" />
@@ -191,6 +193,16 @@
     <Compile Include="Dynamics\ImporterNotification\Scenarios\ActionCreateImportRecordFromNotification.cs" />
     <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_OnAction_CreateImportRecordFromNotification_ShouldCreateImportApplication.cs" />
     <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_OnCreate_ShouldHaveDevolvedOffice.cs" />
+<<<<<<< HEAD
+    <Compile Include="Dynamics\ImportApplication\P2RiskCounterIntegrationTests.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Assertions\PlaceOfOriginValidateApplicationCounter.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Assertions\Validators\InspectionQuotaCounterIsValue.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Assertions\Validators\ApplicationCounterIsValue.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\SetQuotaCounter.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\SetApplicationCounter.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\SetPlaceOfOriginTrustLevel.cs" />
+=======
+>>>>>>> 681d5253df720b24aead248f0146a58646b1cc3c
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IntegrationTests.cs" />
     <Compile Include="LogicApps\CertificatesLogicAppIntegrationTestsBase.cs" />

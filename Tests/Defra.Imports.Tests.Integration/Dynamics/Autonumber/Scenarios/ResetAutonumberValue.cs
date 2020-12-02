@@ -1,9 +1,10 @@
-﻿using Defra.Imports.Model;
-using Marktek.Fluent.Testing.Engine.Interfaces;
-using System;
-
+﻿
 namespace Defra.Imports.Tests.Integration.Dynamics.Autonumber.Scenarios
 {
+    using System;
+    using Defra.Imports.Model;
+    using Marktek.Fluent.Testing.Engine.Interfaces;
+
     class SetAutonumberValue : IWaitableAction
     {
         private readonly ImportsContext context;

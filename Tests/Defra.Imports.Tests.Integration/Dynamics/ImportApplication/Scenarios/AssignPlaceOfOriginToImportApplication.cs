@@ -3,19 +3,16 @@
     using System;
     using Defra.Imports.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
-    using Microsoft.Xrm.Sdk;
 
-    public class AssignCommodityAndCountryOfOriginToImportApplication : IExecutableAction<defraimp_importapplication, Guid>
+    public class AssignPlaceOfOriginToImportApplication : IExecutableAction<defraimp_importapplication, Guid>
     {
         private readonly ImportsContext context;
-        private readonly EntityReference countryOfOrigin;
-        private readonly EntityReference commodityType;
+        private readonly defraimp_placeoforigin placeOfOrigin;
 
-        public AssignCommodityAndCountryOfOriginToImportApplication(ImportsContext context, EntityReference countryOfOrigin, EntityReference commodityType)
+        public AssignPlaceOfOriginToImportApplication(ImportsContext context, defraimp_placeoforigin placeOfOrigin)
         {
             this.context = context;
-            this.countryOfOrigin = countryOfOrigin;
-            this.commodityType = commodityType;
+            this.placeOfOrigin = placeOfOrigin;
         }
 
         public void Execute(Guid id)
@@ -23,8 +20,7 @@
             defraimp_importapplication importApplicationToUpdate = new defraimp_importapplication
             {
                 Id = id,
-                defraimp_CountryofOriginId = this.countryOfOrigin,
-                defraimp_CommodityTypeId = this.commodityType,
+                defraimp_PlaceofOriginid = new Microsoft.Xrm.Sdk.EntityReference(this.placeOfOrigin.LogicalName, this.placeOfOrigin.Id),
             };
 
             if (!this.context.IsAttached(importApplicationToUpdate))

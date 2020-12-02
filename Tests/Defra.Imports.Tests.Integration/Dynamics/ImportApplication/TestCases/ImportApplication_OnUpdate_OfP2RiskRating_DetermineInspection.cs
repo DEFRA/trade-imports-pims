@@ -1,5 +1,4 @@
-﻿
-namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
+﻿namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication.TestCases
 {
     using System;
     using Defra.Imports.Model;
@@ -28,18 +27,18 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
             var expectedInspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.NoInspectionRequired;
 
             recordService
-                .WaitFor(new SetAutonumberValue(context, Autonumbers.p2RecordCount.Id, 0))
-                .WaitFor(new SetAutonumberValue(context, Autonumbers.p2QuotaCount.Id, 0))
-                .CreateRecord(new CreateImporterNotification(context, sampleImporterNotificationData.ImporterNotification))
-                .CreateRecord(new CreateImportApplication(context, sampleImportApplicationData.ImportApplication))
+                .WaitFor(new SetAutonumberValue(this.context, Autonumbers.p2RecordCount.Id, 0))
+                .WaitFor(new SetAutonumberValue(this.context, Autonumbers.p2QuotaCount.Id, 0))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImporterNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImportApplication(this.context, sampleImportApplicationData.ImportApplication))
                 .Delay(2000)
-                .ExecuteAction(new AssignImporterNotificationToImportApplication(context, sampleImporterNotificationData.ImporterNotification))
+                .ExecuteAction(new AssignImporterNotificationToImportApplication(this.context, sampleImporterNotificationData.ImporterNotification))
                 .Delay(2000)
-                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(context, Countries.France, CommodityTypes.Dog))
+                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(this.context, Countries.France, CommodityTypes.Dog))
                 .Delay(5000)
-                .AssertAgainst(new ImportApplicationValidateInspectionRequired(context, expectedRiskLevel, expectedInspectionRequiredValue, expectedInspectionRequiredReason))
-                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p2RecordCount.Id, 1))
-                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p2QuotaCount.Id, 0));
+                .AssertAgainst(new ImportApplicationValidateInspectionRequired(this.context, expectedRiskLevel, expectedInspectionRequiredValue, expectedInspectionRequiredReason))
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(this.context, Autonumbers.p2RecordCount.Id, 1))
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(this.context, Autonumbers.p2QuotaCount.Id, 0));
         }
 
         [Fact]
@@ -53,18 +52,18 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
             var expectedInspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.RandomP2Inspection;
 
             recordService
-                .WaitFor(new SetAutonumberValue(context, Autonumbers.p2RecordCount.Id, 9))
-                .WaitFor(new SetAutonumberValue(context, Autonumbers.p2QuotaCount.Id, 0))
-                .CreateRecord(new CreateImporterNotification(context, sampleImporterNotificationData.ImporterNotification))
-                .CreateRecord(new CreateImportApplication(context, sampleImportApplicationData.ImportApplication))
+                .WaitFor(new SetAutonumberValue(this.context, Autonumbers.p2RecordCount.Id, 9))
+                .WaitFor(new SetAutonumberValue(this.context, Autonumbers.p2QuotaCount.Id, 0))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImporterNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImportApplication(this.context, sampleImportApplicationData.ImportApplication))
                 .Delay(2000)
-                .ExecuteAction(new AssignImporterNotificationToImportApplication(context, sampleImporterNotificationData.ImporterNotification))
+                .ExecuteAction(new AssignImporterNotificationToImportApplication(this.context, sampleImporterNotificationData.ImporterNotification))
                 .Delay(2000)
-                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(context, Countries.France, CommodityTypes.Dog))
+                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(this.context, Countries.France, CommodityTypes.Dog))
                 .Delay(5000)
-                .AssertAgainst(new ImportApplicationValidateInspectionRequired(context, expectedRiskLevel, expectedInspectionRequiredValue, expectedInspectionRequiredReason))
-                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p2RecordCount.Id, 0))
-                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p2QuotaCount.Id, 0));
+                .AssertAgainst(new ImportApplicationValidateInspectionRequired(this.context, expectedRiskLevel, expectedInspectionRequiredValue, expectedInspectionRequiredReason))
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(this.context, Autonumbers.p2RecordCount.Id, 0))
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(this.context, Autonumbers.p2QuotaCount.Id, 0));
         }
 
         [Fact]
@@ -78,18 +77,18 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
             var expectedInspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.RandomP2Inspection;
 
             recordService
-                .WaitFor(new SetAutonumberValue(context, Autonumbers.p2RecordCount.Id, 0))
-                .WaitFor(new SetAutonumberValue(context, Autonumbers.p2QuotaCount.Id, 2))
-                .CreateRecord(new CreateImporterNotification(context, sampleImporterNotificationData.ImporterNotification))
-                .CreateRecord(new CreateImportApplication(context, sampleImportApplicationData.ImportApplication))
+                .WaitFor(new SetAutonumberValue(this.context, Autonumbers.p2RecordCount.Id, 0))
+                .WaitFor(new SetAutonumberValue(this.context, Autonumbers.p2QuotaCount.Id, 2))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImporterNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImportApplication(this.context, sampleImportApplicationData.ImportApplication))
                 .Delay(2000)
-                .ExecuteAction(new AssignImporterNotificationToImportApplication(context, sampleImporterNotificationData.ImporterNotification))
+                .ExecuteAction(new AssignImporterNotificationToImportApplication(this.context, sampleImporterNotificationData.ImporterNotification))
                 .Delay(2000)
-                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(context, Countries.France, CommodityTypes.Dog))
+                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(this.context, Countries.France, CommodityTypes.Dog))
                 .Delay(5000)
-                .AssertAgainst(new ImportApplicationValidateInspectionRequired(context, expectedRiskLevel, expectedInspectionRequiredValue, expectedInspectionRequiredReason))
-                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p2RecordCount.Id, 0))
-                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p2QuotaCount.Id, 1));
+                .AssertAgainst(new ImportApplicationValidateInspectionRequired(this.context, expectedRiskLevel, expectedInspectionRequiredValue, expectedInspectionRequiredReason))
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(this.context, Autonumbers.p2RecordCount.Id, 0))
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(this.context, Autonumbers.p2QuotaCount.Id, 1));
         }
 
         [Fact]
@@ -100,19 +99,19 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
             var sampleImporterNotificationData = new EnglandImporterNotification(Guid.NewGuid());
 
             recordService
-                .WaitFor(new SetAutonumberValue(context, Autonumbers.p2RecordCount.Id, 9))
-                .WaitFor(new SetAutonumberValue(context, Autonumbers.p2QuotaCount.Id, 0))
-                .CreateRecord(new CreateImporterNotification(context, sampleImporterNotificationData.ImporterNotification))
-                .CreateRecord(new CreateImportApplication(context, sampleImportApplicationData.ImportApplication))
+                .WaitFor(new SetAutonumberValue(this.context, Autonumbers.p2RecordCount.Id, 9))
+                .WaitFor(new SetAutonumberValue(this.context, Autonumbers.p2QuotaCount.Id, 0))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImporterNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImportApplication(this.context, sampleImportApplicationData.ImportApplication))
                 .Delay(2000)
-                .ExecuteAction(new AssignImporterNotificationToImportApplication(context, sampleImporterNotificationData.ImporterNotification))
+                .ExecuteAction(new AssignImporterNotificationToImportApplication(this.context, sampleImporterNotificationData.ImporterNotification))
                 .Delay(2000)
-                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(context, Countries.France, CommodityTypes.Dog))
+                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(this.context, Countries.France, CommodityTypes.Dog))
                 .Delay(5000)
-                .ExecuteAction(new SetManualPostImportCheckDecision(context, defraimp_importapplication_defraimp_manualpostimportcheckdecision.DoNotPostImportCheck))
+                .ExecuteAction(new SetManualPostImportCheckDecision(this.context, defraimp_importapplication_defraimp_manualpostimportcheckdecision.DoNotPostImportCheck))
                 .Delay(2000)
-                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p2RecordCount.Id, 0))
-                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p2QuotaCount.Id, 1));
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(this.context, Autonumbers.p2RecordCount.Id, 0))
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(this.context, Autonumbers.p2QuotaCount.Id, 1));
         }
 
         [Fact]
@@ -123,15 +122,15 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
             var sampleImporterNotificationData = new EnglandImporterNotification(Guid.NewGuid());
 
             recordService
-                .WaitFor(new SetAutonumberValue(context, Autonumbers.p3RecordCount.Id, 0))
-                .CreateRecord(new CreateImporterNotification(context, sampleImporterNotificationData.ImporterNotification))
-                .CreateRecord(new CreateImportApplication(context, sampleImportApplicationData.ImportApplication))
+                .WaitFor(new SetAutonumberValue(this.context, Autonumbers.p3RecordCount.Id, 0))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImporterNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImportApplication(this.context, sampleImportApplicationData.ImportApplication))
                 .Delay(2000)
-                .ExecuteAction(new AssignImporterNotificationToImportApplication(context, sampleImporterNotificationData.ImporterNotification))
+                .ExecuteAction(new AssignImporterNotificationToImportApplication(this.context, sampleImporterNotificationData.ImporterNotification))
                 .Delay(2000)
-                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(context, Countries.France, CommodityTypes.Dog))
+                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(this.context, Countries.France, CommodityTypes.Dog))
                 .Delay(5000)
-                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p3RecordCount.Id, 1));
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(this.context, Autonumbers.p3RecordCount.Id, 1));
         }
 
         [Fact]
@@ -142,18 +141,18 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
             var sampleImporterNotificationData = new EnglandImporterNotification(Guid.NewGuid());
 
             recordService
-                .WaitFor(new SetAutonumberValue(context, Autonumbers.p3RecordCount.Id, 0))
-                .CreateRecord(new CreateImporterNotification(context, sampleImporterNotificationData.ImporterNotification))
-                .CreateRecord(new CreateImportApplication(context, sampleImportApplicationData.ImportApplication))
+                .WaitFor(new SetAutonumberValue(this.context, Autonumbers.p3RecordCount.Id, 0))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImporterNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImportApplication(this.context, sampleImportApplicationData.ImportApplication))
                 .Delay(2000)
-                .ExecuteAction(new AssignImporterNotificationToImportApplication(context, sampleImporterNotificationData.ImporterNotification))
+                .ExecuteAction(new AssignImporterNotificationToImportApplication(this.context, sampleImporterNotificationData.ImporterNotification))
                 .Delay(2000)
-                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(context, Countries.France, CommodityTypes.Dog))
+                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(this.context, Countries.France, CommodityTypes.Dog))
                 .Delay(5000)
-                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p3RecordCount.Id, 1))
-                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(context, null, null))
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(this.context, Autonumbers.p3RecordCount.Id, 1))
+                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(this.context, null, null))
                 .Delay(5000)
-                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(context, Autonumbers.p3RecordCount.Id, 0));
+                .AssertAgainst(new AutonumberRecordValidateCurrentNumber(this.context, Autonumbers.p3RecordCount.Id, 0));
         }
 
         [Fact]
@@ -167,15 +166,15 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication
             var expectedInspectionRequiredReason = defraimp_importapplication_defraimp_inspectionrequiredreason.NoInspectionRequired;
 
             recordService
-                .WaitFor(new SetAutonumberValue(context, Autonumbers.p3RecordCount.Id, 100))
-                .CreateRecord(new CreateImporterNotification(context, sampleImporterNotificationData.ImporterNotification))
-                .CreateRecord(new CreateImportApplication(context, sampleImportApplicationData.ImportApplication))
+                .WaitFor(new SetAutonumberValue(this.context, Autonumbers.p3RecordCount.Id, 100))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImporterNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImportApplication(this.context, sampleImportApplicationData.ImportApplication))
                 .Delay(2000)
-                .ExecuteAction(new AssignImporterNotificationToImportApplication(context, sampleImporterNotificationData.ImporterNotification))
+                .ExecuteAction(new AssignImporterNotificationToImportApplication(this.context, sampleImporterNotificationData.ImporterNotification))
                 .Delay(2000)
-                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(context, Countries.France, CommodityTypes.Dog))
+                .ExecuteAction(new AssignCommodityAndCountryOfOriginToImportApplication(this.context, Countries.France, CommodityTypes.Dog))
                 .Delay(5000)
-                .AssertAgainst(new ImportApplicationValidateInspectionRequired(context, expectedRiskLevel, expectedInspectionRequiredValue, expectedInspectionRequiredReason));
+                .AssertAgainst(new ImportApplicationValidateInspectionRequired(this.context, expectedRiskLevel, expectedInspectionRequiredValue, expectedInspectionRequiredReason));
         }
     }
 }

@@ -4,17 +4,22 @@
     using System.Linq;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;
-    using Defra.Imports.BusinessLogic.RepoInterfaces;
     using Defra.Imports.Model;
 
-    class PlaceOfOriginRepository : IPlaceOfOriginRepository
+    public class PlaceOfOriginRepository : IPlaceOfOriginRepository
     {
         private readonly IOrganizationService orgSvc;
         private readonly ITracingService tracingService;
+        private readonly ImportsContext context;
 
         public PlaceOfOriginRepository(IOrganizationService svc)
         {
             this.orgSvc = svc;
+        }
+
+        public PlaceOfOriginRepository(ImportsContext context)
+        {
+            this.context = context;
         }
 
         public int GetApplicationCounterValue(Guid placeOfOriginId)
@@ -92,6 +97,18 @@
             {
                 return null;
             }
+        }
+
+        public defraimp_placeoforigin FindAnyRecordWithTrustLevel(defraimp_trustlevel trustLevel)
+        {
+            var placeOfOrigin = this.context.defraimp_placeoforiginSet.Where(x => x.defraimp_TrustLevel == trustLevel).FirstOrDefault();
+            return placeOfOrigin;
+        }
+
+        public defraimp_placeoforigin FindAnyLockedToBronzeRecord()
+        {
+            var placeOfOrigin = this.context.defraimp_placeoforiginSet.Where(x => x.defraimp_LocktoBronze == true).FirstOrDefault();
+            return placeOfOrigin;
         }
 
         public void IncrementApplicationCounter(Guid placeOfOriginId)

@@ -1,9 +1,9 @@
-﻿using Defra.Imports.Model;
-using MarkTek.Fluent.Testing.RecordGeneration;
-using System;
-
-namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication.Scenarios
+﻿namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication.Scenarios
 {
+    using System;
+    using Defra.Imports.Model;
+    using MarkTek.Fluent.Testing.RecordGeneration;
+
     public class CreateImportApplication : IRecordCreator<defraimp_importapplication, Guid>
     {
         public CreateImportApplication(Guid id)

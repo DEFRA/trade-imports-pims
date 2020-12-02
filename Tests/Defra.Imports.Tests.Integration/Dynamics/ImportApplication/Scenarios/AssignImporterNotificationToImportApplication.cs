@@ -1,9 +1,9 @@
-﻿using Defra.Imports.Model;
-using Marktek.Fluent.Testing.Engine.Interfaces;
-using System;
-
-namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication.Scenarios
+﻿namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication.Scenarios
 {
+    using System;
+    using Defra.Imports.Model;
+    using Marktek.Fluent.Testing.Engine.Interfaces;
+
     public class AssignImporterNotificationToImportApplication : IExecutableAction<defraimp_importapplication, Guid>
     {
         private readonly ImportsContext context;
