@@ -14,10 +14,6 @@
 
         defraimp_placeoforigin Find(Guid placeOfOriginId);
 
-        defraimp_placeoforigin FindAnyRecordWithTrustLevel(defraimp_trustlevel trustLevel);
-
-        defraimp_placeoforigin FindAnyLockedToBronzeRecord();
-
         void IncrementApplicationCounter(Guid placeOfOriginId);
 
         void SetApplicationCounter(Guid placeOfOriginId, int value);

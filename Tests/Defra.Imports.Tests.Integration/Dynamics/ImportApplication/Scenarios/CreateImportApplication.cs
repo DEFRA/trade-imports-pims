@@ -6,9 +6,12 @@
 
     public class CreateImportApplication : IRecordCreator<defraimp_importapplication, Guid>
     {
-        public CreateImportApplication(Guid id)
+        private readonly ImportsContext context;
+
+        public CreateImportApplication(ImportsContext context, Guid id)
         {
-            RecordToCreate = new defraimp_importapplication
+            this.context = context;
+            this.RecordToCreate = new defraimp_importapplication
             {
                 Id = id,
             };
@@ -20,8 +23,6 @@
             this.RecordToCreate = sampleImportApplication;
         }
 
-        private readonly ImportsContext context;
-
         public Guid Id { get; }
 
         public defraimp_importapplication RecordToCreate { get; }
@@ -32,7 +33,7 @@
             {
                 context.AddObject(RecordToCreate);
                 context.SaveChanges();
-                return new Record<defraimp_importapplication, Guid>(RecordToCreate, RecordToCreate.Id);
+                return new Record<defraimp_importapplication, Guid>(this.RecordToCreate, this.RecordToCreate.Id);
             }
             else
             {

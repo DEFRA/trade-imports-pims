@@ -4,17 +4,17 @@
     using Defra.Imports.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
 
-    class SetPlaceOfOriginTrustLevel : IExecutableAction<defraimp_placeoforigin, Guid>
+    class SetLockedToBronze : IExecutableAction<defraimp_placeoforigin, Guid>
     {
         private readonly ImportsContext context;
         private readonly Guid placeOfOriginId;
-        private readonly defraimp_trustlevel trustLevel;
+        private readonly bool lockedToBronze;
 
-        public SetPlaceOfOriginTrustLevel(ImportsContext context, Guid placeOfOriginId, defraimp_trustlevel trustLevel)
+        public SetLockedToBronze(ImportsContext context, Guid placeOfOriginId, bool lockedToBronze)
         {
             this.context = context;
             this.placeOfOriginId = placeOfOriginId;
-            this.trustLevel = trustLevel;
+            this.lockedToBronze = lockedToBronze;
         }
 
         public void Execute(Guid id)
@@ -22,7 +22,7 @@
             defraimp_placeoforigin placeOfOriginToUpdate = new defraimp_placeoforigin
             {
                 Id = this.placeOfOriginId,
-                defraimp_TrustLevel = this.trustLevel,
+                defraimp_LocktoBronze = this.lockedToBronze,
             };
 
             this.context.ClearChanges();

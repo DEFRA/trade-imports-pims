@@ -193,16 +193,24 @@
     <Compile Include="Dynamics\ImporterNotification\Scenarios\ActionCreateImportRecordFromNotification.cs" />
     <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_OnAction_CreateImportRecordFromNotification_ShouldCreateImportApplication.cs" />
     <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_OnCreate_ShouldHaveDevolvedOffice.cs" />
-<<<<<<< HEAD
-    <Compile Include="Dynamics\ImportApplication\P2RiskCounterIntegrationTests.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Assertions\PlaceOfOriginValidateUnlockedFromBronze.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Assertions\PlaceOfOriginValidateLockedToBronze.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\Assertions\PlaceOfOriginValidateApplicationCounter.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Assertions\Validators\TrustLevelIsValue.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Assertions\Validators\DateUnlockedFromBronzeIsValue.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Assertions\Validators\DateLockedToBronzeIsValue.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\Assertions\Validators\InspectionQuotaCounterIsValue.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\Assertions\Validators\ApplicationCounterIsValue.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\SampleData\LockedToBronzePlaceOfOrigin.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\SampleData\GoldPlaceOfOrigin.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\SampleData\BronzePlaceOfOrigin.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\DeletePlaceOfOrigin.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\CreatePlaceOfOrigin.cs" />
+    <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\SetLockedToBronze.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\SetQuotaCounter.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\SetApplicationCounter.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\SetPlaceOfOriginTrustLevel.cs" />
-=======
->>>>>>> 681d5253df720b24aead248f0146a58646b1cc3c
+    <Compile Include="Dynamics\PlaceOfOrigin\TestCases\PlaceOfOrigin_OnUpdate_OfLockedToBronze_SetLockedToBronzeData.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IntegrationTests.cs" />
     <Compile Include="LogicApps\CertificatesLogicAppIntegrationTestsBase.cs" />

@@ -1,0 +1,25 @@
+﻿namespace Defra.Imports.Tests.Integration.Dynamics.PlaceOfOrigin.Assertions.Validators
+{
+    using System;
+    using Defra.Imports.Model;
+    using FluentAssertions;
+    using MarkTek.Fluent.Testing.RecordGeneration;
+
+    class DateUnlockedFromBronzeIsValue : ISpecificationValidator<defraimp_placeoforigin>
+    {
+
+        private defraimp_placeoforigin placeOfOriginRecord;
+        private DateTime expectedValue;
+
+        public DateUnlockedFromBronzeIsValue(defraimp_placeoforigin placeOfOriginRecord, DateTime expectedValue)
+        {
+            this.placeOfOriginRecord = placeOfOriginRecord;
+            this.expectedValue = expectedValue;
+        }
+
+        public void Validate(defraimp_placeoforigin item)
+        {
+            placeOfOriginRecord.defraimp_DateUnlockedFromBronze.Should().BeSameDateAs(this.expectedValue);
+        }
+    }
+}
