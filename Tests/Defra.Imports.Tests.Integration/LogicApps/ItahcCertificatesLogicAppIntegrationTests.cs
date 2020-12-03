@@ -12,7 +12,10 @@ namespace Defra.Imports.Tests.Integration.LogicApps
 {
   public class ItahcCertificatesLogicAppIntegrationTests : CertificatesLogicAppIntegrationTestsBase
   {
-    [Fact]
+    // Change this to null to run these tests
+    const string skip = "Skip Logic App Tests";
+
+    [Fact(Skip = skip)]
     [ExcludeFromCodeCoverage]
     public void SendToSBQueue_AValidItahcXMLMessage_ItahcIsCreatedInDynamics()
     {
@@ -32,7 +35,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
       ClearDownCertificateTest("itahc", retrievedItahcs);
     }
 
-    [Fact]
+    [Fact(Skip = skip)]
     [ExcludeFromCodeCoverage]
     public void SendToSBQueue_ItahcWithIdentificationParameters_ItahcIsCreatedWithIdentificationParameters()
     {
@@ -52,7 +55,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
       ClearDownCertificateTest("itahc", retrievedItahcs);
     }
 
-    [Fact]
+    [Fact(Skip = skip)]
     [ExcludeFromCodeCoverage]
     public void SendToSBQueue_ItahcWithCommodityComplements_ItahcIsCreatedWithCommodityComplements()
     {
@@ -72,7 +75,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
       ClearDownCertificateTest("itahc", retrievedItahcs);
     }
 
-    [Fact(Skip = "This is skipped as we don't want to flood our system with records")]
+    [Fact(Skip = skip)]
     [ExcludeFromCodeCoverage]
     public void SendToSBQueue_ListOfItahcs_ListOfItahcsAreCreated()
     {

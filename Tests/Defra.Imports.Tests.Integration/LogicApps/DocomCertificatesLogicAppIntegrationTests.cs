@@ -12,7 +12,10 @@ namespace Defra.Imports.Tests.Integration.LogicApps
 {
     public class DocomCertificatesLogicAppIntegrationTests : CertificatesLogicAppIntegrationTestsBase
     {
-        [Fact]
+        // Change this to null to run these tests
+        const string skip = "Skip Logic App Tests";
+
+        [Fact(Skip = skip)]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_AValidDocomXMLMessage_DOCOMIsCreatedInDynamics()
         {
@@ -33,7 +36,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
 
         }
 
-        [Fact(Skip = "This is skipped as we don't want to flood our system with records")]
+        [Fact(Skip = skip)]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_ListOfDocoms_ListOfDocomsAreCreated()
         {

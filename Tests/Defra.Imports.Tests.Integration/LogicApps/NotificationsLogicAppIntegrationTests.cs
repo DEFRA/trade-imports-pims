@@ -15,12 +15,15 @@ namespace Defra.Imports.Tests.Integration.LogicApps
 {
     public class NotificationsLogicAppIntegrationTests : IntegrationTests
     {
+        // Change this to null to run these tests
+        const string skip = "Skip Logic App Tests";
+
         public NotificationsLogicAppIntegrationTests()
             : base(ConfigurationManager.ConnectionStrings["DevServiceBusConnection"].ConnectionString, ConfigurationManager.AppSettings["DevServiceBusNotificationQueueName"])
         {
         }
 
-        [Fact]
+        [Fact(Skip = skip)]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_AValidNotificationJSONMessage_NotificationIsCreatedInDynamics()
         {
@@ -40,7 +43,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact]
+        [Fact(Skip = skip)]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_FiveMessagesFinalMessageCancelled_NotificationShouldBeCreatedAndThenCancelled()
         {
@@ -70,7 +73,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact]
+        [Fact(Skip = skip)]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithNoIdentifiers_NotificationShouldBeCreatedSuccessfully()
         {
@@ -90,7 +93,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact]
+        [Fact(Skip = skip)]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithSingleQuoteText_NotificationShouldBeCreatedSuccessfully()
         {
@@ -110,7 +113,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact]
+        [Fact(Skip = skip)]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithDocuments_NotificationAndDocumentsShouldBeCreatedSuccesfully()
         {
@@ -129,7 +132,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact]
+        [Fact(Skip = skip)]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithCountryOfDestination_NotificationShouldBeCreatedSuccesfully()
         {
@@ -148,7 +151,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact]
+        [Fact(Skip = skip)]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_SequentialNotificationsWithDocument_NotificationShouldUpdateSequentially()
         {
@@ -173,7 +176,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact]
+        [Fact(Skip = skip)]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithPortOfExitDetails_ShouldCreateNotifictionWithPortOfExitDetails()
         {
@@ -192,7 +195,7 @@ namespace Defra.Imports.Tests.Integration.LogicApps
             this.ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact]
+        [Fact(Skip = skip)]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithoutDestinationPostcode_ShouldCreateNotificationWithDevolvedOfficeUnknown()
         {
