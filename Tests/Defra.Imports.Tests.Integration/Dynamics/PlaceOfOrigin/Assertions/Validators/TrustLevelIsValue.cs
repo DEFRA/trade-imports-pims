@@ -18,7 +18,7 @@
 
         public void Validate(defraimp_placeoforigin item)
         {
-            placeOfOriginRecord.defraimp_TrustLevel.Should().Be(this.expectedValue);
+            this.placeOfOriginRecord.defraimp_TrustLevel.Should().Be(this.expectedValue);
         }
     }
 }

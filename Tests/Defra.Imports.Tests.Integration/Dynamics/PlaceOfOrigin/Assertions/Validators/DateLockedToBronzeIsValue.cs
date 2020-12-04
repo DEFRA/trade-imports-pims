@@ -19,7 +19,7 @@
 
         public void Validate(defraimp_placeoforigin item)
         {
-            placeOfOriginRecord.defraimp_DateLockedtoBronze.Should().BeSameDateAs(this.expectedValue);
+            this.placeOfOriginRecord.defraimp_DateLockedtoBronze.Should().BeSameDateAs(this.expectedValue);
         }
     }
 }

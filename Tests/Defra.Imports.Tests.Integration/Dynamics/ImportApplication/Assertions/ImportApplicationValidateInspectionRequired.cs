@@ -26,7 +26,7 @@
 
         public override defraimp_importapplication GetRecord(Guid id)
         {
-            return context.defraimp_importapplicationSet.Where(x => x.Id == id).Select(x => x).FirstOrDefault();
+            return this.context.defraimp_importapplicationSet.Where(x => x.Id == id).Select(x => x).FirstOrDefault();
         }
 
         public override List<ISpecificationValidator<defraimp_importapplication>> GetValidators()

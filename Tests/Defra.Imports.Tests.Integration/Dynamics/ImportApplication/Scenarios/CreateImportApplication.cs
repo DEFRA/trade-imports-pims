@@ -29,10 +29,10 @@
 
         public Record<defraimp_importapplication, Guid> CreateRecord()
         {
-            if (RecordToCreate != null)
+            if (this.RecordToCreate != null)
             {
-                context.AddObject(RecordToCreate);
-                context.SaveChanges();
+                this.context.AddObject(RecordToCreate);
+                this.context.SaveChanges();
                 return new Record<defraimp_importapplication, Guid>(this.RecordToCreate, this.RecordToCreate.Id);
             }
             else

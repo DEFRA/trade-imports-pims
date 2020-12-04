@@ -11,7 +11,6 @@
     using Defra.Imports.Tests.Integration.Dynamics.ImporterNotification.SampleRecords;
     using Defra.Imports.Tests.Integration.Dynamics.ImporterNotification.Scenarios;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using Microsoft.Xrm.Sdk;
     using Xunit;
 
     [Collection("RiskRatingTests")]

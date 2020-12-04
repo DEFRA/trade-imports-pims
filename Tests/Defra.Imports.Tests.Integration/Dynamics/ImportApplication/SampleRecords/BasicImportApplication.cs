@@ -1,13 +1,9 @@
-﻿using Defra.Imports.Model;
-using Defra.Imports.Model.ReferenceData;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication.SampleRecords
+﻿namespace Defra.Imports.Tests.Integration.Dynamics.ImportApplication.SampleRecords
 {
+    using System;
+    using Defra.Imports.Model;
+    using Defra.Imports.Model.ReferenceData;
+
     class BasicImportApplication
     {
         public BasicImportApplication(Guid id)

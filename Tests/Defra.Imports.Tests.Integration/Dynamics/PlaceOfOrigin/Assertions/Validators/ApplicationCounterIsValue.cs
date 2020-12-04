@@ -18,7 +18,7 @@
 
         public void Validate(defraimp_placeoforigin item)
         {
-            placeOfOriginRecord.defraimp_ApplicationCounter.Should().Be(this.expectedValue);
+            this.placeOfOriginRecord.defraimp_ApplicationCounter.Should().Be(this.expectedValue);
         }
     }
 }

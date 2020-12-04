@@ -26349,7 +26349,9 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanged("defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC");
 			}
 		}
-	}
+
+        public object PostImportCheckOutcomeHasValue { get; set; }
+    }
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]

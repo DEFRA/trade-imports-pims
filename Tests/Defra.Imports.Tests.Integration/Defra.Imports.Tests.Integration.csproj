@@ -164,7 +164,9 @@
     <Compile Include="Dynamics\ConfigurationParameter\Assertions\Validators\ConfigurationParameterHasValue.cs" />
     <Compile Include="Dynamics\ConfigurationParameter\Assertions\Validators\ConfigurationParameterHasKey.cs" />
     <Compile Include="Dynamics\ConfigurationParameter\TestCases\ConfigurationParameter_ShouldHaveCorrectConfigRecords.cs" />
+    <Compile Include="Dynamics\ImportApplication\Assertions\ImportApplicationValidateInspectionPostInspectionOutcome.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\ImportApplicationValidateInspectionRequired.cs" />
+    <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasPostInspectionOutcome.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasInspectionRequiredReason.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasRiskLevel.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationRequiresInspection.cs" />
@@ -211,6 +213,12 @@
     <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\SetApplicationCounter.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\SetPlaceOfOriginTrustLevel.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\TestCases\PlaceOfOrigin_OnUpdate_OfLockedToBronze_SetLockedToBronzeData.cs" />
+    <Compile Include="Dynamics\PostImportCheck\Assertions\PostImportCheckValidateOutcome.cs" />
+    <Compile Include="Dynamics\PostImportCheck\Assertions\Validators\PostImportCheckOutcomeHasValue.cs" />
+    <Compile Include="Dynamics\PostImportCheck\SampleRecords\BasicPostImportCheck.cs" />
+    <Compile Include="Dynamics\PostImportCheck\Scenarios\CreatePostImportCheck.cs" />
+    <Compile Include="Dynamics\PostImportCheck\Scenarios\SetPostImportCheckOutcome.cs" />
+    <Compile Include="Dynamics\PostImportCheck\TestCases\PostImportCheck_OnUpdate_Should_UpdateOutcome.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IntegrationTests.cs" />
     <Compile Include="LogicApps\CertificatesLogicAppIntegrationTestsBase.cs" />

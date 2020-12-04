@@ -4,18 +4,18 @@
     using FluentAssertions;
     using MarkTek.Fluent.Testing.RecordGeneration;
 
-    class ImportApplicationHasInspectionRequiredReason : ISpecificationValidator<defraimp_importapplication>
-    {
-        defraimp_importapplication_defraimp_inspectionrequiredreason inspectionRequiredReasonValue;
+    class ImportApplicationHasPostInspectionOutcome : ISpecificationValidator<defraimp_importapplication>
+    { 
+        defraimp_importapplication_defraimp_inspectionoutcome inspectionOutcomeValue;
 
-        public ImportApplicationHasInspectionRequiredReason(defraimp_importapplication_defraimp_inspectionrequiredreason inspectionRequiredReasonValue)
+        public ImportApplicationHasPostInspectionOutcome(defraimp_importapplication_defraimp_inspectionoutcome inspectionOutcomeValue)
         {
-            this.inspectionRequiredReasonValue = inspectionRequiredReasonValue;
+            this.inspectionOutcomeValue = inspectionOutcomeValue;
         }
 
         public void Validate(defraimp_importapplication item)
         {
-            item.defraimp_InspectionRequiredReason.Should().Be(this.inspectionRequiredReasonValue);
+            item.defraimp_InspectionOutcome.Should().Be(this.inspectionOutcomeValue);
         }
     }
 }
