@@ -27,6 +27,7 @@
             recordService
                 .CreateRecord(new CreateImportApplication(this.context, sampleImportApplication))
                 .Delay(5000)
+                .ExecuteAction(new SetApplicationInspectionOutcomeValue(this.context, defraimp_importapplication_defraimp_inspectionoutcome.AwaitingResultofChecks))
                 .CreateRecord(new CreatePostImportCheck(this.context, samplePostImportCheck))
                 .Delay(2000)
                 .ExecuteAction(new SetPostImportCheckOutcome(this.context, samplePostImportCheck, expectedPostImportCheckOutcome))
@@ -52,6 +53,7 @@
             recordService
                 .CreateRecord(new CreateImportApplication(this.context, sampleImportApplication))
                 .Delay(5000)
+                .ExecuteAction(new SetApplicationInspectionOutcomeValue(this.context, defraimp_importapplication_defraimp_inspectionoutcome.AwaitingResultofChecks))
                 .CreateRecord(new CreatePostImportCheck(this.context, samplePostImportCheckOne))
                 .CreateRecord(new CreatePostImportCheck(this.context, samplePostImportCheckTwo))
                 .CreateRecord(new CreatePostImportCheck(this.context, samplePostImportCheckThree))
@@ -84,6 +86,7 @@
             recordService
                 .CreateRecord(new CreateImportApplication(this.context, sampleImportApplication))
                 .Delay(5000)
+                .ExecuteAction(new SetApplicationInspectionOutcomeValue(this.context, defraimp_importapplication_defraimp_inspectionoutcome.AwaitingResultofChecks))
                 .CreateRecord(new CreatePostImportCheck(this.context, samplePostImportCheckOne))
                 .CreateRecord(new CreatePostImportCheck(this.context, samplePostImportCheckTwo))
                 .CreateRecord(new CreatePostImportCheck(this.context, samplePostImportCheckThree))

@@ -7,10 +7,11 @@
     {
         public BronzePlaceOfOrigin()
         {
+            Guid recordId = Guid.NewGuid();
             PlaceOfOrigin = new defraimp_placeoforigin
             {
                 Id = Guid.NewGuid(),
-                defraimp_name = "INT TEST Bronze Place of Origin",
+                defraimp_name = $"INT TEST Bronze Place of Origin {recordId}",
                 defraimp_TrustLevel = defraimp_trustlevel.Bronze,
             };
         }

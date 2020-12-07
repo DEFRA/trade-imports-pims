@@ -164,6 +164,8 @@
     <Compile Include="Dynamics\ConfigurationParameter\Assertions\Validators\ConfigurationParameterHasValue.cs" />
     <Compile Include="Dynamics\ConfigurationParameter\Assertions\Validators\ConfigurationParameterHasKey.cs" />
     <Compile Include="Dynamics\ConfigurationParameter\TestCases\ConfigurationParameter_ShouldHaveCorrectConfigRecords.cs" />
+    <Compile Include="Dynamics\Consignee\SampleRecords\ConsigneeWithData.cs" />
+    <Compile Include="Dynamics\Consignee\Scenarios\CreateConsignee.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\ImportApplicationValidateInspectionPostInspectionOutcome.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\ImportApplicationValidateInspectionRequired.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasPostInspectionOutcome.cs" />
@@ -171,10 +173,11 @@
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasRiskLevel.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationRequiresInspection.cs" />
     <Compile Include="Dynamics\ImportApplication\SampleRecords\BasicImportApplication.cs" />
+    <Compile Include="Dynamics\ImportApplication\Scenarios\AssignCommodityAndCountryOfOriginToImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\AssignPlaceOfOriginToImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\AssignImporterNotificationToImportApplication.cs" />
-    <Compile Include="Dynamics\ImportApplication\Scenarios\AssignCommodityAndCountryOfOriginToImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\CreateImportApplication.cs" />
+    <Compile Include="Dynamics\ImportApplication\Scenarios\SetApplicationInspectionOutcomeValue.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\SetManualPostImportCheckDecision.cs" />
     <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfP1GBRiskRating_DetermineInspection.cs" />
     <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfP2RiskRating_DetermineInspection.cs" />
@@ -183,8 +186,10 @@
     <Compile Include="Dynamics\ImportApplication\TestCases\ImportApplication_OnUpdate_OfP1RiskRating_DetermineInspection.cs" />
     <Compile Include="Dynamics\ImporterNotification\Assertions\ImporterNotificationValidateDevolvedOffice.cs" />
     <Compile Include="Dynamics\ImporterNotification\Assertions\ImporterNotificationValidateLinkedImportApplication.cs" />
+    <Compile Include="Dynamics\ImporterNotification\Assertions\ImporterNotificationValidateLinkedWatchFlagRecord.cs" />
     <Compile Include="Dynamics\ImporterNotification\Assertions\Validators\DevolvedOfficeIsValue.cs" />
     <Compile Include="Dynamics\ImporterNotification\Assertions\Validators\LinkedImportApplicationValidator.cs" />
+    <Compile Include="Dynamics\ImporterNotification\Assertions\Validators\LinkedWatchFlagValidator.cs" />
     <Compile Include="Dynamics\ImporterNotification\SampleRecords\ImporterNotificationWithData.cs" />
     <Compile Include="Dynamics\ImporterNotification\SampleRecords\UnknownImporterNotification.cs" />
     <Compile Include="Dynamics\ImporterNotification\SampleRecords\NonGBImporterNotification.cs" />
@@ -194,7 +199,10 @@
     <Compile Include="Dynamics\ImporterNotification\Scenarios\CreateImporterNotification.cs" />
     <Compile Include="Dynamics\ImporterNotification\Scenarios\ActionCreateImportRecordFromNotification.cs" />
     <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_OnAction_CreateImportRecordFromNotification_ShouldCreateImportApplication.cs" />
+    <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_OnCreate_ShouldFlagRecordsOnWatchList.cs" />
     <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_OnCreate_ShouldHaveDevolvedOffice.cs" />
+    <Compile Include="Dynamics\PlaceOfDestination\SampleData\PlaceOfDestinationWithData.cs" />
+    <Compile Include="Dynamics\PlaceOfDestination\Scenarios\CreatePlaceOfDestination.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\Assertions\PlaceOfOriginValidateUnlockedFromBronze.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\Assertions\PlaceOfOriginValidateLockedToBronze.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\Assertions\PlaceOfOriginValidateApplicationCounter.cs" />
@@ -213,6 +221,10 @@
     <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\SetApplicationCounter.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\Scenarios\SetPlaceOfOriginTrustLevel.cs" />
     <Compile Include="Dynamics\PlaceOfOrigin\TestCases\PlaceOfOrigin_OnUpdate_OfLockedToBronze_SetLockedToBronzeData.cs" />
+    <Compile Include="Dynamics\Transporter\SampleRecords\TransporterWithData.cs" />
+    <Compile Include="Dynamics\Transporter\Scenarios\CreateTransporter.cs" />
+    <Compile Include="Dynamics\WatchList\SampleData\WatchListWithData.cs" />
+    <Compile Include="Dynamics\WatchList\Scenarios\CreateWatchList.cs" />
     <Compile Include="Dynamics\PostImportCheck\Assertions\PostImportCheckValidateOutcome.cs" />
     <Compile Include="Dynamics\PostImportCheck\Assertions\Validators\PostImportCheckOutcomeHasValue.cs" />
     <Compile Include="Dynamics\PostImportCheck\SampleRecords\BasicPostImportCheck.cs" />
