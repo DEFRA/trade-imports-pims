@@ -455,6 +455,14 @@
                   </labels>
                   <rows>
                     <row>
+                      <cell id="{4c7acc04-5dd3-2937-77ce-96cdc74d33a0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Certificate Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_chedacertificatenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_chedacertificatenumber" disabled="false" uniqueid="{a68ce115-7e77-de51-1c83-cb37d7ec60b4}" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{7ee5c747-01a6-a639-c596-cca5d5486359}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Local Reference Number" languagecode="1033" />
