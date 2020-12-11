@@ -16,5 +16,8 @@
     "uom",
     "uomschedule",
     "queue"
+  ],
+  "NoUpdateEntities": [
+    "defraexp_configurationparameter"
   ]
 }
