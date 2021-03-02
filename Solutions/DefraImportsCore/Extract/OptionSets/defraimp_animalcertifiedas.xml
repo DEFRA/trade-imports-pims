@@ -236,5 +236,37 @@
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
+    <option value="714100028" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For Internal Market" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100029" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For Transhipment" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100030" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For Re-entry" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100031" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Personally Owned Pets Not for Rehoming" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
   </options>
 </optionset>

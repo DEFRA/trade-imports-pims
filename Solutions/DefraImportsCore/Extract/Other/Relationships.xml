@@ -18,6 +18,7 @@
   <EntityRelationship Name="business_unit_defraimp_importapplication" />
   <EntityRelationship Name="business_unit_defraimp_importernotification" />
   <EntityRelationship Name="business_unit_defraimp_importinspection" />
+  <EntityRelationship Name="business_unit_defraimp_imptype" />
   <EntityRelationship Name="business_unit_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="business_unit_defraimp_ipaffsdocument" />
   <EntityRelationship Name="business_unit_defraimp_itahc" />
@@ -114,6 +115,8 @@
   <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_importapplication_PreviousImportRiskLevelId" />
   <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_importcountrycommodityrisklevel_risklevelid" />
   <EntityRelationship Name="defraimp_defraimp_importrisklevel_defraimp_inspectioncoveragerule_RiskLevelId" />
+  <EntityRelationship Name="defraimp_defraimp_imptype_defraimp_importapplication_imptypeid" />
+  <EntityRelationship Name="defraimp_defraimp_imptype_defraimp_importernotification_imptypeid" />
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_importapplication" />
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_importinspection_RelatedITAHC" />
   <EntityRelationship Name="defraimp_defraimp_itahc_defraimp_importquery_ITAHC" />
@@ -200,6 +203,8 @@
   <EntityRelationship Name="lk_defraimp_importinspection_modifiedby" />
   <EntityRelationship Name="lk_defraimp_importrisklevel_createdby" />
   <EntityRelationship Name="lk_defraimp_importrisklevel_modifiedby" />
+  <EntityRelationship Name="lk_defraimp_imptype_createdby" />
+  <EntityRelationship Name="lk_defraimp_imptype_modifiedby" />
   <EntityRelationship Name="lk_defraimp_inspectioncoveragerule_createdby" />
   <EntityRelationship Name="lk_defraimp_inspectioncoveragerule_modifiedby" />
   <EntityRelationship Name="lk_defraimp_ipaffsdocument_createdby" />
@@ -259,6 +264,7 @@
   <EntityRelationship Name="owner_defraimp_importapplication" />
   <EntityRelationship Name="owner_defraimp_importernotification" />
   <EntityRelationship Name="owner_defraimp_importinspection" />
+  <EntityRelationship Name="owner_defraimp_imptype" />
   <EntityRelationship Name="owner_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="owner_defraimp_ipaffsdocument" />
   <EntityRelationship Name="owner_defraimp_itahc" />
@@ -290,6 +296,7 @@
   <EntityRelationship Name="team_defraimp_importapplication" />
   <EntityRelationship Name="team_defraimp_importernotification" />
   <EntityRelationship Name="team_defraimp_importinspection" />
+  <EntityRelationship Name="team_defraimp_imptype" />
   <EntityRelationship Name="team_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="team_defraimp_ipaffsdocument" />
   <EntityRelationship Name="team_defraimp_itahc" />
@@ -318,6 +325,7 @@
   <EntityRelationship Name="user_defraimp_importapplication" />
   <EntityRelationship Name="user_defraimp_importernotification" />
   <EntityRelationship Name="user_defraimp_importinspection" />
+  <EntityRelationship Name="user_defraimp_imptype" />
   <EntityRelationship Name="user_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="user_defraimp_ipaffsdocument" />
   <EntityRelationship Name="user_defraimp_itahc" />

@@ -170,6 +170,7 @@
     <Compile Include="BusinessLogic\ImportApplication\PopulateCountriesOfTransitFromNotificationBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\ImporterNotification\FlagRecordsOnWatchListNotificationBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\ImporterNotification\FormatCommodityComplementAndIdentificationJsonTests.cs" />
+    <Compile Include="BusinessLogic\ImporterNotification\PopulateImpTypeBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\Itahc\FlagRecordOnWatchListBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\Itahc\PopulateDevolvedOfficeBusinessLogicTests.cs" />
     <Compile Include="BusinessLogic\Itahc\PopulateFormattedJSONTextFieldsTests.cs" />

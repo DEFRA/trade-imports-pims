@@ -1,0 +1,56 @@
+{
+  "RecordsCount": 3,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraimp_imptype",
+      "Id": "a38520d3-527b-eb11-a812-000d3adc8a8f",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Live Animals",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_code",
+          "AttributeValue": "A",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_imptype",
+      "Id": "882c3ad9-527b-eb11-a812-000d3adc8a8f",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "POAO",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_code",
+          "AttributeValue": "P",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_imptype",
+      "Id": "179658df-527b-eb11-a812-000d3adc8a8f",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "HRFNAO",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_code",
+          "AttributeValue": "D",
+          "AttributeType": "System.String"
+        }
+      ]
+    }
+  ]
+}

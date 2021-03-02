@@ -36,6 +36,23 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{a4e9ac7a-4de1-9d67-66a1-0222a8115072}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Imp Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_imptypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_imptypeid" disabled="false" uniqueid="{358522d1-e291-58a6-6048-7b3538098510}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{2A31955D-6542-4F8C-BCB1-CFCF5125C690}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{53894a19-578d-48a9-5eea-2db6ddb61155}" locklevel="0" showlabel="true">
                         <labels>
                           <label description="Commodity Type" languagecode="1033" />
@@ -107,6 +124,14 @@
                           <label description="Quantity" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_quantity" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_quantity" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ab3478c7-9cb3-5de2-66e1-2952ec2e5e26}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Weight (KG)" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_weight" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_weight" disabled="false" uniqueid="{1a1ded8e-1a1d-2a80-3871-a09974c835b0}" />
                       </cell>
                     </row>
                     <row>
@@ -1327,6 +1352,14 @@
                           <label description="Transporter Email" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_transporteremail" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="defraimp_transporteremail" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4ebb1e08-33d5-2d5e-6c22-1b47612a74a0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_type" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_type" disabled="false" />
                       </cell>
                     </row>
                   </rows>

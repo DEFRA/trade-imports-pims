@@ -124,6 +124,24 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
         }
 
         [Fact]
+        public void WeightShouldGetPopulatedFromWeightKeyDataPair()
+        {
+            defraimp_ImporterNotification notificationImage = null;
+
+            var notificationFromContext = new defraimp_ImporterNotification()
+            {
+                defraimp_CommodityComplementsText = @"[{'commodityID':'01069000','commodityDescription':'Animals other than mammals, birds, reptiles and insects.','complementID':183873,'complementName':'Lithobates (Rana) catesbeianus','speciesID':'60639','speciesName':'Lithobates (Rana) catesbeianus','speciesType':'2','speciesClassName':'Amphibia','speciesClass':'183873','speciesNomination':'Lithobates (Rana) catesbeianus'}]",
+                defraimp_IdentificationOfAnimalsText = @"[{'complementID':183873,'speciesID':'60639','keyDataPair':[{'key':'IMP_Weight','data':'1'}]}]",
+            };
+
+            var populateFormattedJSONTextFields = new PopulateJSONTextFields(notificationFromContext, notificationImage);
+            populateFormattedJSONTextFields.FormatIntegrationData();
+
+            Assert.True(notificationFromContext.Attributes.Contains("defraimp_weight"));
+            Assert.Equal("1", notificationFromContext["defraimp_weight"]);
+        }
+
+        [Fact]
         public void MicrochipAndPassportNumberShouldGetPopulatedInIDTypes()
         {
             defraimp_ImporterNotification notificationImage = null;

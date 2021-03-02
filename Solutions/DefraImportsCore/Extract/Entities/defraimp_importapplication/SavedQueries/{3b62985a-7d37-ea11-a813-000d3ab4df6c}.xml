@@ -12,6 +12,7 @@
         <row name="result" id="defraimp_importapplicationid">
           <cell name="defraimp_primaryitahcid" width="100" />
           <cell name="defraimp_primarycvedid" width="100" />
+          <cell name="defraimp_imptypeid" width="100" />
           <cell name="defraimp_placeofdestinationaddresspostcode" width="100" />
           <cell name="defraimp_placeofdestinationorganisation" width="100" />
           <cell name="defraimp_placeofdestinationaddresscity" width="100" />
@@ -44,6 +45,7 @@
           <attribute name="defraimp_commodityidentifiers" />
           <attribute name="defraimp_workschedulenumber" />
           <attribute name="defraimp_generalcomments" />
+          <attribute name="defraimp_imptypeid" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>

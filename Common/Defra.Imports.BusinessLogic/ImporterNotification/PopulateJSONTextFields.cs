@@ -13,6 +13,10 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
 {
     public class PopulateJSONTextFields
     {
+        private const string NumberOfAnimalKeyDataPairKey = "imp_number_animal";
+        private const string QuantityKeyDataPairKey = "quantity";
+        private const string WeightKeyDataPairKey = "imp_weight";
+
         private defraimp_ImporterNotification notificationFromContext;
         private defraimp_ImporterNotification notificationPreImage;
 
@@ -92,13 +96,17 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                             finalString += y.key + ": " + y.data + System.Environment.NewLine
                                          + System.Environment.NewLine;
 
-                            if (y.key.Equals("imp_number_animal"))
+                            if (y.key.Equals(NumberOfAnimalKeyDataPairKey, StringComparison.OrdinalIgnoreCase))
                             {
-                                notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
+                                this.notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
                             }
-                            else if(y.key.Equals("quantity"))
+                            else if (y.key.Equals(QuantityKeyDataPairKey, StringComparison.OrdinalIgnoreCase))
                             {
-                                notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
+                                this.notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
+                            }
+                            else if (y.key.Equals(WeightKeyDataPairKey, StringComparison.OrdinalIgnoreCase))
+                            {
+                                this.notificationFromContext.defraimp_Weight = y.data.Trim();
                             }
                         });
                     }
@@ -112,7 +120,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                             //finalString += commodityIdTypes;
                         });
                     }
-                    
+
                     finalString += commodityIdTypes;
                     finalString += "-----------------" + System.Environment.NewLine
                                  + System.Environment.NewLine;

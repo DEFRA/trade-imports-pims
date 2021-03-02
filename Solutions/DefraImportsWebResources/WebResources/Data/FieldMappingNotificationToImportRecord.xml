@@ -41,4 +41,6 @@
   <FieldMapping mapfrom="defraimp_commoditiesanimalscertifiedas" mapto="defraimp_animalcertifiedas" />
   <FieldMapping mapfrom="defraimp_arrivaldate" mapto="defraimp_dateofimport" />
   <FieldMapping mapfrom="defraimp_portofentry" mapto="defraimp_pointofentry" />
+  <FieldMapping mapfrom="defraimp_weight" mapto="defraimp_weight" />
+  <FieldMapping mapfrom="defraimp_imptypeid" mapto="defraimp_imptypeid" />
 </FieldMappings>

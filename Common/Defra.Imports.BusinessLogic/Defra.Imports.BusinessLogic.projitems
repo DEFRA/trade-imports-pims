@@ -53,6 +53,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\IdentificationOfAnimalsObjects\Identifiers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\IdentificationOfAnimalsObjects\KeyDataPair.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\PopulateCountriesOfTransitBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\PopulateImpTypeBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\PopulateJSONTextFields.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IRepositoryFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Itahc\FlagRecordOnWatchListBusinessLogic.cs" />

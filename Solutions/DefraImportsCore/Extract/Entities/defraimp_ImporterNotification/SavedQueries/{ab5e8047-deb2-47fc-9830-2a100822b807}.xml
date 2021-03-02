@@ -16,24 +16,25 @@
           <cell name="createdon" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_status" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_type" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_imptypeid" width="100" />
           <cell name="defraimp_personresponsiblename" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_personresponsiblecompanyname" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_personresponsibleemail" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_personresponsiblephone" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_countryoforiginid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_commoditiesregionoforigin" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeofdestinationaddresscity" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeofdestinationaddresspostalzipcode" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="ownerid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
         </row>
       </grid>
     </layoutxml>
     <querytype>0</querytype>
     <fetchxml>
-      <fetch version="1.0" mapping="logical">
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
         <entity name="defraimp_importernotification">
           <attribute name="defraimp_name" />
           <attribute name="createdon" />
-          <filter type="and">
-            <condition attribute="statecode" operator="eq" value="0" />
-          </filter>
           <attribute name="defraimp_status" />
           <attribute name="defraimp_submissiondate" />
           <attribute name="defraimp_commoditiesregionoforigin" />
@@ -43,9 +44,25 @@
           <attribute name="defraimp_personresponsibleemail" />
           <attribute name="defraimp_personresponsiblecompanyname" />
           <attribute name="defraimp_type" />
-          <attribute name="defraimp_importernotificationid" />
-          <order attribute="createdon" descending="true" />
           <attribute name="defraimp_version" />
+          <order attribute="createdon" descending="true" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+            <filter type="and">
+              <condition attribute="defraimp_commodityid" operator="ne" value="0106410000" />
+              <condition attribute="defraimp_commodityid" operator="not-like" value="1601%" />
+              <condition attribute="defraimp_commodityid" operator="not-like" value="1602%" />
+              <condition attribute="defraimp_commodityid" operator="not-like" value="03%" />
+              <condition attribute="defraimp_commodityid" operator="not-like" value="02%" />
+              <condition attribute="defraimp_commodityid" operator="not-like" value="3%" />
+              <condition attribute="defraimp_commodityid" operator="not-like" value="2%" />
+            </filter>
+          </filter>
+          <attribute name="defraimp_placeofdestinationaddresspostalzipcode" />
+          <attribute name="defraimp_placeofdestinationaddresscity" />
+          <attribute name="ownerid" />
+          <attribute name="defraimp_imptypeid" />
+          <attribute name="defraimp_importernotificationid" />
         </entity>
       </fetch>
     </fetchxml>

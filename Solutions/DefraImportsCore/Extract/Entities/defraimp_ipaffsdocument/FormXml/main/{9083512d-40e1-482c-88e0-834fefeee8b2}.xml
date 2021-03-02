@@ -48,7 +48,7 @@
                         <labels>
                           <label description="Document Type" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_documenttype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_documenttype" disabled="false" />
+                        <control id="defraimp_documenttype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_documenttype" disabled="false" uniqueid="{240c11d9-6719-a396-d1aa-747c7bd4bc72}" />
                       </cell>
                     </row>
                     <row>
@@ -77,12 +77,12 @@
       <header id="{2b109f80-690d-4624-8cf8-b56d557c71ee}" columns="111">
         <rows>
           <row>
-            <cell id="{1786e95c-9ecb-44a7-afda-7e1fd608b1f2}">
+            <cell id="{1786e95c-9ecb-44a7-afda-7e1fd608b1f2}" showlabel="false">
               <labels>
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
-            <cell id="{ae8cd88c-ec4c-45b9-bfec-3a5b849267e1}">
+            <cell id="{ae8cd88c-ec4c-45b9-bfec-3a5b849267e1}" showlabel="false">
               <labels>
                 <label description="" languagecode="1033" />
               </labels>
@@ -126,6 +126,7 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
+      <controlDescriptions />
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

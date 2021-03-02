@@ -65,6 +65,7 @@
     <RolePrivilege name="prvAppendTodefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importrisklevel" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_imptype" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_matchrecord" level="Global" />
@@ -222,6 +223,7 @@
     <RolePrivilege name="prvReaddefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importrisklevel" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_imptype" level="Global" />
     <RolePrivilege name="prvReaddefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvReaddefraimp_ipaffsdocument" level="Global" />
     <RolePrivilege name="prvReaddefraimp_itahc" level="Global" />

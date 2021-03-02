@@ -112,6 +112,7 @@
     <Compile Include="ImporterNotification\PopulateCountriesOfTransit.cs" />
     <Compile Include="ImporterNotification\PopulateDevolvedOffice.cs" />
     <Compile Include="ImporterNotification\PopulateIdentificationFormatJson.cs" />
+    <Compile Include="ImporterNotification\PopulateImpType.cs" />
     <Compile Include="ImportQuery\CloneProcessesImportQuery.cs" />
     <Compile Include="Itahc\FlagRecordOnWatchList.cs" />
     <Compile Include="Itahc\PopulateDevolvedOffice.cs" />

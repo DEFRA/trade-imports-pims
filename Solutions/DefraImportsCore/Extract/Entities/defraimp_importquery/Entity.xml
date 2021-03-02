@@ -2815,7 +2815,7 @@
           <IsLocalizable>0</IsLocalizable>
           <Format>text</Format>
           <MaxLength>400</MaxLength>
-          <Length>800</Length>
+          <Length>1600</Length>
           <displaynames>
             <displayname description="Summary" languagecode="1033" />
           </displaynames>

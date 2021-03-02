@@ -13,6 +13,7 @@
           <cell name="defraimp_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_primaryitahcid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_commoditytypeid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
+          <cell name="defraimp_imptypeid" width="100" />
           <cell name="defraimp_countryoforiginid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="125" />
           <cell name="defraimp_importrisklevelid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="100" />
           <cell name="defraimp_placeoforiginorganisation" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
@@ -39,6 +40,7 @@
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
           <attribute name="defraimp_primaryitahcid" />
+          <attribute name="defraimp_imptypeid" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>

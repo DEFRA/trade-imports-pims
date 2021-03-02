@@ -35,6 +35,9 @@
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImporterNotification.PopulateIdentificationFormatJson, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="dd3a6446-52c5-4132-bcb9-c7259c19bc8c" Name="Defra.Imports.Plugins.ImporterNotification.PopulateIdentificationFormatJson">
       <FriendlyName>Defra.Imports.Plugins.ImporterNotification.PopulateIdentificationFormatJson</FriendlyName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImporterNotification.PopulateImpType, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="2ee10634-717b-eb11-a812-000d3adc856b" Name="Defra.Imports.Plugins.ImporterNotification.PopulateImpType">
+      <FriendlyName>Defra.Imports.Plugins.ImporterNotification.PopulateImpType</FriendlyName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ImportQuery.CloneProcessesImportQuery, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="d6c5d3d4-60f2-495e-b869-ac2b2efe6379" Name="Defra.Imports.Plugins.ImportQuery.CloneProcessesImportQuery">
       <FriendlyName>Defra.Imports.Plugins.ImportQuery.CloneProcessesImportQuery</FriendlyName>
     </PluginType>

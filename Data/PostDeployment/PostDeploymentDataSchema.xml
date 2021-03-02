@@ -165,4 +165,12 @@
     </fields>
     <relationships />
   </entity>
+  <entity name="defraimp_imptype" displayname="Imp Type" etc="10136" primaryidfield="defraimp_imptypeid" primarynamefield="defraimp_name" disableplugins="false">
+    <fields>
+      <field displayname="Imp Type" name="defraimp_imptypeid" type="guid" primaryKey="true" customfield="false" />
+      <field displayname="Name" name="defraimp_name" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Code" name="defraimp_code" type="string" primaryKey="false" customfield="false" />
+    </fields>
+    <relationships />
+  </entity>
 </entities>

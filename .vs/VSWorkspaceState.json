@@ -1,12 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Solutions",
-    "\\Solutions\\DefraImportsWorkflows",
-    "\\Solutions\\DefraImportsWorkflows\\WorkflowAssemblies",
-    "\\Solutions\\DefraImportsWorkflows\\WorkflowAssemblies\\Defra.Imports.Workflows",
-    "\\Solutions\\DefraImportsWorkflows\\WorkflowAssemblies\\Defra.Imports.Workflows\\ImportApplication"
+    "\\Solutions"
   ],
-  "SelectedNode": "\\Solutions\\DefraImportsWorkflows\\WorkflowAssemblies\\Defra.Imports.Workflows\\ImportApplication\\DetermineInspectionRequirement.cs",
+  "SelectedNode": "\\Defra.Imports.sln",
   "PreviewInSolutionExplorer": false
 }
