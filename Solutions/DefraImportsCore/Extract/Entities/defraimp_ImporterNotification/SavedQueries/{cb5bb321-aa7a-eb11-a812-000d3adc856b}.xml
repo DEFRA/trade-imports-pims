@@ -17,13 +17,17 @@
           <cell name="defraimp_status" width="100" />
           <cell name="defraimp_type" width="100" />
           <cell name="defraimp_imptypeid" width="100" />
-          <cell name="ownerid" width="100" />
           <cell name="defraimp_personresponsiblename" width="100" />
           <cell name="defraimp_personresponsiblecompanyname" width="100" />
+          <cell name="defraimp_personresponsibleemail" width="100" />
+          <cell name="defraimp_personresponsiblephone" width="100" />
           <cell name="defraimp_commoditydescription" width="100" />
           <cell name="defraimp_commodityid" width="100" />
           <cell name="defraimp_countryoforiginid" width="100" />
           <cell name="defraimp_commoditiesregionoforigin" width="100" />
+          <cell name="defraimp_placeofdestinationaddresscity" width="100" />
+          <cell name="defraimp_placeofdestinationaddresspostalzipcode" width="100" />
+          <cell name="ownerid" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -46,6 +50,10 @@
           <attribute name="defraimp_commodityid" />
           <attribute name="defraimp_countryoforiginid" />
           <attribute name="defraimp_imptypeid" />
+          <attribute name="defraimp_placeofdestinationaddresspostalzipcode" />
+          <attribute name="defraimp_placeofdestinationaddresscity" />
+          <attribute name="defraimp_personresponsiblephone" />
+          <attribute name="defraimp_personresponsibleemail" />
           <attribute name="defraimp_importernotificationid" />
         </entity>
       </fetch>
