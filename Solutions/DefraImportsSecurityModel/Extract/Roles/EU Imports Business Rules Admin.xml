@@ -6,6 +6,7 @@
     <RolePrivilege name="prvAppenddefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_imptype" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_inspectioncoveragerule" level="Global" />
@@ -16,6 +17,7 @@
     <RolePrivilege name="prvAppendTodefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_imptype" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_MatchConfiguration" level="Global" />
@@ -24,6 +26,7 @@
     <RolePrivilege name="prvAppendTodefraimp_postcoderegion" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_importapplication" level="Global" />
+    <RolePrivilege name="prvAssigndefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_imptype" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_MatchConfiguration" level="Global" />
     <RolePrivilege name="prvAssigndefraimp_MatchConfigurationField" level="Global" />
@@ -33,6 +36,7 @@
     <RolePrivilege name="prvCreatedefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvCreatedefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_imptype" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_placeoforigin" level="Global" />
     <RolePrivilege name="prvCreatedefraimp_postcoderegion" level="Global" />
@@ -45,6 +49,7 @@
     <RolePrivilege name="prvReaddefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvReaddefraimp_imptype" level="Global" />
     <RolePrivilege name="prvReaddefraimp_inspectioncoveragerule" level="Global" />
@@ -62,6 +67,7 @@
     <RolePrivilege name="prvReadSharePointDocument" level="Global" />
     <RolePrivilege name="prvSharedefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvSharedefraimp_importapplication" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvSharedefraimp_imptype" level="Global" />
     <RolePrivilege name="prvSharedefraimp_MatchConfiguration" level="Global" />
     <RolePrivilege name="prvSharedefraimp_MatchConfigurationField" level="Global" />
@@ -73,6 +79,7 @@
     <RolePrivilege name="prvWritedefraimp_goldbronzecommodity" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importcountrycommodityrisklevel" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvWritedefraimp_imptype" level="Global" />
     <RolePrivilege name="prvWritedefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvWritedefraimp_itahc" level="Global" />
