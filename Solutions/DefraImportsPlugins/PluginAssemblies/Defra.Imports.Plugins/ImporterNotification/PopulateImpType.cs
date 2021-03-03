@@ -35,7 +35,7 @@ namespace Defra.Imports.Plugins.ImporterNotification
         protected override void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)
         {
             var target = ((Entity)context.InputParameters["Target"]).ToEntity<defraimp_ImporterNotification>();
-            var impTypeRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_imptype1>();
+            var impTypeRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_imptype>();
 
             PopulateImpTypeBusinessLogic logic = new PopulateImpTypeBusinessLogic(target, impTypeRepo);
             logic.RunLogic();

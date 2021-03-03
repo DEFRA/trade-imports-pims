@@ -1355,11 +1355,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{4ebb1e08-33d5-2d5e-6c22-1b47612a74a0}" showlabel="true" locklevel="0">
+                      <cell id="{0c64782a-c028-b2b3-1879-a821a7a12632}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Type" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_type" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_type" disabled="false" />
+                        <control id="defraimp_transportertype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_transportertype" disabled="false" uniqueid="{1d62212b-1245-3711-d7e9-74432add2331}" />
                       </cell>
                     </row>
                   </rows>

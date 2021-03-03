@@ -16,13 +16,13 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
     public class PopulateImpTypeBusinessLogicTests
     {
         private defraimp_ImporterNotification target;
-        private Mock<ICrmRepository<defraimp_imptype1>> mockImpTypeRepo;
+        private Mock<ICrmRepository<defraimp_imptype>> mockImpTypeRepo;
         private PopulateImpTypeBusinessLogic businessLogic;
 
         public PopulateImpTypeBusinessLogicTests()
         {
             this.target = new defraimp_ImporterNotification();
-            this.mockImpTypeRepo = new Mock<ICrmRepository<defraimp_imptype1>>();
+            this.mockImpTypeRepo = new Mock<ICrmRepository<defraimp_imptype>>();
             this.businessLogic = new PopulateImpTypeBusinessLogic(this.target, this.mockImpTypeRepo.Object);
         }
 
@@ -33,11 +33,11 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
             string impCode = "test";
             this.target.defraimp_ImpType = impCode;
 
-            defraimp_imptype1 stubbedImpType = this.CreateImpType();
+            defraimp_imptype stubbedImpType = this.CreateImpType();
 
             this.mockImpTypeRepo
-                .Setup(x => x.Find(It.IsAny<Expression<Func<defraimp_imptype1, bool>>>(), It.IsAny<Expression<Func<defraimp_imptype1, defraimp_imptype1>>>()))
-                .Returns(new List<defraimp_imptype1>() { stubbedImpType }.AsQueryable());
+                .Setup(x => x.Find(It.IsAny<Expression<Func<defraimp_imptype, bool>>>(), It.IsAny<Expression<Func<defraimp_imptype, defraimp_imptype>>>()))
+                .Returns(new List<defraimp_imptype>() { stubbedImpType }.AsQueryable());
 
             // Act
             this.businessLogic.RunLogic();
@@ -68,8 +68,8 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
             this.target.defraimp_ImpType = impCode;
 
             this.mockImpTypeRepo
-                .Setup(x => x.Find(It.IsAny<Expression<Func<defraimp_imptype1, bool>>>(), It.IsAny<Expression<Func<defraimp_imptype1, defraimp_imptype1>>>()))
-                .Returns(new List<defraimp_imptype1>().AsQueryable());
+                .Setup(x => x.Find(It.IsAny<Expression<Func<defraimp_imptype, bool>>>(), It.IsAny<Expression<Func<defraimp_imptype, defraimp_imptype>>>()))
+                .Returns(new List<defraimp_imptype>().AsQueryable());
 
             // Act
             this.businessLogic.RunLogic();
@@ -78,10 +78,10 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImporterNotification
             Assert.Null(this.target.defraimp_imptypeid);
         }
 
-        private defraimp_imptype1 CreateImpType()
+        private defraimp_imptype CreateImpType()
         {
             Guid impId = Guid.NewGuid();
-            defraimp_imptype1 stubbedImpType = new defraimp_imptype1()
+            defraimp_imptype stubbedImpType = new defraimp_imptype()
             {
                 Id = impId,
                 defraimp_imptypeId = impId,

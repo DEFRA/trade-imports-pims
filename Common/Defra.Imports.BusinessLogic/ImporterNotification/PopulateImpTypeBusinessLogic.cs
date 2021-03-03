@@ -13,14 +13,14 @@
     public class PopulateImpTypeBusinessLogic
     {
         private defraimp_ImporterNotification target;
-        private ICrmRepository<defraimp_imptype1> impTypeRepo;
+        private ICrmRepository<defraimp_imptype> impTypeRepo;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PopulateImpTypeBusinessLogic"/> class.
         /// </summary>
         /// <param name="target">The target record to set the imp type lookup on</param>
         /// <param name="impTypeRepo">The repository to use to retrieve the imp types with same code as the target</param>
-        public PopulateImpTypeBusinessLogic(defraimp_ImporterNotification target, ICrmRepository<defraimp_imptype1> impTypeRepo)
+        public PopulateImpTypeBusinessLogic(defraimp_ImporterNotification target, ICrmRepository<defraimp_imptype> impTypeRepo)
         {
             this.target = target;
             this.impTypeRepo = impTypeRepo;
@@ -34,10 +34,10 @@
             if (this.target.defraimp_ImpType != null)
             {
                 // Retrieve the imptypes with matching imptype code on the notification
-                List<defraimp_imptype1> impTypes =
+                List<defraimp_imptype> impTypes =
                     this.impTypeRepo.Find(
                         x => x.defraimp_code == this.target.defraimp_ImpType,
-                        x => new defraimp_imptype1()
+                        x => new defraimp_imptype()
                         {
                             defraimp_imptypeId = x.defraimp_imptypeId,
                         }).ToList();

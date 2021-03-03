@@ -424,21 +424,6 @@ namespace Defra.Imports.Model
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
-	public enum defraimp_imptype
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LiveAnimals = 714100000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		POAO = 714100001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HRFNAO = 714100002,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
 	public enum goal_fiscalperiod
 	{
 		
@@ -18098,39 +18083,6 @@ namespace Defra.Imports.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_imptype")]
-		public System.Nullable<Defra.Imports.Model.defraimp_imptype> defraimp_ImpType
-		{
-			get
-			{
-				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("defraimp_imptype");
-				if ((optionSet != null))
-				{
-					return ((Defra.Imports.Model.defraimp_imptype)(System.Enum.ToObject(typeof(Defra.Imports.Model.defraimp_imptype), optionSet.Value)));
-				}
-				else
-				{
-					return null;
-				}
-			}
-			set
-			{
-				this.OnPropertyChanging("defraimp_ImpType");
-				if ((value == null))
-				{
-					this.SetAttributeValue("defraimp_imptype", null);
-				}
-				else
-				{
-					this.SetAttributeValue("defraimp_imptype", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
-				}
-				this.OnPropertyChanged("defraimp_ImpType");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_imptypeid")]
 		public Microsoft.Xrm.Sdk.EntityReference defraimp_imptypeid
 		{
@@ -20375,16 +20327,16 @@ namespace Defra.Imports.Model
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_imptypeid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_imptype_defraimp_importapplication_imptypeid")]
-		public Defra.Imports.Model.defraimp_imptype1 defraimp_defraimp_imptype_defraimp_importapplication_imptypeid
+		public Defra.Imports.Model.defraimp_imptype defraimp_defraimp_imptype_defraimp_importapplication_imptypeid
 		{
 			get
 			{
-				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_imptype1>("defraimp_defraimp_imptype_defraimp_importapplication_imptypeid", null);
+				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_imptype>("defraimp_defraimp_imptype_defraimp_importapplication_imptypeid", null);
 			}
 			set
 			{
 				this.OnPropertyChanging("defraimp_defraimp_imptype_defraimp_importapplication_imptypeid");
-				this.SetRelatedEntity<Defra.Imports.Model.defraimp_imptype1>("defraimp_defraimp_imptype_defraimp_importapplication_imptypeid", null, value);
+				this.SetRelatedEntity<Defra.Imports.Model.defraimp_imptype>("defraimp_defraimp_imptype_defraimp_importapplication_imptypeid", null, value);
 				this.OnPropertyChanged("defraimp_defraimp_imptype_defraimp_importapplication_imptypeid");
 			}
 		}
@@ -25599,16 +25551,16 @@ namespace Defra.Imports.Model
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_imptypeid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_imptype_defraimp_importernotification_imptypeid")]
-		public Defra.Imports.Model.defraimp_imptype1 defraimp_defraimp_imptype_defraimp_importernotification_imptypeid
+		public Defra.Imports.Model.defraimp_imptype defraimp_defraimp_imptype_defraimp_importernotification_imptypeid
 		{
 			get
 			{
-				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_imptype1>("defraimp_defraimp_imptype_defraimp_importernotification_imptypeid", null);
+				return this.GetRelatedEntity<Defra.Imports.Model.defraimp_imptype>("defraimp_defraimp_imptype_defraimp_importernotification_imptypeid", null);
 			}
 			set
 			{
 				this.OnPropertyChanging("defraimp_defraimp_imptype_defraimp_importernotification_imptypeid");
-				this.SetRelatedEntity<Defra.Imports.Model.defraimp_imptype1>("defraimp_defraimp_imptype_defraimp_importernotification_imptypeid", null, value);
+				this.SetRelatedEntity<Defra.Imports.Model.defraimp_imptype>("defraimp_defraimp_imptype_defraimp_importernotification_imptypeid", null, value);
 				this.OnPropertyChanged("defraimp_defraimp_imptype_defraimp_importernotification_imptypeid");
 			}
 		}
@@ -29483,13 +29435,13 @@ namespace Defra.Imports.Model
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("defraimp_imptype")]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.13")]
-	public partial class defraimp_imptype1 : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	public partial class defraimp_imptype : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
 		/// <summary>
 		/// Default Constructor.
 		/// </summary>
-		public defraimp_imptype1() : 
+		public defraimp_imptype() : 
 				base(EntityLogicalName)
 		{
 		}
@@ -38274,13 +38226,13 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_imptype1"/> entities.
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_imptype"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_imptype1> defraimp_imptype1Set
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_imptype> defraimp_imptypeSet
 		{
 			get
 			{
-				return this.CreateQuery<Defra.Imports.Model.defraimp_imptype1>();
+				return this.CreateQuery<Defra.Imports.Model.defraimp_imptype>();
 			}
 		}
 		
