@@ -45,23 +45,14 @@
           <attribute name="defraimp_personresponsiblecompanyname" />
           <attribute name="defraimp_type" />
           <attribute name="defraimp_version" />
-          <order attribute="createdon" descending="true" />
-          <filter type="and">
-            <condition attribute="statecode" operator="eq" value="0" />
-            <filter type="and">
-              <condition attribute="defraimp_commodityid" operator="ne" value="0106410000" />
-              <condition attribute="defraimp_commodityid" operator="not-like" value="1601%" />
-              <condition attribute="defraimp_commodityid" operator="not-like" value="1602%" />
-              <condition attribute="defraimp_commodityid" operator="not-like" value="03%" />
-              <condition attribute="defraimp_commodityid" operator="not-like" value="02%" />
-              <condition attribute="defraimp_commodityid" operator="not-like" value="3%" />
-              <condition attribute="defraimp_commodityid" operator="not-like" value="2%" />
-            </filter>
-          </filter>
           <attribute name="defraimp_placeofdestinationaddresspostalzipcode" />
           <attribute name="defraimp_placeofdestinationaddresscity" />
           <attribute name="ownerid" />
           <attribute name="defraimp_imptypeid" />
+          <order attribute="createdon" descending="true" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
           <attribute name="defraimp_importernotificationid" />
         </entity>
       </fetch>
