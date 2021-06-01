@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name LocalizedName="CVED" OriginalName="CVED">defraimp_cved</Name>
+  <Name LocalizedName="CHED" OriginalName="CVED">defraimp_cved</Name>
   <EntityInfo>
     <entity Name="defraimp_cved">
       <LocalizedNames>
-        <LocalizedName description="CVED" languagecode="1033" />
+        <LocalizedName description="CHED" languagecode="1033" />
       </LocalizedNames>
       <LocalizedCollectionNames>
-        <LocalizedCollectionName description="CVEDs" languagecode="1033" />
+        <LocalizedCollectionName description="CHEDs" languagecode="1033" />
       </LocalizedCollectionNames>
       <Descriptions>
         <Description description="" languagecode="1033" />

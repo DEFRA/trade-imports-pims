@@ -480,11 +480,20 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{4c7acc04-5dd3-2937-77ce-96cdc74d33a0}" showlabel="true" locklevel="0">
+                      <cell id="{5da9a98e-2ce6-16d9-27aa-62e5c3d58089}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Certificate Number" languagecode="1033" />
+                          <label description="Primary CHEDA" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_chedacertificatenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_chedacertificatenumber" disabled="false" uniqueid="{a68ce115-7e77-de51-1c83-cb37d7ec60b4}" />
+                        <control id="defraimp_primarycvedid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_primarycvedid" disabled="false" uniqueid="{b6591dec-0e4e-6413-dd96-640aaa3b9d6d}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{6411D923-3547-4D7D-8EA0-1102FAC560BE}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
