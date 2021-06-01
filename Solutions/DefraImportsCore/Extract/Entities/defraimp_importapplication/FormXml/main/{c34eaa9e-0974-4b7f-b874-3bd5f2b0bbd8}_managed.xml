@@ -482,7 +482,7 @@
                     <row>
                       <cell id="{5da9a98e-2ce6-16d9-27aa-62e5c3d58089}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Primary CHEDA" languagecode="1033" />
+                          <label description="Primary CHED-A" languagecode="1033" />
                         </labels>
                         <control id="defraimp_primarycvedid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_primarycvedid" disabled="false" uniqueid="{b6591dec-0e4e-6413-dd96-640aaa3b9d6d}">
                           <parameters>
