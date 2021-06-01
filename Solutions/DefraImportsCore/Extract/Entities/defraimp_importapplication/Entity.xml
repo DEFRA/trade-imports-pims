@@ -888,7 +888,7 @@
           <MaxLength>255</MaxLength>
           <Length>510</Length>
           <displaynames>
-            <displayname description="CHED-A Certificate Number" languagecode="1033" />
+            <displayname description="Primary CHEDA" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -5175,7 +5175,7 @@
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
           <displaynames>
-            <displayname description="Primary CVED" languagecode="1033" />
+            <displayname description="Primary CHEDA" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />

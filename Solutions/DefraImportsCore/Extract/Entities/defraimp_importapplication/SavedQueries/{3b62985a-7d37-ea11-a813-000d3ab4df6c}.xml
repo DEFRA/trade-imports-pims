@@ -44,8 +44,8 @@
           <attribute name="defraimp_quantity" />
           <attribute name="defraimp_commodityidentifiers" />
           <attribute name="defraimp_workschedulenumber" />
-          <attribute name="defraimp_generalcomments" />
           <attribute name="defraimp_imptypeid" />
+          <attribute name="defraimp_generalcomments" />
           <attribute name="defraimp_importapplicationid" />
         </entity>
       </fetch>
