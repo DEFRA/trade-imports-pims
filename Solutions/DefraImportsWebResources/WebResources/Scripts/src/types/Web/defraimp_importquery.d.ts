@@ -57,7 +57,8 @@ declare namespace WebApi {
   interface defraimp_importquery extends defraimp_importquery_Base, defraimp_importquery_Relationships {
     defraimp_ITAHC_defraimp_importquery_bind$defraimp_itahcs?: string | null;
     defraimp_OriginalQuery_defraimp_importquery_bind$defraimp_importqueries?: string | null;
-    ownerid_defraimp_importquery_bind$owners?: string | null;
+    ownerid_defraimp_importquery_bind$systemusers?: string | null;
+    ownerid_defraimp_importquery_bind$teams?: string | null;
     regardingobjectid_account_defraimp_importquery_bind$accounts?: string | null;
     regardingobjectid_bookableresourcebooking_defraimp_importquery_bind$bookableresourcebookings?: string | null;
     regardingobjectid_bookableresourcebookingheader_defraimp_importquery_bind$bookableresourcebookingheaders?: string | null;

@@ -199,7 +199,7 @@ string GetConnectionString(string solution, bool stagingEnvironment) {
   var username = envConfig["username"] ?? EnvironmentVariable("CAKE_DYNAMICS_USERNAME");
   var password = EnvironmentVariable("CAKE_DYNAMICS_PASSWORD");
 
-  return $"Url={url}; Username={username}; Password={password}; AuthType=Office365;";
+  return $"Url={url}; Username={username}; Password={password}; AuthType=Office365; SkipDiscovery=true;";
 }
 
 void ExtractSolution(string connectionString, string solutionName, DirectoryPath outputPath) {

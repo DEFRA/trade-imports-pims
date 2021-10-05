@@ -50,7 +50,8 @@ declare namespace WebApi {
     defraimp_ITAHC_bind$defraimp_itahcs?: string | null;
     defraimp_ImportRecord_bind$defraimp_importapplications?: string | null;
     defraimp_ImporterNotification_bind$defraimp_importernotifications?: string | null;
-    ownerid_bind$owners?: string | null;
+    ownerid_bind$systemusers?: string | null;
+    ownerid_bind$teams?: string | null;
     stageid_bind$processstages?: string | null;
   }
   interface defraimp_matchrecord_Create extends defraimp_matchrecord {

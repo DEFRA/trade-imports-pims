@@ -270,3 +270,6 @@ tools/**/*
 tools/*.md5sum
 !tools/packages.config
 **/*_temp.config
+
+# other VS
+.vs/*

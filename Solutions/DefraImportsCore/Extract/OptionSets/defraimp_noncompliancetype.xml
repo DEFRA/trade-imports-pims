@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="defraimp_noncompliancetype" localizedName="Non-Compliance Type" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <ExternalTypeName></ExternalTypeName>
+  <displaynames>
+    <displayname description="Non-Compliance Type" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="714100000" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="No Importer Notification" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100001" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="No UNN on Health Certificate" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100002" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="ITAHC but no GB Certificate" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100003" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Health Certificate not attached to IN" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100004" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="No For to Travel Declaration" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100005" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Other" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

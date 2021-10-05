@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{ba421416-3700-ec11-94ef-00224899c638}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" preview="1" icon="1">
+        <row name="result" id="defraimp_importapplicationid">
+          <cell name="defraimp_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_countryoforiginid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_pimsstatus" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_typesofnoncompliance" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_irmspersonresponsible" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeoforiginaddresscity" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeofdestinationaddresscity" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_contactedduetononcompliance" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_dateemailsent" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_datetelephonecallmade" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="statuscode" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="defraimp_importapplication">
+          <attribute name="defraimp_name" />
+          <attribute name="defraimp_countryoforiginid" />
+          <attribute name="defraimp_irmspersonresponsible" />
+          <attribute name="createdon" />
+          <attribute name="defraimp_contactedduetononcompliance" />
+          <attribute name="statuscode" />
+          <attribute name="defraimp_datetelephonecallmade" />
+          <attribute name="defraimp_dateemailsent" />
+          <attribute name="defraimp_placeofdestinationaddresscity" />
+          <attribute name="defraimp_placeoforiginaddresscity" />
+          <attribute name="defraimp_pimsstatus" />
+          <attribute name="defraimp_typesofnoncompliance" />
+          <order attribute="createdon" descending="false" />
+          <filter type="and">
+            <condition attribute="defraimp_noncompliancestatus" operator="eq" value="714100000" />
+          </filter>
+          <attribute name="defraimp_importapplicationid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Import Records with Active Non-Compliance Queries" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

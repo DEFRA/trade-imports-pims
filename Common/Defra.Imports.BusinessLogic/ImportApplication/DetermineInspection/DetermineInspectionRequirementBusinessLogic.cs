@@ -89,11 +89,12 @@
                     {
                         ManageRiskLevelChange(previousRiskLevel, currentRiskLevel);
 
-                        if (preImageImportApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
+                        if (preImageImportApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC
+                            || preImageImportApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHCLandbridge)
                         {
                             ManageITAHCRemoval(previousRiskLevel);
                         }
-                        else if (preImageImportApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.IMP)
+                        else if (preImageImportApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ImportNotification)
                         {
                             ManageImporterNotificationRemoval(previousRiskLevel);
                         }

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{3e316d40-3400-ec11-94ef-00224899c638}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" preview="1" icon="1">
+        <row name="result" id="defraimp_importernotificationid">
+          <cell name="defraimp_name" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_version" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_pimsstatus" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_typeofnoncompliance" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_irmspersonresponsible" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_devolvedoffice" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_arrivaldate" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_submissiondate" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_status" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_type" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_commoditiescountryoforigin" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_commodityid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_commodityspeciesname" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_commoditiesnumberofanimals" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_commodityidtypes" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_commoditiesanimalscertifiedas" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeoforiginharvestcompanyname" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeoforiginharvestindividualname" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeofdestinationaddresspostalzipcode" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeofdestinationcompanyname" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_placeofdestinationaddresscity" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_personresponsiblename" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_personresponsiblecompanyname" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_transportercompanyname" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_portofentry" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="ownerid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="defraimp_importernotification">
+          <attribute name="defraimp_name" />
+          <attribute name="defraimp_submissiondate" />
+          <attribute name="defraimp_irmspersonresponsible" />
+          <attribute name="defraimp_placeofdestinationaddresspostalzipcode" />
+          <attribute name="defraimp_commoditiescountryoforigin" />
+          <attribute name="defraimp_status" />
+          <attribute name="defraimp_version" />
+          <attribute name="defraimp_type" />
+          <attribute name="defraimp_transportercompanyname" />
+          <attribute name="defraimp_commoditiesanimalscertifiedas" />
+          <attribute name="defraimp_portofentry" />
+          <attribute name="defraimp_placeoforiginharvestindividualname" />
+          <attribute name="defraimp_placeoforiginharvestcompanyname" />
+          <attribute name="defraimp_placeofdestinationcompanyname" />
+          <attribute name="defraimp_placeofdestinationaddresscity" />
+          <attribute name="defraimp_personresponsiblename" />
+          <attribute name="defraimp_personresponsiblecompanyname" />
+          <attribute name="ownerid" />
+          <attribute name="defraimp_devolvedoffice" />
+          <attribute name="createdon" />
+          <attribute name="defraimp_commodityspeciesname" />
+          <attribute name="defraimp_commodityidtypes" />
+          <attribute name="defraimp_commodityid" />
+          <attribute name="defraimp_commoditiesnumberofanimals" />
+          <attribute name="defraimp_arrivaldate" />
+          <attribute name="defraimp_pimsstatus" />
+          <attribute name="defraimp_typeofnoncompliance" />
+          <order attribute="createdon" descending="false" />
+          <filter type="and">
+            <condition attribute="defraimp_status" operator="eq" value="714100005" />
+            <condition attribute="ownerid" operator="eq" uiname="EU Imports Dynamics Application User" uitype="systemuser" value="{CA80C879-8351-EA11-A812-000D3AB5D511}" />
+            <condition attribute="defraimp_healthcertificateattached" operator="eq" value="1" />
+          </filter>
+          <attribute name="defraimp_importernotificationid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

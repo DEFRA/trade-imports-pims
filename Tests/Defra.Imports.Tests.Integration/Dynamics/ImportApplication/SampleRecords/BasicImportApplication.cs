@@ -11,7 +11,7 @@
             ImportApplication = new defraimp_importapplication
             {
                 Id = id,
-                defraimp_ImportApplicationType = defraimp_importapplication_defraimp_importapplicationtype.IMP,
+                defraimp_ImportApplicationType = defraimp_importapplication_defraimp_importapplicationtype.ImportNotification,
                 defraimp_DevolvedOfficeId = Teams.EnglandTeam,
             };
         }

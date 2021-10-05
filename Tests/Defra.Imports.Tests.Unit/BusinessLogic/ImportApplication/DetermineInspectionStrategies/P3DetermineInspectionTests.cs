@@ -44,6 +44,27 @@ namespace Defra.Imports.Tests.Unit.BusinessLogic.ImportApplication.DetermineInsp
         }
 
         [Fact]
+        public void ExecuteInspection_TypeOfItahcLandbridgeAndPrimaryItahc_ShouldRetrieveTheCountOfTheP3CounterAndUpdateCountedToTrue()
+        {
+            // Arrange
+            _importApplication.defraimp_ImportApplicationType = defraimp_importapplication_defraimp_importapplicationtype.ITAHCLandbridge;
+            EntityReference itahcEntityRef = new EntityReference(defraimp_itahc.EntityLogicalName, Guid.NewGuid());
+            _importApplication.defraimp_PrimaryITAHCId = itahcEntityRef;
+
+            SetupCoverageRulesRepoToReturnRules();
+            SetupConfigurationParameterRepoToReturnTracesEnabled("True");
+            SetupP3AutonumberRepo(1);
+            SetupRiskLevelCounterManager();
+
+            // Act
+            _P3DetermineInspection.ExecuteInspection(_determineInspectionContext);
+
+            // Assert
+            _mockAutoNumberRepo.Verify(r => r.GetAutonumberValue(ImportApplicationConstants.P3_COUNTER_NAME));
+            _mockImportApplicationRepo.Verify(r => r.Update(It.Is<defraimp_importapplication>(o => o.defraimp_ImportRecordCounted == true)));
+        }
+
+        [Fact]
         public void ExecuteInspection_CountHigherThanRule_ShouldUpdateImportApplicationToInspectionRequired()
         {
             // Arrange

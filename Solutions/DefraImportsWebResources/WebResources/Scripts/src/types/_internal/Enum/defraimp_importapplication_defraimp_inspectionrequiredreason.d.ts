@@ -14,4 +14,6 @@ declare const enum defraimp_importapplication_defraimp_inspectionrequiredreason 
   ManuallyAssignedHighRisk = 714100012,
   ManuallyRequestedPostImportCheck = 714100013,
   PrimaryITAHCMissing = 714100014,
+  PrimaryImporterNotificationMissing = 714100015,
+  TRACESisdisabledUseImporterNotificationsinstead = 714100016,
 }

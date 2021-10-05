@@ -32,6 +32,7 @@ declare namespace WebApi {
     activityid_fax_bind$faxes?: string | null;
     activityid_incidentresolution_bind$incidentresolutions?: string | null;
     activityid_letter_bind$letters?: string | null;
+    activityid_msfp_alert_activityparty_bind$msfp_alerts?: string | null;
     activityid_msfp_surveyinvite_activityparty_bind$msfp_surveyinvites?: string | null;
     activityid_msfp_surveyresponse_activityparty_bind$msfp_surveyresponses?: string | null;
     activityid_opportunityclose_bind$opportunitycloses?: string | null;

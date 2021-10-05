@@ -16,6 +16,13 @@ declare namespace Form.defraimp_importapplication.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
+      interface DOCOM_Tab extends Xrm.SectionCollectionBase {
+        get(name: "DOCOM"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
       interface Destinations_Tab extends Xrm.SectionCollectionBase {
         get(name: "ConsignmentFinal_Section"): Xrm.PageSection;
         get(name: "PlaceofDestination_Section"): Xrm.PageSection;
@@ -27,6 +34,14 @@ declare namespace Form.defraimp_importapplication.Main {
       interface Importer_Tab extends Xrm.SectionCollectionBase {
         get(name: "Importer_Section"): Xrm.PageSection;
         get(name: "Importer_Tab_column_4_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface NonCompliance_Tab extends Xrm.SectionCollectionBase {
+        get(name: "tab_12_section_1"): Xrm.PageSection;
+        get(name: "tab_12_section_2"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -48,6 +63,7 @@ declare namespace Form.defraimp_importapplication.Main {
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
       interface Summary extends Xrm.SectionCollectionBase {
+        get(name: "CommodityIdentifierIpaffs_Section"): Xrm.PageSection;
         get(name: "CommodityIdentifiersManual_Section"): Xrm.PageSection;
         get(name: "CommodityIdentifiers_Section"): Xrm.PageSection;
         get(name: "Commodity_Section"): Xrm.PageSection;
@@ -94,12 +110,13 @@ declare namespace Form.defraimp_importapplication.Main {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "createdon"): Xrm.DateAttribute;
+      get(name: "defraimp_animalcertifiedas"): Xrm.OptionSetAttribute<defraimp_animalcertifiedas>;
       get(name: "defraimp_article15reimport"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_article8monitored"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "defraimp_certificatecompliantfirsttime"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "defraimp_certificatenoncompliancereason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_certificatenoncompliancereason>;
-      get(name: "defraimp_certificatenoncompliancereasonother"): Xrm.Attribute<string>;
-      get(name: "defraimp_certificateverified"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "defraimp_certificatecompliantfirsttime"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "defraimp_certificatenoncompliancereason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_certificatenoncompliancereason> | null;
+      get(name: "defraimp_certificatenoncompliancereasonother"): Xrm.Attribute<string> | null;
+      get(name: "defraimp_certificateverified"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "defraimp_charityaddresscity"): Xrm.Attribute<string>;
       get(name: "defraimp_charityaddresscountry"): Xrm.LookupAttribute<"defra_country">;
       get(name: "defraimp_charityaddressline1"): Xrm.Attribute<string>;
@@ -111,19 +128,27 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_commodityidentifiers"): Xrm.Attribute<string>;
       get(name: "defraimp_commoditynotes"): Xrm.Attribute<string>;
       get(name: "defraimp_commoditytypeid"): Xrm.LookupAttribute<"defraexp_commoditytype">;
-      get(name: "defraimp_completionsummary"): Xrm.Attribute<string>;
+      get(name: "defraimp_completionsummary"): Xrm.Attribute<string> | null;
       get(name: "defraimp_consignmentconforming"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "defraimp_contactedduetononcompliance"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_containernumber"): Xrm.Attribute<string>;
       get(name: "defraimp_countryoforiginid"): Xrm.LookupAttribute<"defra_country">;
+      get(name: "defraimp_datecompleted"): Xrm.DateAttribute;
+      get(name: "defraimp_dateemailsent"): Xrm.DateAttribute;
       get(name: "defraimp_dateiv66received"): Xrm.DateAttribute;
       get(name: "defraimp_dateofconfirmationfromimporter"): Xrm.DateAttribute;
       get(name: "defraimp_dateofconfirmationtobip"): Xrm.DateAttribute;
       get(name: "defraimp_dateofemailtoimporter"): Xrm.DateAttribute;
       get(name: "defraimp_dateofimport"): Xrm.DateAttribute;
+      get(name: "defraimp_datepodrequested"): Xrm.DateAttribute;
+      get(name: "defraimp_datetelephonecallmade"): Xrm.DateAttribute;
       get(name: "defraimp_destinationaddresscountryid"): Xrm.LookupAttribute<"defra_country">;
       get(name: "defraimp_devolvedofficeid"): Xrm.LookupAttribute<"team">;
+      get(name: "defraimp_docomcategory"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_docomcategory>;
+      get(name: "defraimp_docomreference"): Xrm.Attribute<string>;
       get(name: "defraimp_documentationnumber"): Xrm.Attribute<string>;
       get(name: "defraimp_documentnumber"): Xrm.Attribute<string>;
+      get(name: "defraimp_gbimporthealthcertificate"): Xrm.Attribute<string>;
       get(name: "defraimp_generalcomments"): Xrm.Attribute<string>;
       get(name: "defraimp_healthcertificatenumber"): Xrm.Attribute<string>;
       get(name: "defraimp_importapplicationtype"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_importapplicationtype>;
@@ -140,14 +165,18 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_importingfromcharity"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_importrisklevelid"): Xrm.LookupAttribute<"defraimp_importrisklevel">;
       get(name: "defraimp_importrisklevelstatus"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_importrisklevelstatus>;
+      get(name: "defraimp_imptypeid"): Xrm.LookupAttribute<"defraimp_imptype">;
       get(name: "defraimp_inspectiondeclinedreason"): Xrm.Attribute<string>;
       get(name: "defraimp_inspectionoutcome"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionoutcome>;
-      get(name: "defraimp_inspectionrequested"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "defraimp_inspectionrequested"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "defraimp_inspectionrequired"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionrequired>;
       get(name: "defraimp_inspectionrequiredoriginalvalue"): Xrm.NumberAttribute;
       get(name: "defraimp_inspectionrequiredreason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionrequiredreason>;
       get(name: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberAttribute;
       get(name: "defraimp_ipaffsspeciesid"): Xrm.Attribute<string>;
+      get(name: "defraimp_irmspersonresponsible"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "defraimp_isnoncompliantcalculated"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "defraimp_itahcreference"): Xrm.Attribute<string>;
       get(name: "defraimp_iv65responseduedate"): Xrm.DateAttribute;
       get(name: "defraimp_iv65responsereceiveddate"): Xrm.DateAttribute;
       get(name: "defraimp_iv65sent"): Xrm.Attribute<any>;
@@ -159,6 +188,8 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_movedtocompletiondate"): Xrm.DateAttribute;
       get(name: "defraimp_movetocompletion"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_name"): Xrm.Attribute<string>;
+      get(name: "defraimp_noncomplianceothercomments"): Xrm.Attribute<string>;
+      get(name: "defraimp_noncompliancestatus"): Xrm.OptionSetAttribute<defraimp_noncompliancestatus>;
       get(name: "defraimp_notifiedtobipwithin15days"): Xrm.OptionSetAttribute<boolean>;
       get(name: "defraimp_permanentdestinationaddresscity"): Xrm.Attribute<string>;
       get(name: "defraimp_permanentdestinationaddresscounid"): Xrm.LookupAttribute<"defra_country">;
@@ -170,6 +201,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_permanentdestinationemail"): Xrm.Attribute<string>;
       get(name: "defraimp_permanentdestinationorganisation"): Xrm.Attribute<string>;
       get(name: "defraimp_permanentdestinationtelephone"): Xrm.Attribute<string>;
+      get(name: "defraimp_pimsstatus"): Xrm.OptionSetAttribute<defraimp_pimsstatus>;
       get(name: "defraimp_placeofdestinationaddresscity"): Xrm.Attribute<string>;
       get(name: "defraimp_placeofdestinationaddressline1"): Xrm.Attribute<string>;
       get(name: "defraimp_placeofdestinationaddressline2"): Xrm.Attribute<string>;
@@ -189,14 +221,18 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_placeoforiginid"): Xrm.LookupAttribute<"defraimp_placeoforigin">;
       get(name: "defraimp_placeoforiginorganisation"): Xrm.Attribute<string>;
       get(name: "defraimp_pointofentry"): Xrm.Attribute<string>;
+      get(name: "defraimp_primarycvedid"): Xrm.LookupAttribute<"defraimp_cved">;
       get(name: "defraimp_primaryimporternotificationid"): Xrm.LookupAttribute<"defraimp_importernotification">;
       get(name: "defraimp_primaryitahcid"): Xrm.LookupAttribute<"defraimp_itahc">;
       get(name: "defraimp_purpose"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_purpose>;
       get(name: "defraimp_quantity"): Xrm.NumberAttribute;
       get(name: "defraimp_regionareaallocatedtoid"): Xrm.LookupAttribute<"defraimp_apharegion">;
-      get(name: "defraimp_resettrustleveltobronze"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "defraimp_risklevelverified"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "defraimp_replyreceived"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_replyreceived>;
+      get(name: "defraimp_requestedpod"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_requestedpod>;
+      get(name: "defraimp_resettrustleveltobronze"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "defraimp_risklevelverified"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "defraimp_sealnumber"): Xrm.Attribute<string>;
+      get(name: "defraimp_tracesexporthealthcertificate"): Xrm.Attribute<string>;
       get(name: "defraimp_tracesspeciesid"): Xrm.Attribute<string>;
       get(name: "defraimp_transporteraddresscity"): Xrm.Attribute<string>;
       get(name: "defraimp_transporteraddresscountryid"): Xrm.LookupAttribute<"defra_country">;
@@ -207,9 +243,12 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_transporteremail"): Xrm.Attribute<string>;
       get(name: "defraimp_transportername"): Xrm.Attribute<string>;
       get(name: "defraimp_transportertelephone"): Xrm.Attribute<string>;
+      get(name: "defraimp_transportertype"): Xrm.Attribute<string>;
+      get(name: "defraimp_typesofnoncompliance"): Xrm.MultiSelectOptionSetAttribute<defraimp_noncompliancetype>;
       get(name: "defraimp_unit"): Xrm.Attribute<string>;
       get(name: "defraimp_warbleflytreatmentdeclarationreceiveddate"): Xrm.DateAttribute;
       get(name: "defraimp_warbleflytreatmentdeclarationrequired"): Xrm.Attribute<any>;
+      get(name: "defraimp_weight"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "statuscode"): Xrm.OptionSetAttribute<defraimp_importapplication_statuscode>;
       get(name: string): undefined;
@@ -225,6 +264,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "Subgrid_WatchFlags"): Xrm.SubGridControl<"defraimp_watchflag">;
       get(name: "WebResource_FilesAndAttachments"): Xrm.WebResourceControl;
       get(name: "WebResource_UploadFiles"): Xrm.WebResourceControl;
+      get(name: "defraimp_animalcertifiedas"): Xrm.OptionSetControl<defraimp_animalcertifiedas>;
       get(name: "defraimp_article15reimport"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_article8monitored"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_charityaddresscity"): Xrm.StringControl;
@@ -239,17 +279,25 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_commoditynotes"): Xrm.StringControl;
       get(name: "defraimp_commoditytypeid"): Xrm.LookupControl<"defraexp_commoditytype">;
       get(name: "defraimp_consignmentconforming"): Xrm.OptionSetControl<boolean>;
+      get(name: "defraimp_contactedduetononcompliance"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_containernumber"): Xrm.StringControl;
       get(name: "defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country">;
+      get(name: "defraimp_datecompleted"): Xrm.DateControl;
+      get(name: "defraimp_dateemailsent"): Xrm.DateControl;
       get(name: "defraimp_dateiv66received"): Xrm.DateControl;
       get(name: "defraimp_dateofconfirmationfromimporter"): Xrm.DateControl;
       get(name: "defraimp_dateofconfirmationtobip"): Xrm.DateControl;
       get(name: "defraimp_dateofemailtoimporter"): Xrm.DateControl;
       get(name: "defraimp_dateofimport"): Xrm.DateControl;
+      get(name: "defraimp_datepodrequested"): Xrm.DateControl;
+      get(name: "defraimp_datetelephonecallmade"): Xrm.DateControl;
       get(name: "defraimp_destinationaddresscountryid"): Xrm.LookupControl<"defra_country">;
       get(name: "defraimp_devolvedofficeid"): Xrm.LookupControl<"team">;
+      get(name: "defraimp_docomcategory"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_docomcategory>;
+      get(name: "defraimp_docomreference"): Xrm.StringControl;
       get(name: "defraimp_documentationnumber"): Xrm.StringControl;
       get(name: "defraimp_documentnumber"): Xrm.StringControl;
+      get(name: "defraimp_gbimporthealthcertificate"): Xrm.StringControl;
       get(name: "defraimp_generalcomments"): Xrm.StringControl;
       get(name: "defraimp_importapplicationtype"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_importapplicationtype>;
       get(name: "defraimp_importeraddress1"): Xrm.StringControl;
@@ -265,6 +313,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_importingfromcharity"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_importrisklevelid"): Xrm.LookupControl<"defraimp_importrisklevel">;
       get(name: "defraimp_importrisklevelstatus"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_importrisklevelstatus>;
+      get(name: "defraimp_imptypeid"): Xrm.LookupControl<"defraimp_imptype">;
       get(name: "defraimp_inspectiondeclinedreason"): Xrm.StringControl;
       get(name: "defraimp_inspectionoutcome"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionoutcome>;
       get(name: "defraimp_inspectionrequired"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequired>;
@@ -272,6 +321,9 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_inspectionrequiredreason"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequiredreason>;
       get(name: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberControl;
       get(name: "defraimp_ipaffsspeciesid"): Xrm.StringControl;
+      get(name: "defraimp_irmspersonresponsible"): Xrm.LookupControl<"systemuser">;
+      get(name: "defraimp_isnoncompliantcalculated"): Xrm.OptionSetControl<boolean>;
+      get(name: "defraimp_itahcreference"): Xrm.StringControl;
       get(name: "defraimp_iv65responseduedate"): Xrm.DateControl;
       get(name: "defraimp_iv65responsereceiveddate"): Xrm.DateControl;
       get(name: "defraimp_iv65sent"): Xrm.Control<Xrm.Attribute<any>>;
@@ -284,6 +336,8 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_movedtocompletiondate"): Xrm.DateControl;
       get(name: "defraimp_movetocompletion"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_name"): Xrm.StringControl;
+      get(name: "defraimp_noncomplianceothercomments"): Xrm.StringControl;
+      get(name: "defraimp_noncompliancestatus"): Xrm.OptionSetControl<defraimp_noncompliancestatus>;
       get(name: "defraimp_notifiedtobipwithin15days"): Xrm.OptionSetControl<boolean>;
       get(name: "defraimp_permanentdestinationaddresscity"): Xrm.StringControl;
       get(name: "defraimp_permanentdestinationaddresscounid"): Xrm.LookupControl<"defra_country">;
@@ -295,6 +349,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_permanentdestinationemail"): Xrm.StringControl;
       get(name: "defraimp_permanentdestinationorganisation"): Xrm.StringControl;
       get(name: "defraimp_permanentdestinationtelephone"): Xrm.StringControl;
+      get(name: "defraimp_pimsstatus"): Xrm.OptionSetControl<defraimp_pimsstatus>;
       get(name: "defraimp_placeofdestinationaddresscity"): Xrm.StringControl;
       get(name: "defraimp_placeofdestinationaddressline1"): Xrm.StringControl;
       get(name: "defraimp_placeofdestinationaddressline2"): Xrm.StringControl;
@@ -314,12 +369,16 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin">;
       get(name: "defraimp_placeoforiginorganisation"): Xrm.StringControl;
       get(name: "defraimp_pointofentry"): Xrm.StringControl;
+      get(name: "defraimp_primarycvedid"): Xrm.LookupControl<"defraimp_cved">;
       get(name: "defraimp_primaryimporternotificationid"): Xrm.LookupControl<"defraimp_importernotification">;
       get(name: "defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc">;
       get(name: "defraimp_purpose"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_purpose>;
       get(name: "defraimp_quantity"): Xrm.NumberControl;
       get(name: "defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion">;
+      get(name: "defraimp_replyreceived"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_replyreceived>;
+      get(name: "defraimp_requestedpod"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_requestedpod>;
       get(name: "defraimp_sealnumber"): Xrm.StringControl;
+      get(name: "defraimp_tracesexporthealthcertificate"): Xrm.StringControl;
       get(name: "defraimp_tracesspeciesid"): Xrm.StringControl;
       get(name: "defraimp_transporteraddresscity"): Xrm.StringControl;
       get(name: "defraimp_transporteraddresscountryid"): Xrm.LookupControl<"defra_country">;
@@ -330,9 +389,12 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "defraimp_transporteremail"): Xrm.StringControl;
       get(name: "defraimp_transportername"): Xrm.StringControl;
       get(name: "defraimp_transportertelephone"): Xrm.StringControl;
+      get(name: "defraimp_transportertype"): Xrm.StringControl;
+      get(name: "defraimp_typesofnoncompliance"): Xrm.MultiSelectOptionSetControl<defraimp_noncompliancetype>;
       get(name: "defraimp_unit"): Xrm.StringControl;
       get(name: "defraimp_warbleflytreatmentdeclarationreceiveddate"): Xrm.DateControl;
       get(name: "defraimp_warbleflytreatmentdeclarationrequired"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "defraimp_weight"): Xrm.StringControl;
       get(name: "footer_createdon"): Xrm.DateControl;
       get(name: "footer_defraimp_healthcertificatenumber"): Xrm.StringControl;
       get(name: "footer_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
@@ -343,7 +405,7 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "header_process_defraimp_certificateverified"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_defraimp_commoditytypeid"): Xrm.LookupControl<"defraexp_commoditytype"> | null;
       get(name: "header_process_defraimp_completionsummary"): Xrm.StringControl | null;
-      get(name: "header_process_defraimp_completionsummary1"): Xrm.StringControl | null;
+      get(name: "header_process_defraimp_completionsummary_1"): Xrm.StringControl | null;
       get(name: "header_process_defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country"> | null;
       get(name: "header_process_defraimp_importrisklevelid"): Xrm.LookupControl<"defraimp_importrisklevel"> | null;
       get(name: "header_process_defraimp_inspectiondeclinedreason"): Xrm.StringControl | null;
@@ -351,9 +413,9 @@ declare namespace Form.defraimp_importapplication.Main {
       get(name: "header_process_defraimp_inspectionrequired"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequired> | null;
       get(name: "header_process_defraimp_manualpostimportcheckdecision"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_manualpostimportcheckdecision> | null;
       get(name: "header_process_defraimp_movedtocompletiondate"): Xrm.DateControl | null;
-      get(name: "header_process_defraimp_movedtocompletiondate1"): Xrm.DateControl | null;
+      get(name: "header_process_defraimp_movedtocompletiondate_1"): Xrm.DateControl | null;
       get(name: "header_process_defraimp_movetocompletion"): Xrm.OptionSetControl<boolean> | null;
-      get(name: "header_process_defraimp_movetocompletion1"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_defraimp_movetocompletion_1"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin"> | null;
       get(name: "header_process_defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc"> | null;
       get(name: "header_process_defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion"> | null;
@@ -371,8 +433,10 @@ declare namespace Form.defraimp_importapplication.Main {
     interface Tabs extends Xrm.TabCollectionBase {
       get(name: "AdditionalITAHC_Tab"): Xrm.PageTab<Tabs.AdditionalITAHC_Tab>;
       get(name: "Charity_Tab"): Xrm.PageTab<Tabs.Charity_Tab>;
+      get(name: "DOCOM_Tab"): Xrm.PageTab<Tabs.DOCOM_Tab>;
       get(name: "Destinations_Tab"): Xrm.PageTab<Tabs.Destinations_Tab>;
       get(name: "Importer_Tab"): Xrm.PageTab<Tabs.Importer_Tab>;
+      get(name: "NonCompliance_Tab"): Xrm.PageTab<Tabs.NonCompliance_Tab>;
       get(name: "PlaceofOrigin_Tab"): Xrm.PageTab<Tabs.PlaceofOrigin_Tab>;
       get(name: "Queries_Tab"): Xrm.PageTab<Tabs.Queries_Tab>;
       get(name: "Summary"): Xrm.PageTab<Tabs.Summary>;
@@ -387,12 +451,13 @@ declare namespace Form.defraimp_importapplication.Main {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "createdon"): Xrm.DateAttribute;
+    getAttribute(attributeName: "defraimp_animalcertifiedas"): Xrm.OptionSetAttribute<defraimp_animalcertifiedas>;
     getAttribute(attributeName: "defraimp_article15reimport"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_article8monitored"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "defraimp_certificatecompliantfirsttime"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "defraimp_certificatenoncompliancereason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_certificatenoncompliancereason>;
-    getAttribute(attributeName: "defraimp_certificatenoncompliancereasonother"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "defraimp_certificateverified"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "defraimp_certificatecompliantfirsttime"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "defraimp_certificatenoncompliancereason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_certificatenoncompliancereason> | null;
+    getAttribute(attributeName: "defraimp_certificatenoncompliancereasonother"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "defraimp_certificateverified"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "defraimp_charityaddresscity"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_charityaddresscountry"): Xrm.LookupAttribute<"defra_country">;
     getAttribute(attributeName: "defraimp_charityaddressline1"): Xrm.Attribute<string>;
@@ -404,19 +469,27 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_commodityidentifiers"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commoditynotes"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_commoditytypeid"): Xrm.LookupAttribute<"defraexp_commoditytype">;
-    getAttribute(attributeName: "defraimp_completionsummary"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_completionsummary"): Xrm.Attribute<string> | null;
     getAttribute(attributeName: "defraimp_consignmentconforming"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "defraimp_contactedduetononcompliance"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_containernumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_countryoforiginid"): Xrm.LookupAttribute<"defra_country">;
+    getAttribute(attributeName: "defraimp_datecompleted"): Xrm.DateAttribute;
+    getAttribute(attributeName: "defraimp_dateemailsent"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_dateiv66received"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_dateofconfirmationfromimporter"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_dateofconfirmationtobip"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_dateofemailtoimporter"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_dateofimport"): Xrm.DateAttribute;
+    getAttribute(attributeName: "defraimp_datepodrequested"): Xrm.DateAttribute;
+    getAttribute(attributeName: "defraimp_datetelephonecallmade"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_destinationaddresscountryid"): Xrm.LookupAttribute<"defra_country">;
     getAttribute(attributeName: "defraimp_devolvedofficeid"): Xrm.LookupAttribute<"team">;
+    getAttribute(attributeName: "defraimp_docomcategory"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_docomcategory>;
+    getAttribute(attributeName: "defraimp_docomreference"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_documentationnumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_documentnumber"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_gbimporthealthcertificate"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_generalcomments"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_healthcertificatenumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_importapplicationtype"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_importapplicationtype>;
@@ -433,14 +506,18 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_importingfromcharity"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_importrisklevelid"): Xrm.LookupAttribute<"defraimp_importrisklevel">;
     getAttribute(attributeName: "defraimp_importrisklevelstatus"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_importrisklevelstatus>;
+    getAttribute(attributeName: "defraimp_imptypeid"): Xrm.LookupAttribute<"defraimp_imptype">;
     getAttribute(attributeName: "defraimp_inspectiondeclinedreason"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_inspectionoutcome"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionoutcome>;
-    getAttribute(attributeName: "defraimp_inspectionrequested"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "defraimp_inspectionrequested"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "defraimp_inspectionrequired"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionrequired>;
     getAttribute(attributeName: "defraimp_inspectionrequiredoriginalvalue"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_inspectionrequiredreason"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_inspectionrequiredreason>;
     getAttribute(attributeName: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_ipaffsspeciesid"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_irmspersonresponsible"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "defraimp_isnoncompliantcalculated"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "defraimp_itahcreference"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_iv65responseduedate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_iv65responsereceiveddate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_iv65sent"): Xrm.Attribute<any>;
@@ -452,6 +529,8 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_movedtocompletiondate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_movetocompletion"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_noncomplianceothercomments"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_noncompliancestatus"): Xrm.OptionSetAttribute<defraimp_noncompliancestatus>;
     getAttribute(attributeName: "defraimp_notifiedtobipwithin15days"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "defraimp_permanentdestinationaddresscity"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_permanentdestinationaddresscounid"): Xrm.LookupAttribute<"defra_country">;
@@ -463,6 +542,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_permanentdestinationemail"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_permanentdestinationorganisation"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_permanentdestinationtelephone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_pimsstatus"): Xrm.OptionSetAttribute<defraimp_pimsstatus>;
     getAttribute(attributeName: "defraimp_placeofdestinationaddresscity"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_placeofdestinationaddressline1"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_placeofdestinationaddressline2"): Xrm.Attribute<string>;
@@ -482,14 +562,18 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_placeoforiginid"): Xrm.LookupAttribute<"defraimp_placeoforigin">;
     getAttribute(attributeName: "defraimp_placeoforiginorganisation"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_pointofentry"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_primarycvedid"): Xrm.LookupAttribute<"defraimp_cved">;
     getAttribute(attributeName: "defraimp_primaryimporternotificationid"): Xrm.LookupAttribute<"defraimp_importernotification">;
     getAttribute(attributeName: "defraimp_primaryitahcid"): Xrm.LookupAttribute<"defraimp_itahc">;
     getAttribute(attributeName: "defraimp_purpose"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_purpose>;
     getAttribute(attributeName: "defraimp_quantity"): Xrm.NumberAttribute;
     getAttribute(attributeName: "defraimp_regionareaallocatedtoid"): Xrm.LookupAttribute<"defraimp_apharegion">;
-    getAttribute(attributeName: "defraimp_resettrustleveltobronze"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "defraimp_risklevelverified"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "defraimp_replyreceived"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_replyreceived>;
+    getAttribute(attributeName: "defraimp_requestedpod"): Xrm.OptionSetAttribute<defraimp_importapplication_defraimp_requestedpod>;
+    getAttribute(attributeName: "defraimp_resettrustleveltobronze"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "defraimp_risklevelverified"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "defraimp_sealnumber"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_tracesexporthealthcertificate"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_tracesspeciesid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_transporteraddresscity"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_transporteraddresscountryid"): Xrm.LookupAttribute<"defra_country">;
@@ -500,9 +584,12 @@ declare namespace Form.defraimp_importapplication.Main {
     getAttribute(attributeName: "defraimp_transporteremail"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_transportername"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_transportertelephone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_transportertype"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "defraimp_typesofnoncompliance"): Xrm.MultiSelectOptionSetAttribute<defraimp_noncompliancetype>;
     getAttribute(attributeName: "defraimp_unit"): Xrm.Attribute<string>;
     getAttribute(attributeName: "defraimp_warbleflytreatmentdeclarationreceiveddate"): Xrm.DateAttribute;
     getAttribute(attributeName: "defraimp_warbleflytreatmentdeclarationrequired"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "defraimp_weight"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<defraimp_importapplication_statuscode>;
     getAttribute(attributeName: string): undefined;
@@ -513,6 +600,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "Subgrid_WatchFlags"): Xrm.SubGridControl<"defraimp_watchflag">;
     getControl(controlName: "WebResource_FilesAndAttachments"): Xrm.WebResourceControl;
     getControl(controlName: "WebResource_UploadFiles"): Xrm.WebResourceControl;
+    getControl(controlName: "defraimp_animalcertifiedas"): Xrm.OptionSetControl<defraimp_animalcertifiedas>;
     getControl(controlName: "defraimp_article15reimport"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_article8monitored"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_charityaddresscity"): Xrm.StringControl;
@@ -527,17 +615,25 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_commoditynotes"): Xrm.StringControl;
     getControl(controlName: "defraimp_commoditytypeid"): Xrm.LookupControl<"defraexp_commoditytype">;
     getControl(controlName: "defraimp_consignmentconforming"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "defraimp_contactedduetononcompliance"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_containernumber"): Xrm.StringControl;
     getControl(controlName: "defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country">;
+    getControl(controlName: "defraimp_datecompleted"): Xrm.DateControl;
+    getControl(controlName: "defraimp_dateemailsent"): Xrm.DateControl;
     getControl(controlName: "defraimp_dateiv66received"): Xrm.DateControl;
     getControl(controlName: "defraimp_dateofconfirmationfromimporter"): Xrm.DateControl;
     getControl(controlName: "defraimp_dateofconfirmationtobip"): Xrm.DateControl;
     getControl(controlName: "defraimp_dateofemailtoimporter"): Xrm.DateControl;
     getControl(controlName: "defraimp_dateofimport"): Xrm.DateControl;
+    getControl(controlName: "defraimp_datepodrequested"): Xrm.DateControl;
+    getControl(controlName: "defraimp_datetelephonecallmade"): Xrm.DateControl;
     getControl(controlName: "defraimp_destinationaddresscountryid"): Xrm.LookupControl<"defra_country">;
     getControl(controlName: "defraimp_devolvedofficeid"): Xrm.LookupControl<"team">;
+    getControl(controlName: "defraimp_docomcategory"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_docomcategory>;
+    getControl(controlName: "defraimp_docomreference"): Xrm.StringControl;
     getControl(controlName: "defraimp_documentationnumber"): Xrm.StringControl;
     getControl(controlName: "defraimp_documentnumber"): Xrm.StringControl;
+    getControl(controlName: "defraimp_gbimporthealthcertificate"): Xrm.StringControl;
     getControl(controlName: "defraimp_generalcomments"): Xrm.StringControl;
     getControl(controlName: "defraimp_importapplicationtype"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_importapplicationtype>;
     getControl(controlName: "defraimp_importeraddress1"): Xrm.StringControl;
@@ -553,6 +649,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_importingfromcharity"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_importrisklevelid"): Xrm.LookupControl<"defraimp_importrisklevel">;
     getControl(controlName: "defraimp_importrisklevelstatus"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_importrisklevelstatus>;
+    getControl(controlName: "defraimp_imptypeid"): Xrm.LookupControl<"defraimp_imptype">;
     getControl(controlName: "defraimp_inspectiondeclinedreason"): Xrm.StringControl;
     getControl(controlName: "defraimp_inspectionoutcome"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionoutcome>;
     getControl(controlName: "defraimp_inspectionrequired"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequired>;
@@ -560,6 +657,9 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_inspectionrequiredreason"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequiredreason>;
     getControl(controlName: "defraimp_inspectionrequiredreasonoriginalvalue"): Xrm.NumberControl;
     getControl(controlName: "defraimp_ipaffsspeciesid"): Xrm.StringControl;
+    getControl(controlName: "defraimp_irmspersonresponsible"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "defraimp_isnoncompliantcalculated"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "defraimp_itahcreference"): Xrm.StringControl;
     getControl(controlName: "defraimp_iv65responseduedate"): Xrm.DateControl;
     getControl(controlName: "defraimp_iv65responsereceiveddate"): Xrm.DateControl;
     getControl(controlName: "defraimp_iv65sent"): Xrm.Control<Xrm.Attribute<any>>;
@@ -572,6 +672,8 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_movedtocompletiondate"): Xrm.DateControl;
     getControl(controlName: "defraimp_movetocompletion"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_name"): Xrm.StringControl;
+    getControl(controlName: "defraimp_noncomplianceothercomments"): Xrm.StringControl;
+    getControl(controlName: "defraimp_noncompliancestatus"): Xrm.OptionSetControl<defraimp_noncompliancestatus>;
     getControl(controlName: "defraimp_notifiedtobipwithin15days"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "defraimp_permanentdestinationaddresscity"): Xrm.StringControl;
     getControl(controlName: "defraimp_permanentdestinationaddresscounid"): Xrm.LookupControl<"defra_country">;
@@ -583,6 +685,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_permanentdestinationemail"): Xrm.StringControl;
     getControl(controlName: "defraimp_permanentdestinationorganisation"): Xrm.StringControl;
     getControl(controlName: "defraimp_permanentdestinationtelephone"): Xrm.StringControl;
+    getControl(controlName: "defraimp_pimsstatus"): Xrm.OptionSetControl<defraimp_pimsstatus>;
     getControl(controlName: "defraimp_placeofdestinationaddresscity"): Xrm.StringControl;
     getControl(controlName: "defraimp_placeofdestinationaddressline1"): Xrm.StringControl;
     getControl(controlName: "defraimp_placeofdestinationaddressline2"): Xrm.StringControl;
@@ -602,12 +705,16 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin">;
     getControl(controlName: "defraimp_placeoforiginorganisation"): Xrm.StringControl;
     getControl(controlName: "defraimp_pointofentry"): Xrm.StringControl;
+    getControl(controlName: "defraimp_primarycvedid"): Xrm.LookupControl<"defraimp_cved">;
     getControl(controlName: "defraimp_primaryimporternotificationid"): Xrm.LookupControl<"defraimp_importernotification">;
     getControl(controlName: "defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc">;
     getControl(controlName: "defraimp_purpose"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_purpose>;
     getControl(controlName: "defraimp_quantity"): Xrm.NumberControl;
     getControl(controlName: "defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion">;
+    getControl(controlName: "defraimp_replyreceived"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_replyreceived>;
+    getControl(controlName: "defraimp_requestedpod"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_requestedpod>;
     getControl(controlName: "defraimp_sealnumber"): Xrm.StringControl;
+    getControl(controlName: "defraimp_tracesexporthealthcertificate"): Xrm.StringControl;
     getControl(controlName: "defraimp_tracesspeciesid"): Xrm.StringControl;
     getControl(controlName: "defraimp_transporteraddresscity"): Xrm.StringControl;
     getControl(controlName: "defraimp_transporteraddresscountryid"): Xrm.LookupControl<"defra_country">;
@@ -618,9 +725,12 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "defraimp_transporteremail"): Xrm.StringControl;
     getControl(controlName: "defraimp_transportername"): Xrm.StringControl;
     getControl(controlName: "defraimp_transportertelephone"): Xrm.StringControl;
+    getControl(controlName: "defraimp_transportertype"): Xrm.StringControl;
+    getControl(controlName: "defraimp_typesofnoncompliance"): Xrm.MultiSelectOptionSetControl<defraimp_noncompliancetype>;
     getControl(controlName: "defraimp_unit"): Xrm.StringControl;
     getControl(controlName: "defraimp_warbleflytreatmentdeclarationreceiveddate"): Xrm.DateControl;
     getControl(controlName: "defraimp_warbleflytreatmentdeclarationrequired"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "defraimp_weight"): Xrm.StringControl;
     getControl(controlName: "footer_createdon"): Xrm.DateControl;
     getControl(controlName: "footer_defraimp_healthcertificatenumber"): Xrm.StringControl;
     getControl(controlName: "footer_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
@@ -631,7 +741,7 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "header_process_defraimp_certificateverified"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_defraimp_commoditytypeid"): Xrm.LookupControl<"defraexp_commoditytype"> | null;
     getControl(controlName: "header_process_defraimp_completionsummary"): Xrm.StringControl | null;
-    getControl(controlName: "header_process_defraimp_completionsummary1"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_defraimp_completionsummary_1"): Xrm.StringControl | null;
     getControl(controlName: "header_process_defraimp_countryoforiginid"): Xrm.LookupControl<"defra_country"> | null;
     getControl(controlName: "header_process_defraimp_importrisklevelid"): Xrm.LookupControl<"defraimp_importrisklevel"> | null;
     getControl(controlName: "header_process_defraimp_inspectiondeclinedreason"): Xrm.StringControl | null;
@@ -639,9 +749,9 @@ declare namespace Form.defraimp_importapplication.Main {
     getControl(controlName: "header_process_defraimp_inspectionrequired"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_inspectionrequired> | null;
     getControl(controlName: "header_process_defraimp_manualpostimportcheckdecision"): Xrm.OptionSetControl<defraimp_importapplication_defraimp_manualpostimportcheckdecision> | null;
     getControl(controlName: "header_process_defraimp_movedtocompletiondate"): Xrm.DateControl | null;
-    getControl(controlName: "header_process_defraimp_movedtocompletiondate1"): Xrm.DateControl | null;
+    getControl(controlName: "header_process_defraimp_movedtocompletiondate_1"): Xrm.DateControl | null;
     getControl(controlName: "header_process_defraimp_movetocompletion"): Xrm.OptionSetControl<boolean> | null;
-    getControl(controlName: "header_process_defraimp_movetocompletion1"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_defraimp_movetocompletion_1"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_defraimp_placeoforiginid"): Xrm.LookupControl<"defraimp_placeoforigin"> | null;
     getControl(controlName: "header_process_defraimp_primaryitahcid"): Xrm.LookupControl<"defraimp_itahc"> | null;
     getControl(controlName: "header_process_defraimp_regionareaallocatedtoid"): Xrm.LookupControl<"defraimp_apharegion"> | null;

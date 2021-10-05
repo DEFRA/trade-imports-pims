@@ -167,13 +167,16 @@
     <Compile Include="Dynamics\Consignee\SampleRecords\ConsigneeWithData.cs" />
     <Compile Include="Dynamics\Consignee\Scenarios\CreateConsignee.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\ImportApplicationValidateInspectionPostInspectionOutcome.cs" />
+    <Compile Include="Dynamics\ImporterNotification\Assertions\ImporterNotificationValidateHealthCheckFlag.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\ImportApplicationValidateInspectionRequired.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasPostInspectionOutcome.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasInspectionRequiredReason.cs" />
+    <Compile Include="Dynamics\ImporterNotification\Assertions\Validators\ImporterNotificationHasHealthCertificateFlag.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationHasRiskLevel.cs" />
     <Compile Include="Dynamics\ImportApplication\Assertions\Validators\ImportApplicationRequiresInspection.cs" />
     <Compile Include="Dynamics\ImportApplication\SampleRecords\BasicImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\AssignCommodityAndCountryOfOriginToImportApplication.cs" />
+    <Compile Include="Dynamics\ImporterNotification\Scenarios\CreateIPAFFSHealthCheckDocument.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\AssignPlaceOfOriginToImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\AssignImporterNotificationToImportApplication.cs" />
     <Compile Include="Dynamics\ImportApplication\Scenarios\CreateImportApplication.cs" />
@@ -200,6 +203,7 @@
     <Compile Include="Dynamics\ImporterNotification\Scenarios\ActionCreateImportRecordFromNotification.cs" />
     <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_OnAction_CreateImportRecordFromNotification_ShouldCreateImportApplication.cs" />
     <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_OnCreate_ShouldFlagRecordsOnWatchList.cs" />
+    <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_AfterCreate_ShouldFlagHealthCheckDocument.cs" />
     <Compile Include="Dynamics\ImporterNotification\TestCases\ImporterNotification_OnCreate_ShouldHaveDevolvedOffice.cs" />
     <Compile Include="Dynamics\PlaceOfDestination\SampleData\PlaceOfDestinationWithData.cs" />
     <Compile Include="Dynamics\PlaceOfDestination\Scenarios\CreatePlaceOfDestination.cs" />

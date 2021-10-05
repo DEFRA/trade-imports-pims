@@ -223,6 +223,8 @@
                         <Variable x:TypeArguments="x:Object" Name="CreateStep6_93" />
                         <Variable x:TypeArguments="x:Object" Name="CreateStep6_94" />
                         <Variable x:TypeArguments="x:Object" Name="CreateStep6_95" />
+                        <Variable x:TypeArguments="x:Object" Name="CreateStep6_96" />
+                        <Variable x:TypeArguments="x:Object" Name="CreateStep6_97" />
                       </Sequence.Variables>
                       <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importapplication&quot;)]" />
                       <mxswa:GetEntityProperty Attribute="defraimp_devolvedoffice" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_2]">
@@ -1346,7 +1348,31 @@
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="modifiedby" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_95]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_submissiondate" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_95]">
+                        <mxswa:GetEntityProperty.TargetType>
+                          <InArgument x:TypeArguments="s:Type">
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
+                          </InArgument>
+                        </mxswa:GetEntityProperty.TargetType>
+                      </mxswa:GetEntityProperty>
+                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+                        <mxswa:ActivityReference.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
+                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep6_95 }]</InArgument>
+                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
+                          </InArgument>
+                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep6_94]</OutArgument>
+                        </mxswa:ActivityReference.Arguments>
+                      </mxswa:ActivityReference>
+                      <mxswa:SetEntityProperty Attribute="defraimp_dateiv66received" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_94]">
+                        <mxswa:SetEntityProperty.TargetType>
+                          <InArgument x:TypeArguments="s:Type">
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
+                          </InArgument>
+                        </mxswa:SetEntityProperty.TargetType>
+                      </mxswa:SetEntityProperty>
+                      <mxswa:GetEntityProperty Attribute="modifiedby" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_97]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
@@ -1356,14 +1382,14 @@
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
                         <mxswa:ActivityReference.Arguments>
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
-                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep6_95 }]</InArgument>
+                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep6_97 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
-                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep6_94]</OutArgument>
+                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep6_96]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="ownerid" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_94]">
+                      <mxswa:SetEntityProperty Attribute="ownerid" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_96]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />

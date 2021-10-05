@@ -81,13 +81,18 @@ declare namespace WebApi {
     defraimp_consignortwostatus?: string | null;
     defraimp_consignortwotype?: string | null;
     defraimp_consignortype?: string | null;
+    defraimp_contactedduetononcompliance?: boolean | null;
     defraimp_cphnumber?: string | null;
+    defraimp_datecompleted?: Date | null;
+    defraimp_dateemailsent?: Date | null;
+    defraimp_datetelephonecallmade?: Date | null;
     defraimp_departuredate?: Date | null;
     defraimp_departuretime?: string | null;
     defraimp_estimatedjourneytimeinminutes?: number | null;
     defraimp_formattedcommoditycomplementstext?: string | null;
     defraimp_formattedidentificationofanimalstext?: string | null;
     defraimp_hasmultiplecommoditycodes?: boolean | null;
+    defraimp_healthcertificateattached?: boolean | null;
     defraimp_identificationofanimalstext?: string | null;
     defraimp_importeraddressaddressline1?: string | null;
     defraimp_importeraddressaddressline2?: string | null;
@@ -109,8 +114,10 @@ declare namespace WebApi {
     defraimp_importerstatus?: string | null;
     defraimp_importertype?: string | null;
     defraimp_importingfromcharity?: boolean | null;
+    defraimp_imptype?: string | null;
     defraimp_ipaffsid?: number | null;
     defraimp_ismatched?: boolean | null;
+    defraimp_isnoncompliantcalculated?: boolean | null;
     defraimp_isplaceofdestinationthepermanentaddress?: boolean | null;
     defraimp_lastupdated?: Date | null;
     defraimp_lastupdatedbydisplayname?: string | null;
@@ -119,6 +126,8 @@ declare namespace WebApi {
     defraimp_meansoftransportfromentrypointid?: string | null;
     defraimp_meansoftransportfromentrypointtype?: string | null;
     defraimp_name?: string | null;
+    defraimp_noncomplianceothercomments?: string | null;
+    defraimp_noncompliancestatus?: defraimp_noncompliancestatus | null;
     defraimp_personresponsibleaddress?: string | null;
     defraimp_personresponsiblecity?: string | null;
     defraimp_personresponsiblecompanyid?: string | null;
@@ -133,6 +142,7 @@ declare namespace WebApi {
     defraimp_personresponsiblephone?: string | null;
     defraimp_personresponsiblepostcode?: string | null;
     defraimp_personresponsibletype?: string | null;
+    defraimp_pimsstatus?: defraimp_pimsstatus | null;
     defraimp_placeofdestinationaddressaddressline1?: string | null;
     defraimp_placeofdestinationaddressaddressline2?: string | null;
     defraimp_placeofdestinationaddressaddressline3?: string | null;
@@ -170,6 +180,8 @@ declare namespace WebApi {
     defraimp_placeoforiginharveststatus?: string | null;
     defraimp_placeoforiginharvesttype?: string | null;
     defraimp_portofentry?: string | null;
+    defraimp_portofexit?: string | null;
+    defraimp_portofexitdate?: Date | null;
     defraimp_quickviewspacer?: string | null;
     defraimp_responsiblefortransport?: string | null;
     defraimp_routetransitingstates?: string | null;
@@ -198,8 +210,10 @@ declare namespace WebApi {
     defraimp_transporterstatus?: string | null;
     defraimp_transportertype?: string | null;
     defraimp_type?: defraimp_importernotificationtype | null;
+    defraimp_typeofnoncompliance?: defraimp_noncompliancetypenotification | null;
     defraimp_version?: number | null;
     defraimp_veterinaryinformationveterinarydocument?: string | null;
+    defraimp_weight?: string | null;
     importsequencenumber?: number | null;
     modifiedon?: Date | null;
     overriddencreatedon?: Date | null;
@@ -220,12 +234,15 @@ declare namespace WebApi {
     defraimp_ConsignorTwoAddressCountry_bind$defra_countries?: string | null;
     defraimp_CountryofOriginId_bind$defra_countries?: string | null;
     defraimp_DevolvedOffice_bind$teams?: string | null;
+    defraimp_IRMSPersonResponsible_bind$systemusers?: string | null;
     defraimp_ImporterAddressCountryid_bind$defra_countries?: string | null;
     defraimp_PersonResponsibleCountryId_bind$defra_countries?: string | null;
     defraimp_PlaceofDestinationCountryid_bind$defra_countries?: string | null;
     defraimp_PlaceofOriginHarvestAddressCountryId_bind$defra_countries?: string | null;
     defraimp_TransporterAddressCountryid_bind$defra_countries?: string | null;
-    ownerid_bind$owners?: string | null;
+    defraimp_imptypeid_bind$defraimp_imptypes?: string | null;
+    ownerid_bind$systemusers?: string | null;
+    ownerid_bind$teams?: string | null;
   }
   interface defraimp_ImporterNotification_Create extends defraimp_ImporterNotification {
   }
@@ -319,8 +336,12 @@ declare namespace WebApi {
     defraimp_consignortwostatus: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_consignortwostatus: string | null }, {  }>;
     defraimp_consignortwotype: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_consignortwotype: string | null }, {  }>;
     defraimp_consignortype: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_consignortype: string | null }, {  }>;
+    defraimp_contactedduetononcompliance: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_contactedduetononcompliance: boolean | null }, {  }>;
     defraimp_countryoforiginid_guid: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_countryoforiginid_guid: string | null }, { defraimp_countryoforiginid_formatted?: string }>;
     defraimp_cphnumber: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_cphnumber: string | null }, {  }>;
+    defraimp_datecompleted: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_datecompleted: Date | null }, { defraimp_datecompleted_formatted?: string }>;
+    defraimp_dateemailsent: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_dateemailsent: Date | null }, { defraimp_dateemailsent_formatted?: string }>;
+    defraimp_datetelephonecallmade: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_datetelephonecallmade: Date | null }, { defraimp_datetelephonecallmade_formatted?: string }>;
     defraimp_departuredate: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_departuredate: Date | null }, { defraimp_departuredate_formatted?: string }>;
     defraimp_departuretime: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_departuretime: string | null }, {  }>;
     defraimp_devolvedoffice_guid: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_devolvedoffice_guid: string | null }, { defraimp_devolvedoffice_formatted?: string }>;
@@ -328,6 +349,7 @@ declare namespace WebApi {
     defraimp_formattedcommoditycomplementstext: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_formattedcommoditycomplementstext: string | null }, {  }>;
     defraimp_formattedidentificationofanimalstext: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_formattedidentificationofanimalstext: string | null }, {  }>;
     defraimp_hasmultiplecommoditycodes: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_hasmultiplecommoditycodes: boolean | null }, {  }>;
+    defraimp_healthcertificateattached: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_healthcertificateattached: boolean | null }, {  }>;
     defraimp_identificationofanimalstext: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_identificationofanimalstext: string | null }, {  }>;
     defraimp_importeraddressaddressline1: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importeraddressaddressline1: string | null }, {  }>;
     defraimp_importeraddressaddressline2: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importeraddressaddressline2: string | null }, {  }>;
@@ -350,8 +372,12 @@ declare namespace WebApi {
     defraimp_importerstatus: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importerstatus: string | null }, {  }>;
     defraimp_importertype: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importertype: string | null }, {  }>;
     defraimp_importingfromcharity: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_importingfromcharity: boolean | null }, {  }>;
+    defraimp_imptype: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_imptype: string | null }, {  }>;
+    defraimp_imptypeid_guid: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_imptypeid_guid: string | null }, { defraimp_imptypeid_formatted?: string }>;
     defraimp_ipaffsid: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_ipaffsid: number | null }, {  }>;
+    defraimp_irmspersonresponsible_guid: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_irmspersonresponsible_guid: string | null }, { defraimp_irmspersonresponsible_formatted?: string }>;
     defraimp_ismatched: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_ismatched: boolean | null }, {  }>;
+    defraimp_isnoncompliantcalculated: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_isnoncompliantcalculated: boolean | null }, {  }>;
     defraimp_isplaceofdestinationthepermanentaddress: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_isplaceofdestinationthepermanentaddress: boolean | null }, {  }>;
     defraimp_lastupdated: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_lastupdated: Date | null }, { defraimp_lastupdated_formatted?: string }>;
     defraimp_lastupdatedbydisplayname: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_lastupdatedbydisplayname: string | null }, {  }>;
@@ -360,6 +386,8 @@ declare namespace WebApi {
     defraimp_meansoftransportfromentrypointid: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_meansoftransportfromentrypointid: string | null }, {  }>;
     defraimp_meansoftransportfromentrypointtype: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_meansoftransportfromentrypointtype: string | null }, {  }>;
     defraimp_name: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_name: string | null }, {  }>;
+    defraimp_noncomplianceothercomments: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_noncomplianceothercomments: string | null }, {  }>;
+    defraimp_noncompliancestatus: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_noncompliancestatus: defraimp_noncompliancestatus | null }, { defraimp_noncompliancestatus_formatted?: string }>;
     defraimp_personresponsibleaddress: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_personresponsibleaddress: string | null }, {  }>;
     defraimp_personresponsiblecity: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_personresponsiblecity: string | null }, {  }>;
     defraimp_personresponsiblecompanyid: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_personresponsiblecompanyid: string | null }, {  }>;
@@ -375,6 +403,7 @@ declare namespace WebApi {
     defraimp_personresponsiblephone: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_personresponsiblephone: string | null }, {  }>;
     defraimp_personresponsiblepostcode: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_personresponsiblepostcode: string | null }, {  }>;
     defraimp_personresponsibletype: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_personresponsibletype: string | null }, {  }>;
+    defraimp_pimsstatus: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_pimsstatus: defraimp_pimsstatus | null }, { defraimp_pimsstatus_formatted?: string }>;
     defraimp_placeofdestinationaddressaddressline1: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_placeofdestinationaddressaddressline1: string | null }, {  }>;
     defraimp_placeofdestinationaddressaddressline2: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_placeofdestinationaddressaddressline2: string | null }, {  }>;
     defraimp_placeofdestinationaddressaddressline3: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_placeofdestinationaddressaddressline3: string | null }, {  }>;
@@ -414,6 +443,8 @@ declare namespace WebApi {
     defraimp_placeoforiginharveststatus: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_placeoforiginharveststatus: string | null }, {  }>;
     defraimp_placeoforiginharvesttype: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_placeoforiginharvesttype: string | null }, {  }>;
     defraimp_portofentry: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_portofentry: string | null }, {  }>;
+    defraimp_portofexit: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_portofexit: string | null }, {  }>;
+    defraimp_portofexitdate: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_portofexitdate: Date | null }, { defraimp_portofexitdate_formatted?: string }>;
     defraimp_quickviewspacer: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_quickviewspacer: string | null }, {  }>;
     defraimp_responsiblefortransport: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_responsiblefortransport: string | null }, {  }>;
     defraimp_routetransitingstates: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_routetransitingstates: string | null }, {  }>;
@@ -443,8 +474,10 @@ declare namespace WebApi {
     defraimp_transporterstatus: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_transporterstatus: string | null }, {  }>;
     defraimp_transportertype: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_transportertype: string | null }, {  }>;
     defraimp_type: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_type: defraimp_importernotificationtype | null }, { defraimp_type_formatted?: string }>;
+    defraimp_typeofnoncompliance: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_typeofnoncompliance: defraimp_noncompliancetypenotification | null }, { defraimp_typeofnoncompliance_formatted?: string }>;
     defraimp_version: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_version: number | null }, {  }>;
     defraimp_veterinaryinformationveterinarydocument: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_veterinaryinformationveterinarydocument: string | null }, {  }>;
+    defraimp_weight: WebAttribute<defraimp_ImporterNotification_Select, { defraimp_weight: string | null }, {  }>;
     importsequencenumber: WebAttribute<defraimp_ImporterNotification_Select, { importsequencenumber: number | null }, {  }>;
     modifiedby_guid: WebAttribute<defraimp_ImporterNotification_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
     modifiedon: WebAttribute<defraimp_ImporterNotification_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
@@ -548,8 +581,12 @@ declare namespace WebApi {
     defraimp_consignortwostatus: string;
     defraimp_consignortwotype: string;
     defraimp_consignortype: string;
+    defraimp_contactedduetononcompliance: boolean;
     defraimp_countryoforiginid_guid: XQW.Guid;
     defraimp_cphnumber: string;
+    defraimp_datecompleted: Date;
+    defraimp_dateemailsent: Date;
+    defraimp_datetelephonecallmade: Date;
     defraimp_departuredate: Date;
     defraimp_departuretime: string;
     defraimp_devolvedoffice_guid: XQW.Guid;
@@ -557,6 +594,7 @@ declare namespace WebApi {
     defraimp_formattedcommoditycomplementstext: string;
     defraimp_formattedidentificationofanimalstext: string;
     defraimp_hasmultiplecommoditycodes: boolean;
+    defraimp_healthcertificateattached: boolean;
     defraimp_identificationofanimalstext: string;
     defraimp_importeraddressaddressline1: string;
     defraimp_importeraddressaddressline2: string;
@@ -579,8 +617,12 @@ declare namespace WebApi {
     defraimp_importerstatus: string;
     defraimp_importertype: string;
     defraimp_importingfromcharity: boolean;
+    defraimp_imptype: string;
+    defraimp_imptypeid_guid: XQW.Guid;
     defraimp_ipaffsid: number;
+    defraimp_irmspersonresponsible_guid: XQW.Guid;
     defraimp_ismatched: boolean;
+    defraimp_isnoncompliantcalculated: boolean;
     defraimp_isplaceofdestinationthepermanentaddress: boolean;
     defraimp_lastupdated: Date;
     defraimp_lastupdatedbydisplayname: string;
@@ -589,6 +631,8 @@ declare namespace WebApi {
     defraimp_meansoftransportfromentrypointid: string;
     defraimp_meansoftransportfromentrypointtype: string;
     defraimp_name: string;
+    defraimp_noncomplianceothercomments: string;
+    defraimp_noncompliancestatus: defraimp_noncompliancestatus;
     defraimp_personresponsibleaddress: string;
     defraimp_personresponsiblecity: string;
     defraimp_personresponsiblecompanyid: string;
@@ -604,6 +648,7 @@ declare namespace WebApi {
     defraimp_personresponsiblephone: string;
     defraimp_personresponsiblepostcode: string;
     defraimp_personresponsibletype: string;
+    defraimp_pimsstatus: defraimp_pimsstatus;
     defraimp_placeofdestinationaddressaddressline1: string;
     defraimp_placeofdestinationaddressaddressline2: string;
     defraimp_placeofdestinationaddressaddressline3: string;
@@ -643,6 +688,8 @@ declare namespace WebApi {
     defraimp_placeoforiginharveststatus: string;
     defraimp_placeoforiginharvesttype: string;
     defraimp_portofentry: string;
+    defraimp_portofexit: string;
+    defraimp_portofexitdate: Date;
     defraimp_quickviewspacer: string;
     defraimp_responsiblefortransport: string;
     defraimp_routetransitingstates: string;
@@ -672,8 +719,10 @@ declare namespace WebApi {
     defraimp_transporterstatus: string;
     defraimp_transportertype: string;
     defraimp_type: defraimp_importernotificationtype;
+    defraimp_typeofnoncompliance: defraimp_noncompliancetypenotification;
     defraimp_version: number;
     defraimp_veterinaryinformationveterinarydocument: string;
+    defraimp_weight: string;
     importsequencenumber: number;
     modifiedby_guid: XQW.Guid;
     modifiedon: Date;
@@ -704,17 +753,26 @@ declare namespace WebApi {
     defraimp_consignoraddresscountryid_formatted?: string;
     defraimp_consignortwoaddresscountry_formatted?: string;
     defraimp_countryoforiginid_formatted?: string;
+    defraimp_datecompleted_formatted?: string;
+    defraimp_dateemailsent_formatted?: string;
+    defraimp_datetelephonecallmade_formatted?: string;
     defraimp_departuredate_formatted?: string;
     defraimp_devolvedoffice_formatted?: string;
     defraimp_importeraddresscountryid_formatted?: string;
+    defraimp_imptypeid_formatted?: string;
+    defraimp_irmspersonresponsible_formatted?: string;
     defraimp_lastupdated_formatted?: string;
+    defraimp_noncompliancestatus_formatted?: string;
     defraimp_personresponsiblecountryid_formatted?: string;
+    defraimp_pimsstatus_formatted?: string;
     defraimp_placeofdestinationcountryid_formatted?: string;
     defraimp_placeoforiginharvestaddresscountryid_formatted?: string;
+    defraimp_portofexitdate_formatted?: string;
     defraimp_status_formatted?: string;
     defraimp_submissiondate_formatted?: string;
     defraimp_transporteraddresscountryid_formatted?: string;
     defraimp_type_formatted?: string;
+    defraimp_typeofnoncompliance_formatted?: string;
     modifiedby_formatted?: string;
     modifiedon_formatted?: string;
     modifiedonbehalfby_formatted?: string;
@@ -737,6 +795,8 @@ declare namespace WebApi {
     defraimp_countryoforiginid_guid: string | null;
     defraimp_devolvedoffice_guid: string | null;
     defraimp_importeraddresscountryid_guid: string | null;
+    defraimp_imptypeid_guid: string | null;
+    defraimp_irmspersonresponsible_guid: string | null;
     defraimp_personresponsiblecountryid_guid: string | null;
     defraimp_placeofdestinationcountryid_guid: string | null;
     defraimp_placeoforiginharvestaddresscountryid_guid: string | null;

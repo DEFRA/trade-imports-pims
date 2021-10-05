@@ -74,7 +74,8 @@ declare namespace WebApi {
     defraimp_RegionAreaAllocatedtoID_bind$defraimp_apharegions?: string | null;
     defraimp_RelatedITAHC_bind$defraimp_itahcs?: string | null;
     defraimp_RelatedImportApplication_bind$defraimp_importapplications?: string | null;
-    ownerid_bind$owners?: string | null;
+    ownerid_bind$systemusers?: string | null;
+    ownerid_bind$teams?: string | null;
   }
   interface defraimp_importinspection_Create extends defraimp_importinspection {
   }

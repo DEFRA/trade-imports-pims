@@ -38,7 +38,8 @@ declare namespace WebApi {
   }
   interface defraimp_placeoforigin extends defraimp_placeoforigin_Base, defraimp_placeoforigin_Relationships {
     defraimp_AddressCountry_bind$defra_countries?: string | null;
-    ownerid_bind$owners?: string | null;
+    ownerid_bind$systemusers?: string | null;
+    ownerid_bind$teams?: string | null;
   }
   interface defraimp_placeoforigin_Create extends defraimp_placeoforigin {
   }

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.21061.141" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.21091.138" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsCore</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Core" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.110</Version>
+    <Version>0.0.0.111</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -126,7 +126,11 @@
       <RootComponent type="9" schemaName="defraimp_importregions" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_matchfieldtype" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_meansoftransport" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_noncompliancestatus" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_noncompliancetype" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_noncompliancetypenotification" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_officialvetcapacity" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_pimsstatus" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_placeofdestinationtype" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_reasonfornoncompliance" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_reasonfornotvisiting" behavior="0" />
@@ -184,69 +188,7 @@
       <RootComponent type="29" id="{faebb9a6-b70b-ea11-a811-000d3ab4df6c}" behavior="0" />
       <RootComponent type="29" id="{fc948f09-a90b-ea11-a811-000d3ab35da5}" behavior="0" />
       <RootComponent type="29" id="{ff1484f0-d0bf-435b-a330-7d5858acb9dd}" behavior="0" />
-      <RootComponent type="60" id="{00f70d67-555c-41ea-8d75-c34f7e79ced9}" behavior="0" />
-      <RootComponent type="60" id="{0400ea16-d809-42da-bf6c-3d444ac98e26}" behavior="0" />
-      <RootComponent type="60" id="{045d20e0-adad-46b9-ae53-39d2b3e2a7f8}" behavior="0" />
-      <RootComponent type="60" id="{0776f391-e2e0-47bd-9211-b97fbf2156bb}" behavior="0" />
-      <RootComponent type="60" id="{09018467-a650-41e1-8ffd-690f80103e20}" behavior="0" />
-      <RootComponent type="60" id="{14048bdc-174c-44f3-91bb-432ee794d08c}" behavior="0" />
-      <RootComponent type="60" id="{1c1362a6-a6e2-4301-948f-6370e2b1690d}" behavior="0" />
-      <RootComponent type="60" id="{1f663b70-196e-4528-9fb9-c647fbc1cd24}" behavior="0" />
-      <RootComponent type="60" id="{282333a8-d396-4ac0-82b3-b58ea73e1070}" behavior="0" />
-      <RootComponent type="60" id="{2b676de1-5be1-491c-9132-735b66ea6a89}" behavior="0" />
-      <RootComponent type="60" id="{2bf8ef68-12ac-4fb2-a542-f1d89a22edbb}" behavior="0" />
-      <RootComponent type="60" id="{2d9946c3-d7a0-ea11-a812-000d3ab6d757}" behavior="0" />
-      <RootComponent type="60" id="{2e4aa94d-8b9d-4bbe-89fd-ae88034335c1}" behavior="0" />
-      <RootComponent type="60" id="{31c91c54-85a5-47cb-a0e6-42ecbe95e6e6}" behavior="0" />
-      <RootComponent type="60" id="{33babb0a-6e05-44c7-a0fe-59a5fa212b4d}" behavior="0" />
-      <RootComponent type="60" id="{389096be-329a-43f5-9d43-07efb572c6f5}" behavior="0" />
-      <RootComponent type="60" id="{3b1d62fd-78d7-422c-9b3c-d4cacd788891}" behavior="0" />
-      <RootComponent type="60" id="{3ea0a58b-62e6-4c7c-bc6a-47c823bc7bdc}" behavior="0" />
-      <RootComponent type="60" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" behavior="0" />
-      <RootComponent type="60" id="{48b2e792-567b-49d5-910f-c7e4de5c361f}" behavior="0" />
-      <RootComponent type="60" id="{543972bc-c043-4932-9b37-cd63e8e113e7}" behavior="0" />
-      <RootComponent type="60" id="{55b81485-2813-48df-a9df-59fa3212f429}" behavior="0" />
-      <RootComponent type="60" id="{56f2532c-5c0c-4e9c-a2e0-e9157b564d0b}" behavior="0" />
       <RootComponent type="60" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" behavior="0" />
-      <RootComponent type="60" id="{5f65a169-5086-43cf-b8da-8393ed033b4b}" behavior="0" />
-      <RootComponent type="60" id="{602a1ac0-91db-4627-9dbc-109b4b4f49e9}" behavior="0" />
-      <RootComponent type="60" id="{63dd124a-5f6e-4b27-adba-90397d302657}" behavior="0" />
-      <RootComponent type="60" id="{6450e48a-04f2-4582-a70a-d82b7fc39a83}" behavior="0" />
-      <RootComponent type="60" id="{659af2b8-c6db-4247-906f-af5945d8f3a6}" behavior="0" />
-      <RootComponent type="60" id="{67b396eb-b2e5-41d8-b9b1-6512ddb00cdb}" behavior="0" />
-      <RootComponent type="60" id="{6d0dff27-96ba-41aa-999b-6020d7631b8c}" behavior="0" />
-      <RootComponent type="60" id="{6f2ff95a-fde6-4b3d-93a5-574e40b05e6b}" behavior="0" />
-      <RootComponent type="60" id="{83e343c0-3048-4d86-853e-3b797f30477b}" behavior="0" />
-      <RootComponent type="60" id="{87d36880-d208-4d56-9821-07654699ddfb}" behavior="0" />
-      <RootComponent type="60" id="{8c01970d-750a-4f60-b9bf-33fcd4129015}" behavior="0" />
-      <RootComponent type="60" id="{9012c13d-ff72-4150-9e93-79e348d76317}" behavior="0" />
-      <RootComponent type="60" id="{9083512d-40e1-482c-88e0-834fefeee8b2}" behavior="0" />
-      <RootComponent type="60" id="{94223fd4-6f88-428f-beae-4f610206897c}" behavior="0" />
-      <RootComponent type="60" id="{99b862da-2ec1-ea11-a812-000d3ab6d757}" behavior="0" />
-      <RootComponent type="60" id="{9de24a2e-c584-4b3d-be38-5df1e89def72}" behavior="0" />
-      <RootComponent type="60" id="{a7ea8a43-9871-477b-8831-db9a187c4b93}" behavior="0" />
-      <RootComponent type="60" id="{aa809c29-e3a0-ea11-a812-000d3ab6d757}" behavior="0" />
-      <RootComponent type="60" id="{ad159648-4a2e-4312-bc5f-9d55aa754ff6}" behavior="0" />
-      <RootComponent type="60" id="{b0b59f07-ed50-4d0c-ad4d-64d442c3491a}" behavior="0" />
-      <RootComponent type="60" id="{b28fdf19-11b1-4e27-b6d4-8a79bf3f95e4}" behavior="0" />
-      <RootComponent type="60" id="{b3fe0250-c22c-4dec-b22f-4efdb0f3c488}" behavior="0" />
-      <RootComponent type="60" id="{bcc20b21-6257-4197-b953-771e0ab55605}" behavior="0" />
-      <RootComponent type="60" id="{bdf16c04-d17c-4452-adad-80be664f33fe}" behavior="0" />
-      <RootComponent type="60" id="{bf964a52-f528-44e7-900f-3ba36d386525}" behavior="0" />
-      <RootComponent type="60" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" behavior="0" />
-      <RootComponent type="60" id="{c674aecd-4884-4546-844f-9f4b0177aebf}" behavior="0" />
-      <RootComponent type="60" id="{c7a38b2c-7a34-40a6-9062-e37e878fd92d}" behavior="0" />
-      <RootComponent type="60" id="{ca99d795-7408-4675-bd1e-f91624e67fb1}" behavior="0" />
-      <RootComponent type="60" id="{cb28336c-f847-40ad-b3b0-fd46f3b0fd7f}" behavior="0" />
-      <RootComponent type="60" id="{d476e686-c495-4f98-88bc-cded4de4bd44}" behavior="0" />
-      <RootComponent type="60" id="{dc1fb07d-1772-49fc-9bf2-ea3f31b5c917}" behavior="0" />
-      <RootComponent type="60" id="{dd50495b-5d4e-45a5-a0ce-54047814ec5d}" behavior="0" />
-      <RootComponent type="60" id="{edf3cb21-1d15-4181-975a-2104ea92eeb1}" behavior="0" />
-      <RootComponent type="60" id="{f3440302-d569-4010-9282-9c28a5bf52ac}" behavior="0" />
-      <RootComponent type="60" id="{f8dd9e88-d17b-4db4-966d-3c667d429559}" behavior="0" />
-      <RootComponent type="60" id="{f95c6ed1-4c2d-4901-89d5-5782fea98e07}" behavior="0" />
-      <RootComponent type="60" id="{f9c50022-e325-4923-bb18-f9166ecb5997}" behavior="0" />
-      <RootComponent type="60" id="{fdac266a-262a-4345-a320-fc0b9c13d2ab}" behavior="0" />
       <RootComponent type="62" schemaName="defraimp_EUImportsApp" behavior="0" />
     </RootComponents>
     <MissingDependencies>
@@ -672,11 +614,11 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/js/importernotification.ribbon.js" displayName="defraimp_/js/importernotification.ribbon.js" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_importernotification:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_importernotification:RibbonDiffXml" displayName="defraimp_importernotification:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/js/importquery.ribbon.js" displayName="defraimp_/js/importquery.ribbon.js" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_importquery:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_importquery:RibbonDiffXml" displayName="defraimp_importquery:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/js/importquery.ribbon.js" displayName="defraimp_/js/importquery.ribbon.js" solution="Active" />
@@ -692,19 +634,19 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/js/importrecord.ribbon.js" displayName="defraimp_/js/importrecord.ribbon.js" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" displayName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/js/itahc.ribbon.js" displayName="defraimp_/js/itahc.ribbon.js" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_itahc:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_itahc:RibbonDiffXml" displayName="defraimp_itahc:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/js/itahc.ribbon.js" displayName="defraimp_/js/itahc.ribbon.js" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_matchrecord:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_matchrecord:RibbonDiffXml" displayName="defraimp_matchrecord:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/js/matchrecord.subgrid.ribbon.js" displayName="defraimp_/js/matchrecord.subgrid.ribbon.js" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" displayName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/js/matchrecord.subgrid.ribbon.js" displayName="defraimp_/js/matchrecord.subgrid.ribbon.js" solution="Active" />
@@ -744,7 +686,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.importapplication.16.png" displayName="defraimp_/png/icon.importapplication.16.png" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" displayName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.importapplication.32.png" displayName="defraimp_/png/icon.importapplication.32.png" solution="Active" />
@@ -752,7 +694,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.importapplication.32.png" displayName="defraimp_/png/icon.importapplication.32.png" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" displayName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.importcountrycommodityrisklevel.16.png" displayName="defraimp_/png/icon.importcountrycommodityrisklevel.16.png" solution="Active" />
@@ -768,7 +710,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.importnotfication.16.png" displayName="defraimp_/png/icon.importnotfication.16.png" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" displayName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.importnotification.32.png" displayName="defraimp_/png/icon.importnotification.32.png" solution="Active" />
@@ -776,7 +718,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.importnotification.32.png" displayName="defraimp_/png/icon.importnotification.32.png" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" displayName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.importquery.16.png" displayName="defraimp_/png/icon.importquery.16.png" solution="Active" />
@@ -816,11 +758,11 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.itahc.16.png" displayName="defraimp_/png/icon.itahc.16.png" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" displayName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.itahc.16.png" displayName="defraimp_/png/icon.itahc.16.png" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_matchrecord:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_matchrecord:RibbonDiffXml" displayName="defraimp_matchrecord:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.itahc.32.png" displayName="defraimp_/png/icon.itahc.32.png" solution="Active" />
@@ -836,11 +778,11 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.itahc.32.png" displayName="defraimp_/png/icon.itahc.32.png" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" displayName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.itahc.32.png" displayName="defraimp_/png/icon.itahc.32.png" solution="Active" />
-        <Dependent type="50" schemaName="defraimp_matchrecord:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Dependent type="50" schemaName="defraimp_matchrecord:RibbonDiffXml" displayName="defraimp_matchrecord:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.matchrecord.16.png" displayName="defraimp_/png/icon.matchrecord.16.png" solution="Active" />
@@ -995,39 +937,41 @@
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="Service/_imgs/ribbon/NewRecord_16.png" displayName="Service/_imgs/ribbon/NewRecord_16.png" solution="msdynce_Service (9.0.5.56)" />
-        <Dependent type="50" schemaName="defraimp_importernotification:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Required type="61" schemaName="Service/_imgs/ribbon/NewRecord_16.png" displayName="Service/_imgs/ribbon/NewRecord_16.png" solution="msdynce_Service (9.0.5.56)">
+          <package>msdynce_ServiceAnchor (9.0.21041.1021)</package>
+        </Required>
+        <Dependent type="50" schemaName="defraimp_importernotification:RibbonDiffXml" displayName="defraimp_importernotification:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21061.00141)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21091.00138)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Post Import Check" id="{045d20e0-adad-46b9-ae53-39d2b3e2a7f8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21061.00141)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21091.00138)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Match Record" id="{3ea0a58b-62e6-4c7c-bc6a-47c823bc7bdc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21061.00141)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21091.00138)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21061.00141)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21091.00138)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Importer Notification" id="{bf964a52-f528-44e7-900f-3ba36d386525}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21061.00141)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21091.00138)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2106.1009)" />
+        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2109.1013)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.21061.00141)" />
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.21091.00138)" />
         <Dependent type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.21061.00141)" />
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.21091.00138)" />
         <Dependent type="60" displayName="ITAHC Quick Create" parentDisplayName="ITAHC" id="{c7a38b2c-7a34-40a6-9062-e37e878fd92d}" />
       </MissingDependency>
     </MissingDependencies>

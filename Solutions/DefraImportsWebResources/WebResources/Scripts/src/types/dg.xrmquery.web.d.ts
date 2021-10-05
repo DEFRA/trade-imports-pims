@@ -340,8 +340,8 @@ declare namespace XQW {
         getQueryString(): string;
     }
     /**
-   * Contains information about an AssociateRecord query for single-valued properties
-   */
+     * Contains information about an AssociateRecord query for single-valued properties
+     */
     class AssociateRecordSingle<ISingle, ISelect> extends Query<undefined> {
         private id;
         private entitySetNameTarget;
@@ -355,8 +355,8 @@ declare namespace XQW {
         getQueryString(): string;
     }
     /**
-   * Contains information about an AssociateRecord query for collection-valued properties
-   */
+     * Contains information about an AssociateRecord query for collection-valued properties
+     */
     class AssociateRecordCollection<IMultiple, ISelect> extends Query<undefined> {
         private id;
         private entitySetNameTarget;
@@ -388,8 +388,8 @@ declare namespace XQW {
     function getApiUrl(): string;
 }
 declare namespace Filter {
-  function $in(val: string | number | XQW.Guid, listVal: (string | number | XQW.Guid)[]): WebFilter;
-  function notIn(val: string | number | XQW.Guid, listVal: (string | number | XQW.Guid)[]): WebFilter;
+  function $in<T extends string | number | XQW.Guid>(val: T, listVal: T[]): WebFilter;
+  function notIn<T extends string | number | XQW.Guid>(val: T, listVal: T[]): WebFilter;
   function under(v1: XQW.Guid, v2: string | XQW.Guid): WebFilter;
   function underOrEqual(v1: XQW.Guid, v2: string | XQW.Guid): WebFilter;
   function notUnder(v1: XQW.Guid, v2: string | XQW.Guid): WebFilter;

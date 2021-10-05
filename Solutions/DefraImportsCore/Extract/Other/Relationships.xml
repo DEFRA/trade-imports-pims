@@ -156,6 +156,8 @@
   <EntityRelationship Name="defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParameterSet" />
   <EntityRelationship Name="defraimp_parameterset_defraimp_parametersetkeydatapair_CommodityComplementParameterSet" />
   <EntityRelationship Name="defraimp_PotentiallyRelatedImportRecords" />
+  <EntityRelationship Name="defraimp_systemuser_defraimp_importapplication_IRMSPersonResponsible" />
+  <EntityRelationship Name="defraimp_systemuser_defraimp_importernotification_IRMSPersonResponsible" />
   <EntityRelationship Name="defraimp_systemuser_defraimp_importinspection_IV17ReviewApprovedBy" />
   <EntityRelationship Name="defraimp_team_defraimp_importapplication" />
   <EntityRelationship Name="defraimp_team_defraimp_importernotification_DevolvedOffice" />

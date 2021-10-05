@@ -17,6 +17,8 @@ namespace DefraImports.ImportRecord {
     let formContext = executionObj.getFormContext() as Form.defraimp_importapplication.Main.Information;
 
     storeWasManualPostImportCheckSet(formContext);
+    showOrHideNonComplianceTab(formContext, formContext.getAttribute("defraimp_isnoncompliantcalculated").getValue());
+    showOrHideNonComplianceOther(executionObj);
   }
 
   export function onSave(executionObj: Xrm.ExecutionContext<any>) {
@@ -30,6 +32,15 @@ namespace DefraImports.ImportRecord {
   {
     const formContext = executionObj.getFormContext() as Form.defraimp_importapplication.Main.Information;
     setSystemDeterminedInspectionValues(formContext);
+  }
+
+  export function showOrHideNonComplianceOther(executionObj: Xrm.ExecutionContext<any>) {
+    const formContext = executionObj.getFormContext() as Form.defraimp_importapplication.Main.Information;
+    if ((formContext.getAttribute("defraimp_typesofnoncompliance").getValue() as any)?.includes(714100005 /* Other */)) {
+      formContext.getControl("defraimp_noncomplianceothercomments").setVisible(true);
+    } else {
+      formContext.getControl("defraimp_noncomplianceothercomments").setVisible(false);
+    }
   }
 
   function storeWasManualPostImportCheckSet(formContext: Form.defraimp_importapplication.Main.Information) {
@@ -83,7 +94,7 @@ namespace DefraImports.ImportRecord {
     let currentManualPostImportCheckAttr = formContext.getAttribute("defraimp_manualpostimportcheckdecision");
 
     if (wasManualPostImportCheckSet && currentManualPostImportCheckAttr.getValue() === null) {
-      executionObj.getEventArgs().preventDefault();
+      (executionObj as any)?.getEventArgs()?.preventDefault();
       if (!isErrorDialogDisplaying) {
         displayManualPostImportCheckDecisionErrorMessage();
       }
@@ -127,22 +138,27 @@ namespace DefraImports.ImportRecord {
     //Check if we are importing from a charity and show the relevant section
     showHideCharitySection(formContext);
 
-    if (importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
+    if (importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC
+        || importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHCLandbridge)
     {
       //Hide any existing sections first
       hideCHEDASections(formContext);
       hideCHEDPSections(formContext);
       hideIMPSections(formContext);
-
       //Show the ITAHC section
       showITAHCSections(formContext);
     }
-    else if(importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.IMP) {
+    else if(importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ImportNotification) {
       hideCHEDASections(formContext);
       hideCHEDPSections(formContext);
       hideITAHCSections(formContext);
-
       showIMPSections(formContext);
+    }
+    else if(importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.DOCOM) {
+      hideCHEDASections(formContext);
+      hideCHEDPSections(formContext);
+      hideITAHCSections(formContext);
+      hideIMPSections(formContext);
     }
     else if (importApplicationType == defraimp_importapplication_defraimp_importapplicationtype.CHEDA)
     {
@@ -228,5 +244,20 @@ namespace DefraImports.ImportRecord {
    
     //Set visibility to whatever value Importing from Charity is
     formContext.ui.tabs.get("Charity_Tab").setVisible(importingFromCharity);
+  }
+
+  function showDOCOMTab(formContext: Form.defraimp_importapplication.Main.Information) 
+  {
+    formContext.ui.tabs.get("DOCOM_Tab").setVisible(true);
+  }
+
+  function hideDOCOMTab(formContext: Form.defraimp_importapplication.Main.Information) 
+  {
+    formContext.ui.tabs.get("DOCOM_Tab").setVisible(false);
+  }
+
+  function showOrHideNonComplianceTab(formContext: Form.defraimp_importapplication.Main.Information, showOrHide: boolean) 
+  {
+    formContext.ui.tabs.get("NonCompliance_Tab").setVisible(showOrHide);
   }
 }

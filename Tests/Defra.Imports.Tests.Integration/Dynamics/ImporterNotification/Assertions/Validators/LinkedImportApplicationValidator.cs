@@ -22,6 +22,7 @@ namespace Defra.Imports.Tests.Integration.Dynamics.ImporterNotification.Assertio
         {
             defraimp_importapplication linkedImportApplication = this.context.defraimp_importapplicationSet.FirstOrDefault(x => x.defraimp_PrimaryImporterNotificationId.Id == item.Id);
             linkedImportApplication.Should().NotBeNull();
+            linkedImportApplication.defraimp_DateIV66Received.Should().NotBeNull();
         }
     }
 }

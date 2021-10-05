@@ -168,6 +168,38 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{6587e85d-e65e-7109-d722-80d0c7b79570}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="GB Import Health Certificate" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_gbimporthealthcertificate" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_gbimporthealthcertificate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{831ea27c-b86d-2e19-a9c1-699e7c7a26e4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Traces Export Health Certificate" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_tracesexporthealthcertificate" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_tracesexporthealthcertificate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{117c3dae-5488-55d2-b148-204cb959a3be}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="ITAHC Reference" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_itahcreference" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_itahcreference" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d1abda52-39ac-5dc7-5c2a-1c072ca96ad8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="DOCOM Reference" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_docomreference" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_docomreference" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{c745516d-73e3-a53c-6385-07071529ebe9}" locklevel="0" showlabel="true" visible="false">
                         <labels>
                           <label description="Primary ITAHC" languagecode="1033" />
@@ -212,13 +244,13 @@
                 </section>
                 <section name="iv66_section" showlabel="true" showbar="false" locklevel="0" id="{256027dd-2b6b-0450-042e-0860e3e06bb6}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
                   <labels>
-                    <label description="IV66" languagecode="1033" />
+                    <label description="Importer Notification" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
                       <cell id="{c7652426-a98e-4e78-d90e-633b85282649}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Date IV66 Received" languagecode="1033" />
+                          <label description="Date Importer Notification Received" languagecode="1033" />
                         </labels>
                         <control id="defraimp_dateiv66received" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateiv66received" disabled="false" uniqueid="{43d4631b-0dbe-a7a0-11ca-be68e1186b65}" />
                       </cell>
@@ -226,7 +258,7 @@
                     <row>
                       <cell id="{a963aa9b-dc23-a6d7-7ba6-a88c1c7d2145}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="IV66 Received in Required Timescale?" languagecode="1033" />
+                          <label description="Importer Notification Received within timescales" languagecode="1033" />
                         </labels>
                         <control id="defraimp_iv66receivedinrequiredtimescale" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_iv66receivedinrequiredtimescale" disabled="false" uniqueid="{98079d9a-dab1-5396-6345-9074d165db8c}" />
                       </cell>
@@ -1518,6 +1550,115 @@
             </column>
           </columns>
         </tab>
+        <tab name="NonCompliance_Tab" id="{1868bd92-c666-dc59-c76d-d1e7728327aa}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+          <labels>
+            <label description="Non-Compliance" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_12_section_1" showlabel="false" showbar="false" locklevel="0" id="{20ea9e22-e516-3411-72c4-00216b94d1ad}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b3d30869-cb8d-8810-33e9-40abe548d3c5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Contacted Due to Non-Compliance" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_contactedduetononcompliance" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_contactedduetononcompliance" disabled="false" uniqueid="{e1c53e2b-c8e4-c559-9dc7-637b59c95bcd}" />
+                      </cell>
+                      <cell id="{a915715d-5d7e-6154-85d8-60a6d1499b5a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date Email Sent" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_dateemailsent" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateemailsent" disabled="false" uniqueid="{39823b56-0798-5dca-990c-a69650977078}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{83b94c10-6c2e-5ed0-ca4b-ebb6733e255e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Type of Non-Compliance" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_typesofnoncompliance" classid="{4AA28AB7-9C13-4F57-A73D-AD894D048B5F}" datafieldname="defraimp_typesofnoncompliance" disabled="false" uniqueid="{cae6cd67-705c-84e0-247e-ea1d504a1a73}" />
+                      </cell>
+                      <cell id="{80456a41-a153-3799-cd6c-905735d1167c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date Telephone Call Made" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_datetelephonecallmade" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_datetelephonecallmade" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1baa1153-a97e-c9cb-883d-76615cab92c8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Non-Compliance Other Comments" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_noncomplianceothercomments" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_noncomplianceothercomments" disabled="false" />
+                      </cell>
+                      <cell id="{61b2bdb1-da6a-593d-4e6a-56ed037795eb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Non-Compliance Status" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_noncompliancestatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_noncompliancestatus" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7739a572-53d9-608d-96b3-33e26a686890}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="IRMS Person Responsible" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_irmspersonresponsible" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_irmspersonresponsible" disabled="false" />
+                      </cell>
+                      <cell id="{ae62c463-040c-70e8-344e-930a65091ea7}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Is Non-Compliant" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_isnoncompliantcalculated" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_isnoncompliantcalculated" disabled="false" uniqueid="{c4216c28-22c0-ed07-1a3d-ce9825b117a8}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dc065154-a3a9-3358-60d5-46ca81573cd3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="PIMS Status" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_pimsstatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_pimsstatus" disabled="false" />
+                      </cell>
+                      <cell id="{4dacb84a-4361-810a-4742-76cca92446c6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date Completed" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_datecompleted" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_datecompleted" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="tab_12_section_2" showlabel="true" showbar="true" locklevel="0" id="{798583b7-8242-ca10-3483-183952e6a003}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Primary Import Notification Non-Compliance Data" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{902e1217-a089-d67a-7557-e6a979702a99}" showlabel="false" colspan="1" auto="false">
+                        <labels>
+                          <label description="ImportNotificationNonCompliance" languagecode="1033" />
+                        </labels>
+                        <control id="ImportNotificationNonCompliance" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="defraimp_primaryimporternotificationid" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="defraimp_importernotification"&gt;468a9ee4-3cab-4743-ae93-36a814236749&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
         <tab id="{57b0d6a8-31a1-2b37-7905-503e2cec5b08}" name="tab_7" locklevel="0" expanded="true" showlabel="true" IsUserDefined="0">
           <labels>
             <label description="Post Import Checks" languagecode="1033" />
@@ -1562,6 +1703,52 @@
                     <row />
                     <row />
                     <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="DOCOM_Tab" id="{6773caa8-6d75-ba5c-2676-25bcdca3b2e5}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="DOCOM" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="DOCOM" showlabel="true" showbar="false" locklevel="0" id="{2c482442-93ea-21b4-7674-12ada8c23e50}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="DOCOM" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8e3a6b3e-ce07-e95b-b459-46163c93ab18}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="DOCOM Category" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_docomcategory" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_docomcategory" disabled="false" />
+                      </cell>
+                      <cell id="{17c891c9-0ab0-62cc-6144-1d68850eda9c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Requested POD" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_requestedpod" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_requestedpod" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{79e1035a-6524-6130-39a8-38bc1d4c50d9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date POD Requested" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_datepodrequested" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_datepodrequested" disabled="false" />
+                      </cell>
+                      <cell id="{8b1e2a16-23d5-adb6-9412-161e7136c422}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Reply Received" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_replyreceived" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_replyreceived" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -1965,6 +2152,11 @@
         <event name="onchange" application="false" active="false" attribute="defraimp_manualpostimportcheckdecision">
           <Handlers>
             <Handler functionName="DefraImports.ImportRecord.onChangeOfManualPostImportCheckDecision" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{ea523db6-ed0b-294c-ce47-e99756e13c21}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="defraimp_typesofnoncompliance">
+          <Handlers>
+            <Handler functionName="DefraImports.ImportRecord.showOrHideNonComplianceOther" libraryName="defraimp_/js/importrecord.form.js" handlerUniqueId="{0d356d43-3cb7-2354-9e56-8312b3198d2a}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

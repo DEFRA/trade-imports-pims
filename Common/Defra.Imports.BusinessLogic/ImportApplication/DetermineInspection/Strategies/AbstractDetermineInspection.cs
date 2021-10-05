@@ -38,7 +38,7 @@
 
         protected bool ValidImportApplicationTypeForInspection(defraimp_importapplication importApplication)
         {
-            if (importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC && importApplication.defraimp_PrimaryITAHCId != null)
+            if ((importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC || importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHCLandbridge) && importApplication.defraimp_PrimaryITAHCId != null)
             {
                 bool tracesEnabled = bool.Parse(this.configurationParameterRepo.GetConfigurationParameterValueByKey("defraimp_traces_enabled"));
 
@@ -51,7 +51,7 @@
                     return false;
                 }
             }
-            else if (importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.IMP && importApplication.defraimp_PrimaryImporterNotificationId != null)
+            else if (importApplication.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ImportNotification && importApplication.defraimp_PrimaryImporterNotificationId != null)
             {
                 return true;
             }
@@ -67,7 +67,7 @@
 
         protected void MissingCertificateError()
         {
-            if (importApplication?.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC)
+            if (importApplication?.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHC || importApplication?.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ITAHCLandbridge)
             {
                 bool tracesEnabled = bool.Parse(this.configurationParameterRepo.GetConfigurationParameterValueByKey("defraimp_traces_enabled"));
 
@@ -84,7 +84,7 @@
                 }
 
             }
-            else if (importApplication?.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.IMP)
+            else if (importApplication?.defraimp_ImportApplicationType == defraimp_importapplication_defraimp_importapplicationtype.ImportNotification)
             {
                 // No Primary Importer Notification
                 inspectionRequirement?.PrimaryImporterNotificationMissing();

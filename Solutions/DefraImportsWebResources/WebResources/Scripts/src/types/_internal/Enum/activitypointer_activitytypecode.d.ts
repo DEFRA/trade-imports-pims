@@ -18,4 +18,5 @@ declare const enum activitypointer_activitytypecode {
   FormsProsurveyresponse = 10049,
   AdditionalCheck = 10088,
   ImportQuery = 10129,
+  CustomerVoicealert = 10251,
 }

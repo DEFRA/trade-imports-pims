@@ -15,6 +15,8 @@ var DefraImports;
         function onLoad(executionObj) {
             var formContext = executionObj.getFormContext();
             storeWasManualPostImportCheckSet(formContext);
+            showOrHideNonComplianceTab(formContext, formContext.getAttribute("defraimp_isnoncompliantcalculated").getValue());
+            showOrHideNonComplianceOther(executionObj);
         }
         ImportRecord.onLoad = onLoad;
         function onSave(executionObj) {
@@ -28,6 +30,17 @@ var DefraImports;
             setSystemDeterminedInspectionValues(formContext);
         }
         ImportRecord.onChangeOfManualPostImportCheckDecision = onChangeOfManualPostImportCheckDecision;
+        function showOrHideNonComplianceOther(executionObj) {
+            var _a;
+            var formContext = executionObj.getFormContext();
+            if ((_a = formContext.getAttribute("defraimp_typesofnoncompliance").getValue()) === null || _a === void 0 ? void 0 : _a.includes(714100005 /* Other */)) {
+                formContext.getControl("defraimp_noncomplianceothercomments").setVisible(true);
+            }
+            else {
+                formContext.getControl("defraimp_noncomplianceothercomments").setVisible(false);
+            }
+        }
+        ImportRecord.showOrHideNonComplianceOther = showOrHideNonComplianceOther;
         function storeWasManualPostImportCheckSet(formContext) {
             var manualPostImportCheckAttr = formContext.getAttribute("defraimp_manualpostimportcheckdecision");
             if (manualPostImportCheckAttr.getValue() !== null) {
@@ -63,10 +76,11 @@ var DefraImports;
             }
         }
         function preventSaveIfPostImportChecksIsUpdatedToBlank(executionObj) {
+            var _a, _b;
             var formContext = executionObj.getFormContext();
             var currentManualPostImportCheckAttr = formContext.getAttribute("defraimp_manualpostimportcheckdecision");
             if (wasManualPostImportCheckSet && currentManualPostImportCheckAttr.getValue() === null) {
-                executionObj.getEventArgs().preventDefault();
+                (_b = (_a = executionObj) === null || _a === void 0 ? void 0 : _a.getEventArgs()) === null || _b === void 0 ? void 0 : _b.preventDefault();
                 if (!isErrorDialogDisplaying) {
                     displayManualPostImportCheckDecisionErrorMessage();
                 }
@@ -101,7 +115,8 @@ var DefraImports;
             var importApplicationType = formContext.getAttribute("defraimp_importapplicationtype").getValue();
             //Check if we are importing from a charity and show the relevant section
             showHideCharitySection(formContext);
-            if (importApplicationType == 714100000 /* ITAHC */) {
+            if (importApplicationType == 714100000 /* ITAHC */
+                || importApplicationType == 714100005 /* ITAHCLandbridge */) {
                 //Hide any existing sections first
                 hideCHEDASections(formContext);
                 hideCHEDPSections(formContext);
@@ -109,11 +124,17 @@ var DefraImports;
                 //Show the ITAHC section
                 showITAHCSections(formContext);
             }
-            else if (importApplicationType == 714100001 /* IMP */) {
+            else if (importApplicationType == 714100001 /* ImportNotification */) {
                 hideCHEDASections(formContext);
                 hideCHEDPSections(formContext);
                 hideITAHCSections(formContext);
                 showIMPSections(formContext);
+            }
+            else if (importApplicationType == 714100004 /* DOCOM */) {
+                hideCHEDASections(formContext);
+                hideCHEDPSections(formContext);
+                hideITAHCSections(formContext);
+                hideIMPSections(formContext);
             }
             else if (importApplicationType == 714100002 /* CHEDA */) {
                 //Hide any existing sections first
@@ -176,6 +197,15 @@ var DefraImports;
             var importingFromCharity = formContext.getAttribute("defraimp_importingfromcharity").getValue();
             //Set visibility to whatever value Importing from Charity is
             formContext.ui.tabs.get("Charity_Tab").setVisible(importingFromCharity);
+        }
+        function showDOCOMTab(formContext) {
+            formContext.ui.tabs.get("DOCOM_Tab").setVisible(true);
+        }
+        function hideDOCOMTab(formContext) {
+            formContext.ui.tabs.get("DOCOM_Tab").setVisible(false);
+        }
+        function showOrHideNonComplianceTab(formContext, showOrHide) {
+            formContext.ui.tabs.get("NonCompliance_Tab").setVisible(showOrHide);
         }
     })(ImportRecord = DefraImports.ImportRecord || (DefraImports.ImportRecord = {}));
 })(DefraImports || (DefraImports = {}));

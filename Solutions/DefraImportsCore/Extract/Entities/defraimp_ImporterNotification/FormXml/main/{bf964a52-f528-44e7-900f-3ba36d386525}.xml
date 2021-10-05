@@ -117,6 +117,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{c4dac757-03b6-b67c-7dc3-85d98a6c402d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Health Certificate Attached" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_healthcertificateattached" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" datafieldname="defraimp_healthcertificateattached" disabled="false" uniqueid="{3c5b582b-cb30-b4dc-a7c7-1863b9bbb67c}" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{f22d2796-47cd-4f0b-abce-d80f2a3d7102}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Veterinary Document" languagecode="1033" />
@@ -293,6 +301,50 @@
                         </control>
                       </cell>
                     </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="Notes" showlabel="true" showbar="false" locklevel="0" id="{39804bb3-cbda-ec53-6031-869ec96e9032}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Notes" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{381776b1-167c-dc7d-aa39-d283d09cba2c}" showlabel="false" rowspan="15" auto="false" colspan="1" locklevel="0">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" uniqueid="{ba7db4ea-90c0-5b31-b97d-3731ad42c6d2}" disabled="false">
+                          <parameters>
+                            <UClientUniqueName>Timeline</UClientUniqueName>
+                            <UClientModules>Notes</UClientModules>
+                            <UClientDefaultModuleForCreateExperience>Notes</UClientDefaultModuleForCreateExperience>
+                            <UClientShowFilterPane>true</UClientShowFilterPane>
+                            <UClientExpandFilterPane>false</UClientExpandFilterPane>
+                            <UClientOrderBy>descending</UClientOrderBy>
+                            <UClientRecordPerPage>10</UClientRecordPerPage>
+                            <UClientEnableWhatsNewFilter>false</UClientEnableWhatsNewFilter>
+                            <DefaultTabId>NotesTab</DefaultTabId>
+                            <EmailConversationView>true</EmailConversationView>
+                            <ShowArticleTab>false</ShowArticleTab>
+                            <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                     <row />
                     <row />
                     <row />
@@ -1641,6 +1693,93 @@
                     <row />
                     <row />
                     <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="NonCompliance_Tab" id="{bea72be7-268b-c98e-04a9-8cc14ec9900c}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Non-Compliance" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_14_section_1" showlabel="false" showbar="false" locklevel="0" id="{75a40d08-7d1c-334d-2930-69cc03c13096}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{398990d7-2808-973b-e126-a283264d6aae}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Contacted Due to Non-Compliance" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_contactedduetononcompliance" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_contactedduetononcompliance" disabled="false" />
+                      </cell>
+                      <cell id="{cbcd530c-6b51-9200-0436-579109d99274}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date Email Sent" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_dateemailsent" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateemailsent" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ba2b6d50-ca94-572d-c995-c6d8b6a98282}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Type of Non-Compliance" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_typeofnoncompliance" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_typeofnoncompliance" disabled="false" />
+                      </cell>
+                      <cell id="{ee49e102-1a76-7e42-c483-e708a91e1d33}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date Telephone Call Made" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_datetelephonecallmade" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_datetelephonecallmade" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{db5c4557-6a5e-6a58-d13e-85260b5e4ac7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Non-Compliance Other Comments" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_noncomplianceothercomments" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_noncomplianceothercomments" disabled="false" />
+                      </cell>
+                      <cell id="{1127631b-e985-7c38-bab5-c4ae6b049976}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Non-Compliance Status" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_noncompliancestatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_noncompliancestatus" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a65d5375-5443-cb71-2884-e5941b8ded01}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="IRMS Person Responsible" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_irmspersonresponsible" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_irmspersonresponsible" disabled="false" />
+                      </cell>
+                      <cell id="{da96d7b4-8b1c-46c4-b3ae-b8d833d8acec}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Date Completed" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_datecompleted" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_datecompleted" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9beb7115-ca7c-da89-9848-3160dc8118a3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="PIMS Status" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_pimsstatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_pimsstatus" disabled="false" />
+                      </cell>
+                      <cell id="{28ed6ed3-6cb7-3b2a-c481-867d7bb3298d}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>

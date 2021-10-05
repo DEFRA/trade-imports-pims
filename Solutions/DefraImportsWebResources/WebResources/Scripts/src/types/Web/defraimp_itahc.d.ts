@@ -136,7 +136,8 @@ declare namespace WebApi {
     defraimp_ReplacedById_bind$defraimp_itahcs?: string | null;
     defraimp_ReplacesId_bind$defraimp_itahcs?: string | null;
     defraimp_TransporterAddressCountryId_bind$defra_countries?: string | null;
-    ownerid_bind$owners?: string | null;
+    ownerid_bind$systemusers?: string | null;
+    ownerid_bind$teams?: string | null;
   }
   interface defraimp_itahc_Create extends defraimp_itahc {
   }
