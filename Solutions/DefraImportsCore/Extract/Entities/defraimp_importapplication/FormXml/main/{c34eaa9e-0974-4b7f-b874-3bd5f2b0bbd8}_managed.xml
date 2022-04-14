@@ -650,7 +650,11 @@
                         <labels>
                           <label description="Note Text" languagecode="1033" />
                         </labels>
-                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" />
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}">
+                          <parameters>
+                            <UClientNotesConfigurationJSON>{"fieldsConfig":{"labelOverride":true,"header":{"labelOption":"Show","displayOption":"AlwaysShow","dataFieldName":"createdby"},"body":[{"labelOption":"Hide","displayOption":"AlwaysShow"},{"labelOption":"Hide","displayOption":"AlwaysShow"}],"footer":{"labelOption":"Hide","displayOption":"AlwaysShow"}}}</UClientNotesConfigurationJSON>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row />
@@ -1950,7 +1954,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

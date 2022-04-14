@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.21091.138" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.22032.146" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsCore</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Core" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.112</Version>
+    <Version>0.0.0.113</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -150,6 +150,7 @@
       <RootComponent type="29" id="{2a7f5da7-be16-ea11-a811-000d3ab4df6c}" behavior="0" />
       <RootComponent type="29" id="{3faa9a4b-79fb-4d13-b3a7-ece77bfe5d74}" behavior="0" />
       <RootComponent type="29" id="{406b75a0-4247-ea11-a812-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{48313ab0-8b0c-46c9-8c91-5e7cf72f968e}" behavior="0" />
       <RootComponent type="29" id="{55189b85-5f05-ea11-a811-000d3ab4df6c}" behavior="0" />
       <RootComponent type="29" id="{57ddd6be-78ea-e911-a812-000d3ab4de89}" behavior="0" />
       <RootComponent type="29" id="{59963442-a70b-ea11-a811-000d3ab5d511}" behavior="0" />
@@ -295,6 +296,12 @@
       <MissingDependency>
         <Required type="1" schemaName="defraexp_configurationparameter" displayName="Configuration Parameter" solution="defraexports (0.0.0.37)" />
         <Dependent type="62" schemaName="defraimp_EUImportsApp" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_salesroutingrun" displayName="Sales routing run" solution="msdyn_SalesRouting (9.1.2203.2004)">
+          <package>msdynce_SalesInsightsAnchor (9.0.22024.10016)</package>
+        </Required>
+        <Dependent type="1" schemaName="team" displayName="Team" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="teammobileofflineprofilemembership" displayName="TeamMobileOfflineProfileMembership" solution="MobileOfflineMembership (1.0.0.2)" />
@@ -918,6 +925,10 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="msdyn_filesandattachments" displayName="msdyn_filesandattachments" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
+        <Dependent type="60" displayName="Information" parentDisplayName="Importer Notification" id="{bf964a52-f528-44e7-900f-3ba36d386525}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_filesandattachments" displayName="msdyn_filesandattachments" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
@@ -934,44 +945,48 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="msdyn_multiple_uploads" displayName="msdyn_multiple_uploads" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
+        <Dependent type="60" displayName="Information" parentDisplayName="Importer Notification" id="{bf964a52-f528-44e7-900f-3ba36d386525}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_multiple_uploads" displayName="msdyn_multiple_uploads" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="Service/_imgs/ribbon/NewRecord_16.png" displayName="Service/_imgs/ribbon/NewRecord_16.png" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.21041.1021)</package>
+          <package>msdynce_ServiceAnchor (9.0.22032.1005)</package>
         </Required>
         <Dependent type="50" schemaName="defraimp_importernotification:RibbonDiffXml" displayName="defraimp_importernotification:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21091.00138)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22032.00146)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Post Import Check" id="{045d20e0-adad-46b9-ae53-39d2b3e2a7f8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21091.00138)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22032.00146)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Match Record" id="{3ea0a58b-62e6-4c7c-bc6a-47c823bc7bdc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21091.00138)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22032.00146)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21091.00138)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22032.00146)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Importer Notification" id="{bf964a52-f528-44e7-900f-3ba36d386525}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21091.00138)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22032.00146)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2109.1013)" />
+        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2203.2011)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.21091.00138)" />
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.22032.00146)" />
         <Dependent type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.21091.00138)" />
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.22032.00146)" />
         <Dependent type="60" displayName="ITAHC Quick Create" parentDisplayName="ITAHC" id="{c7a38b2c-7a34-40a6-9062-e37e878fd92d}" />
       </MissingDependency>
     </MissingDependencies>

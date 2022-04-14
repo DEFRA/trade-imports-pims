@@ -1,11 +1,11 @@
 using System.Text.RegularExpressions;
 
-#addin nuget:?package=Cake.Xrm.Sdk&version=0.1.9
-#addin nuget:?package=Cake.Xrm.SolutionPackager&version=0.1.9
+#addin nuget:?package=Cake.Xrm.Sdk&version=0.1.11
+#addin nuget:?package=Cake.Xrm.SolutionPackager&version=0.1.12
 #addin nuget:?package=Cake.Xrm.DataMigration&version=0.1.8
-#addin nuget:?package=Cake.Xrm.Spkl&version=0.1.7
-#addin nuget:?package=Cake.Npm&version=0.17.0
-#addin nuget:?package=Cake.Json&version=3.0.0
+#addin nuget:?package=Cake.Xrm.Spkl&version=0.2.0
+#addin nuget:?package=Cake.Npm&version=1.0.0
+#addin nuget:?package=Cake.Json&version=6.0.1
 
 const string DataFolder = "./Data";
 const string SolutionsFolder = "./Solutions";
@@ -199,7 +199,7 @@ string GetConnectionString(string solution, bool stagingEnvironment) {
   var username = envConfig["username"] ?? EnvironmentVariable("CAKE_DYNAMICS_USERNAME");
   var password = EnvironmentVariable("CAKE_DYNAMICS_PASSWORD");
 
-  return $"Url={url}; Username={username}; Password={password}; AuthType=Office365; SkipDiscovery=true;";
+  return $"AuthType=ClientSecret;url={url};ClientId={username};ClientSecret={password};";
 }
 
 void ExtractSolution(string connectionString, string solutionName, DirectoryPath outputPath) {
