@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 
 #addin nuget:?package=Cake.Xrm.Sdk&version=0.1.11
-#addin nuget:?package=Cake.Xrm.SolutionPackager&version=0.1.9
+#addin nuget:?package=Cake.Xrm.SolutionPackager&version=0.1.11
 #addin nuget:?package=Cake.Xrm.DataMigration&version=0.1.8
 #addin nuget:?package=Cake.Xrm.Spkl&version=0.1.7
 #addin nuget:?package=Cake.Npm&version=1.0.0
