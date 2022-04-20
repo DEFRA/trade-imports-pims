@@ -27,7 +27,7 @@ steps:
   - powershell: >-
       Invoke-Expression "&$(Build.SourcesDirectory)\build.ps1 
       -Target Default
-      -NuGetCredentials "`Capgemini IP;$env:CAPGEMINI_UK_PACKAGE_READ_KEY`"  
+      -NuGetCredentials `"Capgemini IP;$env:CAPGEMINI_UK_PACKAGE_READ_KEY`" 
       -Verbosity Diagnostic"
     displayName: Cake - Build Package
     env:
