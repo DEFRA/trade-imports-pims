@@ -3,9 +3,12 @@ trigger: none
 steps:
   - powershell: >-
       Invoke-Expression "&$(Build.SourcesDirectory)\build.ps1 
-      -Target Default 
+      -Target Default
+      -NuGetCredentials `"Capgemini IP;$env:CAPGEMINI_UK_PACKAGE_READ_KEY`"  
       -Verbosity Diagnostic"
     displayName: Cake - Build Package
+    env:
+      CAPGEMINI_UK_PACKAGE_READ_KEY: $(capgeminiUkPackageReadKey)
   - task: VSTest@2
     displayName: "Test Assemblies"
     inputs:
