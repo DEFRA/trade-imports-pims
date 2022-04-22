@@ -108,13 +108,13 @@ Task("BuildUnitTestProjects")
   });
 
 Task("BuildSolution")
-  .DoesForEach(
-    GetFiles($"{Directory($"{SolutionsFolder}/{solution}")}/**/package.json",  new GlobberSettings { Predicate = (fileSystemInfo) => !fileSystemInfo.Path.FullPath.Contains("node_modules") }), 
-    (packageFile) => {
-      var directory = packageFile.GetDirectory();
-      NpmInstall(new NpmInstallSettings { WorkingDirectory = directory });
-      NpmRunScript(new NpmRunScriptSettings { ScriptName = "build", WorkingDirectory = directory, });
-  })
+  // .DoesForEach(
+  //   GetFiles($"{Directory($"{SolutionsFolder}/{solution}")}/**/package.json",  new GlobberSettings { Predicate = (fileSystemInfo) => !fileSystemInfo.Path.FullPath.Contains("node_modules") }), 
+  //   (packageFile) => {
+  //     var directory = packageFile.GetDirectory();
+  //     NpmInstall(new NpmInstallSettings { WorkingDirectory = directory });
+  //     NpmRunScript(new NpmRunScriptSettings { ScriptName = "build", WorkingDirectory = directory, });
+  // })
   .DoesForEach(
     GetFiles($"{Directory($"{SolutionsFolder}/{solution}")}/**/*.csproj"),
     (msBuildProject) => {
