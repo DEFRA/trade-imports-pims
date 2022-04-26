@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-#addin nuget:?package=Cake.Xrm.Sdk&version=0.1.10
+#addin nuget:?package=Cake.Xrm.Sdk&version=0.1.11
 #addin nuget:?package=Cake.Xrm.SolutionPackager&version=0.1.11
 #addin nuget:?package=Cake.Xrm.DataMigration&version=0.1.8
 #addin nuget:?package=Cake.Xrm.Spkl&version=0.1.7
@@ -108,13 +108,13 @@ Task("BuildUnitTestProjects")
   });
 
 Task("BuildSolution")
-  .DoesForEach(
-    GetFiles($"{Directory($"{SolutionsFolder}/{solution}")}/**/package.json",  new GlobberSettings { Predicate = (fileSystemInfo) => !fileSystemInfo.Path.FullPath.Contains("node_modules") }), 
-    (packageFile) => {
-      var directory = packageFile.GetDirectory();
-      NpmInstall(new NpmInstallSettings { WorkingDirectory = directory });
-      NpmRunScript(new NpmRunScriptSettings { ScriptName = "build", WorkingDirectory = directory, });
-  })
+  // .DoesForEach(
+  //   GetFiles($"{Directory($"{SolutionsFolder}/{solution}")}/**/package.json",  new GlobberSettings { Predicate = (fileSystemInfo) => !fileSystemInfo.Path.FullPath.Contains("node_modules") }), 
+  //   (packageFile) => {
+  //     var directory = packageFile.GetDirectory();
+  //     NpmInstall(new NpmInstallSettings { WorkingDirectory = directory });
+  //     NpmRunScript(new NpmRunScriptSettings { ScriptName = "build", WorkingDirectory = directory, });
+  // })
   .DoesForEach(
     GetFiles($"{Directory($"{SolutionsFolder}/{solution}")}/**/*.csproj"),
     (msBuildProject) => {
