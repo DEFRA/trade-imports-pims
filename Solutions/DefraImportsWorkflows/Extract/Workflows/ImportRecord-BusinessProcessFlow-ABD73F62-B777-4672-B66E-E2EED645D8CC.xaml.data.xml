@@ -91,12 +91,6 @@
     <steplabels id="{a927b17e-d768-4293-98bc-600c493db897}">
       <label languagecode="1033" description="Completion Summary" />
     </steplabels>
-    <steplabels id="{1abb577e-c355-4a8f-b42e-7bd5e6dac304}">
-      <label languagecode="1033" description="Post Import Check" />
-    </steplabels>
-    <steplabels id="{ab0739a9-bc5d-427e-a912-c156b25c7857}">
-      <label languagecode="1033" description="Post Import Checks Requested?" />
-    </steplabels>
     <steplabels id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}">
       <label languagecode="1033" description="Completion" />
     </steplabels>
@@ -109,7 +103,25 @@
     <steplabels id="{674fe31f-a72f-4493-9433-4b1bd2d0a2ca}">
       <label languagecode="1033" description="Completion Summary" />
     </steplabels>
-    <steplabels id="{b3ef7e60-84d4-4ad0-8b09-3535c2d4054a}">
+    <steplabels id="{d48e415b-c151-4f70-a308-813256ade5bb}">
+      <label languagecode="1033" description="Post Import Check" />
+    </steplabels>
+    <steplabels id="{c20ef48e-ff18-4e87-b551-16d37671a894}">
+      <label languagecode="1033" description="Post Import Checks Requested?" />
+    </steplabels>
+    <steplabels id="{79bdecb0-a1b2-4f0b-860f-c9a56bb2c92d}">
+      <label languagecode="1033" description="Completion" />
+    </steplabels>
+    <steplabels id="{20ddfec3-5301-4e43-b6bf-27a366ad46bb}">
+      <label languagecode="1033" description="Move to Completion?" />
+    </steplabels>
+    <steplabels id="{0cedb764-7b91-4724-b8dd-19d0841b658e}">
+      <label languagecode="1033" description="Moved to Completion Date" />
+    </steplabels>
+    <steplabels id="{5e7229c9-6dd3-4054-9c69-87103d6e47ec}">
+      <label languagecode="1033" description="Completion Summary" />
+    </steplabels>
+    <steplabels id="{19fa5115-1ba7-46a6-81a0-c6bf91649124}">
       <label languagecode="1033" description="Reset Trust Level to Bronze?" />
     </steplabels>
   </labels>
