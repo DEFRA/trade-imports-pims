@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.21091.138" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.22034.151" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsWorkflows</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Workflows" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.63</Version>
+    <Version>0.0.0.64</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -381,6 +381,10 @@
       <MissingDependency>
         <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="Active" />
         <Dependent type="29" displayName="Import Query - Update ITAHC" id="{2fab0589-137a-46d3-88b5-0a12c0b66a0f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defraimp_importrisklevel" displayName="Import Risk Level" solution="Active" />
+        <Dependent type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="defraimp_ipaffsdocument" displayName="IPAFFS Document" solution="Active" />
@@ -1615,7 +1619,7 @@
         <Dependent type="29" displayName="Import Application - Set Previous Place of Origin" id="{17de83cc-724b-4200-91d1-a4d9d1a8de84}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primarycvedid" displayName="Primary CVED" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primarycvedid" displayName="Primary CHED-A" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Import Application - Update Certificate Number" id="{ff1484f0-d0bf-435b-a330-7d5858acb9dd}" />
       </MissingDependency>
       <MissingDependency>
@@ -1923,7 +1927,7 @@
         <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_commoditiesanimalscertifiedas" displayName="Purpose of Movement" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" solution="Active" />
+        <Required type="2" schemaName="defraimp_commoditiesanimalscertifiedas" displayName="Certified For" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" solution="Active" />
         <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
@@ -2277,6 +2281,14 @@
       <MissingDependency>
         <Required type="2" schemaName="subject" displayName="Summary" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" solution="Active" />
         <Dependent type="29" displayName="Import Query - Update ITAHC" id="{2fab0589-137a-46d3-88b5-0a12c0b66a0f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defraimp_importrisklevelid" displayName="Import Risk Level" parentSchemaName="defraimp_importrisklevel" parentDisplayName="Import Risk Level" solution="Active" />
+        <Dependent type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defraimp_name" displayName="Name" parentSchemaName="defraimp_importrisklevel" parentDisplayName="Import Risk Level" solution="Active" />
+        <Dependent type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="defraimp_documenttype" displayName="Document Type" parentSchemaName="defraimp_ipaffsdocument" parentDisplayName="IPAFFS Document" solution="Active" />
@@ -3091,7 +3103,11 @@
         <Dependent type="29" displayName="Append ITAHC to Import Record" id="{f6bd2107-d98b-486c-9fc8-4796525b0a1b}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.21091.00138)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2203.4012)" />
+        <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22034.00151)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
     </MissingDependencies>
