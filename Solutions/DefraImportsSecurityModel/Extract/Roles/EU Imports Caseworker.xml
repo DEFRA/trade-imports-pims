@@ -322,6 +322,7 @@
     <RolePrivilege name="prvWritedefraimp_docom" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importapplicationbusinessprocessflow" level="Global" />
+    <RolePrivilege name="prvWritedefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvWritedefraimp_importinspection" level="Global" />
     <RolePrivilege name="prvWritedefraimp_itahc" level="Global" />
     <RolePrivilege name="prvWritedefraimp_matchrecord" level="Global" />
