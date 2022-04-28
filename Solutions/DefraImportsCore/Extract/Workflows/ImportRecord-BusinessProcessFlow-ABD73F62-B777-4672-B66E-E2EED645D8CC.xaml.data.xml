@@ -103,9 +103,6 @@
     <steplabels id="{674fe31f-a72f-4493-9433-4b1bd2d0a2ca}">
       <label languagecode="1033" description="Completion Summary" />
     </steplabels>
-    <steplabels id="{b3ef7e60-84d4-4ad0-8b09-3535c2d4054a}">
-      <label languagecode="1033" description="Reset Trust Level to Bronze?" />
-    </steplabels>
     <steplabels id="{d48e415b-c151-4f70-a308-813256ade5bb}">
       <label languagecode="1033" description="Post Import Check" />
     </steplabels>
