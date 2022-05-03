@@ -64,7 +64,7 @@ var DefraImports;
                 formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(714100010 /* Quarantine */);
             }
             else if (currentManualPostImportCheckAttr.getValue() == 714100002 /* ManualCheckTB */) {
-                formContext.getAttribute("defraimp_inspectionrequired").setValue(714100000 /* Yes */);
+                formContext.getAttribute("defraimp_inspectionrequired").setValue(714100001 /* No */);
                 formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(714100011 /* TB */);
             }
             else if (currentManualPostImportCheckAttr.getValue() == 714100001 /* DoNotPostImportCheck */) {
