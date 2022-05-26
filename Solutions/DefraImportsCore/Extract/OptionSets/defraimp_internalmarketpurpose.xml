@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="defraimp_internalmarketpurpose" localizedName="Internal Market Purpose" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>0.0.0.113</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <ExternalTypeName></ExternalTypeName>
+  <displaynames>
+    <displayname description="Internal Market Purpose" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="714100000" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Animal Feeding Stuff" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100001" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Human Consumption" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100002" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Pharmaceutical Use" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100003" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Technical Use" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100004" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Other" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100005" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Commercial Sale" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100006" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Rescue" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100007" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Breeding" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100008" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Research" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100009" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Racing or Competition" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100010" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Approved Premises or Body" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100011" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Companion Animal not for Resale or Rehoming" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100012" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Production" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100013" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Slaughter" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100014" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Fattening" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100015" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Game Restocking" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100016" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Registered Horses" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

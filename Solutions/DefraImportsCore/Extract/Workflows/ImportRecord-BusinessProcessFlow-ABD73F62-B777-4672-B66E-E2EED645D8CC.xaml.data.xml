@@ -11,8 +11,8 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-  <StateCode>1</StateCode>
-  <StatusCode>2</StatusCode>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
   <processorder>100</processorder>
   <processroleassignment>&lt;DisplayConditions&gt;&lt;Role Id="{627090ff-40a3-4053-8790-584edc5be201}" /&gt;&lt;Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" /&gt;&lt;/DisplayConditions&gt;</processroleassignment>
   <RunAs>1</RunAs>
@@ -82,6 +82,9 @@
     <steplabels id="{267e9309-4684-4ce7-bd60-65bd9e976b8d}">
       <label languagecode="1033" description="Completion" />
     </steplabels>
+    <steplabels id="{8310821a-b7ac-446c-8886-fdb25c58bd41}">
+      <label languagecode="1033" description="CHED Part Two Complete?" />
+    </steplabels>
     <steplabels id="{13b576ae-93dc-41dc-8ee0-a0ff0f90f52f}">
       <label languagecode="1033" description="Move to Completion?" />
     </steplabels>
@@ -93,6 +96,9 @@
     </steplabels>
     <steplabels id="{6da07398-6ef0-46e1-b04f-36c737e8e2cb}">
       <label languagecode="1033" description="Completion" />
+    </steplabels>
+    <steplabels id="{eda70aa5-01f3-42d0-86a8-0852b112e947}">
+      <label languagecode="1033" description="CHED Part Two Complete?" />
     </steplabels>
     <steplabels id="{9d684bf9-d794-4e35-9866-747a828b2d8c}">
       <label languagecode="1033" description="Move to Completion?" />
@@ -111,6 +117,9 @@
     </steplabels>
     <steplabels id="{79bdecb0-a1b2-4f0b-860f-c9a56bb2c92d}">
       <label languagecode="1033" description="Completion" />
+    </steplabels>
+    <steplabels id="{ac68f544-b581-4270-b1eb-90e979728bbe}">
+      <label languagecode="1033" description="CHED Part Two Complete?" />
     </steplabels>
     <steplabels id="{20ddfec3-5301-4e43-b6bf-27a366ad46bb}">
       <label languagecode="1033" description="Move to Completion?" />

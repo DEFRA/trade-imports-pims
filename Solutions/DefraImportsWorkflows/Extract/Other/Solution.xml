@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.22034.151" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.22044.142" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsWorkflows</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Workflows" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.64</Version>
+    <Version>0.0.0.65</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -667,7 +667,7 @@
         <Dependent type="29" displayName="Import Application - Update Certificate Number" id="{ff1484f0-d0bf-435b-a330-7d5858acb9dd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_animalcertifiedas" displayName="Purpose" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_animalcertifiedas" displayName="Internal Market Purpose" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
@@ -705,6 +705,18 @@
       <MissingDependency>
         <Required type="2" schemaName="defraimp_certificateverified" displayName="Certificate Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defraimp_chedparttwocomplete" displayName="CHED Part Two Complete?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defraimp_chedparttwocomplete" displayName="CHED Part Two Complete?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defraimp_commoditiesanimalscertifiedas" displayName="Certified For" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="defraimp_commoditycode" displayName="Commodity Code" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
@@ -1195,6 +1207,10 @@
         <Dependent type="29" displayName="Import Application - Manual Post Import Check Decision" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="2" schemaName="defraimp_internalmarketpurpose" displayName="Internal Market Purpose" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="2" schemaName="defraimp_ipaffsspeciesid" displayName="IPAFFS Species ID" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Import Application - Automatically Get Commodity Type" id="{5b7a12f4-39e1-ea11-a813-000d3ad82cac}" />
       </MissingDependency>
@@ -1389,6 +1405,10 @@
       <MissingDependency>
         <Required type="2" schemaName="defraimp_name" displayName="Name" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Import Application - Update Certificate Number" id="{ff1484f0-d0bf-435b-a330-7d5858acb9dd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defraimp_numberofpackages" displayName="Number of Packages" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="defraimp_pimsstatus" displayName="PIMS Status" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
@@ -1695,6 +1715,10 @@
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="2" schemaName="defraimp_purposeofconsignment" displayName="Purpose of Consignment" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="2" schemaName="defraimp_quantity" displayName="Quantity" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
@@ -1737,6 +1761,10 @@
       <MissingDependency>
         <Required type="2" schemaName="defraimp_risklevelverified" displayName="Risk Level Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defraimp_timeofimport" displayName="Time of Import" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="defraimp_tracesspeciesid" displayName="TRACES Species ID" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
@@ -1927,11 +1955,23 @@
         <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="2" schemaName="defraimp_arrivaltime" displayName="Arrival Time" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" solution="Active" />
+        <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="2" schemaName="defraimp_commoditiesanimalscertifiedas" displayName="Certified For" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" solution="Active" />
         <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="2" schemaName="defraimp_commoditiesinternalmarketpurpose" displayName="Internal Market Purpose" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" solution="Active" />
+        <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="2" schemaName="defraimp_commoditiesnumberofanimals" displayName="Commodities Number of Animals" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" solution="Active" />
+        <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defraimp_commoditiesnumberofpackages" displayName="Commodities Number of Packages" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" solution="Active" />
         <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
@@ -2152,6 +2192,10 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="defraimp_portofentry" displayName="Port of Entry" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" solution="Active" />
+        <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defraimp_purposeofconsignment" displayName="Purpose of Consignment" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" solution="Active" />
         <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
@@ -3103,11 +3147,11 @@
         <Dependent type="29" displayName="Append ITAHC to Import Record" id="{f6bd2107-d98b-486c-9fc8-4796525b0a1b}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2203.4012)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2204.4006)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22034.00151)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22044.00142)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
     </MissingDependencies>

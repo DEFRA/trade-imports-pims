@@ -94,11 +94,19 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{27ed22bc-a873-9857-8b04-74b6e907c1c6}" showlabel="true" locklevel="0">
+                      <cell id="{9b65600b-82be-997a-c8a6-08003b32aeb5}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Purpose" languagecode="1033" />
+                          <label description="Purpose of Consignment" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_animalcertifiedas" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_animalcertifiedas" disabled="false" uniqueid="{6eadc7ad-add7-51b5-7ed6-b926718be598}" />
+                        <control id="defraimp_purposeofconsignment" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_purposeofconsignment" disabled="false" uniqueid="{d53dd037-791d-38b9-b17b-68b722490291}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a69a0da0-b662-17c9-5676-13432ecea0c3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Internal Market Purpose" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_internalmarketpurpose" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_internalmarketpurpose" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -107,6 +115,14 @@
                           <label description="(Deprecated) Purpose" languagecode="1033" />
                         </labels>
                         <control id="defraimp_purpose" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_purpose" disabled="false" uniqueid="{0559e509-a4e4-ed3a-38da-156d709e7b01}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f490df06-04ca-44f0-86e4-831a472569a8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Certified For" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditiesanimalscertifiedas" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_commoditiesanimalscertifiedas" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -124,6 +140,14 @@
                           <label description="Quantity" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_quantity" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_quantity" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c1d00156-ab0c-4c82-ab9f-d6120f2a1329}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Number of Packages" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_numberofpackages" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofpackages" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -222,6 +246,14 @@
                           <label description="Date of Import" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_dateofimport" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_dateofimport" uniqueid="{2553b3d4-cdae-ec8b-536e-db05e56a87b2}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{975a60a2-46a7-912c-4a06-d2edb885c300}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Import Arrival Time" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_timeofimport" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_timeofimport" disabled="false" uniqueid="{27e96975-58be-2585-83d4-71a30331a44d}" />
                       </cell>
                     </row>
                     <row>
@@ -426,6 +458,14 @@
                           <label description="[Do not remove] Post Import Checks Required Reason Original Value" languagecode="1033" />
                         </labels>
                         <control id="defraimp_inspectionrequiredreasonoriginalvalue" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_inspectionrequiredreasonoriginalvalue" disabled="true" uniqueid="{84c27a92-a8de-7317-278e-0947b367d0ba}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b87ac3e1-1cc0-38a5-29e6-2e83cc834b2b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="[Do not remove] CHED Part Two Complete?" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_chedparttwocomplete" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_chedparttwocomplete" disabled="true" uniqueid="{23c17119-6d43-9926-9e32-cdccaeb637ad}" />
                       </cell>
                     </row>
                   </rows>
@@ -1409,6 +1449,48 @@
                     </row>
                   </rows>
                 </section>
+                <section name="Transporter_Tab_section_5" id="33c5e540-ea53-4a58-9dee-7dcf632ce359" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Transport to BCP/PoE" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{81175499-650a-e61e-bc01-4d175148c748}" showlabel="false" colspan="1" auto="false" rowspan="1">
+                        <labels>
+                          <label description="TransportBCPPoE" languagecode="1033" />
+                        </labels>
+                        <control id="TransportBCPPoE" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="defraimp_primaryimporternotificationid" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="defraimp_importernotification"&gt;3de5d86f-0530-40a2-b527-8cd609254da4&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="Transporter_Tab_section_7" showlabel="true" showbar="false" locklevel="0" id="{c322911c-30b7-9677-97e3-a4e3169d0e36}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Transport from BCP/PoE" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{605b3d79-ceb6-ca2c-6121-56d356e3c4cb}" showlabel="false" colspan="1" auto="false">
+                        <labels>
+                          <label description="Transport from BCP PoE" languagecode="1033" />
+                        </labels>
+                        <control id="TransportFromBCPPoE" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="defraimp_primaryimporternotificationid" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="defraimp_importernotification"&gt;ac4a4a83-8318-4ab3-92c2-cbdc05ae24d4&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
                 <section name="transport_information_section" showlabel="true" showbar="false" locklevel="0" id="{9440ea78-3616-3650-b79c-c04ac5a98c30}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
                   <labels>
                     <label description="Transport Information" languagecode="1033" />
@@ -1494,6 +1576,26 @@
                             <DisableViewPicker>false</DisableViewPicker>
                             <DefaultViewId>{4A0AC1F7-910F-456E-B501-2A4237C76A3A}</DefaultViewId>
                             <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="Transporter_Tab_section_6" id="89313b95-32ae-48a9-a993-6ea19581d613" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Transit Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{5f63670d-4e7f-427e-8dc2-567175a9a52a}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Transit Details Quick View" languagecode="1033" />
+                        </labels>
+                        <control id="QuickviewControl1651596014037" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="defraimp_primaryimporternotificationid" disabled="false">
+                          <parameters>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="defraimp_importernotification"&gt;84b92b2d-ffca-ec11-a7b5-000d3a65a004&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
                           </parameters>
                         </control>
                       </cell>
@@ -1954,7 +2056,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -2124,6 +2226,28 @@
           <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
             <parameters>
               <value>defraimp_iv66receivedinrequiredtimescale</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{23c17119-6d43-9926-9e32-cdccaeb637ad}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>defraimp_chedparttwocomplete</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>defraimp_chedparttwocomplete</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>defraimp_chedparttwocomplete</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>defraimp_chedparttwocomplete</value>
             </parameters>
           </customControl>
         </controlDescription>

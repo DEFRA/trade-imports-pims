@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="defraimp_purposeofconsignment" localizedName="Purpose of Consignment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>0.0.0.115</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <ExternalTypeName></ExternalTypeName>
+  <displaynames>
+    <displayname description="Purpose of Consignment" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="714100000" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For Import" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100001" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For Transhipment to" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100002" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For Transit to 3rd Country" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100003" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For Re-Import" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100004" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For NON-Conforming Consignments" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100005" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For Private Import" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100006" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For Transfer To" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100007" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For Import Re-Conformity Check" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

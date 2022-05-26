@@ -215,6 +215,7 @@
   <EntityRelationship Name="defraimp_defra_country_defraimp_importernotification_PersonResponsibleCountryId" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importernotification_PlaceofDestinationCountryid" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importernotification_PlaceofOriginHarvestAddressCountryId" />
+  <EntityRelationship Name="defraimp_defra_country_defraimp_importernotification_transitdestinationcountryid" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_importernotification_TransporterAddressCountryid" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_ConsigneeAddressCountryId" />
   <EntityRelationship Name="defraimp_defra_country_defraimp_itahc_ConsignorAddressCountryId" />
