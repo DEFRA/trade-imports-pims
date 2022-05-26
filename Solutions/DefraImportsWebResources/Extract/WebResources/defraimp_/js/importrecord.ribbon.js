@@ -1,3 +1,61 @@
+var ImportRibbon = /** @class */ (function () {
+    function ImportRibbon() {
+    }
+
+    ImportRibbon.openUrlField = function (formContext, schemaName) {
+        debugger;
+        formContext.ui.clearFormNotification(this.Ids.urlErrorId);
+        formContext.ui.clearFormNotification(this.Ids.urlMissingSchemaId);
+        var urlField = formContext.getAttribute(schemaName);
+        if (!urlField) {
+            return formContext.ui.setFormNotification(this.Errors.urlMissingSchema, "ERROR", this.Ids.urlMissingSchemaId);
+        }
+        var notificationId = urlField.getValue()[0].name;
+        if (!notificationId || notificationId === "") {
+            return formContext.ui.setFormNotification(this.Errors.UrlErrorMessage, "ERROR", this.Ids.UrlErrorId);
+        }
+
+        var url;
+        var Select = "?$select=defraexp_value";
+
+        Xrm.WebApi.retrieveRecord(ImportRibbon.ConfigParamaterConstants.entityName, ImportRibbon.ConfigParamaterConstants.decisionHubEntityId, Select).then(
+            function success(result) {
+                url = result.defraexp_value;
+                url = url.replace('#notificationid', notificationId);
+                Xrm.Navigation.openUrl(url);
+                console.log("Success: " + result.defraexp_value);
+            },
+            function (error) {
+                console.log(error.message);
+            }
+        );
+
+
+       
+    };
+    ImportRibbon.Ids = {
+        urlErrorId: "ERROR_OPENURL",
+        urlMissingSchemaId: "ERROR_MISSINGURLSCHEMA",
+
+    };
+    ImportRibbon.Errors = {
+        urlErrorMessage: "URL is missing for this Import Record.",
+        urlMissingSchema: "Notification id field not found on Import Record.",
+    };
+
+
+    ImportRibbon.ConfigParamaterConstants = {
+        entityName: "defraexp_configurationparameter",
+        decisionHubEntityId: "537cea15-01d5-ec11-a7b5-0022489ef71e",
+    };
+
+    
+    return ImportRibbon;
+}());
+
+
+
+
 var DefraImports;
 (function (DefraImports) {
     var ImportRecord;
@@ -42,8 +100,8 @@ var DefraImports;
             Xrm.WebApi.online
                 .execute(requestObject)
                 .then(function (success) {
-                executeSuccess(primaryControl);
-            }, executeErrorCallback);
+                    executeSuccess(primaryControl);
+                }, executeErrorCallback);
         }
         var UpdateImportRecordWithNotificationRequest = /** @class */ (function () {
             function UpdateImportRecordWithNotificationRequest(entity, overwriteExistingData) {
@@ -79,6 +137,10 @@ var DefraImports;
             callUpdateImportRecordWithNotificationAction(primaryControl, true);
         }
         ImportRecord.onOverwriteDataWithNotification = onOverwriteDataWithNotification;
+        function openUrlFromRibbon(formContext, schemaName) {
+            ImportRibbon.openUrlField(formContext, schemaName);
+        }
+        ImportRecord.openUrlFromRibbon = openUrlFromRibbon;
         function callUpdateImportRecordWithNotificationAction(primaryControl, overwriteExistingData) {
             var importApplication = primaryControl.data.entity.getEntityReference();
             var requestObject = new UpdateImportRecordWithNotificationRequest(importApplication, overwriteExistingData);

@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <WebResourceId>{ecf6e15c-f362-ea11-a811-000d3ab5d037}</WebResourceId>
-  <Name>defraimp_/js/importrecord.ribbon.js</Name>
-  <DisplayName>defraimp_/js/importrecord.ribbon.js</DisplayName>
-  <LanguageCode>0</LanguageCode>
-  <WebResourceType>3</WebResourceType>
-  <IntroducedVersion>0.0.0.14</IntroducedVersion>
+  <WebResourceId>{b4eb0376-79c1-ec11-983f-000d3adca1a9}</WebResourceId>
+  <Name>defraimp_/svg/icon.ipaffs.svg</Name>
+  <DisplayName>Icon.ipaffs.svg</DisplayName>
+  <WebResourceType>11</WebResourceType>
+  <IntroducedVersion>0.0.0.34</IntroducedVersion>
   <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
   <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
   <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
   <IsCustomizable>1</IsCustomizable>
   <CanBeDeleted>1</CanBeDeleted>
   <IsHidden>0</IsHidden>
-  <FileName>/WebResources/defraimp_jsimportrecordribbonjsECF6E15C-F362-EA11-A811-000D3AB5D037</FileName>
+  <FileName>/WebResources/defraimp_svgiconipaffssvgB4EB0376-79C1-EC11-983F-000D3ADCA1A9</FileName>
 </WebResource>

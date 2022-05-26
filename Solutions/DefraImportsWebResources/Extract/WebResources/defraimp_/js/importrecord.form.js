@@ -65,7 +65,7 @@ var DefraImports;
             }
             else if (currentManualPostImportCheckAttr.getValue() == 714100002 /* ManualCheckTB */) {
                 formContext.getAttribute("defraimp_inspectionrequired").setValue(714100001 /* No */);
-                formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(714100011 /* TB */);
+                formContext.getAttribute("defraimp_inspectionrequiredreason").setValue(714100004 /* NoInspectionRequired */);
             }
             else if (currentManualPostImportCheckAttr.getValue() == 714100001 /* DoNotPostImportCheck */) {
                 formContext.getAttribute("defraimp_inspectionrequired").setValue(714100001 /* No */);
