@@ -80,7 +80,7 @@
                         <labels>
                           <label description="Commodities Number of Animals" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditiesnumberofanimals" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofanimals" disabled="false" />
+                        <control id="defraimp_commoditiesnumberofanimals" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofanimals" disabled="false" uniqueid="{1148e7e1-25d1-addb-de6b-219dbb1511e3}" />
                       </cell>
                     </row>
                     <row>

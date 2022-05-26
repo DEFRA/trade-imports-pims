@@ -7,7 +7,7 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
       <tabs>
-        <tab verticallayout="true" id="{f65dc796-740c-48e3-9268-fd97359c6745}" IsUserDefined="1" name="details_tab">
+        <tab verticallayout="true" id="{f65dc796-740c-48e3-9268-fd97359c6745}" IsUserDefined="1" name="details_tab" expanded="true">
           <labels>
             <label description="Importer Notification Details" languagecode="1033" />
           </labels>
@@ -228,11 +228,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{3ee009fc-3242-4d3c-ab78-89aa263d656a}" showlabel="true" locklevel="0">
+                      <cell id="{1572a6bd-1590-52dd-eae4-e6e2c3787483}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Purpose of Movement" languagecode="1033" />
+                          <label description="Purpose of Consignment" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditiesanimalscertifiedas" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_commoditiesanimalscertifiedas" disabled="false" uniqueid="{0689dd80-ab37-325d-2802-abe2485ed506}" />
+                        <control id="defraimp_purposeofconsignment" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_purposeofconsignment" disabled="false" uniqueid="{4c8a9144-3b92-a143-94da-7d26a297d4e0}" />
                       </cell>
                       <cell id="{cad201e2-317d-4afa-8ab3-6696f2c599de}" showlabel="true" locklevel="0">
                         <labels>
@@ -242,11 +242,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{ddce7eda-b3f1-4878-87a6-1944b192a154}" showlabel="true" locklevel="0">
+                      <cell id="{8c95390c-3ca2-cd98-5d3d-2d785501ba26}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Commodities Number of Animals" languagecode="1033" />
+                          <label description="Internal Market Purpose" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditiesnumberofanimals" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofanimals" disabled="false" />
+                        <control id="defraimp_commoditiesinternalmarketpurpose" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_commoditiesinternalmarketpurpose" disabled="false" uniqueid="{13cc1012-1e4e-a21a-a48d-80137aa52ebe}" />
                       </cell>
                       <cell id="{d099a1e5-fb7b-4596-9ec4-ac246fb10ee4}" showlabel="true" locklevel="0">
                         <labels>
@@ -256,13 +256,53 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{832508a7-9422-cb1e-0dbd-acb3c929a55d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Certified For" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditiesanimalscertifiedas" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_commoditiesanimalscertifiedas" disabled="false" />
+                      </cell>
+                      <cell id="{e1591b8b-ecd9-4f96-a4c1-536e793ecea7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Arrival Time" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_arrivaltime" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_arrivaltime" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ddce7eda-b3f1-4878-87a6-1944b192a154}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodities Number of Animals" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditiesnumberofanimals" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofanimals" disabled="false" />
+                      </cell>
+                      <cell id="{746a9b3e-b584-0e0d-1e1a-c9b3d2436c66}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{44d937e9-2399-20d2-b3e9-b3a5ecbaad56}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commodities Number of Packages" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditiesnumberofpackages" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofpackages" disabled="false" />
+                      </cell>
+                      <cell id="{60754ab0-ba34-a673-ce66-29c037a44683}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{b76713b3-2279-527e-ae1c-7ecaed53ab37}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Weight (KG)" languagecode="1033" />
                         </labels>
                         <control id="defraimp_weight" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_weight" disabled="false" />
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{aaa98352-2feb-4473-9e1e-75061fbb4db7}">
+                      <cell id="{4daac1ac-c7aa-0313-6208-a0271b40129a}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -356,7 +396,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="commoditycomplements_tab" id="2263bba6-8e5e-4ab2-af2b-d2aecfbc381c" IsUserDefined="0" locklevel="0" showlabel="true">
+        <tab name="commoditycomplements_tab" id="2263bba6-8e5e-4ab2-af2b-d2aecfbc381c" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
           <labels>
             <label description="Commodity " languagecode="1033" />
           </labels>
@@ -410,7 +450,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="consigners_tab" id="7d36fc78-7756-4862-a955-28045000743a" IsUserDefined="0" locklevel="0" showlabel="true" visible="false" expanded="true">
+        <tab name="consigners_tab" id="7d36fc78-7756-4862-a955-28045000743a" IsUserDefined="0" locklevel="0" showlabel="true" visible="false" expanded="false">
           <labels>
             <label description="Consignors" languagecode="1033" />
           </labels>
@@ -1470,6 +1510,116 @@
                     </row>
                   </rows>
                 </section>
+                <section name="transporter_tab_section_4" showlabel="true" showbar="false" locklevel="0" id="{664cde79-9584-e52e-4dd9-8abda4946890}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Transport to BCP/PoE" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0d6c893c-c1bd-ace4-8b63-96d189e6da73}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Means of Transport" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransporttoentrypointtype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransporttoentrypointtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e8a2bbbd-1725-112a-60c3-ddd8d47cea2a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="ID of Transport" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransporttoentrypointid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransporttoentrypointid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{91da8adb-7b91-d25e-1618-96408da1549d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Document" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransporttoentrypointdocument" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransporttoentrypointdocument" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e8961b95-d5cd-72ad-bdc0-66b9d3678e87}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Estimated Arrival Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_arrivaldate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_arrivaldate" disabled="false" uniqueid="{d063313c-3e18-2d40-ba41-0797334cd8b0}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{79d1a978-49d2-d796-4741-1ea9176d1271}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Estimated Arrival Time" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_arrivaltime" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_arrivaltime" disabled="false" uniqueid="{74495d1e-9975-0ba6-a823-77ce43b6769b}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="transporter_tab_section_5" showlabel="true" showbar="false" locklevel="0" id="{bc9d9959-b655-0938-de02-97d8c19c30e6}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Transport from BCP/PoE" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ec115b3e-010c-0358-94cc-3565ab0dc6e0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Means of Transport" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransportfromentrypointtype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransportfromentrypointtype" disabled="false" uniqueid="{aae35c85-3b8e-46b3-0e59-361c9ba6e525}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{916ad2a2-00e6-ab25-a4c2-2425562ae62a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="ID of Transport" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransportfromentrypointid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransportfromentrypointid" disabled="false" uniqueid="{02946d70-d16b-c064-a8de-8a63a1ce1869}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5015805d-6319-3ddb-5552-352854332166}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Document" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransportfromentrypointdocument" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransportfromentrypointdocument" disabled="false" uniqueid="{32712a89-cad6-2e4a-7802-952e7e401339}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a78e2126-2460-3989-a5a7-855e9d0c275d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Departure Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_departuredate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_departuredate" disabled="false" uniqueid="{e39c52bb-7508-c575-2acd-3767b7c4442e}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{91ad2549-8753-9937-8a5e-7a97cc354cc9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Departure Time" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_departuretime" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_departuretime" disabled="false" uniqueid="{10d7d79c-1b74-0b3d-8693-2c8cbac5e7b2}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d7a27960-248d-8526-e1e2-86c969690d36}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Estimated Journey Time (mins)" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_estimatedjourneytimeinminutes" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="defraimp_estimatedjourneytimeinminutes" disabled="false" uniqueid="{66dc5933-0bab-9898-c840-4330d21d46d1}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e0936db3-a8aa-1a33-7e3b-d834569205dc}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Person Responsible for Transport" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_responsiblefortransport" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_responsiblefortransport" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
               </sections>
             </column>
             <column width="50%">
@@ -1556,6 +1706,39 @@
                           <label description="Port of Exit Date" languagecode="1033" />
                         </labels>
                         <control id="defraimp_portofexitdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_portofexitdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{abdc50da-a19a-4d5b-b683-5de62581eb8b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Exit Border Control Post" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_exitbordercontrolpost" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_exitbordercontrolpost" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f9606a05-cae9-407e-9477-53721f15dc4e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Exit Border Control Post Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_exitbordercontrolpostdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_exitbordercontrolpostdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2dea2e72-a215-cce2-3c50-15c45d7c3e32}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Destination Country" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transitdestinationcountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_transitdestinationcountryid" disabled="false" uniqueid="{e14b6a28-4b06-8780-b523-337c5037aae6}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{4A0AC1F7-910F-456E-B501-2A4237C76A3A}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>

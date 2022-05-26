@@ -26,6 +26,11 @@
         <Button Alt="$LocLabels:defraimp.defraimp_importapplication.FillEmptyDataWithNotification.Button.Alt" Command="defraimp.defraimp_importapplication.FillEmptyDataWithNotification.Command" Id="defraimp.defraimp_importapplication.FillEmptyDataWithNotification.Button" Image32by32="$webresource:defraimp_/png/icon.importnotification.32.png" Image16by16="$webresource:defraimp_/png/icon.importnotfication.16.png" LabelText="$LocLabels:defraimp.defraimp_importapplication.FillEmptyDataWithNotification.Button.LabelText" Sequence="100" TemplateAlias="isv" ToolTipTitle="$LocLabels:defraimp.defraimp_importapplication.FillEmptyDataWithNotification.Button.ToolTipTitle" ToolTipDescription="$LocLabels:defraimp.defraimp_importapplication.FillEmptyDataWithNotification.Button.ToolTipDescription" ModernImage="$webresource:defraimp_/svg/icon.importnotification.svg" />
       </CommandUIDefinition>
     </CustomAction>
+    <CustomAction Id="defraimp.defraimp_importapplication.IPAFFS.Button.CustomAction" Location="Mscrm.Form.defraimp_importapplication.MainTab.Save.Controls._children" Sequence="6">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:defraimp.defraimp_importapplication.IPAFFS.Button.Alt" Command="defraimp.defraimp_importapplication.IPAFFS.Command" Id="defraimp.defraimp_importapplication.IPAFFS.Button" Image32by32="" Image16by16="" LabelText="$LocLabels:defraimp.defraimp_importapplication.IPAFFS.Button.LabelText" Sequence="6" TemplateAlias="isv" ToolTipTitle="$LocLabels:defraimp.defraimp_importapplication.IPAFFS.Button.ToolTipTitle" ToolTipDescription="$LocLabels:defraimp.defraimp_importapplication.IPAFFS.Button.ToolTipDescription" ModernImage="$webresource:defraimp_/svg/icon.ipaffs.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
     <CustomAction Id="defraimp.defraimp_importapplication.OverwriteDataWithItahc.Button.CustomAction" Location="Mscrm.Form.defraimp_importapplication.MainTab.Save.Controls._children" Sequence="95">
       <CommandUIDefinition>
         <Button Alt="$LocLabels:defraimp.defraimp_importapplication.OverwriteDataWithItahc.Button.Alt" Command="defraimp.defraimp_importapplication.OverwriteDataWithItahc.Command" Id="defraimp.defraimp_importapplication.OverwriteDataWithItahc.Button" Image32by32="$webresource:defraimp_/png/icon.itahc.32.png" Image16by16="$webresource:defraimp_/png/icon.itahc.16.png" LabelText="$LocLabels:defraimp.defraimp_importapplication.OverwriteDataWithItahc.Button.LabelText" Sequence="95" TemplateAlias="isv" ToolTipTitle="$LocLabels:defraimp.defraimp_importapplication.OverwriteDataWithItahc.Button.ToolTipTitle" ToolTipDescription="$LocLabels:defraimp.defraimp_importapplication.OverwriteDataWithItahc.Button.ToolTipDescription" ModernImage="$webresource:defraimp_/svg/icon.itahc.svg" />
@@ -93,6 +98,16 @@
       <Actions>
         <JavaScriptFunction FunctionName="DefraImports.ImportRecord.onFillEmptyDataWithNotification" Library="$webresource:defraimp_/js/importrecord.ribbon.js">
           <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="defraimp.defraimp_importapplication.IPAFFS.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="DefraImports.ImportRecord.openUrlFromRibbon" Library="$webresource:defraimp_/js/importrecord.ribbon.js">
+          <CrmParameter Value="PrimaryControl" />
+          <StringParameter Value="defraimp_primaryimporternotificationid" />
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
@@ -238,6 +253,26 @@
     <LocLabel Id="defraimp.defraimp_importapplication.FillEmptyDataWithNotification.Button.ToolTipTitle">
       <Titles>
         <Title description="Fill Empty Data With Notification" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importapplication.IPAFFS.Button.Alt">
+      <Titles>
+        <Title description="IPAFFS" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importapplication.IPAFFS.Button.LabelText">
+      <Titles>
+        <Title description="IPAFFS" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importapplication.IPAFFS.Button.ToolTipDescription">
+      <Titles>
+        <Title description="IPAFFS" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="defraimp.defraimp_importapplication.IPAFFS.Button.ToolTipTitle">
+      <Titles>
+        <Title description="IPAFFS" languagecode="1033" />
       </Titles>
     </LocLabel>
     <LocLabel Id="defraimp.defraimp_importapplication.OverwriteDataWithItahc.Button.Alt">
