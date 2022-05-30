@@ -29,9 +29,7 @@ var ImportRibbon = /** @class */ (function () {
                 console.log(error.message);
             }
         );
-
-
-       
+ 
     };
     ImportRibbon.Ids = {
         urlErrorId: "ERROR_OPENURL",
