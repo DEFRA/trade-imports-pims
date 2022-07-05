@@ -44,19 +44,19 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{baaed227-f0ee-4b04-aae5-48a6a997c13a}" locklevel="0" colspan="1" rowspan="1" labelid="{97be67b2-5fe2-457e-bc15-ba0f3bff57d3}">
+                      <cell id="{baaed227-f0ee-4b04-aae5-48a6a997c13a}" locklevel="0" colspan="1" rowspan="1" labelid="{97be67b2-5fe2-457e-bc15-ba0f3bff57d3}" showlabel="true">
                         <labels>
                           <label description="Exit Border Control Post" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_exitbordercontrolpost" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_exitbordercontrolpost" disabled="false" />
+                        <control id="defraimp_exitbordercontrolpost" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_exitbordercontrolpost" disabled="false" uniqueid="{a39a75cb-0943-09c3-c590-b39cd3d002a0}" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{926b8a46-5b36-4229-bf67-3e59b7b15a5b}" locklevel="0" colspan="1" rowspan="1" labelid="{9d2c0feb-89a3-46be-b981-d805e524ad57}">
+                      <cell id="{926b8a46-5b36-4229-bf67-3e59b7b15a5b}" locklevel="0" colspan="1" rowspan="1" labelid="{9d2c0feb-89a3-46be-b981-d805e524ad57}" showlabel="true">
                         <labels>
                           <label description="Exit Border Control Post Date" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_exitbordercontrolpostdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_exitbordercontrolpostdate" disabled="false" />
+                        <control id="defraimp_exitbordercontrolpostdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_exitbordercontrolpostdate" disabled="false" uniqueid="{a93b2273-656e-2766-45bb-0105218a6345}" />
                       </cell>
                     </row>
                     <row>

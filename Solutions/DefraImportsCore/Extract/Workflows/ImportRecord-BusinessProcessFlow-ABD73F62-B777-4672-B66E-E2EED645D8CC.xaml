@@ -405,32 +405,32 @@
                     <x:Null x:Key="ActionControl" />
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionSequence, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionStep79">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionSequence, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionStep73">
                   <mxswa:ActivityReference.Arguments>
                     <InArgument x:TypeArguments="x:Boolean" x:Key="Wait">False</InArgument>
                   </mxswa:ActivityReference.Arguments>
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables">
-                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep80_condition" />
-                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep80_1" />
-                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep80_2" />
-                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep80_3" />
-                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep80_4" />
-                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep80_5" />
-                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep80_6" />
-                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep80_7" />
-                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep80_8" />
-                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep82_condition" />
-                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep82_1" />
-                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep82_2" />
-                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep82_3" />
-                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep82_4" />
-                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep82_5" />
-                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep82_6" />
-                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep82_7" />
+                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep74_condition" />
+                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep74_1" />
+                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep74_2" />
+                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep74_3" />
+                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep74_4" />
+                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep74_5" />
+                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep74_6" />
+                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep74_7" />
+                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep74_8" />
+                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep76_condition" />
+                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep76_1" />
+                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep76_2" />
+                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep76_3" />
+                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep76_4" />
+                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep76_5" />
+                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep76_6" />
+                      <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep76_7" />
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <mxswa:GetEntityProperty Attribute="defraimp_inspectionrequired" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" Value="[ConditionBranchStep80_2]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_inspectionrequired" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" Value="[ConditionBranchStep74_2]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type">
@@ -446,18 +446,18 @@
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
-                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep80_3]</OutArgument>
+                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep74_3]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateCondition, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateCondition">
                         <mxswa:ActivityReference.Arguments>
                           <InArgument x:TypeArguments="mxsq:ConditionOperator" x:Key="ConditionOperator">Equal</InArgument>
-                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { ConditionBranchStep80_3 }]</InArgument>
-                          <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep80_2]</InArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep80_1]</OutArgument>
+                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { ConditionBranchStep74_3 }]</InArgument>
+                          <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep74_2]</InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep74_1]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:GetEntityProperty Attribute="defraimp_manualpostimportcheckdecision" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" Value="[ConditionBranchStep80_5]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_manualpostimportcheckdecision" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" Value="[ConditionBranchStep74_5]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type">
@@ -473,7 +473,7 @@
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
-                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep80_6]</OutArgument>
+                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep74_6]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
@@ -483,7 +483,7 @@
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
-                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep80_7]</OutArgument>
+                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep74_7]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
@@ -493,36 +493,36 @@
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
-                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep80_8]</OutArgument>
+                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep74_8]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateCondition, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateCondition">
                         <mxswa:ActivityReference.Arguments>
                           <InArgument x:TypeArguments="mxsq:ConditionOperator" x:Key="ConditionOperator">NotEqual</InArgument>
-                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { ConditionBranchStep80_6, ConditionBranchStep80_7, ConditionBranchStep80_8 }]</InArgument>
-                          <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep80_5]</InArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep80_4]</OutArgument>
+                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { ConditionBranchStep74_6, ConditionBranchStep74_7, ConditionBranchStep74_8 }]</InArgument>
+                          <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep74_5]</InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep74_4]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateLogicalCondition, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateLogicalCondition">
                         <mxswa:ActivityReference.Arguments>
                           <InArgument x:TypeArguments="mxsq:LogicalOperator" x:Key="LogicalOperator">And</InArgument>
-                          <InArgument x:TypeArguments="x:Boolean" x:Key="LeftOperand">[ConditionBranchStep80_1]</InArgument>
-                          <InArgument x:TypeArguments="x:Boolean" x:Key="RightOperand">[ConditionBranchStep80_4]</InArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep80_condition]</OutArgument>
+                          <InArgument x:TypeArguments="x:Boolean" x:Key="LeftOperand">[ConditionBranchStep74_1]</InArgument>
+                          <InArgument x:TypeArguments="x:Boolean" x:Key="RightOperand">[ConditionBranchStep74_4]</InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep74_condition]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionBranch, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep80">
+                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionBranch, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep74">
                         <mxswa:ActivityReference.Arguments>
-                          <InArgument x:TypeArguments="x:Boolean" x:Key="Condition">[ConditionBranchStep80_condition]</InArgument>
+                          <InArgument x:TypeArguments="x:Boolean" x:Key="Condition">[ConditionBranchStep74_condition]</InArgument>
                         </mxswa:ActivityReference.Arguments>
                         <mxswa:ActivityReference.Properties>
-                          <mxswa:ActivityReference x:Key="Then" AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep80">
+                          <mxswa:ActivityReference x:Key="Then" AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep74">
                             <mxswa:ActivityReference.Properties>
                               <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                               <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                                <Sequence DisplayName="SetNextStageStep81">
-                                  <mcwc:SetNextStage ParentStageId="735dbc53-a795-4524-8bb5-7eb1c32a25d9" StageId="267e9309-4684-4ce7-bd60-65bd9e976b8d" />
+                                <Sequence DisplayName="SetNextStageStep75">
+                                  <mcwc:SetNextStage ParentStageId="735dbc53-a795-4524-8bb5-7eb1c32a25d9" StageId="79bdecb0-a1b2-4f0b-860f-c9a56bb2c92d" />
                                 </Sequence>
                               </sco:Collection>
                             </mxswa:ActivityReference.Properties>
@@ -531,7 +531,7 @@
                           <x:String x:Key="Description">Inspection not required?</x:String>
                         </mxswa:ActivityReference.Properties>
                       </mxswa:ActivityReference>
-                      <mxswa:GetEntityProperty Attribute="defraimp_importrisklevelid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" Value="[ConditionBranchStep82_2]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_importrisklevelid" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" Value="[ConditionBranchStep76_2]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type">
@@ -547,30 +547,30 @@
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:Guid" />
                           </InArgument>
-                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep82_4]</OutArgument>
+                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep76_4]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
                         <mxswa:ActivityReference.Arguments>
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
-                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.EntityReference, "defraimp_importrisklevel", "TB", ConditionBranchStep82_4, "Lookup" }]</InArgument>
+                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.EntityReference, "defraimp_importrisklevel", "TB", ConditionBranchStep76_4, "Lookup" }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type">
                               <x:Null />
                             </mxswa:ReferenceLiteral>
                           </InArgument>
-                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep82_3]</OutArgument>
+                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep76_3]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateCondition, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateCondition">
                         <mxswa:ActivityReference.Arguments>
                           <InArgument x:TypeArguments="mxsq:ConditionOperator" x:Key="ConditionOperator">Equal</InArgument>
-                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { ConditionBranchStep82_3 }]</InArgument>
-                          <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep82_2]</InArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep82_1]</OutArgument>
+                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { ConditionBranchStep76_3 }]</InArgument>
+                          <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep76_2]</InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep76_1]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:GetEntityProperty Attribute="defraimp_inspectionrequired" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" Value="[ConditionBranchStep82_6]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_inspectionrequired" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" Value="[ConditionBranchStep76_6]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type">
@@ -586,36 +586,36 @@
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
-                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep82_7]</OutArgument>
+                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep76_7]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateCondition, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateCondition">
                         <mxswa:ActivityReference.Arguments>
                           <InArgument x:TypeArguments="mxsq:ConditionOperator" x:Key="ConditionOperator">NotEqual</InArgument>
-                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { ConditionBranchStep82_7 }]</InArgument>
-                          <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep82_6]</InArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep82_5]</OutArgument>
+                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { ConditionBranchStep76_7 }]</InArgument>
+                          <InArgument x:TypeArguments="x:Object" x:Key="Operand">[ConditionBranchStep76_6]</InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep76_5]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
                       <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateLogicalCondition, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateLogicalCondition">
                         <mxswa:ActivityReference.Arguments>
                           <InArgument x:TypeArguments="mxsq:LogicalOperator" x:Key="LogicalOperator">And</InArgument>
-                          <InArgument x:TypeArguments="x:Boolean" x:Key="LeftOperand">[ConditionBranchStep82_1]</InArgument>
-                          <InArgument x:TypeArguments="x:Boolean" x:Key="RightOperand">[ConditionBranchStep82_5]</InArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep82_condition]</OutArgument>
+                          <InArgument x:TypeArguments="x:Boolean" x:Key="LeftOperand">[ConditionBranchStep76_1]</InArgument>
+                          <InArgument x:TypeArguments="x:Boolean" x:Key="RightOperand">[ConditionBranchStep76_5]</InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Result">[ConditionBranchStep76_condition]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionBranch, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep82">
+                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionBranch, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep76">
                         <mxswa:ActivityReference.Arguments>
-                          <InArgument x:TypeArguments="x:Boolean" x:Key="Condition">[ConditionBranchStep82_condition]</InArgument>
+                          <InArgument x:TypeArguments="x:Boolean" x:Key="Condition">[ConditionBranchStep76_condition]</InArgument>
                         </mxswa:ActivityReference.Arguments>
                         <mxswa:ActivityReference.Properties>
-                          <mxswa:ActivityReference x:Key="Then" AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep82">
+                          <mxswa:ActivityReference x:Key="Then" AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep76">
                             <mxswa:ActivityReference.Properties>
                               <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                               <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                                <Sequence DisplayName="SetNextStageStep83">
-                                  <mcwc:SetNextStage ParentStageId="735dbc53-a795-4524-8bb5-7eb1c32a25d9" StageId="6da07398-6ef0-46e1-b04f-36c737e8e2cb" />
+                                <Sequence DisplayName="SetNextStageStep77">
+                                  <mcwc:SetNextStage ParentStageId="735dbc53-a795-4524-8bb5-7eb1c32a25d9" StageId="86b8b3f8-80c7-434c-97d0-fcdfbe94ac21" />
                                 </Sequence>
                               </sco:Collection>
                             </mxswa:ActivityReference.Properties>
@@ -624,16 +624,16 @@
                           <x:String x:Key="Description">TB Import</x:String>
                         </mxswa:ActivityReference.Properties>
                       </mxswa:ActivityReference>
-                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionBranch, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep84">
+                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionBranch, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep78">
                         <mxswa:ActivityReference.Arguments>
                           <InArgument x:TypeArguments="x:Boolean" x:Key="Condition">True</InArgument>
                         </mxswa:ActivityReference.Arguments>
                         <mxswa:ActivityReference.Properties>
-                          <mxswa:ActivityReference x:Key="Then" AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep84">
+                          <mxswa:ActivityReference x:Key="Then" AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep78">
                             <mxswa:ActivityReference.Properties>
                               <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                               <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                                <Sequence DisplayName="SetNextStageStep85">
+                                <Sequence DisplayName="SetNextStageStep79">
                                   <mcwc:SetNextStage ParentStageId="735dbc53-a795-4524-8bb5-7eb1c32a25d9" StageId="d48e415b-c151-4f70-a308-813256ade5bb" />
                                 </Sequence>
                               </sco:Collection>
@@ -675,27 +675,6 @@
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
                       <Sequence DisplayName="ControlStep42">
-                        <mcwb:Control ClassId="67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed" ControlDisplayName="CHED Part Two Complete?" ControlId="defraimp_chedparttwocomplete" DataFieldName="defraimp_chedparttwocomplete" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
-                          <mcwb:Control.Parameters>
-                            <InArgument x:TypeArguments="x:String">
-                              <Literal x:TypeArguments="x:String" Value="" />
-                            </InArgument>
-                          </mcwb:Control.Parameters>
-                        </mcwb:Control>
-                      </Sequence>
-                    </sco:Collection>
-                    <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="CHED Part Two Complete?" LabelId="8310821a-b7ac-446c-8886-fdb25c58bd41" LanguageCode="1033" />
-                    </sco:Collection>
-                    <x:String x:Key="ProcessStepId">8310821a-b7ac-446c-8886-fdb25c58bd41</x:String>
-                    <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
-                  </mxswa:ActivityReference.Properties>
-                </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep43: New Step">
-                  <mxswa:ActivityReference.Properties>
-                    <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
-                    <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep44">
                         <mcwb:Control ClassId="67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed" ControlDisplayName="Move to Completion?" ControlId="defraimp_movetocompletion" DataFieldName="defraimp_movetocompletion" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
                           <mcwb:Control.Parameters>
                             <InArgument x:TypeArguments="x:String">
@@ -706,17 +685,17 @@
                       </Sequence>
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Move to Completion?" LabelId="13b576ae-93dc-41dc-8ee0-a0ff0f90f52f" LanguageCode="1033" />
+                      <mcwo:StepLabel Description="Move to Completion?" LabelId="20ddfec3-5301-4e43-b6bf-27a366ad46bb" LanguageCode="1033" />
                     </sco:Collection>
-                    <x:String x:Key="ProcessStepId">13b576ae-93dc-41dc-8ee0-a0ff0f90f52f</x:String>
+                    <x:String x:Key="ProcessStepId">20ddfec3-5301-4e43-b6bf-27a366ad46bb</x:String>
                     <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep45: New Step">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep43: New Step">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep46">
+                      <Sequence DisplayName="ControlStep44">
                         <mcwb:Control ClassId="5b773807-9fb2-42db-97c3-7a91eff8adff" ControlDisplayName="Moved to Completion Date" ControlId="defraimp_movedtocompletiondate" DataFieldName="defraimp_movedtocompletiondate" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
                           <mcwb:Control.Parameters>
                             <InArgument x:TypeArguments="x:String">
@@ -727,17 +706,17 @@
                       </Sequence>
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Moved to Completion Date" LabelId="ac711d36-f162-4ba9-92d3-cbeb3835bd5a" LanguageCode="1033" />
+                      <mcwo:StepLabel Description="Moved to Completion Date" LabelId="0cedb764-7b91-4724-b8dd-19d0841b658e" LanguageCode="1033" />
                     </sco:Collection>
-                    <x:String x:Key="ProcessStepId">ac711d36-f162-4ba9-92d3-cbeb3835bd5a</x:String>
+                    <x:String x:Key="ProcessStepId">0cedb764-7b91-4724-b8dd-19d0841b658e</x:String>
                     <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep47: New Step">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep45: New Step">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep48">
+                      <Sequence DisplayName="ControlStep46">
                         <mcwb:Control ClassId="4273edbd-ac1d-40d3-9fb2-095c621b552d" ControlDisplayName="Completion Summary" ControlId="defraimp_completionsummary" DataFieldName="defraimp_completionsummary" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
                           <mcwb:Control.Parameters>
                             <InArgument x:TypeArguments="x:String">
@@ -748,31 +727,31 @@
                       </Sequence>
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Completion Summary" LabelId="a927b17e-d768-4293-98bc-600c493db897" LanguageCode="1033" />
+                      <mcwo:StepLabel Description="Completion Summary" LabelId="5e7229c9-6dd3-4054-9c69-87103d6e47ec" LanguageCode="1033" />
                     </sco:Collection>
-                    <x:String x:Key="ProcessStepId">a927b17e-d768-4293-98bc-600c493db897</x:String>
+                    <x:String x:Key="ProcessStepId">5e7229c9-6dd3-4054-9c69-87103d6e47ec</x:String>
                     <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ActionComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ActionStep49: Step_49">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ActionComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ActionStep47: Step_47">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities" />
-                    <x:String x:Key="ActionId">c943dfa4-761d-41a6-86f5-cae2174b3cb0</x:String>
+                    <x:String x:Key="ActionId">230034a9-669e-4bf8-8b66-8c821466bcf2</x:String>
                     <x:Int32 x:Key="ActionType">2</x:Int32>
                     <s:Guid x:Key="ProcessId">9813a24f-0c73-45f1-b0f0-c1d7f239417f</s:Guid>
                     <x:String x:Key="UniqueName">Import Application - Change Status Reason to Completion</x:String>
                     <x:Array x:Key="TriggerEvents" Type="mcwo:ProcessTriggerData">
-                      <mcwo:ProcessTriggerData Event="STAGEENTER" FilterId="267e9309-4684-4ce7-bd60-65bd9e976b8d" PipelineStageId="40" />
+                      <mcwo:ProcessTriggerData Event="STAGEENTER" FilterId="79bdecb0-a1b2-4f0b-860f-c9a56bb2c92d" PipelineStageId="40" />
                     </x:Array>
                     <x:Null x:Key="ActionControl" />
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
               </sco:Collection>
               <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                <mcwo:StepLabel Description="Completion" LabelId="267e9309-4684-4ce7-bd60-65bd9e976b8d" LanguageCode="1033" />
+                <mcwo:StepLabel Description="Completion" LabelId="79bdecb0-a1b2-4f0b-860f-c9a56bb2c92d" LanguageCode="1033" />
               </sco:Collection>
-              <x:String x:Key="StageId">267e9309-4684-4ce7-bd60-65bd9e976b8d</x:String>
+              <x:String x:Key="StageId">79bdecb0-a1b2-4f0b-860f-c9a56bb2c92d</x:String>
               <x:String x:Key="StageCategory">3</x:String>
               <x:Null x:Key="NextStageId" />
             </mxswa:ActivityReference.Properties>
@@ -787,36 +766,15 @@
       <mxswa:ActivityReference.Properties>
         <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
         <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StageComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StageStep51: Completion">
+          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StageComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StageStep49: Completion">
             <mxswa:ActivityReference.Properties>
               <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
               <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep52: New Step">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep50: New Step">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep53">
-                        <mcwb:Control ClassId="67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed" ControlDisplayName="CHED Part Two Complete?" ControlId="defraimp_chedparttwocomplete" DataFieldName="defraimp_chedparttwocomplete" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
-                          <mcwb:Control.Parameters>
-                            <InArgument x:TypeArguments="x:String">
-                              <Literal x:TypeArguments="x:String" Value="" />
-                            </InArgument>
-                          </mcwb:Control.Parameters>
-                        </mcwb:Control>
-                      </Sequence>
-                    </sco:Collection>
-                    <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="CHED Part Two Complete?" LabelId="eda70aa5-01f3-42d0-86a8-0852b112e947" LanguageCode="1033" />
-                    </sco:Collection>
-                    <x:String x:Key="ProcessStepId">eda70aa5-01f3-42d0-86a8-0852b112e947</x:String>
-                    <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
-                  </mxswa:ActivityReference.Properties>
-                </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep54: New Step">
-                  <mxswa:ActivityReference.Properties>
-                    <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
-                    <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep55">
+                      <Sequence DisplayName="ControlStep51">
                         <mcwb:Control ClassId="67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed" ControlDisplayName="Move to Completion?" ControlId="defraimp_movetocompletion" DataFieldName="defraimp_movetocompletion" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
                           <mcwb:Control.Parameters>
                             <InArgument x:TypeArguments="x:String">
@@ -827,17 +785,17 @@
                       </Sequence>
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Move to Completion?" LabelId="9d684bf9-d794-4e35-9866-747a828b2d8c" LanguageCode="1033" />
+                      <mcwo:StepLabel Description="Move to Completion?" LabelId="8b689fac-3140-4e22-a49b-7383499b29dd" LanguageCode="1033" />
                     </sco:Collection>
-                    <x:String x:Key="ProcessStepId">9d684bf9-d794-4e35-9866-747a828b2d8c</x:String>
+                    <x:String x:Key="ProcessStepId">8b689fac-3140-4e22-a49b-7383499b29dd</x:String>
                     <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep56: New Step">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep52: New Step">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep57">
+                      <Sequence DisplayName="ControlStep53">
                         <mcwb:Control ClassId="5b773807-9fb2-42db-97c3-7a91eff8adff" ControlDisplayName="Moved to Completion Date" ControlId="defraimp_movedtocompletiondate" DataFieldName="defraimp_movedtocompletiondate" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
                           <mcwb:Control.Parameters>
                             <InArgument x:TypeArguments="x:String">
@@ -848,17 +806,17 @@
                       </Sequence>
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Moved to Completion Date" LabelId="632c5b6c-ff03-4c98-9767-cc5767015893" LanguageCode="1033" />
+                      <mcwo:StepLabel Description="Moved to Completion Date" LabelId="a5240f23-97b0-463b-a926-7bc3929b2aa4" LanguageCode="1033" />
                     </sco:Collection>
-                    <x:String x:Key="ProcessStepId">632c5b6c-ff03-4c98-9767-cc5767015893</x:String>
+                    <x:String x:Key="ProcessStepId">a5240f23-97b0-463b-a926-7bc3929b2aa4</x:String>
                     <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep58: New Step">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep54: New Step">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep59">
+                      <Sequence DisplayName="ControlStep55">
                         <mcwb:Control ClassId="4273edbd-ac1d-40d3-9fb2-095c621b552d" ControlDisplayName="Completion Summary" ControlId="defraimp_completionsummary" DataFieldName="defraimp_completionsummary" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
                           <mcwb:Control.Parameters>
                             <InArgument x:TypeArguments="x:String">
@@ -869,13 +827,13 @@
                       </Sequence>
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Completion Summary" LabelId="674fe31f-a72f-4493-9433-4b1bd2d0a2ca" LanguageCode="1033" />
+                      <mcwo:StepLabel Description="Completion Summary" LabelId="cbca2842-eac7-4942-a544-6af506376935" LanguageCode="1033" />
                     </sco:Collection>
-                    <x:String x:Key="ProcessStepId">674fe31f-a72f-4493-9433-4b1bd2d0a2ca</x:String>
+                    <x:String x:Key="ProcessStepId">cbca2842-eac7-4942-a544-6af506376935</x:String>
                     <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ActionComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ActionStep60: Step_60">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ActionComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ActionStep56: Step_56">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities" />
@@ -884,16 +842,16 @@
                     <s:Guid x:Key="ProcessId">9813a24f-0c73-45f1-b0f0-c1d7f239417f</s:Guid>
                     <x:String x:Key="UniqueName">Import Application - Change Status Reason to Completion</x:String>
                     <x:Array x:Key="TriggerEvents" Type="mcwo:ProcessTriggerData">
-                      <mcwo:ProcessTriggerData Event="STAGEENTER" FilterId="6da07398-6ef0-46e1-b04f-36c737e8e2cb" PipelineStageId="40" />
+                      <mcwo:ProcessTriggerData Event="STAGEENTER" FilterId="86b8b3f8-80c7-434c-97d0-fcdfbe94ac21" PipelineStageId="40" />
                     </x:Array>
                     <x:Null x:Key="ActionControl" />
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
               </sco:Collection>
               <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                <mcwo:StepLabel Description="Completion" LabelId="6da07398-6ef0-46e1-b04f-36c737e8e2cb" LanguageCode="1033" />
+                <mcwo:StepLabel Description="Completion" LabelId="86b8b3f8-80c7-434c-97d0-fcdfbe94ac21" LanguageCode="1033" />
               </sco:Collection>
-              <x:String x:Key="StageId">6da07398-6ef0-46e1-b04f-36c737e8e2cb</x:String>
+              <x:String x:Key="StageId">86b8b3f8-80c7-434c-97d0-fcdfbe94ac21</x:String>
               <x:String x:Key="StageCategory">3</x:String>
               <x:Null x:Key="NextStageId" />
             </mxswa:ActivityReference.Properties>
@@ -908,15 +866,15 @@
       <mxswa:ActivityReference.Properties>
         <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
         <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StageComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StageStep62: Post Import Check">
+          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StageComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StageStep58: Post Import Check">
             <mxswa:ActivityReference.Properties>
               <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
               <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep63: New Step">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep59: New Step">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep64">
+                      <Sequence DisplayName="ControlStep60">
                         <mcwb:Control ClassId="67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed" ControlDisplayName="Post Import Checks Requested?" ControlId="defraimp_inspectionrequested" DataFieldName="defraimp_inspectionrequested" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
                           <mcwb:Control.Parameters>
                             <InArgument x:TypeArguments="x:String">
@@ -933,7 +891,7 @@
                     <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ActionComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ActionStep65: Step_65">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ActionComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ActionStep61: Step_61">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities" />
@@ -953,7 +911,7 @@
               </sco:Collection>
               <x:String x:Key="StageId">d48e415b-c151-4f70-a308-813256ade5bb</x:String>
               <x:String x:Key="StageCategory">5</x:String>
-              <x:String x:Key="NextStageId">79bdecb0-a1b2-4f0b-860f-c9a56bb2c92d</x:String>
+              <x:String x:Key="NextStageId">52875004-209c-4713-89be-6ac44ba042b0</x:String>
             </mxswa:ActivityReference.Properties>
           </mxswa:ActivityReference>
         </sco:Collection>
@@ -966,36 +924,15 @@
       <mxswa:ActivityReference.Properties>
         <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
         <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StageComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StageStep67: Completion">
+          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StageComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StageStep63: Completion">
             <mxswa:ActivityReference.Properties>
               <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
               <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep68: New Step">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep64: New Step">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep69">
-                        <mcwb:Control ClassId="67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed" ControlDisplayName="CHED Part Two Complete?" ControlId="defraimp_chedparttwocomplete" DataFieldName="defraimp_chedparttwocomplete" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
-                          <mcwb:Control.Parameters>
-                            <InArgument x:TypeArguments="x:String">
-                              <Literal x:TypeArguments="x:String" Value="" />
-                            </InArgument>
-                          </mcwb:Control.Parameters>
-                        </mcwb:Control>
-                      </Sequence>
-                    </sco:Collection>
-                    <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="CHED Part Two Complete?" LabelId="ac68f544-b581-4270-b1eb-90e979728bbe" LanguageCode="1033" />
-                    </sco:Collection>
-                    <x:String x:Key="ProcessStepId">ac68f544-b581-4270-b1eb-90e979728bbe</x:String>
-                    <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
-                  </mxswa:ActivityReference.Properties>
-                </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep70: New Step">
-                  <mxswa:ActivityReference.Properties>
-                    <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
-                    <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep71">
+                      <Sequence DisplayName="ControlStep65">
                         <mcwb:Control ClassId="67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed" ControlDisplayName="Move to Completion?" ControlId="defraimp_movetocompletion" DataFieldName="defraimp_movetocompletion" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
                           <mcwb:Control.Parameters>
                             <InArgument x:TypeArguments="x:String">
@@ -1006,17 +943,17 @@
                       </Sequence>
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Move to Completion?" LabelId="20ddfec3-5301-4e43-b6bf-27a366ad46bb" LanguageCode="1033" />
+                      <mcwo:StepLabel Description="Move to Completion?" LabelId="1c11332e-909e-4e3e-b791-13f758afee78" LanguageCode="1033" />
                     </sco:Collection>
-                    <x:String x:Key="ProcessStepId">20ddfec3-5301-4e43-b6bf-27a366ad46bb</x:String>
+                    <x:String x:Key="ProcessStepId">1c11332e-909e-4e3e-b791-13f758afee78</x:String>
                     <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep72: New Step">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep66: New Step">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep73">
+                      <Sequence DisplayName="ControlStep67">
                         <mcwb:Control ClassId="5b773807-9fb2-42db-97c3-7a91eff8adff" ControlDisplayName="Moved to Completion Date" ControlId="defraimp_movedtocompletiondate" DataFieldName="defraimp_movedtocompletiondate" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
                           <mcwb:Control.Parameters>
                             <InArgument x:TypeArguments="x:String">
@@ -1027,17 +964,17 @@
                       </Sequence>
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Moved to Completion Date" LabelId="0cedb764-7b91-4724-b8dd-19d0841b658e" LanguageCode="1033" />
+                      <mcwo:StepLabel Description="Moved to Completion Date" LabelId="5c78f32c-19eb-4a7b-9a7f-ee2494a74769" LanguageCode="1033" />
                     </sco:Collection>
-                    <x:String x:Key="ProcessStepId">0cedb764-7b91-4724-b8dd-19d0841b658e</x:String>
+                    <x:String x:Key="ProcessStepId">5c78f32c-19eb-4a7b-9a7f-ee2494a74769</x:String>
                     <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep74: New Step">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep68: New Step">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep75">
+                      <Sequence DisplayName="ControlStep69">
                         <mcwb:Control ClassId="4273edbd-ac1d-40d3-9fb2-095c621b552d" ControlDisplayName="Completion Summary" ControlId="defraimp_completionsummary" DataFieldName="defraimp_completionsummary" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
                           <mcwb:Control.Parameters>
                             <InArgument x:TypeArguments="x:String">
@@ -1048,17 +985,17 @@
                       </Sequence>
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Completion Summary" LabelId="5e7229c9-6dd3-4054-9c69-87103d6e47ec" LanguageCode="1033" />
+                      <mcwo:StepLabel Description="Completion Summary" LabelId="625a3dff-ee38-4766-95cd-58ea5c5e98c2" LanguageCode="1033" />
                     </sco:Collection>
-                    <x:String x:Key="ProcessStepId">5e7229c9-6dd3-4054-9c69-87103d6e47ec</x:String>
+                    <x:String x:Key="ProcessStepId">625a3dff-ee38-4766-95cd-58ea5c5e98c2</x:String>
                     <x:Boolean x:Key="IsProcessRequired">True</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep76: New Step">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep70: New Step">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep77">
+                      <Sequence DisplayName="ControlStep71">
                         <mcwb:Control ClassId="67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed" ControlDisplayName="Reset Trust Level to Bronze?" ControlId="defraimp_resettrustleveltobronze" DataFieldName="defraimp_resettrustleveltobronze" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
                           <mcwb:Control.Parameters>
                             <InArgument x:TypeArguments="x:String">
@@ -1069,13 +1006,13 @@
                       </Sequence>
                     </sco:Collection>
                     <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Reset Trust Level to Bronze?" LabelId="19fa5115-1ba7-46a6-81a0-c6bf91649124" LanguageCode="1033" />
+                      <mcwo:StepLabel Description="Reset Trust Level to Bronze?" LabelId="3d027609-0341-4131-8413-82f39b65f068" LanguageCode="1033" />
                     </sco:Collection>
-                    <x:String x:Key="ProcessStepId">19fa5115-1ba7-46a6-81a0-c6bf91649124</x:String>
+                    <x:String x:Key="ProcessStepId">3d027609-0341-4131-8413-82f39b65f068</x:String>
                     <x:Boolean x:Key="IsProcessRequired">False</x:Boolean>
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ActionComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ActionStep78: Step_78">
+                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ActionComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ActionStep72: Step_72">
                   <mxswa:ActivityReference.Properties>
                     <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                     <sco:Collection x:TypeArguments="Activity" x:Key="Activities" />
@@ -1084,16 +1021,16 @@
                     <s:Guid x:Key="ProcessId">9813a24f-0c73-45f1-b0f0-c1d7f239417f</s:Guid>
                     <x:String x:Key="UniqueName">Import Application - Change Status Reason to Completion</x:String>
                     <x:Array x:Key="TriggerEvents" Type="mcwo:ProcessTriggerData">
-                      <mcwo:ProcessTriggerData Event="STAGEENTER" FilterId="79bdecb0-a1b2-4f0b-860f-c9a56bb2c92d" PipelineStageId="40" />
+                      <mcwo:ProcessTriggerData Event="STAGEENTER" FilterId="52875004-209c-4713-89be-6ac44ba042b0" PipelineStageId="40" />
                     </x:Array>
                     <x:Null x:Key="ActionControl" />
                   </mxswa:ActivityReference.Properties>
                 </mxswa:ActivityReference>
               </sco:Collection>
               <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                <mcwo:StepLabel Description="Completion" LabelId="79bdecb0-a1b2-4f0b-860f-c9a56bb2c92d" LanguageCode="1033" />
+                <mcwo:StepLabel Description="Completion" LabelId="52875004-209c-4713-89be-6ac44ba042b0" LanguageCode="1033" />
               </sco:Collection>
-              <x:String x:Key="StageId">79bdecb0-a1b2-4f0b-860f-c9a56bb2c92d</x:String>
+              <x:String x:Key="StageId">52875004-209c-4713-89be-6ac44ba042b0</x:String>
               <x:String x:Key="StageCategory">3</x:String>
               <x:Null x:Key="NextStageId" />
             </mxswa:ActivityReference.Properties>
