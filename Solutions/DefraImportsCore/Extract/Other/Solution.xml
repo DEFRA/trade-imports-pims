@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.22044.142" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.22061.172" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsCore</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Core" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.116</Version>
+    <Version>0.0.0.117</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -134,6 +134,7 @@
       <RootComponent type="9" schemaName="defraimp_officialvetcapacity" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_pimsstatus" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_placeofdestinationtype" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_processstatus" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_purposeofconsignment" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_reasonfornoncompliance" behavior="0" />
       <RootComponent type="9" schemaName="defraimp_reasonfornotvisiting" behavior="0" />
@@ -154,6 +155,7 @@
       <RootComponent type="29" id="{3faa9a4b-79fb-4d13-b3a7-ece77bfe5d74}" behavior="0" />
       <RootComponent type="29" id="{406b75a0-4247-ea11-a812-000d3ab5d037}" behavior="0" />
       <RootComponent type="29" id="{48313ab0-8b0c-46c9-8c91-5e7cf72f968e}" behavior="0" />
+      <RootComponent type="29" id="{4cb2a889-2df6-ec11-bb3d-000d3a6669b1}" behavior="0" />
       <RootComponent type="29" id="{55189b85-5f05-ea11-a811-000d3ab4df6c}" behavior="0" />
       <RootComponent type="29" id="{57ddd6be-78ea-e911-a812-000d3ab4de89}" behavior="0" />
       <RootComponent type="29" id="{59963442-a70b-ea11-a811-000d3ab5d511}" behavior="0" />
@@ -268,6 +270,10 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Information_Backup" parentDisplayName="Importer Notification" id="{e402ad8c-68de-4553-8f48-a9beee54cf87}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
         <Dependent type="62" schemaName="defraimp_EUImportsApp" />
       </MissingDependency>
       <MissingDependency>
@@ -307,8 +313,8 @@
         <Dependent type="62" schemaName="defraimp_EUImportsApp" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_salesroutingrun" displayName="Sales routing run" solution="msdyn_SalesRouting (9.1.2204.4001)">
-          <package>msdynce_SalesInsightsAnchor (9.0.22044.10011)</package>
+        <Required type="1" schemaName="msdyn_salesroutingrun" displayName="Sales routing run" solution="msdyn_SalesRouting (9.1.2206.1002)">
+          <package>msdynce_SalesInsightsAnchor (9.0.22061.10012)</package>
         </Required>
         <Dependent type="1" schemaName="team" displayName="Team" />
       </MissingDependency>
@@ -597,6 +603,10 @@
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="26" schemaName="Active Countries" displayName="Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{3f2b5ad4-614f-476e-a34c-646a001ae5a8}" />
+        <Dependent type="60" displayName="Information_Backup" parentDisplayName="Importer Notification" id="{e402ad8c-68de-4553-8f48-a9beee54cf87}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
         <Dependent type="60" displayName="Information" parentDisplayName="Place of Destination" id="{3b1d62fd-78d7-422c-9b3c-d4cacd788891}" />
       </MissingDependency>
@@ -633,12 +643,20 @@
         <Dependent type="60" displayName="Information" parentDisplayName="Veterinarian" id="{dd50495b-5d4e-45a5-a0ce-54047814ec5d}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
+        <Dependent type="60" displayName="Information_Backup" parentDisplayName="Importer Notification" id="{e402ad8c-68de-4553-8f48-a9beee54cf87}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="26" schemaName="Commodity Type Lookup View" displayName="Commodity Type Lookup View" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" id="{50c06169-2e75-4bdb-85ac-e795cb1077ed}" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/js/importernotification.form.js" displayName="defraimp_/js/importernotification.form.js" solution="Active" />
         <Dependent type="60" displayName="Information" parentDisplayName="Importer Notification" id="{bf964a52-f528-44e7-900f-3ba36d386525}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="defraimp_/js/importernotification.form.js" displayName="defraimp_/js/importernotification.form.js" solution="Active" />
+        <Dependent type="60" displayName="Information_Backup" parentDisplayName="Importer Notification" id="{e402ad8c-68de-4553-8f48-a9beee54cf87}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="defraimp_/js/importernotification.ribbon.js" displayName="defraimp_/js/importernotification.ribbon.js" solution="Active" />
@@ -945,6 +963,10 @@
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="61" schemaName="msdyn_filesandattachments" displayName="msdyn_filesandattachments" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
+        <Dependent type="60" displayName="Information_Backup" parentDisplayName="Importer Notification" id="{e402ad8c-68de-4553-8f48-a9beee54cf87}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="61" schemaName="msdyn_multiple_uploads" displayName="msdyn_multiple_uploads" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Post Import Check" id="{045d20e0-adad-46b9-ae53-39d2b3e2a7f8}" />
       </MissingDependency>
@@ -965,49 +987,57 @@
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="Service/_imgs/ribbon/NewRecord_16.png" displayName="Service/_imgs/ribbon/NewRecord_16.png" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.22043.1017)</package>
-        </Required>
-        <Dependent type="50" schemaName="defraimp_importernotification:RibbonDiffXml" displayName="defraimp_importernotification:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+        <Required type="61" schemaName="msdyn_multiple_uploads" displayName="msdyn_multiple_uploads" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
+        <Dependent type="60" displayName="Information_Backup" parentDisplayName="Importer Notification" id="{e402ad8c-68de-4553-8f48-a9beee54cf87}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2204.4006)" />
+        <Required type="61" schemaName="Service/_imgs/ribbon/NewRecord_16.png" displayName="Service/_imgs/ribbon/NewRecord_16.png" solution="msdynce_Service (9.0.5.56)">
+          <package>msdynce_ServiceAnchor (9.0.22055.1012)</package>
+        </Required>
+        <Dependent type="50" schemaName="defraimp_itahc:RibbonDiffXml" displayName="defraimp_itahc:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2206.1010)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2204.4006)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2206.1010)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22044.00142)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22061.00172)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Post Import Check" id="{045d20e0-adad-46b9-ae53-39d2b3e2a7f8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22044.00142)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22061.00172)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Match Record" id="{3ea0a58b-62e6-4c7c-bc6a-47c823bc7bdc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22044.00142)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22061.00172)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22044.00142)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22061.00172)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Importer Notification" id="{bf964a52-f528-44e7-900f-3ba36d386525}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22044.00142)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22061.00172)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2204.4006)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22061.00172)" />
+        <Dependent type="60" displayName="Information_Backup" parentDisplayName="Importer Notification" id="{e402ad8c-68de-4553-8f48-a9beee54cf87}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2206.1010)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.22044.00142)" />
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.22061.00172)" />
         <Dependent type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.22044.00142)" />
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.22061.00172)" />
         <Dependent type="60" displayName="ITAHC Quick Create" parentDisplayName="ITAHC" id="{c7a38b2c-7a34-40a6-9062-e37e878fd92d}" />
       </MissingDependency>
       <MissingDependency>

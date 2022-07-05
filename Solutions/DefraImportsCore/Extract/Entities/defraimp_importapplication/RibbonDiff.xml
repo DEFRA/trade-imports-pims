@@ -103,7 +103,9 @@
     </CommandDefinition>
     <CommandDefinition Id="defraimp.defraimp_importapplication.IPAFFS.Command">
       <EnableRules />
-      <DisplayRules />
+      <DisplayRules>
+        <DisplayRule Id="defraimp.defraimp_importapplication.DisplayRule0.DisplayRule" />
+      </DisplayRules>
       <Actions>
         <JavaScriptFunction FunctionName="DefraImports.ImportRecord.openUrlFromRibbon" Library="$webresource:defraimp_/js/importrecord.ribbon.js">
           <CrmParameter Value="PrimaryControl" />
@@ -136,7 +138,11 @@
   </CommandDefinitions>
   <RuleDefinitions>
     <TabDisplayRules />
-    <DisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="defraimp.defraimp_importapplication.DisplayRule0.DisplayRule">
+        <ValueRule Value="" InvertResult="true" />
+      </DisplayRule>
+    </DisplayRules>
     <EnableRules>
       <EnableRule Id="defraimp.defraimp_importapplication.AppendFromMatch.EnableRule">
         <SelectionCountRule Minimum="1" />

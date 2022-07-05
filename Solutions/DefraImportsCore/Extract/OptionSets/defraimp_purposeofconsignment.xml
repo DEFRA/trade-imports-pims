@@ -12,33 +12,9 @@
     <Description description="" languagecode="1033" />
   </Descriptions>
   <options>
-    <option value="714100000" ExternalValue="" Color="#0000ff">
+    <option value="714100007" ExternalValue="" Color="#0000ff">
       <labels>
-        <label description="For Import" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100001" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="For Transhipment to" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100002" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="For Transit to 3rd Country" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100003" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="For Re-Import" languagecode="1033" />
+        <label description="For Import Re-Conformity Check" languagecode="1033" />
       </labels>
       <Descriptions>
         <Description description="" languagecode="1033" />
@@ -60,6 +36,14 @@
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
+    <option value="714100003" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="For Re-Import" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
     <option value="714100006" ExternalValue="" Color="#0000ff">
       <labels>
         <label description="For Transfer To" languagecode="1033" />
@@ -68,12 +52,44 @@
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
-    <option value="714100007" ExternalValue="" Color="#0000ff">
+    <option value="714100000" ExternalValue="" Color="#0000ff">
       <labels>
-        <label description="For Import Re-Conformity Check" languagecode="1033" />
+        <label description="Internal Market" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Previous label : For Import" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100009" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Re-Entry" languagecode="1033" />
       </labels>
       <Descriptions>
         <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100008" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Temporary admission horses" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100001" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Transhipment / Onward Travel" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Previous label : For Transhipment to" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100002" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Transit" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="previous label : For Transit to 3rd Country" languagecode="1033" />
       </Descriptions>
     </option>
   </options>

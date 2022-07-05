@@ -302,12 +302,13 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <OptionSetName>defraimp_certifiedfor</OptionSetName>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>defraimp_animalcertifiedas</OptionSetName>
           <displaynames>
-            <displayname description="Certified For" languagecode="1033" />
+            <displayname description="Purpose of Movement" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Certification for animal" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="defraimp_commoditiescommodityintendedfor">
@@ -3761,7 +3762,7 @@
             <displayname description="CPH Number" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="County Parish Holding Number" languagecode="1033" />
+            <Description description="Charity Parish Holding Number" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="defraimp_DateCompleted">
@@ -8309,6 +8310,45 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Port of Exit Date" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="defraimp_processstatus">
+          <Type>picklist</Type>
+          <Name>defraimp_processstatus</Name>
+          <LogicalName>defraimp_processstatus</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>0.0.0.117</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>defraimp_processstatus</OptionSetName>
+          <displaynames>
+            <displayname description="Process Status" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
