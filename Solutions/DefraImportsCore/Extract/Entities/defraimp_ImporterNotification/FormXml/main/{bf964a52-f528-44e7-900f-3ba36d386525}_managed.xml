@@ -141,11 +141,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{d98703ca-2419-3b96-2b0a-dd49cc7174a6}" showlabel="true" locklevel="0">
+                      <cell id="{d98703ca-2419-3b96-2b0a-dd49cc7174a6}" showlabel="true" locklevel="0" visible="false">
                         <labels>
                           <label description="Process Status" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_processstatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_processstatus" disabled="false" />
+                        <control id="defraimp_processstatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_processstatus" disabled="false" uniqueid="{cd2e3b51-7566-2b6b-4173-8e686a136659}" />
                       </cell>
                     </row>
                   </rows>

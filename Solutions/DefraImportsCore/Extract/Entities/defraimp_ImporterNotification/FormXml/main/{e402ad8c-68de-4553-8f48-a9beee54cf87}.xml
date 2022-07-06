@@ -7,7 +7,7 @@
     <FormActivationState>0</FormActivationState>
     <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
       <tabs>
-        <tab verticallayout="true" id="{f65dc796-740c-48e3-9268-fd97359c6745}" IsUserDefined="1" name="details_tab" expanded="true" labelid="{bdc8baab-0d4e-4e67-8c29-fd9f9cbeeb9d}">
+        <tab verticallayout="true" id="{f65dc796-740c-48e3-9268-fd97359c6745}" IsUserDefined="1" name="details_tab" expanded="false" labelid="{bdc8baab-0d4e-4e67-8c29-fd9f9cbeeb9d}">
           <labels>
             <label description="Importer Notification Details" languagecode="1033" />
           </labels>
@@ -404,7 +404,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="commoditycomplements_tab" id="2263bba6-8e5e-4ab2-af2b-d2aecfbc381c" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" labelid="{1ddd25ca-1183-42b7-9874-49600c169753}">
+        <tab name="commoditycomplements_tab" id="2263bba6-8e5e-4ab2-af2b-d2aecfbc381c" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false" labelid="{1ddd25ca-1183-42b7-9874-49600c169753}">
           <labels>
             <label description="Commodity " languagecode="1033" />
           </labels>
@@ -665,7 +665,7 @@
             </column>
           </columns>
         </tab>
-        <tab name="Charity_Tab" id="{4cab477d-8d45-04cb-b708-7c33b706cda9}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" labelid="{29b1759d-4cbc-4cda-8344-a2700f29b6f0}">
+        <tab name="Charity_Tab" id="{4cab477d-8d45-04cb-b708-7c33b706cda9}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false" labelid="{29b1759d-4cbc-4cda-8344-a2700f29b6f0}">
           <labels>
             <label description="Charity" languagecode="1033" />
           </labels>
@@ -1795,38 +1795,6 @@
                         <control id="defraimp_routetransitingstates" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="defraimp_routetransitingstates" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{0abbeb42-cceb-5b18-0c87-291455d4ed3d}" showlabel="false" colspan="1" auto="false" rowspan="6" labelid="{80bb9774-16fb-4103-aae2-7da2902efe82}">
-                        <labels>
-                          <label description="Countries Of Transit" languagecode="1033" />
-                        </labels>
-                        <control id="subgrid_countries_of_transit" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
-                          <parameters>
-                            <ViewId>{BCDA6DCF-5301-EA11-A811-000D3AB5D511}</ViewId>
-                            <IsUserView>false</IsUserView>
-                            <RelationshipName>defraimp_ImporterNotification_CountriesofTransit</RelationshipName>
-                            <TargetEntityType>defra_country</TargetEntityType>
-                            <AutoExpand>Fixed</AutoExpand>
-                            <EnableQuickFind>false</EnableQuickFind>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <ViewIds>{3F2B5AD4-614F-476E-A34C-646A001AE5A8},{BCDA6DCF-5301-EA11-A811-000D3AB5D511}</ViewIds>
-                            <EnableJumpBar>false</EnableJumpBar>
-                            <ChartGridMode>All</ChartGridMode>
-                            <VisualizationId />
-                            <IsUserChart>false</IsUserChart>
-                            <EnableChartPicker>true</EnableChartPicker>
-                            <RecordsPerPage>4</RecordsPerPage>
-                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
-                            <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
                   </rows>
                 </section>
               </sections>
