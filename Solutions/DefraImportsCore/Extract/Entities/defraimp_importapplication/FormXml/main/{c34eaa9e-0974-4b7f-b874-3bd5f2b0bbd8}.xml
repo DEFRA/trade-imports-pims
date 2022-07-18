@@ -118,9 +118,17 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{f490df06-04ca-44f0-86e4-831a472569a8}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
+                      <cell id="{e197a368-8e75-7b32-9781-a32be5db91ec}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Purpose" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_animalcertifiedas" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_animalcertifiedas" disabled="false" uniqueid="{159e9963-e563-0a95-5980-47b72a2190d2}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f490df06-04ca-44f0-86e4-831a472569a8}" locklevel="0" colspan="1" rowspan="1" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Purpose (CHED A)" languagecode="1033" />
                         </labels>
                         <control id="defraimp_commoditiesanimalscertifiedas" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_commoditiesanimalscertifiedas" disabled="false" uniqueid="{14edd498-c53a-89eb-9986-372924c9baeb}" />
                       </cell>
