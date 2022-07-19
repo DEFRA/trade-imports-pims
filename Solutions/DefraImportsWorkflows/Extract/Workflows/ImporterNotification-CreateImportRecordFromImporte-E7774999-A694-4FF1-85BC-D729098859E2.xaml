@@ -233,8 +233,6 @@
                         <Variable x:TypeArguments="x:Object" Name="CreateStep6_103" />
                         <Variable x:TypeArguments="x:Object" Name="CreateStep6_104" />
                         <Variable x:TypeArguments="x:Object" Name="CreateStep6_105" />
-                        <Variable x:TypeArguments="x:Object" Name="CreateStep6_106" />
-                        <Variable x:TypeArguments="x:Object" Name="CreateStep6_107" />
                       </Sequence.Variables>
                       <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importapplication&quot;)]" />
                       <mxswa:GetEntityProperty Attribute="defraimp_devolvedoffice" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_2]">
@@ -1358,10 +1356,10 @@
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_commoditiesanimalscertifiedas" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_95]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_submissiondate" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_95]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -1370,22 +1368,22 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep6_95 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep6_94]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_commoditiesanimalscertifiedas" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_94]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_dateiv66received" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_94]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_submissiondate" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_97]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_commoditiesinternalmarketpurpose" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_97]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -1394,22 +1392,22 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep6_97 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep6_96]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_dateiv66received" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_96]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_internalmarketpurpose" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_96]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_commoditiesinternalmarketpurpose" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_99]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_commoditiesnumberofpackages" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_99]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -1418,22 +1416,22 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep6_99 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep6_98]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_internalmarketpurpose" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_98]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_numberofpackages" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_98]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_commoditiesnumberofpackages" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_101]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_purposeofconsignment" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_101]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -1442,22 +1440,22 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep6_101 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep6_100]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_numberofpackages" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_100]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_purposeofconsignment" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_100]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Int32" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_purposeofconsignment" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_103]">
+                      <mxswa:GetEntityProperty Attribute="defraimp_arrivaltime" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_103]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -1466,22 +1464,22 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep6_103 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep6_102]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_purposeofconsignment" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_102]">
+                      <mxswa:SetEntityProperty Attribute="defraimp_timeofimport" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_102]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="defraimp_arrivaltime" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_105]">
+                      <mxswa:GetEntityProperty Attribute="modifiedby" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_105]">
                         <mxswa:GetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                         </mxswa:GetEntityProperty.TargetType>
                       </mxswa:GetEntityProperty>
@@ -1490,36 +1488,12 @@
                           <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
                           <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep6_105 }]</InArgument>
                           <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
                           </InArgument>
                           <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep6_104]</OutArgument>
                         </mxswa:ActivityReference.Arguments>
                       </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_timeofimport" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_104]">
-                        <mxswa:SetEntityProperty.TargetType>
-                          <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
-                          </InArgument>
-                        </mxswa:SetEntityProperty.TargetType>
-                      </mxswa:SetEntityProperty>
-                      <mxswa:GetEntityProperty Attribute="modifiedby" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" Value="[CreateStep6_107]">
-                        <mxswa:GetEntityProperty.TargetType>
-                          <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
-                          </InArgument>
-                        </mxswa:GetEntityProperty.TargetType>
-                      </mxswa:GetEntityProperty>
-                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
-                        <mxswa:ActivityReference.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
-                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CreateStep6_107 }]</InArgument>
-                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
-                          </InArgument>
-                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[CreateStep6_106]</OutArgument>
-                        </mxswa:ActivityReference.Arguments>
-                      </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="ownerid" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_106]">
+                      <mxswa:SetEntityProperty Attribute="ownerid" Entity="[CreatedEntities(&quot;CreateStep6_localParameter#Temp&quot;)]" EntityName="defraimp_importapplication" Value="[CreateStep6_104]">
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:EntityReference" />
