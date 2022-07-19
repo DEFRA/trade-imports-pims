@@ -6,7 +6,7 @@
       <LocalizedName description="Defra.Imports.Workflows" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.67</Version>
+    <Version>0.0.0.68</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -705,10 +705,6 @@
       <MissingDependency>
         <Required type="2" schemaName="defraimp_certificateverified" displayName="Certificate Verified?" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="defraimp_commoditiesanimalscertifiedas" displayName="Purpose" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
-        <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="defraimp_commoditycode" displayName="Commodity Code" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
