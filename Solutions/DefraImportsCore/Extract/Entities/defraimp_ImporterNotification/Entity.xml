@@ -308,7 +308,7 @@
             <displayname description="Purpose of Movement" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Certification for animal" languagecode="1033" />
+            <Description description="Certification for Animal" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="defraimp_commoditiescommodityintendedfor">
@@ -528,7 +528,7 @@
             <displayname description="Internal Market Purpose" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Purpose of Movement" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="defraimp_commoditiesnumberofanimals">
@@ -3762,7 +3762,7 @@
             <displayname description="CPH Number" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Charity Parish Holding Number" languagecode="1033" />
+            <Description description="County Parish Holding Number" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="defraimp_DateCompleted">

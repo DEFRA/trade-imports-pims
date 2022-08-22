@@ -94,7 +94,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{9b65600b-82be-997a-c8a6-08003b32aeb5}" showlabel="true" locklevel="0" visible="false">
+                      <cell id="{9b65600b-82be-997a-c8a6-08003b32aeb5}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Purpose of Consignment" languagecode="1033" />
                         </labels>
@@ -102,11 +102,19 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{a69a0da0-b662-17c9-5676-13432ecea0c3}" showlabel="true" locklevel="0" visible="false">
+                      <cell id="{a69a0da0-b662-17c9-5676-13432ecea0c3}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Internal Market Purpose" languagecode="1033" />
                         </labels>
                         <control id="defraimp_internalmarketpurpose" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_internalmarketpurpose" disabled="false" uniqueid="{6d5282b7-7da2-b304-48aa-5ce1eb126617}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{53803da7-3356-06d5-a7d2-4579be3c4a9d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_imptype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_imptype" disabled="false" uniqueid="{cde5ea8b-bc7a-241c-c393-885da4b42052}" />
                       </cell>
                     </row>
                     <row>
@@ -115,14 +123,6 @@
                           <label description="(Deprecated) Purpose" languagecode="1033" />
                         </labels>
                         <control id="defraimp_purpose" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_purpose" disabled="false" uniqueid="{0559e509-a4e4-ed3a-38da-156d709e7b01}" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{e197a368-8e75-7b32-9781-a32be5db91ec}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Purpose" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_animalcertifiedas" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_animalcertifiedas" disabled="false" uniqueid="{159e9963-e563-0a95-5980-47b72a2190d2}" />
                       </cell>
                     </row>
                     <row>
@@ -151,7 +151,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{c1d00156-ab0c-4c82-ab9f-d6120f2a1329}" locklevel="0" colspan="1" rowspan="1" showlabel="true" visible="false">
+                      <cell id="{c1d00156-ab0c-4c82-ab9f-d6120f2a1329}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
                         <labels>
                           <label description="Number of Packages" languagecode="1033" />
                         </labels>
@@ -257,7 +257,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{975a60a2-46a7-912c-4a06-d2edb885c300}" showlabel="true" locklevel="0" visible="false">
+                      <cell id="{975a60a2-46a7-912c-4a06-d2edb885c300}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Import Arrival Time" languagecode="1033" />
                         </labels>
@@ -1457,7 +1457,7 @@
                     </row>
                   </rows>
                 </section>
-                <section name="Transporter_Tab_section_5" id="33c5e540-ea53-4a58-9dee-7dcf632ce359" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
+                <section name="Transporter_Tab_section_5" id="33c5e540-ea53-4a58-9dee-7dcf632ce359" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Transport to BCP/PoE" languagecode="1033" />
                   </labels>
@@ -1478,7 +1478,7 @@
                     </row>
                   </rows>
                 </section>
-                <section name="Transporter_Tab_section_7" showlabel="true" showbar="false" locklevel="0" id="{c322911c-30b7-9677-97e3-a4e3169d0e36}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <section name="Transporter_Tab_section_7" showlabel="true" showbar="false" locklevel="0" id="{c322911c-30b7-9677-97e3-a4e3169d0e36}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="Transport from BCP/PoE" languagecode="1033" />
                   </labels>
@@ -1590,7 +1590,7 @@
                     </row>
                   </rows>
                 </section>
-                <section name="Transporter_Tab_section_6" id="89313b95-32ae-48a9-a993-6ea19581d613" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
+                <section name="Transporter_Tab_section_6" id="89313b95-32ae-48a9-a993-6ea19581d613" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Transit Details" languagecode="1033" />
                   </labels>
