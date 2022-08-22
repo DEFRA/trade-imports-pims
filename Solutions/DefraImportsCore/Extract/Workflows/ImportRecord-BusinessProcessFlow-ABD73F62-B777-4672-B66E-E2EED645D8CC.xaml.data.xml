@@ -82,6 +82,9 @@
     <steplabels id="{79bdecb0-a1b2-4f0b-860f-c9a56bb2c92d}">
       <label languagecode="1033" description="Completion" />
     </steplabels>
+    <steplabels id="{ed5495b0-8813-4833-9b4e-2c1f8fce18a4}">
+      <label languagecode="1033" description="CHED Part Two Complete?" />
+    </steplabels>
     <steplabels id="{20ddfec3-5301-4e43-b6bf-27a366ad46bb}">
       <label languagecode="1033" description="Move to Completion?" />
     </steplabels>
@@ -93,6 +96,9 @@
     </steplabels>
     <steplabels id="{86b8b3f8-80c7-434c-97d0-fcdfbe94ac21}">
       <label languagecode="1033" description="Completion" />
+    </steplabels>
+    <steplabels id="{8376e42a-f146-40fa-b620-a2ade670097d}">
+      <label languagecode="1033" description="CHED Part Two Complete?" />
     </steplabels>
     <steplabels id="{8b689fac-3140-4e22-a49b-7383499b29dd}">
       <label languagecode="1033" description="Move to Completion?" />
@@ -111,6 +117,9 @@
     </steplabels>
     <steplabels id="{52875004-209c-4713-89be-6ac44ba042b0}">
       <label languagecode="1033" description="Completion" />
+    </steplabels>
+    <steplabels id="{8d6604f3-610f-4931-ac1a-17caa645bcac}">
+      <label languagecode="1033" description="CHED Part Two Complete?" />
     </steplabels>
     <steplabels id="{1c11332e-909e-4e3e-b791-13f758afee78}">
       <label languagecode="1033" description="Move to Completion?" />

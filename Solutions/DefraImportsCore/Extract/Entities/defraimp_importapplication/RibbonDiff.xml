@@ -140,7 +140,7 @@
     <TabDisplayRules />
     <DisplayRules>
       <DisplayRule Id="defraimp.defraimp_importapplication.DisplayRule0.DisplayRule">
-        <ValueRule Value="" InvertResult="true" />
+        <ValueRule Field="defraimp_imptype" Value="714100000" Default="false" />
       </DisplayRule>
     </DisplayRules>
     <EnableRules>
