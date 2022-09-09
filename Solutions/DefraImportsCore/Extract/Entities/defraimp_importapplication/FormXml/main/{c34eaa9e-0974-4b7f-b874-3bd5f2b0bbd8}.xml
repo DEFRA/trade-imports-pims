@@ -118,19 +118,19 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{3e66bccc-8c6d-918e-ac62-54c344c2608d}" showlabel="true" locklevel="0" visible="false">
+                      <cell id="{75b96dc0-8eee-7e42-1635-7c164be35658}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="(Deprecated) Purpose" languagecode="1033" />
+                          <label description="Purpose for Movement" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_purpose" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_purpose" disabled="false" uniqueid="{0559e509-a4e4-ed3a-38da-156d709e7b01}" />
+                        <control id="defraimp_animalcertifiedas" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_animalcertifiedas" disabled="false" uniqueid="{a394d3eb-6716-e3c4-4dea-c8447c647847}" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{f490df06-04ca-44f0-86e4-831a472569a8}" locklevel="0" colspan="1" rowspan="1" showlabel="true" visible="false">
+                      <cell id="{10410c36-c326-5151-c935-e806ed494972}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Purpose (CHED A)" languagecode="1033" />
+                          <label description="Certified For" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_commoditiesanimalscertifiedas" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_commoditiesanimalscertifiedas" disabled="false" uniqueid="{14edd498-c53a-89eb-9986-372924c9baeb}" />
+                        <control id="defraimp_commoditiescertifiedfor" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_commoditiescertifiedfor" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -2064,7 +2064,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

@@ -278,13 +278,26 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{ebee4286-5422-a987-a06d-c1361e85d8d9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Certified For" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditiescertifiedfor" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_commoditiescertifiedfor" disabled="false" />
+                      </cell>
+                      <cell id="{746a9b3e-b584-0e0d-1e1a-c9b3d2436c66}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{ddce7eda-b3f1-4878-87a6-1944b192a154}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Commodities Number of Animals" languagecode="1033" />
                         </labels>
                         <control id="defraimp_commoditiesnumberofanimals" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofanimals" disabled="false" />
                       </cell>
-                      <cell id="{746a9b3e-b584-0e0d-1e1a-c9b3d2436c66}" showlabel="false">
+                      <cell id="{60754ab0-ba34-a673-ce66-29c037a44683}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -297,7 +310,7 @@
                         </labels>
                         <control id="defraimp_commoditiesnumberofpackages" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofpackages" disabled="false" uniqueid="{57e3077d-4278-95e5-97d3-c792d7936a5a}" />
                       </cell>
-                      <cell id="{60754ab0-ba34-a673-ce66-29c037a44683}" showlabel="false">
+                      <cell id="{4daac1ac-c7aa-0313-6208-a0271b40129a}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -310,7 +323,7 @@
                         </labels>
                         <control id="defraimp_weight" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_weight" disabled="false" />
                       </cell>
-                      <cell id="{4daac1ac-c7aa-0313-6208-a0271b40129a}" showlabel="false">
+                      <cell id="{065d83cc-02ca-73c3-096d-7ce9ee3cbb7d}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>

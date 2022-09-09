@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{df7729ae-4204-ed11-82e5-0022489a45b1}" Name="Show / Hide CHED Part Two" Description="Click to add description" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/ShowHideCHEDPartTwo-DF7729AE-4204-ED11-82E5-0022489A45B1.xaml</XamlFileName>
+<Workflow WorkflowId="{2c203d96-ce22-ed11-b83d-000d3ab79b3c}" Name="Show\Hide fields when Type is CVEDA" Description="Click to add description" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ShowHidefieldswhenTypeisCVEDA-2C203D96-CE22-ED11-B83D-000D3AB79B3C.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>2</Category>
@@ -11,18 +11,18 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-  <StateCode>1</StateCode>
-  <StatusCode>2</StatusCode>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
   <RunAs>1</RunAs>
   <IsTransacted>1</IsTransacted>
-  <IntroducedVersion>0.0.0.118</IntroducedVersion>
+  <IntroducedVersion>0.0.0.122</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <BusinessProcessType>0</BusinessProcessType>
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <ProcessTriggerScope>1</ProcessTriggerScope>
-  <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
+  <PrimaryEntity>defraimp_ImporterNotification</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Show / Hide CHED Part Two" />
+    <LocalizedName languagecode="1033" description="Show\Hide fields when Type is CVEDA" />
   </LocalizedNames>
   <Descriptions>
     <Description languagecode="1033" description="Click to add description" />
