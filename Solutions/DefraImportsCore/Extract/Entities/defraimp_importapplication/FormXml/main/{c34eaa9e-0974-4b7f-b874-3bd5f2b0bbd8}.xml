@@ -120,7 +120,7 @@
                     <row>
                       <cell id="{75b96dc0-8eee-7e42-1635-7c164be35658}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Purpose for Movement" languagecode="1033" />
+                          <label description="Purpose of Movement" languagecode="1033" />
                         </labels>
                         <control id="defraimp_animalcertifiedas" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_animalcertifiedas" disabled="false" uniqueid="{a394d3eb-6716-e3c4-4dea-c8447c647847}" />
                       </cell>
@@ -259,7 +259,7 @@
                     <row>
                       <cell id="{975a60a2-46a7-912c-4a06-d2edb885c300}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Import Arrival Time" languagecode="1033" />
+                          <label description="Arrival Time" languagecode="1033" />
                         </labels>
                         <control id="defraimp_timeofimport" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_timeofimport" disabled="false" uniqueid="{27e96975-58be-2585-83d4-71a30331a44d}" />
                       </cell>
@@ -2064,7 +2064,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

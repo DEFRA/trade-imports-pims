@@ -63,11 +63,14 @@
                     <Sequence DisplayName="SetVisibilityStep1: Hide Purpose of Consignment">
                       <mcwc:SetVisibility ControlId="defraimp_purposeofconsignment" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="False" />
                     </Sequence>
-                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep1_3: Hide Internal Market Purpose">
+                    <Sequence DisplayName="SetVisibilityStep3: Hide Internal Market Purpose">
                       <mcwc:SetVisibility ControlId="defraimp_commoditiesinternalmarketpurpose" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="False" />
                     </Sequence>
-                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep1_3_5: Hide Commodities Number of Packages">
+                    <Sequence DisplayName="SetVisibilityStep5: Hide Commodities Number of Packages">
                       <mcwc:SetVisibility ControlId="defraimp_commoditiesnumberofpackages" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="False" />
+                    </Sequence>
+                    <Sequence DisplayName="SetVisibilityStep7: Hide Certified For">
+                      <mcwc:SetVisibility ControlId="defraimp_commoditiescertifiedfor" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="False" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
@@ -95,14 +98,17 @@
                 <mxswa:ActivityReference.Properties>
                   <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                   <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                    <Sequence DisplayName="SetVisibilityStep3: Show Purpose of Consignement">
+                    <Sequence DisplayName="SetVisibilityStep3205: Show Purpose of Consignement">
                       <mcwc:SetVisibility ControlId="defraimp_purposeofconsignment" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="True" />
                     </Sequence>
-                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep3_4: Show Internal Market Purpose">
+                    <Sequence DisplayName="SetVisibilityStep4: Show Internal Market Purpose">
                       <mcwc:SetVisibility ControlId="defraimp_commoditiesinternalmarketpurpose" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="True" />
                     </Sequence>
-                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep3_4_6: Show Commodities Number of Packages">
+                    <Sequence DisplayName="SetVisibilityStep6: Show Commodities Number of Packages">
                       <mcwc:SetVisibility ControlId="defraimp_commoditiesnumberofpackages" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="True" />
+                    </Sequence>
+                    <Sequence DisplayName="SetVisibilityStep8: Show Certified For">
+                      <mcwc:SetVisibility ControlId="defraimp_commoditiescertifiedfor" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="True" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>

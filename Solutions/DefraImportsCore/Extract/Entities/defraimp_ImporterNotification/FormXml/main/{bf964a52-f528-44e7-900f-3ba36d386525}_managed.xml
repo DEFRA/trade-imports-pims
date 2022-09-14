@@ -306,7 +306,7 @@
                     <row>
                       <cell id="{44d937e9-2399-20d2-b3e9-b3a5ecbaad56}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Commodities Number of Packages" languagecode="1033" />
+                          <label description="Number of Packages" languagecode="1033" />
                         </labels>
                         <control id="defraimp_commoditiesnumberofpackages" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="defraimp_commoditiesnumberofpackages" disabled="false" uniqueid="{57e3077d-4278-95e5-97d3-c792d7936a5a}" />
                       </cell>

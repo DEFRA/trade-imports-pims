@@ -308,7 +308,7 @@
             <displayname description="Purpose of Movement" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Certification for Animal" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="defraimp_commoditiescertifiedfor">
@@ -643,7 +643,7 @@
           <MinValue>-2147483648</MinValue>
           <MaxValue>2147483647</MaxValue>
           <displaynames>
-            <displayname description="Commodities Number of Packages" languagecode="1033" />
+            <displayname description="Number of Packages" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="The total number of packages within this consignment" languagecode="1033" />

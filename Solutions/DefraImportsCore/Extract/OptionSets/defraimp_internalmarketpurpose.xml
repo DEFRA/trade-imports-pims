@@ -12,46 +12,6 @@
     <Description description="" languagecode="1033" />
   </Descriptions>
   <options>
-    <option value="714100000" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="Animal Feeding Stuff" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100001" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="Human Consumption" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100002" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="Pharmaceutical Use" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100003" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="Technical Use" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100004" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="Other" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
     <option value="714100005" ExternalValue="" Color="#0000ff">
       <labels>
         <label description="Commercial Sale" languagecode="1033" />
@@ -87,6 +47,14 @@
     <option value="714100009" ExternalValue="" Color="#0000ff">
       <labels>
         <label description="Racing or Competition" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="714100016" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Registered Horses" languagecode="1033" />
       </labels>
       <Descriptions>
         <Description description="" languagecode="1033" />
@@ -135,14 +103,6 @@
     <option value="714100015" ExternalValue="" Color="#0000ff">
       <labels>
         <label description="Game Restocking" languagecode="1033" />
-      </labels>
-      <Descriptions>
-        <Description description="" languagecode="1033" />
-      </Descriptions>
-    </option>
-    <option value="714100016" ExternalValue="" Color="#0000ff">
-      <labels>
-        <label description="Registered Horses" languagecode="1033" />
       </labels>
       <Descriptions>
         <Description description="" languagecode="1033" />
