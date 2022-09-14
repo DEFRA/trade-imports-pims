@@ -69,6 +69,9 @@
                     <Sequence DisplayName="SetVisibilityStep5: Hide Number of Packages">
                       <mcwc:SetVisibility ControlId="defraimp_numberofpackages" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="False" />
                     </Sequence>
+                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep5_7: Hide Certified For">
+                      <mcwc:SetVisibility ControlId="defraimp_commoditiescertifiedfor" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="False" />
+                    </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
               </mxswa:ActivityReference>
@@ -103,6 +106,9 @@
                     </Sequence>
                     <Sequence DisplayName="SetVisibilityStep6: Show Number of Packages">
                       <mcwc:SetVisibility ControlId="defraimp_numberofpackages" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="True" />
+                    </Sequence>
+                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep6_8: Show Certified For">
+                      <mcwc:SetVisibility ControlId="defraimp_commoditiescertifiedfor" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="True" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
