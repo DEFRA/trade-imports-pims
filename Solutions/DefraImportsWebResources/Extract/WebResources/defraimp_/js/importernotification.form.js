@@ -5,12 +5,18 @@ var DefraImports;
         var formContext;
         function showHideCharity(executionObj) {
             formContext = executionObj.getFormContext();
-            formContext.data.entity.addOnPostSave(PostSaveTriggerFunction);
+
+
+           formContext.data.entity.addOnPostSave(PostSaveTriggerFunction);
+
+
             var importingFromCharity = formContext.getAttribute("defraimp_importingfromcharity").getValue();
             //Set visibility to whatever value Importing from Charity is
             formContext.ui.tabs.get("Charity_Tab").setVisible(importingFromCharity);
         }
+
         ImporterNotification.showHideCharity = showHideCharity;
+
         function checkForMultipleCommodities(executionObj) {
             formContext = executionObj.getFormContext();
             //Check if Importer Notification hasMultipleCommodities field is set to true
@@ -47,10 +53,11 @@ var DefraImports;
             formContext.ui.clearFormNotification("multipleCommodityNotification");
         }
 
-        function PostSaveTriggerFunction(executionContext) {
+
+  function PostSaveTriggerFunction(executionContext) {
             var formContext = executionContext.getFormContext();
             var recordId = formContext.data.entity.getId();
-            entityFormOptions = {};
+	    entityFormOptions = {};
             entityFormOptions["entityName"] = "defraimp_importernotification";
             entityFormOptions["entityId"] = recordId;
             Xrm.Navigation.openForm(entityFormOptions).then(
@@ -61,7 +68,6 @@ var DefraImports;
                     console.log(error);
                 });
         }
-
 
     })(ImporterNotification = DefraImports.ImporterNotification || (DefraImports.ImporterNotification = {}));
 })(DefraImports || (DefraImports = {}));
