@@ -5,6 +5,7 @@ var DefraImports;
         var formContext;
         function showHideCharity(executionObj) {
             formContext = executionObj.getFormContext();
+            formContext.data.entity.addOnPostSave(PostSaveTriggerFunction);
             var importingFromCharity = formContext.getAttribute("defraimp_importingfromcharity").getValue();
             //Set visibility to whatever value Importing from Charity is
             formContext.ui.tabs.get("Charity_Tab").setVisible(importingFromCharity);
@@ -24,6 +25,8 @@ var DefraImports;
             }
         }
         ImporterNotification.checkForMultipleCommodities = checkForMultipleCommodities;
+
+
         function showCommodityWarning(formContext) {
             //Show the caseworker Intervention section on the form
             formContext.ui.tabs.get("details_tab").sections.get("caseworker_intervention_section").setVisible(true);
@@ -43,6 +46,23 @@ var DefraImports;
             formContext.ui.clearFormNotification("multipleCommodityError");
             formContext.ui.clearFormNotification("multipleCommodityNotification");
         }
+
+        function PostSaveTriggerFunction(executionContext) {
+            var formContext = executionContext.getFormContext();
+            var recordId = formContext.data.entity.getId();
+            entityFormOptions = {};
+            entityFormOptions["entityName"] = "defraimp_importernotification";
+            entityFormOptions["entityId"] = recordId;
+            Xrm.Navigation.openForm(entityFormOptions).then(
+                function (success) {
+                    console.log(success);
+                },
+                function (error) {
+                    console.log(error);
+                });
+        }
+
+
     })(ImporterNotification = DefraImports.ImporterNotification || (DefraImports.ImporterNotification = {}));
 })(DefraImports || (DefraImports = {}));
 //# sourceMappingURL=importernotification.form.js.map
