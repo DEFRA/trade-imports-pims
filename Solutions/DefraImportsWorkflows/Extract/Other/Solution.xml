@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.22083.164" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.22103.194" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsWorkflows</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Workflows" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.71</Version>
+    <Version>0.0.0.72</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -2208,10 +2208,6 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="defraimp_status" displayName="Status" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" solution="Active" />
-        <Dependent type="29" displayName="IPAFFS Document - Auto-set Health Certificate Attached" id="{48313ab0-8b0c-46c9-8c91-5e7cf72f968e}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="defraimp_status" displayName="Status" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" solution="Active" />
         <Dependent type="29" displayName="Importer Notification - Create Import Record From Importer Notification" id="{e7774999-a694-4ff1-85bc-d729098859e2}" />
       </MissingDependency>
       <MissingDependency>
@@ -3159,11 +3155,11 @@
         <Dependent type="29" displayName="Append ITAHC to Import Record" id="{f6bd2107-d98b-486c-9fc8-4796525b0a1b}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2208.3008)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2210.3015)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22083.00164)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22103.00194)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
     </MissingDependencies>
