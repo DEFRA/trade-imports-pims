@@ -89,7 +89,6 @@
                     <Sequence DisplayName="UpdateStep3: Set Flag">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Object" Name="UpdateStep3_1" />
-                        <Variable x:TypeArguments="x:Object" Name="UpdateStep3_2" />
                       </Sequence.Variables>
                       <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;related_defraimp_importernotificationid#defraimp_importernotification#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importernotification&quot;)]" />
                       <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;related_defraimp_importernotificationid#defraimp_importernotification#Temp&quot;).Id]" Value="[InputEntities(&quot;related_defraimp_importernotificationid#defraimp_importernotification&quot;).Id]" />
@@ -107,23 +106,6 @@
                         <mxswa:SetEntityProperty.TargetType>
                           <InArgument x:TypeArguments="s:Type">
                             <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Boolean" />
-                          </InArgument>
-                        </mxswa:SetEntityProperty.TargetType>
-                      </mxswa:SetEntityProperty>
-                      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
-                        <mxswa:ActivityReference.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
-                          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.OptionSetValue, "714100005", "Picklist" }]</InArgument>
-                          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
-                          </InArgument>
-                          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[UpdateStep3_2]</OutArgument>
-                        </mxswa:ActivityReference.Arguments>
-                      </mxswa:ActivityReference>
-                      <mxswa:SetEntityProperty Attribute="defraimp_status" Entity="[CreatedEntities(&quot;related_defraimp_importernotificationid#defraimp_importernotification#Temp&quot;)]" EntityName="defraimp_importernotification" Value="[UpdateStep3_2]">
-                        <mxswa:SetEntityProperty.TargetType>
-                          <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="mxs:OptionSetValue" />
                           </InArgument>
                         </mxswa:SetEntityProperty.TargetType>
                       </mxswa:SetEntityProperty>
