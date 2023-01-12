@@ -6,11 +6,15 @@ var DefraImports;
         function showHideCharity(executionObj) {
             formContext = executionObj.getFormContext();
 
+            var type_cveda = 714100000;
+            var type = formContext.getAttribute("defraimp_type").getValue();
+            if (type == type_cveda) {
+                formContext.data.entity.addOnSave(onSaveTriggerFunction);
+                formContext.data.entity.addOnPostSave(PostSaveTriggerFunction);
+            }
 
-           formContext.data.entity.addOnPostSave(PostSaveTriggerFunction);
 
-
-            var importingFromCharity = formContext.getAttribute("defraimp_importingfromcharity").getValue();
+             var importingFromCharity = formContext.getAttribute("defraimp_importingfromcharity").getValue();
             //Set visibility to whatever value Importing from Charity is
             formContext.ui.tabs.get("Charity_Tab").setVisible(importingFromCharity);
         }
@@ -31,8 +35,6 @@ var DefraImports;
             }
         }
         ImporterNotification.checkForMultipleCommodities = checkForMultipleCommodities;
-
-
         function showCommodityWarning(formContext) {
             //Show the caseworker Intervention section on the form
             formContext.ui.tabs.get("details_tab").sections.get("caseworker_intervention_section").setVisible(true);
@@ -54,19 +56,41 @@ var DefraImports;
         }
 
 
-  function PostSaveTriggerFunction(executionContext) {
+        function onSaveTriggerFunction(executionContext) {          
+            var eventArgs = executionContext.getEventArgs();
+            var saveMode = eventArgs.getSaveMode();
+            var formContext = executionContext.getFormContext();
+            if (saveMode==2) // save and close
+              formContext.data.entity.removeOnPostSave(PostSaveTriggerFunction);
+        }
+
+        function PostSaveTriggerFunction(executionContext) {
+  
             var formContext = executionContext.getFormContext();
             var recordId = formContext.data.entity.getId();
-	    entityFormOptions = {};
-            entityFormOptions["entityName"] = "defraimp_importernotification";
-            entityFormOptions["entityId"] = recordId;
-            Xrm.Navigation.openForm(entityFormOptions).then(
-                function (success) {
-                    console.log(success);
-                },
-                function (error) {
-                    console.log(error);
-                });
+            var type_cveda = 714100000;
+            var purposeofconsignment_re_entry = 714100009;
+
+
+            var type = formContext.getAttribute("defraimp_type").getValue();
+            var purposeOfConsignment = formContext.getAttribute("defraimp_purposeofconsignment").getValue()
+
+           // defraimp_type: 714100000 //CVEDA
+           // defraimp_purposeofconsignment: 714100009 //RE-Entry
+
+
+            if (type == type_cveda && purposeOfConsignment == purposeofconsignment_re_entry) {
+                entityFormOptions = {};
+                entityFormOptions["entityName"] = "defraimp_importernotification";
+                entityFormOptions["entityId"] = recordId;
+                Xrm.Navigation.openForm(entityFormOptions).then(
+                    function (success) {
+                        console.log(success);
+                    },
+                    function (error) {
+                        console.log(error);
+                    });
+            }
         }
 
     })(ImporterNotification = DefraImports.ImporterNotification || (DefraImports.ImporterNotification = {}));
