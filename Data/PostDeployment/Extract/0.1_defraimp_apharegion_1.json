@@ -255,6 +255,30 @@
     },
     {
       "LogicalName": "defraimp_apharegion",
+      "Id": "7fcb5ca1-3bff-ed11-8f6e-002248993591",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "North 6",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "ac8615c1-3bff-ed11-8f6e-002248993591",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Transit",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
       "Id": "d50fa56c-8e16-ea11-a811-000d3ab35da5",
       "IsManyToMany": false,
       "Attributes": [
