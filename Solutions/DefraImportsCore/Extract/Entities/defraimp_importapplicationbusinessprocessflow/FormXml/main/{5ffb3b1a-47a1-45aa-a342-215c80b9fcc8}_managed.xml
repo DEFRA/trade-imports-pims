@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{7c7b066a-ede8-4322-b68a-a4b2ca96fbca}" showlabel="true" visible="true" labelid="{78f61c67-5a7a-45a1-8530-9fd718d26d11}">
                         <labels>
-                          <label description="Primary ITAHC" languagecode="1033" />
+                          <label description="Primary HC" languagecode="1033" />
                         </labels>
                         <control id="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow:defraimp_primaryitahcid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="defraimp_primaryitahcid" disabled="false" relationship="bpf_defraimp_importapplication_defraimp_importapplicationbusinessprocessflow" isrequired="false" />
                       </cell>

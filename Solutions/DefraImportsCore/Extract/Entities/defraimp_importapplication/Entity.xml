@@ -6161,7 +6161,7 @@
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
           <displaynames>
-            <displayname description="Primary ITAHC" languagecode="1033" />
+            <displayname description="Primary HC" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier for ITAHC associated with Import Record." languagecode="1033" />

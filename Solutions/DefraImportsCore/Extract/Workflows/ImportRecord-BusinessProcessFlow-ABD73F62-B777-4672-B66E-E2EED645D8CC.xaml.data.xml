@@ -38,7 +38,7 @@
       <label languagecode="1033" description="Country of Origin" />
     </steplabels>
     <steplabels id="{7c7b066a-ede8-4322-b68a-a4b2ca96fbca}">
-      <label languagecode="1033" description="Primary ITAHC" />
+      <label languagecode="1033" description="Primary HC" />
     </steplabels>
     <steplabels id="{bf52be99-318e-44f1-aa9d-79ee915c55fb}">
       <label languagecode="1033" description="Verified Place of Origin" />

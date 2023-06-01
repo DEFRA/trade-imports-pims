@@ -75,7 +75,7 @@
                         <labels>
                           <label description="Microchip" languagecode="1033" />
                         </labels>
-                        <control id="defraimp_microchip" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_microchip" disabled="false" />
+                        <control id="defraimp_microchip" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_microchip" disabled="false" uniqueid="{de3e03d7-5b5a-aa11-505a-594556056134}" />
                       </cell>
                     </row>
                     <row>
@@ -92,6 +92,14 @@
                           <label description="Tattoo" languagecode="1033" />
                         </labels>
                         <control id="defraimp_tattoo" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_tattoo" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{01b4e920-a811-4bc8-e337-81ee2092457a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Horse Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_horsename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_horsename" disabled="false" uniqueid="{653c75d6-72bd-088e-ee66-c985a1b0de36}" />
                       </cell>
                     </row>
                   </rows>

@@ -13,5 +13,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         public string leg_ring { get; set; }
 
         public string tattoo { get; set; }
+
+        public string horse_name { get; set; }
     }
 }

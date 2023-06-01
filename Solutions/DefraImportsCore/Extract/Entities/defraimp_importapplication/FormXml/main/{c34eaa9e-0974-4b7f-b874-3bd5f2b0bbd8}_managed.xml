@@ -234,7 +234,7 @@
                     <row>
                       <cell id="{c745516d-73e3-a53c-6385-07071529ebe9}" locklevel="0" showlabel="true" visible="false">
                         <labels>
-                          <label description="Primary ITAHC" languagecode="1033" />
+                          <label description="Primary HC" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_primaryitahcid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_primaryitahcid" uniqueid="{41335459-b39c-c232-0a00-c8a8b3d433b2}">
                           <parameters>

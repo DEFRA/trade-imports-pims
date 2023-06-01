@@ -139,7 +139,9 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
         {
             if (!string.IsNullOrEmpty(speciesName))
                 commodityIdTypes += $"SpeciesName: {speciesName}; ";
-            if (z.data.microchip != null)
+			if (z.data.horse_name != null)
+				commodityIdTypes += $"HorseName: {(z.data.horse_name ?? string.Empty)}; ";
+			if (z.data.microchip != null)
                 commodityIdTypes += $"Microchip: {(z.data.microchip ?? string.Empty)}; ";
             if (z.data.passport != null)
                 commodityIdTypes += $"Passport: {(z.data.passport ?? string.Empty)}; ";

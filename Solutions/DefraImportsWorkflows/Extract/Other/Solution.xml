@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.22105.198" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23051.240" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsWorkflows</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Workflows" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.73</Version>
+    <Version>0.0.0.74</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -379,7 +379,7 @@
         <Dependent type="29" displayName="Post Import Check - Update Import Application Outcome" id="{56767681-44dc-4754-9f0c-1c9e9e21dccf}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="Active" />
+        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
         <Dependent type="29" displayName="Import Query - Update ITAHC" id="{2fab0589-137a-46d3-88b5-0a12c0b66a0f}" />
       </MissingDependency>
       <MissingDependency>
@@ -1675,47 +1675,47 @@
         <Dependent type="29" displayName="Import Application - Update Certificate Number" id="{ff1484f0-d0bf-435b-a330-7d5858acb9dd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary HC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Import Query - Update ITAHC" id="{2fab0589-137a-46d3-88b5-0a12c0b66a0f}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary HC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="ITAHC - Create Import Record From ITAHC" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary HC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Import Application - Fill Empty Fields With Primary ITAHC Data" id="{6e484443-28c3-4401-b8d1-81f4c8f92c9f}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary HC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Import Record - Update &quot;Related Import Record&quot; in ITAHC" id="{9df20ad4-00b1-41fa-bb75-47e2cac44ea5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary HC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Import Record - Business Process Flow" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary HC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Match Record - Create Import Record from ITAHC" id="{b45cc4dd-8a6d-4f16-8ffe-27c8c6412918}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary HC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Import Application - Overwrite With Primary ITAHC Data" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary HC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Import Application - Update with ITAHC Commodity" id="{ce9482a3-6d45-4a8d-afff-d0dca3ca45ae}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary HC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Append ITAHC to Import Record" id="{f6bd2107-d98b-486c-9fc8-4796525b0a1b}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary HC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="29" displayName="Import Application - Update Certificate Number" id="{ff1484f0-d0bf-435b-a330-7d5858acb9dd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary ITAHC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
+        <Required type="2" schemaName="defraimp_primaryitahcid" displayName="Primary HC" parentSchemaName="defraimp_importapplication" parentDisplayName="Import Record" solution="Active" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
@@ -3155,11 +3155,11 @@
         <Dependent type="29" displayName="Append ITAHC to Import Record" id="{f6bd2107-d98b-486c-9fc8-4796525b0a1b}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2210.5016)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2305.1013)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.22105.00198)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.23051.00240)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
     </MissingDependencies>
