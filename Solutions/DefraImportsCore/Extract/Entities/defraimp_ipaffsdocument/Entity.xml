@@ -378,6 +378,11 @@
                   <label description="DOCOM" languagecode="1033" />
                 </labels>
               </option>
+              <option value="714100006" ExternalValue="" Color="#0000ff">
+                <labels>
+                  <label description="Latest Health Certificate" languagecode="1033" />
+                </labels>
+              </option>
               <option value="714100003" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Other" languagecode="1033" />
