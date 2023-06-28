@@ -196,10 +196,10 @@ string GetConnectionString(string solution, bool stagingEnvironment) {
   var envConfig = ParseJsonFromFile(File($"{SolutionsFolder}/{solution}/env.json"));
   var targetEnvironment = stagingEnvironment && envConfig["stagingEnvironment"] != null ? "stagingEnvironment" : "environment";
   var url = envConfig[targetEnvironment].ToString();
-  var username = envConfig["username"] ?? EnvironmentVariable("CAKE_DYNAMICS_USERNAME");
-  var password = EnvironmentVariable("CAKE_DYNAMICS_PASSWORD");
+  var clientID = EnvironmentVariable("CAKE_DYNAMICS_CLIENTID");
+  var clientSecret = EnvironmentVariable("CAKE_DYNAMICS_CLIENTSECRET");
 
-  return $"AuthType=ClientSecret;url={url};ClientId={username};ClientSecret={password};";
+  return $"AuthType=ClientSecret;url={url};ClientId={clientID};ClientSecret={clientSecret};";
 }
 
 void ExtractSolution(string connectionString, string solutionName, DirectoryPath outputPath) {

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23051.240" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23055.200" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsCore</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Core" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.126</Version>
+    <Version>0.0.0.127</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -319,385 +319,9 @@
         <Dependent type="62" schemaName="defraimp_EUImportsApp" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="1" schemaName="defraimp_importquery" displayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="10" schemaName="defraimp_defraimp_importquery_defraimp_importquery_OriginalQuery" displayName="defraimp_defraimp_importquery_defraimp_importquery_OriginalQuery" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="10" schemaName="defraimp_defraimp_itahc_defraimp_importquery_ITAHC" displayName="defraimp_defraimp_itahc_defraimp_importquery_ITAHC" parentSchemaName="defraimp_itahc" parentDisplayName="ITAHC" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="activityadditionalparams" displayName="Activity Additional Parameters" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="activityid" displayName="Activity" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="activitytypecode" displayName="Activity Type" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="actualdurationminutes" displayName="Actual Duration" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="actualend" displayName="Actual End" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="actualstart" displayName="Actual Start" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="community" displayName="Social Channel" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="createdby" displayName="Query Raised By" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="createdon" displayName="Date Raised" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="createdonbehalfby" displayName="Created By (Delegate)" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="defraimp_dateresolved" displayName="Date Resolved" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="defraimp_duedate" displayName="Due Date" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="defraimp_itahc" displayName="ITAHC" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="defraimp_originalquery" displayName="Original Query" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="defraimp_querynumber" displayName="Query Number" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="defraimp_querysentto" displayName="Query Sent To" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="deliverylastattemptedon" displayName="Date Delivery Last Attempted" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="deliveryprioritycode" displayName="Delivery Priority" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="description" displayName="Description" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="exchangeitemid" displayName="Exchange Item ID" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="exchangerate" displayName="Exchange Rate" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="exchangeweblink" displayName="Exchange WebLink" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="importsequencenumber" displayName="Import Sequence Number" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="instancetypecode" displayName="Recurring Instance Type" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="isbilled" displayName="Is Billed" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="ismapiprivate" displayName="Is Private" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="isregularactivity" displayName="Is Regular Activity" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="isworkflowcreated" displayName="Is Workflow Created" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="lastonholdtime" displayName="Last On Hold Time" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="leftvoicemail" displayName="Left Voice Mail" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="modifiedby" displayName="Modified By" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="modifiedon" displayName="Last Updated" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="modifiedonbehalfby" displayName="Modified By (Delegate)" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="onholdtime" displayName="On Hold Time (Minutes)" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="overriddencreatedon" displayName="Record Created On" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="owneridtype" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="owningbusinessunit" displayName="Owning Business Unit" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="postponeactivityprocessinguntil" displayName="Delay activity processing until" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="prioritycode" displayName="Priority" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="processid" displayName="Process" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="regardingobjectid" displayName="Regarding" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="regardingobjectidname" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="regardingobjectidyominame" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="regardingobjecttypecode" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="scheduleddurationminutes" displayName="Scheduled Duration" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="scheduledend" displayName="Scheduled End" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="scheduledstart" displayName="Start Date" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="sendermailboxid" displayName="Sender's Mailbox" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="senton" displayName="Date Sent" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="seriesid" displayName="Series Id" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="serviceid" displayName="Service" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="slaid" displayName="SLA" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="slainvokedid" displayName="Last SLA applied" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="sortdate" displayName="Sort Date" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="stageid" displayName="(Deprecated) Process Stage" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="statecode" displayName="Query Status" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="statuscode" displayName="Status Code" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="subject" displayName="Summary" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="timezoneruleversionnumber" displayName="Time Zone Rule Version Number" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="transactioncurrencyid" displayName="Currency" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="traversedpath" displayName="(Deprecated) Traversed Path" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="utcconversiontimezonecode" displayName="UTC Conversion Time Zone Code" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="2" schemaName="versionnumber" displayName="Version Number" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="Import Query Associated View" displayName="Import Query Associated View" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{2b71d16b-36d6-4e8d-9d35-90a4e68d1edd}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="All Import Queries" displayName="All Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{30c69233-1e70-4b0f-adfb-f22a3850b2e2}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="Overdue Import Queries" displayName="Overdue Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{3dd6ffac-d606-ea11-a811-000d3ab5d511}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="My Import Queries" displayName="My Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{4174a790-dd0a-ea11-a811-000d3ab5d511}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="Import Queries Received Today" displayName="Import Queries Received Today" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{576c3e3a-5f10-ea11-a811-000d3ab55801}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="Open Import Queries" displayName="Open Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{61573969-de0a-ea11-a811-000d3ab5d511}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="Import Query Advanced Find View" displayName="Import Query Advanced Find View" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{6c9ff1ad-9870-4e8e-a5a8-7b8971485aa1}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="My Open Import Queries" displayName="My Open Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{99a8e336-12e6-ea11-a817-000d3ad82cac}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="Import Query Lookup View" displayName="Import Query Lookup View" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{b5906dc8-d864-484b-832b-82acdd4d90f3}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="My Import Queries" displayName="My Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{b7af3148-fafb-e911-a813-000d3ab35da5}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="My Overdue Import Queries" displayName="My Overdue Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{c25920dc-dc0a-ea11-a811-000d3ab5d511}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="Closed Import Queries" displayName="Closed Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{cbdcc794-5f31-4ea9-80d1-2dc37687440a}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="My Closed Import Queries" displayName="My Closed Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{e809d3ba-dd0a-ea11-a811-000d3ab5d511}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="26" schemaName="Quick Find Active Import Queries" displayName="Quick Find Active Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{f0dc73dc-df3d-4c81-ab50-07120cdb40c9}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="50" schemaName="defraimp_importquery:RibbonDiffXml" displayName="defraimp_importquery:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="59" schemaName="No. of New Queries by Day" displayName="No. of New Queries by Day" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{05a6aa79-8a0b-ea11-a811-000d3ab5d511}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="59" schemaName="No. of Import Queries Received Today" displayName="No. of Import Queries Received Today" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{7e1f0b8e-5f10-ea11-a811-000d3ab55801}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="59" schemaName="No. of Open Import Queries" displayName="No. of Open Import Queries" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{e64e98a3-8a0b-ea11-a811-000d3ab5d511}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="59" schemaName="No. of Open Import Queries by Person" displayName="No. of Open Import Queries by Person" parentSchemaName="defraimp_importquery" parentDisplayName="Import Query" id="{eacba18b-8a0b-ea11-a811-000d3ab5d511}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="60" displayName="Query Quick Create" parentDisplayName="Import Query" id="{2bf8ef68-12ac-4fb2-a542-f1d89a22edbb}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Import Query" id="{55507ecf-fa5a-4056-80e7-d0d6058b386a}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="60" displayName="EU Imports - Daily Stats" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Import Query" id="{a7ea8a43-9871-477b-8831-db9a187c4b93}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Import Query" id="{d6ea0938-1e3c-4fce-928b-258bcae1adf4}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="62" schemaName="defraimp_EUImportsApp" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
-        <Dependent type="68" id="{9d6f24a6-ba16-428b-8938-5ce794a03f66}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="msdyn_salesroutingrun" displayName="Sales routing run" solution="msdyn_SalesRouting (9.1.2305.1001)">
-          <package>msdyn_AcceleratedSalesAnchor (9.1.23051.10010)</package>
-          <package>msdynce_SalesInsightsAnchor (9.0.23051.10007)</package>
+        <Required type="1" schemaName="msdyn_salesroutingrun" displayName="Sales routing run" solution="msdyn_SalesRouting (9.1.2305.5002)">
+          <package>msdyn_AcceleratedSalesAnchor (9.1.23055.10009)</package>
+          <package>msdynce_SalesInsightsAnchor (9.0.23055.10011)</package>
         </Required>
         <Dependent type="1" schemaName="team" displayName="Team" />
       </MissingDependency>
@@ -1126,6 +750,14 @@
         <Dependent type="50" schemaName="defraimp_importapplication:RibbonDiffXml" displayName="defraimp_importapplication:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="61" schemaName="defraimp_/png/icon.importquery.16.png" displayName="defraimp_/png/icon.importquery.16.png" solution="Active" />
+        <Dependent type="1" schemaName="defraimp_importquery" displayName="Import Query" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="defraimp_/png/icon.importquery.32.png" displayName="defraimp_/png/icon.importquery.32.png" solution="Active" />
+        <Dependent type="1" schemaName="defraimp_importquery" displayName="Import Query" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="61" schemaName="defraimp_/png/icon.importrisklevel.16.png" displayName="defraimp_/png/icon.importrisklevel.16.png" solution="Active" />
         <Dependent type="1" schemaName="defraimp_importrisklevel" displayName="Import Risk Level" />
       </MissingDependency>
@@ -1258,6 +890,10 @@
         <Dependent type="1" schemaName="defraimp_importernotification" displayName="Importer Notification" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="61" schemaName="defraimp_/svg/icon.importquery.svg" displayName="defraimp_/svg/icon.importquery.svg" solution="Active" />
+        <Dependent type="1" schemaName="defraimp_importquery" displayName="Import Query" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="61" schemaName="defraimp_/svg/icon.importrisklevel.svg" displayName="defraimp_/svg/icon.importrisklevel.svg" solution="Active" />
         <Dependent type="1" schemaName="defraimp_importrisklevel" displayName="Import Risk Level" />
       </MissingDependency>
@@ -1339,48 +975,48 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="Service/_imgs/ribbon/NewRecord_16.png" displayName="Service/_imgs/ribbon/NewRecord_16.png" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.23051.1008)</package>
+          <package>msdynce_ServiceAnchor (9.0.23055.1007)</package>
         </Required>
         <Dependent type="50" schemaName="defraimp_itahc:RibbonDiffXml" displayName="defraimp_itahc:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2305.1013)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2305.5009)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2305.1013)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2305.5009)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.23051.00240)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.23055.00200)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Post Import Check" id="{045d20e0-adad-46b9-ae53-39d2b3e2a7f8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.23051.00240)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.23055.00200)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Match Record" id="{3ea0a58b-62e6-4c7c-bc6a-47c823bc7bdc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.23051.00240)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.23055.00200)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.23051.00240)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.23055.00200)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Importer Notification" id="{bf964a52-f528-44e7-900f-3ba36d386525}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.23051.00240)" />
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.23055.00200)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2305.1013)" />
+        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2305.5009)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.23051.00240)" />
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.23055.00200)" />
         <Dependent type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.23051.00240)" />
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.23055.00200)" />
         <Dependent type="60" displayName="ITAHC Quick Create" parentDisplayName="ITAHC" id="{c7a38b2c-7a34-40a6-9062-e37e878fd92d}" />
       </MissingDependency>
       <MissingDependency>
