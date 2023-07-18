@@ -140,14 +140,6 @@
                         <control id="defraimp_importingfromcharity" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_importingfromcharity" disabled="false" uniqueid="{fe261435-8610-4646-ab8f-02a6bc7a21a7}" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{d98703ca-2419-3b96-2b0a-dd49cc7174a6}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Process Status" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_processstatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_processstatus" disabled="false" uniqueid="{cd2e3b51-7566-2b6b-4173-8e686a136659}" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
                 <section name="details_tab_section_watchflags" showlabel="false" showbar="false" locklevel="0" id="{c09490e8-8d35-2e36-90b2-4d041c713808}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
@@ -2244,7 +2236,7 @@
         </controlDescription>
       </controlDescriptions>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
