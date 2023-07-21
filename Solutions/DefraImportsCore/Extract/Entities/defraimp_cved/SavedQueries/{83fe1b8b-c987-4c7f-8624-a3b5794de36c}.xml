@@ -28,7 +28,7 @@
     </fetchxml>
     <IntroducedVersion>0.0.0.6</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="CVED Advanced Find View" languagecode="1033" />
+      <LocalizedName description="CHED-A Advanced Find View" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
