@@ -140,7 +140,14 @@
     <TabDisplayRules />
     <DisplayRules>
       <DisplayRule Id="defraimp.defraimp_importapplication.DisplayRule0.DisplayRule">
-        <ValueRule Field="defraimp_imptype" Value="714100000" Default="false" />
+        <OrRule>
+          <Or>
+            <ValueRule Field="defraimp_imptype" Value="714100000" Default="false" />
+          </Or>
+          <Or>
+            <ValueRule Field="defraimp_imptype" Value="714100004" Default="false" />
+          </Or>
+        </OrRule>
       </DisplayRule>
     </DisplayRules>
     <EnableRules>
