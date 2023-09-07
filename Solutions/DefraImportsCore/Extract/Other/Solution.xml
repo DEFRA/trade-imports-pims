@@ -6,7 +6,7 @@
       <LocalizedName description="Defra.Imports.Core" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.131</Version>
+    <Version>0.0.0.132</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -195,7 +195,6 @@
       <RootComponent type="29" id="{d7dde738-9789-467f-9660-a5fcb26b24c8}" behavior="0" />
       <RootComponent type="29" id="{d84e5002-234f-ea11-a812-000d3ab5d037}" behavior="0" />
       <RootComponent type="29" id="{dd8fde17-ab0b-ea11-a811-000d3ab5d511}" behavior="0" />
-      <RootComponent type="29" id="{df7729ae-4204-ed11-82e5-0022489a45b1}" behavior="0" />
       <RootComponent type="29" id="{e152bff5-2d25-ed11-b83d-000d3ab79b3c}" behavior="0" />
       <RootComponent type="29" id="{e7774999-a694-4ff1-85bc-d729098859e2}" behavior="0" />
       <RootComponent type="29" id="{ebc2455f-0dcc-ea11-a812-000d3ad82cac}" behavior="0" />
@@ -815,7 +814,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="Service/_imgs/ribbon/NewRecord_16.png" displayName="Service/_imgs/ribbon/NewRecord_16.png" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.23074.1016)</package>
+          <package>msdynce_ServiceAnchor (9.0.23081.1016)</package>
         </Required>
         <Dependent type="50" schemaName="defraimp_importernotification:RibbonDiffXml" displayName="defraimp_importernotification:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
