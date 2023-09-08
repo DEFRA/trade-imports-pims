@@ -67,14 +67,6 @@
                         <control id="defraimp_estimatedjourneytimeinminutes" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="defraimp_estimatedjourneytimeinminutes" disabled="false" uniqueid="{8922cb67-a683-a6b2-7753-0d65b9d4096c}" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{bcd32910-e909-2d9d-7984-9103530a6bec}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Person Responsible for Transport" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_responsiblefortransport" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_responsiblefortransport" disabled="false" uniqueid="{cec193ee-7ae9-1640-a461-7c1878b72301}" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>

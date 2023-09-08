@@ -140,6 +140,14 @@
                         <control id="defraimp_importingfromcharity" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_importingfromcharity" disabled="false" uniqueid="{fe261435-8610-4646-ab8f-02a6bc7a21a7}" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{bb9cba7c-e169-8da1-0807-29cee3b3c443}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_inspectionrequired" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_inspectionrequired" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
                 <section name="details_tab_section_watchflags" showlabel="false" showbar="false" locklevel="0" id="{c09490e8-8d35-2e36-90b2-4d041c713808}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
@@ -1659,14 +1667,6 @@
                           <label description="Estimated Journey Time (mins)" languagecode="1033" />
                         </labels>
                         <control id="defraimp_estimatedjourneytimeinminutes" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="defraimp_estimatedjourneytimeinminutes" disabled="false" uniqueid="{66dc5933-0bab-9898-c840-4330d21d46d1}" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{e0936db3-a8aa-1a33-7e3b-d834569205dc}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Person Responsible for Transport" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_responsiblefortransport" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_responsiblefortransport" disabled="false" />
                       </cell>
                     </row>
                   </rows>
