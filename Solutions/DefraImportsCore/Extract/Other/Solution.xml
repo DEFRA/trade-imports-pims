@@ -6,7 +6,7 @@
       <LocalizedName description="Defra.Imports.Core" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.138</Version>
+    <Version>0.0.0.139</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -814,7 +814,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="Service/_imgs/ribbon/NewRecord_16.png" displayName="Service/_imgs/ribbon/NewRecord_16.png" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.23083.1024)</package>
+          <package>msdynce_ServiceAnchor (9.0.23091.1017)</package>
         </Required>
         <Dependent type="50" schemaName="defraimp_importernotification:RibbonDiffXml" displayName="defraimp_importernotification:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>

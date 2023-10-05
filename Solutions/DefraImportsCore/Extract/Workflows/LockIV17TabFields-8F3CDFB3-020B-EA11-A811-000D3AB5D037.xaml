@@ -49,12 +49,6 @@
                 <mxswa:ActivityReference.Properties>
                   <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                   <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                    <Sequence DisplayName="SetDisplayModeStep1: Unlock IV17 Chase Date">
-                      <mcwc:SetDisplayMode ControlId="defraimp_iv17chasedate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importinspection" IsReadOnly="False" />
-                    </Sequence>
-                    <Sequence DisplayName="SetDisplayModeStep4: Unlock IV17 Received Date">
-                      <mcwc:SetDisplayMode ControlId="defraimp_iv17receiveddate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importinspection" IsReadOnly="False" />
-                    </Sequence>
                     <Sequence DisplayName="SetDisplayModeStep9: Unlock IV17 Review / Approved Date">
                       <mcwc:SetDisplayMode ControlId="defraimp_iv17reviewapproveddate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importinspection" IsReadOnly="False" />
                     </Sequence>
@@ -87,44 +81,6 @@
                 <mxswa:ActivityReference.Properties>
                   <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                   <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                    <Sequence DisplayName="SetDisplayModeStep2: Lock IV17 Chase Date">
-                      <mcwc:SetDisplayMode ControlId="defraimp_iv17chasedate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importinspection" IsReadOnly="True" />
-                    </Sequence>
-                    <Sequence DisplayName="SetAttributeValueStep3: Clear IV17 Chase Date">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep3_1" />
-                      </Sequence.Variables>
-                      <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importinspection&quot;)]" />
-                      <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
-                      <mxswa:SetEntityProperty Attribute="defraimp_iv17chasedate" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" Value="[SetAttributeValueStep3_1]">
-                        <mxswa:SetEntityProperty.TargetType>
-                          <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
-                          </InArgument>
-                        </mxswa:SetEntityProperty.TargetType>
-                      </mxswa:SetEntityProperty>
-                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep3" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" />
-                      <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;primaryEntity&quot;)]" Value="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" />
-                    </Sequence>
-                    <Sequence DisplayName="SetDisplayModeStep5: Lock IV17 Received Date">
-                      <mcwc:SetDisplayMode ControlId="defraimp_iv17receiveddate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importinspection" IsReadOnly="True" />
-                    </Sequence>
-                    <Sequence DisplayName="SetAttributeValueStep6: Clear IV17 Received Date">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="x:Object" Name="SetAttributeValueStep6_1" />
-                      </Sequence.Variables>
-                      <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;defraimp_importinspection&quot;)]" />
-                      <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
-                      <mxswa:SetEntityProperty Attribute="defraimp_iv17receiveddate" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" Value="[SetAttributeValueStep6_1]">
-                        <mxswa:SetEntityProperty.TargetType>
-                          <InArgument x:TypeArguments="s:Type">
-                            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="s:DateTime" />
-                          </InArgument>
-                        </mxswa:SetEntityProperty.TargetType>
-                      </mxswa:SetEntityProperty>
-                      <mcwc:SetAttributeValue DisplayName="SetAttributeValueStep6" Entity="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" EntityName="defraimp_importinspection" />
-                      <Assign x:TypeArguments="mxs:Entity" To="[InputEntities(&quot;primaryEntity&quot;)]" Value="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" />
-                    </Sequence>
                     <Sequence DisplayName="SetDisplayModeStep10: Lock IV17 Review / Approved Date">
                       <mcwc:SetDisplayMode ControlId="defraimp_iv17reviewapproveddate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importinspection" IsReadOnly="True" />
                     </Sequence>
