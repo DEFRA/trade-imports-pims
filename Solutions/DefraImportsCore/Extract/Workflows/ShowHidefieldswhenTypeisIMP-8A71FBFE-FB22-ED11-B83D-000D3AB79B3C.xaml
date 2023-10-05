@@ -69,8 +69,11 @@
                     <Sequence DisplayName="SetVisibilityStep5: Hide Number of Packages">
                       <mcwc:SetVisibility ControlId="defraimp_numberofpackages" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="False" />
                     </Sequence>
-                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep5_7: Hide Certified For">
+                    <Sequence DisplayName="SetVisibilityStep7: Hide Certified For">
                       <mcwc:SetVisibility ControlId="defraimp_commoditiescertifiedfor" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="False" />
+                    </Sequence>
+                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep7_9: Show Imp Type">
+                      <mcwc:SetVisibility ControlId="defraimp_imptypeid" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="True" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
@@ -101,14 +104,14 @@
                     <Sequence DisplayName="SetVisibilityStep2: Show Purpose of Consignment">
                       <mcwc:SetVisibility ControlId="defraimp_purposeofconsignment" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="True" />
                     </Sequence>
-                    <Sequence DisplayName="SetVisibilityStep4: Show Internal Market Purpose">
-                      <mcwc:SetVisibility ControlId="defraimp_internalmarketpurpose" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="True" />
-                    </Sequence>
                     <Sequence DisplayName="SetVisibilityStep6: Show Number of Packages">
                       <mcwc:SetVisibility ControlId="defraimp_numberofpackages" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="True" />
                     </Sequence>
-                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep6_8: Show Certified For">
+                    <Sequence DisplayName="SetVisibilityStep8: Show Certified For">
                       <mcwc:SetVisibility ControlId="defraimp_commoditiescertifiedfor" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="True" />
+                    </Sequence>
+                    <Sequence DisplayName="SetVisibilityStep9: Hide IMP Type">
+                      <mcwc:SetVisibility ControlId="defraimp_imptypeid" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importapplication" IsVisible="False" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
