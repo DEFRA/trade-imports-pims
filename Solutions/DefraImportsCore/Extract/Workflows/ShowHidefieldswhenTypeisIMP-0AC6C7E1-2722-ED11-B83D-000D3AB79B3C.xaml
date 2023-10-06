@@ -72,6 +72,9 @@
                     <Sequence DisplayName="SetVisibilityStep7: Hide Certified For">
                       <mcwc:SetVisibility ControlId="defraimp_commoditiescertifiedfor" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="False" />
                     </Sequence>
+                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep7_9: Show Imp type field">
+                      <mcwc:SetVisibility ControlId="defraimp_imptypeid" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="True" />
+                    </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
               </mxswa:ActivityReference>
@@ -109,6 +112,9 @@
                     </Sequence>
                     <Sequence DisplayName="SetVisibilityStep8: Show Certified For">
                       <mcwc:SetVisibility ControlId="defraimp_commoditiescertifiedfor" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="True" />
+                    </Sequence>
+                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep8_10: Hide Imp Type field">
+                      <mcwc:SetVisibility ControlId="defraimp_imptypeid" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="defraimp_importernotification" IsVisible="False" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
