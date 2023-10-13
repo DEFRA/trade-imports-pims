@@ -82,10 +82,10 @@
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
-      <LocalizedName description="Transport from BCP PoE" languagecode="1033" />
+      <LocalizedName description="Transport from PoE" languagecode="1033" />
     </LocalizedNames>
     <Descriptions>
-      <Description description="Transport from BCP/PoE&#xA;This form is used in Import Record in transport tab" languagecode="1033" />
+      <Description description="Transport from PoE&#xA;This form is used in Import Record in transport tab" languagecode="1033" />
     </Descriptions>
   </systemform>
 </forms>

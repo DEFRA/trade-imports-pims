@@ -16,9 +16,17 @@
               <sections>
                 <section id="{6a295dc4-0a36-4137-a1aa-cd0410b8eaf0}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
-                    <label description="Transport to BCP/PoE" languagecode="1033" />
+                    <label description="Transport to PoE" languagecode="1033" />
                   </labels>
                   <rows>
+                    <row>
+                      <cell id="{b8d578f5-fdaa-42ab-a142-3b9fae621135}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_portofentry" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_portofentry" disabled="false" />
+                      </cell>
+                    </row>
                     <row>
                       <cell id="{73627738-a8a5-a689-20ba-c736a5ee50ce}" showlabel="true" locklevel="0">
                         <labels>
