@@ -1459,7 +1459,7 @@
                 </section>
                 <section name="Transporter_Tab_section_5" id="33c5e540-ea53-4a58-9dee-7dcf632ce359" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
-                    <label description="Transport to BCP/PoE" languagecode="1033" />
+                    <label description="Transport to PoE" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -1480,7 +1480,7 @@
                 </section>
                 <section name="Transporter_Tab_section_7" showlabel="true" showbar="false" locklevel="0" id="{c322911c-30b7-9677-97e3-a4e3169d0e36}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
-                    <label description="Transport from BCP/PoE" languagecode="1033" />
+                    <label description="Transport after PoE" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -2064,7 +2064,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
