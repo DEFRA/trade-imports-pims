@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23051.240" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23092.206" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>DefraImportsPlugins</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Plugins" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.53</Version>
+    <Version>0.0.0.54</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -289,7 +289,7 @@
         <Dependent type="93" id="{bcbb2609-5fc0-ea11-a812-000d3ab6d757}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="msft_RetentionEnableConfigurations (1.0.0.0)" />
+        <Required type="1" schemaName="defraimp_importquery" displayName="Import Query" solution="Active" />
         <Dependent type="92" id="{193e27ab-5cc0-ea11-a812-000d3ad82cac}" />
       </MissingDependency>
       <MissingDependency>

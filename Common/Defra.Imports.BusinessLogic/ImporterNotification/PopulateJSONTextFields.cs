@@ -77,7 +77,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                 var finalString = string.Empty;
                 var commodityIdTypes = string.Empty;
                 var speciesName = string.Empty;
-
+                var numOfAnimals = 0;
                 serializedObject.ForEach(x =>
                 {
                     if (x.speciesID != null && commodityComplementObject != null && commodityComplementObject.Any())
@@ -98,11 +98,13 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
 
                             if (y.key.Equals(NumberOfAnimalKeyDataPairKey, StringComparison.OrdinalIgnoreCase))
                             {
-                                this.notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
+                                numOfAnimals += Convert.ToInt32(y.data.Trim());
+
+                                //this.notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
                             }
                             else if (y.key.Equals(QuantityKeyDataPairKey, StringComparison.OrdinalIgnoreCase))
                             {
-                                this.notificationFromContext.defraimp_commoditiesnumberofanimals = Convert.ToInt32(y.data.Trim());
+                                this.notificationFromContext.defraimp_commoditiesnumberofanimals =  Convert.ToInt32(y.data.Trim());
                             }
                             else if (y.key.Equals(WeightKeyDataPairKey, StringComparison.OrdinalIgnoreCase))
                             {
@@ -125,7 +127,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                     finalString += "-----------------" + System.Environment.NewLine
                                  + System.Environment.NewLine;
                 });
-
+                notificationFromContext.defraimp_commoditiesnumberofanimals = numOfAnimals;
                 notificationFromContext.defraimp_FormattedIdentificationofAnimalsText = finalString;
                 notificationFromContext.defraimp_CommodityIDTypes = commodityIdTypes;
 
