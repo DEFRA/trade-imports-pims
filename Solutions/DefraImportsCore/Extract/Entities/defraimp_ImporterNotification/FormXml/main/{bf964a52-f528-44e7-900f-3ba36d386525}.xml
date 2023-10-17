@@ -1563,7 +1563,7 @@
                 </section>
                 <section name="transporter_tab_section_4" showlabel="true" showbar="false" locklevel="0" id="{664cde79-9584-e52e-4dd9-8abda4946890}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
-                    <label description="Transport to POE" languagecode="1033" />
+                    <label description="Transport to PoE" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
