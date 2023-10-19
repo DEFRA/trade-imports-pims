@@ -127,7 +127,11 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification
                     finalString += "-----------------" + System.Environment.NewLine
                                  + System.Environment.NewLine;
                 });
-                notificationFromContext.defraimp_commoditiesnumberofanimals = numOfAnimals;
+                if (numOfAnimals > 0)
+                {
+                    notificationFromContext.defraimp_commoditiesnumberofanimals = numOfAnimals;
+
+                }
                 notificationFromContext.defraimp_FormattedIdentificationofAnimalsText = finalString;
                 notificationFromContext.defraimp_CommodityIDTypes = commodityIdTypes;
 
