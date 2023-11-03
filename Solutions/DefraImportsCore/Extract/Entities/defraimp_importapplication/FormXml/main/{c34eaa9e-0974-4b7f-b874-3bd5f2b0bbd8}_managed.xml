@@ -36,6 +36,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{58471d82-3039-46dc-8c9c-14a1d27445ce}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_cloned" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="defraimp_cloned" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{a4e9ac7a-4de1-9d67-66a1-0222a8115072}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Imp Type" languagecode="1033" />
