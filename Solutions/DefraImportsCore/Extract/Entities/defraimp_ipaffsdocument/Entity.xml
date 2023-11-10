@@ -337,56 +337,153 @@
                 <labels>
                   <label description="Catch Certificate (Fish)" languagecode="1033" />
                 </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
               </option>
               <option value="714100005" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Commercial document" languagecode="1033" />
                 </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
               </option>
               <option value="714100002" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Commercial Invoice" languagecode="1033" />
                 </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
               </option>
               <option value="714100007" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Health certificate" languagecode="1033" />
                 </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
               </option>
               <option value="714100008" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Licence/authorisation" languagecode="1033" />
                 </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
               </option>
               <option value="714100009" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Mycotoxin certification" languagecode="1033" />
                 </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
               </option>
               <option value="714100010" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Journey Log" languagecode="1033" />
                 </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
               </option>
               <option value="714100000" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="ITAHC" languagecode="1033" />
                 </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
               </option>
               <option value="714100001" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="DOCOM" languagecode="1033" />
                 </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
               </option>
               <option value="714100006" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Latest Health Certificate" languagecode="1033" />
                 </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="714100011" Color="#1132f0">
+                <labels>
+                  <label description="Air waybill" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="714100012" Color="#1619d9">
+                <labels>
+                  <label description="Import permit" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="714100013" Color="#1525d1">
+                <labels>
+                  <label description="Letter of authority (Directive 2008/61/EC)" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="714100014" Color="#1420c9">
+                <labels>
+                  <label description="Sea waybill" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="714100015" Color="#1a25bd">
+                <labels>
+                  <label description="Rail waybill" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="714100016" Color="#1128d6">
+                <labels>
+                  <label description="Customs declaration" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="714100017" Color="#1920e6">
+                <labels>
+                  <label description="Bill of lading" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="714100018" Color="#1133f2">
+                <labels>
+                  <label description="Laboratory Sampling results for Aflatoxin (Reg 2019/1793)" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
               </option>
               <option value="714100003" ExternalValue="" Color="#0000ff">
                 <labels>
                   <label description="Other" languagecode="1033" />
                 </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
               </option>
             </options>
           </optionset>
@@ -804,7 +901,7 @@
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>0</ValidForCreateApi>
           <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
           <IntroducedVersion>0.0.0.1</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
