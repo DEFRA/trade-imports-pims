@@ -454,18 +454,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{65bda128-3316-4509-823a-a82e06ca1735}" locklevel="0" colspan="1" rowspan="5">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_speciesdetails" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="defraimp_speciesdetails" disabled="false" />
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row>
                       <cell id="{dc0a1cec-1c2a-2308-8a18-4262b99beab8}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
                           <label description="Commodity ID Types" languagecode="1033" />
