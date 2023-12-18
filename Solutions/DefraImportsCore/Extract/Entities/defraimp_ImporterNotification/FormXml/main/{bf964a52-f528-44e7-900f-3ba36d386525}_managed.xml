@@ -430,30 +430,6 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{cd86019c-6eeb-4c78-a109-2fe35bdcad36}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Commodity Code" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_commodityid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commodityid" disabled="false" uniqueid="{81539e29-b4c4-253e-a79c-e7ae9b31aa69}" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{0e36c289-361c-92bc-185e-32ced0ecc1ba}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Commodity Species Id" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_commodityspeciesid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_commodityspeciesid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{5867ac2e-12a1-4675-a354-6708c498442f}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Commodity Description" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_commoditydescription" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commoditydescription" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{dc0a1cec-1c2a-2308-8a18-4262b99beab8}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
                           <label description="Commodity ID Types" languagecode="1033" />
@@ -462,6 +438,38 @@
                       </cell>
                     </row>
                     <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="commoditycomplements_tab_section_4" id="3ddb5790-e3e0-40d2-a40a-3fba573791f1" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Commodity Species Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{61da176d-02e3-4c22-bf2f-3d4bf13f4563}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="Commodity details" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="commodity_details" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>defraimp_commoditycomplement</TargetEntityType>
+                            <ViewId>{897B1EF3-5F7D-EE11-8179-002248993E6E}</ViewId>
+                            <ViewIds>{5AE9B2DB-D505-4BAE-93F8-6CB86A9DA5DC},{897B1EF3-5F7D-EE11-8179-002248993E6E}</ViewIds>
+                            <RelationshipName>defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
                     <row />
                     <row />
                     <row />
