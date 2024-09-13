@@ -148,6 +148,22 @@
                         <control id="defraimp_importingfromcharity" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="defraimp_importingfromcharity" disabled="false" uniqueid="{fe261435-8610-4646-ab8f-02a6bc7a21a7}" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{4fdaa93a-c880-4788-8d23-be212b3525fe}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_inspectionrequired" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_inspectionrequired" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{008f8bb9-baac-4e8f-bf9a-1152ae152a02}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_mrnnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_mrnnumber" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
                 <section name="details_tab_section_watchflags" showlabel="false" showbar="false" locklevel="0" id="{c09490e8-8d35-2e36-90b2-4d041c713808}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
@@ -441,6 +457,14 @@
                     <row />
                     <row />
                     <row />
+                    <row>
+                      <cell id="{785138f6-3132-4e66-a6a5-fd8ff57676bc}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commodityid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_commodityid" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
                 <section name="commoditycomplements_tab_section_4" id="3ddb5790-e3e0-40d2-a40a-3fba573791f1" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
@@ -464,7 +488,7 @@
                             <ChartGridMode>All</ChartGridMode>
                             <TargetEntityType>defraimp_commoditycomplement</TargetEntityType>
                             <ViewId>{897B1EF3-5F7D-EE11-8179-002248993E6E}</ViewId>
-                            <ViewIds>{5AE9B2DB-D505-4BAE-93F8-6CB86A9DA5DC},{897B1EF3-5F7D-EE11-8179-002248993E6E}</ViewIds>
+                            <ViewIds>{5AE9B2DB-D505-4BAE-93F8-6CB86A9DA5DC},{05545725-5B7A-EE11-8179-0022489934C8},{897B1EF3-5F7D-EE11-8179-002248993E6E}</ViewIds>
                             <RelationshipName>defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification</RelationshipName>
                           </parameters>
                         </control>
