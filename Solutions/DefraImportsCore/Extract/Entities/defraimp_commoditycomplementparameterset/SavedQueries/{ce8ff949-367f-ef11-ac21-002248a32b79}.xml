@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{ce8ff949-367f-ef11-ac21-002248a32b79}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_commoditycomplementparametersetid">
+          <cell name="a_83520c3621ab445b8e3e9d7974ce8d71.defraimp_commodityid" width="273" />
+          <cell name="defraimp_speciesid" width="100" />
+          <cell name="defraimp_speciesname" width="120" />
+          <cell name="defraimp_speciesquantity" width="136" />
+          <cell name="a_83520c3621ab445b8e3e9d7974ce8d71.defraimp_commoditydescription" width="309" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="defraimp_commoditycomplementparameterset">
+          <attribute name="defraimp_commoditycomplementparametersetid" />
+          <attribute name="defraimp_speciesid" />
+          <attribute name="defraimp_speciesname" />
+          <attribute name="defraimp_speciesquantity" />
+          <link-entity alias="a_83520c3621ab445b8e3e9d7974ce8d71" name="defraimp_importernotification" to="defraimp_importernotificationid" from="defraimp_importernotificationid" link-type="outer" visible="false">
+            <attribute name="defraimp_commodityid" />
+            <attribute name="defraimp_commoditydescription" />
+          </link-entity>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.158</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Species Details" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="View to show species quantity" languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

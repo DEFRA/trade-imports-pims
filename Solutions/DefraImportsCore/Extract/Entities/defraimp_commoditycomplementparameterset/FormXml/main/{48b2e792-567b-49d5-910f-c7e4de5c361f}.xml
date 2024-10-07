@@ -5,7 +5,7 @@
     <IntroducedVersion>0.0.0.49</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab verticallayout="true" id="{162fb204-cc24-4fd5-88c6-a417b64d4fd7}" IsUserDefined="1" name="{162fb204-cc24-4fd5-88c6-a417b64d4fd7}" locklevel="0" expanded="true" showlabel="true">
           <labels>
@@ -41,6 +41,22 @@
                           <label description="Importer Notification" languagecode="1033" />
                         </labels>
                         <control id="defraimp_importernotificationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importernotificationid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3ed4ea41-4475-4512-a2bb-5cc16491f384}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Species Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_speciesname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_speciesname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d4e43b87-6f0f-4692-ac8d-b482c608fcd3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Species Quantity" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_speciesquantity" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_speciesquantity" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -150,7 +166,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -180,6 +196,30 @@
         </NavBarAreas>
       </Navigation>
       <controlDescriptions />
+      <footer id="{b0776408-dd84-4de8-a0c7-ab4533b6e1ee}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{23a58763-f30c-42e8-bc34-8c95a2f04e8e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d8178699-46be-4a2d-9731-c5bd3a50c8f6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e83250a0-fac1-49de-a9cc-a8fbe74e72d9}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
