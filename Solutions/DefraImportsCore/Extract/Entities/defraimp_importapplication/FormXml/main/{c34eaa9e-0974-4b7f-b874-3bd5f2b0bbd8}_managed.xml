@@ -289,6 +289,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{d56f846a-92eb-4183-ac47-a3228dd031d3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_notificationinspectionrequired" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_notificationinspectionrequired" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{fd060fe6-579f-4e9b-aec2-41fdd1823b77}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
                           <label description="" languagecode="1033" />
