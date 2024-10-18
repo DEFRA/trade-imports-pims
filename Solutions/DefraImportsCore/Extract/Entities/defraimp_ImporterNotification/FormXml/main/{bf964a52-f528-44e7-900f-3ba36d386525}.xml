@@ -486,10 +486,10 @@
                             <EnableViewPicker>false</EnableViewPicker>
                             <EnableChartPicker>true</EnableChartPicker>
                             <ChartGridMode>All</ChartGridMode>
-                            <TargetEntityType>defraimp_commoditycomplementparameterset</TargetEntityType>
-                            <ViewId>{CE8FF949-367F-EF11-AC21-002248A32B79}</ViewId>
-                            <ViewIds>{50D2FED3-22F5-480A-83F8-D26DF3747706},{CE8FF949-367F-EF11-AC21-002248A32B79}</ViewIds>
-                            <RelationshipName>defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNotification</RelationshipName>
+                            <TargetEntityType>defraimp_commoditycomplement</TargetEntityType>
+                            <ViewId>{05545725-5B7A-EE11-8179-0022489934C8}</ViewId>
+                            <ViewIds>{5AE9B2DB-D505-4BAE-93F8-6CB86A9DA5DC},{05545725-5B7A-EE11-8179-0022489934C8}</ViewIds>
+                            <RelationshipName>defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification</RelationshipName>
                           </parameters>
                         </control>
                       </cell>
