@@ -59,14 +59,6 @@
                         <control id="defraimp_departuretime" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_departuretime" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{ae614816-2596-18e9-9c62-0eaa90257a7b}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Estimated Journey Time" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_estimatedjourneytimeinminutes" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="defraimp_estimatedjourneytimeinminutes" disabled="false" uniqueid="{8922cb67-a683-a6b2-7753-0d65b9d4096c}" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>

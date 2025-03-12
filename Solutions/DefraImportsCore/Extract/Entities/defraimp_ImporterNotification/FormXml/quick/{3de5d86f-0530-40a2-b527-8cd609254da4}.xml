@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{b8d578f5-fdaa-42ab-a142-3b9fae621135}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="Port of Entry" languagecode="1033" />
+                          <label description="BCP or Port of Entry" languagecode="1033" />
                         </labels>
                         <control id="defraimp_portofentry" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_portofentry" disabled="false" />
                       </cell>
@@ -65,6 +65,14 @@
                           <label description="Estimated Arrival Time" languagecode="1033" />
                         </labels>
                         <control id="defraimp_arrivaltime" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_arrivaltime" disabled="false" uniqueid="{6576aa16-220d-b437-e7e4-011173326324}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ae8e4eb8-08e3-413f-adaa-4f7cd0c31eac}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Estimated Journey Time (mins)" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_estimatedjourneytimeinminutes" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="defraimp_estimatedjourneytimeinminutes" disabled="false" />
                       </cell>
                     </row>
                   </rows>
