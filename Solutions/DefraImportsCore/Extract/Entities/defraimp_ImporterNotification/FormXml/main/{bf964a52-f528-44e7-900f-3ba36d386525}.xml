@@ -1603,7 +1603,7 @@
                 </section>
                 <section name="transporter_tab_section_4" showlabel="true" showbar="false" locklevel="0" id="{664cde79-9584-e52e-4dd9-8abda4946890}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
-                    <label description="Transport to PoE" languagecode="1033" />
+                    <label description="Transport to the BCP or POE" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -1654,11 +1654,19 @@
                         <control id="defraimp_arrivaltime" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_arrivaltime" disabled="false" uniqueid="{74495d1e-9975-0ba6-a823-77ce43b6769b}" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{d7a27960-248d-8526-e1e2-86c969690d36}" showlabel="true" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Estimated Journey Time (mins)" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_estimatedjourneytimeinminutes" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="defraimp_estimatedjourneytimeinminutes" disabled="false" uniqueid="{66dc5933-0bab-9898-c840-4330d21d46d1}" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
                 <section name="transporter_tab_section_5" showlabel="true" showbar="false" locklevel="0" id="{bc9d9959-b655-0938-de02-97d8c19c30e6}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
-                    <label description="Transport after PoE" languagecode="1033" />
+                    <label description="Transport after the BCP or POE" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -1699,14 +1707,6 @@
                           <label description="Departure Time" languagecode="1033" />
                         </labels>
                         <control id="defraimp_departuretime" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_departuretime" disabled="false" uniqueid="{10d7d79c-1b74-0b3d-8693-2c8cbac5e7b2}" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{d7a27960-248d-8526-e1e2-86c969690d36}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Estimated Journey Time (mins)" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_estimatedjourneytimeinminutes" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="defraimp_estimatedjourneytimeinminutes" disabled="false" uniqueid="{66dc5933-0bab-9898-c840-4330d21d46d1}" />
                       </cell>
                     </row>
                   </rows>
