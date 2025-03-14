@@ -1778,7 +1778,7 @@
                     <row>
                       <cell id="{06947b49-8be7-4357-9ab7-87389818369e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Port of Entry" languagecode="1033" />
+                          <label description="BCP or Port of Entry" languagecode="1033" />
                         </labels>
                         <control id="defraimp_portofentry" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_portofentry" disabled="false" />
                       </cell>
