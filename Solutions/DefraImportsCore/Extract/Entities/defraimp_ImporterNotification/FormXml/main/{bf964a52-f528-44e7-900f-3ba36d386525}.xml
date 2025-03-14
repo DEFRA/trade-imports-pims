@@ -1609,7 +1609,7 @@
                     <row>
                       <cell id="{4ff272a2-004d-431f-870b-8cf181f883da}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="Port of Entry" languagecode="1033" />
+                          <label description="BCP or Port of Entry" languagecode="1033" />
                         </labels>
                         <control id="defraimp_portofentry" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_portofentry" disabled="false" />
                       </cell>
