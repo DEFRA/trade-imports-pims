@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{ea6c8e6b-bdad-4e99-8787-530fc1f14576}</formid>
+    <IntroducedVersion>0.0.0.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{06f939cf-d79e-4993-941a-01ea46d22397}" IsUserDefined="1" name="{06f939cf-d79e-4993-941a-01ea46d22397}" locklevel="0" expanded="true" showlabel="true" labelid="{b5d895cb-8c08-48b9-82fb-616377d178b7}" ordinalvalue="0">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{6c1f6239-02d5-40a5-b436-bdb62622905c}" labelid="{05ee712c-b013-4967-a13d-a9e01f3518cc}" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{9eeb3e33-3de0-0da9-29bb-400ec2783be2}" showlabel="true" locklevel="0" labelid="{88b814a9-a627-43c2-bba8-86f3137f8162}" ordinalvalue="10000">
+                        <labels>
+                          <label description="ISO Code Alpha 2" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1344b742-6421-c309-b6da-8354c67beb48}" showlabel="true" locklevel="0" labelid="{94105e73-a6e2-44f4-96f4-369ab499f509}" ordinalvalue="10001">
+                        <labels>
+                          <label description="ISO Code Alpha 3" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e657170e-cae9-eea2-c40b-7e40bd1c1849}" showlabel="true" locklevel="0" labelid="{43bbca9a-b5a8-4c2c-8e8f-f5fb8dbc2e11}" ordinalvalue="10002">
+                        <labels>
+                          <label description="ISO Numeric Code" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3e6afdd8-c02b-4a17-b59b-6f76314c0a67}" showlabel="true" locklevel="0" labelid="{0537aac5-4d65-4fed-99b6-7096a0294a0c}" ordinalvalue="10003">
+                        <labels>
+                          <label description="Official Country Name" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a5640e77-088b-6a1a-727a-cb0413a9bea2}" showlabel="true" locklevel="0" labelid="{c6d29bd2-f2cd-4255-80be-cde0bc59fe00}" ordinalvalue="10004">
+                        <labels>
+                          <label description="Also Known As" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e3b28a9c-422b-c7d2-1a24-d733997082b4}" showlabel="true" locklevel="0" labelid="{cacee474-2493-444e-84e4-bb15f2cc9e8f}" ordinalvalue="10005">
+                        <labels>
+                          <label description="Citizen Demonym" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{51053433-a54b-1172-d90a-460542074291}" showlabel="true" locklevel="0" labelid="{4c84180a-678d-4207-bf91-254ea18ab4c8}" ordinalvalue="10006">
+                        <labels>
+                          <label description="Start Date" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0a46c9dc-daca-3d72-5d78-3a5038c3962c}" showlabel="true" locklevel="0" labelid="{5b33868d-4462-49c0-a545-7abb6bcd78e4}" ordinalvalue="10007">
+                        <labels>
+                          <label description="End Date" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a7616e49-dafd-4ce1-b875-6e0450a48094}" locklevel="0" rowspan="1" colspan="1" ordinalvalue="10008" solutionaction="Added">
+                        <labels>
+                          <label description="Country Group" languagecode="1033" />
+                        </labels>
+                        <control id="cr01a_countrygroup" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cr01a_countrygroup" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{8524d343-2188-4e60-8953-4013b41c5173}" columns="1111" labelwidth="130" celllabelalignment="Left" celllabelposition="Top">
+        <rows>
+          <row>
+            <cell id="{bb696c14-6438-8b06-4e01-0ce0a97da526}" showlabel="true" locklevel="0" labelid="{d13c9dfe-68bd-4c7c-b9ea-7bdeed945920}" ordinalvalue="40003">
+              <labels>
+                <label description="Owner" languagecode="1033" solutionaction="Modified" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{bc3bf55e-2f94-43eb-aa17-8586abc687c9}" columns="1111" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+        <rows>
+          <row>
+            <cell id="{630bdf3b-0981-4cf4-808d-af0124f59b93}" ordinalvalue="10000" solutionaction="Added">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{fc8d3944-ecff-44bb-b84d-05d271935fa4}" ordinalvalue="20001" solutionaction="Added">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{dd97f45a-e3ec-4420-9c69-01f0eafdd3a0}" ordinalvalue="30002" solutionaction="Added">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ccd0be79-eb1d-4d40-8a91-e4186bf0d21a}" ordinalvalue="40003" solutionaction="Added">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar />
+      </Navigation>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Defra.Country" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="The main form for the entity for the Defra Customer Data Model" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

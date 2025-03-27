@@ -6,7 +6,7 @@
       <LocalizedName description="Defra.Imports.Core" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.165</Version>
+    <Version>0.0.0.166</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -115,7 +115,7 @@
       <RootComponent type="1" schemaName="defraimp_veterinarian" behavior="0" />
       <RootComponent type="1" schemaName="defraimp_watchflag" behavior="0" />
       <RootComponent type="1" schemaName="defraimp_watchlist" behavior="0" />
-      <RootComponent type="1" schemaName="defra_country" behavior="2" />
+      <RootComponent type="1" schemaName="defra_country" behavior="0" />
       <RootComponent type="1" schemaName="processsession" behavior="2" />
       <RootComponent type="1" schemaName="syncerror" behavior="2" />
       <RootComponent type="1" schemaName="team" behavior="0" />
@@ -270,12 +270,56 @@
         <Dependent type="1" schemaName="team" displayName="Team" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="1" schemaName="defra_address" displayName="Defra Address" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="1" schemaName="defra_country" displayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
         <Dependent type="1" schemaName="defra_country" displayName="Country" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="2" schemaName="cr01a_countrygroup" displayName="Country Group" parentSchemaName="defra_country" parentDisplayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="2" schemaName="createdby" displayName="Created By" parentSchemaName="defra_country" parentDisplayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="2" schemaName="createdonbehalfby" displayName="Created By (Delegate)" parentSchemaName="defra_country" parentDisplayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
         <Dependent type="2" schemaName="defraimp_sixcharactercountrycode" displayName="Six Character Country Code" parentSchemaName="defra_country" parentDisplayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="2" schemaName="modifiedby" displayName="Modified By" parentSchemaName="defra_country" parentDisplayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="2" schemaName="modifiedonbehalfby" displayName="Modified By (Delegate)" parentSchemaName="defra_country" parentDisplayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="defra_country" parentDisplayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="2" schemaName="owningbusinessunit" displayName="Owning Business Unit" parentSchemaName="defra_country" parentDisplayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="2" schemaName="owningteam" displayName="Owning Team" parentSchemaName="defra_country" parentDisplayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="2" schemaName="owninguser" displayName="Owning User" parentSchemaName="defra_country" parentDisplayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="2" schemaName="versionnumber" displayName="Version Number" parentSchemaName="defra_country" parentDisplayName="Country" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
@@ -284,6 +328,10 @@
       <MissingDependency>
         <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
         <Dependent type="26" schemaName="Countries of Transit" displayName="Countries of Transit" parentSchemaName="defra_country" parentDisplayName="Country" id="{bcda6dcf-5301-ea11-a811-000d3ab5d511}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="50" schemaName="defra_country:RibbonDiffXml" displayName="defra_country:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
@@ -304,6 +352,14 @@
       <MissingDependency>
         <Required type="1" schemaName="defra_country" displayName="Country" solution="defracustomer (0.3.1.55)" />
         <Dependent type="62" schemaName="defraimp_EUImportsApp" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defra_town" displayName="Town" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="1" schemaName="defra_country" displayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="defraexp_certifierorganisationaddress" displayName="Certifier Organisation Address" solution="defraexports (0.0.0.37)" />
+        <Dependent type="1" schemaName="defra_country" displayName="Country" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="defraexp_commoditytype" displayName="Commodity Type" solution="defraexports (0.0.0.37)" />
@@ -331,28 +387,148 @@
         <Dependent type="1" schemaName="team" displayName="Team" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="cr01a_countrygroup" displayName="Country Group" parentSchemaName="defra_country" parentDisplayName="Country" solution="Active" />
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="26" schemaName="Country Advanced Find View" displayName="Country Advanced Find View" parentSchemaName="defra_country" parentDisplayName="Country" id="{1b5a941b-8812-44d4-9ea0-c967bd6fb34d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="26" schemaName="Active Countries" displayName="Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" id="{3f2b5ad4-614f-476e-a34c-646a001ae5a8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="26" schemaName="Country Associated View" displayName="Country Associated View" parentSchemaName="defra_country" parentDisplayName="Country" id="{500e07d4-faf3-4542-9346-bfb0b86ae4e2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="26" schemaName="Quick Find Active Countries" displayName="Quick Find Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" id="{6d02255d-bd4b-42ab-ab76-63c0840c2f20}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="26" schemaName="Inactive Countries" displayName="Inactive Countries" parentSchemaName="defra_country" parentDisplayName="Country" id="{e85994f1-24b2-4163-8218-fb889ad0efd6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_aka" displayName="Also Known As" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_aka" displayName="Also Known As" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Country" parentDisplayName="Country" id="{ea6c8e6b-bdad-4e99-8787-530fc1f14576}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_citizenemonym" displayName="Citizen Demonym" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_citizenemonym" displayName="Citizen Demonym" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Country" parentDisplayName="Country" id="{ea6c8e6b-bdad-4e99-8787-530fc1f14576}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_codeassignmenttype" displayName="Code Assignment Type" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="26" schemaName="Country Advanced Find View" displayName="Country Advanced Find View" parentSchemaName="defra_country" parentDisplayName="Country" id="{1b5a941b-8812-44d4-9ea0-c967bd6fb34d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="26" schemaName="Active Countries" displayName="Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" id="{3f2b5ad4-614f-476e-a34c-646a001ae5a8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="26" schemaName="Country Associated View" displayName="Country Associated View" parentSchemaName="defra_country" parentDisplayName="Country" id="{500e07d4-faf3-4542-9346-bfb0b86ae4e2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="26" schemaName="Quick Find Active Countries" displayName="Quick Find Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" id="{6d02255d-bd4b-42ab-ab76-63c0840c2f20}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
         <Dependent type="26" schemaName="Active Importer Notifications" displayName="Active Importer Notifications" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" id="{ab5e8047-deb2-47fc-9830-2a100822b807}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="cr01a_countrygroup" displayName="Country Group" parentSchemaName="defra_country" parentDisplayName="Country" solution="Active" />
+        <Required type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
         <Dependent type="26" schemaName="Countries of Transit" displayName="Countries of Transit" parentSchemaName="defra_country" parentDisplayName="Country" id="{bcda6dcf-5301-ea11-a811-000d3ab5d511}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
-        <Dependent type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" />
+        <Dependent type="26" schemaName="Inactive Countries" displayName="Inactive Countries" parentSchemaName="defra_country" parentDisplayName="Country" id="{e85994f1-24b2-4163-8218-fb889ad0efd6}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
-        <Dependent type="26" schemaName="Active Importer Notifications" displayName="Active Importer Notifications" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" id="{ab5e8047-deb2-47fc-9830-2a100822b807}" />
+        <Required type="2" schemaName="defra_enddate" displayName="End Date" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
-        <Dependent type="26" schemaName="Countries of Transit" displayName="Countries of Transit" parentSchemaName="defra_country" parentDisplayName="Country" id="{bcda6dcf-5301-ea11-a811-000d3ab5d511}" />
+        <Required type="2" schemaName="defra_enddate" displayName="End Date" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Country" parentDisplayName="Country" id="{ea6c8e6b-bdad-4e99-8787-530fc1f14576}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_independent" displayName="Independent" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_iso31662subdivisioncodes" displayName="ISO 3166-2 Subdivision Codes" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_isocodealpha2" displayName="ISO Code Alpha 2" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_isocodealpha2" displayName="ISO Code Alpha 2" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Country" parentDisplayName="Country" id="{ea6c8e6b-bdad-4e99-8787-530fc1f14576}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_isocodealpha3" displayName="ISO Code Alpha 3" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_isocodealpha3" displayName="ISO Code Alpha 3" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Country" parentDisplayName="Country" id="{ea6c8e6b-bdad-4e99-8787-530fc1f14576}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_isonumericcode" displayName="ISO Numeric Code" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_isonumericcode" displayName="ISO Numeric Code" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Country" parentDisplayName="Country" id="{ea6c8e6b-bdad-4e99-8787-530fc1f14576}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="defra_name" displayName="Official Country Name" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
         <Dependent type="2" schemaName="defra_name" displayName="Official Country Name" parentSchemaName="defra_country" parentDisplayName="Country" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_notes" displayName="Notes" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_startdate" displayName="Start Date" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="defra_startdate" displayName="Start Date" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Country" parentDisplayName="Country" id="{ea6c8e6b-bdad-4e99-8787-530fc1f14576}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="modifiedon" displayName="Modified On" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="2" schemaName="statecode" displayName="Status" parentSchemaName="defra_country" parentDisplayName="Country" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="defraexp_name" displayName="Name" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" />
@@ -379,60 +555,56 @@
         <Dependent type="10" schemaName="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityType" displayName="defraimp_defraexp_commoditytype_defraimp_itahc_CommodityType" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="26" schemaName="Active Countries" displayName="Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{3f2b5ad4-614f-476e-a34c-646a001ae5a8}" />
-        <Dependent type="60" displayName="Transit Details" parentDisplayName="Importer Notification" id="{84b92b2d-ffca-ec11-a7b5-000d3a65a004}" />
+        <Required type="26" schemaName="Country Advanced Find View" displayName="Country Advanced Find View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{1b5a941b-8812-44d4-9ea0-c967bd6fb34d}" />
+        <Dependent type="26" schemaName="Country Advanced Find View" displayName="Country Advanced Find View" parentSchemaName="defra_country" parentDisplayName="Country" id="{1b5a941b-8812-44d4-9ea0-c967bd6fb34d}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Active Countries" displayName="Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{3f2b5ad4-614f-476e-a34c-646a001ae5a8}" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Gold/Bronze Commodity" id="{9de24a2e-c584-4b3d-be38-5df1e89def72}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Active Countries" displayName="Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{3f2b5ad4-614f-476e-a34c-646a001ae5a8}" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Importer Notification" id="{bf964a52-f528-44e7-900f-3ba36d386525}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Active Countries" displayName="Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{3f2b5ad4-614f-476e-a34c-646a001ae5a8}" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
+        <Dependent type="26" schemaName="Active Countries" displayName="Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" id="{3f2b5ad4-614f-476e-a34c-646a001ae5a8}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Place of Destination" id="{3b1d62fd-78d7-422c-9b3c-d4cacd788891}" />
+        <Dependent type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
-        <Dependent type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Consignee" id="{602a1ac0-91db-4627-9dbc-109b4b4f49e9}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
-        <Dependent type="60" displayName="Information" parentDisplayName="DOCOM" id="{6450e48a-04f2-4582-a70a-d82b7fc39a83}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
-        <Dependent type="60" displayName="Transit Details" parentDisplayName="Importer Notification" id="{84b92b2d-ffca-ec11-a7b5-000d3a65a004}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
-        <Dependent type="60" displayName="Place of Destination Details" parentDisplayName="ITAHC" id="{87d36880-d208-4d56-9821-07654699ddfb}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Importer Notification" id="{bf964a52-f528-44e7-900f-3ba36d386525}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
-        <Dependent type="60" displayName="Information" parentDisplayName="Veterinarian" id="{dd50495b-5d4e-45a5-a0ce-54047814ec5d}" />
+        <Required type="26" schemaName="Country Associated View" displayName="Country Associated View" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{500e07d4-faf3-4542-9346-bfb0b86ae4e2}" />
+        <Dependent type="26" schemaName="Country Associated View" displayName="Country Associated View" parentSchemaName="defra_country" parentDisplayName="Country" id="{500e07d4-faf3-4542-9346-bfb0b86ae4e2}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Commodity Type Lookup View" displayName="Commodity Type Lookup View" parentSchemaName="defraexp_commoditytype" parentDisplayName="Commodity Type" solution="defraexports (0.0.0.37)" id="{50c06169-2e75-4bdb-85ac-e795cb1077ed}" />
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Quick Find Active Countries" displayName="Quick Find Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{6d02255d-bd4b-42ab-ab76-63c0840c2f20}" />
+        <Dependent type="26" schemaName="Quick Find Active Countries" displayName="Quick Find Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" id="{6d02255d-bd4b-42ab-ab76-63c0840c2f20}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Inactive Countries" displayName="Inactive Countries" parentSchemaName="defra_country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{e85994f1-24b2-4163-8218-fb889ad0efd6}" />
+        <Dependent type="26" schemaName="Inactive Countries" displayName="Inactive Countries" parentSchemaName="defra_country" parentDisplayName="Country" id="{e85994f1-24b2-4163-8218-fb889ad0efd6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Information" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{61229529-0a15-4e6d-aa68-173260ed09c3}" />
+        <Dependent type="60" displayName="Information" parentDisplayName="Country" id="{61229529-0a15-4e6d-aa68-173260ed09c3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Defra.Country" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{ea6c8e6b-bdad-4e99-8787-530fc1f14576}" />
+        <Dependent type="60" displayName="Defra.Country" parentDisplayName="Country" id="{ea6c8e6b-bdad-4e99-8787-530fc1f14576}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Information" parentDisplayName="Country" solution="defracustomer (0.3.1.55)" id="{fd7ef4b3-d13c-4b1c-9a56-70e2dadf5d05}" />
+        <Dependent type="60" displayName="Information" parentDisplayName="Country" id="{fd7ef4b3-d13c-4b1c-9a56-70e2dadf5d05}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="defra_/scripts/shared/form_telemetry.js" displayName="defra_/scripts/shared/form_telemetry.js" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Cust Mstr" parentDisplayName="Country" id="{c5a39912-9753-47dc-a7aa-7c431f185dc0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="defra_/scripts/shared/form_telemetry.js" displayName="defra_/scripts/shared/form_telemetry.js" solution="defracustomer (0.3.1.55)" />
+        <Dependent type="60" displayName="Defra.Country" parentDisplayName="Country" id="{ea6c8e6b-bdad-4e99-8787-530fc1f14576}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="msdyn_filesandattachments" displayName="msdyn_filesandattachments" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.4)" />
