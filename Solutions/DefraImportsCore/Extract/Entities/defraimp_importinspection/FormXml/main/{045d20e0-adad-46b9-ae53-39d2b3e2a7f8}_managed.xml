@@ -572,6 +572,22 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{788c949b-bcf3-4a27-97fd-c1e615a4695d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_satisfactoryfollowingofficialintervention" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_satisfactoryfollowingofficialintervention" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1fa24d2f-5496-4972-9518-633e9a62959a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_otherdetails" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="defraimp_otherdetails" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{4bba11ac-89a7-e0c4-a845-c3619e34d696}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Fully Compliant Visit?" languagecode="1033" />
@@ -601,22 +617,6 @@
                           <label description="Other Non-Compliance Reason" languagecode="1033" />
                         </labels>
                         <control disabled="false" id="defraimp_othernoncompliancereason" datafieldname="defraimp_othernoncompliancereason" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{ccefa8f7-2e4a-410b-9c2d-6064a562fd5b}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_satisfactoryfollowingofficialintervention" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_satisfactoryfollowingofficialintervention" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{9f71bca1-bfda-49cc-aabf-d5584943a2c6}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                        <control id="defraimp_otherdetails" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="defraimp_otherdetails" disabled="false" />
                       </cell>
                     </row>
                   </rows>
