@@ -11,6 +11,7 @@
       <grid name="resultset" jump="defra_name" select="1" preview="1" icon="1">
         <row name="result" id="defra_countryid">
           <cell name="defra_name" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="cr01a_countrygroup" width="126" />
         </row>
       </grid>
     </layoutxml>
@@ -21,6 +22,7 @@
           <attribute name="defra_name" />
           <order attribute="defra_name" descending="false" />
           <attribute name="defra_countryid" />
+          <attribute name="cr01a_countrygroup" />
         </entity>
       </fetch>
     </fetchxml>
