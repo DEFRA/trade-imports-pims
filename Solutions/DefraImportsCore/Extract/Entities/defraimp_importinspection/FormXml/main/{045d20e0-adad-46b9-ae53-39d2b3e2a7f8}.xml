@@ -603,6 +603,22 @@
                         <control disabled="false" id="defraimp_othernoncompliancereason" datafieldname="defraimp_othernoncompliancereason" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{ccefa8f7-2e4a-410b-9c2d-6064a562fd5b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Satisfactory Following Official Intervention" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_satisfactoryfollowingofficialintervention" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_satisfactoryfollowingofficialintervention" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9f71bca1-bfda-49cc-aabf-d5584943a2c6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Other Details" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_otherdetails" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="defraimp_otherdetails" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
