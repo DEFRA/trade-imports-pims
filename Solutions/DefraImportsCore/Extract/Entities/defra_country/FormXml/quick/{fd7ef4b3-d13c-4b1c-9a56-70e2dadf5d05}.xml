@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{fd7ef4b3-d13c-4b1c-9a56-70e2dadf5d05}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{bba89690-6e04-4172-860a-9728bd92f204}" IsUserDefined="1" ordinalvalue="0">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c335c98c-21fa-43b0-ad73-b3544f9f7d08}" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{7c1d7d1f-faa4-4e64-b76f-e08f946673f1}" ordinalvalue="10000">
+                        <labels>
+                          <label description="Official Country Name" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{65e5fae8-3e49-40f9-aec7-0c07fff7de85}" ordinalvalue="10001">
+                        <labels>
+                          <label description="Owner" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{faab13d0-85c8-4e60-a10a-b638ea215b40}" locklevel="0" rowspan="1" colspan="1" ordinalvalue="10002" solutionaction="Added">
+                        <labels>
+                          <label description="Country Group" languagecode="1033" />
+                        </labels>
+                        <control id="cr01a_countrygroup" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cr01a_countrygroup" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true" solutionaction="Added">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>
