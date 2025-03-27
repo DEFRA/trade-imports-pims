@@ -892,6 +892,14 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
+              <option value="714100008" Color="#0800ff" IsHidden="0">
+                <labels>
+                  <label description="Satisfactory Following Official Intervention" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
               <option value="714100000" ExternalValue="" Color="#0000ff" IsHidden="0">
                 <labels>
                   <label description="Awaiting Outcome" languagecode="1033" />
@@ -914,14 +922,6 @@
                 <labels>
                   <label description="Unsatisfactory" languagecode="1033" />
                 </labels>
-              </option>
-              <option value="714100008" Color="#0800ff" IsHidden="0">
-                <labels>
-                  <label description="Satisfactory Following Official Intervention" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
               </option>
             </options>
           </optionset>

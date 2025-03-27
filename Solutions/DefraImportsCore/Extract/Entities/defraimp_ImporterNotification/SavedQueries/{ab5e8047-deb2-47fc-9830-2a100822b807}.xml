@@ -27,7 +27,6 @@
           <cell name="defraimp_placeofdestinationaddresscity" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_placeofdestinationaddresspostalzipcode" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="ownerid" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
-          <cell name="a_d4052a13025e4cf4a02cea967f4f483b.cr01a_countrygroup" width="240" />
         </row>
       </grid>
     </layoutxml>
@@ -57,9 +56,6 @@
           </filter>
           <attribute name="defraimp_importernotificationid" />
           <attribute name="defraimp_cloned" />
-          <link-entity alias="a_d4052a13025e4cf4a02cea967f4f483b" name="defra_country" to="defraimp_countryoforiginid" from="defra_countryid" link-type="outer" visible="false">
-            <attribute name="cr01a_countrygroup" />
-          </link-entity>
         </entity>
       </fetch>
     </fetchxml>
