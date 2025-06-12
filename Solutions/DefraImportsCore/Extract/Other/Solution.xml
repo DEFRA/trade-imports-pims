@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25024.206" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25024.206" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.25024.00206">
+<ImportExportXml version="9.2.25052.202" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25052.202" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.25052.00202">
   <SolutionManifest>
     <UniqueName>DefraImportsCore</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Defra.Imports.Core" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.0.0.165</Version>
+    <Version>0.0.0.166</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -284,9 +284,9 @@
         <Dependent type="62" schemaName="defraimp_EUImportsApp" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_salesroutingrun" displayName="Sales routing run" solution="msdyn_SalesRouting (9.1.2502.4001)">
-          <package appName="msdynce_SalesInsights" version="9.0.25024.10002">msdynce_SalesInsightsAnchor (9.0.25024.10002)</package>
-          <package appName="msdyn_AcceleratedSales" version="9.1.25024.10001">msdyn_AcceleratedSalesAnchor (9.1.25024.10001)</package>
+        <Required type="1" schemaName="msdyn_salesroutingrun" displayName="Sales routing run" solution="msdyn_SalesRouting (9.1.2505.1001)">
+          <package appName="msdynce_SalesInsights" version="9.0.25052.10003">msdynce_SalesInsightsAnchor (9.0.25052.10003)</package>
+          <package appName="msdyn_AcceleratedSales" version="9.1.25052.10004">msdyn_AcceleratedSalesAnchor (9.1.25052.10004)</package>
         </Required>
         <Dependent type="1" schemaName="team" displayName="Team" />
       </MissingDependency>
@@ -434,67 +434,67 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="Service/_imgs/ribbon/NewRecord_16.png" displayName="Service/_imgs/ribbon/NewRecord_16.png" solution="msdynce_Service (9.0.5.56)">
-          <package appName="msdynce_Service" version="9.0.25023.1002">msdynce_ServiceAnchor (9.0.25023.1002)</package>
+          <package appName="msdynce_Service" version="9.0.25052.1005">msdynce_ServiceAnchor (9.0.25052.1005)</package>
         </Required>
         <Dependent type="50" schemaName="defraimp_importernotification:RibbonDiffXml" displayName="defraimp_importernotification:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2502.4011)">
-          <package appName="Base Custom Controls" version="9.0.2502.4011">BaseCustomControlsCore (9.0.2502.4011)</package>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2505.2017)">
+          <package appName="Base Custom Controls" version="9.0.2505.2017">BaseCustomControlsCore (9.0.2505.2017)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2502.4011)">
-          <package appName="Base Custom Controls" version="9.0.2502.4011">BaseCustomControlsCore (9.0.2502.4011)</package>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2505.2017)">
+          <package appName="Base Custom Controls" version="9.0.2505.2017">BaseCustomControlsCore (9.0.2505.2017)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.25024.00206)">
-          <package appName="Custom Controls Package" version="9.2.25024.00206">CustomControlsCore (9.2.25024.00206)</package>
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.25052.00202)">
+          <package appName="Custom Controls Package" version="9.2.25052.00202">CustomControlsCore (9.2.25052.00202)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Post Import Check" id="{045d20e0-adad-46b9-ae53-39d2b3e2a7f8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.25024.00206)">
-          <package appName="Custom Controls Package" version="9.2.25024.00206">CustomControlsCore (9.2.25024.00206)</package>
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.25052.00202)">
+          <package appName="Custom Controls Package" version="9.2.25052.00202">CustomControlsCore (9.2.25052.00202)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Match Record" id="{3ea0a58b-62e6-4c7c-bc6a-47c823bc7bdc}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.25024.00206)">
-          <package appName="Custom Controls Package" version="9.2.25024.00206">CustomControlsCore (9.2.25024.00206)</package>
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.25052.00202)">
+          <package appName="Custom Controls Package" version="9.2.25052.00202">CustomControlsCore (9.2.25052.00202)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Import Application - Business Process Flow" id="{5ffb3b1a-47a1-45aa-a342-215c80b9fcc8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.25024.00206)">
-          <package appName="Custom Controls Package" version="9.2.25024.00206">CustomControlsCore (9.2.25024.00206)</package>
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.25052.00202)">
+          <package appName="Custom Controls Package" version="9.2.25052.00202">CustomControlsCore (9.2.25052.00202)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Importer Notification" id="{bf964a52-f528-44e7-900f-3ba36d386525}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.25024.00206)">
-          <package appName="Custom Controls Package" version="9.2.25024.00206">CustomControlsCore (9.2.25024.00206)</package>
+        <Required type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.2.25052.00202)">
+          <package appName="Custom Controls Package" version="9.2.25052.00202">CustomControlsCore (9.2.25052.00202)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2502.4011)">
-          <package appName="Base Custom Controls" version="9.0.2502.4011">BaseCustomControlsCore (9.0.2502.4011)</package>
+        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2505.2017)">
+          <package appName="Base Custom Controls" version="9.0.2505.2017">BaseCustomControlsCore (9.0.2505.2017)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.25024.00206)">
-          <package appName="Custom Controls Package" version="9.2.25024.00206">CustomControlsCore (9.2.25024.00206)</package>
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.25052.00202)">
+          <package appName="Custom Controls Package" version="9.2.25052.00202">CustomControlsCore (9.2.25052.00202)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="ITAHC" id="{45f0b880-9840-4578-8c86-9d96ee34e3d9}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.25024.00206)">
-          <package appName="Custom Controls Package" version="9.2.25024.00206">CustomControlsCore (9.2.25024.00206)</package>
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.25052.00202)">
+          <package appName="Custom Controls Package" version="9.2.25052.00202">CustomControlsCore (9.2.25052.00202)</package>
         </Required>
         <Dependent type="60" displayName="ITAHC Quick Create" parentDisplayName="ITAHC" id="{c7a38b2c-7a34-40a6-9062-e37e878fd92d}" />
       </MissingDependency>
