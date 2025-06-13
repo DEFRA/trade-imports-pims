@@ -923,6 +923,14 @@
                   <label description="Unsatisfactory" languagecode="1033" />
                 </labels>
               </option>
+              <option value="714100009" Color="#3300ff" IsHidden="0">
+                <labels>
+                  <label description="Further clarification sought from a laboratory" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
             </options>
           </optionset>
           <displaynames>
