@@ -923,14 +923,6 @@
                   <label description="Unsatisfactory" languagecode="1033" />
                 </labels>
               </option>
-              <option value="714100009" Color="#3300ff" IsHidden="0">
-                <labels>
-                  <label description="Further clarification sought from a laboratory" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
-              </option>
             </options>
           </optionset>
           <displaynames>
@@ -2677,6 +2669,14 @@
               <option value="714100001" ExternalValue="" IsHidden="0">
                 <labels>
                   <label description="Replacement Health Certificate Provided" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="714100004" IsHidden="0">
+                <labels>
+                  <label description="Further Clarification Sought From a Laboratory" languagecode="1033" />
                 </labels>
                 <Descriptions>
                   <Description description="" languagecode="1033" />
