@@ -1,6 +1,6 @@
 name: $(packageVersion)$(rev:.r).0
-pool:
-  vmImage: 'windows-2025'
+pool: 
+  vmImage: 'windows-latest'
   demands:
   - msbuild
   - visualstudio
