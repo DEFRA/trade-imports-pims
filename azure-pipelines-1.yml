@@ -1,6 +1,7 @@
 trigger:
-- none
-
+  batch: true
+  branches:
+    include: ["master"]
 pool:
   vmImage: 'windows-latest'
 
