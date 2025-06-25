@@ -17,14 +17,13 @@ steps:
   inputs:
     DefaultVersion: true
 
-- script: |
+- powershell: |
     echo Extracting solutions...
     mkdir $(ExportPath)
-    IFS=',' read -r -a solutions <<< "$(SolutionNames)"
-    for solution in "${solutions[@]}"
-    do
-      pac solution export --name $solution --path $(ExportPath)/$solution.zip --target $(DynamicsEnvironment)
-    done
+    $solutions = "$(SolutionNames)".Split(',')
+    foreach ($solution in $solutions) {
+      pac solution export --name $solution --path "$(ExportPath)/$solution.zip" --target "$(DynamicsEnvironment)"
+    }
   displayName: 'Export Dynamics 365 Solutions'
 
 - task: ArchiveFiles@2
