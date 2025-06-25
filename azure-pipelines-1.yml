@@ -1,0 +1,64 @@
+trigger:
+  batch: true
+  branches:
+    include: ["master"]
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  SolutionNames: 'Defra.Imports.Analytics,Defra.Imports.Apps,Defra.Imports.Core,Defra.Imports.Plugins,Defra.Imports.SecurityModel,Defra.Imports.WebResources,Defra.Imports.Workflows'
+  DynamicsEnvironment: 'https://defra-custmstr-eue-dev-imp.crm4.dynamics.com/'
+  ExportPath: '$(Build.ArtifactStagingDirectory)/solutions'
+  ZipFileName: 'DynamicsSolutions.zip'
+
+steps:
+- task: PowerPlatformToolInstaller@0
+  inputs:
+    DefaultVersion: true
+
+- script: |
+    echo Extracting solutions...
+    mkdir $(ExportPath)
+    IFS=',' read -r -a solutions <<< "$(SolutionNames)"
+    for solution in "${solutions[@]}"
+    do
+      pac solution export --name $solution --path $(ExportPath)/$solution.zip --target $(DynamicsEnvironment)
+    done
+  displayName: 'Export Dynamics 365 Solutions'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(ExportPath)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(ZipFileName)'
+    replaceExistingArchive: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)/$(ZipFileName)'
+    artifactName: 'DynamicsSolutions'
+    publishLocation: 'Container'
+
+- task: Git@2
+  inputs:
+    repository: 'your-repo-name'
+    branch: 'main'
+    command: 'add'
+    arguments: '$(Build.ArtifactStagingDirectory)/$(ZipFileName)'
+  displayName: 'Add ZIP to Repo'
+
+- task: Git@2
+  inputs:
+    repository: 'your-repo-name'
+    branch: 'main'
+    command: 'commit'
+    arguments: '-m "Added Dynamics solutions ZIP"'
+  displayName: 'Commit ZIP to Repo'
+
+- task: Git@2
+  inputs:
+    repository: 'your-repo-name'
+    branch: 'main'
+    command: 'push'
+  displayName: 'Push ZIP to Repo'
