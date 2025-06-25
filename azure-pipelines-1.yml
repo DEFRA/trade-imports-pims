@@ -13,9 +13,13 @@ variables:
   ZipFileName: 'DynamicsSolutions.zip'
 
 steps:
-- task: PowerPlatformToolInstaller@0
+- task: PowerShell@2
   inputs:
-    DefaultVersion: true
+    targetType: 'inline'
+    script: |
+      Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -Force -AllowClobber
+      Install-Module -Name Microsoft.PowerApps.PowerShell -Force -AllowClobber
+  displayName: 'Install Power Platform CLI'
 
 - powershell: |
     echo Extracting solutions...
