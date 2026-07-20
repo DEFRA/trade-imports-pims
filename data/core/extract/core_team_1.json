@@ -1,0 +1,284 @@
+{
+  "RecordsCount": 5,
+  "ExportedEntities": [
+    {
+      "LogicalName": "team",
+      "Id": "a8e19bee-0106-ea11-a811-000d3ab5d511",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "IRMS - CIT",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "6bdc7830-0206-ea11-a811-000d3ab5d511",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "IRMS - Scotland",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "d2e55f54-0206-ea11-a811-000d3ab5d511",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "IRMS - Wales",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "18785ed4-b5e3-ea11-a813-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "UNKNOWN",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "05b2dc79-3eff-ed11-8f6e-002248993591",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "AIS Approved Enter",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "9a29b7c6-8d7b-ed11-81ad-0022489934c8",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "AIS Approved Travel",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "a350ff93-3eff-ed11-8f6e-002248993591",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "AIS Reject Enter",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "6a6a5b04-3eff-ed11-8f6e-002248993591",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "AIS Reject Travel",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "c82c940b-b6e3-ea11-a813-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "NON-GB",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    }
+  ]
+}

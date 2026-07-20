@@ -1,0 +1,233 @@
+parameters:
+  - name: applicationId
+    type: string
+  - name: systemUserId
+    type: string
+  - name: applicationUserName
+    type: string
+  - name: securityRoleName
+    type: string
+  - name: businessUnitName
+    type: string
+    default: ""
+  - name: serviceConnection
+    type: string
+  - name: url
+    type: string
+    default: $(BuildTools.EnvironmentUrl)
+
+jobs:
+  - job: CreateApplicationUser
+    displayName: Ensure application user exists
+    steps:
+      - checkout: none
+      
+      - task: PowerPlatformSetConnectionVariables@2
+        displayName: Load Dataverse connection variables
+        inputs:
+          authenticationType: PowerPlatformSPN
+          PowerPlatformSPN: ${{ parameters.serviceConnection }}
+
+      - task: PowerShell@2
+        displayName: Create application user when missing
+        inputs:
+          targetType: inline
+          script: |
+            $ErrorActionPreference = 'Stop'
+
+            $applicationId = $env:CREATEAPPLICATIONUSER_APPLICATION_ID
+            $systemUserId = $env:CREATEAPPLICATIONUSER_SYSTEM_USER_ID
+            $applicationUserName = $env:CREATEAPPLICATIONUSER_APPLICATION_USER_NAME
+            $securityRoleName = $env:CREATEAPPLICATIONUSER_SECURITY_ROLE_NAME
+            $businessUnitName = $env:CREATEAPPLICATIONUSER_BUSINESS_UNIT_NAME
+            $serviceConnection = $env:CREATEAPPLICATIONUSER_SERVICE_CONNECTION
+
+            $environmentUrl = $env:CREATEAPPLICATIONUSER_PP_ENVIRONMENT_URL
+
+            $tenantId = $env:CREATEAPPLICATIONUSER_PP_TENANT_ID
+            $clientId = $env:CREATEAPPLICATIONUSER_PP_APPLICATION_ID
+            $clientSecret = $env:CREATEAPPLICATIONUSER_PP_CLIENT_SECRET
+
+            if ([string]::IsNullOrWhiteSpace($applicationId)) {
+              throw 'Parameter applicationId must be provided.'
+            }
+
+            if ([string]::IsNullOrWhiteSpace($systemUserId)) {
+              throw 'Parameter systemUserId must be provided.'
+            }
+
+            $parsedSystemUserId = [guid]::Empty
+            if (-not [guid]::TryParse($systemUserId, [ref]$parsedSystemUserId)) {
+              throw 'Parameter systemUserId must be a valid GUID.'
+            }
+
+            $systemUserId = $parsedSystemUserId.ToString().ToLowerInvariant()
+
+            if ([string]::IsNullOrWhiteSpace($applicationUserName)) {
+              throw 'Parameter applicationUserName must be provided.'
+            }
+
+            if ([string]::IsNullOrWhiteSpace($securityRoleName)) {
+              throw 'Parameter securityRoleName must be provided.'
+            }
+
+            if ([string]::IsNullOrWhiteSpace($serviceConnection)) {
+              throw 'Parameter serviceConnection must be provided.'
+            }
+
+            if ([string]::IsNullOrWhiteSpace($environmentUrl) -or
+                [string]::IsNullOrWhiteSpace($tenantId) -or
+                [string]::IsNullOrWhiteSpace($clientId) -or
+                [string]::IsNullOrWhiteSpace($clientSecret)) {
+              throw 'Missing Dataverse auth inputs from service connection. Ensure PowerPlatformSetConnectionVariables completed successfully.'
+            }
+
+            function Get-Token {
+              param(
+                [string]$TenantId,
+                [string]$ClientId,
+                [string]$ClientSecret,
+                [string]$Resource
+              )
+
+              if ([string]::IsNullOrWhiteSpace($Resource)) {
+                throw 'Token resource URL must be provided.'
+              }
+
+              $normalizedResource = $Resource.TrimEnd('/')
+
+              $tokenEndpoint = "https://login.microsoftonline.com/$TenantId/oauth2/v2.0/token"
+              $body = @{
+                client_id     = $ClientId
+                client_secret = $ClientSecret
+                grant_type    = 'client_credentials'
+                scope         = "$normalizedResource/.default"
+              }
+
+              $response = Invoke-RestMethod -Method Post -Uri $tokenEndpoint -Body $body -ContentType 'application/x-www-form-urlencoded'
+              return $response.access_token
+            }
+
+            function Invoke-Dataverse {
+              param(
+                [string]$Method,
+                [string]$Uri,
+                [object]$Body,
+                [hashtable]$Headers
+              )
+
+              if ($null -ne $Body) {
+                $json = $Body | ConvertTo-Json -Depth 20
+                return Invoke-RestMethod -Method $Method -Uri $Uri -Headers $Headers -ContentType 'application/json' -Body $json
+              }
+
+              return Invoke-RestMethod -Method $Method -Uri $Uri -Headers $Headers
+            }
+
+            $token = Get-Token -TenantId $tenantId -ClientId $clientId -ClientSecret $clientSecret -Resource $environmentUrl
+            $headers = @{
+              Authorization     = "Bearer $token"
+              Accept            = 'application/json'
+              'OData-MaxVersion' = '4.0'
+              'OData-Version'    = '4.0'
+            }
+
+            $baseApi = "$($environmentUrl.TrimEnd('/'))/api/data/v9.2"
+
+            try {
+              $existingUser = Invoke-Dataverse -Method Get -Uri "$baseApi/systemusers($systemUserId)?`$select=systemuserid" -Body $null -Headers $headers
+            }
+            catch {
+              $statusCode = $null
+              if ($_.Exception.Response) {
+                if ($_.Exception.Response.StatusCode -and $_.Exception.Response.StatusCode.Value__) {
+                  $statusCode = [int]$_.Exception.Response.StatusCode.Value__
+                }
+                elseif ($_.Exception.Response.StatusCode) {
+                  $statusCode = [int]$_.Exception.Response.StatusCode
+                }
+              }
+
+              if ($statusCode -ne 404) {
+                throw
+              }
+
+              $existingUser = $null
+            }
+
+            if ($null -ne $existingUser -and $existingUser.systemuserid) {
+              Write-Host "Application user $systemUserId already exists. Nothing to do."
+              exit 0
+            }
+
+            if ([string]::IsNullOrWhiteSpace($businessUnitName)) {
+              $businessUnitFilter = [uri]::EscapeDataString("parentbusinessunitid eq null")
+            }
+            else {
+              $escapedBusinessUnitName = $businessUnitName.Replace("'", "''")
+              $businessUnitFilter = [uri]::EscapeDataString("name eq '$escapedBusinessUnitName'")
+            }
+
+            $businessUnits = Invoke-Dataverse -Method Get -Uri "$baseApi/businessunits?`$select=businessunitid,parentbusinessunitid,name&`$filter=$businessUnitFilter&`$top=1" -Body $null -Headers $headers
+            if (-not $businessUnits.value -or $businessUnits.value.Count -eq 0) {
+              if ([string]::IsNullOrWhiteSpace($businessUnitName)) {
+                throw 'Unable to locate default business unit.'
+              }
+
+              throw "Unable to locate business unit: $businessUnitName"
+            }
+
+            $businessUnitId = $businessUnits.value[0].businessunitid
+
+            $escapedSecurityRoleName = $securityRoleName.Replace("'", "''")
+            $roleFilter = [uri]::EscapeDataString("name eq '$escapedSecurityRoleName' and _businessunitid_value eq $businessUnitId")
+            $roles = Invoke-Dataverse -Method Get -Uri "$baseApi/roles?`$select=roleid,name&`$filter=$roleFilter&`$top=1" -Body $null -Headers $headers
+            if (-not $roles.value -or $roles.value.Count -eq 0) {
+              if ([string]::IsNullOrWhiteSpace($businessUnitName)) {
+                throw "Unable to locate $securityRoleName role in the default business unit."
+              }
+
+              throw "Unable to locate $securityRoleName role in business unit: $businessUnitName"
+            }
+
+            $roleId = $roles.value[0].roleid
+
+            $emailPrefix = ($applicationUserName -replace '[^A-Za-z0-9]', '')
+            if ([string]::IsNullOrWhiteSpace($emailPrefix)) {
+              $emailPrefix = 'APPUSER'
+            }
+
+            $randomDomain = "$([guid]::NewGuid().ToString()).com"
+            $internalEmail = "${emailPrefix}_${applicationId}@${randomDomain}"
+
+            $createUserBody = @{
+              systemuserid                 = $systemUserId
+              applicationid                = $applicationId
+              firstname                    = '#'
+              lastname                     = $applicationUserName
+              internalemailaddress         = $internalEmail
+              accessmode                   = 4
+              userlicensetype              = 3
+              'businessunitid@odata.bind' = "/businessunits($businessUnitId)"
+            }
+
+            Invoke-Dataverse -Method Post -Uri "$baseApi/systemusers" -Body $createUserBody -Headers $headers | Out-Null
+
+            $associateRoleBody = @{
+              '@odata.id' = "$baseApi/roles($roleId)"
+            }
+
+            Invoke-Dataverse -Method Post -Uri "$baseApi/systemusers($systemUserId)/systemuserroles_association/`$ref" -Body $associateRoleBody -Headers $headers | Out-Null
+
+            Write-Host "Created application user $systemUserId with $securityRoleName role."
+        env:
+          CREATEAPPLICATIONUSER_APPLICATION_ID: ${{ parameters.applicationId }}
+          CREATEAPPLICATIONUSER_SYSTEM_USER_ID: ${{ parameters.systemUserId }}
+          CREATEAPPLICATIONUSER_APPLICATION_USER_NAME: ${{ parameters.applicationUserName }}
+          CREATEAPPLICATIONUSER_SECURITY_ROLE_NAME: ${{ parameters.securityRoleName }}
+          CREATEAPPLICATIONUSER_BUSINESS_UNIT_NAME: ${{ parameters.businessUnitName }}
+          CREATEAPPLICATIONUSER_SERVICE_CONNECTION: ${{ parameters.serviceConnection }}
+          CREATEAPPLICATIONUSER_PP_ENVIRONMENT_URL: ${{ parameters.url }}
+          CREATEAPPLICATIONUSER_PP_TENANT_ID: $(PowerPlatformSetConnectionVariables.BuildTools.TenantId)
+          CREATEAPPLICATIONUSER_PP_APPLICATION_ID: $(PowerPlatformSetConnectionVariables.BuildTools.ApplicationId)
+          CREATEAPPLICATIONUSER_PP_CLIENT_SECRET: $(PowerPlatformSetConnectionVariables.BuildTools.ClientSecret)

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Mapping>
+  <FileToFile map="PluginAssemblies\**\DefraImportsPlugins.dll" to="..\..\..\pluginassemblies\Defra.Imports.Plugins\bin\Debug\net462\Defra.Imports.Plugins.dll"/>
+  <FileToFile map="PluginAssemblies\**\DefraImportsWorkflows.dll" to="..\..\..\pluginassemblies\Defra.Imports.Workflows\bin\Debug\net462\Defra.Imports.Workflows.dll"/>
+  <FileToFile map="PluginAssemblies\**\DefraImportsPlugins.dll" to="..\..\..\pluginassemblies\Defra.Imports.Plugins\bin\Release\net462\Defra.Imports.Plugins.dll"/>
+  <FileToFile map="PluginAssemblies\**\DefraImportsWorkflows.dll" to="..\..\..\pluginassemblies\Defra.Imports.Workflows\bin\Release\net462\Defra.Imports.Workflows.dll"/>
+  <FileToPath map="WebResources\**\*.js" to="..\..\..\webresources\**"/>
+  <FileToPath map="WebResources\**\*.png" to="..\..\..\webresources\**"/>
+  <FileToPath map="WebResources\**\*.svg" to="..\..\..\webresources\**"/>
+  <FileToPath map="WebResources\**\*.xml" to="..\..\..\webresources\**"/>
+  <FileToFile map="WebResources\**\matchfieldmappingimporternotificationtoimportrecord" to="..\..\..\webresources\data\MatchFieldMappingImporterNotificationToImportRecord.xml"/>
+  <FileToFile map="WebResources\**\matchfieldmappingitahctoimportrecord" to="..\..\..\webresources\data\MatchFieldMappingImporterNotificationToImportRecord.xml"/>
+</Mapping>
+
+  

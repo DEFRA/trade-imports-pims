@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyTitle>Defra.Imports.Deployment</AssemblyTitle>
+    <Product>Defra.Imports.Deployment</Product>
+    <Copyright>Copyright © 2026</Copyright>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Capgemini.PowerApps.PackageDeployerTemplate" Version="0.3.24" />
+    <PackageReference Include="Microsoft.PowerApps.MSBuild.PDPackage" Version="1.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.1.0.79" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.PackageDeployment" Version="9.1.0.74" PrivateAssets="all" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="System.ComponentModel.Composition" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\solutions\defra_Imports\defra_Imports.cdsproj" ReferenceOutputAssembly="false" ImportOrder="2" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PdSolution Include="PkgAssets\Dependencies\DefraImportsDependencies_1_0_0_0_managed.zip" ImportOrder="1" />
+  </ItemGroup>
+
+
+  <Target Name="CopyDataFiles" AfterTargets="Build">
+    <ItemGroup>
+      <FilesToCopy Include="..\..\data\**\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(PublishDir)\PkgAssets\data\%(RecursiveDir)" />
+  </Target>
+</Project>

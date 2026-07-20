@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="1" schemaName="componentversion" displayName="Component Version" solution="msdyn_ComponentVersioning (9.1.0.766)" />
+  <Dependent type="1" schemaName="team" displayName="Team" />
+</MissingDependency>

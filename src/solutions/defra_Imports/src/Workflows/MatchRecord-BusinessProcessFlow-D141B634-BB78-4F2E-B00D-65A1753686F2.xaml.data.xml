@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{d141b634-bb78-4f2e-b00d-65a1753686f2}" Name="Match Record - Business Process Flow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/MatchRecord-BusinessProcessFlow-D141B634-BB78-4F2E-B00D-65A1753686F2.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>defraimp_matchrecordbusinessprocessflow</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>0.0.0.41</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>defraimp_matchrecord</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Match Record - Business Process Flow" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{a3705a62-bcac-4fa1-8ad6-247bfbc51f89}">
+      <label languagecode="1033" description="Confirm Match" />
+    </steplabels>
+    <steplabels id="{9080bb42-9079-4810-a7e4-3084c7348e7e}">
+      <label languagecode="1033" description="Is this Record a Valid Match?" />
+    </steplabels>
+    <steplabels id="{d3e86630-cf6a-43ee-b193-31b3bd654c04}">
+      <label languagecode="1033" description="Complete Match" />
+    </steplabels>
+    <steplabels id="{858d2fcb-1470-4470-a73e-dac07029bf6e}">
+      <label languagecode="1033" description="Have you created or updated an Import record for this Match?" />
+    </steplabels>
+    <steplabels id="{676718a8-544a-43a9-9b5f-31471fd8ec1e}">
+      <label languagecode="1033" description="Close Record as Completed?" />
+    </steplabels>
+    <steplabels id="{bc974345-5054-4257-a96d-d8f5725979b2}">
+      <label languagecode="1033" description="Reject Match" />
+    </steplabels>
+    <steplabels id="{90783c71-525f-43a3-8381-c400300cafb7}">
+      <label languagecode="1033" description="Close Record as Rejected?" />
+    </steplabels>
+    <steplabels id="{3521c9d2-d226-459e-ae73-5fdd09651992}">
+      <label languagecode="1033" description="Rejected Reason" />
+    </steplabels>
+  </labels>
+</Workflow>

@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="1" schemaName="defra_country" displayName="Country" solution="DefraImportsDependencies (1.0.0.0)" />
+  <Dependent type="1" schemaName="defra_country" displayName="Country" />
+</MissingDependency>

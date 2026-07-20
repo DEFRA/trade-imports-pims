@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="1" schemaName="defraexp_configurationparameter" displayName="Configuration Parameter" solution="DefraImportsDependencies (1.0.0.0)" />
+  <Dependent type="62" schemaName="defraimp_EUImportsApp" />
+</MissingDependency>

@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="61" schemaName="msdyn_filesandattachments" displayName="msdyn_filesandattachments" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.5)" />
+  <Dependent type="60" displayName="Information" parentDisplayName="Place of Destination" id="{3b1d62fd-78d7-422c-9b3c-d4cacd788891}" />
+</MissingDependency>

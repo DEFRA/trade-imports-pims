@@ -1,0 +1,20 @@
+{
+  "IgnoreStatuses": false,
+  "IgnoreSystemFields": true,
+  "MigrationConfig": {
+    "ApplyAliasMapping": true,
+    "Mappings": {},
+    "SourceRootBUName": "defra-custmstr-eue-dev-imp"
+  },
+  "SaveBatchSize": 1000,
+  "JsonFolderPath": "extract",
+  "DeactivateAllProcesses": false,
+  "FilePrefix": "core",
+  "PassOneReferences": [
+    "businessunit",
+    "subject",
+    "uom",
+    "uomschedule",
+    "queue"
+  ]
+}

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3de5d86f-0530-40a2-b527-8cd609254da4}</formid>
+    <IntroducedVersion>0.0.0.113</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{5fde93e9-1fa4-40bc-9f81-9ba978cce2ef}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{6a295dc4-0a36-4137-a1aa-cd0410b8eaf0}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Transport to PoE" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b8d578f5-fdaa-42ab-a142-3b9fae621135}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="BCP or Port of Entry" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_portofentry" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_portofentry" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{73627738-a8a5-a689-20ba-c736a5ee50ce}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Means of Transport" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransporttoentrypointtype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransporttoentrypointtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ae094006-e69b-bb90-4b94-12341d112d5c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="ID of Transport" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransporttoentrypointid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransporttoentrypointid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{47220404-01e6-7020-6b8d-c21654a56983}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Document" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransporttoentrypointdocument" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransporttoentrypointdocument" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b97e679a-9810-928b-2356-eba3236a8127}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Estimated Arrival Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_arrivaldate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_arrivaldate" disabled="false" uniqueid="{13ca0897-6b8e-b420-c8ce-5cb96a8856d2}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1babb9ee-14cc-e13c-3057-eb068c66e1d8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Estimated Arrival Time" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_arrivaltime" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_arrivaltime" disabled="false" uniqueid="{6576aa16-220d-b437-e7e4-011173326324}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ae8e4eb8-08e3-413f-adaa-4f7cd0c31eac}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Estimated Journey Time (mins)" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_estimatedjourneytimeinminutes" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="defraimp_estimatedjourneytimeinminutes" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="10">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Transport To BCP PoE" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Transport to BCP/PoE&#xA;&#xA;This QV form is used in Import record in transporter tab&#xA;&#xA;&#xA;" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

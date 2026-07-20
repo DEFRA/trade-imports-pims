@@ -1,0 +1,55 @@
+name: $(GITVERSION_FullSemVer)
+
+parameters:
+  - name: solution
+    displayName: Solution
+    type: string
+    values:
+      - defra_Imports
+  - name: workItemId
+    displayName: Work item ID
+    type: string
+  - name: branch
+    displayName: Branch name
+    type: string
+    default: ''
+
+pool:
+  vmImage: windows-latest
+
+trigger: none
+
+variables:
+  - group: Environment - Imports - DEV
+
+resources:
+  repositories:
+    - repository: power-pipelines
+      name: ewingjm/power-pipelines
+      ref: refs/heads/main
+      type: github
+      endpoint: github.com_ewingjm
+
+extends:
+  template: templates/power-platform/pipelines/create-development-environment-pipeline.yml@power-pipelines
+  parameters:
+    solution: ${{ parameters.solution }}
+    workItemId: ${{ parameters.workItemId }}
+    packageProject: deploy\Defra.Imports.Deployment\Defra.Imports.Deployment.csproj
+    displayNamePrefix: DEFRA-CUSTMSTR-EUE-DEV-IMP
+    domainNamePrefix: custmstr-dev-imp
+    serviceConnection: Power Platform - Management App
+    deployServiceConnection: Power Platform - Deployment (defradev)
+    templates: D365_CustomerService
+    securityGroupId: 002fed8f-6752-4c81-80c8-4928d23ed7d5
+    adminSecurityGroupId: 54b2386b-c4dd-4e31-b7b1-3f31d71dcec7 # AG-DEFRA-TRADE-DEV-CORE (TODO: make new group)
+    templateEnvironmentUrl: https://custmstr-eue-template-imp.crm4.dynamics.com/
+    branch: ${{ parameters.branch }}
+    prepareEnvironmentJobs:
+      - template: templates/jobs/create-application-user-job.yml
+        parameters:
+          applicationId: afa59571-3c39-4ebc-80d8-a9a0fb49077d
+          systemUserId: ca80c879-8351-ea11-a812-000d3ab5d511
+          applicationUserName: EUE-IMP-DYNAMICS-DEV
+          securityRoleName: System Administrator
+          serviceConnection: Power Platform - Management App

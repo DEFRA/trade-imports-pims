@@ -1,0 +1,26 @@
+name: $(GITVERSION_FullSemVer)
+
+pool:
+  vmImage: windows-latest
+
+pr: none
+
+trigger:
+  batch: false
+  branches:
+    include:
+      - main
+
+resources:
+  repositories:
+    - repository: power-pipelines
+      name: ewingjm/power-pipelines
+      ref: refs/heads/main
+      type: github
+      endpoint: github.com_ewingjm
+
+extends:
+  template: templates/power-platform/pipelines/build-package-pipeline.yml@power-pipelines
+  parameters:
+    packageProject: deploy\Defra.Imports.Deployment\Defra.Imports.Deployment.csproj
+    serviceConnection: Power Platform - Management App

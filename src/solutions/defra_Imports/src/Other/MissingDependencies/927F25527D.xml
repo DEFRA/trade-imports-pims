@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="10" schemaName="msdyn_flow_actionapprovalmodelrelationship_team" displayName="msdyn_flow_actionapprovalmodelrelationship_team" parentSchemaName="msdyn_flow_actionapprovalmodel" parentDisplayName="Action Approval Model" solution="msdyn_FlowApprovalsCore (2.2.8.0)" />
+  <Dependent type="10" schemaName="msdyn_flow_actionapprovalmodelrelationship_team" displayName="msdyn_flow_actionapprovalmodelrelationship_team" parentSchemaName="msdyn_flow_actionapprovalmodel" parentDisplayName="Action Approval Model" />
+</MissingDependency>

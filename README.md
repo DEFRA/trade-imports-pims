@@ -1,94 +1,29 @@
-# Imports for Dynamics 365
+# Imports
 
 ## Introduction
 
-Imports Dynamics 365 package - generated using the [package generator](https://capgeminiuk.visualstudio.com/Capgemini%20Reusable%20IP/_git/generator-cdspackage).
+This repository contains source code, data artifacts, deployment assets, and CI/CD pipelines for the Imports (PIMS) model-driven app.
+
+## Prerequisites
+
+The following solutions must exist in the target Dataverse environment in order to deploy the package:
+
+| Dependency                     | Minimum Version | Description                                                      | Guidance                                                                                         |
+| ------------------------------ | --------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| MicrosoftLabsAzuereBlobStorage | 1.8.0.5         | A third-party solution installed via AppSource                   | This is no longer available on AppSource. Environments must be cloned to install this dependency |
+| DefraImportsDependencies       | 1.0.0.0         | A DEFRA solution installed as part of this package               |                                                                                                  |
+| Dynamics 365 Customer Service  | N/A             | A first-party Dynamics 365 module installed via the Admin portal |                                                                                                  |
+
+## Installation
+
+The package can be installed with the following optional settings:
+
+| Setting                                   | Type   | Description                                                                        | Guidance                                                         |
+| ----------------------------------------- | ------ | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `PackageDeployer.Settings.ImportSeedData` | `bool` | Indicates whether to import seed data (user-owned data) as part of the deployment. | This should generally only be `true` for ephemeral environments. |
+
+Note that these settings correspond to Azure Pipelines variables. To set these settings via an environment variable, replace `.` characters with `_`. For example, `PackageDeployer.Settings.ImportSeedData` becomes `PACKAGEDEPLOYER_SETTINGS_IMPORTSEEDDATA`.
 
 ## Contributing
 
-Please ensure that pull requests are atomic and do not contain partially built functionality. This allows for holistic code reviews, cleaner git history and a more stable package. The repository contains all of the dependencies required to develop Dynamics 365 functionality.
-
-### Create environment variables
-
-Two environment variables are required to enable you to authenticate with the development and staging environments:
-
-- CAKE_DYNAMICS_USERNAME
-- CAKE_DYNAMICS_PASSWORD
-
-### Create a git branch
-
-Create a git branch from master using the following naming convention:
-
-`<category>/<key>-<description>`
-
-- All characters should be lowercase and spaces should be separated by hyphens.
-- Category should be either: `feature` for new functionality, `bug` for bug fixes, or `tech` for any technical changes (e.g. updating builds etc.).
-- Key will be the numeric portion of the story, bug, or task's key/ID (e.g. 1722).
-- Description will be a summary of the story, bug or task. This will possibly be the same as the issue name but it may have to be made more succinct.
-
-For example, `feature/1722-view-and-maintain-accounts`.
-
-### Processes and plugins
-
-- Plugin steps can't be scoped so alternatives should be considered when dealing with out-of-the-box entities and messsages.
-
-## Tools
-
-Visual Studio is recommended for .NET development (i.e. plugins assemblies) while Visual Studio Code is recommended for most other tasks.
-
-- Visual Studio
-
-  - NPM Task Runner
-  - Cake for Visual Studio
-  - SpecFlow for Visual Studio
-
-- Visual Studio Code
-
-  - npm
-  - Azure Repos
-
-- Fiddler
-
-## Cake
-
-Cake is a build automation tool that can be integrated with Visual Studio and Visual Studio code through extensions. An add-in for Cake has been developed by the Capgemini Dynamics team which automates many of the day-to-day tasks of Dynamics 365 developers. A Cake build script (_build.cake_) and bootstrapper (_build.ps1_) are present in the root of this repository.
-
-It is not recommended to call the Cake build executable directly. The _build.ps1_ bootstrapper script should be used instead. The bootstrapper script handle dependency resolution, negating the need to store Cake dependencies in source control.
-
-**Note:** The Cake extension for Visual Studio does not use the _build.ps1_ bootstrapper. It is recommended that you run your first Cake task through Visual Studio Code to resolve dependencies first.
-
-### Extracting a solution
-
-Solutions can be extracted using the `Extract Solution` task.
-
-### Packing a solution
-
-Solutions can be packed into managed and unmanaged solution zip files using the `Pack Solution` task.
-
-_Note: it is unlikely that developers will need to pack the solutions themselves. This is typically done via CI build_
-
-### Extracting data
-
-Data can be exported using the `ExportData` task.
-
-The data is exported using the [Capgemini Data Migration Engine](https://capgeminiuk.visualstudio.com/Capgemini%20Reusable%20IP/_git/Capgemini.Xrm.DataMigration) and the export config file located in the relevant data folder.
-
-### Deploying web resources
-
-In most instances, developers should [configure Fiddler AutoResponder rules](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/streamline-javascript-development-fiddler-autoresponder) and deploy their web resource via Dynamics 365 UI.
-
-### Deploying plugins
-
-Plugins can be deployed using the `Deploy Plugins` task. This deploys all steps declared via the Spkl attribute.
-
-### Deploying workflow activities
-
-Worklow activities can be deployed using the `Deploy Workflow Activities` task. This deploys all workflow activities declared via the Spkl attribute.
-
-### Generating the early-bound model classes
-
-The early-bound model classes can be generated using the `Generate Model` Cake task. It will use the configuration file located at _Common\Client.Package.Model\DLaB.EarlyBoundGenerator.DefaultSettings.xml_. It is recommended to use the early-bound generator XrmToolbox plugin to update this configuration file.
-
-### Building the package
-
-The entire package can be built using the `Build Package` task. This will pack all solutions and copy them to the _Package_ folder. The PackageDeployer import configuration and reference/configuration data and associated import configurations will also be copied to this folder.
+Refer to the [CONTRIBUTING.md](/CONTRIBUTING.md) guide.

@@ -1,0 +1,23 @@
+{
+  "IgnoreStatuses": false,
+  "IgnoreSystemFields": true,
+  "MigrationConfig": {
+    "ApplyAliasMapping": true,
+    "SourceRootBUName": "defra-custmstr-eue-dev-imp",
+    "Mappings": {}
+  },
+  "SaveBatchSize": 1000,
+  "JsonFolderPath": "extract",
+  "DeactivateAllProcesses": false,
+  "FilePrefix": "seed",
+  "PassOneReferences": [
+    "businessunit",
+    "subject",
+    "uom",
+    "uomschedule",
+    "queue"
+  ],
+  "NoUpdateEntities": [
+    "defraexp_configurationparameter"
+  ]
+}

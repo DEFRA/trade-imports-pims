@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="10" schemaName="msdyn_flow_basicapprovalmodelrelationship_team" displayName="msdyn_flow_basicapprovalmodelrelationship_team" parentSchemaName="msdyn_flow_basicapprovalmodel" parentDisplayName="Basic Approval Model Data" solution="msdyn_FlowApprovalsCore (2.2.8.0)" />
+  <Dependent type="10" schemaName="msdyn_flow_basicapprovalmodelrelationship_team" displayName="msdyn_flow_basicapprovalmodelrelationship_team" parentSchemaName="msdyn_flow_basicapprovalmodel" parentDisplayName="Basic Approval Model Data" />
+</MissingDependency>
