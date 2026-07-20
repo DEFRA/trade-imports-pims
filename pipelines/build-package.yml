@@ -9,7 +9,7 @@ trigger:
   batch: false
   branches:
     include:
-      - main
+      - master
 
 resources:
   repositories:

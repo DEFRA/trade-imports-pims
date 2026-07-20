@@ -9,7 +9,7 @@ schedules:
     displayName: Daily midnight run
     branches:
       include:
-        - main
+        - master
     always: true
 
 resources:
