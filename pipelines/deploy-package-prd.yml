@@ -9,7 +9,7 @@ resources:
   pipelines:
     - pipeline: imports
       source: imports
-      branch: main
+      branch: master
       tags:
         - Deployed to PRE
   repositories:
