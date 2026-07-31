@@ -13,6 +13,7 @@
             this.inspectionOutcomeValue = inspectionOutcomeValue;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_importapplication item)
         {
             item.defraimp_InspectionOutcome.Should().Be(this.inspectionOutcomeValue);

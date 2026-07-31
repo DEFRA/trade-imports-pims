@@ -1,11 +1,11 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PlaceOfOrigin.TestCases
 {
+    using System;
     using Defra.Imports.IntegrationTests.Dynamics.PlaceOfOrigin.Assertions;
     using Defra.Imports.IntegrationTests.Dynamics.PlaceOfOrigin.SampleData;
     using Defra.Imports.IntegrationTests.Dynamics.PlaceOfOrigin.Scenarios;
     using Defra.Imports.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
     using Xunit;
 
     public class PlaceOfOrigin_OnUpdate_OfLockedToBronze_SetLockedToBronzeData : TestCasesBase
@@ -19,11 +19,11 @@
             recordService
                 .CreateRecord(new CreatePlaceOfOrigin(this.context, placeOfOrigin))
                 .Delay(2000)
-                .ExecuteAction(new SetLockedToBronze(context, placeOfOrigin.Id, true))
+                .ExecuteAction(new SetLockedToBronze(this.context, placeOfOrigin.Id, true))
                 .Delay(5000)
-                .AssertAgainst(new PlaceOfOriginValidateLockedToBronze(context, placeOfOrigin.Id, DateTime.Today))
+                .AssertAgainst(new PlaceOfOriginValidateLockedToBronze(this.context, placeOfOrigin.Id, DateTime.Today))
                 .Delay(2000)
-                .ExecuteAction(new DeletePlaceOfOrigin(context, placeOfOrigin));
+                .ExecuteAction(new DeletePlaceOfOrigin(this.context, placeOfOrigin));
         }
 
         [Fact]
@@ -35,13 +35,13 @@
             recordService
                 .CreateRecord(new CreatePlaceOfOrigin(this.context, placeOfOrigin))
                 .Delay(2000)
-                .ExecuteAction(new SetLockedToBronze(context, placeOfOrigin.Id, true))
+                .ExecuteAction(new SetLockedToBronze(this.context, placeOfOrigin.Id, true))
                 .Delay(2000)
-                .ExecuteAction(new SetLockedToBronze(context, placeOfOrigin.Id, false))
+                .ExecuteAction(new SetLockedToBronze(this.context, placeOfOrigin.Id, false))
                 .Delay(2000)
-                .AssertAgainst(new PlaceOfOriginValidateUnlockedFromBronze(context, placeOfOrigin.Id, DateTime.Today, defraimp_trustlevel.Bronze))
+                .AssertAgainst(new PlaceOfOriginValidateUnlockedFromBronze(this.context, placeOfOrigin.Id, DateTime.Today, defraimp_trustlevel.Bronze))
                 .Delay(2000)
-                .ExecuteAction(new DeletePlaceOfOrigin(context, placeOfOrigin));
+                .ExecuteAction(new DeletePlaceOfOrigin(this.context, placeOfOrigin));
         }
 
         [Fact]
@@ -53,13 +53,13 @@
             recordService
                 .CreateRecord(new CreatePlaceOfOrigin(this.context, placeOfOrigin))
                 .Delay(2000)
-                .ExecuteAction(new SetLockedToBronze(context, placeOfOrigin.Id, true))
+                .ExecuteAction(new SetLockedToBronze(this.context, placeOfOrigin.Id, true))
                 .Delay(2000)
-                .ExecuteAction(new SetLockedToBronze(context, placeOfOrigin.Id, false))
+                .ExecuteAction(new SetLockedToBronze(this.context, placeOfOrigin.Id, false))
                 .Delay(2000)
-                .AssertAgainst(new PlaceOfOriginValidateUnlockedFromBronze(context, placeOfOrigin.Id, DateTime.Today, defraimp_trustlevel.Gold))
+                .AssertAgainst(new PlaceOfOriginValidateUnlockedFromBronze(this.context, placeOfOrigin.Id, DateTime.Today, defraimp_trustlevel.Gold))
                 .Delay(2000)
-                .ExecuteAction(new DeletePlaceOfOrigin(context, placeOfOrigin));
+                .ExecuteAction(new DeletePlaceOfOrigin(this.context, placeOfOrigin));
         }
     }
 }

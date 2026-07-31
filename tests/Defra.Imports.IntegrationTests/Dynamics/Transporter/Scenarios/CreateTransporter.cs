@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.Transporter.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
 
     public class CreateTransporter : IRecordCreator<defraimp_Transporter, Guid>
     {
@@ -15,6 +15,7 @@
             this.recordToCreate = recordToCreate;
         }
 
+        /// <inheritdoc/>
         public Record<defraimp_Transporter, Guid> CreateRecord()
         {
             if (this.recordToCreate != null)

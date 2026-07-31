@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.Consignee.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
 
     public class CreateConsignee : IRecordCreator<defraimp_Consignee, Guid>
     {
@@ -15,6 +15,7 @@
             this.recordToCreate = recordToCreate;
         }
 
+        /// <inheritdoc/>
         public Record<defraimp_Consignee, Guid> CreateRecord()
         {
             if (this.recordToCreate != null)

@@ -14,6 +14,7 @@
             this.riskLevel = riskLevel;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_importapplication item)
         {
             item.defraimp_importrisklevelid.Id.Should().Be(this.riskLevel.Id);

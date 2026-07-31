@@ -14,6 +14,7 @@
             this.expectedOffice = expectedOffice;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_ImporterNotification item)
         {
             item.defraimp_DevolvedOffice.Id.Should().Be(this.expectedOffice.Id);

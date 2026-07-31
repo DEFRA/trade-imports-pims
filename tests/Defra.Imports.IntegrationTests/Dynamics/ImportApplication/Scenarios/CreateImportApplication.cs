@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImportApplication.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
 
     public class CreateImportApplication : IRecordCreator<defraimp_importapplication, Guid>
     {
@@ -27,11 +27,12 @@
 
         public defraimp_importapplication RecordToCreate { get; }
 
+        /// <inheritdoc/>
         public Record<defraimp_importapplication, Guid> CreateRecord()
         {
             if (this.RecordToCreate != null)
             {
-                this.context.AddObject(RecordToCreate);
+                this.context.AddObject(this.RecordToCreate);
                 this.context.SaveChanges();
                 return new Record<defraimp_importapplication, Guid>(this.RecordToCreate, this.RecordToCreate.Id);
             }

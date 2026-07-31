@@ -1,11 +1,11 @@
-﻿using Defra.Imports.IntegrationTests.Dynamics.ConfigurationParameter.Assertions;
-using Defra.Imports.Model.ReferenceData;
-using MarkTek.Fluent.Testing.RecordGeneration;
-using System;
-using Xunit;
-
-namespace Defra.Imports.IntegrationTests.Dynamics.ConfigurationParameter.TestCases
+﻿namespace Defra.Imports.IntegrationTests.Dynamics.ConfigurationParameter.TestCases
 {
+    using System;
+    using Defra.Imports.IntegrationTests.Dynamics.ConfigurationParameter.Assertions;
+    using Defra.Imports.Model.ReferenceData;
+    using MarkTek.Fluent.Testing.RecordGeneration;
+    using Xunit;
+
     public class ConfigurationParameter_ShouldHaveCorrectConfigRecords : TestCasesBase
     {
         [Fact]

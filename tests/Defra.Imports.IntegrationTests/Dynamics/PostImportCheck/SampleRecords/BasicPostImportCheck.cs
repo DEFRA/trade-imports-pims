@@ -1,14 +1,14 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PostImportCheck.SampleRecords
 {
+    using System;
     using Defra.Imports.Model;
     using Microsoft.Xrm.Sdk;
-    using System;
 
     class BasicPostImportCheck
     {
         public BasicPostImportCheck(Guid id, EntityReference relatedImportApplication)
         {
-            PostImportCheck = new defraimp_importinspection
+            this.PostImportCheck = new defraimp_importinspection
             {
                 Id = id,
                 defraimp_RelatedImportApplication = relatedImportApplication,

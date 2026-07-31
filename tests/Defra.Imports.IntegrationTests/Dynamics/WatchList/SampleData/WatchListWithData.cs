@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.WatchList.SampleData
 {
+    using System;
     using Defra.Imports.Model;
     using Microsoft.Xrm.Sdk;
-    using System;
 
     public class WatchListWithData
     {

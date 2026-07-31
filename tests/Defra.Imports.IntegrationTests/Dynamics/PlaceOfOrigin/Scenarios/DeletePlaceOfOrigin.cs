@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PlaceOfOrigin.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
-    using System;
 
     public class DeletePlaceOfOrigin : IExecutableAction<defraimp_placeoforigin, Guid>
     {
@@ -27,6 +27,7 @@
 
         public defraimp_placeoforigin RecordToDelete { get; }
 
+        /// <inheritdoc/>
         public void Execute(Guid id)
         {
             if (this.RecordToDelete != null)

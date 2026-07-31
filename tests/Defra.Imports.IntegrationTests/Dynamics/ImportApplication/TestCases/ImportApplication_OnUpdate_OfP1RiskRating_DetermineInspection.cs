@@ -1,5 +1,6 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImportApplication.TestCases
 {
+    using System;
     using Defra.Imports.IntegrationTests.Dynamics.Autonumber.Assertions;
     using Defra.Imports.IntegrationTests.Dynamics.Autonumber.Scenarios;
     using Defra.Imports.IntegrationTests.Dynamics.ImportApplication.Assertions;
@@ -10,7 +11,6 @@
     using Defra.Imports.Model;
     using Defra.Imports.Model.ReferenceData;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
     using Xunit;
 
     [Collection("RiskRatingTests")]

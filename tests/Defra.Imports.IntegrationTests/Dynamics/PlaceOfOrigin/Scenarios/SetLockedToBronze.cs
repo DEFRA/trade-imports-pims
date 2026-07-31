@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PlaceOfOrigin.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
-    using System;
 
     class SetLockedToBronze : IExecutableAction<defraimp_placeoforigin, Guid>
     {
@@ -17,6 +17,7 @@
             this.lockedToBronze = lockedToBronze;
         }
 
+        /// <inheritdoc/>
         public void Execute(Guid id)
         {
             defraimp_placeoforigin placeOfOriginToUpdate = new defraimp_placeoforigin

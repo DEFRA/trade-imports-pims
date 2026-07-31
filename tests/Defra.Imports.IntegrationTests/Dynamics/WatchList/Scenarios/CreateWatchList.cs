@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.WatchList.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
 
     public class CreateWatchList : IRecordCreator<defraimp_WatchList, Guid>
     {
@@ -15,6 +15,7 @@
             this.recordToCreate = recordToCreate;
         }
 
+        /// <inheritdoc/>
         public Record<defraimp_WatchList, Guid> CreateRecord()
         {
             if (this.recordToCreate != null)

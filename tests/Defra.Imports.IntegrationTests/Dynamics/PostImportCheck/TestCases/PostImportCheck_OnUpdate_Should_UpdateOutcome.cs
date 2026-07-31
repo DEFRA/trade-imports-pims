@@ -1,5 +1,6 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PostImportCheck.TestCases
 {
+    using System;
     using Defra.Imports.IntegrationTests.Dynamics.ImportApplication.Assertions;
     using Defra.Imports.IntegrationTests.Dynamics.ImportApplication.SampleRecords;
     using Defra.Imports.IntegrationTests.Dynamics.ImportApplication.Scenarios;
@@ -9,7 +10,6 @@
     using Defra.Imports.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
     using Microsoft.Xrm.Sdk;
-    using System;
     using Xunit;
 
     public class PostImportCheck_OnUpdate_Should_UpdateOutcome : TestCasesBase

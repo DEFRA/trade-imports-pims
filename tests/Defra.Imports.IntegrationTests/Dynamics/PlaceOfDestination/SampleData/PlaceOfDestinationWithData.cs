@@ -1,15 +1,15 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PlaceOfDestination.SampleData
 {
+    using System;
     using Defra.Imports.Model;
     using Defra.Imports.Model.ReferenceData;
-    using System;
 
     public class PlaceOfDestinationWithData
     {
         public PlaceOfDestinationWithData()
         {
             Guid recordId = Guid.NewGuid();
-            PlaceOfDestination = new defraimp_PlaceOfDestination
+            this.PlaceOfDestination = new defraimp_PlaceOfDestination
             {
                 Id = recordId,
                 defraimp_Name = $"INT TEST {recordId}",

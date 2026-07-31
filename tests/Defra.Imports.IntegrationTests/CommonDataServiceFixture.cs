@@ -1,11 +1,11 @@
 ﻿namespace Defra.Imports.IntegrationTests
 {
-    using Microsoft.Crm.Sdk.Messages;
-    using Microsoft.PowerPlatform.Dataverse.Client;
-    using Microsoft.Xrm.Sdk;
     using System;
     using System.Globalization;
     using System.Net;
+    using Microsoft.Crm.Sdk.Messages;
+    using Microsoft.PowerPlatform.Dataverse.Client;
+    using Microsoft.Xrm.Sdk;
 
     /// <summary>
     /// A base class for integration tests ran against a Common Data Service environment.
@@ -29,7 +29,7 @@
                 AdminAlias);
 
             IOrganizationService service;
-            service = AdminTestClient;
+            service = this.AdminTestClient;
 
             // Get a system user to send the email (From: field)
             WhoAmIRequest systemUserRequest = new WhoAmIRequest();
@@ -37,6 +37,9 @@
             this.ExecutingUser = systemUserResponse.UserId;
         }
 
+        /// <summary>
+        /// Gets the executing user.
+        /// </summary>
         public Guid ExecutingUser { get; private set; }
 
         /// <summary>
@@ -44,23 +47,28 @@
         /// </summary>
         public ServiceClient AdminTestClient { get; private set; }
 
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Disposes the fixture.
+        /// </summary>
+        /// <param name="disposing">Whether the fixture is disposing.</param>
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (!this.disposedValue)
             {
                 if (disposing)
                 {
-                    AdminTestClient.Dispose();
+                    this.AdminTestClient.Dispose();
                 }
 
-                disposedValue = true;
+                this.disposedValue = true;
             }
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
 
         /// <summary>

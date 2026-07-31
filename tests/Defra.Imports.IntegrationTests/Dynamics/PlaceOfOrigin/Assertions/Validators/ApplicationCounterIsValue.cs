@@ -16,6 +16,7 @@
             this.expectedValue = expectedValue;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_placeoforigin item)
         {
             this.placeOfOriginRecord.defraimp_ApplicationCounter.Should().Be(this.expectedValue);

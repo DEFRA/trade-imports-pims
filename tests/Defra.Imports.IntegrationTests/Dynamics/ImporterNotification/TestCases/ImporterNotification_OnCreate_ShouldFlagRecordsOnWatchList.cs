@@ -1,5 +1,6 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.TestCases
 {
+    using System;
     using Defra.Imports.IntegrationTests.Dynamics.Consignee.SampleRecords;
     using Defra.Imports.IntegrationTests.Dynamics.Consignee.Scenarios;
     using Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Assertions;
@@ -15,7 +16,6 @@
     using Defra.Imports.IntegrationTests.Dynamics.WatchList.Scenarios;
     using Defra.Imports.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
     using Xunit;
 
     public class ImporterNotification_OnCreate_ShouldFlagRecordsOnWatchList : TestCasesBase

@@ -1,13 +1,13 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PlaceOfOrigin.SampleData
 {
-    using Defra.Imports.Model;
     using System;
+    using Defra.Imports.Model;
 
     public class LockedToBronzePlaceOfOrigin
     {
         public LockedToBronzePlaceOfOrigin()
         {
-            PlaceOfOrigin = new defraimp_placeoforigin
+            this.PlaceOfOrigin = new defraimp_placeoforigin
             {
                 Id = Guid.NewGuid(),
                 defraimp_name = "INT TEST Bronze Place of Origin",

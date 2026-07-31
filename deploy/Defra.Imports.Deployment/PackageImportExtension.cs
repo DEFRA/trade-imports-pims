@@ -1,11 +1,11 @@
-﻿using System;
-using System.ComponentModel.Composition;
-using Capgemini.PowerApps.PackageDeployerTemplate;
-using Capgemini.PowerApps.PackageDeployerTemplate.Config;
-using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
-
-namespace Defra.Imports.Deployment
+﻿namespace Defra.Imports.Deployment
 {
+    using System;
+    using System.ComponentModel.Composition;
+    using Capgemini.PowerApps.PackageDeployerTemplate;
+    using Capgemini.PowerApps.PackageDeployerTemplate.Config;
+    using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
+
     /// <summary>
     /// Import package starter frame.
     /// </summary>
@@ -15,30 +15,20 @@ namespace Defra.Imports.Deployment
         private bool? forceSameVersionUpdate;
         private bool? importSeedData;
 
-        #region Metadata
-
         /// <summary>
-        /// Folder name where package assets are located in the final output package zip.
+        /// Gets folder name where package assets are located in the final output package zip.
         /// </summary>
         public override string GetImportPackageDataFolderName => "PkgAssets";
 
         /// <summary>
-        /// Name of the Import Package to Use
-        /// </summary>
-        /// <param name="plural">if true, return plural version</param>
-        public override string GetNameOfImport(bool plural) => "Defra.Imports.Deployment";
-
-        /// <summary>
-        /// Long name of the Import Package.
+        /// Gets long name of the Import Package.
         /// </summary>
         public override string GetLongNameOfImport => "Defra.Imports.Deployment";
 
         /// <summary>
-        /// Description of the package, used in the package selection UI
+        /// Gets description of the package, used in the package selection UI.
         /// </summary>
         public override string GetImportPackageDescriptionText => "Defra.Imports.Deployment";
-
-        #endregion
 
         /// <summary>
         /// Gets a value indicating whether solutions should import even when solution versions match.
@@ -56,6 +46,9 @@ namespace Defra.Imports.Deployment
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether whether to import seed data after the primary import. This is useful for importing test data into a sandbox environment.
+        /// </summary>
         protected bool ImportSeedData
         {
             get
@@ -69,6 +62,7 @@ namespace Defra.Imports.Deployment
             }
         }
 
+        /// <inheritdoc/>
         public override bool AfterPrimaryImport()
         {
             var baseResult = base.AfterPrimaryImport();
@@ -76,12 +70,13 @@ namespace Defra.Imports.Deployment
             if (this.ImportSeedData)
             {
                 this.DataImporterService.Import(
-                    new DataImportConfig[] {
+                    new DataImportConfig[]
+                    {
                         new DataImportConfig
                         {
                             DataFolderPath = "data/seed/extract",
                             ImportConfigPath = "data/seed/import.json",
-                        }
+                        },
                     },
                     this.PackageFolderPath);
             }
@@ -105,5 +100,12 @@ namespace Defra.Imports.Deployment
 
             return decision;
         }
+
+        /// <summary>
+        /// Name of the Import Package to Use.
+        /// </summary>
+        /// <param name="plural">if true, return plural version.</param>
+        /// <returns>The name of the import package.</returns>
+        public override string GetNameOfImport(bool plural) => "Defra.Imports.Deployment";
     }
 }

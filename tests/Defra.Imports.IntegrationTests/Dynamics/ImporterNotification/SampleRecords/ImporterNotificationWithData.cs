@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.SampleRecords
 {
+    using System;
     using Defra.Imports.Model;
     using Defra.Imports.Model.ReferenceData;
-    using System;
 
     public class ImporterNotificationWithData
     {

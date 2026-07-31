@@ -1,13 +1,13 @@
-﻿using Defra.Imports.IntegrationTests.Dynamics.ConfigurationParameter.Assertions.Validators;
-using Defra.Imports.Model;
-using Marktek.Fluent.Testing.Engine;
-using MarkTek.Fluent.Testing.RecordGeneration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Defra.Imports.IntegrationTests.Dynamics.ConfigurationParameter.Assertions
+﻿namespace Defra.Imports.IntegrationTests.Dynamics.ConfigurationParameter.Assertions
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Defra.Imports.IntegrationTests.Dynamics.ConfigurationParameter.Assertions.Validators;
+    using Defra.Imports.Model;
+    using Marktek.Fluent.Testing.Engine;
+    using MarkTek.Fluent.Testing.RecordGeneration;
+
     public class ConfigurationParameterValidateValues : BaseValidator<Guid, defraexp_configurationparameter>
     {
         private readonly ImportsContext context;
@@ -21,11 +21,13 @@ namespace Defra.Imports.IntegrationTests.Dynamics.ConfigurationParameter.Asserti
             this.value = value;
         }
 
+        /// <inheritdoc/>
         public override defraexp_configurationparameter GetRecord(Guid id)
         {
             return this.context.defraexp_configurationparameterSet.FirstOrDefault(x => x.Id == id);
         }
 
+        /// <inheritdoc/>
         public override List<ISpecificationValidator<defraexp_configurationparameter>> GetValidators()
         {
             var validators = new List<ISpecificationValidator<defraexp_configurationparameter>>

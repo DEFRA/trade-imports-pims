@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PostImportCheck.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
 
     class CreatePostImportCheck : IRecordCreator<defraimp_importinspection, Guid>
     {
@@ -27,11 +27,12 @@
 
         public defraimp_importinspection RecordToCreate { get; }
 
+        /// <inheritdoc/>
         public Record<defraimp_importinspection, Guid> CreateRecord()
         {
-            if (RecordToCreate != null)
+            if (this.RecordToCreate != null)
             {
-                this.context.AddObject(RecordToCreate);
+                this.context.AddObject(this.RecordToCreate);
                 this.context.SaveChanges();
                 return new Record<defraimp_importinspection, Guid>(this.RecordToCreate, this.RecordToCreate.Id);
             }

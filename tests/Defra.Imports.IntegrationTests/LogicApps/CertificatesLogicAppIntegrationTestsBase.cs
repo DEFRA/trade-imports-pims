@@ -1,14 +1,14 @@
-﻿using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Query;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Xml;
-
-namespace Defra.Imports.IntegrationTests.LogicApps
+﻿namespace Defra.Imports.IntegrationTests.LogicApps
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Xml;
+    using Microsoft.Xrm.Sdk;
+    using Microsoft.Xrm.Sdk.Query;
+
     public class CertificatesLogicAppIntegrationTestsBase : IntegrationTests
     {
 
@@ -35,14 +35,14 @@ namespace Defra.Imports.IntegrationTests.LogicApps
                 foreach (Entity cert in certificates)
                 {
                     // Delete the Certificate
-                    _orgSvc.Delete($"defraimp_{certificateType}", cert.Id);
+                    this._orgSvc.Delete($"defraimp_{certificateType}", cert.Id);
                 }
             }
         }
 
         protected DataCollection<Entity> GetCertificatesByReferenceNumbers(string certificateEntityName, string certificateReferenceNumber, string[] columnsToRetrieve)
         {
-            return GetCertificatesByReferenceNumbers(certificateEntityName, new string[] { certificateReferenceNumber }, columnsToRetrieve);
+            return this.GetCertificatesByReferenceNumbers(certificateEntityName, new string[] { certificateReferenceNumber }, columnsToRetrieve);
         }
 
         protected DataCollection<Entity> GetCertificatesByReferenceNumbers(string certificateEntityName, string[] certificateReferenceNumbers, string[] columnsToRetrieve)
@@ -50,7 +50,7 @@ namespace Defra.Imports.IntegrationTests.LogicApps
             QueryExpression qe = new QueryExpression(certificateEntityName);
             qe.ColumnSet = new ColumnSet(columnsToRetrieve);
             qe.Criteria.AddCondition("defraimp_name", ConditionOperator.In, certificateReferenceNumbers);
-            EntityCollection eCollection = _orgSvc.RetrieveMultiple(qe);
+            EntityCollection eCollection = this._orgSvc.RetrieveMultiple(qe);
             return eCollection.Entities;
         }
 

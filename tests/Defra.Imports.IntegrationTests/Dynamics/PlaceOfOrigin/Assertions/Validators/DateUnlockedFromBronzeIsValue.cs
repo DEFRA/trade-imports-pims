@@ -1,9 +1,9 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PlaceOfOrigin.Assertions.Validators
 {
+    using System;
     using Defra.Imports.Model;
     using FluentAssertions;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
 
     class DateUnlockedFromBronzeIsValue : ISpecificationValidator<defraimp_placeoforigin>
     {
@@ -17,6 +17,7 @@
             this.expectedValue = expectedValue;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_placeoforigin item)
         {
             this.placeOfOriginRecord.defraimp_DateUnlockedFromBronze.Should().BeSameDateAs(this.expectedValue);

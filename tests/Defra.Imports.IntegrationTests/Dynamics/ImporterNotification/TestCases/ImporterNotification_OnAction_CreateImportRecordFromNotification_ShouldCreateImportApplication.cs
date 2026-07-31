@@ -1,10 +1,10 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.TestCases
 {
+    using System;
     using Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Assertions;
     using Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.SampleRecords;
     using Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Scenarios;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
     using Xunit;
 
     public class ImporterNotification_OnAction_CreateImportRecordFromNotification_ShouldCreateImportApplication : TestCasesBase

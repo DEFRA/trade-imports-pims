@@ -15,6 +15,7 @@
             this.expectedValue = expectedValue;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_placeoforigin item)
         {
             this.placeOfOriginRecord.defraimp_TrustLevel.Should().Be(this.expectedValue);

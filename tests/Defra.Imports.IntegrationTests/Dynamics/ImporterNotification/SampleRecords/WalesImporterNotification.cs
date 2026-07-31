@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.SampleRecords
 {
-    using Defra.Imports.Model;
     using System;
+    using Defra.Imports.Model;
 
     public class WalesImporterNotification
     {

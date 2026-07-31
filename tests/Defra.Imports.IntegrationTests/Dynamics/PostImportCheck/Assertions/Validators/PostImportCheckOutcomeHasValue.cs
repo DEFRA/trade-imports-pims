@@ -15,6 +15,7 @@
             this.expectedOutcome = expectedOutcome;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_importinspection item)
         {
             this.postImportCheck.defraimp_InspectionOutcome.Should().Be(this.expectedOutcome);

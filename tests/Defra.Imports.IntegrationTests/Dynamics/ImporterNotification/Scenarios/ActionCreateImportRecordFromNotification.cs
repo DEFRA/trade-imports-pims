@@ -1,9 +1,9 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
     using Microsoft.Xrm.Sdk;
-    using System;
 
     public class ActionCreateImportRecordFromNotification : IExecutableAction<defraimp_ImporterNotification, Guid>
     {
@@ -14,6 +14,7 @@
             this.context = context;
         }
 
+        /// <inheritdoc/>
         public void Execute(Guid id)
         {
             var request = new defraimp_CreateImportRecordFromNotificationRequest()

@@ -13,6 +13,7 @@
             this.flag = expectedFlag;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_ImporterNotification item)
         {
             item.defraimp_HealthCertificateAttached.Should().Be(this.flag);

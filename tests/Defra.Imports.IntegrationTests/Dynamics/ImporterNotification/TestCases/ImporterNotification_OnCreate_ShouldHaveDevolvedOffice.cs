@@ -1,12 +1,12 @@
 ﻿
 namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification
 {
+    using System;
     using Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Assertions;
     using Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.SampleRecords;
     using Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Scenarios;
     using Defra.Imports.Model.ReferenceData;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
     using Xunit;
 
     public class ImporterNotification_OnCreate_ShouldHaveDevolvedOffice : TestCasesBase
@@ -18,9 +18,9 @@ namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification
             var sampleImportNotificationData = new EnglandImporterNotification(recordService.AggregateId);
 
             recordService
-                .CreateRecord(new CreateImporterNotification(context, sampleImportNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImportNotificationData.ImporterNotification))
                 .Delay(10000)
-                .AssertAgainst(new ImporterNotificationValidateDevolvedOffice(context,Teams.EnglandTeam));
+                .AssertAgainst(new ImporterNotificationValidateDevolvedOffice(this.context,Teams.EnglandTeam));
         }
 
         [Fact]
@@ -30,9 +30,9 @@ namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification
             var sampleImportNotificationData = new ScotlandImporterNotification(recordService.AggregateId);
 
             recordService
-                .CreateRecord(new CreateImporterNotification(context, sampleImportNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImportNotificationData.ImporterNotification))
                 .Delay(10000)
-                .AssertAgainst(new ImporterNotificationValidateDevolvedOffice(context, Teams.ScotlandTeam));
+                .AssertAgainst(new ImporterNotificationValidateDevolvedOffice(this.context, Teams.ScotlandTeam));
         }
 
         [Fact]
@@ -42,9 +42,9 @@ namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification
             var sampleImportNotificationData = new WalesImporterNotification(recordService.AggregateId);
 
             recordService
-                .CreateRecord(new CreateImporterNotification(context, sampleImportNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImportNotificationData.ImporterNotification))
                 .Delay(10000)
-                .AssertAgainst(new ImporterNotificationValidateDevolvedOffice(context, Teams.WalesTeam));
+                .AssertAgainst(new ImporterNotificationValidateDevolvedOffice(this.context, Teams.WalesTeam));
         }
 
         [Fact]
@@ -54,9 +54,9 @@ namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification
             var sampleImportNotificationData = new NonGBImporterNotification(recordService.AggregateId);
 
             recordService
-                .CreateRecord(new CreateImporterNotification(context, sampleImportNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImportNotificationData.ImporterNotification))
                 .Delay(10000)
-                .AssertAgainst(new ImporterNotificationValidateDevolvedOffice(context, Teams.NONGBTeam));
+                .AssertAgainst(new ImporterNotificationValidateDevolvedOffice(this.context, Teams.NONGBTeam));
         }
 
         [Fact]
@@ -66,9 +66,9 @@ namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification
             var sampleImportNotificationData = new UnknownImporterNotification(recordService.AggregateId);
 
             recordService
-                .CreateRecord(new CreateImporterNotification(context, sampleImportNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImportNotificationData.ImporterNotification))
                 .Delay(10000)
-                .AssertAgainst(new ImporterNotificationValidateDevolvedOffice(context, Teams.UnknownTeam));
+                .AssertAgainst(new ImporterNotificationValidateDevolvedOffice(this.context, Teams.UnknownTeam));
         }
     }
 }

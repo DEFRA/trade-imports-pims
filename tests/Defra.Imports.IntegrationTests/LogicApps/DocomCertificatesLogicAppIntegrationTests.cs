@@ -1,12 +1,12 @@
-﻿using Microsoft.Xrm.Sdk;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Threading;
-using Xunit;
-
-namespace Defra.Imports.IntegrationTests.LogicApps
+﻿namespace Defra.Imports.IntegrationTests.LogicApps
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
+    using Microsoft.Xrm.Sdk;
+    using Xunit;
+
     public class DocomCertificatesLogicAppIntegrationTests : CertificatesLogicAppIntegrationTestsBase
     {
         // Change this to null to run these tests
@@ -18,18 +18,18 @@ namespace Defra.Imports.IntegrationTests.LogicApps
         {
             // Arrange
             string certificateReferenceNumber = "DOCOM.CZ.2016.0001882";
-            string docomXmlMessage = GetDocomXml(certificateReferenceNumber);
+            string docomXmlMessage = this.GetDocomXml(certificateReferenceNumber);
 
             // Act
             this.SendServiceBusMessage(docomXmlMessage);
             Thread.Sleep(150000);
 
             // Assert
-            DataCollection<Entity> retrievedDocoms = GetCertificatesByReferenceNumbers("defraimp_docom", certificateReferenceNumber, Array.Empty<string>());
+            DataCollection<Entity> retrievedDocoms = this.GetCertificatesByReferenceNumbers("defraimp_docom", certificateReferenceNumber, Array.Empty<string>());
             Assert.True(retrievedDocoms.Count > 0);
 
             // Clear Down
-            ClearDownCertificateTest("docom", retrievedDocoms);
+            this.ClearDownCertificateTest("docom", retrievedDocoms);
 
         }
 
@@ -37,28 +37,28 @@ namespace Defra.Imports.IntegrationTests.LogicApps
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_ListOfDocoms_ListOfDocomsAreCreated()
         {
-            List<string> docomXmlList = GetDocomListXml();
+            List<string> docomXmlList = this.GetDocomListXml();
 
             docomXmlList.ForEach(item => this.SendServiceBusMessage(item));
             Thread.Sleep(300000);
 
             // Assert
-            List<string> certificateReferenceNumbers = GetCertificateReferenceNumbersFromXml(docomXmlList);
-            DataCollection<Entity> retrievedDocoms = GetCertificatesByReferenceNumbers("defraimp_docom", certificateReferenceNumbers.ToArray(), Array.Empty<string>());
+            List<string> certificateReferenceNumbers = this.GetCertificateReferenceNumbersFromXml(docomXmlList);
+            DataCollection<Entity> retrievedDocoms = this.GetCertificatesByReferenceNumbers("defraimp_docom", certificateReferenceNumbers.ToArray(), Array.Empty<string>());
             Assert.True(retrievedDocoms.Count == 50);
 
             // Clear Down
-            ClearDownCertificateTest("docom", retrievedDocoms);
+            this.ClearDownCertificateTest("docom", retrievedDocoms);
         }
 
         private string GetDocomXml(string certificateReferenceNumber)
         {
-            return GetTestCertificateXml("DOCOM1.xml", certificateReferenceNumber);
+            return this.GetTestCertificateXml("DOCOM1.xml", certificateReferenceNumber);
         }
 
         private List<string> GetDocomListXml()
         {
-            return GetCertificateXmlList("DOCOM_LIST.xml", "ns2:doCom");
+            return this.GetCertificateXmlList("DOCOM_LIST.xml", "ns2:doCom");
         }
     }
 }

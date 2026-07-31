@@ -15,9 +15,10 @@
             this.expectedValue = expectedValue;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_autonumber item)
         {
-            autonumberRecord.defraimp_CurrentNumber.Should().Be(this.expectedValue);
+            this.autonumberRecord.defraimp_CurrentNumber.Should().Be(this.expectedValue);
         }
     }
 }

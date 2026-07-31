@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.IntegrationTests
 {
-    using Defra.Imports.Model;
     using System;
+    using Defra.Imports.Model;
 
     public class TestCasesBase : IDisposable
     {
@@ -15,9 +15,10 @@
         public TestCasesBase()
         {
             this.fixture = new CommonDataServiceFixture();
-            this.context = new ImportsContext(fixture.AdminTestClient);
+            this.context = new ImportsContext(this.fixture.AdminTestClient);
         }
 
+        /// <inheritdoc/>
         public void Dispose()
         {
             this.Dispose(true);
@@ -26,7 +27,7 @@
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (!this.disposedValue)
             {
                 if (disposing)
                 {

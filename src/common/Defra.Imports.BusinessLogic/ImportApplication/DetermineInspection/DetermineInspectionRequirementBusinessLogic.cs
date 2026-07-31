@@ -82,7 +82,7 @@
             else if (preImageImportApplication != null && postImageImportApplication != null)
             {
                 // Update of active record
-                if (preImageImportApplication.statecode == defraimp_importapplicationState.Active && postImageImportApplication.statecode == defraimp_importapplicationState.Active)
+                if (preImageImportApplication.statecode == defraimp_importapplication_statecode.Active && postImageImportApplication.statecode == defraimp_importapplication_statecode.Active)
                 {
                     //Check if the record has not been overriden for a manual post import check
                     if (postImageImportApplication.defraimp_ManualPostImportCheckDecision == defraimp_importapplication_defraimp_manualpostimportcheckdecision.UseSystemDecision)
@@ -103,19 +103,19 @@
                         DealWithDeterminingInspection();
                     }
                 } // Deactivate when the state was previously active but has been moved to a status of inactive (Note that we use state and statuscode here as we don't want this logic to run on Application Completion status reason)
-                else if (preImageImportApplication.statecode == defraimp_importapplicationState.Active && postImageImportApplication.statuscode == defraimp_importapplication_statuscode.Cancelled)
+                else if (preImageImportApplication.statecode == defraimp_importapplication_statecode.Active && postImageImportApplication.statuscode == defraimp_importapplication_statuscode.Cancelled)
                 {
                     ManageRecordDeactivation(currentRiskLevel);
                 }
-                else if (preImageImportApplication.statecode == defraimp_importapplicationState.Active && postImageImportApplication.statuscode == defraimp_importapplication_statuscode.NoITAHCReceived)
+                else if (preImageImportApplication.statecode == defraimp_importapplication_statecode.Active && postImageImportApplication.statuscode == defraimp_importapplication_statuscode.NoITAHCReceived)
                 {
                     ManageRecordDeactivation(currentRiskLevel);
                 }
-                else if (preImageImportApplication.statuscode == defraimp_importapplication_statuscode.Cancelled && postImageImportApplication.statecode == defraimp_importapplicationState.Active)
+                else if (preImageImportApplication.statuscode == defraimp_importapplication_statuscode.Cancelled && postImageImportApplication.statecode == defraimp_importapplication_statecode.Active)
                 {
                     ManageRecordReactivation();
                 }
-                else if (preImageImportApplication.statuscode == defraimp_importapplication_statuscode.NoITAHCReceived && postImageImportApplication.statecode == defraimp_importapplicationState.Active)
+                else if (preImageImportApplication.statuscode == defraimp_importapplication_statuscode.NoITAHCReceived && postImageImportApplication.statecode == defraimp_importapplication_statecode.Active)
                 {
                     ManageRecordReactivation();
                 }

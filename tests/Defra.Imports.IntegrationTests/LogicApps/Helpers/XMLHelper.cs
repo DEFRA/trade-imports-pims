@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Xml;
-
-namespace Defra.Imports.IntegrationTests.LogicApps.Helpers
+﻿namespace Defra.Imports.IntegrationTests.LogicApps.Helpers
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using System.Xml;
 
     public class XmlHelper
     {
@@ -12,14 +11,14 @@ namespace Defra.Imports.IntegrationTests.LogicApps.Helpers
 
         public XmlHelper(string fileName)
         {
-            _doc = new XmlDocument();
-            _doc.Load(fileName);
+            this._doc = new XmlDocument();
+            this._doc.Load(fileName);
         }
 
         public List<string> GetNodesAsStrings(string elementName)
         {
-            XmlNodeList nodeList = _doc.GetElementsByTagName(elementName);
-            return GetNodesAsStrings(nodeList);
+            XmlNodeList nodeList = this._doc.GetElementsByTagName(elementName);
+            return this.GetNodesAsStrings(nodeList);
         }
 
         public List<string> GetNodesAsStrings(XmlNodeList nodes)

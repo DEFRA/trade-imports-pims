@@ -1,0 +1,12 @@
+{
+  "url": "https://defra-cit-test.crm4.dynamics.com/",
+  "clientId": "7b3f098a-c589-4fa3-a7ad-881c1798cd2b", // Trade.Dynamics.Test
+  "tenantId": "6f504113-6b64-43f2-ade9-242e05780007", // defradev
+  "personas": {},
+  "credentials": [],
+  "keyVault": {
+    "tenantId": "c9d74090-b4e6-4b04-981d-e6757a160812",
+    "clientId": "986f0b9f-26fa-4431-a103-1dd04ae755dd",
+    "name": "devtrcpltkv1001"
+  }
+}

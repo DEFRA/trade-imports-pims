@@ -1,9 +1,9 @@
 ﻿
 namespace Defra.Imports.IntegrationTests.Dynamics.Autonumber.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
-    using System;
 
     class SetAutonumberValue : IWaitableAction
     {
@@ -18,6 +18,7 @@ namespace Defra.Imports.IntegrationTests.Dynamics.Autonumber.Scenarios
             this.value = value;
         }
 
+        /// <inheritdoc/>
         public void Execute()
         {
             defraimp_autonumber importApplicationToUpdate = new defraimp_autonumber

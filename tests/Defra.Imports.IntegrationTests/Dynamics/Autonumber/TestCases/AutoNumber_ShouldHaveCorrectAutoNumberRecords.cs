@@ -1,12 +1,12 @@
-﻿using Defra.Imports.BusinessLogic.ImportApplication;
-using Defra.Imports.IntegrationTests.Dynamics.Autonumber.Assertions;
-using Defra.Imports.Model.ReferenceData;
-using MarkTek.Fluent.Testing.RecordGeneration;
-using System;
-using Xunit;
-
-namespace Defra.Imports.IntegrationTests.Dynamics.Autonumber.TestCases
+﻿namespace Defra.Imports.IntegrationTests.Dynamics.Autonumber.TestCases
 {
+    using System;
+    using Defra.Imports.BusinessLogic.ImportApplication;
+    using Defra.Imports.IntegrationTests.Dynamics.Autonumber.Assertions;
+    using Defra.Imports.Model.ReferenceData;
+    using MarkTek.Fluent.Testing.RecordGeneration;
+    using Xunit;
+
     public class AutoNumber_ShouldHaveCorrectAutoNumberRecords : TestCasesBase
     {
         [Fact]

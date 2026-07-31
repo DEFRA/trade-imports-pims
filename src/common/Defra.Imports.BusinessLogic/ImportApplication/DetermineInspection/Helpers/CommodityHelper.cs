@@ -27,7 +27,7 @@
             try
             {
                 defraimp_goldbronzecommodity goldBronzeCommodity = _goldBronzeCommodityRepo.Find<defraimp_goldbronzecommodity>(
-                rule => rule.defraimp_CommodityTypeid.Id.Equals(Commodity.Id) && rule.statecode.Value.Equals(defraimp_goldbronzecommodityState.Active),
+                rule => rule.defraimp_CommodityTypeid.Id.Equals(Commodity.Id) && rule.statecode.Value.Equals(defraimp_goldbronzecommodity_statecode.Active),
                 e => new defraimp_goldbronzecommodity()
                 {
                     defraimp_goldbronzecommodityId = e.defraimp_goldbronzecommodityId,

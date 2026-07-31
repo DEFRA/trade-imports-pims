@@ -1,5 +1,6 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImportApplication.TestCases
 {
+    using System;
     using Defra.Imports.IntegrationTests.Dynamics.ImportApplication.Assertions;
     using Defra.Imports.IntegrationTests.Dynamics.ImportApplication.SampleRecords;
     using Defra.Imports.IntegrationTests.Dynamics.ImportApplication.Scenarios;
@@ -11,7 +12,6 @@
     using Defra.Imports.Model;
     using Defra.Imports.Model.ReferenceData;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
     using Xunit;
 
     [Collection("RiskRatingTests")]
@@ -173,7 +173,7 @@
                 .AssertAgainst(new ImportApplicationValidateInspectionRequired(this.context, expectedRiskLevel, expectedInspectionRequiredValue, expectedInspectionRequiredReason))
                 .AssertAgainst(new PlaceOfOriginValidateApplicationCounter(this.context, goldPlaceOfOrigin.Id, 1, 0))
                 .Delay(2000)
-                .ExecuteAction(new DeletePlaceOfOrigin(context, goldPlaceOfOrigin));
+                .ExecuteAction(new DeletePlaceOfOrigin(this.context, goldPlaceOfOrigin));
         }
 
         [Fact]

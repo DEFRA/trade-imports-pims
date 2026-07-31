@@ -274,3 +274,6 @@ tools/*.md5sum
 
 # other VS
 .vs/*
+
+# Reqnroll output
+**/*.feature.cs

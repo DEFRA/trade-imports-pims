@@ -13,6 +13,7 @@
             this.inspectionRequiredValue = inspectionRequiredValue;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_importapplication item)
         {
             item.defraimp_InspectionRequired.Should().Be(this.inspectionRequiredValue);

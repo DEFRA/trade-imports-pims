@@ -1,11 +1,11 @@
 ﻿
 namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification
 {
+    using System;
     using Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Assertions;
     using Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.SampleRecords;
     using Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Scenarios;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
     using Xunit;
 
     public class ImporterNotification_AfterCreate_ShouldFlagHealthCheckDocument : TestCasesBase
@@ -17,7 +17,7 @@ namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification
             var sampleImportNotificationData = new EnglandImporterNotification(recordService.AggregateId);
 
             recordService
-                .CreateRecord(new CreateImporterNotification(context, sampleImportNotificationData.ImporterNotification))
+                .CreateRecord(new CreateImporterNotification(this.context, sampleImportNotificationData.ImporterNotification))
                 .Delay(10000)
                 .AssertAgainst(new ImporNotificationValidateHealthCheckFlag(this.context, false))
                 .ExecuteAction(new CreateIPAFFSHealthCheckDocument(this.context))

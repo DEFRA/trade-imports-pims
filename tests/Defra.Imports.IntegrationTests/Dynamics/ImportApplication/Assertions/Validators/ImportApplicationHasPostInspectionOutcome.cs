@@ -13,6 +13,7 @@
             this.inspectionRequiredReasonValue = inspectionRequiredReasonValue;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_importapplication item)
         {
             item.defraimp_InspectionRequiredReason.Should().Be(this.inspectionRequiredReasonValue);

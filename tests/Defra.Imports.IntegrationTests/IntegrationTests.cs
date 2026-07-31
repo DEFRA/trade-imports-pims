@@ -1,14 +1,14 @@
-﻿using Microsoft.PowerPlatform.Dataverse.Client;
-using Microsoft.ServiceBus.Messaging;
-using System;
-using System.Configuration;
-using System.IO;
-using System.Net;
-using System.Text;
-using Xunit;
-
-namespace Defra.Imports.IntegrationTests
+﻿namespace Defra.Imports.IntegrationTests
 {
+    using System;
+    using System.Configuration;
+    using System.IO;
+    using System.Net;
+    using System.Text;
+    using Microsoft.PowerPlatform.Dataverse.Client;
+    using Microsoft.ServiceBus.Messaging;
+    using Xunit;
+
     [Collection("Sequential")]
     public abstract class IntegrationTests
     {
@@ -20,23 +20,23 @@ namespace Defra.Imports.IntegrationTests
         public IntegrationTests()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            _serviceBusConnectionString = ConfigurationManager.ConnectionStrings["DevServiceBusConnection"].ConnectionString;
-            _serviceBusQueueName = ConfigurationManager.AppSettings["DevServiceBusQueueName"];
-            InitaliseConnections();
+            this._serviceBusConnectionString = ConfigurationManager.ConnectionStrings["DevServiceBusConnection"].ConnectionString;
+            this._serviceBusQueueName = ConfigurationManager.AppSettings["DevServiceBusQueueName"];
+            this.InitaliseConnections();
         }
 
         public IntegrationTests(string serviceBusConnectionString, string serviceBusQueueName)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            _serviceBusConnectionString = serviceBusConnectionString;
-            _serviceBusQueueName = serviceBusQueueName;
-            InitaliseConnections();
+            this._serviceBusConnectionString = serviceBusConnectionString;
+            this._serviceBusQueueName = serviceBusQueueName;
+            this.InitaliseConnections();
         }
 
         private void InitaliseConnections()
         {
-            InitialiseDynamicsConnection();
-            InitialiseServiceBusConnection();
+            this.InitialiseDynamicsConnection();
+            this.InitialiseServiceBusConnection();
         }
 
         private void InitialiseDynamicsConnection()
@@ -46,19 +46,19 @@ namespace Defra.Imports.IntegrationTests
             {
                 throw new Exception("You need to populate the DevCdsConnection connection string in app.config");
             }
-            _orgSvc = new ServiceClient(cdsConnectionString);
+            this._orgSvc = new ServiceClient(cdsConnectionString);
         }
 
         private void InitialiseServiceBusConnection()
         {
-            _serviceBusQueueClient = QueueClient.CreateFromConnectionString(_serviceBusConnectionString, _serviceBusQueueName);
+            this._serviceBusQueueClient = QueueClient.CreateFromConnectionString(this._serviceBusConnectionString, this._serviceBusQueueName);
         }
 
         protected void SetServiceBusConnection(string serviceBusConnectionString, string serviceBusQueueName)
         {
-            _serviceBusConnectionString = serviceBusConnectionString;
-            _serviceBusQueueName = serviceBusQueueName;
-            InitialiseServiceBusConnection();
+            this._serviceBusConnectionString = serviceBusConnectionString;
+            this._serviceBusQueueName = serviceBusQueueName;
+            this.InitialiseServiceBusConnection();
         }
 
         protected void SendServiceBusMessage(string message)
@@ -66,13 +66,13 @@ namespace Defra.Imports.IntegrationTests
             MemoryStream messageStream = new MemoryStream(Encoding.UTF8.GetBytes(message));
             BrokeredMessage messageToSend = new BrokeredMessage(messageStream);
             messageToSend.SessionId = Guid.NewGuid().ToString();
-            _serviceBusQueueClient.Send(messageToSend);
+            this._serviceBusQueueClient.Send(messageToSend);
         }
 
         protected string ReadTestData(string fileName)
         {
             string filePath = $"{Directory.GetCurrentDirectory()}\\TestData\\{fileName}";
-            string fileContents = ReadFileContents(filePath);
+            string fileContents = this.ReadFileContents(filePath);
             return fileContents;
         }
 

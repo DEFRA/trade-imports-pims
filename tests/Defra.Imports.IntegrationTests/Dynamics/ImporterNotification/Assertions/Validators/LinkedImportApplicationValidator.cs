@@ -1,10 +1,10 @@
-﻿using Defra.Imports.Model;
-using FluentAssertions;
-using MarkTek.Fluent.Testing.RecordGeneration;
-using System.Linq;
-
-namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Assertions.Validators
+﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Assertions.Validators
 {
+    using System.Linq;
+    using Defra.Imports.Model;
+    using FluentAssertions;
+    using MarkTek.Fluent.Testing.RecordGeneration;
+
     public class LinkedImportApplicationValidator : ISpecificationValidator<defraimp_ImporterNotification>
     {
         private ImportsContext context;
@@ -14,6 +14,7 @@ namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Assertion
             this.context = context;
         }
 
+        /// <inheritdoc/>
         public void Validate(defraimp_ImporterNotification item)
         {
             defraimp_importapplication linkedImportApplication = this.context.defraimp_importapplicationSet.FirstOrDefault(x => x.defraimp_PrimaryImporterNotificationId.Id == item.Id);

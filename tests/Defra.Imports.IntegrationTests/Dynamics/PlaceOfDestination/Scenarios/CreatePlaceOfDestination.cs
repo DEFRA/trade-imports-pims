@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PlaceOfDestination.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
 
     public class CreatePlaceOfDestination : IRecordCreator<defraimp_PlaceOfDestination, Guid>
     {
@@ -15,6 +15,7 @@
             this.recordToCreate = recordToCreate;
         }
 
+        /// <inheritdoc/>
         public Record<defraimp_PlaceOfDestination, Guid> CreateRecord()
         {
             if (this.recordToCreate != null)

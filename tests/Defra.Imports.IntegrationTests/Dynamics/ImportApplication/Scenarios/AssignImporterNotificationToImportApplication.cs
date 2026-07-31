@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImportApplication.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
-    using System;
 
     public class AssignImporterNotificationToImportApplication : IExecutableAction<defraimp_importapplication, Guid>
     {
@@ -15,6 +15,7 @@
             this.importerNotification = importerNotification;
         }
 
+        /// <inheritdoc/>
         public void Execute(Guid id)
         {
             defraimp_importapplication importApplicationToUpdate = new defraimp_importapplication

@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PostImportCheck.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
-    using System;
 
     class SetPostImportCheckOutcome : IExecutableAction<defraimp_importinspection, Guid>
     {
@@ -17,6 +17,7 @@
             this.outcomeValue = outcomeValue;
         }
 
+        /// <inheritdoc/>
         public void Execute(Guid id)
         {
             defraimp_importinspection postImportCheckToUpdate = new defraimp_importinspection

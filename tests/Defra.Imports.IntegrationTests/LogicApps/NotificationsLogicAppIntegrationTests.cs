@@ -1,14 +1,14 @@
-﻿using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Query;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Threading;
-using Xunit;
-
-namespace Defra.Imports.IntegrationTests.LogicApps
+﻿namespace Defra.Imports.IntegrationTests.LogicApps
 {
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
+    using System.Threading;
+    using Microsoft.Xrm.Sdk;
+    using Microsoft.Xrm.Sdk.Query;
+    using Xunit;
+
     public class NotificationsLogicAppIntegrationTests : IntegrationTests
     {
         // Change this to null to run these tests
@@ -25,18 +25,18 @@ namespace Defra.Imports.IntegrationTests.LogicApps
         {
             // Arrange
             string expectedReferenceNumber = "IMP.GB.2020.1282123";
-            string jsonContents = ReadTestData("NOTIFICATION1.json");
+            string jsonContents = this.ReadTestData("NOTIFICATION1.json");
 
             // Act
-            SendServiceBusMessage(jsonContents);
+            this.SendServiceBusMessage(jsonContents);
             Thread.Sleep(150000);
 
             // Assert
-            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
             Assert.True(notifications.Count > 0);
 
             // Clear down
-            ClearDownDynamicsEntities(notifications);
+            this.ClearDownDynamicsEntities(notifications);
         }
 
         [Fact(Skip = skip)]
@@ -46,27 +46,27 @@ namespace Defra.Imports.IntegrationTests.LogicApps
             // Arrange
             string expectedReferenceNumber = "IMP.GB.2020.1462627";
             List<string> messages = new List<string>();
-            messages.Add(ReadTestData("NOTIFICATION_1_SUBMITTED.json"));
-            messages.Add(ReadTestData("NOTIFICATION_2_AMEND.json"));
-            messages.Add(ReadTestData("NOTIFICATION_3_SUBMITTED.json"));
-            messages.Add(ReadTestData("NOTIFICATION_4_AMEND.json"));
-            messages.Add(ReadTestData("NOTIFICATION_5_CANCELLED.json"));
+            messages.Add(this.ReadTestData("NOTIFICATION_1_SUBMITTED.json"));
+            messages.Add(this.ReadTestData("NOTIFICATION_2_AMEND.json"));
+            messages.Add(this.ReadTestData("NOTIFICATION_3_SUBMITTED.json"));
+            messages.Add(this.ReadTestData("NOTIFICATION_4_AMEND.json"));
+            messages.Add(this.ReadTestData("NOTIFICATION_5_CANCELLED.json"));
 
             // Act
             foreach(string jsonMessage in messages)
             {
-                SendServiceBusMessage(jsonMessage);
+                this.SendServiceBusMessage(jsonMessage);
             }
 
             Thread.Sleep(150000);
 
             // Assert
-            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
             Assert.True(notifications.Count > 0);
             Assert.True(notifications[0].GetAttributeValue<OptionSetValue>("defraimp_status").Value == 714100008);
 
             // Clear down
-            ClearDownDynamicsEntities(notifications);
+            this.ClearDownDynamicsEntities(notifications);
         }
 
         [Fact(Skip = skip)]
@@ -75,18 +75,18 @@ namespace Defra.Imports.IntegrationTests.LogicApps
         {
             // Arrange
             string expectedReferenceNumber = "IMP.GB.2020.1548741";
-            string jsonContents = ReadTestData("NOTIFICATION_NO_IDENTIFIERS.json");
+            string jsonContents = this.ReadTestData("NOTIFICATION_NO_IDENTIFIERS.json");
 
             // Act
-            SendServiceBusMessage(jsonContents);
+            this.SendServiceBusMessage(jsonContents);
             Thread.Sleep(150000);
 
             // Assert
-            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
             Assert.True(notifications.Count > 0);
 
             // Clear down
-            ClearDownDynamicsEntities(notifications);
+            this.ClearDownDynamicsEntities(notifications);
         }
 
         [Fact(Skip = skip)]
@@ -95,18 +95,18 @@ namespace Defra.Imports.IntegrationTests.LogicApps
         {
             // Arrange
             string expectedReferenceNumber = "IMP.GB.2020.1462664";
-            string jsonContents = ReadTestData("NOTIFICATION_CONTAINING_SINGLE_QUOTE.json");
+            string jsonContents = this.ReadTestData("NOTIFICATION_CONTAINING_SINGLE_QUOTE.json");
 
             // Act
-            SendServiceBusMessage(jsonContents);
+            this.SendServiceBusMessage(jsonContents);
             Thread.Sleep(150000);
 
             // Assert
-            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
             Assert.True(notifications.Count > 0);
 
             // Clear down
-            ClearDownDynamicsEntities(notifications);
+            this.ClearDownDynamicsEntities(notifications);
         }
 
         [Fact(Skip = skip)]
@@ -114,18 +114,18 @@ namespace Defra.Imports.IntegrationTests.LogicApps
         public void SendToSBQueue_NotificationWithDocuments_NotificationAndDocumentsShouldBeCreatedSuccesfully()
         {
             string expectedReferenceNumber = "IMP.GB.2020.1499116";
-            string jsonContents = ReadTestData("NOTIFICATION_WITH_DOCS.json");
+            string jsonContents = this.ReadTestData("NOTIFICATION_WITH_DOCS.json");
 
             // Act
-            SendServiceBusMessage(jsonContents);
+            this.SendServiceBusMessage(jsonContents);
             Thread.Sleep(150000);
 
             // Assert
-            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
             Assert.True(notifications.Count > 0);
 
             // Clear down
-            ClearDownDynamicsEntities(notifications);
+            this.ClearDownDynamicsEntities(notifications);
         }
 
         [Fact(Skip = skip)]
@@ -133,18 +133,18 @@ namespace Defra.Imports.IntegrationTests.LogicApps
         public void SendToSBQueue_NotificationWithCountryOfDestination_NotificationShouldBeCreatedSuccesfully()
         {
             string expectedReferenceNumber = "IMP.GB.2020.1586510";
-            string jsonContents = ReadTestData("NOTIFICATION_COUNTRY_OF_DESTINATION.json");
+            string jsonContents = this.ReadTestData("NOTIFICATION_COUNTRY_OF_DESTINATION.json");
 
             // Act
-            SendServiceBusMessage(jsonContents);
+            this.SendServiceBusMessage(jsonContents);
             Thread.Sleep(150000);
 
             // Assert
-            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
             Assert.True(notifications.Count > 0);
 
             // Clear down
-            ClearDownDynamicsEntities(notifications);
+            this.ClearDownDynamicsEntities(notifications);
         }
 
         [Fact(Skip = skip)]
@@ -152,24 +152,24 @@ namespace Defra.Imports.IntegrationTests.LogicApps
         public void SendToSBQueue_SequentialNotificationsWithDocument_NotificationShouldUpdateSequentially()
         {
             string expectedReferenceNumber = "IMP.GB.2020.1589711";
-            string jsonContents1A = ReadTestData("NOTIFICATION_SEQUENTIAL_1_A.json");
-            string jsonContents1B = ReadTestData("NOTIFICATION_SEQUENTIAL_1_B.json");
-            string jsonContents2A = ReadTestData("NOTIFICATION_SEQUENTIAL_2_A.json");
-            string jsonContents2B = ReadTestData("NOTIFICATION_SEQUENTIAL_2_B.json");
+            string jsonContents1A = this.ReadTestData("NOTIFICATION_SEQUENTIAL_1_A.json");
+            string jsonContents1B = this.ReadTestData("NOTIFICATION_SEQUENTIAL_1_B.json");
+            string jsonContents2A = this.ReadTestData("NOTIFICATION_SEQUENTIAL_2_A.json");
+            string jsonContents2B = this.ReadTestData("NOTIFICATION_SEQUENTIAL_2_B.json");
 
             // Act
-            SendServiceBusMessage(jsonContents1A);
-            SendServiceBusMessage(jsonContents1B);
-            SendServiceBusMessage(jsonContents2A);
-            SendServiceBusMessage(jsonContents2B);
+            this.SendServiceBusMessage(jsonContents1A);
+            this.SendServiceBusMessage(jsonContents1B);
+            this.SendServiceBusMessage(jsonContents2A);
+            this.SendServiceBusMessage(jsonContents2B);
             Thread.Sleep(150000);
 
             // Assert
-            List<Entity> notifications = GetNotificationsByReference(expectedReferenceNumber);
+            List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
             Assert.True(notifications.Count > 0);
 
             // Clear down
-            ClearDownDynamicsEntities(notifications);
+            this.ClearDownDynamicsEntities(notifications);
         }
 
         [Fact(Skip = skip)]
@@ -217,7 +217,7 @@ namespace Defra.Imports.IntegrationTests.LogicApps
             qe.ColumnSet.AddColumn("defraimp_name");
             qe.ColumnSet.AddColumn("defraimp_status");
 
-            EntityCollection eCollection = _orgSvc.RetrieveMultiple(qe);
+            EntityCollection eCollection = this._orgSvc.RetrieveMultiple(qe);
             return eCollection.Entities.ToList();
         }
 
@@ -225,7 +225,7 @@ namespace Defra.Imports.IntegrationTests.LogicApps
         {
             foreach(Entity entity in entitiesToDelete)
             {
-                _orgSvc.Delete(entity.LogicalName, entity.Id);
+                this._orgSvc.Delete(entity.LogicalName, entity.Id);
             }
         }
     }

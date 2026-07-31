@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.PlaceOfOrigin.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
-    using System;
 
     public class CreatePlaceOfOrigin : IRecordCreator<defraimp_placeoforigin, Guid>
     {
@@ -27,6 +27,7 @@
 
         public defraimp_placeoforigin RecordToCreate { get; }
 
+        /// <inheritdoc/>
         public Record<defraimp_placeoforigin, Guid> CreateRecord()
         {
             if (this.RecordToCreate != null)

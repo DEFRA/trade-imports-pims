@@ -1,15 +1,15 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.Transporter.SampleRecords
 {
+    using System;
     using Defra.Imports.Model;
     using Defra.Imports.Model.ReferenceData;
-    using System;
 
     public class TransporterWithData
     {
         public TransporterWithData()
         {
             Guid recordId = Guid.NewGuid();
-            Transporter = new defraimp_Transporter
+            this.Transporter = new defraimp_Transporter
             {
                 Id = recordId,
                 defraimp_Name = $"INT TEST {recordId}",

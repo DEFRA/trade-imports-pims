@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImportApplication.Scenarios
 {
+    using System;
     using Defra.Imports.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
-    using System;
 
     class SetApplicationCounter : IWaitableAction
     {
@@ -17,6 +17,7 @@
             this.value = value;
         }
 
+        /// <inheritdoc/>
         public void Execute()
         {
             defraimp_placeoforigin placeOfOriginToUpdate = new defraimp_placeoforigin

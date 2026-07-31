@@ -1,14 +1,14 @@
-﻿using Defra.Imports.Model;
-using MarkTek.Fluent.Testing.RecordGeneration;
-using System;
-
-namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Scenarios
+﻿namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Scenarios
 {
+    using System;
+    using Defra.Imports.Model;
+    using MarkTek.Fluent.Testing.RecordGeneration;
+
     public class CreateImporterNotification : IRecordCreator<defraimp_ImporterNotification, Guid>
     {
         public CreateImporterNotification(Guid id)
         {
-            RecordToCreate = new defraimp_ImporterNotification
+            this.RecordToCreate = new defraimp_ImporterNotification
             {
                 Id = id,
             };
@@ -26,13 +26,14 @@ namespace Defra.Imports.IntegrationTests.Dynamics.ImporterNotification.Scenarios
 
         public defraimp_ImporterNotification RecordToCreate { get; }
 
+        /// <inheritdoc/>
         public Record<defraimp_ImporterNotification, Guid> CreateRecord()
         {
-            if (RecordToCreate != null)
+            if (this.RecordToCreate != null)
             {
-                context.AddObject(RecordToCreate);
-                context.SaveChanges();
-                return new Record<defraimp_ImporterNotification, Guid>(RecordToCreate, RecordToCreate.Id);
+                this.context.AddObject(this.RecordToCreate);
+                this.context.SaveChanges();
+                return new Record<defraimp_ImporterNotification, Guid>(this.RecordToCreate, this.RecordToCreate.Id);
             }
             else
             {
