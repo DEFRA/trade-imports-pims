@@ -36,6 +36,14 @@
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
+    <option value="714100005" IsHidden="0">
+      <labels>
+        <label description="GBN-AG" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
     <option value="714100003" ExternalValue="" Color="#0000ff" IsHidden="0">
       <labels>
         <label description="IMP" languagecode="1033" />
