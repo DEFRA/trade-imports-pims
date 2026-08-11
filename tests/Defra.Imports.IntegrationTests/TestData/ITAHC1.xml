@@ -1,0 +1,180 @@
+﻿<ns2:intraTrade xmlns="traceswsns" xmlns:ns2="intraTrade">
+  <LastChangeDate>2019-08-30 16:27</LastChangeDate>
+  <Consignment>
+    <Id>13058454</Id>
+    <Status>new</Status>
+    <Consignor>
+      <Status>valid</Status>
+      <Name>Local Trade Company2052863</Name>
+      <Address>
+        <Street>Glen Road, 93</Street>
+        <City>
+          <PostalCode>53341</PostalCode>
+          <Name>Lázně Bohdaneč</Name>
+        </City>
+        <CountryISOCode>CZ</CountryISOCode>
+      </Address>
+      <Type>dealer</Type>
+      <ApprovalNumber>CZ 53A00414</ApprovalNumber>
+      <GeneralNumber>CZ 53A00414</GeneralNumber>
+      <TracesId>2052863</TracesId>
+    </Consignor>
+    <CertificateReferenceNumber>{0}</CertificateReferenceNumber>
+    <CertificateVersionNumber>1</CertificateVersionNumber>
+    <CentralCompetentAuthority>CZ00000</CentralCompetentAuthority>
+    <LocalCompetentAuthority>CZ00061</LocalCompetentAuthority>
+    <DestinationLocalCompetentAuthority>US00001</DestinationLocalCompetentAuthority>
+    <Consignee>
+      <Status>valid</Status>
+      <Name>International Company3063867</Name>
+      <Address>
+        <Street>Glen Road, 79</Street>
+        <City>
+          <PostalCode>16100</PostalCode>
+          <Name>Praha 614</Name>
+        </City>
+        <CountryISOCode>CZ</CountryISOCode>
+      </Address>
+      <Type>exporter</Type>
+      <ApprovalNumber>CZ 11C00869</ApprovalNumber>
+      <TracesId>3063867</TracesId>
+    </Consignee>
+    <CountryOfOrigin>CZ</CountryOfOrigin>
+    <CountryOfDestination>US</CountryOfDestination>
+    <PlaceOfOriginHarvest>
+      <Status>valid</Status>
+      <Name>General Trade Org2820029</Name>
+      <Address>
+        <Street>Station Road, 7</Street>
+        <City>
+          <PostalCode>67502</PostalCode>
+          <Name>Koněšín</Name>
+        </City>
+        <CountryISOCode>CZ</CountryISOCode>
+      </Address>
+      <Type>poultry_farm</Type>
+      <ApprovalNumber>CZ61079665</ApprovalNumber>
+      <GeneralNumber>CZ 61079665</GeneralNumber>
+      <TracesId>2820029</TracesId>
+    </PlaceOfOriginHarvest>
+    <PlaceOfDestination>
+      <Status>pre-valid</Status>
+      <Name>Local Trade Company5471422</Name>
+      <Address>
+        <Street>School Lane, 24</Street>
+        <City>
+          <PostalCode>Iowa</PostalCode>
+          <Name>Waukee</Name>
+        </City>
+        <CountryISOCode>US</CountryISOCode>
+      </Address>
+      <Type>poultry_farm</Type>
+      <ApprovalNumber>US6922</ApprovalNumber>
+      <TracesId>5471422</TracesId>
+    </PlaceOfDestination>
+    <PlaceOfLoading>
+      <Status>valid</Status>
+      <Name>General Trade Org2820029</Name>
+      <Address>
+        <Street>Station Road, 7</Street>
+        <City>
+          <PostalCode>67502</PostalCode>
+          <Name>Koněšín</Name>
+        </City>
+        <CountryISOCode>CZ</CountryISOCode>
+      </Address>
+      <Type>poultry_farm</Type>
+      <ApprovalNumber>CZ61079665</ApprovalNumber>
+      <GeneralNumber>CZ 61079665</GeneralNumber>
+      <TracesId>2820029</TracesId>
+    </PlaceOfLoading>
+    <DepartureDateTime>2019-06-29 06:00</DepartureDateTime>
+    <MeansOfTransport>
+      <Means>plane</Means>
+      <Identification>BA857/29jun, BA185/30, 125-83054285</Identification>
+      <Document>5J9 61 21,BA857/29jun, BA185/30</Document>
+    </MeansOfTransport>
+    <Transporter>
+      <Status>valid</Status>
+      <Name>Global Trade Company3561811</Name>
+      <Address>
+        <Street>Church Street, 45</Street>
+        <City>
+          <PostalCode>67502</PostalCode>
+          <Name>Koněšín</Name>
+        </City>
+        <CountryISOCode>CZ</CountryISOCode>
+      </Address>
+      <Type>com_transport</Type>
+      <ApprovalNumber>CZ61906529</ApprovalNumber>
+      <GeneralNumber>CZ61906529</GeneralNumber>
+      <TracesId>3561811</TracesId>
+    </Transporter>
+    <CommodityComplements>
+      <CommodityComplement>
+        <CommodityCode>04071100</CommodityCode>
+        <ComplementID>172301</ComplementID>
+        <SpeciesType>oefscouver</SpeciesType>
+        <SpeciesModel>10524</SpeciesModel>
+        <Species>
+          <SpeciesID>10016208</SpeciesID>
+          <SpeciesNomination>Gallus gallus</SpeciesNomination>
+        </Species>
+      </CommodityComplement>
+    </CommodityComplements>
+    <IncludeNonAblactedAnimals>false</IncludeNonAblactedAnimals>
+    <IdentificationOfAnimals>
+      <IdentificationParameterSet>
+        <IdentificationParameter>
+          <Key>complement</Key>
+          <Data>172301</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>species</Key>
+          <Data>10016208</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>category</Key>
+          <Data>others</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>approval_number</Key>
+          <Data>CZ 61079665</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>ident</Key>
+          <Data>CZ 61112056-00H0-03/2018</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>age</Key>
+          <Data>29/06/2019</Data>
+        </IdentificationParameter>
+        <IdentificationParameter>
+          <Key>type_package</Key>
+          <Data/>
+        </IdentificationParameter>
+      </IdentificationParameterSet>
+    </IdentificationOfAnimals>
+    <NumberOfAnimalsGrossWeight>21600</NumberOfAnimalsGrossWeight>
+    <Packages>
+      <NumberOfPackages>60</NumberOfPackages>
+    </Packages>
+    <AnimalCertifiedAs>Breeding</AnimalCertifiedAs>
+    <TransitInMemberStates>
+      <MemberStateISOCode>GB</MemberStateISOCode>
+    </TransitInMemberStates>
+    <Export>
+      <ThirdCountry>US</ThirdCountry>
+      <ExitPoint>GBLHR4 </ExitPoint>
+    </Export>
+    <ResponsibleTransportJourney>přepravce</ResponsibleTransportJourney>
+    <PlaceAndDateOfDeclaration>
+      <FirstName>Alison</FirstName>
+      <LastName>Jones</LastName>
+      <eMail>Alison.Jones@424683.cz</eMail>
+      <Phone>568620442</Phone>
+      <Fax>568620442</Fax>
+      <SignatureDate>2019-06-18 09:45</SignatureDate>
+    </PlaceAndDateOfDeclaration>
+  </Consignment>
+</ns2:intraTrade>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{96520536-94bf-ea11-a812-000d3ab6d757}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_itahcid">
+          <cell name="defraimp_healthcertificatenumber" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_certificatestatus" width="100" />
+          <cell name="defraimp_tracesreceiveddate" width="100" />
+          <cell name="defraimp_ovname" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_localveterinaryunit" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_lvuno" width="100" />
+          <cell name="defraimp_replacedbyid" width="100" />
+          <cell name="defraimp_replacesid" width="100" />
+          <cell name="createdon" width="125" />
+          <cell name="ownerid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="defraimp_itahc">
+          <attribute name="defraimp_name" />
+          <attribute name="createdon" />
+          <attribute name="defraimp_healthcertificatenumber" />
+          <attribute name="defraimp_ovname" />
+          <attribute name="defraimp_localveterinaryunit" />
+          <attribute name="defraimp_replacesid" />
+          <attribute name="defraimp_replacedbyid" />
+          <attribute name="defraimp_tracesreceiveddate" />
+          <attribute name="defraimp_lvuno" />
+          <attribute name="defraimp_certificatestatus" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+            <condition attribute="defraimp_devolvedoffice" operator="eq" uiname="IRMS - Scotland" uitype="team" value="{6BDC7830-0206-EA11-A811-000D3AB5D511}" />
+          </filter>
+          <attribute name="defraimp_itahcid" />
+          <attribute name="ownerid" />
+          <order attribute="createdon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.69</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Scotland - Inactive ITAHCs" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

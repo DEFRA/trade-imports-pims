@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{52e6fb6f-fe1f-4a32-86ed-d244fe7d10f5}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_itahcid">
+          <cell name="defraimp_healthcertificatenumber" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_certificatestatus" width="100" />
+          <cell name="defraimp_tracesreceiveddate" width="100" />
+          <cell name="defraimp_ovname" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_localveterinaryunit" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_lvuno" width="100" />
+          <cell name="defraimp_replacedbyid" width="100" />
+          <cell name="defraimp_replacesid" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="defraimp_itahc">
+          <attribute name="defraimp_name" />
+          <attribute name="createdon" />
+          <attribute name="defraimp_healthcertificatenumber" />
+          <attribute name="defraimp_ovname" />
+          <attribute name="defraimp_localveterinaryunit" />
+          <attribute name="defraimp_replacesid" />
+          <attribute name="defraimp_replacedbyid" />
+          <attribute name="defraimp_tracesreceiveddate" />
+          <attribute name="defraimp_lvuno" />
+          <attribute name="defraimp_certificatestatus" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+            <filter type="or">
+              <filter type="and">
+                <condition attribute="defraimp_countryoforiginid" operator="ne" uiname="Republic of Ireland" uitype="defra_country" value="{FE9BB7ED-B2D3-E911-A861-000D3AB1DAD7}" />
+                <condition attribute="defraimp_placeofdestinationaddresscountryid" operator="ne" uiname="Northern Ireland" uitype="defra_country" value="{DFCCE526-BB36-EA11-A813-000D3AB4DF6C}" />
+              </filter>
+              <filter type="and">
+                <condition attribute="defraimp_countryoforiginid" operator="ne" uiname="Republic of Ireland" uitype="defra_country" value="{FE9BB7ED-B2D3-E911-A861-000D3AB1DAD7}" />
+                <condition attribute="defraimp_placeofdestinationaddresscountryid" operator="eq" uiname="Northern Ireland" uitype="defra_country" value="{DFCCE526-BB36-EA11-A813-000D3AB4DF6C}" />
+              </filter>
+              <filter type="and">
+                <condition attribute="defraimp_countryoforiginid" operator="eq" uiname="Republic of Ireland" uitype="defra_country" value="{FE9BB7ED-B2D3-E911-A861-000D3AB1DAD7}" />
+                <condition attribute="defraimp_placeofdestinationaddresscountryid" operator="ne" uiname="Northern Ireland" uitype="defra_country" value="{DFCCE526-BB36-EA11-A813-000D3AB4DF6C}" />
+              </filter>
+            </filter>
+          </filter>
+          <attribute name="defraimp_itahcid" />
+          <order attribute="createdon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive ITAHCs" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

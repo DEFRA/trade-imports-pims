@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{389096be-329a-43f5-9d43-07efb572c6f5}</formid>
+    <IntroducedVersion>0.0.0.56</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{050854af-b26f-41c5-bec3-6b09d574e760}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="Place of Origin Details" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{b2c782df-9444-4932-aca1-22faa6cace6f}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8e243211-7a9a-410c-9e10-922a1304fe55}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignorcompanyname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignorcompanyname" disabled="false" uniqueid="{89dd00c7-dccc-b8a6-1bec-6bc3c385007b}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eccafdeb-a421-4af3-8a5d-e034ca5562c6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Address Line 1" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddressaddressline1" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignoraddressaddressline1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5c9c12cd-509b-4fc1-b754-23b850a01f53}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Address Line 2" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddressaddressline2" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignoraddressaddressline2" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{20d8eb54-ce80-4ce1-a001-8fd64cf2437d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Address Line 3" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddressaddressline3" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignoraddressaddressline3" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bb57fb92-223b-4894-ba25-89765459149f}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Address City" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddresscity" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignoraddresscity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{513737e5-52d1-49fe-bef2-6ebd93bedd7b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Address Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddresspostalzipcode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignoraddresspostalzipcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cd728e3e-5477-47a2-a80f-10f6822f44eb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Address Country" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignoraddresscountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_consignoraddresscountryid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2f24192f-2fd1-48c3-acf5-328bda6882a6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Approval Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignorapprovalnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignorapprovalnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1e80f8cd-421a-4e86-9ffc-0f2f041db45c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Origin Other Identifier" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consignorotheridentifier" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_consignorotheridentifier" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="4">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Place of Origin Details" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

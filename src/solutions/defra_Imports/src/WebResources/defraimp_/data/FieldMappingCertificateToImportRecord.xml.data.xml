@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{2fc69c00-f25b-ea11-a811-000d3ab5d511}</WebResourceId>
+  <Name>defraimp_/data/FieldMappingCertificateToImportRecord.xml</Name>
+  <DisplayName>FieldMappingCertificateToImportRecord.xml</DisplayName>
+  <WebResourceType>4</WebResourceType>
+  <IntroducedVersion>0.0.0.12</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/defraimp_dataFieldMappingCertificateToImportRecord2FC69C00-F25B-EA11-A811-000D3AB5D511</FileName>
+</WebResource>

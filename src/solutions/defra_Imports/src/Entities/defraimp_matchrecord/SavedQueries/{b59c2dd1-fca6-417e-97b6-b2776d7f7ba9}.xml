@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{b59c2dd1-fca6-417e-97b6-b2776d7f7ba9}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_matchrecordid">
+          <cell name="defraimp_itahc" width="130" />
+          <cell name="defraimp_importernotification" width="170" />
+          <cell name="statuscode" width="120" />
+          <cell name="defraimp_overallmatchrating" width="170" />
+          <cell name="createdon" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="defraimp_matchrecord">
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statuscode" operator="eq" value="2" />
+          </filter>
+          <attribute name="defraimp_itahc" />
+          <attribute name="defraimp_importernotification" />
+          <attribute name="defraimp_overallmatchrating" />
+          <attribute name="statuscode" />
+          <order attribute="createdon" descending="true" />
+          <attribute name="defraimp_matchrecordid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.50</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Match Records Verified by Case Worker" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

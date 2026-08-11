@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.26065.168" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26065.168" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.26065.00168">
+  <SolutionManifest>
+    <UniqueName>defra_Imports</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="DEFRA - Imports" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0</Version>
+    <Managed>2</Managed>
+    <Publisher>
+      <UniqueName>defraimports</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="DEFRA IMPORTS" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress xsi:nil="true">
+      </EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true">
+      </SupportingWebsiteUrl>
+      <CustomizationPrefix>defraimp</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>71410</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true">
+          </City>
+          <County xsi:nil="true">
+          </County>
+          <Country xsi:nil="true">
+          </Country>
+          <Fax xsi:nil="true">
+          </Fax>
+          <FreightTermsCode xsi:nil="true">
+          </FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true">
+          </ImportSequenceNumber>
+          <Latitude xsi:nil="true">
+          </Latitude>
+          <Line1 xsi:nil="true">
+          </Line1>
+          <Line2 xsi:nil="true">
+          </Line2>
+          <Line3 xsi:nil="true">
+          </Line3>
+          <Longitude xsi:nil="true">
+          </Longitude>
+          <Name xsi:nil="true">
+          </Name>
+          <PostalCode xsi:nil="true">
+          </PostalCode>
+          <PostOfficeBox xsi:nil="true">
+          </PostOfficeBox>
+          <PrimaryContactName xsi:nil="true">
+          </PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true">
+          </StateOrProvince>
+          <Telephone1 xsi:nil="true">
+          </Telephone1>
+          <Telephone2 xsi:nil="true">
+          </Telephone2>
+          <Telephone3 xsi:nil="true">
+          </Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true">
+          </TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true">
+          </UPSZone>
+          <UTCOffset xsi:nil="true">
+          </UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true">
+          </UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true">
+          </City>
+          <County xsi:nil="true">
+          </County>
+          <Country xsi:nil="true">
+          </Country>
+          <Fax xsi:nil="true">
+          </Fax>
+          <FreightTermsCode xsi:nil="true">
+          </FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true">
+          </ImportSequenceNumber>
+          <Latitude xsi:nil="true">
+          </Latitude>
+          <Line1 xsi:nil="true">
+          </Line1>
+          <Line2 xsi:nil="true">
+          </Line2>
+          <Line3 xsi:nil="true">
+          </Line3>
+          <Longitude xsi:nil="true">
+          </Longitude>
+          <Name xsi:nil="true">
+          </Name>
+          <PostalCode xsi:nil="true">
+          </PostalCode>
+          <PostOfficeBox xsi:nil="true">
+          </PostOfficeBox>
+          <PrimaryContactName xsi:nil="true">
+          </PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true">
+          </StateOrProvince>
+          <Telephone1 xsi:nil="true">
+          </Telephone1>
+          <Telephone2 xsi:nil="true">
+          </Telephone2>
+          <Telephone3 xsi:nil="true">
+          </Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true">
+          </TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true">
+          </UPSZone>
+          <UTCOffset xsi:nil="true">
+          </UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true">
+          </UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="defra_country" behavior="2" />
+      <RootComponent type="1" schemaName="defraexp_commoditytype" behavior="2" />
+      <RootComponent type="1" schemaName="defraimp_apharegion" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_autonumber" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_commoditycomplement" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_commoditycomplementparameterset" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_commoditytypemapping" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_consignee" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_counterhistory" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_cved" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_docom" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_goldbronzecommodity" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_importapplication" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_importapplicationbusinessprocessflow" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_importcountrycommodityrisklevel" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_importernotification" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_importinspection" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_importquery" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_importrisklevel" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_imptype" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_inspectioncoveragerule" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_ipaffsdocument" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_itahc" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_matchconfiguration" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_matchconfigurationfield" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_matchrecord" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_matchrecordbusinessprocessflow" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_notificationpermanentaddress" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_parametersetidentifier" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_parametersetkeydatapair" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_placeofdestination" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_placeoforigin" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_postcoderegion" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_sampletest" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_transporter" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_veterinarian" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_watchflag" behavior="0" />
+      <RootComponent type="1" schemaName="defraimp_watchlist" behavior="0" />
+      <RootComponent type="1" schemaName="processsession" behavior="2" />
+      <RootComponent type="1" schemaName="syncerror" behavior="2" />
+      <RootComponent type="1" schemaName="team" behavior="0" />
+      <RootComponent type="20" id="{25129d52-5df6-e911-a813-000d3ab5d511}" behavior="0" />
+      <RootComponent type="20" id="{69e3969a-e8fb-e911-a813-000d3ab4de89}" behavior="0" />
+      <RootComponent type="20" id="{b1d76a5b-c7da-e911-a863-000d3ab0da57}" behavior="0" />
+      <RootComponent type="20" id="{f9e6fead-cada-e911-a863-000d3ab0da57}" behavior="0" />
+      <RootComponent type="29" id="{00a435dd-6f3a-4e04-89d6-ace88292a8ee}" behavior="0" />
+      <RootComponent type="29" id="{01e2b7a0-bbfd-40e7-94ec-b749ab865c80}" behavior="0" />
+      <RootComponent type="29" id="{04757b7d-f2c1-ea11-a812-000d3ab6d757}" behavior="0" />
+      <RootComponent type="29" id="{06ffef68-c34b-4f42-84fc-fef953734b95}" behavior="0" />
+      <RootComponent type="29" id="{08f362b7-f5dd-480f-aafa-0fecf5c0fb4b}" behavior="0" />
+      <RootComponent type="29" id="{0ac6c7e1-2722-ed11-b83d-000d3ab79b3c}" behavior="0" />
+      <RootComponent type="29" id="{0b8b4517-7624-ed11-b83d-000d3ab796ea}" behavior="0" />
+      <RootComponent type="29" id="{0f422596-bd16-ea11-a811-000d3ab4df6c}" behavior="0" />
+      <RootComponent type="29" id="{1089028f-74d7-44db-a0f2-48448b2979cd}" behavior="0" />
+      <RootComponent type="29" id="{144314d6-3905-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="29" id="{14cb109e-3edd-4841-ac4e-9b53c4991b0d}" behavior="0" />
+      <RootComponent type="29" id="{17de83cc-724b-4200-91d1-a4d9d1a8de84}" behavior="0" />
+      <RootComponent type="29" id="{1993fd67-23ba-ea11-a812-000d3ab6d757}" behavior="0" />
+      <RootComponent type="29" id="{1b17a35b-2906-ea11-a811-000d3ab4df6c}" behavior="0" />
+      <RootComponent type="29" id="{2152e3cd-0fb3-4708-8ee3-de3754018b3f}" behavior="0" />
+      <RootComponent type="29" id="{228727eb-9266-ee11-9ae7-002248993591}" behavior="0" />
+      <RootComponent type="29" id="{2330d4bc-ff0a-ea11-a811-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{250640d9-cf09-453e-a308-7c6e8137c9d0}" behavior="0" />
+      <RootComponent type="29" id="{27112bad-000b-ea11-a811-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{2a7f5da7-be16-ea11-a811-000d3ab4df6c}" behavior="0" />
+      <RootComponent type="29" id="{2c203d96-ce22-ed11-b83d-000d3ab79b3c}" behavior="0" />
+      <RootComponent type="29" id="{2fab0589-137a-46d3-88b5-0a12c0b66a0f}" behavior="0" />
+      <RootComponent type="29" id="{35ddca57-47e9-459d-9900-7505b63f87cd}" behavior="0" />
+      <RootComponent type="29" id="{3c742262-501e-4dfc-ae26-ab031f3fc0c9}" behavior="0" />
+      <RootComponent type="29" id="{3e5b8300-01bb-44af-9e18-373c5bd9fc04}" behavior="0" />
+      <RootComponent type="29" id="{3faa9a4b-79fb-4d13-b3a7-ece77bfe5d74}" behavior="0" />
+      <RootComponent type="29" id="{406b75a0-4247-ea11-a812-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{4224ee3d-372a-ee11-bdf4-002248993591}" behavior="0" />
+      <RootComponent type="29" id="{43e28d46-c38c-497a-909c-b0383f9a5cc1}" behavior="0" />
+      <RootComponent type="29" id="{48313ab0-8b0c-46c9-8c91-5e7cf72f968e}" behavior="0" />
+      <RootComponent type="29" id="{49cf5f49-4caa-4134-910e-d37c42172529}" behavior="0" />
+      <RootComponent type="29" id="{4c771c2f-91e2-4c3c-be0a-d6786ef067ae}" behavior="0" />
+      <RootComponent type="29" id="{4cb2a889-2df6-ec11-bb3d-000d3a6669b1}" behavior="0" />
+      <RootComponent type="29" id="{4d5fc66d-6654-ed11-bba2-0022489934c8}" behavior="0" />
+      <RootComponent type="29" id="{4e150822-a248-4154-baf7-ba9cfa68a205}" behavior="0" />
+      <RootComponent type="29" id="{55189b85-5f05-ea11-a811-000d3ab4df6c}" behavior="0" />
+      <RootComponent type="29" id="{56767681-44dc-4754-9f0c-1c9e9e21dccf}" behavior="0" />
+      <RootComponent type="29" id="{57ddd6be-78ea-e911-a812-000d3ab4de89}" behavior="0" />
+      <RootComponent type="29" id="{59963442-a70b-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="29" id="{5b7a12f4-39e1-ea11-a813-000d3ad82cac}" behavior="0" />
+      <RootComponent type="29" id="{60c5f57c-d353-ea11-a812-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{60e364fb-1441-43d8-840f-175467a1c4d8}" behavior="0" />
+      <RootComponent type="29" id="{63759ca0-cdb8-419d-94c0-b3889c273500}" behavior="0" />
+      <RootComponent type="29" id="{66243c2d-ffd5-41d7-9f4c-75a6b2cb57fb}" behavior="0" />
+      <RootComponent type="29" id="{67c0c922-592f-ed11-9db0-000d3ade26a9}" behavior="0" />
+      <RootComponent type="29" id="{6b190ab1-0204-4443-9da2-b00d6cf3249d}" behavior="0" />
+      <RootComponent type="29" id="{6e484443-28c3-4401-b8d1-81f4c8f92c9f}" behavior="0" />
+      <RootComponent type="29" id="{71182e61-7ae2-4ace-8471-8429c48ff575}" behavior="0" />
+      <RootComponent type="29" id="{71cc5034-4817-ea11-a811-000d3ab4de89}" behavior="0" />
+      <RootComponent type="29" id="{73b912d0-7cd9-4634-a306-feb049d7c55e}" behavior="0" />
+      <RootComponent type="29" id="{7436faae-9a22-4821-9a1b-2aa5a22be272}" behavior="0" />
+      <RootComponent type="29" id="{7f26a3b6-ad0b-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="29" id="{821f5e26-f54c-ea11-a812-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{83bd80ca-a50b-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="29" id="{87dd8ce2-86a6-451b-b59b-838aa9f9b05a}" behavior="0" />
+      <RootComponent type="29" id="{8842b32a-5c26-4cd1-b710-04dfe5fcb73c}" behavior="0" />
+      <RootComponent type="29" id="{8a71fbfe-fb22-ed11-b83d-000d3ab79b3c}" behavior="0" />
+      <RootComponent type="29" id="{8b8a67d2-dae9-e911-a850-000d3ab0d281}" behavior="0" />
+      <RootComponent type="29" id="{8c09794a-1388-4113-b508-46dde8a56422}" behavior="0" />
+      <RootComponent type="29" id="{8f3cdfb3-020b-ea11-a811-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{8f74e594-0f1d-4d12-9908-69a7bc0d5ade}" behavior="0" />
+      <RootComponent type="29" id="{907a4f63-7951-ea11-a812-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{92134604-b04f-49d5-9861-1d98ed56195d}" behavior="0" />
+      <RootComponent type="29" id="{978333a7-fa09-4b8f-86c9-d559217d6d0d}" behavior="0" />
+      <RootComponent type="29" id="{9813a24f-0c73-45f1-b0f0-c1d7f239417f}" behavior="0" />
+      <RootComponent type="29" id="{983091aa-830b-ea11-a811-000d3ab4df6c}" behavior="0" />
+      <RootComponent type="29" id="{9da4c4a0-40f4-42bc-94d6-9f3a4a766acb}" behavior="0" />
+      <RootComponent type="29" id="{9df20ad4-00b1-41fa-bb75-47e2cac44ea5}" behavior="0" />
+      <RootComponent type="29" id="{9e985881-d253-ea11-a812-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{9f4acf99-bbf1-e911-a812-000d3ab5d511}" behavior="0" />
+      <RootComponent type="29" id="{a0d4afa0-82b0-ea11-a812-000d3ab6d757}" behavior="0" />
+      <RootComponent type="29" id="{a49eeb1b-f42a-4320-b98d-d6e3740bcca7}" behavior="0" />
+      <RootComponent type="29" id="{a8fe68d8-bd16-ea11-a811-000d3ab4df6c}" behavior="0" />
+      <RootComponent type="29" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" behavior="0" />
+      <RootComponent type="29" id="{af1985db-030b-ea11-a811-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{b45cc4dd-8a6d-4f16-8ffe-27c8c6412918}" behavior="0" />
+      <RootComponent type="29" id="{b8d9b874-fabf-4334-9be7-7aca44bb1f44}" behavior="0" />
+      <RootComponent type="29" id="{b91bf1d4-9646-ea11-a812-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{ba312601-c129-eb11-a813-000d3ab6d757}" behavior="0" />
+      <RootComponent type="29" id="{bcce9613-9d88-4efc-91f5-b616a276fc45}" behavior="0" />
+      <RootComponent type="29" id="{bcd3cec5-de90-48d6-8ad1-fe16a6757203}" behavior="0" />
+      <RootComponent type="29" id="{c5a43069-0e4f-ea11-a812-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{c64b79df-b60b-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="29" id="{ca957b73-8543-497d-85c4-721e9af2b265}" behavior="0" />
+      <RootComponent type="29" id="{cabdab36-a90b-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="29" id="{cc64fbfb-040b-ea11-a811-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{ce9482a3-6d45-4a8d-afff-d0dca3ca45ae}" behavior="0" />
+      <RootComponent type="29" id="{d141b634-bb78-4f2e-b00d-65a1753686f2}" behavior="0" />
+      <RootComponent type="29" id="{d46ca293-a767-ea11-a811-000d3ab55801}" behavior="0" />
+      <RootComponent type="29" id="{d5f0f569-4647-ea11-a812-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{d7dde738-9789-467f-9660-a5fcb26b24c8}" behavior="0" />
+      <RootComponent type="29" id="{d84e5002-234f-ea11-a812-000d3ab5d037}" behavior="0" />
+      <RootComponent type="29" id="{dd720cf2-efb0-4fc0-bd5b-621cd935a9ed}" behavior="0" />
+      <RootComponent type="29" id="{dd8fde17-ab0b-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="29" id="{e152bff5-2d25-ed11-b83d-000d3ab79b3c}" behavior="0" />
+      <RootComponent type="29" id="{e6952b8c-a24c-4b35-bb9a-3319bfcc2326}" behavior="0" />
+      <RootComponent type="29" id="{e7774999-a694-4ff1-85bc-d729098859e2}" behavior="0" />
+      <RootComponent type="29" id="{e9584e25-6c19-4387-8fb0-6df5c50bd898}" behavior="0" />
+      <RootComponent type="29" id="{ebc2455f-0dcc-ea11-a812-000d3ad82cac}" behavior="0" />
+      <RootComponent type="29" id="{f0c6c4e7-23ba-ea11-a812-000d3ab6d757}" behavior="0" />
+      <RootComponent type="29" id="{f5f5f357-5a05-ea11-a811-000d3ab4df6c}" behavior="0" />
+      <RootComponent type="29" id="{f6bd2107-d98b-486c-9fc8-4796525b0a1b}" behavior="0" />
+      <RootComponent type="29" id="{faebb9a6-b70b-ea11-a811-000d3ab4df6c}" behavior="0" />
+      <RootComponent type="29" id="{fc948f09-a90b-ea11-a811-000d3ab35da5}" behavior="0" />
+      <RootComponent type="29" id="{ff1484f0-d0bf-435b-a330-7d5858acb9dd}" behavior="0" />
+      <RootComponent type="60" id="{57f42ca5-ba12-ea11-a811-000d3ab5d037}" behavior="0" />
+      <RootComponent type="60" id="{588c9da2-5b10-ea11-a811-000d3ab55801}" behavior="0" />
+      <RootComponent type="60" id="{5df344c9-8b0b-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="60" id="{7721a0e0-3911-ea11-a811-000d3ab35da5}" behavior="0" />
+      <RootComponent type="60" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" behavior="0" />
+      <RootComponent type="60" id="{a370b0a9-940f-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="60" id="{a5086809-3f10-ea11-a811-000d3ab55801}" behavior="0" />
+      <RootComponent type="60" id="{aa8b8e14-efd2-e911-a9a2-000d3ab6e833}" behavior="0" />
+      <RootComponent type="60" id="{f97149d6-b312-ea11-a811-000d3ab5d037}" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/data/FieldMappingCertificateToImportRecord.xml" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/data/FieldMappingNotificationToImportRecord.xml" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/data/matchfieldmappingimporternotificationtoimportrecord" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/data/matchfieldmappingitahctoimportrecord" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/js/importernotification.form.js" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/js/importernotification.ribbon.js" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/js/importquery.ribbon.js" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/js/importrecord.form.js" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/js/importrecord.ribbon.js" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/js/itahc.ribbon.js" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/js/matchrecord.subgrid.ribbon.js" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/js/postimportcheck.form.js" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.apharegion.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.apharegion.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.commoditytypemapping.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.commoditytypemapping.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.countryoftransit.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.countryoftransit.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.goldbronzecommodity.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.goldbronzecommodity.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importapplication.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importapplication.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importcountrycommodityrisklevel.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importcountrycommodityrisklevel.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importnotfication.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importnotification.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importquery.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importquery.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importrisklevel.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.importrisklevel.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.inspection.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.inspection.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.inspectioncoveragerule.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.inspectioncoveragerule.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.itahc.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.itahc.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.matchrecord.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.matchrecord.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.placeoforigin.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.placeoforigin.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.postimportcheck.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.postimportcheck.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.sampletest.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.sampletest.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.sampletest.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.watchlist.16.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/png/icon.watchlist.32.png" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.apharegion.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.commoditytypemapping.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.countryoftransit.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.goldbronzecommodity.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.importapplication.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.importcountrycommodityrisklevel.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.importnotification.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.importquery.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.importqueryclone.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.importrisklevel.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.inspection.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.inspectioncoveragerule.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.ipaffs.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.itahc.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.matchrecord.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.placeoforigin.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.postimportcheck.svg" behavior="0" />
+      <RootComponent type="61" schemaName="defraimp_/svg/icon.watchlist.svg" behavior="0" />
+      <RootComponent type="62" schemaName="defraimp_EUImportsApp" behavior="0" />
+      <RootComponent type="80" schemaName="defraimp_EUImportsApp" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_animalcertifiedas" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_certificatestatus" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_certifiedfor" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_importernotificationstatus" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_importernotificationtype" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_importregions" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_internalmarketpurpose" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_matchfieldtype" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_meansoftransport" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_noncompliancestatus" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_noncompliancetype" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_noncompliancetypenotification" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_officialvetcapacity" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_pimsstatus" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_placeofdestinationtype" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_processstatus" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_purposeofconsignment" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_reasonfornoncompliance" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_reasonfornotvisiting" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_reasonforunsatisfactoryvisit" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_transportertype" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_trustlevel" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_ukcountries" behavior="0" />
+      <RootComponent type="9" schemaName="defraimp_watchtype" behavior="0" />
+      <RootComponent type="91" id="{cec94a4e-6452-ea11-a812-000d3ab5d037}" schemaName="Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" behavior="0" />
+      <RootComponent type="91" id="{f3938a14-f2e8-e911-a866-000d3ab0dc71}" schemaName="Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" behavior="0" />
+      <RootComponent type="92" id="{0e7df635-717b-eb11-a812-000d3adc8a8f}" behavior="0" />
+      <RootComponent type="92" id="{0eb982f6-642a-eb11-a813-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{17506dd4-5bc0-ea11-a812-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{193e27ab-5cc0-ea11-a812-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{1b789195-e069-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="92" id="{1f85eb5c-7393-ea11-a811-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{1f928bc7-f0c1-ea11-a812-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{233e27ab-5cc0-ea11-a812-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{2a56544c-7917-eb11-a813-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{2fc4d371-beba-ea11-a812-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{32e10634-717b-eb11-a812-000d3adc856b}" behavior="0" />
+      <RootComponent type="92" id="{3456544c-7917-eb11-a813-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{36c32096-e069-ea11-a811-000d3ab55801}" behavior="0" />
+      <RootComponent type="92" id="{3cf224ef-b3e7-ea11-a817-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{41f224ef-b3e7-ea11-a817-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{45f224ef-b3e7-ea11-a817-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{467831bb-5dc0-ea11-a812-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{4994a8ae-1878-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="92" id="{57f3f1ed-b3e7-ea11-a817-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{78c12096-e069-ea11-a811-000d3ab55801}" behavior="0" />
+      <RootComponent type="92" id="{82f67202-7f2a-eb11-a813-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{a1f67202-7f2a-eb11-a813-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{a4a030e1-e8c1-ea11-a812-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{bb34256c-d52f-eb11-a813-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{d4b52851-b28f-ea11-a811-000d3ad82cac}" behavior="0" />
+      <RootComponent type="92" id="{e2b32472-d52f-eb11-a813-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{e8e6e15c-046a-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="92" id="{ee1bb56f-beba-ea11-a812-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{ef779195-e069-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="92" id="{efb882f6-642a-eb11-a813-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{f1e6e15c-046a-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="92" id="{f417a8b4-1878-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="92" id="{f9b882f6-642a-eb11-a813-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{fb4c78fe-7e2a-eb11-a813-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{fcc8d1a7-3d2f-eb11-a813-000d3ad82cac}" behavior="0" />
+    </RootComponents>
+    <MissingDependencies />
+  </SolutionManifest>
+</ImportExportXml>

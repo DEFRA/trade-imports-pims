@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{5ae9b2db-d505-4bae-93f8-6cb86a9da5dc}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_commoditycomplementid">
+          <cell name="defraimp_commodityid" width="125" />
+          <cell name="defraimp_commoditydescription" width="200" />
+          <cell name="defraimp_complementid" width="150" />
+          <cell name="defraimp_name" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_speciesid" width="150" />
+          <cell name="defraimp_speciesname" width="150" />
+          <cell name="defraimp_speciesnomination" width="150" />
+          <cell name="defraimp_speciestype" width="150" />
+          <cell name="defraimp_speciestypename" width="150" />
+          <cell name="defraimp_speciesfamily" width="150" />
+          <cell name="defraimp_speciesfamilyname" width="150" />
+          <cell name="defraimp_speciesclass" width="150" />
+          <cell name="defraimp_speciesclassname" width="150" />
+          <cell name="defraimp_speciescommonname" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="defraimp_commoditycomplement">
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="defraimp_commodityid" />
+          <attribute name="defraimp_commoditydescription" />
+          <attribute name="defraimp_complementid" />
+          <attribute name="defraimp_speciesid" />
+          <attribute name="defraimp_speciesname" />
+          <attribute name="defraimp_speciesnomination" />
+          <attribute name="defraimp_speciestype" />
+          <attribute name="defraimp_speciestypename" />
+          <attribute name="defraimp_speciesfamily" />
+          <attribute name="defraimp_speciesfamilyname" />
+          <attribute name="defraimp_speciescommonname" />
+          <attribute name="defraimp_speciesclassname" />
+          <attribute name="defraimp_speciesclass" />
+          <attribute name="defraimp_name" />
+          <attribute name="defraimp_commoditycomplementid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.49</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Commodity Complements" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

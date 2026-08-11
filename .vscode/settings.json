@@ -1,0 +1,8 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/npm-debug.log": true,
+    "**/obj/": true,
+    "**/.vs/": true
+  }
+}

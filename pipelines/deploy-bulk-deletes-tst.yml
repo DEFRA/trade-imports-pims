@@ -1,0 +1,29 @@
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - data/deletion/*
+
+pool:
+  vmImage: windows-latest
+
+resources:
+  repositories:
+    - repository: power-pipelines
+      name: ewingjm/power-pipelines
+      ref: refs/heads/main
+      type: github
+      endpoint: github.com_ewingjm
+
+variables:
+  - group: Environment - Imports - TST
+
+extends:
+  template: templates/power-platform/pipelines/sync-bulk-deletes-pipeline.yml@power-pipelines
+  parameters:
+    serviceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
+    environment: TST
+    url: $(Environment.Url)
+    sourceFolder: data/deletion

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginAssemblyId="f3938a14-f2e8-e911-a866-000d3ab0dc71" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/DefraImportsWorkflows-F3938A14-F2E8-E911-A866-000D3AB0DC71/DefraImportsWorkflows.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.Autonumber.DecrementAutonumber, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="508c31a7-e241-ea11-a812-000d3ab5d511" Name="DecrementAutonumber">
+      <Description>Decrements the auto number counter for a specific record</Description>
+      <FriendlyName>Decrement the specified autonumber attribute</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.Autonumber</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.Autonumber.ResetAutonumber, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="2ab46013-f2e8-e911-a854-000d3ab0d976" Name="ResetAutonumber">
+      <Description>Reset the auto number counter for a specific record to 0</Description>
+      <FriendlyName>Reset the specified autonumber attribute</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.Autonumber</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.AutomatedRiskLevelAssignment, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="c77bedae-e4f0-e911-a812-000d3ab4de89" Name="AutomatedRiskLevelAssignment">
+      <Description>Automatically assesses the risk level of an import application based on a given commodity and country</Description>
+      <FriendlyName>Automated Risk Level Assessment</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.DecrementPlaceOfOriginCounters, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="d6cb5c34-daf4-e911-a813-000d3ab55801" Name="DecrementPlaceOfOriginCounters">
+      <Description>Safely manages decrement of counter fields on Place of Origin related to the import application</Description>
+      <FriendlyName>Decrement Counters on the Import Application's Place of Origin</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.DetermineInspectionRequirement, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="6f948a14-f2e8-e911-a866-000d3ab0dc71" Name="DetermineInspectionRequirement">
+      <Description>Determines whether a particular application should be inspected</Description>
+      <FriendlyName>Determine Inspection for Import Application</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.InspectionPlaceOfOriginChange, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="193e6e49-9f42-ea11-a812-000d3ab5d511" Name="InspectionPlaceOfOriginChange">
+      <Description>Manages the Place of Origin changing and how it impacts the Inspection Requirements</Description>
+      <FriendlyName>Inspection Place of Origin Change for Import Application</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.MapFieldsFromItahcToImportRecord, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="f88396dc-ef5b-ea11-a811-000d3ab5d037" Name="MapFieldsFromItahcToImportRecord">
+      <Description>Maps fields from one record to another using a xml mapping web resource</Description>
+      <FriendlyName>Maps fields from one record to another using a mapping web resource</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.MapFieldsFromNotificationToImportRecord, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="e919d7d9-772a-eb11-a813-000d3ad82cac" Name="MapFieldsFromNotificationToImportRecord">
+      <Description>Maps fields from notification record to import record using a xml mapping web resource</Description>
+      <FriendlyName>Maps fields from notification record to import record using a mapping web resource</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.ImportApplication.PopulateCountriesOfTransitFromNotification, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="58088a8b-952a-eb11-a813-000d3ab6d757" Name="PopulateCountriesOfTransitFromNotification">
+      <Description>Populate the countries of transit on the import record from the importer notification</Description>
+      <FriendlyName>Populate the countries of transit on the import record from the importer notification</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.ImportApplication</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.IncrementAutonumber, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="38257f11-f2e8-e911-a857-000d3ab0d388" Name="IncrementAutonumber">
+      <Description>Increments the auto number counter for a specific record</Description>
+      <FriendlyName>Increment the specified autonumber attribute</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.Autonumber</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.MatchRecord.PopulateImportRecordFromImporterNotification, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="4de2c09b-48a7-ea11-a812-000d3ad82cac" Name="PopulateImportRecordFromImporterNotification">
+      <Description>Maps fields from ImporterNotification to Import Record using a xml mapping web resource</Description>
+      <FriendlyName>Maps fields from ImporterNotification to Import Record using a mapping web resource</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.MatchRecord</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.MatchRecord.PopulateImportRecordFromITAHC, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="65d99562-32a7-ea11-a812-000d3ad82cac" Name="PopulateImportRecordFromITAHC">
+      <Description>Maps fields from ITAHC to Import Record using a xml mapping web resource</Description>
+      <FriendlyName>Maps fields from ITAHC to Import Record using a mapping web resource</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.MatchRecord</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.MatchRecord.PotentialRelatedImportRecordSearch, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="d54d2476-a0a9-ea11-a812-000d3ab6d757" Name="PotentialRelatedImportRecordSearch">
+      <Description>Finds potentially related Import Records for the given Match Record</Description>
+      <FriendlyName>Find potentially related Import Records for Match Record</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Workflows.MatchRecord</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.Utils.AssociateImportRecordToMatchRecord, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="9c369c26-eab6-ea11-a812-000d3ad82cac" Name="AssociateImportRecordToMatchRecord">
+      <Description>Associates an Import Record to a Match Record</Description>
+      <FriendlyName>Associate Import Record to Match Record</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Utils</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Workflows.Utils.CountRecordsByFetchXml, Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" PluginTypeId="7003e50e-9d04-ea11-a811-000d3ab35da5" Name="CountRecordsByFetchXml">
+      <Description>Counts records using a FetchXML query</Description>
+      <FriendlyName>Counts records by FetchXML</FriendlyName>
+      <WorkflowActivityGroupName>Defra.Imports.Utils</WorkflowActivityGroupName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

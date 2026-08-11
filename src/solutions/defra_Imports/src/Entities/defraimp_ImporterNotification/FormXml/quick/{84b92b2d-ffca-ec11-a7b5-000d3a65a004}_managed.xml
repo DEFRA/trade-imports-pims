@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{84b92b2d-ffca-ec11-a7b5-000d3a65a004}</formid>
+    <IntroducedVersion>0.0.0.115</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="ACBA75B7-97B6-4116-AA55-51312992B721" name="tab_1" showlabel="false" labelid="{e7cfd324-8ff9-4803-a425-3cb51256ccb9}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="AD49B5BF-256F-46A8-9C75-947146172EB9" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{290ed5ab-ad1d-410a-9ebb-2bc6dfe23323}">
+                  <labels>
+                    <label description="Transit Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{fd55cc0b-b9a2-41f7-b765-8afeecf66628}" locklevel="0" colspan="1" rowspan="1" labelid="{b6406176-8ad5-410e-99f9-ba0027361020}">
+                        <labels>
+                          <label description="BCP or Port of Entry" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_portofentry" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_portofentry" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0d415e6f-959f-4293-9a33-2b526aa77c7b}" locklevel="0" colspan="1" rowspan="1" labelid="{ea6f3929-013b-49e3-b2f9-a6e9d66f30de}">
+                        <labels>
+                          <label description="Port of Exit" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_portofexit" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_portofexit" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{043ae919-9d43-48db-a49e-526a4ce2f4ec}" locklevel="0" colspan="1" rowspan="1" labelid="{7d317de1-f9dd-4a98-96b1-b39b68e48ba3}">
+                        <labels>
+                          <label description="Port of Exit Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_portofexitdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_portofexitdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{baaed227-f0ee-4b04-aae5-48a6a997c13a}" locklevel="0" colspan="1" rowspan="1" labelid="{97be67b2-5fe2-457e-bc15-ba0f3bff57d3}" showlabel="true">
+                        <labels>
+                          <label description="Exit Border Control Post" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_exitbordercontrolpost" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_exitbordercontrolpost" disabled="false" uniqueid="{a39a75cb-0943-09c3-c590-b39cd3d002a0}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{926b8a46-5b36-4229-bf67-3e59b7b15a5b}" locklevel="0" colspan="1" rowspan="1" labelid="{9d2c0feb-89a3-46be-b981-d805e524ad57}" showlabel="true">
+                        <labels>
+                          <label description="Exit Border Control Post Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_exitbordercontrolpostdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_exitbordercontrolpostdate" disabled="false" uniqueid="{a93b2273-656e-2766-45bb-0105218a6345}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9e93bd80-07d5-4bb4-5a25-bab0b40275d5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Destination Country" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transitdestinationcountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_transitdestinationcountryid" disabled="false" uniqueid="{1baadb74-60aa-182a-5b0a-5d6b081760cb}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{4A0AC1F7-910F-456E-B501-2A4237C76A3A}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{566acd19-7718-48d9-a21d-7d84292ac29a}" locklevel="0" colspan="1" rowspan="1" labelid="{e1430ea7-7705-45a4-b763-1e1868662a3f}">
+                        <labels>
+                          <label description="Route Transiting States" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_routetransitingstates" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="defraimp_routetransitingstates" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{c30a3b69-05a0-4972-93b0-aad73d9ff3fa}" rowspan="1" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="Countries Of Transit" languagecode="1033" />
+                        </labels>
+                        <control id="Subgrid_countries_of_transit" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>defra_country</TargetEntityType>
+                            <ViewId>{BCDA6DCF-5301-EA11-A811-000D3AB5D511}</ViewId>
+                            <ViewIds>{3F2B5AD4-614F-476E-A34C-646A001AE5A8},{BCDA6DCF-5301-EA11-A811-000D3AB5D511}</ViewIds>
+                            <RelationshipName>defraimp_ImporterNotification_CountriesofTransit</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="11" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Transit Details" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

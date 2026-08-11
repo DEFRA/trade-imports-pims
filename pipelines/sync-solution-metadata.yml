@@ -1,0 +1,50 @@
+parameters:
+  - name: url
+    displayName: URL
+    type: string
+  - name: solution
+    displayName: Solution
+    type: string
+    default: defra_Imports
+    values:
+      - defra_Imports
+  - name: commitMessage
+    displayName: Commit message
+    type: string
+  - name: branch
+    displayName: Branch
+    type: string
+
+pool:
+  vmImage: windows-latest
+
+trigger: none
+
+resources:
+  repositories:
+    - repository: power-pipelines
+      name: ewingjm/power-pipelines
+      ref: refs/heads/main
+      type: github
+      endpoint: github.com_ewingjm
+
+variables:
+  - group: Environment - Imports - DEV
+
+extends:
+  template: templates/power-platform/pipelines/sync-solution-metadata-pipeline.yml@power-pipelines
+  parameters:
+    url: ${{ parameters.url }}
+    solution: ${{ parameters.solution }}
+    outputDirectory:  ${{ format('src/solutions/{0}/src', parameters.solution) }}
+    serviceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
+    commitMessage: ${{ parameters.commitMessage }}
+    branch: ${{ parameters.branch }}
+    postUnpackSteps:
+      - template: templates/power-platform/steps/split-connection-role-associations-steps.yml@power-pipelines
+        parameters:
+          solutionMetadataFolder: $(SyncSolutionMetadata.MetadataOutputDirectory)
+      - template: templates/power-platform/steps/split-missing-dependencies-steps.yml@power-pipelines
+        parameters:
+          solutionMetadataFolder: $(SyncSolutionMetadata.MetadataOutputDirectory)
+    mapFile: ${{ format('src/solutions/{0}/MappingFile.xml', parameters.solution) }}

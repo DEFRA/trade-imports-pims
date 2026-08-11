@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="EU Imports - Border Control Metrics" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{a5086809-3f10-ea11-a811-000d3ab55801}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="dashboard">
+      <form>
+        <tabs>
+          <tab showlabel="false" verticallayout="true" id="{794af90e-5828-4704-8126-563be0e9ce99}">
+            <labels>
+              <label description="Tab" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="false" showbar="false" columns="111" id="{ec03926a-09ee-4cc4-ae43-90464982ce5e}">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell colspan="1" rowspan="12" showlabel="false" id="{45594bc9-dbed-4baa-8724-7332f10476a4}" auto="false">
+                          <labels>
+                            <label description="Import Records" languagecode="1033" />
+                          </labels>
+                          <control id="Component1e9c382" uniqueid="{d1d5a36d-ac0e-e5b0-db82-1d157accb427}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>defraimp_importapplication</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>10</RecordsPerPage>
+                              <HeaderColorCode />
+                              <ViewId>{5291F093-3F10-EA11-A811-000D3AB55801}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{D2292BDD-6210-EA11-A811-000D3AB55801}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="false" id="{ded09d37-c342-43b9-a6dc-7a9ade5a0077}" auto="false">
+                          <labels>
+                            <label description="Import Records" languagecode="1033" />
+                          </labels>
+                          <control id="Componentb1ccc10" uniqueid="{b33b9b53-ead3-c753-11d8-b3159e348d50}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>defraimp_importapplication</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{A3C2D49A-BD12-EA11-A811-000D3AB5D037}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{A3C2D49A-BD12-EA11-A811-000D3AB5D037},{DD020992-1353-4A60-8EAD-C0E0925163E4}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{716C999F-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="false" id="{7e6fe77a-f18b-4119-9b5c-3dd66f76ebfc}" auto="false">
+                          <labels>
+                            <label description="Post Import Checks" languagecode="1033" />
+                          </labels>
+                          <control id="Component3404fc3" uniqueid="{4d940634-c5c2-78b5-c724-d81a4131e241}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>10</RecordsPerPage>
+                              <HeaderColorCode />
+                              <ViewId>{E6DD7FE9-BD12-EA11-A811-000D3AB5D037}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row>
+                        <cell id="{7ac33675-1932-3b50-7c5a-c14aa04aa459}" showlabel="true" colspan="1" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Cat/Dog/Ferret Checks Due Today" languagecode="1033" />
+                          </labels>
+                          <control id="Component2283017" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{cbe4c89e-4e27-8307-aed8-2744bcd45d7c}">
+                            <parameters>
+                              <ViewId>{FF0A73D6-B812-EA11-A811-000D3AB5D037}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{c79170ad-7100-7119-e7d0-9b0738c699e5}" showlabel="true" colspan="1" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Cat/Dog/Ferret Checks Due This Week" languagecode="1033" />
+                          </labels>
+                          <control id="Component6194870" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{cc27e367-800a-7cd5-e2ad-260cc8eca733}">
+                            <parameters>
+                              <ViewId>{3C293F6D-1815-EA11-A811-000D3AB35DA5}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{4526b873-bed8-213b-738d-c6594886acd7}" showlabel="true" colspan="1" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Cat/Dog/Ferret Checks Due (30 Days)" languagecode="1033" />
+                          </labels>
+                          <control id="Component4881130" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{a950a523-7da8-ae62-97a5-4144407e4dac}">
+                            <parameters>
+                              <ViewId>{EFB07300-B912-EA11-A811-000D3AB5D037}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+        <controlDescriptions>
+          <controlDescription forControl="{cbe4c89e-4e27-8307-aed8-2744bcd45d7c}">
+            <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="0">
+              <parameters>
+                <ViewId>{FF0A73D6-B812-EA11-A811-000D3AB5D037}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName />
+                <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                <AutoExpand>Fixed</AutoExpand>
+                <EnableQuickFind>true</EnableQuickFind>
+                <EnableViewPicker>false</EnableViewPicker>
+                <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                <EnableJumpBar>true</EnableJumpBar>
+                <ChartGridMode>Grid</ChartGridMode>
+                <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                <IsUserChart>false</IsUserChart>
+                <EnableChartPicker>false</EnableChartPicker>
+                <RecordsPerPage>8</RecordsPerPage>
+                <HeaderColorCode>#F3F3F3</HeaderColorCode>
+              </parameters>
+            </customControl>
+            <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="1">
+              <parameters>
+                <ViewId>{FF0A73D6-B812-EA11-A811-000D3AB5D037}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName />
+                <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                <AutoExpand>Fixed</AutoExpand>
+                <EnableQuickFind>true</EnableQuickFind>
+                <EnableViewPicker>false</EnableViewPicker>
+                <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                <EnableJumpBar>true</EnableJumpBar>
+                <ChartGridMode>Grid</ChartGridMode>
+                <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                <IsUserChart>false</IsUserChart>
+                <EnableChartPicker>false</EnableChartPicker>
+                <RecordsPerPage>8</RecordsPerPage>
+                <HeaderColorCode>#F3F3F3</HeaderColorCode>
+              </parameters>
+            </customControl>
+            <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="2">
+              <parameters>
+                <ViewId>{FF0A73D6-B812-EA11-A811-000D3AB5D037}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName />
+                <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                <AutoExpand>Fixed</AutoExpand>
+                <EnableQuickFind>true</EnableQuickFind>
+                <EnableViewPicker>false</EnableViewPicker>
+                <ViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</ViewIds>
+                <EnableJumpBar>true</EnableJumpBar>
+                <ChartGridMode>Grid</ChartGridMode>
+                <VisualizationId>{EEE154E1-A712-EA11-A811-000D3AB5D037}</VisualizationId>
+                <IsUserChart>false</IsUserChart>
+                <EnableChartPicker>false</EnableChartPicker>
+                <RecordsPerPage>8</RecordsPerPage>
+                <HeaderColorCode>#F3F3F3</HeaderColorCode>
+              </parameters>
+            </customControl>
+            <customControl name="MscrmControls.Grid.ReadOnlyGrid" formFactor="-1">
+              <parameters>
+                <data-set name="Grid">
+                  <ViewId>{FF0A73D6-B812-EA11-A811-000D3AB5D037}</ViewId>
+                  <IsUserView>false</IsUserView>
+                  <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                  <EnableViewPicker>false</EnableViewPicker>
+                  <FilteredViewIds>{BAF149AB-AD0B-EA11-A811-000D3AB4DF6C}</FilteredViewIds>
+                </data-set>
+                <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+                <CardForm static="true" type="Form.Card">f1cad891-fe93-442c-a26c-5eeb2e87c4f1:Card|defraimp_importinspection|00000000-0000-0000-0000-000000000000</CardForm>
+                <EnableEditing static="true" type="Enum">no</EnableEditing>
+                <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+                <EnableFiltering static="true" type="Enum">no</EnableFiltering>
+              </parameters>
+            </customControl>
+          </controlDescription>
+        </controlDescriptions>
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>0.0.0.2</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>

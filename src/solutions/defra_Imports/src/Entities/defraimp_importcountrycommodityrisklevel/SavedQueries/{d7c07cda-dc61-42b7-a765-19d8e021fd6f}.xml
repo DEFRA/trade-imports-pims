@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{d7c07cda-dc61-42b7-a765-19d8e021fd6f}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" preview="1" icon="1" select="1" jump="defraimp_name">
+        <row id="defraimp_importcountrycommodityrisklevelid" name="result">
+          <cell name="defraimp_countryid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="200" />
+          <cell name="defraimp_commoditytypeid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="150" />
+          <cell name="defraimp_importrisklevelid" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="75" />
+          <cell name="defraimp_risklevelnotes" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="300" disableSorting="1" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch mapping="logical" version="1.0">
+        <entity name="defraimp_importcountrycommodityrisklevel">
+          <order descending="false" attribute="defraimp_countryid" />
+          <order descending="false" attribute="defraimp_commoditytypeid" />
+          <filter type="and">
+            <condition value="0" attribute="statecode" operator="eq" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition value="{0}" attribute="defraimp_risklevelnotes" operator="like" />
+            <condition value="{0}" attribute="defraimp_importrisklevelid" operator="like" />
+            <condition value="{0}" attribute="defraimp_name" operator="like" />
+            <condition value="{0}" attribute="defraimp_countryid" operator="like" />
+            <condition value="{0}" attribute="defraimp_commoditytypeid" operator="like" />
+          </filter>
+          <attribute name="defraimp_importrisklevelid" />
+          <attribute name="defraimp_countryid" />
+          <attribute name="defraimp_commoditytypeid" />
+          <attribute name="defraimp_risklevelnotes" />
+          <attribute name="defraimp_importcountrycommodityrisklevelid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Import Country Commodity Risk Levels" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

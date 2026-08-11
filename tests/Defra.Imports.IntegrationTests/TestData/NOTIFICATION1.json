@@ -1,0 +1,225 @@
+{
+    "id": 282123,
+    "referenceNumber": "IMP.GB.2020.1282123",
+    "version": 1,
+    "lastUpdated": "2020-03-19T12:49:28.957Z",
+    "lastUpdatedBy": {
+        "displayName": "Gary Admin-Tester",
+        "userId": "79f6dc68-2144-e911-a96a-000d3a29ba60"
+    },
+    "type": "IMP",
+    "status": "SUBMITTED",
+    "partOne": {
+        "personResponsible": {
+            "name": "Gary Admin-Tester",
+            "companyId": "767ceb6a-2144-e911-a96c-000d3a29b5de",
+            "companyName": "Defra Test BIP",
+            "address": [
+                "Animal and Plant Health Agency",
+                "Woodham Lane",
+                "New Haw",
+                "Addlestone",
+                "Surrey",
+                "KT15 3NB",
+                "GB"
+            ],
+            "country": "GB",
+            "tracesID": 1001,
+            "phone": "020 8225 7295",
+            "email": "DefraTestBIP@anthunt3.33mail.com",
+            "contactId": "79f6dc68-2144-e911-a96a-000d3a29ba60"
+        },
+        "consignor": {
+            "id": "9c3bf041-59f8-4d55-bf11-6b69cbc60b82",
+            "type": "exporter",
+            "status": "nonapproved",
+            "companyName": "Cassin and Sons",
+            "address": {
+                "addressLine1": "0162 Deborah",
+                "addressLine2": "53102 Thompson Summit",
+                "addressLine3": "Nevada",
+                "city": "Curtmouth",
+                "postalZipCode": "33492-2",
+                "countryISOCode": "DE",
+                "internationalTelephone": {
+                    "countryCode": "32",
+                    "subscriberNumber": "1617777777"
+                },
+                "telephone": "321617777777",
+                "email": "ukoperator@email.com"
+            }
+        },
+        "consignorTwo": {
+            "id": "9c3bf041-59f8-4d55-bf11-6b69cbc60b82",
+            "type": "exporter",
+            "status": "nonapproved",
+            "companyName": "Cassin and Sons",
+            "address": {
+                "addressLine1": "0162 Deborah",
+                "addressLine2": "53102 Thompson Summit",
+                "addressLine3": "Nevada",
+                "city": "Curtmouth",
+                "postalZipCode": "33492-2",
+                "countryISOCode": "DE",
+                "internationalTelephone": {
+                    "countryCode": "32",
+                    "subscriberNumber": "1617777777"
+                },
+                "telephone": "321617777777",
+                "email": "ukoperator@email.com"
+            }
+        },
+        "importer": {
+            "id": "0b6adcae-f653-442a-8931-7607f343e91e",
+            "type": "consignee",
+            "status": "nonapproved",
+            "companyName": "Bradtke Bradtke and Bradtke",
+            "address": {
+                "addressLine1": "214 Grant",
+                "addressLine2": "6938 Russel Viaduct",
+                "addressLine3": "Pennsylvania",
+                "city": "Heatherton",
+                "postalZipCode": "fDc 9DS",
+                "countryISOCode": "GB",
+                "ukTelephone": "01615555555",
+                "telephone": "01615555555",
+                "email": "ukoperator@email.com"
+            }
+        },
+        "placeOfDestination": {
+            "id": "0b6adcae-f653-442a-8931-7607f343e91e",
+            "type": "consignee",
+            "status": "nonapproved",
+            "companyName": "Bradtke Bradtke and Bradtke",
+            "address": {
+                "addressLine1": "214 Grant",
+                "addressLine2": "6938 Russel Viaduct",
+                "addressLine3": "Pennsylvania",
+                "city": "Heatherton",
+                "postalZipCode": "fDc 9DS",
+                "countryISOCode": "GB",
+                "ukTelephone": "01615555555",
+                "telephone": "01615555555",
+                "email": "ukoperator@email.com"
+            }
+        },
+        "additionalPermanentAddresses": [
+            {
+                "id": "0b6adcae-f653-442a-8931-7607f343e91e",
+                "type": "consignee",
+                "status": "nonapproved",
+                "companyName": "Bradtke Bradtke and Bradtke",
+                "address": {
+                    "addressLine1": "214 Grant",
+                    "addressLine2": "6938 Russel Viaduct",
+                    "addressLine3": "Pennsylvania",
+                    "city": "Heatherton",
+                    "postalZipCode": "fDc 9DS",
+                    "countryISOCode": "GB",
+                    "ukTelephone": "01615555555",
+                    "telephone": "01615555555",
+                    "email": "ukoperator@email.com"
+                }
+            },
+            {
+                "id": "05769b04-4ce8-47b7-90f0-e8563d17a468",
+                "type": "consignee",
+                "status": "nonapproved",
+                "companyName": "Erdman Inc",
+                "address": {
+                    "addressLine1": "1518 Brandt",
+                    "addressLine2": "539 Coby Spurs",
+                    "addressLine3": "Washington",
+                    "city": "Schuppeside",
+                    "postalZipCode": "Al7 0JR",
+                    "countryISOCode": "GB",
+                    "ukTelephone": "01615555555",
+                    "telephone": "01615555555",
+                    "email": "ukoperator@email.com"
+                }
+            }
+        ],
+        "importingFromCharity": true,
+        "isPlaceOfDestinationThePermanentAddress": false,
+        "commodities": {
+            "commodityComplement": [
+                {
+                    "commodityID": "01061900",
+                    "commodityDescription": "Dogs",
+                    "complementID": 106400,
+                    "complementName": "Canis familiaris",
+                    "speciesID": "22392",
+                    "speciesName": "Canis familiaris",
+                    "speciesType": "2",
+                    "speciesClassName": "Carnivora",
+                    "speciesClass": "106400",
+                    "speciesNomination": "Canis familiaris",
+                    "speciesCommonName": "Dogs"
+                }
+            ],
+            "complementParameterSet": [
+                {
+                    "complementID": 106400,
+                    "speciesID": "22392",
+                    "keyDataPair": [
+                        {
+                            "key": "imp_number_animal",
+                            "data": "1"
+                        }
+                    ],
+                    "identifiers": [
+                        {
+                            "speciesNumber": 1,
+                            "data": {
+                                "microchip": "123",
+                                "passport": "123",
+                                "tattoo": "123"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "countryOfOrigin": "AT",
+            "consignedCountry": "AT",
+            "animalsCertifiedAs": "Commercial sale"
+        },
+        "arrivalDate": "2021-01-01",
+        "transporter": {
+            "id": "64cc1fdb-9c02-4f14-95f5-c5db3b54945e",
+            "type": "private transporter",
+            "status": "nonapproved",
+            "companyName": "MonahanMonahan",
+            "address": {
+                "addressLine1": "497 Beth",
+                "addressLine2": "25662 Osinski Club",
+                "addressLine3": "Arizona",
+                "city": "Mayertshire",
+                "postalZipCode": "19229-5",
+                "countryISOCode": "DE",
+                "internationalTelephone": {
+                    "countryCode": "32",
+                    "subscriberNumber": "1617777777"
+                },
+                "telephone": "321617777777",
+                "email": "ukoperator@email.com"
+            }
+        },
+        "meansOfTransport": {},
+        "meansOfTransportFromEntryPoint": {},
+        "veterinaryInformation": {
+            "veterinaryDocument": "123123123"
+        },
+        "route": {
+            "transitingStates": [
+                "NIR"
+            ]
+        },
+        "submissionDate": "2020-03-19T12:49:28.786983Z",
+        "submittedBy": {
+            "displayName": "Gary Admin-Tester",
+            "userId": "79f6dc68-2144-e911-a96a-000d3a29ba60"
+        },
+        "complexCommoditySelected": false,
+        "portOfEntry": "123123"
+    }
+}

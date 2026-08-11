@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Defra.Imports.Container.snk</AssemblyOriginatorKeyFile>
+    <Configurations>Debug;Release;UnitTest</Configurations>
+  </PropertyGroup>
+
+  <Import Project="..\Defra.Imports.Model\Defra.Imports.Model.projitems" Label="Shared" />
+
+  <Import Project="..\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems" Label="Shared" />
+
+  <Import Project="..\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="5.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.*" />
+    <PackageReference Include="Microsoft.CrmSdk.Workflow" Version="9.0.2.60" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <InternalsVisibleTo Include="Defra.Imports.Workflows, PublicKey=002400000480000094000000060200000024000052534131000400000100010071f9852a7c4eebc08679fd77484418a18a85a9222e83203d92b13e4253796072b6e8913822ece2d389e6ec4b8788880c5622b58d0154495a03aa3de6ccf88c5536eb641ce87b5be025604ec7ad79b3e3c07d35bf2468a253a5dd6737825f629cc7458e062c0fc4c77f3fc7095a59d81091961f39cef18f621915c3be130b93ce" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Defra.Imports.Plugins, PublicKey=0024000004800000940000000602000000240000525341310004000001000100a9c712ed4b38dd8913afe29db797bc33399d11135d2c1802f959afda92fcecfd8a4c76015f6d620244e395bb5bc58777be540e2fdb8a21a260ee132c2fc651c971cc44c6ed66e9fd63229badad55bd61a6f8e2bc36a3f43731d8e9865d525b77e8d802f097f49cb0ed6a4d8b35c152dac4aace915d2d84ac4b34d2c12ae367be" />
+  </ItemGroup>
+</Project>

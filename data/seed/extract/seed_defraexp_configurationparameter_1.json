@@ -1,0 +1,123 @@
+{
+  "RecordsCount": 4,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraexp_configurationparameter",
+      "Id": "01cd59c3-fad9-e911-a863-000d3ab0da57",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_key",
+          "AttributeValue": "defraimp_inspectionCoverageCount",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_description",
+          "AttributeValue": "How often the system should set an Import Application risk level to P1 and flag it for inspection. Every X records. Change the value to adjust frequency of inspections.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_additionalnotes",
+          "AttributeValue": "If a case worker overrides a random inspection then the record received will be attempted to be flagged for a random inspection.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Inspection Coverage Count",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_value",
+          "AttributeValue": "3",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_configurationparameter",
+      "Id": "68604929-79e0-ea11-a813-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_key",
+          "AttributeValue": "defraimp_ipaffs_url",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_description",
+          "AttributeValue": "The URL for the IPAFFS environment related to this instance of dynamics.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "IPAFFS URL",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_value",
+          "AttributeValue": "https://imports-proxy.azurewebsites.net/notification/integration",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_configurationparameter",
+      "Id": "2bb103d9-b629-eb11-a813-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_key",
+          "AttributeValue": "defraimp_traces_enabled",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_description",
+          "AttributeValue": "Determines whether TRACEs functionality is used by this system",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_additionalnotes",
+          "AttributeValue": "Set to True or False.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Traces Enabled",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_value",
+          "AttributeValue": "False",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraexp_configurationparameter",
+      "Id": "cc3cd258-42e8-ea11-a817-000d3ad82cac",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraexp_key",
+          "AttributeValue": "defraimp_unknown_devolved_office_id",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_description",
+          "AttributeValue": "The Guid of the devolved office that is set when no matching office is found using the destination postcode.\nThe PopulateDevolvedOffice.cs plugin uses it.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_name",
+          "AttributeValue": "Unknown Devolved Office ID",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraexp_value",
+          "AttributeValue": "18785ed4-b5e3-ea11-a813-000d3ad82cac",
+          "AttributeType": "System.String"
+        }
+      ]
+    }
+  ]
+}

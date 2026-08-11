@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="EU Imports - Import Queries" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{5df344c9-8b0b-ea11-a811-000d3ab5d511}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="dashboard">
+      <form>
+        <tabs>
+          <tab id="{715e9fd3-436f-427c-a013-f2da1774d71d}" verticallayout="true" showlabel="false">
+            <labels>
+              <label description="Tab" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section id="{ecf3a91f-850f-4b19-b4c3-be7efa079641}" showlabel="false" columns="111" showbar="false">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell id="{eae57c5a-dfa2-4448-86aa-1b382bf647f9}" rowspan="12" showlabel="false" colspan="1" auto="false">
+                          <labels>
+                            <label description="Import Query" languagecode="1033" />
+                          </labels>
+                          <control id="Component804dc99" uniqueid="{a181bd38-7a0b-b3a2-cc76-834e64115329}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>defraimp_importquery</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>10</RecordsPerPage>
+                              <HeaderColorCode />
+                              <ViewId>{30C69233-1E70-4B0F-ADFB-F22A3850B2E2}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{05A6AA79-8A0B-EA11-A811-000D3AB5D511}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{f4f2c574-ed67-44f1-8ff4-d31bde949fa1}" rowspan="12" showlabel="false" colspan="1" auto="false">
+                          <labels>
+                            <label description="Import Query" languagecode="1033" />
+                          </labels>
+                          <control id="Componentcf221c4" uniqueid="{a83c211e-d88c-555c-1ee2-7b46c1876e10}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>defraimp_importquery</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>10</RecordsPerPage>
+                              <HeaderColorCode />
+                              <ViewId>{61573969-DE0A-EA11-A811-000D3AB5D511}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{EACBA18B-8A0B-EA11-A811-000D3AB5D511}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{ec92d363-b21f-46a0-b943-9c6d15f69143}" rowspan="12" showlabel="false" colspan="1" auto="false">
+                          <labels>
+                            <label description="Import Query" languagecode="1033" />
+                          </labels>
+                          <control id="Component9188177" uniqueid="{cbdb9ad3-335b-348c-7547-2a1aeb12b081}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>defraimp_importquery</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>10</RecordsPerPage>
+                              <HeaderColorCode />
+                              <ViewId>{61573969-DE0A-EA11-A811-000D3AB5D511}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{E64E98A3-8A0B-EA11-A811-000D3AB5D511}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row>
+                        <cell id="{7ff698fa-93d2-4a22-91f7-0df8f1ad4c00}" rowspan="12" showlabel="false" ispreviewcell="true" colspan="1">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{d084a5d3-7a63-4a61-997b-9bf58cd734ec}" rowspan="12" showlabel="false" ispreviewcell="true" colspan="1">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{c0f45318-fbbd-4b8a-b7a9-0570624faed3}" rowspan="12" showlabel="false" ispreviewcell="true" colspan="1">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>0.0.0.2</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>

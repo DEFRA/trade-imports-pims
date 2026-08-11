@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="26" schemaName="Active Countries" displayName="Active Countries" parentSchemaName="defra_country" parentDisplayName="Country" solution="DefraImportsDependencies (1.0.0.0)" id="{3f2b5ad4-614f-476e-a34c-646a001ae5a8}" />
+  <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
+</MissingDependency>

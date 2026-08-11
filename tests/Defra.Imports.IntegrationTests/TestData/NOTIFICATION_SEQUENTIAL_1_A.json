@@ -1,0 +1,135 @@
+{
+  "id": 589712,
+  "referenceNumber": "IMP.GB.2020.1589711",
+  "version": 2,
+  "lastUpdated": "2020-09-11T14:54:05.423Z",
+  "lastUpdatedBy": {
+    "displayName": "Draco Malfoy",
+    "userId": "38d5dbc8-8119-e911-a969-000d3a29ba60"
+  },
+  "type": "IMP",
+  "countryOfDestination": "GB",
+  "status": "SUBMITTED",
+  "partOne": {
+    "personResponsible": {
+      "name": "Draco Malfoy",
+      "companyId": "b8f5d9c9-8119-e911-a96a-000d3a29b5de",
+      "companyName": "Draco Company",
+      "address": [
+        "18",
+        "VALLEY CLOSE",
+        "TEIGNMOUTH",
+        "TEIGNBRIDGE",
+        "TQ14 9UF",
+        "GB"
+      ],
+      "country": "GB",
+      "tracesID": 1001,
+      "phone": "07840-148728",
+      "email": "hnkdsfkjb123@mailinator.com",
+      "contactId": "38d5dbc8-8119-e911-a969-000d3a29ba60"
+    },
+    "importer": {
+      "id": "1ba60f03-4610-4563-a2ef-24dfe4411474",
+      "type": "importer",
+      "status": "nonapproved",
+      "companyName": "Monahan Monahan and Monahan",
+      "address": {
+        "addressLine1": "424 Reyna",
+        "addressLine2": "7656 Name Prairie",
+        "addressLine3": "Georgia",
+        "city": "Beattyfort",
+        "postalZipCode": "DKy 5gd",
+        "countryISOCode": "GB",
+        "ukTelephone": "01615555555",
+        "telephone": "01615555555",
+        "email": "ukoperator@email.com"
+      }
+    },
+    "cphNumber": "123123123123",
+    "commodities": {
+      "commodityComplement": [
+        {
+          "commodityID": "0102",
+          "commodityDescription": "Cattle",
+          "complementID": 16,
+          "complementName": "Bos taurus",
+          "speciesID": "121693",
+          "speciesName": "Bos taurus",
+          "speciesTypeName": "Domestic",
+          "speciesType": "16",
+          "speciesNomination": "Bos taurus",
+          "speciesCommonName": "Cattle"
+        }
+      ],
+      "complementParameterSet": [
+        {
+          "complementID": 16,
+          "speciesID": "121693",
+          "keyDataPair": [
+            {
+              "key": "imp_number_animal",
+              "data": "21"
+            }
+          ],
+          "identifiers": [
+            {
+              "speciesNumber": 1,
+              "data": {
+                "ear_tag": "123"
+              }
+            }
+          ]
+        }
+      ],
+      "countryOfOrigin": "AT",
+      "consignedCountry": "AT",
+      "animalsCertifiedAs": "Breeding"
+    },
+    "arrivalDate": "2020-09-02",
+    "meansOfTransport": {},
+    "meansOfTransportFromEntryPoint": {},
+    "veterinaryInformation": {
+      "accompanyingDocuments": [
+        {
+          "documentType": "other",
+          "documentReference": "DOC-88428",
+          "documentIssueDate": "2020-01-05",
+          "attachmentId": "31da259d-ddd3-4a9f-8fb0-3a81a1ff6c71",
+          "attachmentFilename": "example (4) (1).pdf",
+          "attachmentContentType": "application/pdf"
+        },
+        {
+          "documentType": "itahc",
+          "documentReference": "3123123",
+          "documentIssueDate": "2020-12-02",
+          "attachmentId": "fb6bcb73-a1ea-49c2-808a-7d17ad645824",
+          "attachmentFilename": "puchatek (1).png",
+          "attachmentContentType": "image/png"
+        },
+        {
+          "documentType": "commercialInvoice",
+          "documentReference": "3123123",
+          "documentIssueDate": "2020-04-02"
+        },
+        {
+          "documentType": "docom",
+          "documentReference": "DOC-87879",
+          "documentIssueDate": "2020-04-02"
+        }
+      ]
+    },
+    "route": {
+      "transitingStates": [
+        "LT"
+      ]
+    },
+    "submissionDate": "2020-09-11T14:54:07.82469Z",
+    "submittedBy": {
+      "displayName": "Draco Malfoy",
+      "userId": "38d5dbc8-8119-e911-a969-000d3a29ba60"
+    },
+    "complexCommoditySelected": false,
+    "portOfEntry": "Possimus quas volup"
+  }
+}

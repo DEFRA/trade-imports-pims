@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{ac4a4a83-8318-4ab3-92c2-cbdc05ae24d4}</formid>
+    <IntroducedVersion>0.0.0.115</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab id="{8b3d76f1-0161-4f0b-be68-705d9410645d}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{9280a908-a07c-4d23-91c9-88e1029acec0}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Transport from BCP/PoE" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{de7db26c-8ee9-26e9-37b4-3d153208e954}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Means of Transport" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransportfromentrypointtype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransportfromentrypointtype" disabled="false" uniqueid="{ea1eed76-e1dd-3633-73ed-6be9457aa700}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3d24cdc4-e766-b7c3-1e36-4cbe542ba02a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="ID of Transport" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransportfromentrypointid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransportfromentrypointid" disabled="false" uniqueid="{415aeed9-1b94-6856-6aed-b7bac009256e}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5e6e838e-51b5-dea9-63cc-e7c05857e598}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Document" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_meansoftransportfromentrypointdocument" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_meansoftransportfromentrypointdocument" disabled="false" uniqueid="{d4040cd0-aa1c-8de6-6638-22d7161a075e}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{29c9e88b-d035-8555-7327-ce482098b5cb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Departure Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_departuredate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_departuredate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dd07c966-1802-2a02-0480-94894c34cae1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Departure Time" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_departuretime" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_departuretime" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="12">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Transport from PoE" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Transport from PoE&#xA;This form is used in Import Record in transport tab" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

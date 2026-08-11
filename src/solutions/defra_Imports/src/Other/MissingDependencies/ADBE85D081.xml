@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="66" schemaName="MscrmControls.Grid.ReadOnlyGrid" displayName="MscrmControls.Grid.ReadOnlyGrid" solution="BaseCustomControlsCore (9.0.2606.5012)" />
+  <Dependent type="60" displayName="EU Imports - Border Control Metrics" id="{a5086809-3f10-ea11-a811-000d3ab55801}" />
+</MissingDependency>

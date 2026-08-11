@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="1" schemaName="teammobileofflineprofilemembership" displayName="TeamMobileOfflineProfileMembership" solution="MobileOfflineMembership (1.0.0.3)" />
+  <Dependent type="1" schemaName="team" displayName="Team" />
+</MissingDependency>

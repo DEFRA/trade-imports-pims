@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{558e3534-3218-48fa-9227-d0f983cf8a82}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_postcodeprefix" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_postcoderegionid">
+          <cell name="defraimp_postcodeprefix" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_postcodedistrict" width="100" />
+          <cell name="defraimp_ukregion" width="100" />
+          <cell name="defraimp_ukcountry" width="100" />
+          <cell name="defraimp_devolvedoffice" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="defraimp_postcoderegion">
+          <attribute name="defraimp_postcodeprefix" />
+          <attribute name="createdon" />
+          <order attribute="defraimp_postcodeprefix" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="defraimp_ukregion" />
+          <attribute name="defraimp_ukcountry" />
+          <attribute name="defraimp_postcodedistrict" />
+          <attribute name="defraimp_devolvedoffice" />
+          <attribute name="defraimp_postcoderegionid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Postcode Regions" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

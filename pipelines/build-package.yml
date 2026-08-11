@@ -1,0 +1,31 @@
+name: $(GITVERSION_FullSemVer)
+
+pool:
+  vmImage: windows-latest
+
+pr: none
+
+trigger:
+  batch: false
+  branches:
+    include:
+      - master
+
+resources:
+  repositories:
+    - repository: power-pipelines
+      name: ewingjm/power-pipelines
+      ref: refs/heads/main
+      type: github
+      endpoint: github.com_ewingjm
+
+variables:
+  - group: Environment - Imports - DEV
+
+extends:
+  template: templates/power-platform/pipelines/build-package-pipeline.yml@power-pipelines
+  parameters:
+    packageProject: deploy\Defra.Imports.Deployment\Defra.Imports.Deployment.csproj
+    serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
+    postBuildSteps:
+      - template: templates\steps\run-typescript-unit-tests-steps.yml@self

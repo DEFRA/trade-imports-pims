@@ -1,0 +1,24 @@
+steps:
+  - task: NodeTool@0
+    displayName: Use Node.js
+    inputs:
+      versionSpec: 20.x
+  - task: Npm@1
+    displayName: Install JavaScript dependencies
+    inputs:
+      command: ci
+      workingDir: src\webresources\scripts
+  - task: Npm@1
+    displayName: Run JavaScript unit tests
+    inputs:
+      command: custom
+      workingDir: src\webresources\scripts
+      customCommand: run test
+  - task: PublishTestResults@2
+    displayName: Publish JavaScript unit test results
+    condition: succeededOrFailed()
+    inputs:
+      testResultsFormat: JUnit
+      testResultsFiles: src\webresources\scripts\test-results\junit.xml
+      testRunTitle: Unit tests (TypeScript)
+      failTaskOnFailedTests: true

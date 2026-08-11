@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{4766e511-7be2-4b02-8a46-38225004162f}</formid>
+    <IntroducedVersion>0.0.0.116</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{49b6a633-1fd1-4aa5-ba01-d47c0e17fb4e}" IsUserDefined="1" name="{49b6a633-1fd1-4aa5-ba01-d47c0e17fb4e}" locklevel="0" expanded="true" showlabel="true" labelid="{af1beec5-04b7-4707-803c-b71fce9a656a}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="34%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{2c55b331-cdc4-4560-a94f-c64394376c70}" labelid="{5cd6b4e6-c988-4a72-b760-f6c48226cecb}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8c161402-ddd9-cdaa-0d1c-c265ac8224ea}" showlabel="true" locklevel="0" labelid="{4113172a-9f49-4851-8d78-22c69769c3f8}">
+                        <labels>
+                          <label description="Commodity Complement Parameter Set" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_commoditycomplementparameterset" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_commoditycomplementparameterset" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7d40b3f0-9d0c-4ebe-8acc-b595d2290692}" showlabel="true" locklevel="0" labelid="{8acfc535-95c6-4653-8fdf-22d0771793e7}">
+                        <labels>
+                          <label description="Species Number" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" uniqueid="{667e36da-505b-1c19-d132-453669580994}" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2e765ae9-a81d-07ba-09c8-2ec28b4a53be}" showlabel="true" locklevel="0" labelid="{5d5a81bc-76e3-48e4-9c8e-e5fe520824f9}">
+                        <labels>
+                          <label description="Data" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_data" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="defraimp_data" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section name="{49b6a633-1fd1-4aa5-ba01-d47c0e17fb4e}_section_2" showlabel="false" showbar="false" locklevel="0" id="{43d38c0c-1376-9eb7-5256-b206389ce38c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" labelid="{c656c669-c98a-4275-9ef4-b5187fc449e6}">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b12318e5-7676-2584-34d1-5bcc37a1464a}" showlabel="false" labelid="{062dfb51-835e-48fe-9916-fd3ec3cdf200}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section name="{49b6a633-1fd1-4aa5-ba01-d47c0e17fb4e}_section_3" showlabel="false" showbar="false" locklevel="0" id="{c9e1dc20-9e02-650b-ab2e-206c78ab83e2}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" labelid="{7f6a7f35-f446-4346-bcaa-5027ec4bd80e}">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e51301a7-b6ce-b64c-37a0-e02b05435d99}" showlabel="false" labelid="{e56c5899-d5dc-41e7-8257-2544a085c34e}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{bf97653a-4be3-4d7d-a76b-14b8949fdcb6}" columns="111">
+        <rows>
+          <row>
+            <cell id="{30cc05c3-a3e6-40ab-8f0d-a0119b721a1a}" showlabel="false" labelid="{7eb3b4af-b604-44e7-8cf1-6521c1ef38c9}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f3974241-e2aa-4aad-96b7-1ca1aac03021}" showlabel="false" labelid="{63f9bee5-8225-4c9a-b33d-c2ff6d15f619}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{7282659c-33b0-15ce-ce3b-dc16040bb888}" showlabel="true" locklevel="0" labelid="{db967093-c7da-43a5-8eea-1e3a468fc1df}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information - NEW" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="26" schemaName="Country Lookup View" displayName="Country Lookup View" parentSchemaName="defra_country" parentDisplayName="Country" solution="DefraImportsDependencies (1.0.0.0)" id="{4a0ac1f7-910f-456e-b501-2a4237c76a3a}" />
+  <Dependent type="60" displayName="Information" parentDisplayName="Importer Notification" id="{bf964a52-f528-44e7-900f-3ba36d386525}" />
+</MissingDependency>

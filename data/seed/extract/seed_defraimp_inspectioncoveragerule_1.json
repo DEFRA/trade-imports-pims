@@ -1,0 +1,113 @@
+{
+  "RecordsCount": 4,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraimp_inspectioncoveragerule",
+      "Id": "9044efd5-e0e5-e911-a854-000d3ab0d976",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "2% All-Case-Random",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_risklevelid",
+          "AttributeValue": {
+            "Id": "48c4149e-b2d3-e911-a84e-000d3ab0d281",
+            "LogicalName": "defraimp_importrisklevel",
+            "Name": "P3",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_key",
+          "AttributeValue": "p3",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_inspectioncoveragerule",
+      "Id": "1f89f5ff-e0e5-e911-a854-000d3ab0d976",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "10% Rule",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_risklevelid",
+          "AttributeValue": {
+            "Id": "a4c3149e-b2d3-e911-a84e-000d3ab0d281",
+            "LogicalName": "defraimp_importrisklevel",
+            "Name": "P2",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_key",
+          "AttributeValue": "p2",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_inspectioncoveragerule",
+      "Id": "6374a6c2-5beb-e911-a812-000d3ab4de89",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Gold Commodity Every X",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_risklevelid",
+          "AttributeValue": {
+            "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
+            "LogicalName": "defraimp_importrisklevel",
+            "Name": "P1",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_key",
+          "AttributeValue": "p1gb",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_inspectioncoveragerule",
+      "Id": "361023e8-1e65-ea11-a811-000d3ab5d511",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "P1 Coverage Rule",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_risklevelid",
+          "AttributeValue": {
+            "Id": "6d5b1d98-b2d3-e911-a84e-000d3ab0d281",
+            "LogicalName": "defraimp_importrisklevel",
+            "Name": "P1",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_key",
+          "AttributeValue": "p1",
+          "AttributeType": "System.String"
+        }
+      ]
+    }
+  ]
+}

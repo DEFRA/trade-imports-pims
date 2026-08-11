@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{f6fcde4b-4006-4557-9beb-e0bb684f65b0}</savedqueryid>
+    <layoutxml>
+      <grid name="defraimp_docoms" preview="0" icon="1" select="1" jump="defraimp_name">
+        <row id="defraimp_docomid" name="defraimp_docom">
+          <cell name="defraimp_name" width="300" />
+          <cell name="defraimp_localreferencenumber" width="100" />
+          <cell name="defraimp_receivingcategory" width="100" />
+          <cell name="defraimp_purpose" width="100" />
+          <cell name="defraimp_sealnumber" width="100" />
+          <cell name="defraimp_containernumber" width="100" />
+          <cell name="defraimp_aphaabpapprovalregistrationnumber" width="100" />
+          <cell name="defraimp_dateofdecision" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="defraimp_docom">
+          <attribute name="defraimp_docomid" />
+          <attribute name="defraimp_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition value="0" operator="eq" attribute="statecode" />
+          </filter>
+          <attribute name="defraimp_receivingcategory" />
+          <attribute name="defraimp_purpose" />
+          <attribute name="defraimp_localreferencenumber" />
+          <attribute name="defraimp_sealnumber" />
+          <attribute name="defraimp_containernumber" />
+          <attribute name="defraimp_aphaabpapprovalregistrationnumber" />
+          <attribute name="defraimp_dateofdecision" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.4</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="DOCOM Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

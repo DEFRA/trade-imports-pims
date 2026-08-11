@@ -1,0 +1,293 @@
+{
+  "RecordsCount": 22,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "d4fe672a-4605-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "North (Not Allocated)",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "15f9747a-5205-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "South (Not Allocated to)",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "fc106c8c-5205-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "East (Not Allocated to)",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "c9516492-5205-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "West (Not Allocated to)",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "76e2eadb-8d16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "North 1",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "36100ee2-8d16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "North 2",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "e1132ae8-8d16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "North 3",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "6b142ae8-8d16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "North 4",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "159a1af4-8d16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "North 5",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "c63f15fa-8d16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "North 1&3",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "e3af3006-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "West 1&2",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "ecb03006-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "West 3&4",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "455b2812-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "West 5",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "5dca2d3c-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "West 6&7",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "46352d42-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "West 8",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "ff742548-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "South 1",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "a37a604e-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "South 2",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "2de37e54-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "South 3",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "d5e37e54-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Scotland",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "6325965a-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "North Wales",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "5ed79060-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "South Wales",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "7fcb5ca1-3bff-ed11-8f6e-002248993591",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "North 6",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "ac8615c1-3bff-ed11-8f6e-002248993591",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Transit",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_apharegion",
+      "Id": "d50fa56c-8e16-ea11-a811-000d3ab35da5",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Cross Border Wales",
+          "AttributeType": "System.String"
+        }
+      ]
+    }
+  ]
+}

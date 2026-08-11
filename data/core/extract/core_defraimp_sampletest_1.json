@@ -1,0 +1,197 @@
+{
+  "RecordsCount": 16,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "84e949bb-000a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "African Horse Sickness",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "cc8c44c1-000a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "African Swine Fever",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "f49241c7-000a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Aujeskeys",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "bed339cd-000a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Avian Influenza",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "933bfefc-000a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "B.Abortus",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "30dff802-010a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "B.Melintensis",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "5220f108-010a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Bluetongue",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "05c3eb0e-010a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Brucella Ovis",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "5466e614-010a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Classical Swine Fever",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "a609e11a-010a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Contagious Agalactia",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "da4ad920-010a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Dourine",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "448bd126-010a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "EBL",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "57ccc92c-010a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Equine Infectious Anaemia",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "06f8cd32-010a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Lumpy Skin",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "4e87d438-010a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Swine Vesticular Disease",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "8287d438-010a-ea11-a811-000d3ab55801",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "TB",
+          "AttributeType": "System.String"
+        }
+      ]
+    }
+  ]
+}

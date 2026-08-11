@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{a49eeb1b-f42a-4320-b98d-d6e3740bcca7}" Name="Update Import Record With Notification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/UpdateImportRecordWithNotification-A49EEB1B-F42A-4320-B98D-D6E3740BCCA7.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>3</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <CreateStage>40</CreateStage>
+  <RunAs>1</RunAs>
+  <SdkMessageId>{82721cdc-6d2a-eb11-a813-000d3ad82cac}</SdkMessageId>
+  <UniqueName>UpdateImportRecordWithNotification</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <FormId>{00000000-0000-0000-0000-000000000000}</FormId>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>defraimp_importapplication</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Update Import Record With Notification" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{11b64462-c8a1-4495-a887-6254c2c34098}">
+      <label languagecode="1033" description="Please add a Primary Importer Notification to this Import Record" />
+    </steplabels>
+    <steplabels id="{b95b0c2f-33ca-486c-9e53-5ce3c5c8abe0}">
+      <label languagecode="1033" description="The record type must be IMP and have a Primary Importer Notification to use this flow" />
+    </steplabels>
+  </labels>
+</Workflow>

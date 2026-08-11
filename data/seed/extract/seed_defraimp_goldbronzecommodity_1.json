@@ -1,0 +1,71 @@
+{
+  "RecordsCount": 3,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraimp_goldbronzecommodity",
+      "Id": "1477b550-b6e6-e911-a866-000d3ab0dc71",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Dog",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditytypeid",
+          "AttributeValue": {
+            "Id": "195545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "DOG",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_goldbronzecommodity",
+      "Id": "c578b550-b6e6-e911-a866-000d3ab0dc71",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Cat",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditytypeid",
+          "AttributeValue": {
+            "Id": "035545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "CAT",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_goldbronzecommodity",
+      "Id": "ad98637e-47eb-e911-a812-000d3ab5d037",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Ferret",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditytypeid",
+          "AttributeValue": {
+            "Id": "235545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "FERRET",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        }
+      ]
+    }
+  ]
+}

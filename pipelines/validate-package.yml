@@ -1,0 +1,51 @@
+name: $(GITVERSION_FullSemVer)
+
+pool:
+  vmImage: windows-latest
+
+pr:
+  autoCancel: false
+
+trigger: none
+
+resources:
+  repositories:
+    - repository: power-pipelines
+      name: ewingjm/power-pipelines
+      ref: refs/heads/main
+      type: github
+      endpoint: github.com_ewingjm
+
+variables:
+  - group: Environment - Imports - CI
+
+extends:
+  template: templates/power-platform/pipelines/validate-package-pipeline.yml@power-pipelines
+  parameters:
+    packageProject: deploy\Defra.Imports.Deployment\Defra.Imports.Deployment.csproj
+    serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
+    deployServiceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
+    solutionSourcePattern: src/solutions/*/src
+    packageSourcePatterns:
+      - deploy/Defra.Imports.Deployment/*
+    webResourceSourcePatterns: 
+      - src/webresources/*
+    assemblySourcePatterns:
+      - src/common/*
+      - src/pluginassemblies/*
+    displayNamePrefix: $(Environment.DisplayNamePrefix)
+    domainNamePrefix: $(Environment.DomainNamePrefix)
+    templates: D365_CustomerService
+    securityGroupId: $(Environment.SecurityGroupId)
+    adminSecurityGroupId: $(Environment.AdminSecurityGroupId)
+    templateEnvironmentUrl: $(Environment.TemplateEnvironmentUrl)
+    prepareEnvironmentJobs:
+      - template: templates/jobs/create-application-user-job.yml
+        parameters:
+          applicationId: $(Environment.DeploymentUser.ApplicationId)
+          systemUserId: $(Environment.DeploymentUser.SystemUserId)
+          applicationUserName: $(Environment.DeploymentUser.Username) 
+          securityRoleName: System Administrator
+          serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
+    postBuildSteps:
+      - template: templates\steps\run-typescript-unit-tests-steps.yml@self

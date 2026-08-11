@@ -1,0 +1,149 @@
+{
+  "id": 462629,
+  "referenceNumber": "IMP.GB.2020.1462627",
+  "version": 2,
+  "lastUpdated": "2020-05-29T13:52:29.016732Z",
+  "lastUpdatedBy": {
+    "displayName": "Mary Mills",
+    "userId": "0fe3672a-039c-ea11-a812-000d3a29a00b"
+  },
+  "type": "IMP",
+  "status": "AMEND",
+  "partOne": {
+    "personResponsible": {
+      "name": "Mary Mills",
+      "companyName": "Mary Mills",
+      "address": [
+        "33 THE APPROACH, LEEDS, LS15 4AN"
+      ],
+      "country": "GB",
+      "tracesID": 1001,
+      "phone": "07892787865",
+      "email": "Marymills@rowansholes.33mail.com",
+      "contactId": "0fe3672a-039c-ea11-a812-000d3a29a00b"
+    },
+    "consignor": {
+      "id": "66b514f9-20a8-4785-aaea-43de85a74753",
+      "type": "exporter",
+      "status": "nonapproved",
+      "companyName": "Boris' Farm",
+      "address": {
+        "addressLine1": "The street",
+        "city": "Berlin",
+        "postalZipCode": "834834",
+        "countryISOCode": "DE",
+        "telephone": "09894789853",
+        "email": "Boris@thefarm.gr"
+      }
+    },
+    "importer": {
+      "id": "48c28391-995b-4e95-afa3-d53142b9a9e0",
+      "type": "importer",
+      "status": "nonapproved",
+      "companyName": "Mary Mills",
+      "address": {
+        "addressLine1": "33 The Approach",
+        "addressLine3": "Scholes",
+        "city": "Leeds",
+        "postalZipCode": "LS15 4AN",
+        "countryISOCode": "GB",
+        "telephone": "07974626209",
+        "email": "marymills@cattleimports.co.uk"
+      }
+    },
+    "placeOfDestination": {
+      "id": "9239db61-1c56-423a-9bd2-4fe441fec555",
+      "type": "destination",
+      "status": "nonapproved",
+      "companyName": "Angela's Dogs",
+      "address": {
+        "addressLine1": "7 Mill Lane",
+        "city": "Leeds",
+        "postalZipCode": "LS13 4AN",
+        "countryISOCode": "GB",
+        "telephone": "07967567643",
+        "email": "Angela@dogsrus.com"
+      }
+    },
+    "importingFromCharity": false,
+    "isPlaceOfDestinationThePermanentAddress": true,
+    "commodities": {
+      "commodityComplement": [
+        {
+          "commodityID": "01061900",
+          "commodityDescription": "Dogs",
+          "complementID": 106400,
+          "complementName": "Canis familiaris",
+          "speciesID": "22392",
+          "speciesName": "Canis familiaris",
+          "speciesType": "2",
+          "speciesClassName": "Carnivora",
+          "speciesClass": "106400",
+          "speciesNomination": "Canis familiaris",
+          "speciesCommonName": "Dogs"
+        }
+      ],
+      "complementParameterSet": [
+        {
+          "complementID": 106400,
+          "speciesID": "22392",
+          "keyDataPair": [
+            {
+              "key": "imp_number_animal",
+              "data": "2"
+            }
+          ],
+          "identifiers": [
+            {
+              "speciesNumber": 1,
+              "data": {
+                "microchip": "jfsjhd28745837",
+                "passport": "83453889"
+              }
+            },
+            {
+              "speciesNumber": 2,
+              "data": {
+                "microchip": "jgkjdg738567389",
+                "passport": "836783"
+              }
+            }
+          ]
+        }
+      ],
+      "countryOfOrigin": "DE",
+      "consignedCountry": "DE",
+      "animalsCertifiedAs": "Pets"
+    },
+    "arrivalDate": "2020-06-15",
+    "transporter": {
+      "id": "a324af85-786d-4474-896a-b808d1c3348c",
+      "type": "commercial transporter",
+      "status": "approved",
+      "companyName": "N/A",
+      "individualName": "BIRKETTHEWARD",
+      "approvalNumber": "UK/LEEDS/T1/00087744?",
+      "address": {
+        "addressLine1": "NEWHOLME",
+        "addressLine2": "EAST BROW ROAD",
+        "addressLine3": "NEWTON-ON-RAWCLIFFE",
+        "city": "PICKERING",
+        "postalZipCode": "YO18 8JS",
+        "countryISOCode": "GB"
+      }
+    },
+    "meansOfTransport": {},
+    "meansOfTransportFromEntryPoint": {},
+    "veterinaryInformation": {
+      "veterinaryDocument": "INTRA.GR.2020.0000006"
+    },
+    "route": {},
+    "submissionDate": "2020-05-29T13:51:05.911876Z",
+    "submittedBy": {
+      "displayName": "Mary Mills",
+      "userId": "0fe3672a-039c-ea11-a812-000d3a29a00b"
+    },
+    "complexCommoditySelected": false,
+    "portOfEntry": "Dover"
+  }
+}

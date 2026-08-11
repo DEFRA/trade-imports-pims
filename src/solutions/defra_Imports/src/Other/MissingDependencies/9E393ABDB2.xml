@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="61" schemaName="msdyn_filesandattachments" displayName="msdyn_filesandattachments" solution="MicrosoftLabsAzuereBlobStorage (1.8.0.5)" />
+  <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
+</MissingDependency>

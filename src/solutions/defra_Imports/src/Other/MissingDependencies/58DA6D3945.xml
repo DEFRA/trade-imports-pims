@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="61" schemaName="defraexp_/svg/defraexp_Commodities.svg" displayName="defraexp_/svg/defraexp_Commodities.svg" solution="DefraImportsDependencies (1.0.0.0)" />
+  <Dependent type="1" schemaName="defraexp_commoditytype" displayName="Commodity Type" />
+</MissingDependency>

@@ -1,0 +1,41 @@
+name: $(SetAggregateRunNumber.RunNumber)
+
+pool:
+  vmImage: windows-latest
+
+schedules:
+  - cron: '0 0 * * *'
+    displayName: Daily midnight run
+    branches:
+      include:
+        - master
+    always: true
+
+trigger: none
+
+resources:
+  pipelines:
+    - pipeline: imports
+      source: imports
+      branch: master
+  repositories:
+    - repository: power-pipelines
+      name: ewingjm/power-pipelines
+      ref: refs/heads/main
+      type: github
+      endpoint: github.com_ewingjm
+
+variables:
+  - group: Environment - Imports - CAN
+
+extends:
+  template: templates/power-platform/pipelines/deploy-packages-pipeline.yml@power-pipelines
+  parameters:
+    serviceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
+    environment: CAN
+    url: $(Environment.Url)
+    packages:
+      - resource: imports
+        artifact: package
+        file: Defra.Imports.Deployment.dll
+    tagSuccess: true

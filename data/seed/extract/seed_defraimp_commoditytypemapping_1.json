@@ -1,0 +1,1669 @@
+{
+  "RecordsCount": 52,
+  "ExportedEntities": [
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "9b190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "d6188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "BIRDS OF PREY - OWLS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Strigiformes",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01063100",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "170949",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "9d190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "d8188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "BIRDS OF PREY - FALCONS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Falconiformes",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01063100",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "113311",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "9f190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "da188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "BIRDS OF PREY - OTHER",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Accipitriformes",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01063100",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "37932",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "a1190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "035545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "CAT",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Felis catus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01061900",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "190409",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "a3190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "055545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "CATTLE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Bos taurus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "0102",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "121693",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "a5190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "195545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "DOG",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Canis familiaris",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01061900",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "22392",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "a7190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "dc188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "EMBRYOS/OVA - CATTLE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Bos taurus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05119985",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "121693",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "a9190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "de188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "EMBRYOS/OVA - GOAT",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Capra Hircus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05119985",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "150503",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "ab190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "e0188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "EMBRYOS/OVA - HORSE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Equus Cabalus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05119985",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "143265",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "ad190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "e2188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "EMBRYOS/OVA - SHEEP",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Ovis Aries",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05119985",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "183281",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "af190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "e4188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "EMBRYOS/OVA - PIG",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Sus Scrofa Domesticus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05119985",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "23315",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "b1190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "235545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "FERRET",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Mustela putorius furio",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01061900",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "37993",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "b3190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "e6188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "GAME BIRDS - ADULT BIRDS- PARTRIDGE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Alectoris Spp.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01063980",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "85645",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "b5190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "e8188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "GAME BIRDS - ADULT BIRDS- PHEASANT",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Phasianus Spp.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01063980",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "202169",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "b7190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "ea188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "GAME BIRDS - DAY OLD CHICKS - PARTRIDGE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Alectoris Spp.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01063980",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "85645",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "b9190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "ec188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "GAME BIRDS - DAY OLD CHICKS - PHEASANT",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Phasianus Spp.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01063980",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "202169",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "bb190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "ee188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "GAME BIRDS - HATCHING EGGS - PHEASANT AND PARTRIDGE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Phasianidae",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "04071919",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "158398",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "bd190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "285545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "GOATS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Capra hircus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "010420",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "150503",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "bf190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "1f5545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "HORSE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Equus cabalus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "0101",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "3397",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "c1190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "86f4f62e-1de2-ea11-a813-000d3ab6d757",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "DONKEY",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Equus asinus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "0101",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "18798",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "c3190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "305545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "INSECTS AND OTHER INVERTEBRATES",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Otra Insecta",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01064900",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "40122",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "c5190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "465545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "PIG (DOMESTIC)",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Sus scrofa domesticus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "0103",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "130881",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "c7190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "f0188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "PIG MEAT UNDER SAFEGUARD MEASURE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Sus scrofa domesticus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "0203",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "130881",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "c9190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "f2188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - ADULT BIRDS - CHICKENS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Gallus Gallus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01059400",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "28792",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "cb190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "f4188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - ADULT BIRDS - DUCKS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Anas spp",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01059910",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "197906",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "cd190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "f6188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - ADULT BIRDS - GEESE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Anser spp.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01059920",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "129188",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "d0190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "f8188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - ADULT BIRDS - TURKEYS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Meleagris gallopavo",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01059930",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "200156",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "d2190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "fa188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - ADULT BIRDS - GUINEA FOWL",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Numida meleagris",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01059950",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "87965",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "d4190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "fc188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - DAY OLD CHICKS - CHICKENS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Gallus Gallus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01051111",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "28792",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "d6190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "fe188a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - DAY OLD CHICKS - TURKEYS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Meleagris gallopavo",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01051200",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "200156",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "d8190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "00198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - DAY OLD CHICKS - DUCKS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Anas spp",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01051300",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "197906",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "da190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "02198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - DAY OLD CHICKS - GEESE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Anser spp.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01051400",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "129188",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "dc190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "04198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - DAY OLD CHICKS - GUINEA FOWL",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Numida meleagris",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01051500",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "87965",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "de190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "06198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY -  HATCHING EGGS- CHICKENS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Gallus Gallus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "04071100",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "28792",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "e0190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "08198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY -  HATCHING EGGS- TURKEYS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Meleagris gallopavo",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "04071911",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "200156",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "e2190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "0a198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY -  HATCHING EGGS- GEESE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Anser spp.",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "04071911",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "129188",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "e4190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "0c198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - HATCHING EGGS- DUCKS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Anas spp",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "04071919",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "197906",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "e6190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "0e198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "POULTRY - HATCHING EGGS- GUINEA FOWL",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Numida meleagris",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "04071919",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "87965",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "e8190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "1e198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "PSITTACIFORMES (INCLUDING PARROTS, PARAKEETS, MACAWS AND COCKATOOS)",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Psittaciformes",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01063200",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "199313",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "ea190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "20198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "DOMESTIC EUROPEAN RABBITS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Oryctolagus cuniculus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01061410",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "116657",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "ec190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "22198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "DOMESTIC RABBITS- OTHER",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Otra Lagomorpha",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01061410",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "111465",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "ee190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "525545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "REPTILE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Reptilia",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01062000",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "193702",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "f0190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "565545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "RODENT",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Rodentia",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "01061900",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "71171",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "f2190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "10198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "SEMEN - CATTLE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Bos taurus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05111000",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "121693",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "f5190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "12198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "SEMEN - DOG OR CAT",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Otra",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05119985",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "6263",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "f7190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "14198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "SEMEN - HORSE",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Equus Cabalus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05119985",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "161737",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "f9190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "16198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "SEMEN - GOAT",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Capra Hircus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05119985",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "150503",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "fb190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "18198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "SEMEN - PIG",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Sus Scrofa Domesticus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05119985",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "130881",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "fd190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "1a198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "SEMEN - RODENT/RABBIT",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Otra",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05119985",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "6263",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "ff190b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "1c198a17-58e1-ea11-a813-000d3ab5d29e",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "SEMEN - SHEEP",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Ovis Aries",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "05119985",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "183281",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "011a0b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "5a5545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "SHEEP (DOMESTIC)",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Ovis Aries",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "010410",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "183281",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_commoditytypemapping",
+      "Id": "031a0b8d-1ee2-ea11-a815-000d3ab5d8e7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_commoditytype",
+          "AttributeValue": {
+            "Id": "605545a7-bbd3-e911-a870-000d3ab1dcdd",
+            "LogicalName": "defraexp_commoditytype",
+            "Name": "SPF EGGS",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Gallus gallus",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_commoditycode",
+          "AttributeValue": "0407",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_ipaffsspeciesid",
+          "AttributeValue": "28792",
+          "AttributeType": "System.String"
+        }
+      ]
+    }
+  ]
+}

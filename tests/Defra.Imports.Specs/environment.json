@@ -1,0 +1,12 @@
+{
+  "url": "",
+  "clientId": "",
+  "tenantId": "",
+  "personas": {},
+  "credentials": [],
+  "keyVault": {
+    "tenantId": "",
+    "clientId": "",
+    "name": ""
+  }
+}

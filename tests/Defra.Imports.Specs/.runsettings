@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <MSTest>
+    <Parallelize>
+      <Workers>2</Workers>
+      <Scope>MethodLevel</Scope>
+    </Parallelize>
+    <TestTimeout>600000</TestTimeout>
+  </MSTest>
+  <RunConfiguration>
+    <EnvironmentVariables>
+      <PWDEBUG>0</PWDEBUG>
+      <HEADLESS>true</HEADLESS>
+    </EnvironmentVariables>
+  </RunConfiguration>
+</RunSettings>

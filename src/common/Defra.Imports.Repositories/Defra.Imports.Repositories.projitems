@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>56d657e2-2db7-4489-ad26-ca2e147836c6</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Defra.Imports.Repositories</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Annotations\AnnotationsRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Autonumber\AutonumberRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Autonumber\IAutonumberRespoitory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConfigurationParameter\ConfigurationParameterRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CrmRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CrmRepository{TContext,TEntity}.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ICrmRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ICrmRepository{TEntity}.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Import Application\ImportApplicationRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Import Risk Level\ImportRiskLevelRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrganizationServiceExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlaceOfOrigin\IPlaceOfOriginRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlaceOfOrigin\PlaceOfOriginRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PostcodeRegion\PostcodeRegionRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SandboxWebClient.cs" />
+  </ItemGroup>
+</Project>

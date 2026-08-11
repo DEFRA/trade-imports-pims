@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{6ee10575-2699-4792-8e3a-89382be15b07}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{b1b428e9-b331-496c-aac8-cc063f8f75e9}" IsUserDefined="1" name="tab_general">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{f6ebef27-01ba-4872-b268-ddca38946be4}" columns="1" name="tab_general" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{47cb0570-4ffa-41a4-8837-aa018955258b}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ec24cd3b-0b37-44c0-9d52-e7bcd730d637}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Start Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_startdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_startdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{86bbb007-0b68-4151-87c4-c2e24d2e630d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="End Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_enddate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="defraimp_enddate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4ce1941d-9a99-4d57-b389-b27a16229da7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Watch Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_watchtype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="defraimp_watchtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e97dd68b-8525-4860-8a74-c2d21516653e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place of Destination" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeofdestinationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeofdestinationid" disabled="false" uniqueid="{d53200e6-6a9c-e331-0857-be4b1cdb6a33}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d04826ec-712c-4e01-b86c-7e9fb19ed0bf}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Consignee" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_consigneeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_consigneeid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f7dc1028-e06d-47c9-8edc-92c1f38b2e4f}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transporter" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_transporterid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_transporterid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{73932662-4e90-4e50-9bcf-adc1166da727}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Veterinarian" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_veterinarianid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_veterinarianid" disabled="false" uniqueid="{6143b722-bade-6222-0926-eea6032ebca7}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9aed0263-bd36-2408-8809-56e048b39d18}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Place Of Origin" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeoforiginid" disabled="false" uniqueid="{585ba627-e721-aede-5c70-33459d39ecb9}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="_section_606" id="4e75c246-642b-4d91-8e41-c0b071e1e26b" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Comments" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{28c7b803-c39e-47ea-ae69-332502c4f322}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Comments" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_comments" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="defraimp_comments" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5d8d35bb-602d-1811-5c32-1c722b2170a1}" showlabel="true" rowspan="1" auto="false" colspan="1">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{751a5a23-1015-4eba-9691-d057e09385e5}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{96fd82bc-c444-4c69-9540-b8d8fc34e77e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ca9ad7b9-2435-4ee5-8b50-5080f5da54c0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{56e14082-254a-42fd-953c-b611c2595260}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{99c1dacd-7500-4c7b-a89d-62f17b625408}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+            <cell id="{30f62e9c-1aab-4d16-aa5b-7a487c7e8c46}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Created By" languagecode="1033" />
+              </labels>
+              <control id="header_createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+            </cell>
+            <cell id="{d4662766-f057-4523-8dc8-2e8f6fda3554}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Created On" languagecode="1033" />
+              </labels>
+              <control id="header_createdon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{8d00cccd-2776-45b8-9aaa-a672ced531e0}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{a117358d-03f8-4c44-b238-91a94cd9afaf}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6f646108-3766-4e21-8cfe-4da160f53fc7}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d3e2f795-793a-4c37-bb55-95cac65c2e31}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

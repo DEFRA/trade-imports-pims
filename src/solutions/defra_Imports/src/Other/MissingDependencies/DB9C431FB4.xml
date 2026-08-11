@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="1" schemaName="agenticscenario" displayName="Agentic Scenario" solution="msdyn_PowerPlatformAppAgents (1.0.0.17)" />
+  <Dependent type="1" schemaName="team" displayName="Team" />
+</MissingDependency>

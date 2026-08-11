@@ -1,0 +1,34 @@
+name: $(SetAggregateRunNumber.RunNumber)
+
+pool:
+  vmImage: windows-latest
+
+trigger: none
+
+resources:
+  pipelines:
+    - pipeline: imports
+      source: imports
+      branch: master
+      tags:
+        - Deployed to PRE
+  repositories:
+    - repository: power-pipelines
+      name: ewingjm/power-pipelines
+      ref: refs/heads/main
+      type: github
+      endpoint: github.com_ewingjm
+
+variables:
+  - group: Environment - Imports - PRD
+  
+extends:
+  template: templates/power-platform/pipelines/deploy-packages-pipeline.yml@power-pipelines
+  parameters:
+    serviceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
+    environment: PRD
+    packages:
+      - resource: imports
+        artifact: package
+        file: Defra.Imports.Deployment.dll
+    tagSuccess: true

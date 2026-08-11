@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{716a3f71-21f2-ec11-bb3d-000d3a6641b9}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" preview="1" icon="1">
+        <row name="result" id="defraimp_parametersetidentifierid">
+          <cell name="defraimp_individualname" width="100" />
+          <cell name="defraimp_passport" width="100" />
+          <cell name="defraimp_microchip" width="100" />
+          <cell name="defraimp_tattoo" width="100" />
+          <cell name="defraimp_type" width="100" />
+          <cell name="defraimp_addressline1" width="100" />
+          <cell name="defraimp_addressline2" width="100" />
+          <cell name="defraimp_addressline3" width="100" />
+          <cell name="defraimp_city" width="100" />
+          <cell name="defraimp_postalzipcode" width="100" />
+          <cell name="defraimp_telephone" width="100" />
+          <cell name="defraimp_email" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="defraimp_parametersetidentifier">
+          <attribute name="defraimp_type" />
+          <attribute name="defraimp_telephone" />
+          <attribute name="defraimp_tattoo" />
+          <attribute name="defraimp_postalzipcode" />
+          <attribute name="defraimp_passport" />
+          <attribute name="defraimp_microchip" />
+          <attribute name="defraimp_individualname" />
+          <attribute name="defraimp_email" />
+          <attribute name="defraimp_city" />
+          <attribute name="defraimp_addressline2" />
+          <attribute name="defraimp_addressline1" />
+          <order attribute="defraimp_individualname" descending="false" />
+          <filter type="and">
+            <condition attribute="defraimp_isplaceofdestinationthepermanentaddress" operator="eq" value="0" />
+          </filter>
+          <attribute name="defraimp_addressline3" />
+          <attribute name="defraimp_parametersetidentifierid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.117</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Importer Notification Commodity Permanent Address Information" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

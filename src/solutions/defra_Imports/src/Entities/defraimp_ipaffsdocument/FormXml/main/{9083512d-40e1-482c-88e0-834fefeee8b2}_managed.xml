@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{9083512d-40e1-482c-88e0-834fefeee8b2}</formid>
+    <IntroducedVersion>0.0.0.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{c326a4b9-7af9-41c5-a9c4-3af3eb0e810f}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{0a96d4bd-7fc5-4dd3-b953-4d0a72c37c89}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{9ecec7e2-7765-db45-87d3-ae78661ede38}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Importer Notification" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_importernotificationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_importernotificationid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d2176a12-72b9-46a0-8318-bd66bcce4801}">
+                        <labels>
+                          <label description="Attachment Filename" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{906c05b1-5254-ee83-e7c0-13cbb3a28c5a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Document URL" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_documenturl" classid="{71716B6C-711E-476c-8AB8-5D11542BFB47}" datafieldname="defraimp_documenturl" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{107dc72c-3b43-8e06-3456-c676910a576c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Document Type" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_documenttype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="defraimp_documenttype" disabled="false" uniqueid="{240c11d9-6719-a396-d1aa-747c7bd4bc72}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4e65dc93-698c-5618-9008-3ade6543aa52}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Document Reference" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_documentreference" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="defraimp_documentreference" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a3c95729-1db1-4bd6-8873-5a2e1c648ed0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Document Issue Date" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_documentissuedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="defraimp_documentissuedate" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{2b109f80-690d-4624-8cf8-b56d557c71ee}" columns="111">
+        <rows>
+          <row>
+            <cell id="{1786e95c-9ecb-44a7-afda-7e1fd608b1f2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ae8cd88c-ec4c-45b9-bfec-3a5b849267e1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{9b0e7b92-098e-c8c9-bcc9-c29d432971e3}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

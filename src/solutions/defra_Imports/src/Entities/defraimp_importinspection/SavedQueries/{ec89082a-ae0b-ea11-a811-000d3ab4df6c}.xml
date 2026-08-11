@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{ec89082a-ae0b-ea11-a811-000d3ab4df6c}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" preview="1" icon="1" select="1" jump="defraimp_name">
+        <row id="defraimp_importinspectionid" name="result">
+          <cell name="defraimp_relatedimportapplication" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_relateditahc" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="200" />
+          <cell name="defraimp_samworkschedulenumber" imageproviderwebresource="$webresource:" imageproviderfunctionname="" width="150" />
+          <cell name="defraimp_customernumber" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_cphnumber" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_dateofvisit" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_replyfromahodue" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="defraimp_inspectionoutcome" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">
+        <entity name="defraimp_importinspection">
+          <attribute name="defraimp_relateditahc" />
+          <attribute name="defraimp_samworkschedulenumber" />
+          <attribute name="defraimp_inspectionoutcome" />
+          <attribute name="defraimp_relatedimportapplication" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="defraimp_inspectionoutcome" operator="in">
+              <value>714100001</value>
+              <value>714100003</value>
+              <value>714100002</value>
+              <value>714100004</value>
+              <value>714100006</value>
+              <value>714100005</value>
+            </condition>
+          </filter>
+          <attribute name="defraimp_customernumber" />
+          <attribute name="defraimp_cphnumber" />
+          <attribute name="defraimp_replyfromahodue" />
+          <attribute name="defraimp_dateofvisit" />
+          <order descending="true" attribute="createdon" />
+          <attribute name="defraimp_importinspectionid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>0.0.0.4</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="5. Closed Post Import Checks" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
