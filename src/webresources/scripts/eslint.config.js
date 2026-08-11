@@ -3,6 +3,8 @@ const { defineConfig, globalIgnores } = require("eslint/config");
 const tsParser = require("@typescript-eslint/parser");
 const jest = require("eslint-plugin-jest");
 const typescriptEslint = require("@typescript-eslint/eslint-plugin");
+const creedengoEsLint = require("@creedengo/eslint-plugin");
+
 const globals = require("globals");
 const js = require("@eslint/js");
 const espree = require("espree");
@@ -15,7 +17,7 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-module.exports = defineConfig([
+module.exports = defineConfig(creedengoEsLint.configs.recommended, [
   /**
    * JS / MJS / CJS files — use default JS parser (espree).
    * This prevents @typescript-eslint/parser (with project mode)
