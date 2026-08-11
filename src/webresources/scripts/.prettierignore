@@ -1,0 +1,12 @@
+*.js
+*.cjs 
+*.csproj.user
+*.feature.cs
+
+bin/
+obj/
+out/
+dist/
+coverage/
+node_modules/
+.vs/

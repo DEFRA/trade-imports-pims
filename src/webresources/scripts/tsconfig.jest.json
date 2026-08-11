@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "out/tests",
+    "module": "node16",
+    "moduleResolution": "node16",
+    "libReplacement": true,
+    "noUncheckedSideEffectImports": false,
+    "sourceMap": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "isolatedModules": true,
+    "types": [
+      "jest",
+      "node",
+      "xrm"
+    ]
+  },
+  "include": ["tests/**/*.ts"]
+}

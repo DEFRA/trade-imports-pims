@@ -12,6 +12,7 @@
 
 # Build results
 [Dd]ist/
+out/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -277,3 +278,11 @@ tools/*.md5sum
 
 # Reqnroll output
 **/*.feature.cs
+
+# Coverage output
+
+coverage/
+
+# JUnit output
+
+test-results/

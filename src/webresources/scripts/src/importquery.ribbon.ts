@@ -1,43 +1,44 @@
-namespace DefraImports.ImportQuery {
+export function CloneImportQueryButton(primaryControl: Xrm.FormContext): void {
+  const emailToSend = requiredAttribute<Xrm.Attributes.StringAttribute>(
+    primaryControl,
+    "defraimp_querysentto"
+  ).getValue();
+  const subject = requiredAttribute<Xrm.Attributes.StringAttribute>(
+    primaryControl,
+    "subject"
+  ).getValue();
+  const dueDate = requiredAttribute<Xrm.Attributes.DateAttribute>(
+    primaryControl,
+    "defraimp_duedate"
+  ).getValue();
+  const queryId = normalizeEntityId(primaryControl.data.entity.getId());
 
-    export function CloneImportQueryButton(primaryControl: Form.defraimp_importquery.Main.Information) {
-        console.log("Function called!");
-        const emailToSend = primaryControl.getAttribute("defraimp_querysentto").getValue();
-        console.log(emailToSend);
-        const subject = primaryControl.getAttribute("subject").getValue();
-        console.log(subject);
-        const dueDate = primaryControl.getAttribute("defraimp_duedate").getValue();
-        console.log(dueDate?.toString());
-        const queryId = primaryControl.data.entity.getId();
-        console.log(queryId);
+  const parameters: Xrm.Utility.OpenParameters = {
+    defraimp_querysentto: emailToSend ?? undefined,
+    subject: subject ?? undefined,
+    defraimp_duedate: dueDate?.toISOString(),
+    defraimp_originalquery: JSON.stringify({
+      id: queryId,
+      name: subject ?? "",
+      entityType: "defraimp_importquery",
+    }),
+  };
 
-        let clone: any = {};
-        clone["defraimp_querysentto"] = emailToSend;
-        clone["subject"] = subject;
-        clone["defraimp_duedate"] = dueDate;
-        clone["defraimp_originalquery"] = new QueryLookup(queryId.replace("{", "").replace("}", ""), subject!, "defraimp_importquery");
+  Xrm.Navigation.openForm({ entityName: "defraimp_importquery" }, parameters);
+}
 
-        console.log("Defined clone");
+function requiredAttribute<T extends Xrm.Attributes.Attribute>(
+  formContext: Xrm.FormContext,
+  name: string
+): T {
+  const attribute = formContext.getAttribute<T>(name);
+  if (!attribute) {
+    throw new Error(`Required attribute '${name}' was not found.`);
+  }
 
-        let formOptions: any = {};
-        formOptions["entityName"] = "defraimp_importquery";
+  return attribute;
+}
 
-        console.log("Defined form options");
-
-        Xrm.Navigation.openForm(formOptions, clone);
-    }
-
-    class QueryLookup {
-
-        id: string;
-        name: string;
-        entityType: string;
-
-        constructor(_id: string, _name: string, _entityType: string) {
-
-            this.id = _id;
-            this.name = _name;
-            this.entityType = _entityType;
-        }
-    }
+function normalizeEntityId(entityId: string): string {
+  return entityId.replace(/[{}]/g, "");
 }

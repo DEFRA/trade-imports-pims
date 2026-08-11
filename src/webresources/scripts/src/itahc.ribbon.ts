@@ -1,78 +1,56 @@
-namespace DefraImports.Itahc {
-  class TRACESConfigParamaterConstants {
-    static entityName = "defraexp_configurationparameter";
-    static entityId = "{2bb103d9-b629-eb11-a813-000d3ad82cac}"
-  }
-
-  class CreateImportRecordFromItahcRequest {
-    public entity: Xrm.Lookup;
-
-    constructor(entity: Xrm.Lookup) {
-      this.entity = entity;
-    }
-
-    public getMetadata() {
-      return {
-        boundParameter: "entity",
-        operationType: 0,
-        operationName: "defraimp_CreateImportRecordFromItahc",
-        parameterTypes: {
-          entity: {
-            typeName: "mscrm.defraimp_itahc",
-            structuralProperty: 5
-          }
-        }
-      };
-    }
-  }
-
-  export function onCreateImportRecordFromItahc(primaryControl: Form.defraimp_itahc.Main.Information): void {
-    checkTracesEnabled(primaryControl);
-  }
-
-  function checkTracesEnabled(primaryControl: Form.defraimp_itahc.Main.Information): void {
-    Xrm.WebApi.retrieveRecord(TRACESConfigParamaterConstants.entityName, TRACESConfigParamaterConstants.entityId, "?$select=defraexp_value").then(
-      (result) => {
-        const tracesEnbaled = (/true/i).test(result.defraexp_value);
-        if (tracesEnbaled) {
-          Xrm.Utility.showProgressIndicator("Loading");
-          callCreateImportRecordFromItahcAction(primaryControl);
-        }
-        else {
-          alert("Access TRACES is not enabled. Please create Import Records from Importer Notifications instead");
-        }
+const tracesConfigParameter = {
+  entityName: "defraexp_configurationparameter",
+  entityId: "{2bb103d9-b629-eb11-a813-000d3ad82cac}",
+} as const;
+class CreateImportRecordFromItahcRequest {
+  public constructor(public entity: Xrm.LookupValue) {}
+  public getMetadata() {
+    return {
+      boundParameter: "entity",
+      operationType: 0,
+      operationName: "defraimp_CreateImportRecordFromItahc",
+      parameterTypes: {
+        entity: { typeName: "mscrm.defraimp_itahc", structuralProperty: 5 },
       },
-      (error) => {
-        alert(error.message);
-      }
+    };
+  }
+}
+export async function onCreateImportRecordFromItahc(
+  primaryControl: Xrm.FormContext
+): Promise<void> {
+  try {
+    const result: { defraexp_value: string } = await Xrm.WebApi.retrieveRecord(
+      tracesConfigParameter.entityName,
+      tracesConfigParameter.entityId,
+      "?$select=defraexp_value"
     );
+    if (/true/i.test(result.defraexp_value)) {
+      Xrm.Utility.showProgressIndicator("Loading");
+      await createImportRecordFromItahc(primaryControl);
+    } else
+      await Xrm.Navigation.openAlertDialog({
+        text: "Access TRACES is not enabled. Please create Import Records from Importer Notifications instead",
+      });
+  } catch (error) {
+    await Xrm.Navigation.openAlertDialog({ text: getErrorMessage(error) });
   }
-
-  function callCreateImportRecordFromItahcAction(primaryControl: Form.defraimp_itahc.Main.Information): void {
-    const itahc: Xrm.Lookup = primaryControl.data.entity.getEntityReference();
-    const requestObject: CreateImportRecordFromItahcRequest = new CreateImportRecordFromItahcRequest(itahc);
-
-    Xrm.WebApi.online
-      .execute(requestObject)
-      .then(
-        function (success: Xrm.WebApiResponse) {
-          executeSuccess(primaryControl);
-        },
-        executeErrorCallback
-      );
-  }
-
-  function executeSuccess(primaryControl: Form.defraimp_importapplication.Main.Information | Form.defraimp_itahc.Main.Information) {
+}
+async function createImportRecordFromItahc(
+  primaryControl: Xrm.FormContext
+): Promise<void> {
+  try {
+    await Xrm.WebApi.online.execute(
+      new CreateImportRecordFromItahcRequest(
+        primaryControl.data.entity.getEntityReference()
+      )
+    );
+    await primaryControl.data.refresh(false);
+  } catch (error) {
+    await Xrm.Navigation.openErrorDialog({ message: getErrorMessage(error) });
+  } finally {
     Xrm.Utility.closeProgressIndicator();
-    primaryControl.data.refresh(false);
   }
-
-  function executeErrorCallback(error: Xrm.ErrorCallbackObject) {
-    Xrm.Utility.closeProgressIndicator();
-    const errorOptions: Xrm.ErrorOptions = {
-      errorCode: error.errorCode,
-      message: error.message,
-    }
-    Xrm.Navigation.openErrorDialog(errorOptions);
-  }
+}
+function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
 }

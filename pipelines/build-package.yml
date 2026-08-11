@@ -24,3 +24,5 @@ extends:
   parameters:
     packageProject: deploy\Defra.Imports.Deployment\Defra.Imports.Deployment.csproj
     serviceConnection: Power Platform - Management App
+    postBuildSteps:
+      - template: templates\steps\run-typescript-unit-tests-steps.yml@self

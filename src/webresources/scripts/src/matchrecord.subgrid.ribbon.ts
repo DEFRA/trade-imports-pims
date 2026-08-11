@@ -1,209 +1,171 @@
-namespace DefraImports.MatchRecord {
-  class AppendItahcToImportRecordRequest {
-    public entity: Xrm.Lookup |Xrm.EntityReference<any>
-    public importRecord: Xrm.Lookup |Xrm.EntityReference<any>;
-    public itahc: Xrm.Lookup | Xrm.EntityReference<any>;
-
-
-    constructor(matchRecord: Xrm.Lookup | Xrm.EntityReference<any>, importRecord: Xrm.Lookup |Xrm.EntityReference<any>, itahc: Xrm.Lookup | Xrm.EntityReference<any>) {
-      this.entity = matchRecord;
-      this.importRecord = importRecord;
-      this.itahc = itahc;
-    }
-
-    public getMetadata() {
-      return {
-        boundParameter: "entity",
-        operationType: 0,
-        operationName: "defraimp_AppendITAHCtoImportRecord",
-        parameterTypes: {
-          entity: {
-            typeName: "mscrm.defraimp_matchrecord",
-            structuralProperty: 5
-          },
-          itahc: {
-            typeName: "mscrm.defraimp_itahc",
-            structuralProperty: 5
-          },
-          importRecord: {
-            typeName: "mscrm.defraimp_importapplication",
-            structuralProperty: 5
-          },
-        }
-      }
-    }
-  }
-
-  class AppendImporterNotificationToImportRecordRequest {
-    public entity: Xrm.Lookup | Xrm.EntityReference<any>
-    public importRecord: Xrm.Lookup | Xrm.EntityReference<any>;
-    public importerNotification: Xrm.Lookup | Xrm.EntityReference<any>;
-
-
-    constructor(matchRecord: Xrm.Lookup | Xrm.EntityReference<any>, importRecord: Xrm.Lookup | Xrm.EntityReference<any>, importerNotification: Xrm.Lookup | Xrm.EntityReference<any>) {
-      this.entity = matchRecord;
-      this.importRecord = importRecord;
-      this.importerNotification = importerNotification;
-    }
-
-    public getMetadata() {
-      return {
-        boundParameter: "entity",
-        operationType: 0,
-        operationName: "defraimp_AppendImporterNotificationtoImportRecord",
-        parameterTypes: {
-          entity: {
-            typeName: "mscrm.defraimp_matchrecord",
-            structuralProperty: 5
-          },
-          importerNotification: {
-            typeName: "mscrm.defraimp_importernotification",
-            structuralProperty: 5
-          },
-          importRecord: {
-            typeName: "mscrm.defraimp_importapplication",
-            structuralProperty: 5
-          },
-        }
-      }
-    }
-  }
-
-  class CreateImportRecordFromITAHCRequest {
-    public entity: Xrm.Lookup | Xrm.EntityReference<any>
-    public itahc: Xrm.Lookup | Xrm.EntityReference<any>
-
-    constructor(matchRecord: Xrm.Lookup | Xrm.EntityReference<any>, itahcRecord: Xrm.Lookup | Xrm.EntityReference<any>) {
-      this.entity = matchRecord;
-      this.itahc = itahcRecord;
-    }
-
-    public getMetadata() {
-      return {
-        boundParameter: "entity",
-        operationType: 0,
-        operationName: "defraimp_MatchRecordCreateImportRecordfromITAHC",
-        parameterTypes: {
-          entity: {
-            typeName: "mscrm.defraimp_matchrecord",
-            structuralProperty: 5
-          },
-          itahc: {
-            typeName: "mscrm.defraimp_itahc",
-            structuralProperty: 5
-          },
-        }
-      }
-    }
-  }
-
-  export function onAppendItahc(primaryControl: Form.defraimp_matchrecord.Main.Information): void {
-    primaryControl.data.save().then(
-      function (success) {
-        Xrm.Utility.showProgressIndicator("Appending ITAHCs");
-        var selectedImportRecords = getSelectedImportRecords(primaryControl);
-        var itahc = primaryControl.getAttribute("defraimp_itahc").getValue()![0];
-        const matchRecord: Xrm.Lookup = primaryControl.data.entity.getEntityReference();
-
-        var requests: Array<AppendItahcToImportRecordRequest> = [];
-
-        selectedImportRecords.forEach(importRecord => {
-          requests.push(generateAppendItahcRequest(matchRecord, itahc, importRecord));
-
-        });
-
-        executeMultipleRequests(primaryControl, requests)
-      }
-    );
-  }
-
-  export function onAppendImporterNotification(primaryControl: Form.defraimp_matchrecord.Main.Information): void {
-    primaryControl.data.save().then(
-      function (success) {
-        Xrm.Utility.showProgressIndicator("Appending Importer Notifications");
-        var selectedImportRecords = getSelectedImportRecords(primaryControl);
-        var importerNotification = primaryControl.getAttribute("defraimp_importernotification").getValue()![0];
-        const matchRecord: Xrm.Lookup = primaryControl.data.entity.getEntityReference();
-
-        var requests: Array<AppendImporterNotificationToImportRecordRequest> = [];
-
-        selectedImportRecords.forEach(importRecord => {
-          requests.push(generateAppendImporterNotificationRequest(matchRecord, importerNotification, importRecord));
-
-        });
-
-        executeMultipleRequests(primaryControl, requests)
-      }
-    );
-  }
-
-  export function onCreateImportRecordFromITAHC(primaryControl: Form.defraimp_matchrecord.Main.Information): void {
-    primaryControl.data.save().then(
-      function (success) {
-        Xrm.Utility.showProgressIndicator("Creating Import Record");
-        createImportRecordFromItahc(primaryControl);
-      }
-    );
-  }
-
-  function getSelectedImportRecords(primaryControl: Form.defraimp_matchrecord.Main.Information): Xrm.EntityReference<any>[] {
-    var selectedRows = primaryControl.getControl("RelatedImportRecords").getGrid().getSelectedRows();
-    var selectedImportRecords: Xrm.EntityReference<any>[] = [];
-
-    selectedRows.forEach(element => {
-      selectedImportRecords.push(element.getData().getEntity().getEntityReference());
+type ActionRequest = { getMetadata(): object };
+type Reference = Xrm.LookupValue;
+type MetadataParameter = { typeName: string; structuralProperty: number };
+class AppendItahcToImportRecordRequest implements ActionRequest {
+  public constructor(
+    public entity: Reference,
+    public importRecord: Reference,
+    public itahc: Reference
+  ) {}
+  public getMetadata() {
+    return metadata("defraimp_AppendITAHCtoImportRecord", {
+      itahc: "mscrm.defraimp_itahc",
+      importRecord: "mscrm.defraimp_importapplication",
     });
-
-    return selectedImportRecords;
   }
-
-  function generateAppendItahcRequest(matchRecord: Xrm.Lookup | Xrm.EntityReference<any>, itahc: Xrm.Lookup | Xrm.EntityReference<any>, importRecord: Xrm.Lookup | Xrm.EntityReference<any>): AppendItahcToImportRecordRequest {
-    return new AppendItahcToImportRecordRequest(matchRecord, importRecord, itahc);
+}
+class AppendImporterNotificationToImportRecordRequest implements ActionRequest {
+  public constructor(
+    public entity: Reference,
+    public importRecord: Reference,
+    public importerNotification: Reference
+  ) {}
+  public getMetadata() {
+    return metadata("defraimp_AppendImporterNotificationtoImportRecord", {
+      importerNotification: "mscrm.defraimp_importernotification",
+      importRecord: "mscrm.defraimp_importapplication",
+    });
   }
-
-  function generateAppendImporterNotificationRequest(matchRecord: Xrm.Lookup | Xrm.EntityReference<any>, importerNotification: Xrm.Lookup | Xrm.EntityReference<any>, importRecord: Xrm.Lookup | Xrm.EntityReference<any>): AppendImporterNotificationToImportRecordRequest {
-    return new AppendImporterNotificationToImportRecordRequest(matchRecord, importRecord, importerNotification);
+}
+class CreateImportRecordFromITAHCRequest implements ActionRequest {
+  public constructor(public entity: Reference, public itahc: Reference) {}
+  public getMetadata() {
+    return metadata("defraimp_MatchRecordCreateImportRecordfromITAHC", {
+      itahc: "mscrm.defraimp_itahc",
+    });
   }
-
-
-  function createImportRecordFromItahc(primaryControl: Form.defraimp_matchrecord.Main.Information): void {
-    var itahc = primaryControl.getAttribute("defraimp_itahc").getValue()![0];
-    const matchRecord: Xrm.Lookup = primaryControl.data.entity.getEntityReference();
-    var request = new CreateImportRecordFromITAHCRequest(matchRecord, itahc);
-
-    Xrm.WebApi.online
-      .execute(request)
-      .then(
-        function (success: Xrm.WebApiResponse) {
-          executeSuccess(primaryControl);
-        },
-        executeErrorCallback
+}
+export function onAppendItahc(primaryControl: Xrm.FormContext): void {
+  void saveThen(primaryControl, "Appending ITAHCs", async () => {
+    const match = primaryControl.data.entity.getEntityReference();
+    const itahc = lookup(primaryControl, "defraimp_itahc");
+    await executeMultiple(
+      primaryControl,
+      selected(primaryControl).map(
+        (record) => new AppendItahcToImportRecordRequest(match, record, itahc)
+      )
+    );
+  });
+}
+export function onAppendImporterNotification(
+  primaryControl: Xrm.FormContext
+): void {
+  void saveThen(
+    primaryControl,
+    "Appending Importer Notifications",
+    async () => {
+      const match = primaryControl.data.entity.getEntityReference();
+      const notification = lookup(
+        primaryControl,
+        "defraimp_importernotification"
       );
-  }
-
-  function executeMultipleRequests(primaryControl: Form.defraimp_matchrecord.Main.Information, requests: Array<any>) {
-    Xrm.WebApi.online
-      .executeMultiple(requests)
-      .then(
-        (result) => {
-          executeSuccess(primaryControl);
-        }
-        ,
-        executeErrorCallback
+      await executeMultiple(
+        primaryControl,
+        selected(primaryControl).map(
+          (record) =>
+            new AppendImporterNotificationToImportRecordRequest(
+              match,
+              record,
+              notification
+            )
+        )
       );
-  }
-
-  function executeSuccess(primaryControl: Form.defraimp_matchrecord.Main.Information) {
-    Xrm.Utility.closeProgressIndicator();
-    primaryControl.data.refresh(false);
-  }
-
-  function executeErrorCallback(error: Xrm.ErrorCallbackObject) {
-    Xrm.Utility.closeProgressIndicator();
-    const errorOptions: Xrm.ErrorOptions = {
-      errorCode: error.errorCode,
-      message: error.message,
     }
-    Xrm.Navigation.openErrorDialog(errorOptions);
+  );
+}
+export function onCreateImportRecordFromITAHC(
+  primaryControl: Xrm.FormContext
+): void {
+  void saveThen(primaryControl, "Creating Import Record", async () => {
+    await executeOne(
+      primaryControl,
+      new CreateImportRecordFromITAHCRequest(
+        primaryControl.data.entity.getEntityReference(),
+        lookup(primaryControl, "defraimp_itahc")
+      )
+    );
+  });
+}
+// TODO: Handle a rejected form save when the ribbon behavior is next reviewed.
+async function saveThen(
+  form: Xrm.FormContext,
+  message: string,
+  action: () => Promise<void>
+): Promise<void> {
+  await form.data.save();
+  Xrm.Utility.showProgressIndicator(message);
+  await action();
+}
+function selected(form: Xrm.FormContext): Reference[] {
+  const relatedImportRecords = form.getControl<Xrm.Controls.GridControl>(
+    "RelatedImportRecords"
+  );
+  if (!relatedImportRecords) {
+    throw new Error("RelatedImportRecords grid was not found on the form.");
   }
+
+  const rows = relatedImportRecords.getGrid().getSelectedRows();
+  const result: Reference[] = [];
+  rows.forEach((row) =>
+    result.push(row.getData().getEntity().getEntityReference())
+  );
+  return result;
+}
+function lookup(form: Xrm.FormContext, name: string): Reference {
+  const attribute = form.getAttribute<Xrm.Attributes.LookupAttribute>(name);
+  if (!attribute) {
+    throw new Error(`Lookup attribute '${name}' was not found.`);
+  }
+
+  const value = attribute.getValue();
+  if (!value || value.length === 0) {
+    throw new Error(`Lookup attribute '${name}' does not contain a value.`);
+  }
+
+  return value[0];
+}
+async function executeOne(
+  form: Xrm.FormContext,
+  request: ActionRequest
+): Promise<void> {
+  try {
+    await Xrm.WebApi.online.execute(request);
+    await success(form);
+  } catch (error) {
+    await failure(error);
+  }
+}
+async function executeMultiple(
+  form: Xrm.FormContext,
+  requests: ActionRequest[]
+): Promise<void> {
+  try {
+    await Xrm.WebApi.online.executeMultiple(requests);
+    await success(form);
+  } catch (error) {
+    await failure(error);
+  }
+}
+async function success(form: Xrm.FormContext): Promise<void> {
+  Xrm.Utility.closeProgressIndicator();
+  await form.data.refresh(false);
+}
+async function failure(error: unknown): Promise<void> {
+  Xrm.Utility.closeProgressIndicator();
+  await Xrm.Navigation.openErrorDialog({
+    message: error instanceof Error ? error.message : String(error),
+  });
+}
+function metadata(operationName: string, parameters: Record<string, string>) {
+  const parameterTypes: Record<string, MetadataParameter> = {
+    entity: { typeName: "mscrm.defraimp_matchrecord", structuralProperty: 5 },
+  };
+  for (const name of Object.keys(parameters))
+    parameterTypes[name] = { typeName: parameters[name], structuralProperty: 5 };
+  return {
+    boundParameter: "entity",
+    operationType: 0,
+    operationName,
+    parameterTypes,
+  };
 }
