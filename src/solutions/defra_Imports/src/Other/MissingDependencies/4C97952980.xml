@@ -1,4 +1,4 @@
 <MissingDependency>
-  <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2606.5012)" />
+  <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2607.2008)" />
   <Dependent type="60" displayName="Information" parentDisplayName="Import Record" id="{c34eaa9e-0974-4b7f-b874-3bd5f2b0bbd8}" />
 </MissingDependency>
