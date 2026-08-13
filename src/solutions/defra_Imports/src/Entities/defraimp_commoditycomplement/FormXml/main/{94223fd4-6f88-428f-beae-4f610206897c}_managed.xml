@@ -62,7 +62,7 @@
                     <row>
                       <cell id="{fc2245e9-25a5-4f58-9c59-8e541d29e704}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Number of Animals" languagecode="1033" />
                         </labels>
                         <control id="defraimp_numberofanimals" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_numberofanimals" disabled="false" />
                       </cell>
@@ -70,7 +70,7 @@
                     <row>
                       <cell id="{e3a2a62c-69ff-47b5-b8d0-28d5cf534371}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Number of Packages" languagecode="1033" />
                         </labels>
                         <control id="defraimp_numberofpackages" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="defraimp_numberofpackages" disabled="false" />
                       </cell>
