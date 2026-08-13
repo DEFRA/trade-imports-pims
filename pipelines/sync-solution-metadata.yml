@@ -19,6 +19,7 @@ pool:
   vmImage: windows-latest
 
 trigger: none
+pr: none
 
 resources:
   repositories:

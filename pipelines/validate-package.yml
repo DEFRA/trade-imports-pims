@@ -3,10 +3,28 @@ name: $(GITVERSION_FullSemVer)
 pool:
   vmImage: windows-latest
 
-pr:
-  autoCancel: false
-
 trigger: none
+pr:
+  drafts: false
+  autoCancel: false
+  branches:
+    include:
+      - main
+      - releases/*
+  paths:
+    include:
+      - deploy
+      - src
+      - tests
+      - Defra.Imports.sln
+      - GitVersion.yml
+      - pipelines/validate-package.yml
+      - pipelines/templates/steps/run-typescript-unit-tests-steps.yml
+      - pipelines/templates/jobs/create-application-user-job.yml
+      - data/core/extract
+      - data/core/import.json
+    exclude:
+      - '**/*.md'
 
 resources:
   repositories:
@@ -18,6 +36,7 @@ resources:
 
 variables:
   - group: Environment - Imports - CI
+  - group: GitHub
 
 extends:
   template: templates/power-platform/pipelines/validate-package-pipeline.yml@power-pipelines
@@ -49,3 +68,4 @@ extends:
           serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
     postBuildSteps:
       - template: templates\steps\run-typescript-unit-tests-steps.yml@self
+    githubToken: $(GitHub.Token)

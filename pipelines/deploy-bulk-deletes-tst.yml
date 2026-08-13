@@ -1,10 +1,11 @@
 trigger:
   branches:
     include:
-      - master
+      - main
   paths:
     include:
       - data/deletion/*
+pr: none
 
 pool:
   vmImage: windows-latest
