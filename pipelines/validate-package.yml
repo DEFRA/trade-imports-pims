@@ -36,7 +36,6 @@ resources:
 
 variables:
   - group: Environment - Imports - CI
-  - group: GitHub
 
 extends:
   template: templates/power-platform/pipelines/validate-package-pipeline.yml@power-pipelines
@@ -68,4 +67,3 @@ extends:
           serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
     postBuildSteps:
       - template: templates\steps\run-typescript-unit-tests-steps.yml@self
-    githubToken: $(GitHub.Token)
