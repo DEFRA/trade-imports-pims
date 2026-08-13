@@ -8,9 +8,9 @@ pr: none
 
 resources:
   pipelines:
-    - pipeline: imports
-      source: imports
-      branch: master
+    - pipeline: pims
+      source: pims
+      branch: main
       tags:
         - Deployed to PRE
   repositories:
@@ -29,7 +29,7 @@ extends:
     serviceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
     environment: PRD
     packages:
-      - resource: imports
+      - resource: pims
         artifact: package
         file: Defra.Imports.Deployment.dll
     tagSuccess: true
