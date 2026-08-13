@@ -5,6 +5,8 @@ pool:
 
 trigger: none
 pr:
+  drafts: false
+  autoCancel: false
   branches:
     include:
       - main
