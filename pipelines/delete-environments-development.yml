@@ -33,5 +33,5 @@ extends:
       - Completed
     metadata:
       environment: development
-      repositoryName: DEFRA/trade-imports-pims
+      repoId: DEFRA/trade-imports-pims
     createdby: 1c0e6ba5-cf1d-4cb9-90a2-984ccf5b9a6d
