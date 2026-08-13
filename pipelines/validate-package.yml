@@ -4,7 +4,25 @@ pool:
   vmImage: windows-latest
 
 trigger: none
-pr: none
+pr:
+  branches:
+    include:
+      - main
+      - releases/*
+  paths:
+    include:
+      - deploy
+      - src
+      - tests
+      - Defra.Imports.sln
+      - GitVersion.yml
+      - pipelines/validate-package.yml
+      - pipelines/templates/steps/run-typescript-unit-tests-steps.yml
+      - pipelines/templates/jobs/create-application-user-job.yml
+      - data/core/extract
+      - data/core/import.json
+    exclude:
+      - '**/*.md'
 
 resources:
   repositories:
