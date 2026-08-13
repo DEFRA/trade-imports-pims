@@ -8,16 +8,17 @@ schedules:
     displayName: Daily midnight run
     branches:
       include:
-        - master
+        - main
     always: true
 
 trigger: none
+pr: none
 
 resources:
   pipelines:
-    - pipeline: imports
-      source: imports
-      branch: master
+    - pipeline: pims
+      source: pims
+      branch: main
   repositories:
     - repository: power-pipelines
       name: ewingjm/power-pipelines
@@ -35,7 +36,7 @@ extends:
     environment: CAN
     url: $(Environment.Url)
     packages:
-      - resource: imports
+      - resource: pims
         artifact: package
         file: Defra.Imports.Deployment.dll
     tagSuccess: true

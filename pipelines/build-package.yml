@@ -3,13 +3,12 @@ name: $(GITVERSION_FullSemVer)
 pool:
   vmImage: windows-latest
 
-pr: none
-
 trigger:
   batch: false
   branches:
     include:
-      - master
+      - main
+pr: none
 
 resources:
   repositories:
