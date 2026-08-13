@@ -5,6 +5,7 @@ trigger:
   paths:
     include:
       - data/deletion/*
+pr: none
 
 pool:
   vmImage: windows-latest

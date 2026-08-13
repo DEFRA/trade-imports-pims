@@ -3,10 +3,8 @@ name: $(GITVERSION_FullSemVer)
 pool:
   vmImage: windows-latest
 
-pr:
-  autoCancel: false
-
 trigger: none
+pr: none
 
 resources:
   repositories:
