@@ -8,6 +8,7 @@
     <AssemblyOriginatorKeyFile>Defra.Imports.UnitTests.snk</AssemblyOriginatorKeyFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RunSettingsFilePath>$(MSBuildThisFileDirectory).runsettings</RunSettingsFilePath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,5 +35,11 @@
     <ProjectReference Include="..\..\src\pluginassemblies\Defra.Imports.Workflows\Defra.Imports.Workflows.csproj">
       <SetConfiguration>Configuration=UnitTest</SetConfiguration>
     </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update=".runsettings">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

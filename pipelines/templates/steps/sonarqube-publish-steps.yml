@@ -1,0 +1,7 @@
+steps:
+  - task: SonarQubeAnalyze@7
+    displayName: Run SonarQube Cloud analysis
+  - task: SonarQubePublish@7
+    displayName: Publish SonarQube Cloud quality gate result
+    inputs:
+      pollingTimeoutSec: "300"

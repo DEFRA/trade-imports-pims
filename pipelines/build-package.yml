@@ -26,5 +26,8 @@ extends:
   parameters:
     packageProject: deploy\Defra.Imports.Deployment\Defra.Imports.Deployment.csproj
     serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
+    preBuildSteps:
+      - template: templates\steps\sonarqube-prepare-steps.yml@self
     postBuildSteps:
       - template: templates\steps\run-typescript-unit-tests-steps.yml@self
+      - template: templates\steps\sonarqube-publish-steps.yml@self

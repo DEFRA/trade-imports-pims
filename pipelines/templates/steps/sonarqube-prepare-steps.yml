@@ -1,0 +1,16 @@
+steps:
+  - task: SonarQubePrepare@7
+    displayName: Prepare SonarQube Cloud analysis
+    inputs:
+      SonarQube: SonarQube Cloud
+      organization: defra
+      scannerMode: MSBuild
+      projectKey: DEFRA_trade-imports-pims
+      projectName: trade-imports-pims
+      extraProperties: |
+        sonar.sources=src/common,src/pluginassemblies,src/webresources/scripts/src
+        sonar.tests=tests/Defra.Imports.UnitTests,src/webresources/scripts/tests
+        sonar.exclusions=src/common/Defra.Imports.Model/**/*.*,**/node_modules/**,**/bin/**,**/obj/**,**/out/**,**/coverage/**,**/test-results/**
+        sonar.javascript.lcov.reportPaths=src/webresources/scripts/coverage/lcov.info
+        sonar.cs.opencover.reportsPaths=$(Agent.TempDirectory)/**/coverage.opencover.xml
+        sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/**/*.trx
