@@ -4,6 +4,17 @@
 
 This repository contains source code, data artifacts, deployment assets, and CI/CD pipelines for the Imports (PIMS) model-driven app.
 
+## Documentation
+
+The consolidated PIMS requirements baseline is published at <https://defra.github.io/trade-imports-pims/> and authored under [`docs/`](/docs).
+
+To build the documentation site locally:
+
+```sh
+pip install -r docs-requirements.txt
+mkdocs serve
+```
+
 ## Prerequisites
 
 The following solutions must exist in the target Dataverse environment in order to deploy the package:

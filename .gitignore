@@ -286,3 +286,5 @@ coverage/
 # JUnit output
 
 test-results/
+# MkDocs build output
+site/
