@@ -24,6 +24,7 @@ variables:
 extends:
   template: templates/power-platform/pipelines/build-package-pipeline.yml@power-pipelines
   parameters:
+    dotNetSdkVersion: 8.x
     packageProject: deploy\Defra.Imports.Deployment\Defra.Imports.Deployment.csproj
     unitTestsProject: tests\Defra.Imports.UnitTests\Defra.Imports.UnitTests.csproj
     serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
