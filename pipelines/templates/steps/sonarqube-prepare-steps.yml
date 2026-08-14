@@ -11,5 +11,5 @@ steps:
         sonar.sourceEncoding=UTF-8
         sonar.exclusions=src/common/Defra.Imports.Model/**/*.*,**/node_modules/**,**/bin/**,**/obj/**,**/out/**,**/coverage/**,**/test-results/**
         sonar.javascript.lcov.reportPaths=src/webresources/scripts/coverage/lcov.info
-        sonar.cs.opencover.reportsPaths=**/TestResults/**/coverage.opencover.xml
+        sonar.cs.opencover.reportsPaths=$(Agent.TempDirectory)/**/coverage.cobertura.xml
         sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/**/*.trx
