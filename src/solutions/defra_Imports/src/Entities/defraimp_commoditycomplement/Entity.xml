@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name LocalizedName="Commodity Species" OriginalName="Commodity Complement">defraimp_commoditycomplement</Name>
+  <Name LocalizedName="Commodity Species" OriginalName="Commodity Species">defraimp_commoditycomplement</Name>
   <EntityInfo>
     <entity Name="defraimp_commoditycomplement">
       <LocalizedNames>
@@ -1242,7 +1242,7 @@
               <displayname description="Status" languagecode="1033" />
             </displaynames>
             <Descriptions>
-              <Description description="Status of the Commodity Complement" languagecode="1033" />
+              <Description description="Status of the Commodity Species" languagecode="1033" />
             </Descriptions>
             <states>
               <state value="0" defaultstatus="1" invariantname="Active" IsHidden="0">
@@ -1302,7 +1302,7 @@
               <displayname description="Status Reason" languagecode="1033" />
             </displaynames>
             <Descriptions>
-              <Description description="Reason for the status of the Commodity Complement" languagecode="1033" />
+              <Description description="Reason for the status of the Commodity Species" languagecode="1033" />
             </Descriptions>
             <statuses>
               <status value="1" state="0" IsHidden="0">

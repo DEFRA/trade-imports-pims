@@ -3,13 +3,14 @@ pool:
   vmImage: windows-latest
 
 trigger: none
+pr: none
 
 schedules:
   - cron: '0 0 * * *'
     displayName: Daily midnight run
     branches:
       include:
-        - master
+        - main
     always: true
 
 resources:
@@ -32,4 +33,5 @@ extends:
       - Completed
     metadata:
       environment: development
+      repoId: DEFRA/trade-imports-pims
     createdby: 1c0e6ba5-cf1d-4cb9-90a2-984ccf5b9a6d

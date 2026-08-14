@@ -3,7 +3,7 @@
   <EntityRelationship Name="defraimp_importquery_systemuser_createdby">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.0</IntroducedVersion>
+    <IntroducedVersion>1.1.1</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>defraimp_importquery</ReferencingEntityName>
     <ReferencedEntityName>SystemUser</ReferencedEntityName>
@@ -24,7 +24,7 @@
   <EntityRelationship Name="defraimp_importquery_systemuser_modifiedby">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.0</IntroducedVersion>
+    <IntroducedVersion>1.1.1</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>defraimp_importquery</ReferencingEntityName>
     <ReferencedEntityName>SystemUser</ReferencedEntityName>
@@ -45,7 +45,7 @@
   <EntityRelationship Name="defraimp_importquery_systemuser_owninguser">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.0</IntroducedVersion>
+    <IntroducedVersion>1.1.1</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>defraimp_importquery</ReferencingEntityName>
     <ReferencedEntityName>SystemUser</ReferencedEntityName>
