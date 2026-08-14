@@ -25,6 +25,7 @@ extends:
   template: templates/power-platform/pipelines/build-package-pipeline.yml@power-pipelines
   parameters:
     packageProject: deploy\Defra.Imports.Deployment\Defra.Imports.Deployment.csproj
+    unitTestProject: tests\Defra.Imports.UnitTests\Defra.Imports.UnitTests.csproj
     serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
     preBuildSteps:
       - template: templates\steps\sonarqube-prepare-steps.yml@self
