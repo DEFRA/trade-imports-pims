@@ -38,7 +38,7 @@ plugins:
   - panzoom
 
 extra_javascript:
-  - https://unpkg.com/mermaid@11/dist/mermaid.min.js  
+  - scripts/mermaid.min.js
   - scripts/mermaid.js
 
 extra_css:
