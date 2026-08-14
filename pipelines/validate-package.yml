@@ -20,6 +20,8 @@ pr:
       - GitVersion.yml
       - pipelines/validate-package.yml
       - pipelines/templates/steps/run-typescript-unit-tests-steps.yml
+      - pipelines/templates/steps/sonarqube-prepare-steps.yml
+      - pipelines/templates/steps/sonarqube-publish-steps.yml
       - pipelines/templates/jobs/create-application-user-job.yml
       - data/core/extract
       - data/core/import.json
@@ -41,7 +43,9 @@ variables:
 extends:
   template: templates/power-platform/pipelines/validate-package-pipeline.yml@power-pipelines
   parameters:
+    dotNetSdkVersion: 8.x
     packageProject: deploy\Defra.Imports.Deployment\Defra.Imports.Deployment.csproj
+    unitTestsProject: tests\Defra.Imports.UnitTests\Defra.Imports.UnitTests.csproj
     serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
     deployServiceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
     solutionSourcePattern: src/solutions/*/src
@@ -66,6 +70,9 @@ extends:
           applicationUserName: $(Environment.DeploymentUser.Username) 
           securityRoleName: System Administrator
           serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
+    preBuildSteps:
+      - template: templates\steps\sonarqube-prepare-steps.yml@self
     postBuildSteps:
       - template: templates\steps\run-typescript-unit-tests-steps.yml@self
+      - template: templates\steps\sonarqube-publish-steps.yml@self
     githubToken: $(GitHub.Token)
