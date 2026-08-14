@@ -68,4 +68,4 @@ High
 | -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | AC-1                 | ✅ Implemented | src/solutions/defra_Imports/src/Entities/defraimp_apharegion/Entity.xml entity with Name (mandatory)                                        |
 | AC-2                 | ✅ Implemented | APHA Regions available in EU Imports app navigation with search by Name                                                                     |
-| AC-3                 | ✅ Implemented | Security role configuration: Business Rules Admin role has Create/Update/Assign/Append/Append To; Caseworker role has Read/Append/Append To |
+| AC-3                 | ✅ Implemented | Security role configuration: System Administrator role has Create/Update/Assign/Append/Append To; Caseworker role has Read/Append/Append To |
