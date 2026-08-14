@@ -4,7 +4,7 @@ steps:
     inputs:
       SonarCloud: SonarQube Cloud
       organization: defra
-      scannerMode: MSBuild
+      scannerMode: dotnet
       projectKey: DEFRA_trade-imports-pims
       projectName: trade-imports-pims
       extraProperties: |
