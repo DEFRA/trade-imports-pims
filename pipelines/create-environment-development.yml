@@ -50,6 +50,8 @@ extends:
     prepareEnvironmentJobs:
       - template: templates/jobs/create-application-user-job.yml
         parameters:
+          jobName: CreateDeploymentApplicationUser
+          jobDisplayName: Ensure deployment application user exists
           applicationId: $(Environment.DeploymentUser.ApplicationId)
           systemUserId: $(Environment.DeploymentUser.SystemUserId)
           applicationUserName: $(Environment.DeploymentUser.Username)
@@ -57,6 +59,8 @@ extends:
           serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
       - template: templates/jobs/create-application-user-job.yml
         parameters:
+          jobName: CreateTestsApplicationUser
+          jobDisplayName: Ensure test application user exists
           applicationId: $(Tests.ApplicationUser.ApplicationId)
           securityRoleName: System Administrator
           serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)

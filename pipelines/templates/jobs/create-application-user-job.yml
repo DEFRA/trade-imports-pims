@@ -17,10 +17,16 @@ parameters:
   - name: url
     type: string
     default: $(BuildTools.EnvironmentUrl)
+  - name: jobName
+    type: string
+    default: CreateApplicationUser
+  - name: jobDisplayName
+    type: string
+    default: Ensure application user exists
 
 jobs:
-  - job: CreateApplicationUser_${{ replace(parameters.applicationId, '-', '_') }}
-    displayName: Ensure application user exists
+  - job: ${{ parameters.jobName }}
+    displayName: ${{ parameters.jobDisplayName }}
     steps:
       - checkout: none
       
