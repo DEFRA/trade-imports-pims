@@ -1,84 +1,149 @@
-﻿namespace Defra.Imports.IntegrationTests
+namespace Defra.Imports.IntegrationTests
 {
     using System;
     using System.Configuration;
     using System.IO;
-    using System.Net;
-    using System.Text;
+    using Azure.Extensions.AspNetCore.Configuration.Secrets;
+    using Azure.Identity;
+    using Azure.Security.KeyVault.Secrets;
+    using Defra.Imports.IntegrationTests.Dataverse;
+    using Defra.Imports.IntegrationTests.ServiceBus;
+    using Defra.Imports.Model;
+    using Defra.Imports.Scenarios;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Logging;
     using Microsoft.PowerPlatform.Dataverse.Client;
-    using Microsoft.ServiceBus.Messaging;
-    using Xunit;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using ConfigurationBuilder = Microsoft.Extensions.Configuration.ConfigurationBuilder;
+    using TestConfiguration = Defra.Imports.IntegrationTests.Config.TestConfiguration;
 
-    [Collection("Sequential")]
+    /// <summary>
+    /// Base integration test class providing shared configuration, logging, and on-demand access to Dataverse and Service Bus fixtures.
+    /// </summary>
     public abstract class IntegrationTests
     {
-        protected ServiceClient _orgSvc;
-        protected QueueClient _serviceBusQueueClient;
-        private string _serviceBusConnectionString;
-        private string _serviceBusQueueName;
+        private const string ConfigFile = "environment.json";
+        private const string EnvironmentVariablePrefix = "IMPORTS:TEST:";
 
-        public IntegrationTests()
+        /// <summary>
+        /// Provides access to the integration test configuration.
+        /// </summary>
+        internal static readonly TestConfiguration TestConfig;
+
+        private ILogger logger;
+
+        /// <summary>
+        /// Initializes static members of the <see cref="IntegrationTests"/> class.
+        /// </summary>
+        static IntegrationTests()
         {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            this._serviceBusConnectionString = ConfigurationManager.ConnectionStrings["DevServiceBusConnection"].ConnectionString;
-            this._serviceBusQueueName = ConfigurationManager.AppSettings["DevServiceBusQueueName"];
-            this.InitaliseConnections();
+            TestConfig = GetTestConfiguration();
         }
 
-        public IntegrationTests(string serviceBusConnectionString, string serviceBusQueueName)
-        {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            this._serviceBusConnectionString = serviceBusConnectionString;
-            this._serviceBusQueueName = serviceBusQueueName;
-            this.InitaliseConnections();
-        }
+        /// <summary>
+        /// Gets or sets the MSTest test context.
+        /// </summary>
+        public TestContext TestContext { get; set; }
 
-        private void InitaliseConnections()
+        /// <summary>
+        /// Gets a logger.
+        /// </summary>
+        public ILogger Logger
         {
-            this.InitialiseDynamicsConnection();
-            this.InitialiseServiceBusConnection();
-        }
-
-        private void InitialiseDynamicsConnection()
-        {
-            string cdsConnectionString = ConfigurationManager.ConnectionStrings["DevCdsConnection"].ConnectionString;
-            if (cdsConnectionString.Contains("[ReplaceMe]"))
+            get
             {
-                throw new Exception("You need to populate the DevCdsConnection connection string in app.config");
+                if (this.logger == null)
+                {
+                    this.logger = new MsTestLogger(this.TestContext);
+                }
+
+                return this.logger;
             }
-            this._orgSvc = new ServiceClient(cdsConnectionString);
         }
 
-        private void InitialiseServiceBusConnection()
+        /// <summary>
+        /// Gets a <see cref="ServiceClient"/> instance authenticated with the configured application user.
+        /// </summary>
+        /// <returns>A <see cref="ServiceClient"/> instance authenticated as the configured application user.</returns>
+        protected ServiceClient GetAppUserClient()
         {
-            this._serviceBusQueueClient = QueueClient.CreateFromConnectionString(this._serviceBusConnectionString, this._serviceBusQueueName);
+            return DataverseFixture.GetAppUserClient();
         }
 
-        protected void SetServiceBusConnection(string serviceBusConnectionString, string serviceBusQueueName)
+        /// <summary>
+        /// Gets an <see cref="ImportsContext"/> instance authenticated with the configured application user.
+        /// </summary>
+        /// <returns>An <see cref="ImportsContext"/> instance authenticated as the configured application user.</returns>
+        protected ImportsContext GetAppUserContext()
         {
-            this._serviceBusConnectionString = serviceBusConnectionString;
-            this._serviceBusQueueName = serviceBusQueueName;
-            this.InitialiseServiceBusConnection();
+            return DataverseFixture.GetAppUserContext();
         }
 
-        protected void SendServiceBusMessage(string message)
+        /// <summary>
+        /// Gets a <see cref="ServiceClient"/> instance authenticated as the given persona.
+        /// </summary>
+        /// <param name="persona">The user persona to authenticate.</param>
+        /// <returns>A <see cref="ServiceClient"/> instance authenticated as the given persona.</returns>
+        protected ServiceClient GetClient(Persona persona)
         {
-            MemoryStream messageStream = new MemoryStream(Encoding.UTF8.GetBytes(message));
-            BrokeredMessage messageToSend = new BrokeredMessage(messageStream);
-            messageToSend.SessionId = Guid.NewGuid().ToString();
-            this._serviceBusQueueClient.Send(messageToSend);
+            return DataverseFixture.GetClient(persona);
         }
 
+        /// <summary>
+        /// Creates a <see cref="ServiceBusFixture"/> for sending messages to the given queue.
+        /// </summary>
+        /// <param name="queueName">The name of the queue to send messages to.</param>
+        /// <returns>A <see cref="ServiceBusFixture"/> connected to the given queue.</returns>
+        protected ServiceBusFixture GetServiceBusFixture(string queueName)
+        {
+            return new ServiceBusFixture(TestConfig.ServiceBus.ConnectionString, queueName);
+        }
+
+        /// <summary>
+        /// Reads test data from the TestData folder.
+        /// </summary>
+        /// <param name="fileName">The name of the file to read.</param>
+        /// <returns>The contents of the file.</returns>
         protected string ReadTestData(string fileName)
         {
-            string filePath = $"{Directory.GetCurrentDirectory()}\\TestData\\{fileName}";
-            string fileContents = this.ReadFileContents(filePath);
-            return fileContents;
+            return File.ReadAllText($"{Directory.GetCurrentDirectory()}\\TestData\\{fileName}");
         }
 
-        private string ReadFileContents(string filePath)
+        private static TestConfiguration GetTestConfiguration()
         {
-            return File.ReadAllText(filePath);
+            var config = new ConfigurationBuilder()
+                .AddJsonFile(ConfigFile)
+                .AddEnvironmentVariables(EnvironmentVariablePrefix)
+                .AddUserSecrets<IntegrationTests>(true)
+                .Build()
+                .Get<TestConfiguration>();
+
+            if (config == null)
+            {
+                throw new ConfigurationErrorsException("Please ensure that you have configured your environment variables or user secrets file.");
+            }
+
+            if (config.KeyVault != null)
+            {
+                var tenantId = config.KeyVault.TenantId;
+                var clientId = config.KeyVault.ClientId;
+                var clientSecret = config.KeyVault.ClientSecret;
+                var keyVaultName = config.KeyVault.Name;
+
+                var secretClient = new SecretClient(
+                    new Uri($"https://{keyVaultName}.vault.azure.net"),
+                    new ClientSecretCredential(tenantId.ToString(), clientId.ToString(), clientSecret, new ClientSecretCredentialOptions
+                    {
+                        AdditionallyAllowedTenants = { "*" },
+                    }));
+
+                config.ClientSecret = new ConfigurationBuilder()
+                    .AddAzureKeyVault(secretClient, new AzureKeyVaultConfigurationOptions())
+                    .Build()
+                    .GetValue<string>(config.ClientId.ToString()) ?? config.ClientSecret;
+            }
+
+            return config;
         }
     }
 }

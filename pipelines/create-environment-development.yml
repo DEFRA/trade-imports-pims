@@ -30,6 +30,7 @@ resources:
 
 variables:
   - group: Environment - Imports - DEV
+  - group: Tests - Imports - DEV
 
 extends:
   template: templates/power-platform/pipelines/create-development-environment-pipeline.yml@power-pipelines
@@ -52,5 +53,10 @@ extends:
           applicationId: $(Environment.DeploymentUser.ApplicationId)
           systemUserId: $(Environment.DeploymentUser.SystemUserId)
           applicationUserName: $(Environment.DeploymentUser.Username)
+          securityRoleName: System Administrator
+          serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
+      - template: templates/jobs/create-application-user-job.yml
+        parameters:
+          applicationId: $(Tests.ApplicationUser.ApplicationId)
           securityRoleName: System Administrator
           serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)

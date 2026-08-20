@@ -3,8 +3,10 @@ parameters:
     type: string
   - name: systemUserId
     type: string
+    default: ""
   - name: applicationUserName
     type: string
+    default: ""
   - name: securityRoleName
     type: string
   - name: businessUnitName
@@ -40,7 +42,6 @@ jobs:
             $applicationUserName = $env:CREATEAPPLICATIONUSER_APPLICATION_USER_NAME
             $securityRoleName = $env:CREATEAPPLICATIONUSER_SECURITY_ROLE_NAME
             $businessUnitName = $env:CREATEAPPLICATIONUSER_BUSINESS_UNIT_NAME
-            $serviceConnection = $env:CREATEAPPLICATIONUSER_SERVICE_CONNECTION
 
             $environmentUrl = $env:CREATEAPPLICATIONUSER_PP_ENVIRONMENT_URL
 
@@ -53,18 +54,19 @@ jobs:
             }
 
             if ([string]::IsNullOrWhiteSpace($systemUserId)) {
-              throw 'Parameter systemUserId must be provided.'
+              $systemUserId = $null
             }
+            else {
+              $parsedSystemUserId = [guid]::Empty
+              if (-not [guid]::TryParse($systemUserId, [ref]$parsedSystemUserId)) {
+                throw 'Parameter systemUserId must be a valid GUID.'
+              }
 
-            $parsedSystemUserId = [guid]::Empty
-            if (-not [guid]::TryParse($systemUserId, [ref]$parsedSystemUserId)) {
-              throw 'Parameter systemUserId must be a valid GUID.'
+              $systemUserId = $parsedSystemUserId.ToString().ToLowerInvariant()
             }
-
-            $systemUserId = $parsedSystemUserId.ToString().ToLowerInvariant()
 
             if ([string]::IsNullOrWhiteSpace($applicationUserName)) {
-              throw 'Parameter applicationUserName must be provided.'
+              $applicationUserName = $null
             }
 
             if ([string]::IsNullOrWhiteSpace($securityRoleName)) {
@@ -134,30 +136,38 @@ jobs:
 
             $baseApi = "$($environmentUrl.TrimEnd('/'))/api/data/v9.2"
 
-            try {
-              $existingUser = Invoke-Dataverse -Method Get -Uri "$baseApi/systemusers($systemUserId)?`$select=systemuserid" -Body $null -Headers $headers
-            }
-            catch {
-              $statusCode = $null
-              if ($_.Exception.Response) {
-                if ($_.Exception.Response.StatusCode -and $_.Exception.Response.StatusCode.Value__) {
-                  $statusCode = [int]$_.Exception.Response.StatusCode.Value__
-                }
-                elseif ($_.Exception.Response.StatusCode) {
-                  $statusCode = [int]$_.Exception.Response.StatusCode
-                }
-              }
-
-              if ($statusCode -ne 404) {
-                throw
-              }
-
-              $existingUser = $null
-            }
-
-            if ($null -ne $existingUser -and $existingUser.systemuserid) {
-              Write-Host "Application user $systemUserId already exists. Nothing to do."
+            $existingUsers = Invoke-Dataverse -Method Get -Uri "$baseApi/systemusers?`$select=systemuserid&`$filter=applicationid eq $applicationId&`$top=1" -Body $null -Headers $headers
+            if ($existingUsers.value -and $existingUsers.value.Count -gt 0) {
+              Write-Host "Application user $($existingUsers.value[0].systemuserid) already exists for application $applicationId. Nothing to do."
               exit 0
+            }
+
+            if ($systemUserId) {
+              try {
+                $existingUser = Invoke-Dataverse -Method Get -Uri "$baseApi/systemusers($systemUserId)?`$select=systemuserid" -Body $null -Headers $headers
+              }
+              catch {
+                $statusCode = $null
+                if ($_.Exception.Response) {
+                  if ($_.Exception.Response.StatusCode -and $_.Exception.Response.StatusCode.Value__) {
+                    $statusCode = [int]$_.Exception.Response.StatusCode.Value__
+                  }
+                  elseif ($_.Exception.Response.StatusCode) {
+                    $statusCode = [int]$_.Exception.Response.StatusCode
+                  }
+                }
+
+                if ($statusCode -ne 404) {
+                  throw
+                }
+
+                $existingUser = $null
+              }
+
+              if ($null -ne $existingUser -and $existingUser.systemuserid) {
+                Write-Host "Application user $systemUserId already exists. Nothing to do."
+                exit 0
+              }
             }
 
             if ([string]::IsNullOrWhiteSpace($businessUnitName)) {
@@ -201,17 +211,34 @@ jobs:
             $internalEmail = "${emailPrefix}_${applicationId}@${randomDomain}"
 
             $createUserBody = @{
-              systemuserid                 = $systemUserId
               applicationid                = $applicationId
-              firstname                    = '#'
-              lastname                     = $applicationUserName
               internalemailaddress         = $internalEmail
               accessmode                   = 4
               userlicensetype              = 3
               'businessunitid@odata.bind' = "/businessunits($businessUnitId)"
             }
 
-            Invoke-Dataverse -Method Post -Uri "$baseApi/systemusers" -Body $createUserBody -Headers $headers | Out-Null
+            if ($systemUserId) {
+              $createUserBody.systemuserid = $systemUserId
+            }
+
+            if ($applicationUserName) {
+              $createUserBody.firstname = '#'
+              $createUserBody.lastname = $applicationUserName
+            }
+
+            $createHeaders = $headers.Clone()
+            $createHeaders['Prefer'] = 'return=representation'
+
+            $createdUser = Invoke-Dataverse -Method Post -Uri "$baseApi/systemusers" -Body $createUserBody -Headers $createHeaders
+
+            if (-not $systemUserId) {
+              $systemUserId = $createdUser.systemuserid
+            }
+
+            if ([string]::IsNullOrWhiteSpace($systemUserId)) {
+              throw 'Unable to determine the id of the created application user.'
+            }
 
             $associateRoleBody = @{
               '@odata.id' = "$baseApi/roles($roleId)"
@@ -226,7 +253,6 @@ jobs:
           CREATEAPPLICATIONUSER_APPLICATION_USER_NAME: ${{ parameters.applicationUserName }}
           CREATEAPPLICATIONUSER_SECURITY_ROLE_NAME: ${{ parameters.securityRoleName }}
           CREATEAPPLICATIONUSER_BUSINESS_UNIT_NAME: ${{ parameters.businessUnitName }}
-          CREATEAPPLICATIONUSER_SERVICE_CONNECTION: ${{ parameters.serviceConnection }}
           CREATEAPPLICATIONUSER_PP_ENVIRONMENT_URL: ${{ parameters.url }}
           CREATEAPPLICATIONUSER_PP_TENANT_ID: $(PowerPlatformSetConnectionVariables.BuildTools.TenantId)
           CREATEAPPLICATIONUSER_PP_APPLICATION_ID: $(PowerPlatformSetConnectionVariables.BuildTools.ApplicationId)

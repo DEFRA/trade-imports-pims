@@ -31,7 +31,7 @@ namespace Defra.Imports.Scenarios
         /// <param name="clientSecret">The client secret of the application user.</param>
         /// <param name="personaMappings">Mappings from personas to user emails or application IDs.</param>
         /// <param name="logger">The logger.</param>
-        public ServiceClientFactory(Uri url, Guid clientId, string clientSecret, IDictionary<Persona, IEnumerable<string>> personaMappings, ILogger logger = null)
+        public ServiceClientFactory(Uri url, Guid clientId, string clientSecret, IDictionary<Persona, IEnumerable<string>> personaMappings = null, ILogger logger = null)
         {
             if (url is null)
             {

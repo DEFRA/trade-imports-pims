@@ -38,6 +38,8 @@ resources:
 
 variables:
   - group: Environment - Imports - CI
+  - group: Tests - Imports - CI
+  - group: Key Vault - Test Users - defradev
   - group: GitHub
 
 extends:
@@ -70,9 +72,22 @@ extends:
           applicationUserName: $(Environment.DeploymentUser.Username) 
           securityRoleName: System Administrator
           serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
+      - template: templates/jobs/create-application-user-job.yml
+        parameters:
+          applicationId: $(Tests.ApplicationUser.ApplicationId)
+          securityRoleName: System Administrator
+          serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
     preBuildSteps:
       - template: templates\steps\sonarqube-prepare-steps.yml@self
     postBuildSteps:
       - template: templates\steps\run-typescript-unit-tests-steps.yml@self
       - template: templates\steps\sonarqube-publish-steps.yml@self
+    testJobs:
+      - template: templates/jobs/run-dotnet-integration-tests-job.yml
+        parameters:
+          clientId: $(Tests.ApplicationUser.ApplicationId)
+          keyVaultTenantId: $(KeyVault.TestUsers.TenantId)
+          keyVaultClientId: $(KeyVault.TestUsers.ClientId)
+          keyVaultClientSecret: $(KeyVault.TestUsers.ClientSecret)
+          keyVaultName: $(KeyVault.TestUsers.Name)
     githubToken: $(GitHub.Token)

@@ -1,0 +1,53 @@
+parameters:
+  - name: project
+    type: string
+    default: tests\Defra.Imports.IntegrationTests\Defra.Imports.IntegrationTests.csproj
+  - name: dotNetSdkVersion
+    type: string
+    default: 8.x
+  - name: url
+    type: string
+    default: $(BuildTools.EnvironmentUrl)
+  - name: clientId
+    type: string
+  - name: keyVaultTenantId
+    type: string
+  - name: keyVaultClientId
+    type: string
+  - name: keyVaultClientSecret
+    type: string
+  - name: keyVaultName
+    type: string
+
+jobs:
+  - job: RunDotNetIntegrationTests
+    displayName: Run .NET integration tests
+    variables:
+      RunDotNetIntegrationTests.Url: ${{ parameters.url }}
+      RunDotNetIntegrationTests.ClientId: ${{ parameters.clientId }}
+      RunDotNetIntegrationTests.KeyVault.TenantId: ${{ parameters.keyVaultTenantId }}
+      RunDotNetIntegrationTests.KeyVault.ClientId: ${{ parameters.keyVaultClientId }}
+      RunDotNetIntegrationTests.KeyVault.ClientSecret: ${{ parameters.keyVaultClientSecret }}
+      RunDotNetIntegrationTests.KeyVault.Name: ${{ parameters.keyVaultName }}
+    steps:
+      - checkout: self
+
+      - task: UseDotNet@2
+        displayName: Use .NET SDK
+        inputs:
+          version: ${{ parameters.dotNetSdkVersion }}
+
+      - task: DotNetCoreCLI@2
+        displayName: Run integration tests
+        inputs:
+          command: test
+          projects: ${{ parameters.project }}
+          publishTestResults: true
+          testRunTitle: Integration tests
+        env:
+          IMPORTS__TEST__Url: $(RunDotNetIntegrationTests.Url)
+          IMPORTS__TEST__ClientId: $(RunDotNetIntegrationTests.ClientId)
+          IMPORTS__TEST__KeyVault__TenantId: $(RunDotNetIntegrationTests.KeyVault.TenantId)
+          IMPORTS__TEST__KeyVault__ClientId: $(RunDotNetIntegrationTests.KeyVault.ClientId)
+          IMPORTS__TEST__KeyVault__ClientSecret: $(RunDotNetIntegrationTests.KeyVault.ClientSecret)
+          IMPORTS__TEST__KeyVault__Name: $(RunDotNetIntegrationTests.KeyVault.Name)

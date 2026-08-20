@@ -6,11 +6,60 @@
     using System.Text;
     using System.Text.RegularExpressions;
     using System.Xml;
+    using Defra.Imports.IntegrationTests.ServiceBus;
+    using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;
 
-    public class CertificatesLogicAppIntegrationTestsBase : IntegrationTests
+    public class CertificatesLogicAppIntegrationTestsBase : IntegrationTests, IDisposable
     {
+        private readonly ServiceBusFixture serviceBus;
+        private readonly ServiceClient appUserClient;
+        private bool disposed;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CertificatesLogicAppIntegrationTestsBase"/> class.
+        /// </summary>
+        protected CertificatesLogicAppIntegrationTestsBase()
+        {
+            this.serviceBus = this.GetServiceBusFixture(TestConfig.ServiceBus.HealthCertQueue);
+            this.appUserClient = this.GetAppUserClient();
+        }
+
+        /// <summary>
+        /// Sends a message to the health certificate Service Bus queue.
+        /// </summary>
+        /// <param name="message">The message content to send.</param>
+        protected void SendServiceBusMessage(string message)
+        {
+            this.serviceBus.SendMessage(message);
+        }
+
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Releases the underlying <see cref="ServiceBusFixture"/>.
+        /// </summary>
+        /// <param name="disposing">Whether this is being called from <see cref="Dispose()"/>.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (this.disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                this.serviceBus?.Dispose();
+            }
+
+            this.disposed = true;
+        }
 
         protected List<string> GetCertificateReferenceNumbersFromXml(List<string> certificateXmlStringList)
         {
@@ -35,7 +84,7 @@
                 foreach (Entity cert in certificates)
                 {
                     // Delete the Certificate
-                    this._orgSvc.Delete($"defraimp_{certificateType}", cert.Id);
+                    this.appUserClient.Delete($"defraimp_{certificateType}", cert.Id);
                 }
             }
         }
@@ -50,7 +99,7 @@
             QueryExpression qe = new QueryExpression(certificateEntityName);
             qe.ColumnSet = new ColumnSet(columnsToRetrieve);
             qe.Criteria.AddCondition("defraimp_name", ConditionOperator.In, certificateReferenceNumbers);
-            EntityCollection eCollection = this._orgSvc.RetrieveMultiple(qe);
+            EntityCollection eCollection = this.appUserClient.RetrieveMultiple(qe);
             return eCollection.Entities;
         }
 

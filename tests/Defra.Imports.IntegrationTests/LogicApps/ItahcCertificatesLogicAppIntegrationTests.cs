@@ -1,4 +1,4 @@
-﻿namespace Defra.Imports.IntegrationTests.LogicApps
+namespace Defra.Imports.IntegrationTests.LogicApps
 {
     using System;
     using System.Collections.Generic;
@@ -6,14 +6,13 @@
     using System.Linq;
     using System.Threading;
     using Microsoft.Xrm.Sdk;
-    using Xunit;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+  [TestClass]
+  [Ignore("These tests are ignored pending review")]
   public class ItahcCertificatesLogicAppIntegrationTests : CertificatesLogicAppIntegrationTestsBase
   {
-    // Change this to null to run these tests
-    const string skip = "Skip Logic App Tests";
-
-    [Fact(Skip = skip)]
+    [TestMethod]
     [ExcludeFromCodeCoverage]
     public void SendToSBQueue_AValidItahcXMLMessage_ItahcIsCreatedInDynamics()
     {
@@ -27,13 +26,13 @@
 
       // Assert
       DataCollection<Entity> retrievedItahcs = this.GetCertificatesByReferenceNumbers("defraimp_itahc", certificateReferenceNumber, Array.Empty<string>());
-      Assert.True(retrievedItahcs.Count > 0);
+      Assert.IsTrue(retrievedItahcs.Count > 0);
 
       // Clear Down
       this.ClearDownCertificateTest("itahc", retrievedItahcs);
     }
 
-    [Fact(Skip = skip)]
+    [TestMethod]
     [ExcludeFromCodeCoverage]
     public void SendToSBQueue_ItahcWithIdentificationParameters_ItahcIsCreatedWithIdentificationParameters()
     {
@@ -47,13 +46,13 @@
 
       // Assert
       DataCollection<Entity> retrievedItahcs = this.GetCertificatesByReferenceNumbers("defraimp_itahc", certificateReferenceNumber, new string[] { "defraimp_identificationofanimalstext" });
-      Assert.True(retrievedItahcs.Count > 0);
-      Assert.True(retrievedItahcs.First().Attributes.Contains("defraimp_identificationofanimalstext"));
+      Assert.IsTrue(retrievedItahcs.Count > 0);
+      Assert.IsTrue(retrievedItahcs.First().Attributes.Contains("defraimp_identificationofanimalstext"));
 
       this.ClearDownCertificateTest("itahc", retrievedItahcs);
     }
 
-    [Fact(Skip = skip)]
+    [TestMethod]
     [ExcludeFromCodeCoverage]
     public void SendToSBQueue_ItahcWithCommodityComplements_ItahcIsCreatedWithCommodityComplements()
     {
@@ -67,13 +66,13 @@
 
       // Assert
       DataCollection<Entity> retrievedItahcs = this.GetCertificatesByReferenceNumbers("defraimp_itahc", certificateReferenceNumber, new string[] { "defraimp_commoditycomplementstext" });
-      Assert.True(retrievedItahcs.Count > 0);
-      Assert.True(retrievedItahcs.First().Attributes.Contains("defraimp_commoditycomplementstext"));
+      Assert.IsTrue(retrievedItahcs.Count > 0);
+      Assert.IsTrue(retrievedItahcs.First().Attributes.Contains("defraimp_commoditycomplementstext"));
 
       this.ClearDownCertificateTest("itahc", retrievedItahcs);
     }
 
-    [Fact(Skip = skip)]
+    [TestMethod]
     [ExcludeFromCodeCoverage]
     public void SendToSBQueue_ListOfItahcs_ListOfItahcsAreCreated()
     {
@@ -87,7 +86,7 @@
       // Assert
       List<string> certificateReferenceNumbers = this.GetCertificateReferenceNumbersFromXml(itahcXmlList);
       DataCollection<Entity> retrievedItahcs = this.GetCertificatesByReferenceNumbers("defraimp_itahc", certificateReferenceNumbers.ToArray(), Array.Empty<string>());
-      Assert.True(retrievedItahcs.Count == 50);
+      Assert.IsTrue(retrievedItahcs.Count == 50);
 
       // Clear Down
       this.ClearDownCertificateTest("itahc", retrievedItahcs);
@@ -104,3 +103,4 @@
     }
   }
 }
+

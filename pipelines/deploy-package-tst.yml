@@ -28,6 +28,8 @@ resources:
 
 variables:
   - group: Environment - Imports - TST
+  - group: Tests - Imports - TST
+  - group: Key Vault - Test Users - defradev
 
 extends:
   template: templates/power-platform/pipelines/deploy-packages-pipeline.yml@power-pipelines
@@ -40,3 +42,11 @@ extends:
         artifact: package
         file: Defra.Imports.Deployment.dll
     tagSuccess: true
+    testJobs:
+      - template: templates/jobs/run-dotnet-integration-tests-job.yml
+        parameters:
+          clientId: $(Tests.ApplicationUser.ApplicationId)
+          keyVaultTenantId: $(KeyVault.TestUsers.TenantId)
+          keyVaultClientId: $(KeyVault.TestUsers.ClientId)
+          keyVaultClientSecret: $(KeyVault.TestUsers.ClientSecret)
+          keyVaultName: $(KeyVault.TestUsers.Name)

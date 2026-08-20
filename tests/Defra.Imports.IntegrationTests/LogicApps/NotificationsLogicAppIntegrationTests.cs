@@ -1,25 +1,62 @@
-﻿namespace Defra.Imports.IntegrationTests.LogicApps
+namespace Defra.Imports.IntegrationTests.LogicApps
 {
+    using System;
     using System.Collections.Generic;
-    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading;
+    using Defra.Imports.IntegrationTests.ServiceBus;
+    using Microsoft.PowerPlatform.Dataverse.Client;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;
-    using Xunit;
 
-    public class NotificationsLogicAppIntegrationTests : IntegrationTests
+    [TestClass]
+    [Ignore("These tests are ignored pending review")]
+    public class NotificationsLogicAppIntegrationTests : IntegrationTests, IDisposable
     {
-        // Change this to null to run these tests
-        const string skip = "Skip Logic App Tests";
+        private readonly ServiceBusFixture serviceBus;
+        private readonly ServiceClient appUserClient;
+        private bool disposed;
 
         public NotificationsLogicAppIntegrationTests()
-            : base(ConfigurationManager.ConnectionStrings["DevServiceBusConnection"].ConnectionString, ConfigurationManager.AppSettings["DevServiceBusNotificationQueueName"])
         {
+            this.serviceBus = this.GetServiceBusFixture(TestConfig.ServiceBus.NotificationQueue);
+            this.appUserClient = this.GetAppUserClient();
         }
 
-        [Fact(Skip = skip)]
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Releases the underlying <see cref="ServiceBusFixture"/>.
+        /// </summary>
+        /// <param name="disposing">Whether this is being called from <see cref="Dispose()"/>.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (this.disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                this.serviceBus?.Dispose();
+            }
+
+            this.disposed = true;
+        }
+
+        private void SendServiceBusMessage(string message)
+        {
+            this.serviceBus.SendMessage(message);
+        }
+
+        [TestMethod]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_AValidNotificationJSONMessage_NotificationIsCreatedInDynamics()
         {
@@ -33,13 +70,13 @@
 
             // Assert
             List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
-            Assert.True(notifications.Count > 0);
+            Assert.IsTrue(notifications.Count > 0);
 
             // Clear down
             this.ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact(Skip = skip)]
+        [TestMethod]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_FiveMessagesFinalMessageCancelled_NotificationShouldBeCreatedAndThenCancelled()
         {
@@ -62,14 +99,14 @@
 
             // Assert
             List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
-            Assert.True(notifications.Count > 0);
-            Assert.True(notifications[0].GetAttributeValue<OptionSetValue>("defraimp_status").Value == 714100008);
+            Assert.IsTrue(notifications.Count > 0);
+            Assert.IsTrue(notifications[0].GetAttributeValue<OptionSetValue>("defraimp_status").Value == 714100008);
 
             // Clear down
             this.ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact(Skip = skip)]
+        [TestMethod]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithNoIdentifiers_NotificationShouldBeCreatedSuccessfully()
         {
@@ -83,13 +120,13 @@
 
             // Assert
             List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
-            Assert.True(notifications.Count > 0);
+            Assert.IsTrue(notifications.Count > 0);
 
             // Clear down
             this.ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact(Skip = skip)]
+        [TestMethod]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithSingleQuoteText_NotificationShouldBeCreatedSuccessfully()
         {
@@ -103,13 +140,13 @@
 
             // Assert
             List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
-            Assert.True(notifications.Count > 0);
+            Assert.IsTrue(notifications.Count > 0);
 
             // Clear down
             this.ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact(Skip = skip)]
+        [TestMethod]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithDocuments_NotificationAndDocumentsShouldBeCreatedSuccesfully()
         {
@@ -122,13 +159,13 @@
 
             // Assert
             List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
-            Assert.True(notifications.Count > 0);
+            Assert.IsTrue(notifications.Count > 0);
 
             // Clear down
             this.ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact(Skip = skip)]
+        [TestMethod]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithCountryOfDestination_NotificationShouldBeCreatedSuccesfully()
         {
@@ -141,13 +178,13 @@
 
             // Assert
             List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
-            Assert.True(notifications.Count > 0);
+            Assert.IsTrue(notifications.Count > 0);
 
             // Clear down
             this.ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact(Skip = skip)]
+        [TestMethod]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_SequentialNotificationsWithDocument_NotificationShouldUpdateSequentially()
         {
@@ -166,13 +203,13 @@
 
             // Assert
             List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
-            Assert.True(notifications.Count > 0);
+            Assert.IsTrue(notifications.Count > 0);
 
             // Clear down
             this.ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact(Skip = skip)]
+        [TestMethod]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithPortOfExitDetails_ShouldCreateNotifictionWithPortOfExitDetails()
         {
@@ -185,13 +222,13 @@
 
             // Assert
             List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
-            Assert.True(notifications.Count > 0);
+            Assert.IsTrue(notifications.Count > 0);
 
             // Clear down
             this.ClearDownDynamicsEntities(notifications);
         }
 
-        [Fact(Skip = skip)]
+        [TestMethod]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_NotificationWithoutDestinationPostcode_ShouldCreateNotificationWithDevolvedOfficeUnknown()
         {
@@ -204,7 +241,7 @@
 
             // Assert
             List<Entity> notifications = this.GetNotificationsByReference(expectedReferenceNumber);
-            Assert.True(notifications.Count > 0);
+            Assert.IsTrue(notifications.Count > 0);
 
             // Clear down
             this.ClearDownDynamicsEntities(notifications);
@@ -217,7 +254,7 @@
             qe.ColumnSet.AddColumn("defraimp_name");
             qe.ColumnSet.AddColumn("defraimp_status");
 
-            EntityCollection eCollection = this._orgSvc.RetrieveMultiple(qe);
+            EntityCollection eCollection = this.appUserClient.RetrieveMultiple(qe);
             return eCollection.Entities.ToList();
         }
 
@@ -225,7 +262,7 @@
         {
             foreach(Entity entity in entitiesToDelete)
             {
-                this._orgSvc.Delete(entity.LogicalName, entity.Id);
+                this.appUserClient.Delete(entity.LogicalName, entity.Id);
             }
         }
     }
