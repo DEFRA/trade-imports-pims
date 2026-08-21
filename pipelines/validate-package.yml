@@ -38,6 +38,8 @@ resources:
 
 variables:
   - group: Environment - Imports - CI
+  - group: Tests - Imports - CI
+  - group: Key Vault - Test Users - defradev
   - group: GitHub
 
 extends:
@@ -65,9 +67,18 @@ extends:
     prepareEnvironmentJobs:
       - template: templates/jobs/create-application-user-job.yml
         parameters:
+          jobName: CreateDeploymentApplicationUser
+          jobDisplayName: Ensure deployment application user exists
           applicationId: $(Environment.DeploymentUser.ApplicationId)
           systemUserId: $(Environment.DeploymentUser.SystemUserId)
           applicationUserName: $(Environment.DeploymentUser.Username) 
+          securityRoleName: System Administrator
+          serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
+      - template: templates/jobs/create-application-user-job.yml
+        parameters:
+          jobName: CreateTestsApplicationUser
+          jobDisplayName: Ensure test application user exists
+          applicationId: $(Tests.ApplicationUser.ApplicationId)
           securityRoleName: System Administrator
           serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
     preBuildSteps:
@@ -75,4 +86,21 @@ extends:
     postBuildSteps:
       - template: templates\steps\run-typescript-unit-tests-steps.yml@self
       - template: templates\steps\sonarqube-publish-steps.yml@self
+    fallbackTestEnvironmentUrl: $(Tests.FallbackEnvironmentUrl)
+    testJobs:
+      - template: templates/jobs/run-dotnet-integration-tests-job.yml
+        parameters:
+          clientId: $(Tests.ApplicationUser.ApplicationId)
+          keyVaultTenantId: $(KeyVault.TestUsers.TenantId)
+          keyVaultClientId: $(KeyVault.TestUsers.ClientId)
+          keyVaultClientSecret: $(KeyVault.TestUsers.ClientSecret)
+          keyVaultName: $(KeyVault.TestUsers.Name)
+      - template: templates/jobs/run-dotnet-acceptance-tests-job.yml
+        parameters:
+          clientId: $(Tests.ApplicationUser.ApplicationId)
+          keyVaultTenantId: $(KeyVault.TestUsers.TenantId)
+          keyVaultClientId: $(KeyVault.TestUsers.ClientId)
+          keyVaultClientSecret: $(KeyVault.TestUsers.ClientSecret)
+          keyVaultName: $(KeyVault.TestUsers.Name)
+          dependsOn: RunDotNetIntegrationTests
     githubToken: $(GitHub.Token)

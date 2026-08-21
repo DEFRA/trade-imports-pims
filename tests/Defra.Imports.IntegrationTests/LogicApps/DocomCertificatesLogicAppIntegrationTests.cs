@@ -1,18 +1,17 @@
-﻿namespace Defra.Imports.IntegrationTests.LogicApps
+namespace Defra.Imports.IntegrationTests.LogicApps
 {
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
     using Microsoft.Xrm.Sdk;
-    using Xunit;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+    [TestClass]
+    [Ignore("These tests are ignored pending review")]
     public class DocomCertificatesLogicAppIntegrationTests : CertificatesLogicAppIntegrationTestsBase
     {
-        // Change this to null to run these tests
-        const string skip = "Skip Logic App Tests";
-
-        [Fact(Skip = skip)]
+        [TestMethod]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_AValidDocomXMLMessage_DOCOMIsCreatedInDynamics()
         {
@@ -26,14 +25,14 @@
 
             // Assert
             DataCollection<Entity> retrievedDocoms = this.GetCertificatesByReferenceNumbers("defraimp_docom", certificateReferenceNumber, Array.Empty<string>());
-            Assert.True(retrievedDocoms.Count > 0);
+            Assert.IsTrue(retrievedDocoms.Count > 0);
 
             // Clear Down
             this.ClearDownCertificateTest("docom", retrievedDocoms);
 
         }
 
-        [Fact(Skip = skip)]
+        [TestMethod]
         [ExcludeFromCodeCoverage]
         public void SendToSBQueue_ListOfDocoms_ListOfDocomsAreCreated()
         {
@@ -45,7 +44,7 @@
             // Assert
             List<string> certificateReferenceNumbers = this.GetCertificateReferenceNumbersFromXml(docomXmlList);
             DataCollection<Entity> retrievedDocoms = this.GetCertificatesByReferenceNumbers("defraimp_docom", certificateReferenceNumbers.ToArray(), Array.Empty<string>());
-            Assert.True(retrievedDocoms.Count == 50);
+            Assert.IsTrue(retrievedDocoms.Count == 50);
 
             // Clear Down
             this.ClearDownCertificateTest("docom", retrievedDocoms);
@@ -62,3 +61,4 @@
         }
     }
 }
+

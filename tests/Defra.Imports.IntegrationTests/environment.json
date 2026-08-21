@@ -1,0 +1,15 @@
+{
+  "url": "",
+  "clientId": "",
+  "personas": {},
+  "keyVault": {
+    "tenantId": "",
+    "clientId": "",
+    "name": ""
+  },
+  "serviceBus": {
+    "connectionString": "",
+    "healthCertQueue": "",
+    "notificationQueue": ""
+  }
+}
