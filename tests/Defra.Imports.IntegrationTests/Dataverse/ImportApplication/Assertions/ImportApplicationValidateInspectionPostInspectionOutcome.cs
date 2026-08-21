@@ -30,7 +30,7 @@
         {
             return new List<ISpecificationValidator<defraimp_importapplication>>
             {
-               new ImportApplicationHasInspectionRequiredReason(this.expectedOutcome),
+               new ImportApplicationHasPostInspectionOutcome(this.expectedOutcome),
             };
         }
     }
