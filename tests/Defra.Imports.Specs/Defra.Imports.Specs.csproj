@@ -6,6 +6,7 @@
     <RunSettingsFilePath>$(MSBuildThisFileDirectory).runsettings</RunSettingsFilePath>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <UserSecretsId>ad13423e-1e2d-42af-ada5-493770e21c54</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
