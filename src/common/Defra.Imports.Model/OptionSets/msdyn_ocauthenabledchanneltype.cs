@@ -23,6 +23,12 @@ namespace Defra.Imports.Model
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Voice = 192440000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Livechat = 192360000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AppleMessagesForBusiness = 192450000,
 	}
 }
 #pragma warning restore CS1591

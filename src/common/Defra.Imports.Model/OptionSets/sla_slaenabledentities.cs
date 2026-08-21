@@ -25,7 +25,7 @@ namespace Defra.Imports.Model
 		Case = 112,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIAgentStatus = 11483,
+		AIAgentStatus = 11569,
 	}
 }
 #pragma warning restore CS1591

@@ -3,7 +3,7 @@
   <EntityRelationship Name="mspp_shortcut_defraimp_importqueries">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.1.1</IntroducedVersion>
+    <IntroducedVersion>1.1.0</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>defraimp_importquery</ReferencingEntityName>
     <ReferencedEntityName>mspp_shortcut</ReferencedEntityName>
