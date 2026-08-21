@@ -1,0 +1,57 @@
+parameters:
+  - name: project
+    type: string
+    default: tests\Defra.Imports.Specs\Defra.Imports.Specs.csproj
+  - name: dotNetSdkVersion
+    type: string
+    default: 8.x
+  - name: url
+    type: string
+    default: $(BuildTools.EnvironmentUrl)
+  - name: clientId
+    type: string
+  - name: keyVaultTenantId
+    type: string
+  - name: keyVaultClientId
+    type: string
+  - name: keyVaultClientSecret
+    type: string
+  - name: keyVaultName
+    type: string
+  - name: dependsOn
+    type: object
+    default: []
+
+jobs:
+  - job: RunDotNetAcceptanceTests
+    displayName: Run .NET acceptance tests
+    dependsOn: ${{ parameters.dependsOn }}
+    variables:
+      RunDotNetAcceptanceTests.Url: ${{ parameters.url }}
+      RunDotNetAcceptanceTests.ClientId: ${{ parameters.clientId }}
+      RunDotNetAcceptanceTests.KeyVault.TenantId: ${{ parameters.keyVaultTenantId }}
+      RunDotNetAcceptanceTests.KeyVault.ClientId: ${{ parameters.keyVaultClientId }}
+      RunDotNetAcceptanceTests.KeyVault.ClientSecret: ${{ parameters.keyVaultClientSecret }}
+      RunDotNetAcceptanceTests.KeyVault.Name: ${{ parameters.keyVaultName }}
+    steps:
+      - checkout: self
+
+      - task: UseDotNet@2
+        displayName: Use .NET SDK
+        inputs:
+          version: ${{ parameters.dotNetSdkVersion }}
+
+      - task: DotNetCoreCLI@2
+        displayName: Run acceptance tests
+        inputs:
+          command: test
+          projects: ${{ parameters.project }}
+          publishTestResults: true
+          testRunTitle: Acceptance tests
+        env:
+          IMPORTS__TEST__Url: $(RunDotNetAcceptanceTests.Url)
+          IMPORTS__TEST__ClientId: $(RunDotNetAcceptanceTests.ClientId)
+          IMPORTS__TEST__KeyVault__TenantId: $(RunDotNetAcceptanceTests.KeyVault.TenantId)
+          IMPORTS__TEST__KeyVault__ClientId: $(RunDotNetAcceptanceTests.KeyVault.ClientId)
+          IMPORTS__TEST__KeyVault__ClientSecret: $(RunDotNetAcceptanceTests.KeyVault.ClientSecret)
+          IMPORTS__TEST__KeyVault__Name: $(RunDotNetAcceptanceTests.KeyVault.Name)

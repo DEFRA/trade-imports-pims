@@ -95,4 +95,12 @@ extends:
           keyVaultClientId: $(KeyVault.TestUsers.ClientId)
           keyVaultClientSecret: $(KeyVault.TestUsers.ClientSecret)
           keyVaultName: $(KeyVault.TestUsers.Name)
+      - template: templates/jobs/run-dotnet-acceptance-tests-job.yml
+        parameters:
+          clientId: $(Tests.ApplicationUser.ApplicationId)
+          keyVaultTenantId: $(KeyVault.TestUsers.TenantId)
+          keyVaultClientId: $(KeyVault.TestUsers.ClientId)
+          keyVaultClientSecret: $(KeyVault.TestUsers.ClientSecret)
+          keyVaultName: $(KeyVault.TestUsers.Name)
+          dependsOn: RunDotNetIntegrationTests
     githubToken: $(GitHub.Token)
