@@ -24,8 +24,10 @@
                 serializer.WriteObject(stream, obj);
                 stream.Position = 0;
 
-                var reader = new StreamReader(stream);
-                return reader.ReadToEnd();
+                using (var reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    return reader.ReadToEnd();
+                }
             }
         }
 
