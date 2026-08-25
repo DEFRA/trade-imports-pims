@@ -37,19 +37,24 @@
         public Tuple<bool, string> UpsertImporterNotification(string message)
         {
             if (string.IsNullOrEmpty(message))
-{
-    var errorMessage = "Error processing Importer Notification - service bus message is null or empty";
-    this.logger.Log(Severity.Error, nameof(ProcessINSASBMessage), errorMessage);
-    return Tuple.Create(false, errorMessage);
-}
+            {
+                var errorMessage = "Error processing Importer Notification - service bus message is null or empty";
+                this.logger.Log(Severity.Error, nameof(ProcessINSASBMessage), errorMessage);
+                return Tuple.Create(false, errorMessage);
+            }
 
-var insObject = message.FromJSON<INSObject>();
+            var insObject = message.FromJSON<INSObject>();
 
             try
             {
                 QueryExpression getImporterNotification = new QueryExpression(defraimp_ImporterNotification.EntityLogicalName);
                 getImporterNotification.Criteria.AddCondition(new ConditionExpression(defraimp_ImporterNotification.Fields.defraimp_Name, ConditionOperator.Equal, insObject.Data.ExchangedDocument.Identifier));
-                getImporterNotification.ColumnSet = new ColumnSet(new string[] { defraimp_ImporterNotification.Fields.defraimp_Name, defraimp_ImporterNotification.Fields.defraimp_AggregateVersion });
+                getImporterNotification.ColumnSet = new ColumnSet(new string[]
+                {
+                    defraimp_ImporterNotification.Fields.defraimp_Name,
+                    defraimp_ImporterNotification.Fields.defraimp_AggregateVersion,
+                    defraimp_ImporterNotification.Fields.defraimp_lastupdated,
+                });
 
                 EntityCollection importerNotifications = this.orgSvc.RetrieveMultiple(getImporterNotification);
 
@@ -65,6 +70,43 @@ var insObject = message.FromJSON<INSObject>();
                         var successMessage = $"Importer Notification with Name: {insObject.Data.ExchangedDocument.Identifier} updated successfully.";
                         this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
                         return Tuple.Create(true, successMessage);
+                    }
+                    else if (!existingImporterNotification.defraimp_AggregateVersion.HasValue)
+                    {
+                        // Existing record has no aggregate version, so check against last updated value to determine if the version is newer
+                        // Get the last status change ordered by date
+                        StatusChange lastStatusChange = null;
+                        if (insObject.StatusChanges != null && insObject.StatusChanges.Length > 0)
+                        {
+                            lastStatusChange = insObject.StatusChanges
+                                .OrderByDescending(sc => sc.DateChanged)
+                                .FirstOrDefault();
+                        }
+
+                        if (lastStatusChange != null)
+                        {
+                            DateTime.TryParse(lastStatusChange.DateChanged, out var updatedDate);
+                            if (updatedDate > existingImporterNotification.defraimp_lastupdated)
+                            {
+                                this.PopulateImporterNotificationFields(existingImporterNotification, insObject, true);
+                                this.orgSvc.Update(existingImporterNotification);
+                                var successMessage = $"Importer Notification with Name: {insObject.Data.ExchangedDocument.Identifier} updated successfully based on last updated date.";
+                                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
+                                return Tuple.Create(true, successMessage);
+                            }
+                            else
+                            {
+                                var infoMessage = $"No update needed for Importer Notification with Name: {insObject.Data.ExchangedDocument.Identifier}. Existing record is up to date based on last updated date.";
+                                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), infoMessage);
+                                return Tuple.Create(false, infoMessage);
+                            }
+                        }
+                        else
+                        {
+                            var infoMessage = $"No update needed for Importer Notification with Name: {insObject.Data.ExchangedDocument.Identifier}. Existing record is up to date (no status change found).";
+                            this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), infoMessage);
+                            return Tuple.Create(false, infoMessage);
+                        }
                     }
                     else
                     {
