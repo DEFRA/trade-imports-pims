@@ -290,8 +290,7 @@
                     importerNotification.defraimp_status = defraimp_importernotificationstatus.Deleted;
                     break;
                 default:
-                    importerNotification.defraimp_status = defraimp_importernotificationstatus.Submitted;
-                    break;
+                    throw new InvalidOperationException($"Unsupported notification status code '{insObject.Data.ExchangedDocument.NotificationStatusCode}'.");
             }
 
             importerNotification.defraimp_Version = insObject.Data.ExchangedDocument.VersionId;
