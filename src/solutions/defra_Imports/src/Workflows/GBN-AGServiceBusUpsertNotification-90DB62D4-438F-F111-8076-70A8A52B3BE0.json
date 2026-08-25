@@ -139,8 +139,7 @@
             },
             "parameters": {
               "actionName": "defraimp_UpsertImporterNotification",
-              "item/ASBMessage": "@json(decodeBase64(triggerOutputs()?['body/ContentData']))"
-            },
+              "item/ASBMessage": "@decodeBase64(triggerOutputs()?['body/ContentData'])"
             "authentication": "@parameters('$authentication')"
           }
         }
