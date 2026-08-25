@@ -3,6 +3,7 @@
     using System;
     using System.Activities;
     using System.Collections.Generic;
+    using Defra.Imports.BusinessLogic;
     using Defra.Imports.BusinessLogic.ImporterNotification;
     using Defra.Imports.BusinessLogic.Logging;
     using Microsoft.Xrm.Sdk;
@@ -11,6 +12,12 @@
     /// <summary>
     /// Create or update importer notification and related records from ASB message received.
     /// </summary>
+    [CrmPluginRegistration(
+        nameof(UpsertImporterNotification),
+        "Upsert Importer Notification",
+        "Create or update importer notification and related records from an ASB message",
+        "Defra.Imports.Workflows.ImporterNotification",
+        IsolationModeEnum.Sandbox)]
     public class UpsertImporterNotification : WorkflowActivity
     {
         /// <summary>

@@ -36,14 +36,31 @@
         /// <returns>Returns a tuple with success status (bool) and response message (string).</returns>
         public Tuple<bool, string> UpsertImporterNotification(string message)
         {
-            if (string.IsNullOrEmpty(message))
+            if (string.IsNullOrWhiteSpace(message))
             {
                 var errorMessage = "Error processing Importer Notification - service bus message is null or empty";
                 this.logger.Log(Severity.Error, nameof(ProcessINSASBMessage), errorMessage);
                 return Tuple.Create(false, errorMessage);
             }
 
-            var insObject = message.FromJSON<INSObject>();
+            INSObject insObject;
+            try
+            {
+                insObject = message.FromJSON<INSObject>();
+            }
+            catch (Exception ex)
+            {
+                var errorMessage = $"Error deserializing message: {ex.Message}";
+                this.logger.Log(Severity.Error, nameof(ProcessINSASBMessage), errorMessage);
+                return Tuple.Create(false, errorMessage);
+            }
+
+            if (string.IsNullOrWhiteSpace(insObject?.Data?.ExchangedDocument?.Identifier))
+            {
+                var errorMessage = "Error processing Importer Notification - message does not contain data.exchangedDocument.identifier";
+                this.logger.Log(Severity.Error, nameof(ProcessINSASBMessage), errorMessage);
+                return Tuple.Create(false, errorMessage);
+            }
 
             try
             {
