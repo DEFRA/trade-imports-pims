@@ -2,7 +2,6 @@
 {
     using System;
     using System.Activities;
-    using System.Collections.Generic;
     using Defra.Imports.BusinessLogic;
     using Defra.Imports.BusinessLogic.ImporterNotification;
     using Defra.Imports.BusinessLogic.Logging;
@@ -18,7 +17,7 @@
         "Create or update importer notification and related records from an ASB message",
         "Defra.Imports.Workflows.ImporterNotification",
         IsolationModeEnum.Sandbox)]
-    public class UpsertImporterNotification : WorkflowActivity
+    public class UpsertImporterNotification : Defra.Imports.Workflows.WorkflowActivity
     {
         /// <summary>
         /// Gets or sets the ASB message received from INS portal.
