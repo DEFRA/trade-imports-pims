@@ -28,6 +28,7 @@
   </filestoimport>
   <filesmapstoimport>
     <!--
+      Example of filemap format.
       <configimportmapfile filename="FileMap.xml" />
       <configimportmapfile filename="ZipFileMap.xml" />
     -->
