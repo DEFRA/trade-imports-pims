@@ -58,85 +58,11 @@
 
             try
             {
-                var existingImporterNotification = this.FindExistingNotification(insObject.Data.ExchangedDocument.Identifier);
+                var existingNotification = this.FindExistingNotification(insObject.Data.ExchangedDocument.Identifier);
 
-                if (existingImporterNotification != null)
-                {
-                    // Update existing record
-                    if (existingImporterNotification.defraimp_AggregateVersion < insObject.AggregateVersion)
-                    {
-                        this.PopulateImporterNotificationFields(existingImporterNotification, insObject, true);
-                        this.orgSvc.Update(existingImporterNotification);
-                        var successMessage = $"Importer Notification with Name: {insObject.Data.ExchangedDocument.Identifier} updated successfully.";
-                        this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
-                        return Tuple.Create(true, successMessage);
-                    }
-                    else if (!existingImporterNotification.defraimp_AggregateVersion.HasValue)
-                    {
-                        // Existing record has no aggregate version, so check against last updated value to determine if the version is newer
-                        // Get the last status change ordered by date
-                        StatusChange lastStatusChange = null;
-                        if (insObject.StatusChanges != null && insObject.StatusChanges.Length > 0)
-                        {
-                            lastStatusChange = insObject.StatusChanges
-                                .OrderByDescending(sc => sc.DateChanged)
-                                .FirstOrDefault();
-                        }
-
-                        if (lastStatusChange != null)
-                        {
-                            var cultureInfo = new CultureInfo("en-GB");
-                            DateTime.TryParse(lastStatusChange.DateChanged, cultureInfo, DateTimeStyles.None, out var updatedDate);
-                            if (updatedDate > existingImporterNotification.defraimp_lastupdated)
-                            {
-                                this.PopulateImporterNotificationFields(existingImporterNotification, insObject, true);
-                                this.orgSvc.Update(existingImporterNotification);
-                                var successMessage = $"Importer Notification with Name: {insObject.Data.ExchangedDocument.Identifier} updated successfully based on last updated date.";
-                                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
-                                return Tuple.Create(true, successMessage);
-                            }
-                            else
-                            {
-                                var infoMessage = $"No update needed for Importer Notification with Name: {insObject.Data.ExchangedDocument.Identifier}. Existing record is up to date based on last updated date.";
-                                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), infoMessage);
-                                return Tuple.Create(false, infoMessage);
-                            }
-                        }
-                        else
-                        {
-                            var infoMessage = $"No update needed for Importer Notification with Name: {insObject.Data.ExchangedDocument.Identifier}. Existing record is up to date (no status change found).";
-                            this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), infoMessage);
-                            return Tuple.Create(false, infoMessage);
-                        }
-                    }
-                    else
-                    {
-                        // No update needed, existing record is up to date
-                        var infoMessage = $"No update needed for Importer Notification with Name: {insObject.Data.ExchangedDocument.Identifier}. Existing version: {existingImporterNotification.defraimp_AggregateVersion}, Incoming version: {insObject.AggregateVersion}";
-                        this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), infoMessage);
-                        return Tuple.Create(false, infoMessage);
-                    }
-                }
-                else
-                {
-                    // Create new record
-                    defraimp_ImporterNotification newImporterNotification = new defraimp_ImporterNotification();
-                    this.PopulateImporterNotificationFields(newImporterNotification, insObject, false);
-
-                    if (newImporterNotification.defraimp_status != defraimp_importernotificationstatus.Draft)
-                    {
-                        this.orgSvc.Create(newImporterNotification);
-                        var successMessage = $"Importer Notification with Name: {insObject.Data.ExchangedDocument.Identifier} created successfully.";
-                        this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
-                        return Tuple.Create(true, successMessage);
-                    }
-                    else
-                    {
-                        var draftMessage = $"Importer Notification with Name: {insObject.Data.ExchangedDocument.Identifier} is in Draft status. Not creating record.";
-                        this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), draftMessage);
-                        return Tuple.Create(false, draftMessage);
-                    }
-                }
+                return existingNotification != null
+                    ? this.TryUpdateExisting(existingNotification, insObject)
+                    : this.TryCreateNew(insObject);
             }
             catch (Exception ex)
             {
@@ -326,7 +252,80 @@
                 ? insObject.StatusChanges.OrderBy(sc => sc.DateChanged)
                 : insObject.StatusChanges.OrderByDescending(sc => sc.DateChanged);
 
-            return ordered.Where(predicate).FirstOrDefault();
+            return ordered.FirstOrDefault(predicate);
+        }
+
+        private Tuple<bool, string> TryUpdateExisting(defraimp_ImporterNotification existing, INSObject insObject)
+        {
+            var identifier = insObject.Data.ExchangedDocument.Identifier;
+
+            if (existing.defraimp_AggregateVersion < insObject.AggregateVersion)
+            {
+                this.PopulateImporterNotificationFields(existing, insObject, true);
+                this.orgSvc.Update(existing);
+                var successMessage = $"Importer Notification with Name: {identifier} updated successfully.";
+                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
+                return Tuple.Create(true, successMessage);
+            }
+
+            if (!existing.defraimp_AggregateVersion.HasValue)
+            {
+                return this.TryUpdateByLastUpdatedDate(existing, insObject);
+            }
+
+            var infoMessage = $"No update needed for Importer Notification with Name: {identifier}. Existing version: {existing.defraimp_AggregateVersion}, Incoming version: {insObject.AggregateVersion}";
+            this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), infoMessage);
+            return Tuple.Create(false, infoMessage);
+        }
+
+        private Tuple<bool, string> TryUpdateByLastUpdatedDate(defraimp_ImporterNotification existing, INSObject insObject)
+        {
+            var identifier = insObject.Data.ExchangedDocument.Identifier;
+            var lastStatusChange = insObject.StatusChanges != null && insObject.StatusChanges.Length > 0
+                ? insObject.StatusChanges.OrderByDescending(sc => sc.DateChanged).FirstOrDefault()
+                : null;
+
+            if (lastStatusChange == null)
+            {
+                var infoMessage = $"No update needed for Importer Notification with Name: {identifier}. Existing record is up to date (no status change found).";
+                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), infoMessage);
+                return Tuple.Create(false, infoMessage);
+            }
+
+            var cultureInfo = new CultureInfo("en-GB");
+            DateTime.TryParse(lastStatusChange.DateChanged, cultureInfo, DateTimeStyles.None, out var updatedDate);
+
+            if (updatedDate > existing.defraimp_lastupdated)
+            {
+                this.PopulateImporterNotificationFields(existing, insObject, true);
+                this.orgSvc.Update(existing);
+                var successMessage = $"Importer Notification with Name: {identifier} updated successfully based on last updated date.";
+                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
+                return Tuple.Create(true, successMessage);
+            }
+
+            var noUpdateMessage = $"No update needed for Importer Notification with Name: {identifier}. Existing record is up to date based on last updated date.";
+            this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), noUpdateMessage);
+            return Tuple.Create(false, noUpdateMessage);
+        }
+
+        private Tuple<bool, string> TryCreateNew(INSObject insObject)
+        {
+            var identifier = insObject.Data.ExchangedDocument.Identifier;
+            var newNotification = new defraimp_ImporterNotification();
+            this.PopulateImporterNotificationFields(newNotification, insObject, false);
+
+            if (newNotification.defraimp_status != defraimp_importernotificationstatus.Draft)
+            {
+                this.orgSvc.Create(newNotification);
+                var successMessage = $"Importer Notification with Name: {identifier} created successfully.";
+                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
+                return Tuple.Create(true, successMessage);
+            }
+
+            var draftMessage = $"Importer Notification with Name: {identifier} is in Draft status. Not creating record.";
+            this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), draftMessage);
+            return Tuple.Create(false, draftMessage);
         }
 
         private HashSet<string> CollectCountryCodesFromInsObject(INSObject insObject)
