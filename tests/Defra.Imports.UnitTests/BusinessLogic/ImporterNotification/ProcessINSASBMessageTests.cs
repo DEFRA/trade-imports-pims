@@ -1,4 +1,4 @@
-﻿namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
+﻿namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
 {
     using System;
     using System.Collections.Generic;
@@ -732,7 +732,7 @@
             var message = BuildMessageWithIssuer("INS-200", 1, "SUBMITTED",
                 issuerName: "Responsible Co",
                 line1: "10 Test St", line2: "Floor 2", city: "London", postcode: "SW1A 1AA",
-                personName: "Jane Doe", email: "jane@example.com", phone: "01234 567890");
+                country: "GB", personName: "Jane Doe", email: "jane@example.com", phone: "01234 567890");
 
             var created = CaptureCreatedEntity(message);
 
@@ -800,7 +800,7 @@
             // Arrange
             var message = BuildMessageWithParty("INS-220", "consigneeParty",
                 name: "Buyer Co", line1: "1 Buy St", line2: "Apt 3", city: "Bristol", postcode: "BS1 1AA",
-                email: "buyer@example.com", phone: "01234 000001");
+                country: "GB", email: "buyer@example.com", phone: "01234 000001");
 
             var created = CaptureCreatedEntity(message);
 
@@ -840,7 +840,7 @@
             // Arrange
             var message = BuildMessageWithParty("INS-230", "importer",
                 name: "Importer Co", line1: "2 Import Rd", line2: null, city: "Leeds", postcode: "LS1 1BB",
-                email: "imp@example.com", phone: "01234 000002");
+                country: "GB", email: "imp@example.com", phone: "01234 000002");
 
             var created = CaptureCreatedEntity(message);
 
@@ -877,7 +877,7 @@
             // Arrange
             var message = BuildMessageWithParty("INS-240", "consignorParty",
                 name: "Seller Co", line1: "3 Sell Ave", line2: null, city: "Paris", postcode: "75001",
-                email: "seller@example.com", phone: "01234 000003");
+                country: "GB", email: "seller@example.com", phone: "01234 000003");
 
             var created = CaptureCreatedEntity(message);
 
@@ -913,7 +913,7 @@
             // Arrange
             var message = BuildMessageWithParty("INS-250", "despatchParty",
                 name: "Origin Farm", line1: "4 Farm Ln", line2: null, city: "Lyon", postcode: "69001",
-                email: "farm@example.com", phone: "01234 000004");
+                country: "GB", email: "farm@example.com", phone: "01234 000004");
 
             var created = CaptureCreatedEntity(message);
 
@@ -949,7 +949,7 @@
             // Arrange
             var message = BuildMessageWithParty("INS-260", "deliveryParty",
                 name: "Dest Farm", line1: "5 Dest Rd", line2: null, city: "Leeds", postcode: "LS1 1CC",
-                email: "dest@example.com", phone: "01234 000005");
+                country: "GB", email: "dest@example.com", phone: "01234 000005");
 
             var created = CaptureCreatedEntity(message);
 
@@ -1021,7 +1021,7 @@
             // Arrange — delivery party present but no includedConsignmentItem
             var message = BuildMessageWithParty("INS-272", "deliveryParty",
                 name: "Dest Farm", line1: "5 Dest Rd", line2: null, city: "Leeds", postcode: "LS1 1CC",
-                email: "dest@example.com", phone: "01234 000005");
+                country: "GB", email: "dest@example.com", phone: "01234 000005");
 
             var created = CaptureCreatedEntity(message);
 
@@ -1041,7 +1041,7 @@
             var message = BuildMessageWithCarrier("INS-280",
                 name: "FastFreight", carrierIdentifier: "FF-99",
                 line1: "6 Carrier Way", city: "Dover", postcode: "CT16 1AA",
-                partyTypeCode: "CT1");
+                country: "GB", partyTypeCode: "CT1");
 
             var created = CaptureCreatedEntity(message);
 
@@ -1196,12 +1196,12 @@
             return BuildMessageWithIssuer(identifier, aggregateVersion, statusCode,
                 issuerName: "Test Co", line1: "1 St", line2: null, city: "City", postcode: "AA1 1AA",
                 personName: null, email: null, phone: null,
-                countryId: countryId).FromJSON<INSObject>();
+                country: countryId).FromJSON<INSObject>();
         }
 
         private static string BuildMessageWithIssuer(string identifier, int aggregateVersion, string statusCode,
             string issuerName, string line1, string line2, string city, string postcode,
-            string personName, string email, string phone, string countryId = null)
+            string personName, string email, string phone, string country)
         {
             var contact = (personName != null || email != null || phone != null)
                 ? $@", ""definedContact"": [{{ ""personName"": {ToJsonValue(personName)}, ""emailURIUniversalCommunication"": {ToJsonValue(email)}, ""telephoneUniversalCommunication"": {ToJsonValue(phone)} }}]"
@@ -1221,7 +1221,7 @@
                       ""lineTwo"": {ToJsonValue(line2)},
                       ""cityName"": {ToJsonValue(city)},
                       ""postcodeCode"": {ToJsonValue(postcode)},
-                      ""countryId"": {ToJsonValue(countryId)}
+                      ""countryId"": {ToJsonValue(country)}
                     }}{contact}
                   }}
                 }}
@@ -1250,7 +1250,7 @@
         }
 
         private static string BuildMessageWithParty(string identifier, string partyProperty,
-            string name, string line1, string line2, string city, string postcode,
+            string name, string line1, string line2, string city, string postcode, string country,
             string email, string phone)
         {
             return $@"{{
@@ -1265,7 +1265,7 @@
                       ""lineTwo"": {ToJsonValue(line2)},
                       ""cityName"": {ToJsonValue(city)},
                       ""postcodeCode"": {ToJsonValue(postcode)},
-                      ""countryId"": null
+                      ""countryId"": {ToJsonValue(country)}
                     }},
                     ""definedContact"": [{{
                       ""emailURIUniversalCommunication"": {ToJsonValue(email)},
@@ -1278,7 +1278,7 @@
         }
 
         private static string BuildMessageWithCarrier(string identifier, string name, string carrierIdentifier,
-            string line1, string city, string postcode, string partyTypeCode)
+            string line1, string city, string postcode, string country, string partyTypeCode)
         {
             return $@"{{
               ""aggregateVersion"": 1,
@@ -1292,7 +1292,7 @@
                       ""lineOne"": {ToJsonValue(line1)},
                       ""cityName"": {ToJsonValue(city)},
                       ""postcodeCode"": {ToJsonValue(postcode)},
-                      ""countryId"": null
+                      ""countryId"": {ToJsonValue(country)}
                     }},
                     ""partyTypeCode"": [{{ ""value"": {ToJsonValue(partyTypeCode)} }}]
                   }}
