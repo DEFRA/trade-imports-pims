@@ -178,8 +178,6 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Equal("INS-123", result.Data.ExchangedDocument.Identifier);
         }
 
-        // ?? Metadata ??????????????????????????????????????????????????????????
-
         /// <summary>
         /// Tests that Metadata deserializes all properties correctly when provided directly.
         /// </summary>
@@ -216,8 +214,6 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Null(result.SchemaVersion);
             Assert.Null(result.SchemaUrl);
         }
-
-        // ?? Actor ?????????????????????????????????????????????????????????????
 
         /// <summary>
         /// Tests that Actor deserializes all properties correctly.
@@ -261,8 +257,6 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Null(result.DisplayName);
             Assert.Null(result.OrganisationId);
         }
-
-        // ?? StatusChange ??????????????????????????????????????????????????????
 
         /// <summary>
         /// Tests that StatusChange deserializes all properties correctly including a nested Actor.
@@ -308,8 +302,6 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Null(result.Actor);
         }
 
-        // ?? Data ??????????????????????????????????????????????????????????????
-
         /// <summary>
         /// Tests that Data deserializes all properties correctly.
         /// </summary>
@@ -350,8 +342,6 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Null(result.ExchangedDocument);
             Assert.Null(result.SpecifiedConsignment);
         }
-
-        // ?? ExchangedDocument ?????????????????????????????????????????????????
 
         /// <summary>
         /// Tests that ExchangedDocument deserializes all scalar properties correctly.
@@ -398,6 +388,690 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Null(result.Issuer);
             Assert.Null(result.FirstSignatoryAuthentication);
             Assert.Null(result.ReferenceDocument);
+        }
+
+        // ?? PostalAddress ?????????????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that PostalAddress deserializes all properties correctly.
+        /// </summary>
+        [Fact]
+        public void PostalAddress_WithAllProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""lineOne"": ""1 High Street"",
+                ""lineTwo"": ""Flat 2"",
+                ""cityName"": ""London"",
+                ""postcodeCode"": ""SW1A 1AA"",
+                ""countryId"": ""GB"",
+                ""countryName"": ""United Kingdom"",
+                ""countrySubDivisionName"": ""England""
+            }";
+
+            var result = json.FromJSON<PostalAddress>();
+
+            Assert.Equal("1 High Street", result.LineOne);
+            Assert.Equal("Flat 2", result.LineTwo);
+            Assert.Equal("London", result.CityName);
+            Assert.Equal("SW1A 1AA", result.PostcodeCode);
+            Assert.Equal("GB", result.CountryId);
+            Assert.Equal("United Kingdom", result.CountryName);
+            Assert.Equal("England", result.CountrySubDivisionName);
+        }
+
+        /// <summary>
+        /// Tests that PostalAddress optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void PostalAddress_WithEmptyJson_AllPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<PostalAddress>();
+
+            Assert.Null(result.LineOne);
+            Assert.Null(result.LineTwo);
+            Assert.Null(result.CityName);
+            Assert.Null(result.PostcodeCode);
+            Assert.Null(result.CountryId);
+            Assert.Null(result.CountryName);
+            Assert.Null(result.CountrySubDivisionName);
+        }
+
+        // ?? DefinedContact ????????????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that DefinedContact deserializes all properties correctly.
+        /// </summary>
+        [Fact]
+        public void DefinedContact_WithAllProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""personName"": ""Jane Doe"",
+                ""emailURIUniversalCommunication"": ""jane@example.com"",
+                ""telephoneUniversalCommunication"": ""+44 7700 900000""
+            }";
+
+            var result = json.FromJSON<DefinedContact>();
+
+            Assert.Equal("Jane Doe", result.PersonName);
+            Assert.Equal("jane@example.com", result.EmailURIUniversalCommunication);
+            Assert.Equal("+44 7700 900000", result.TelephoneUniversalCommunication);
+        }
+
+        /// <summary>
+        /// Tests that DefinedContact properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void DefinedContact_WithEmptyJson_AllPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<DefinedContact>();
+
+            Assert.Null(result.PersonName);
+            Assert.Null(result.EmailURIUniversalCommunication);
+            Assert.Null(result.TelephoneUniversalCommunication);
+        }
+
+        // ?? CodedValue ????????????????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that CodedValue deserializes all properties correctly.
+        /// </summary>
+        [Fact]
+        public void CodedValue_WithAllProperties_DeserializesCorrectly()
+        {
+            var json = @"{ ""value"": ""CT1"", ""urlId"": ""url-1"", ""name"": ""Commercial"" }";
+
+            var result = json.FromJSON<CodedValue>();
+
+            Assert.Equal("CT1", result.Value);
+            Assert.Equal("url-1", result.UrlId);
+            Assert.Equal("Commercial", result.Name);
+        }
+
+        // ?? CountryCode ???????????????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that CountryCode deserializes all properties correctly.
+        /// </summary>
+        [Fact]
+        public void CountryCode_WithAllProperties_DeserializesCorrectly()
+        {
+            var json = @"{ ""value"": ""GB"", ""urlId"": ""url-gb"", ""name"": ""United Kingdom"" }";
+
+            var result = json.FromJSON<CountryCode>();
+
+            Assert.Equal("GB", result.Value);
+            Assert.Equal("url-gb", result.UrlId);
+            Assert.Equal("United Kingdom", result.Name);
+        }
+
+        // ?? Party ?????????????????????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that Party deserializes all scalar properties correctly.
+        /// </summary>
+        [Fact]
+        public void Party_WithAllScalarProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""identifier"": ""p-1"",
+                ""urlId"": ""url-p1"",
+                ""name"": ""ACME Ltd""
+            }";
+
+            var result = json.FromJSON<Party>();
+
+            Assert.Equal("p-1", result.Identifier);
+            Assert.Equal("url-p1", result.UrlId);
+            Assert.Equal("ACME Ltd", result.Name);
+        }
+
+        /// <summary>
+        /// Tests that Party deserializes a PostalAddress correctly.
+        /// </summary>
+        [Fact]
+        public void Party_WithPostalAddress_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""name"": ""ACME Ltd"",
+                ""postalAddress"": {
+                    ""lineOne"": ""10 Street"",
+                    ""cityName"": ""Bristol"",
+                    ""postcodeCode"": ""BS1 1AA"",
+                    ""countryId"": ""GB""
+                }
+            }";
+
+            var result = json.FromJSON<Party>();
+
+            Assert.NotNull(result.PostalAddress);
+            Assert.Equal("10 Street", result.PostalAddress.LineOne);
+            Assert.Equal("Bristol", result.PostalAddress.CityName);
+            Assert.Equal("BS1 1AA", result.PostalAddress.PostcodeCode);
+            Assert.Equal("GB", result.PostalAddress.CountryId);
+        }
+
+        /// <summary>
+        /// Tests that Party deserializes DefinedContact entries correctly.
+        /// </summary>
+        [Fact]
+        public void Party_WithDefinedContacts_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""name"": ""ACME Ltd"",
+                ""definedContact"": [
+                    {
+                        ""personName"": ""Bob"",
+                        ""emailURIUniversalCommunication"": ""bob@acme.com"",
+                        ""telephoneUniversalCommunication"": ""01234 567890""
+                    }
+                ]
+            }";
+
+            var result = json.FromJSON<Party>();
+
+            Assert.NotNull(result.DefinedContact);
+            Assert.Single(result.DefinedContact);
+            Assert.Equal("Bob", result.DefinedContact[0].PersonName);
+            Assert.Equal("bob@acme.com", result.DefinedContact[0].EmailURIUniversalCommunication);
+            Assert.Equal("01234 567890", result.DefinedContact[0].TelephoneUniversalCommunication);
+        }
+
+        /// <summary>
+        /// Tests that Party deserializes PartyTypeCode entries correctly.
+        /// </summary>
+        [Fact]
+        public void Party_WithPartyTypeCodes_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""name"": ""ACME Ltd"",
+                ""partyRoleCode"": { ""value"": ""AG"" },
+                ""partyTypeCode"": [
+                    { ""value"": ""CT1"", ""name"": ""Commercial"" }
+                ]
+            }";
+
+            var result = json.FromJSON<Party>();
+
+            Assert.NotNull(result.PartyRoleCode);
+            Assert.Equal("AG", result.PartyRoleCode.Value);
+            Assert.NotNull(result.PartyTypeCode);
+            Assert.Single(result.PartyTypeCode);
+            Assert.Equal("CT1", result.PartyTypeCode[0].Value);
+            Assert.Equal("Commercial", result.PartyTypeCode[0].Name);
+        }
+
+        /// <summary>
+        /// Tests that Party optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void Party_WithEmptyJson_OptionalPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<Party>();
+
+            Assert.Null(result.Identifier);
+            Assert.Null(result.UrlId);
+            Assert.Null(result.Name);
+            Assert.Null(result.PostalAddress);
+            Assert.Null(result.DefinedContact);
+            Assert.Null(result.PartyRoleCode);
+            Assert.Null(result.PartyTypeCode);
+        }
+
+        // ?? Carrier ???????????????????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that Carrier deserializes all properties correctly.
+        /// </summary>
+        [Fact]
+        public void Carrier_WithAllProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""name"": ""FastFreight"",
+                ""identifier"": ""FF-99"",
+                ""urlId"": ""url-ff"",
+                ""partyRoleCode"": { ""value"": ""CA"" },
+                ""partyTypeCode"": [ { ""value"": ""CT2"" } ],
+                ""postalAddress"": { ""lineOne"": ""5 Dock Road"", ""countryId"": ""GB"" }
+            }";
+
+            var result = json.FromJSON<Carrier>();
+
+            Assert.Equal("FastFreight", result.Name);
+            Assert.Equal("FF-99", result.Identifier);
+            Assert.Equal("url-ff", result.UrlId);
+            Assert.NotNull(result.PartyRoleCode);
+            Assert.Equal("CA", result.PartyRoleCode.Value);
+            Assert.NotNull(result.PartyTypeCode);
+            Assert.Single(result.PartyTypeCode);
+            Assert.Equal("CT2", result.PartyTypeCode[0].Value);
+            Assert.NotNull(result.PostalAddress);
+            Assert.Equal("5 Dock Road", result.PostalAddress.LineOne);
+        }
+
+        /// <summary>
+        /// Tests that Carrier optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void Carrier_WithEmptyJson_OptionalPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<Carrier>();
+
+            Assert.Null(result.Name);
+            Assert.Null(result.Identifier);
+            Assert.Null(result.UrlId);
+            Assert.Null(result.PartyRoleCode);
+            Assert.Null(result.PartyTypeCode);
+            Assert.Null(result.PostalAddress);
+        }
+
+        // ?? TradeCountry ??????????????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that TradeCountry deserializes its Code and sub-divisions correctly.
+        /// </summary>
+        [Fact]
+        public void TradeCountry_WithCodeAndSubDivisions_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""code"": { ""value"": ""GB"", ""urlId"": ""url-gb"", ""name"": ""United Kingdom"" },
+                ""subordinateTradeCountrySubDivision"": [
+                    {
+                        ""identifier"": ""ENG"",
+                        ""functionTypeCode"": { ""content"": ""region"" }
+                    }
+                ]
+            }";
+
+            var result = json.FromJSON<TradeCountry>();
+
+            Assert.NotNull(result.Code);
+            Assert.Equal("GB", result.Code.Value);
+            Assert.Equal("url-gb", result.Code.UrlId);
+            Assert.Equal("United Kingdom", result.Code.Name);
+            Assert.NotNull(result.SubordinateTradeCountrySubDivision);
+            Assert.Single(result.SubordinateTradeCountrySubDivision);
+            Assert.Equal("ENG", result.SubordinateTradeCountrySubDivision[0].Identifier);
+            Assert.NotNull(result.SubordinateTradeCountrySubDivision[0].FunctionTypeCode);
+            Assert.Equal("region", result.SubordinateTradeCountrySubDivision[0].FunctionTypeCode.Content);
+        }
+
+        /// <summary>
+        /// Tests that TradeCountry optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void TradeCountry_WithEmptyJson_OptionalPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<TradeCountry>();
+
+            Assert.Null(result.Code);
+            Assert.Null(result.SubordinateTradeCountrySubDivision);
+        }
+
+        // ?? FinalDestinationLocation ??????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that FinalDestinationLocation deserializes all properties correctly.
+        /// </summary>
+        [Fact]
+        public void FinalDestinationLocation_WithAllProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""identifier"": ""CPH-001"",
+                ""urlId"": ""url-cph"",
+                ""name"": ""Farm A"",
+                ""postalAddress"": { ""lineOne"": ""Farm Lane"", ""countryId"": ""GB"" }
+            }";
+
+            var result = json.FromJSON<FinalDestinationLocation>();
+
+            Assert.Equal("CPH-001", result.Identifier);
+            Assert.Equal("url-cph", result.UrlId);
+            Assert.Equal("Farm A", result.Name);
+            Assert.NotNull(result.PostalAddress);
+            Assert.Equal("Farm Lane", result.PostalAddress.LineOne);
+        }
+
+        // ?? LogisticsLocation ?????????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that LogisticsLocation deserializes all properties correctly.
+        /// </summary>
+        [Fact]
+        public void LogisticsLocation_WithAllProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""identifier"": ""PORT-LHR"",
+                ""urlId"": ""url-lhr"",
+                ""name"": ""Heathrow"",
+                ""typeCode"": ""AIRPORT"",
+                ""postalAddress"": { ""cityName"": ""London"", ""countryId"": ""GB"" }
+            }";
+
+            var result = json.FromJSON<LogisticsLocation>();
+
+            Assert.Equal("PORT-LHR", result.Identifier);
+            Assert.Equal("url-lhr", result.UrlId);
+            Assert.Equal("Heathrow", result.Name);
+            Assert.Equal("AIRPORT", result.TypeCode);
+            Assert.NotNull(result.PostalAddress);
+            Assert.Equal("London", result.PostalAddress.CityName);
+        }
+
+        // ?? TransportContractRelatedReferencedDocument ????????????????????????
+
+        /// <summary>
+        /// Tests that TransportContractRelatedReferencedDocument deserializes all properties correctly.
+        /// </summary>
+        [Fact]
+        public void TransportContractRelatedReferencedDocument_WithAllProperties_DeserializesCorrectly()
+        {
+            var json = @"{ ""typeCode"": ""AWB"", ""identifier"": ""DOC-XYZ"" }";
+
+            var result = json.FromJSON<TransportContractRelatedReferencedDocument>();
+
+            Assert.Equal("AWB", result.TypeCode);
+            Assert.Equal("DOC-XYZ", result.Identifier);
+        }
+
+        // ?? TransportEvent ????????????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that TransportEvent deserializes all properties correctly including nested LogisticsLocation.
+        /// </summary>
+        [Fact]
+        public void TransportEvent_WithAllProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""scheduledOccurrenceDateTime"": ""2024-07-01 06:00:00"",
+                ""actualOccurrenceDateTime"": ""2024-07-01 06:30:00"",
+                ""occurrenceLogisticsLocation"": {
+                    ""identifier"": ""PORT-DVR"",
+                    ""name"": ""Dover""
+                }
+            }";
+
+            var result = json.FromJSON<TransportEvent>();
+
+            Assert.Equal("2024-07-01 06:00:00", result.ScheduledOccurrenceDateTime);
+            Assert.Equal("2024-07-01 06:30:00", result.ActualOccurrenceDateTime);
+            Assert.NotNull(result.OccurrenceLogisticsLocation);
+            Assert.Equal("PORT-DVR", result.OccurrenceLogisticsLocation.Identifier);
+            Assert.Equal("Dover", result.OccurrenceLogisticsLocation.Name);
+        }
+
+        /// <summary>
+        /// Tests that TransportEvent optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void TransportEvent_WithEmptyJson_OptionalPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<TransportEvent>();
+
+            Assert.Null(result.ScheduledOccurrenceDateTime);
+            Assert.Null(result.ActualOccurrenceDateTime);
+            Assert.Null(result.OccurrenceLogisticsLocation);
+        }
+
+        // ?? MainCarriageLogisticsTransportMovement ????????????????????????????
+
+        /// <summary>
+        /// Tests that MainCarriageLogisticsTransportMovement deserializes all properties correctly.
+        /// </summary>
+        [Fact]
+        public void MainCarriageLogisticsTransportMovement_WithAllProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""identifier"": ""VESSEL-01"",
+                ""modeCode"": 1,
+                ""urlId"": ""url-v1"",
+                ""transportContractRelatedReferencedDocument"": [
+                    { ""typeCode"": ""BL"", ""identifier"": ""BL-001"" }
+                ],
+                ""arrivalEvent"": [
+                    { ""scheduledOccurrenceDateTime"": ""2024-08-10 08:00:00"" }
+                ],
+                ""departureEvent"": [
+                    { ""scheduledOccurrenceDateTime"": ""2024-08-05 12:00:00"" }
+                ]
+            }";
+
+            var result = json.FromJSON<MainCarriageLogisticsTransportMovement>();
+
+            Assert.Equal("VESSEL-01", result.Identifier);
+            Assert.Equal(1, result.ModeCode);
+            Assert.Equal("url-v1", result.UrlId);
+            Assert.NotNull(result.TransportContractRelatedReferencedDocument);
+            Assert.Single(result.TransportContractRelatedReferencedDocument);
+            Assert.Equal("BL-001", result.TransportContractRelatedReferencedDocument[0].Identifier);
+            Assert.NotNull(result.ArrivalEvent);
+            Assert.Single(result.ArrivalEvent);
+            Assert.Equal("2024-08-10 08:00:00", result.ArrivalEvent[0].ScheduledOccurrenceDateTime);
+            Assert.NotNull(result.DepartureEvent);
+            Assert.Single(result.DepartureEvent);
+            Assert.Equal("2024-08-05 12:00:00", result.DepartureEvent[0].ScheduledOccurrenceDateTime);
+        }
+
+        /// <summary>
+        /// Tests that MainCarriageLogisticsTransportMovement optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void MainCarriageLogisticsTransportMovement_WithEmptyJson_OptionalPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<MainCarriageLogisticsTransportMovement>();
+
+            Assert.Null(result.Identifier);
+            Assert.Null(result.ModeCode);
+            Assert.Null(result.UrlId);
+            Assert.Null(result.TransportContractRelatedReferencedDocument);
+            Assert.Null(result.ArrivalEvent);
+            Assert.Null(result.DepartureEvent);
+        }
+
+        // ?? IncludedConsignmentItem ????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that IncludedConsignmentItem deserializes IncludedTradeLineItem entries correctly.
+        /// </summary>
+        [Fact]
+        public void IncludedConsignmentItem_WithTradeLineItems_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""includedTradeLineItem"": [
+                    { ""typeCode"": ""LIVE"", ""scientificName"": ""Bos taurus"" }
+                ]
+            }";
+
+            var result = json.FromJSON<IncludedConsignmentItem>();
+
+            Assert.NotNull(result.IncludedTradeLineItem);
+            Assert.Single(result.IncludedTradeLineItem);
+            Assert.Equal("LIVE", result.IncludedTradeLineItem[0].TypeCode);
+            Assert.Equal("Bos taurus", result.IncludedTradeLineItem[0].ScientificName);
+        }
+
+        /// <summary>
+        /// Tests that IncludedConsignmentItem IncludedTradeLineItem is null when absent.
+        /// </summary>
+        [Fact]
+        public void IncludedConsignmentItem_WithEmptyJson_IncludedTradeLineItemIsNull()
+        {
+            var result = "{}".FromJSON<IncludedConsignmentItem>();
+
+            Assert.Null(result.IncludedTradeLineItem);
+        }
+
+        // ?? SpecifiedConsignment ??????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that SpecifiedConsignment deserializes all party references correctly.
+        /// </summary>
+        [Fact]
+        public void SpecifiedConsignment_WithAllParties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""consignorParty"": { ""name"": ""Seller Co"" },
+                ""consigneeParty"": { ""name"": ""Buyer Co"" },
+                ""despatchParty"": { ""name"": ""Origin Farm"" },
+                ""deliveryParty"": { ""name"": ""Destination Farm"" },
+                ""importer"": { ""name"": ""Importer Co"" }
+            }";
+
+            var result = json.FromJSON<SpecifiedConsignment>();
+
+            Assert.NotNull(result.ConsignorParty);
+            Assert.Equal("Seller Co", result.ConsignorParty.Name);
+            Assert.NotNull(result.ConsigneeParty);
+            Assert.Equal("Buyer Co", result.ConsigneeParty.Name);
+            Assert.NotNull(result.DespatchParty);
+            Assert.Equal("Origin Farm", result.DespatchParty.Name);
+            Assert.NotNull(result.DeliveryParty);
+            Assert.Equal("Destination Farm", result.DeliveryParty.Name);
+            Assert.NotNull(result.Importer);
+            Assert.Equal("Importer Co", result.Importer.Name);
+        }
+
+        /// <summary>
+        /// Tests that SpecifiedConsignment deserializes Carrier correctly.
+        /// </summary>
+        [Fact]
+        public void SpecifiedConsignment_WithCarrier_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""carrier"": { ""name"": ""FastFreight"", ""identifier"": ""FF-01"" }
+            }";
+
+            var result = json.FromJSON<SpecifiedConsignment>();
+
+            Assert.NotNull(result.Carrier);
+            Assert.Equal("FastFreight", result.Carrier.Name);
+            Assert.Equal("FF-01", result.Carrier.Identifier);
+        }
+
+        /// <summary>
+        /// Tests that SpecifiedConsignment deserializes OriginCountry correctly.
+        /// </summary>
+        [Fact]
+        public void SpecifiedConsignment_WithOriginCountry_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""originCountry"": {
+                    ""code"": { ""value"": ""FR"" },
+                    ""subordinateTradeCountrySubDivision"": [ { ""identifier"": ""BRE"" } ]
+                }
+            }";
+
+            var result = json.FromJSON<SpecifiedConsignment>();
+
+            Assert.NotNull(result.OriginCountry);
+            Assert.Equal("FR", result.OriginCountry.Code.Value);
+            Assert.Single(result.OriginCountry.SubordinateTradeCountrySubDivision);
+            Assert.Equal("BRE", result.OriginCountry.SubordinateTradeCountrySubDivision[0].Identifier);
+        }
+
+        /// <summary>
+        /// Tests that SpecifiedConsignment deserializes FinalDestinationLocation and UnloadingBaseportLocation correctly.
+        /// </summary>
+        [Fact]
+        public void SpecifiedConsignment_WithLocations_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""finalDestinationLocation"": { ""identifier"": ""CPH-123"" },
+                ""unloadingBaseportLocation"": { ""identifier"": ""PORT-DVR"" }
+            }";
+
+            var result = json.FromJSON<SpecifiedConsignment>();
+
+            Assert.NotNull(result.FinalDestinationLocation);
+            Assert.Equal("CPH-123", result.FinalDestinationLocation.Identifier);
+            Assert.NotNull(result.UnloadingBaseportLocation);
+            Assert.Equal("PORT-DVR", result.UnloadingBaseportLocation.Identifier);
+        }
+
+        /// <summary>
+        /// Tests that SpecifiedConsignment deserializes MainCarriageLogisticsTransportMovement correctly.
+        /// </summary>
+        [Fact]
+        public void SpecifiedConsignment_WithTransportMovement_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""mainCarriageLogisticsTransportMovement"": [
+                    {
+                        ""identifier"": ""VESSEL-99"",
+                        ""modeCode"": 1,
+                        ""arrivalEvent"": [ { ""scheduledOccurrenceDateTime"": ""2024-09-01 07:00:00"" } ]
+                    }
+                ]
+            }";
+
+            var result = json.FromJSON<SpecifiedConsignment>();
+
+            Assert.NotNull(result.MainCarriageLogisticsTransportMovement);
+            Assert.Single(result.MainCarriageLogisticsTransportMovement);
+            var transport = result.MainCarriageLogisticsTransportMovement[0];
+            Assert.Equal("VESSEL-99", transport.Identifier);
+            Assert.Equal(1, transport.ModeCode);
+            Assert.Single(transport.ArrivalEvent);
+            Assert.Equal("2024-09-01 07:00:00", transport.ArrivalEvent[0].ScheduledOccurrenceDateTime);
+        }
+
+        /// <summary>
+        /// Tests that SpecifiedConsignment deserializes IsOrHasUnweanedAnimals correctly.
+        /// </summary>
+        [Fact]
+        public void SpecifiedConsignment_WithIsOrHasUnweanedAnimals_DeserializesCorrectly()
+        {
+            var json = @"{ ""isOrHasUnweanedAnimals"": true }";
+
+            var result = json.FromJSON<SpecifiedConsignment>();
+
+            Assert.True(result.IsOrHasUnweanedAnimals);
+        }
+
+        /// <summary>
+        /// Tests that SpecifiedConsignment deserializes IncludedConsignmentItem entries correctly.
+        /// </summary>
+        [Fact]
+        public void SpecifiedConsignment_WithIncludedConsignmentItems_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""includedConsignmentItem"": [
+                    {
+                        ""includedTradeLineItem"": [
+                            { ""typeCode"": ""LIVE"", ""scientificName"": ""Bos taurus"" }
+                        ]
+                    }
+                ]
+            }";
+
+            var result = json.FromJSON<SpecifiedConsignment>();
+
+            Assert.NotNull(result.IncludedConsignmentItem);
+            Assert.Single(result.IncludedConsignmentItem);
+            Assert.Single(result.IncludedConsignmentItem[0].IncludedTradeLineItem);
+            Assert.Equal("LIVE", result.IncludedConsignmentItem[0].IncludedTradeLineItem[0].TypeCode);
+        }
+
+        /// <summary>
+        /// Tests that all SpecifiedConsignment optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void SpecifiedConsignment_WithEmptyJson_AllPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<SpecifiedConsignment>();
+
+            Assert.Null(result.ConsignorParty);
+            Assert.Null(result.ConsigneeParty);
+            Assert.Null(result.DespatchParty);
+            Assert.Null(result.DeliveryParty);
+            Assert.Null(result.Importer);
+            Assert.Null(result.Carrier);
+            Assert.Null(result.OriginCountry);
+            Assert.Null(result.FinalDestinationLocation);
+            Assert.Null(result.UnloadingBaseportLocation);
+            Assert.Null(result.MainCarriageLogisticsTransportMovement);
+            Assert.Null(result.IsOrHasUnweanedAnimals);
+            Assert.Null(result.TransitTradeCountry);
+            Assert.Null(result.IncludedConsignmentItem);
         }
     }
 }

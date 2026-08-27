@@ -641,6 +641,688 @@
             Assert.True(result);
         }
 
+        // ── AddIfNotNull / CollectCountryCodesFromInsObject / BuildCountryQuery / BuildCountryDictionary ──
+
+        /// <summary>
+        /// Tests that GetCountriesFromInsObject returns an empty dictionary when no country codes are present in the message.
+        /// </summary>
+        [Fact]
+        public void GetCountriesFromInsObject_WithNoCountryCodes_ReturnsEmptyDictionary()
+        {
+            // Arrange — message has no postal addresses, so no country codes are collected (AddIfNotNull skips nulls)
+            var insObject = BuildInsObject("INS-100", 1, "SUBMITTED");
+
+            // Act
+            var result = this.sut.GetCountriesFromInsObject(insObject);
+
+            // Assert
+            Assert.Empty(result);
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)),
+                Times.Never);
+        }
+
+        /// <summary>
+        /// Tests that GetCountriesFromInsObject builds a query and returns a dictionary keyed by ISO code
+        /// when country codes are present (exercises BuildCountryQuery and BuildCountryDictionary).
+        /// </summary>
+        [Fact]
+        public void GetCountriesFromInsObject_WithCountryCodes_QueriesDataverseAndReturnsDictionary()
+        {
+            // Arrange — provide a country code via the issuer postal address
+            var gbCountry = new defra_country { defra_isocodealpha2 = "GB" };
+            gbCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { gbCountry }));
+
+            var insObject = BuildInsObjectWithIssuerCountry("INS-101", 1, "SUBMITTED", "GB");
+
+            // Act
+            var result = this.sut.GetCountriesFromInsObject(insObject);
+
+            // Assert
+            Assert.True(result.ContainsKey("GB"));
+            Assert.Equal(gbCountry.Id, result["GB"].Id);
+
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe =>
+                    qe.EntityName == defra_country.EntityLogicalName &&
+                    qe.Criteria.Conditions.Count > 0)),
+                Times.Once);
+        }
+
+        /// <summary>
+        /// Tests that GetCountriesFromInsObject logs a warning for each country code not found in Dataverse
+        /// (exercises the missing-country loop in BuildCountryDictionary).
+        /// </summary>
+        [Fact]
+        public void GetCountriesFromInsObject_WithMissingCountry_LogsWarning()
+        {
+            // Arrange — Dataverse returns nothing for the requested country
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            var insObject = BuildInsObjectWithIssuerCountry("INS-102", 1, "SUBMITTED", "ZZ");
+
+            // Act
+            this.sut.GetCountriesFromInsObject(insObject);
+
+            // Assert
+            this.loggerMock.Verify(
+                l => l.Log(
+                    Severity.Warning,
+                    nameof(ProcessINSASBMessage),
+                    It.Is<string>(m => m.Contains("ZZ"))),
+                Times.Once);
+        }
+
+        // ── ApplyIssuerDetails ────────────────────────────────────────────────
+
+        /// <summary>
+        /// Tests that ApplyIssuerDetails maps company name, formatted address, and contact details
+        /// onto the notification when an issuer with a postal address and contact is present.
+        /// </summary>
+        [Fact]
+        public void ApplyIssuerDetails_WithFullIssuer_MapsAllFieldsCorrectly()
+        {
+            // Arrange
+            var message = BuildMessageWithIssuer("INS-200", 1, "SUBMITTED",
+                issuerName: "Responsible Co",
+                line1: "10 Test St", line2: "Floor 2", city: "London", postcode: "SW1A 1AA",
+                personName: "Jane Doe", email: "jane@example.com", phone: "01234 567890");
+
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("Responsible Co", created.defraimp_personresponsiblecompanyname);
+            Assert.Equal("10 Test St, Floor 2, London, SW1A 1AA", created.defraimp_personresponsibleaddress);
+            Assert.Equal("Jane Doe", created.defraimp_personresponsiblename);
+            Assert.Equal("jane@example.com", created.defraimp_personresponsibleemail);
+            Assert.Equal("01234 567890", created.defraimp_personresponsiblephone);
+        }
+
+        /// <summary>
+        /// Tests that ApplyIssuerDetails does not set any person-responsible fields when the issuer is null.
+        /// </summary>
+        [Fact]
+        public void ApplyIssuerDetails_WithNullIssuer_DoesNotSetAnyFields()
+        {
+            // Arrange — message has no issuer
+            var created = CaptureCreatedEntity(BuildMessage("INS-201", 1, "SUBMITTED"));
+
+            // Assert
+            Assert.Null(created.defraimp_personresponsiblecompanyname);
+            Assert.Null(created.defraimp_personresponsiblename);
+            Assert.Null(created.defraimp_personresponsibleemail);
+        }
+
+        // ── ApplyOriginDetails ────────────────────────────────────────────────
+
+        /// <summary>
+        /// Tests that ApplyOriginDetails sets the region of origin from subordinate country subdivision.
+        /// </summary>
+        [Fact]
+        public void ApplyOriginDetails_WithOriginCountryAndSubDivision_SetsRegionOfOrigin()
+        {
+            // Arrange
+            var message = BuildMessageWithOriginCountry("INS-210", 1, "SUBMITTED", countryCode: "FR", regionIdentifier: "BRE");
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("BRE", created.defraimp_commoditiesregionoforigin);
+        }
+
+        /// <summary>
+        /// Tests that ApplyOriginDetails does not set region of origin when no subdivision is present.
+        /// </summary>
+        [Fact]
+        public void ApplyOriginDetails_WithNoSubDivision_DoesNotSetRegionOfOrigin()
+        {
+            // Arrange
+            var message = BuildMessageWithOriginCountry("INS-211", 1, "SUBMITTED", countryCode: "FR", regionIdentifier: null);
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_commoditiesregionoforigin);
+        }
+
+        // ── ApplyConsigneeDetails ─────────────────────────────────────────────
+
+        /// <summary>
+        /// Tests that ApplyConsigneeDetails maps all consignee fields when a full consignee party is present.
+        /// </summary>
+        [Fact]
+        public void ApplyConsigneeDetails_WithFullConsignee_MapsAllFields()
+        {
+            // Arrange
+            var message = BuildMessageWithParty("INS-220", "consigneeParty",
+                name: "Buyer Co", line1: "1 Buy St", line2: "Apt 3", city: "Bristol", postcode: "BS1 1AA",
+                email: "buyer@example.com", phone: "01234 000001");
+
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("Buyer Co", created.defraimp_consigneecompanyname);
+            Assert.Equal("1 Buy St", created.defraimp_consigneeaddressaddressline1);
+            Assert.Equal("Apt 3", created.defraimp_consigneeaddressaddressline2);
+            Assert.Equal("Bristol", created.defraimp_consigneeaddresscity);
+            Assert.Equal("BS1 1AA", created.defraimp_consigneeaddresspostalzipcode);
+            Assert.Equal("buyer@example.com", created.defraimp_consigneeaddressemail);
+            Assert.Equal("01234 000001", created.defraimp_consigneeaddresstelephone);
+        }
+
+        /// <summary>
+        /// Tests that ApplyConsigneeDetails does not set any fields when ConsigneeParty is absent.
+        /// </summary>
+        [Fact]
+        public void ApplyConsigneeDetails_WithNullConsignee_DoesNotSetAnyFields()
+        {
+            // Arrange — message has specifiedConsignment but no consigneeParty
+            var message = BuildMessageWithEmptyConsignment("INS-221", 1, "SUBMITTED");
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_consigneecompanyname);
+            Assert.Null(created.defraimp_consigneeaddressemail);
+        }
+
+        // ── ApplyImporterDetails ──────────────────────────────────────────────
+
+        /// <summary>
+        /// Tests that ApplyImporterDetails maps all importer fields when a full importer party is present.
+        /// </summary>
+        [Fact]
+        public void ApplyImporterDetails_WithFullImporter_MapsAllFields()
+        {
+            // Arrange
+            var message = BuildMessageWithParty("INS-230", "importer",
+                name: "Importer Co", line1: "2 Import Rd", line2: null, city: "Leeds", postcode: "LS1 1BB",
+                email: "imp@example.com", phone: "01234 000002");
+
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("Importer Co", created.defraimp_importercompanyname);
+            Assert.Equal("2 Import Rd", created.defraimp_importeraddressaddressline1);
+            Assert.Equal("Leeds", created.defraimp_importeraddresscity);
+            Assert.Equal("LS1 1BB", created.defraimp_importeraddresspostalzipcode);
+            Assert.Equal("imp@example.com", created.defraimp_importeraddressemail);
+        }
+
+        /// <summary>
+        /// Tests that ApplyImporterDetails does not set any fields when Importer is absent.
+        /// </summary>
+        [Fact]
+        public void ApplyImporterDetails_WithNullImporter_DoesNotSetAnyFields()
+        {
+            // Arrange
+            var message = BuildMessageWithEmptyConsignment("INS-231", 1, "SUBMITTED");
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_importercompanyname);
+        }
+
+        // ── ApplyConsignorDetails ─────────────────────────────────────────────
+
+        /// <summary>
+        /// Tests that ApplyConsignorDetails maps all consignor fields when a full consignor party is present.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignorDetails_WithFullConsignor_MapsAllFields()
+        {
+            // Arrange
+            var message = BuildMessageWithParty("INS-240", "consignorParty",
+                name: "Seller Co", line1: "3 Sell Ave", line2: null, city: "Paris", postcode: "75001",
+                email: "seller@example.com", phone: "01234 000003");
+
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("Seller Co", created.defraimp_consignorcompanyname);
+            Assert.Equal("3 Sell Ave", created.defraimp_consignoraddressaddressline1);
+            Assert.Equal("Paris", created.defraimp_consignoraddresscity);
+            Assert.Equal("seller@example.com", created.defraimp_consignoraddressemail);
+        }
+
+        /// <summary>
+        /// Tests that ApplyConsignorDetails does not set any fields when ConsignorParty is absent.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignorDetails_WithNullConsignor_DoesNotSetAnyFields()
+        {
+            // Arrange
+            var message = BuildMessageWithEmptyConsignment("INS-241", 1, "SUBMITTED");
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_consignorcompanyname);
+        }
+
+        // ── ApplyPlaceOfOriginDetails ─────────────────────────────────────────
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfOriginDetails maps all place-of-origin fields when a despatch party is present.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfOriginDetails_WithFullDespatchParty_MapsAllFields()
+        {
+            // Arrange
+            var message = BuildMessageWithParty("INS-250", "despatchParty",
+                name: "Origin Farm", line1: "4 Farm Ln", line2: null, city: "Lyon", postcode: "69001",
+                email: "farm@example.com", phone: "01234 000004");
+
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("Origin Farm", created.defraimp_PlaceofOriginCompanyName);
+            Assert.Equal("4 Farm Ln", created.defraimp_PlaceofOriginAddressLine1);
+            Assert.Equal("Lyon", created.defraimp_PlaceofOriginCity);
+            Assert.Equal("farm@example.com", created.defraimp_PlaceofOriginEmail);
+        }
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfOriginDetails does not set any fields when DespatchParty is absent.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfOriginDetails_WithNullDespatchParty_DoesNotSetAnyFields()
+        {
+            // Arrange
+            var message = BuildMessageWithEmptyConsignment("INS-251", 1, "SUBMITTED");
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_PlaceofOriginCompanyName);
+        }
+
+        // ── ApplyPlaceOfDestinationDetails ────────────────────────────────────
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfDestinationDetails maps all place-of-destination fields when a delivery party is present.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfDestinationDetails_WithFullDeliveryParty_MapsAllFields()
+        {
+            // Arrange
+            var message = BuildMessageWithParty("INS-260", "deliveryParty",
+                name: "Dest Farm", line1: "5 Dest Rd", line2: null, city: "Leeds", postcode: "LS1 1CC",
+                email: "dest@example.com", phone: "01234 000005");
+
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("Dest Farm", created.defraimp_placeofdestinationcompanyname);
+            Assert.Equal("5 Dest Rd", created.defraimp_placeofdestinationaddressaddressline1);
+            Assert.Equal("Leeds", created.defraimp_placeofdestinationaddresscity);
+            Assert.Equal("dest@example.com", created.defraimp_placeofdestinationaddressemail);
+        }
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfDestinationDetails does not set any fields when DeliveryParty is absent.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfDestinationDetails_WithNullDeliveryParty_DoesNotSetAnyFields()
+        {
+            // Arrange
+            var message = BuildMessageWithEmptyConsignment("INS-261", 1, "SUBMITTED");
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_placeofdestinationcompanyname);
+        }
+
+        // ── ResolvePermanentAddressFlag ────────────────────────────────────────
+
+        /// <summary>
+        /// Tests that ResolvePermanentAddressFlag returns true when the delivery party address
+        /// matches the permanent location address on the product instance.
+        /// </summary>
+        [Fact]
+        public void ResolvePermanentAddressFlag_WhenAddressesMatch_SetsFieldToTrue()
+        {
+            // Arrange
+            var message = BuildMessageWithPermanentAddress("INS-270",
+                deliveryAddress: new[] { "5 Dest Rd", "Leeds", "LS1 1CC", "GB" },
+                permanentAddress: new[] { "5 Dest Rd", "Leeds", "LS1 1CC", "GB" });
+
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.True(created.defraimp_isplaceofdestinationthepermanentaddress);
+        }
+
+        /// <summary>
+        /// Tests that ResolvePermanentAddressFlag returns false when the delivery party address
+        /// does not match the permanent location address on the product instance.
+        /// </summary>
+        [Fact]
+        public void ResolvePermanentAddressFlag_WhenAddressesDiffer_SetsFieldToFalse()
+        {
+            // Arrange
+            var message = BuildMessageWithPermanentAddress("INS-271",
+                deliveryAddress: new[] { "5 Dest Rd", "Leeds", "LS1 1CC", "GB" },
+                permanentAddress: new[] { "99 Other St", "York", "YO1 1XX", "GB" });
+
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.False(created.defraimp_isplaceofdestinationthepermanentaddress);
+        }
+
+        /// <summary>
+        /// Tests that ResolvePermanentAddressFlag returns null when there are no consignment items.
+        /// </summary>
+        [Fact]
+        public void ResolvePermanentAddressFlag_WithNoConsignmentItems_SetsFieldToNull()
+        {
+            // Arrange — delivery party present but no includedConsignmentItem
+            var message = BuildMessageWithParty("INS-272", "deliveryParty",
+                name: "Dest Farm", line1: "5 Dest Rd", line2: null, city: "Leeds", postcode: "LS1 1CC",
+                email: "dest@example.com", phone: "01234 000005");
+
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_isplaceofdestinationthepermanentaddress);
+        }
+
+        // ── ApplyTransporterDetails ───────────────────────────────────────────
+
+        /// <summary>
+        /// Tests that ApplyTransporterDetails maps all transporter fields including party type code.
+        /// </summary>
+        [Fact]
+        public void ApplyTransporterDetails_WithFullCarrier_MapsAllFields()
+        {
+            // Arrange
+            var message = BuildMessageWithCarrier("INS-280",
+                name: "FastFreight", carrierIdentifier: "FF-99",
+                line1: "6 Carrier Way", city: "Dover", postcode: "CT16 1AA",
+                partyTypeCode: "CT1");
+
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("FastFreight", created.defraimp_transportercompanyname);
+            Assert.Equal("FF-99", created.defraimp_transporterapprovalnumber);
+            Assert.Equal("6 Carrier Way", created.defraimp_transporteraddressaddressline1);
+            Assert.Equal("Dover", created.defraimp_transporteraddresscity);
+            Assert.Equal("CT16 1AA", created.defraimp_transporteraddresspostalzipcode);
+            Assert.Equal("CT1", created.defraimp_transportertype);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTransporterDetails does not set any fields when Carrier is absent.
+        /// </summary>
+        [Fact]
+        public void ApplyTransporterDetails_WithNullCarrier_DoesNotSetAnyFields()
+        {
+            // Arrange
+            var message = BuildMessageWithEmptyConsignment("INS-281", 1, "SUBMITTED");
+            var created = CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_transportercompanyname);
+            Assert.Null(created.defraimp_transporterapprovalnumber);
+        }
+
+        // ── ResolveMeansOfTransportType / ApplyTransportMovementDetails ────────
+
+        /// <summary>
+        /// Tests that ApplyTransportMovementDetails maps modeCode 1 to "Ship".
+        /// </summary>
+        [Fact]
+        public void ApplyTransportMovementDetails_WithModeCode1_SetsTransportTypeToShip()
+        {
+            var created = CaptureCreatedEntity(BuildMessageWithTransport("INS-290", modeCode: 1, arrivalDate: "2024-09-01 06:00:00", transportId: "V1", documentId: "BL-1"));
+
+            Assert.Equal("Ship", created.defraimp_MeansofTransporttoEntryPointType);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTransportMovementDetails maps modeCode 2 to "Railway Wagon".
+        /// </summary>
+        [Fact]
+        public void ApplyTransportMovementDetails_WithModeCode2_SetsTransportTypeToRailwayWagon()
+        {
+            var created = CaptureCreatedEntity(BuildMessageWithTransport("INS-291", modeCode: 2, arrivalDate: "2024-09-01 06:00:00", transportId: "T1", documentId: null));
+
+            Assert.Equal("Railway Wagon", created.defraimp_MeansofTransporttoEntryPointType);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTransportMovementDetails maps modeCode 3 to "Road Vehicle".
+        /// </summary>
+        [Fact]
+        public void ApplyTransportMovementDetails_WithModeCode3_SetsTransportTypeToRoadVehicle()
+        {
+            var created = CaptureCreatedEntity(BuildMessageWithTransport("INS-292", modeCode: 3, arrivalDate: "2024-09-01 06:00:00", transportId: "R1", documentId: null));
+
+            Assert.Equal("Road Vehicle", created.defraimp_MeansofTransporttoEntryPointType);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTransportMovementDetails maps modeCode 4 to "Aeroplane".
+        /// </summary>
+        [Fact]
+        public void ApplyTransportMovementDetails_WithModeCode4_SetsTransportTypeToAeroplane()
+        {
+            var created = CaptureCreatedEntity(BuildMessageWithTransport("INS-293", modeCode: 4, arrivalDate: "2024-09-01 06:00:00", transportId: "A1", documentId: null));
+
+            Assert.Equal("Aeroplane", created.defraimp_MeansofTransporttoEntryPointType);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTransportMovementDetails sets transport type to null for an unknown modeCode.
+        /// </summary>
+        [Fact]
+        public void ApplyTransportMovementDetails_WithUnknownModeCode_SetsTransportTypeToNull()
+        {
+            var created = CaptureCreatedEntity(BuildMessageWithTransport("INS-294", modeCode: 99, arrivalDate: "2024-09-01 06:00:00", transportId: "X1", documentId: null));
+
+            Assert.Null(created.defraimp_MeansofTransporttoEntryPointType);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTransportMovementDetails sets the arrival date, transport ID, and document.
+        /// </summary>
+        [Fact]
+        public void ApplyTransportMovementDetails_WithFullTransportMovement_MapsAllFields()
+        {
+            // Arrange
+            var created = CaptureCreatedEntity(BuildMessageWithTransport("INS-295", modeCode: 1, arrivalDate: "2024-09-01 06:00:00", transportId: "VESSEL-01", documentId: "BL-001"));
+
+            // Assert
+            Assert.Equal(new DateTime(2024, 9, 1, 6, 0, 0), created.defraimp_ArrivalDate);
+            Assert.Equal("VESSEL-01", created.defraimp_MeansofTransporttoEntryPointId);
+            Assert.Equal("BL-001", created.defraimp_MeansofTransporttoEntryPointDocument);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTransportMovementDetails sets arrival date to null when the date string is invalid.
+        /// </summary>
+        [Fact]
+        public void ApplyTransportMovementDetails_WithInvalidArrivalDate_SetsArrivalDateToNull()
+        {
+            var created = CaptureCreatedEntity(BuildMessageWithTransport("INS-296", modeCode: 1, arrivalDate: "not-a-date", transportId: "V1", documentId: null));
+
+            Assert.Null(created.defraimp_ArrivalDate);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTransportMovementDetails does not set any transport fields when no transport movement is present.
+        /// </summary>
+        [Fact]
+        public void ApplyTransportMovementDetails_WithNoTransportMovement_DoesNotSetAnyFields()
+        {
+            var message = BuildMessageWithEmptyConsignment("INS-297", 1, "SUBMITTED");
+            var created = CaptureCreatedEntity(message);
+
+            Assert.Null(created.defraimp_MeansofTransporttoEntryPointType);
+            Assert.Null(created.defraimp_MeansofTransporttoEntryPointId);
+            Assert.Null(created.defraimp_ArrivalDate);
+        }
+
+        // ── Private helpers ───────────────────────────────────────────────────
+
+        private defraimp_ImporterNotification CaptureCreatedEntity(string message)
+        {
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            defraimp_ImporterNotification created = null;
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Callback<Entity>(e => created = (defraimp_ImporterNotification)e)
+                .Returns(Guid.NewGuid());
+
+            this.sut.UpsertImporterNotification(message);
+
+            Assert.NotNull(created);
+            return created;
+        }
+
+        private static INSObject BuildInsObject(string identifier, int aggregateVersion, string statusCode)
+        {
+            return BuildMessage(identifier, aggregateVersion, statusCode).FromJSON<INSObject>();
+        }
+
+        private static INSObject BuildInsObjectWithIssuerCountry(string identifier, int aggregateVersion, string statusCode, string countryId)
+        {
+            return BuildMessageWithIssuer(identifier, aggregateVersion, statusCode,
+                issuerName: "Test Co", line1: "1 St", line2: null, city: "City", postcode: "AA1 1AA",
+                personName: null, email: null, phone: null,
+                countryId: countryId).FromJSON<INSObject>();
+        }
+
+        private static string BuildMessageWithIssuer(string identifier, int aggregateVersion, string statusCode,
+            string issuerName, string line1, string line2, string city, string postcode,
+            string personName, string email, string phone, string countryId = null)
+        {
+            var contact = (personName != null || email != null || phone != null)
+                ? $@", ""definedContact"": [{{ ""personName"": {ToJsonValue(personName)}, ""emailURIUniversalCommunication"": {ToJsonValue(email)}, ""telephoneUniversalCommunication"": {ToJsonValue(phone)} }}]"
+                : string.Empty;
+
+            return $@"{{
+              ""aggregateVersion"": {aggregateVersion},
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""{identifier}"",
+                  ""notificationStatusCode"": ""{statusCode}"",
+                  ""versionId"": 1,
+                  ""issuer"": {{
+                    ""name"": {ToJsonValue(issuerName)},
+                    ""postalAddress"": {{
+                      ""lineOne"": {ToJsonValue(line1)},
+                      ""lineTwo"": {ToJsonValue(line2)},
+                      ""cityName"": {ToJsonValue(city)},
+                      ""postcodeCode"": {ToJsonValue(postcode)},
+                      ""countryId"": {ToJsonValue(countryId)}
+                    }}{contact}
+                  }}
+                }}
+              }}
+            }}";
+        }
+
+        private static string BuildMessageWithOriginCountry(string identifier, int aggregateVersion, string statusCode, string countryCode, string regionIdentifier)
+        {
+            var subDivision = regionIdentifier != null
+                ? $@"""subordinateTradeCountrySubDivision"": [{{ ""identifier"": ""{regionIdentifier}"" }}],"
+                : string.Empty;
+
+            return $@"{{
+              ""aggregateVersion"": {aggregateVersion},
+              ""data"": {{
+                ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""{statusCode}"", ""versionId"": 1 }},
+                ""specifiedConsignment"": {{
+                  ""originCountry"": {{
+                    {subDivision}
+                    ""code"": {{ ""value"": ""{countryCode}"" }}
+                  }}
+                }}
+              }}
+            }}";
+        }
+
+        private static string BuildMessageWithParty(string identifier, string partyProperty,
+            string name, string line1, string line2, string city, string postcode,
+            string email, string phone)
+        {
+            return $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
+                ""specifiedConsignment"": {{
+                  ""{partyProperty}"": {{
+                    ""name"": {ToJsonValue(name)},
+                    ""postalAddress"": {{
+                      ""lineOne"": {ToJsonValue(line1)},
+                      ""lineTwo"": {ToJsonValue(line2)},
+                      ""cityName"": {ToJsonValue(city)},
+                      ""postcodeCode"": {ToJsonValue(postcode)},
+                      ""countryId"": null
+                    }},
+                    ""definedContact"": [{{
+                      ""emailURIUniversalCommunication"": {ToJsonValue(email)},
+                      ""telephoneUniversalCommunication"": {ToJsonValue(phone)}
+                    }}]
+                  }}
+                }}
+              }}
+            }}";
+        }
+
+        private static string BuildMessageWithCarrier(string identifier, string name, string carrierIdentifier,
+            string line1, string city, string postcode, string partyTypeCode)
+        {
+            return $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
+                ""specifiedConsignment"": {{
+                  ""carrier"": {{
+                    ""name"": {ToJsonValue(name)},
+                    ""identifier"": {ToJsonValue(carrierIdentifier)},
+                    ""postalAddress"": {{
+                      ""lineOne"": {ToJsonValue(line1)},
+                      ""cityName"": {ToJsonValue(city)},
+                      ""postcodeCode"": {ToJsonValue(postcode)},
+                      ""countryId"": null
+                    }},
+                    ""partyTypeCode"": [{{ ""value"": {ToJsonValue(partyTypeCode)} }}]
+                  }}
+                }}
+              }}
+            }}";
+        }
+
+        private static string BuildMessageWithTransport(string identifier, int modeCode, string arrivalDate, string transportId, string documentId)
+        {
+            var document = documentId != null
+                ? $@"""transportContractRelatedReferencedDocument"": [{{ ""identifier"": ""{documentId}"" }}],"
+                : string.Empty;
+
+            return $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
+                ""specifiedConsignment"": {{
+                  ""mainCarriageLogisticsTransportMovement"": [{{
+                    ""identifier"": ""{transportId}"",
+                    ""modeCode"": {modeCode},
+                    {document}
+                    ""arrivalEvent"": [{{ ""scheduledOccurrenceDateTime"": ""{arrivalDate}"" }}]
+                  }}]
+                }}
+              }}
+            }}";
+        }
+
         private static string BuildMessage(string identifier, int aggregateVersion, string notificationStatusCode)
         {
             return $@"{{
@@ -650,6 +1332,52 @@
                   ""identifier"": ""{identifier}"",
                   ""notificationStatusCode"": ""{notificationStatusCode}"",
                   ""versionId"": 1
+                }}
+              }}
+            }}";
+        }
+
+        private static string BuildMessageWithEmptyConsignment(string identifier, int aggregateVersion, string statusCode)
+        {
+            return $@"{{
+              ""aggregateVersion"": {aggregateVersion},
+              ""data"": {{
+                ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""{statusCode}"", ""versionId"": 1 }},
+                ""specifiedConsignment"": {{}}
+              }}
+            }}";
+        }
+
+        private static string BuildMessageWithPermanentAddress(string identifier, string[] deliveryAddress, string[] permanentAddress)
+        {
+            return $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
+                ""specifiedConsignment"": {{
+                  ""deliveryParty"": {{
+                    ""name"": ""Dest Farm"",
+                    ""postalAddress"": {{
+                      ""lineOne"": ""{deliveryAddress[0]}"",
+                      ""cityName"": ""{deliveryAddress[1]}"",
+                      ""postcodeCode"": ""{deliveryAddress[2]}"",
+                      ""countryId"": ""{deliveryAddress[3]}""
+                    }}
+                  }},
+                  ""includedConsignmentItem"": [{{
+                    ""includedTradeLineItem"": [{{
+                      ""individualTradeProductInstance"": [{{
+                        ""permanentLocation"": {{
+                          ""postalAddress"": {{
+                            ""lineOne"": ""{permanentAddress[0]}"",
+                            ""cityName"": ""{permanentAddress[1]}"",
+                            ""postcodeCode"": ""{permanentAddress[2]}"",
+                            ""countryId"": ""{permanentAddress[3]}""
+                          }}
+                        }}
+                      }}]
+                    }}]
+                  }}]
                 }}
               }}
             }}";
