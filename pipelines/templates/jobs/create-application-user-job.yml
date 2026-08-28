@@ -79,10 +79,6 @@ jobs:
               throw 'Parameter securityRoleName must be provided.'
             }
 
-            if ([string]::IsNullOrWhiteSpace($serviceConnection)) {
-              throw 'Parameter serviceConnection must be provided.'
-            }
-
             if ([string]::IsNullOrWhiteSpace($environmentUrl) -or
                 [string]::IsNullOrWhiteSpace($tenantId) -or
                 [string]::IsNullOrWhiteSpace($clientId) -or
