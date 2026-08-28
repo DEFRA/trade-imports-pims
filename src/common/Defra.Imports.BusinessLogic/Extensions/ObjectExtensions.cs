@@ -10,28 +10,6 @@
     public static class ObjectExtensions
     {
         /// <summary>
-        /// Converts the specified type to a string representation of the object.
-        /// </summary>
-        /// <typeparam name="T">Type.</typeparam>
-        /// <param name="obj">An instance of type T.</param>
-        /// <returns>Returns a string representation of the type T.</returns>
-        public static string ToJSON<T>(this T obj)
-            where T : class
-        {
-            using (var stream = new MemoryStream())
-            {
-                var serializer = new DataContractJsonSerializer(typeof(T));
-                serializer.WriteObject(stream, obj);
-                stream.Position = 0;
-
-                using (var reader = new StreamReader(stream, Encoding.UTF8))
-                {
-                    return reader.ReadToEnd();
-                }
-            }
-        }
-
-        /// <summary>
         /// Converts the specified string to an instance of the specified type.
         /// </summary>
         /// <typeparam name="T">Type.</typeparam>

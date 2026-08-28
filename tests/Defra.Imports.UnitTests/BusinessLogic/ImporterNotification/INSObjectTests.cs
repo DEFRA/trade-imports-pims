@@ -9,8 +9,6 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
     /// </summary>
     public class INSObjectTests
     {
-        // ?? INSObject ??????????????????????????????????????????????????????????
-
         /// <summary>
         /// Tests that all top-level scalar properties on INSObject deserialize correctly.
         /// </summary>
@@ -1072,6 +1070,264 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Null(result.IsOrHasUnweanedAnimals);
             Assert.Null(result.TransitTradeCountry);
             Assert.Null(result.IncludedConsignmentItem);
+        }
+
+        // ?? ReferenceDocument ?????????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that ReferenceDocument deserializes all scalar properties correctly.
+        /// </summary>
+        [Fact]
+        public void ReferenceDocument_WithAllScalarProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""typeCode"": ""C640"",
+                ""identifier"": ""REF-001"",
+                ""issueDateTime"": ""2024-05-01T00:00:00Z""
+            }";
+
+            var result = json.FromJSON<ReferenceDocument>();
+
+            Assert.Equal("C640", result.TypeCode);
+            Assert.Equal("REF-001", result.Identifier);
+            Assert.Equal("2024-05-01T00:00:00Z", result.IssueDateTime);
+        }
+
+        /// <summary>
+        /// Tests that ReferenceDocument deserializes an AttachmentBinaryObject array correctly.
+        /// </summary>
+        [Fact]
+        public void ReferenceDocument_WithAttachmentBinaryObjects_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""typeCode"": ""C640"",
+                ""identifier"": ""REF-002"",
+                ""attachmentBinaryObject"": [
+                    {
+                        ""uri"": ""https://files.example.com/doc.pdf"",
+                        ""filename"": ""doc.pdf"",
+                        ""mimeCode"": ""application/pdf""
+                    },
+                    {
+                        ""uri"": ""https://files.example.com/image.png"",
+                        ""filename"": ""image.png"",
+                        ""mimeCode"": ""image/png""
+                    }
+                ]
+            }";
+
+            var result = json.FromJSON<ReferenceDocument>();
+
+            Assert.NotNull(result.AttachmentBinaryObject);
+            Assert.Equal(2, result.AttachmentBinaryObject.Length);
+            Assert.Equal("https://files.example.com/doc.pdf", result.AttachmentBinaryObject[0].Uri);
+            Assert.Equal("doc.pdf", result.AttachmentBinaryObject[0].Filename);
+            Assert.Equal("application/pdf", result.AttachmentBinaryObject[0].MimeCode);
+            Assert.Equal("image/png", result.AttachmentBinaryObject[1].MimeCode);
+        }
+
+        /// <summary>
+        /// Tests that ReferenceDocument optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void ReferenceDocument_WithEmptyJson_OptionalPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<ReferenceDocument>();
+
+            Assert.Null(result.TypeCode);
+            Assert.Null(result.Identifier);
+            Assert.Null(result.IssueDateTime);
+            Assert.Null(result.AttachmentBinaryObject);
+        }
+
+        // ?? AttachmentBinaryObject ????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that AttachmentBinaryObject deserializes all properties correctly.
+        /// </summary>
+        [Fact]
+        public void AttachmentBinaryObject_WithAllProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""uri"": ""https://files.example.com/cert.pdf"",
+                ""filename"": ""cert.pdf"",
+                ""mimeCode"": ""application/pdf""
+            }";
+
+            var result = json.FromJSON<AttachmentBinaryObject>();
+
+            Assert.Equal("https://files.example.com/cert.pdf", result.Uri);
+            Assert.Equal("cert.pdf", result.Filename);
+            Assert.Equal("application/pdf", result.MimeCode);
+        }
+
+        /// <summary>
+        /// Tests that AttachmentBinaryObject properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void AttachmentBinaryObject_WithEmptyJson_AllPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<AttachmentBinaryObject>();
+
+            Assert.Null(result.Uri);
+            Assert.Null(result.Filename);
+            Assert.Null(result.MimeCode);
+        }
+
+        // ?? ApplicableClassification ??????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that ApplicableClassification deserializes all scalar properties correctly.
+        /// </summary>
+        [Fact]
+        public void ApplicableClassification_WithAllScalarProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""systemId"": ""CN"",
+                ""systemName"": ""Combined Nomenclature"",
+                ""className"": ""Live animals""
+            }";
+
+            var result = json.FromJSON<ApplicableClassification>();
+
+            Assert.Equal("CN", result.SystemId);
+            Assert.Equal("Combined Nomenclature", result.SystemName);
+            Assert.Equal("Live animals", result.ClassName);
+        }
+
+        /// <summary>
+        /// Tests that ApplicableClassification deserializes the nested ClassCode correctly.
+        /// </summary>
+        [Fact]
+        public void ApplicableClassification_WithClassCode_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""systemId"": ""CN"",
+                ""classCode"": {
+                    ""value"": ""0101"",
+                    ""urlId"": ""url-0101"",
+                    ""name"": ""Horses""
+                }
+            }";
+
+            var result = json.FromJSON<ApplicableClassification>();
+
+            Assert.NotNull(result.ClassCode);
+            Assert.Equal("0101", result.ClassCode.Value);
+            Assert.Equal("url-0101", result.ClassCode.UrlId);
+            Assert.Equal("Horses", result.ClassCode.Name);
+        }
+
+        /// <summary>
+        /// Tests that ApplicableClassification optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void ApplicableClassification_WithEmptyJson_OptionalPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<ApplicableClassification>();
+
+            Assert.Null(result.SystemId);
+            Assert.Null(result.SystemName);
+            Assert.Null(result.ClassName);
+            Assert.Null(result.ClassCode);
+        }
+
+        // ?? IncludedTradeLineItem ?????????????????????????????????????????????
+
+        /// <summary>
+        /// Tests that IncludedTradeLineItem deserializes all scalar properties correctly.
+        /// </summary>
+        [Fact]
+        public void IncludedTradeLineItem_WithAllScalarProperties_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""typeCode"": ""LIVE"",
+                ""urlId"": ""url-li-1"",
+                ""scientificName"": ""Bos taurus"",
+                ""commonName"": ""Cattle"",
+                ""description"": [""Dairy cow"", ""Adult""]
+            }";
+
+            var result = json.FromJSON<IncludedTradeLineItem>();
+
+            Assert.Equal("LIVE", result.TypeCode);
+            Assert.Equal("url-li-1", result.UrlId);
+            Assert.Equal("Bos taurus", result.ScientificName);
+            Assert.Equal("Cattle", result.CommonName);
+            Assert.NotNull(result.Description);
+            Assert.Equal(2, result.Description.Length);
+            Assert.Equal("Dairy cow", result.Description[0]);
+            Assert.Equal("Adult", result.Description[1]);
+        }
+
+        /// <summary>
+        /// Tests that IncludedTradeLineItem deserializes the nested ApplicableClassification correctly.
+        /// </summary>
+        [Fact]
+        public void IncludedTradeLineItem_WithApplicableClassification_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""typeCode"": ""LIVE"",
+                ""applicableClassification"": {
+                    ""systemId"": ""CN"",
+                    ""classCode"": { ""value"": ""0101"" }
+                }
+            }";
+
+            var result = json.FromJSON<IncludedTradeLineItem>();
+
+            Assert.NotNull(result.ApplicableClassification);
+            Assert.Equal("CN", result.ApplicableClassification.SystemId);
+            Assert.NotNull(result.ApplicableClassification.ClassCode);
+            Assert.Equal("0101", result.ApplicableClassification.ClassCode.Value);
+        }
+
+        /// <summary>
+        /// Tests that IncludedTradeLineItem deserializes IndividualTradeProductInstance entries correctly.
+        /// </summary>
+        [Fact]
+        public void IncludedTradeLineItem_WithIndividualTradeProductInstances_DeserializesCorrectly()
+        {
+            var json = @"{
+                ""typeCode"": ""LIVE"",
+                ""individualTradeProductInstance"": [
+                    {
+                        ""name"": ""Animal 1"",
+                        ""permanentLocation"": {
+                            ""name"": ""Farm A"",
+                            ""postalAddress"": { ""lineOne"": ""1 Farm Rd"", ""countryId"": ""GB"" }
+                        }
+                    }
+                ]
+            }";
+
+            var result = json.FromJSON<IncludedTradeLineItem>();
+
+            Assert.NotNull(result.IndividualTradeProductInstance);
+            Assert.Single(result.IndividualTradeProductInstance);
+            Assert.Equal("Animal 1", result.IndividualTradeProductInstance[0].Name);
+            Assert.NotNull(result.IndividualTradeProductInstance[0].PermanentLocation);
+            Assert.Equal("Farm A", result.IndividualTradeProductInstance[0].PermanentLocation.Name);
+            Assert.Equal("1 Farm Rd", result.IndividualTradeProductInstance[0].PermanentLocation.PostalAddress.LineOne);
+        }
+
+        /// <summary>
+        /// Tests that IncludedTradeLineItem optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void IncludedTradeLineItem_WithEmptyJson_OptionalPropertiesAreNull()
+        {
+            var result = "{}".FromJSON<IncludedTradeLineItem>();
+
+            Assert.Null(result.TypeCode);
+            Assert.Null(result.UrlId);
+            Assert.Null(result.ScientificName);
+            Assert.Null(result.CommonName);
+            Assert.Null(result.Description);
+            Assert.Null(result.ApplicableClassification);
+            Assert.Null(result.IndividualTradeProductInstance);
+            Assert.Null(result.PhysicalReferencedLogisticsPackage);
+            Assert.Null(result.SpecifiedLineTradeDelivery);
         }
     }
 }
