@@ -1,4 +1,4 @@
 <MissingDependency>
-  <Required type="SettingDefinition" displayName="appcopilotenabled" solution="msdyn_AppCopilotAppInfraSettings (9.2.2026052.260501061)" id.uniquename="appcopilotenabled" />
+  <Required type="SettingDefinition" displayName="appcopilotenabled" solution="msdyn_AppCopilotAppInfraSettings (9.2.2026074.260721068)" id.uniquename="appcopilotenabled" />
   <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=defraimp_EUImportsApp,settingdefinitionid.uniquename=appcopilotenabled" id.parentappmoduleid.uniquename="defraimp_EUImportsApp" id.settingdefinitionid.uniquename="appcopilotenabled" />
 </MissingDependency>
