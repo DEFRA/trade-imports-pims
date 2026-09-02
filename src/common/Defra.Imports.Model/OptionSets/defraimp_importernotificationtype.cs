@@ -28,6 +28,9 @@ namespace Defra.Imports.Model
 		CVEDP = 714100001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		GBNAG = 714100005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		IMP = 714100003,
 	}
 }

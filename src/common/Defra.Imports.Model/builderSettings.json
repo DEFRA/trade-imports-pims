@@ -16,6 +16,7 @@
     "defraimp_counterhistory",
     "defraimp_importrisklevel",
     "defraimp_importcountrycommodityrisklevel",
+    "defraimp_commoditycomplement",
     "defraexp_configurationparameter",
     "defraimp_importapplication",
     "defraimp_inspectioncoveragerule",

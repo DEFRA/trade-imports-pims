@@ -43,37 +43,37 @@ namespace Defra.Imports.Model
 		FormsProsurveyresponse = 10055,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportQuery = 10086,
+		CustomerVoicealert = 10200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomerVoicealert = 10199,
+		ActivityrecordfortheTeamschat = 10550,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ActivityrecordfortheTeamschat = 10547,
+		Conversation = 10769,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Conversation = 10737,
+		Session = 10786,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Session = 10747,
+		CopilotTranscript = 11057,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CopilotTranscript = 11004,
+		InviteRedemption = 11112,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InviteRedemption = 11061,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PortalComment = 11062,
+		PortalComment = 11113,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ServiceActivity = 4214,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Voicemail = 11843,
+		Outboundmessage = 11895,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Outboundmessage = 11823,
+		Voicemail = 11868,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ImportQuery = 11914,
 	}
 }
 #pragma warning restore CS1591

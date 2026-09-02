@@ -137,6 +137,7 @@ namespace Defra.Imports.Model
 			public const string defraimp_defra_country_defraimp_placeofdestination_Country = "defraimp_defra_country_defraimp_placeofdestination_Country";
 			public const string defraimp_defra_country_defraimp_placeoforigin_AddressCountry = "defraimp_defra_country_defraimp_placeoforigin_AddressCountry";
 			public const string defraimp_defra_country_defraimp_transporter_Country = "defraimp_defra_country_defraimp_transporter_Country";
+			public const string defraimp_importernotification_PlaceofOriginCountryId_defra_country = "defraimp_importernotification_PlaceofOriginCountryId_defra_country";
 			public const string defraimp_defraimp_importapplication_defra_country = "defraimp_defraimp_importapplication_defra_country";
 			public const string defraimp_goldbronzecountriesnn = "defraimp_goldbronzecountriesnn";
 			public const string defraimp_ImporterNotification_CountriesofTransit = "defraimp_ImporterNotification_CountriesofTransit";
@@ -1374,6 +1375,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_defra_country_defraimp_transporter_Country");
 				this.SetRelatedEntities<Defra.Imports.Model.defraimp_Transporter>("defraimp_defra_country_defraimp_transporter_Country", null, value);
 				this.OnPropertyChanged("defraimp_defra_country_defraimp_transporter_Country");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N defraimp_importernotification_PlaceofOriginCountryId_defra_country
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_importernotification_PlaceofOriginCountryId_defra_country")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_ImporterNotification> defraimp_importernotification_PlaceofOriginCountryId_defra_country
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_ImporterNotification>("defraimp_importernotification_PlaceofOriginCountryId_defra_country", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_importernotification_PlaceofOriginCountryId_defra_country");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_ImporterNotification>("defraimp_importernotification_PlaceofOriginCountryId_defra_country", null, value);
+				this.OnPropertyChanged("defraimp_importernotification_PlaceofOriginCountryId_defra_country");
 			}
 		}
 		

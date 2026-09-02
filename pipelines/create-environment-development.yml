@@ -64,3 +64,4 @@ extends:
           applicationId: $(Tests.ApplicationUser.ApplicationId)
           securityRoleName: System Administrator
           serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
+    config: PkgAssets/ImportConfig.Standalone.xml

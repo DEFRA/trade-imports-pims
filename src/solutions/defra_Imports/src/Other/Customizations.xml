@@ -26,6 +26,14 @@
       <statecode>0</statecode>
       <statuscode>1</statuscode>
     </connectionreference>
+    <connectionreference connectionreferencelogicalname="defraimp_sharedservicebus_dde88">
+      <connectionreferencedisplayname>Service Bus defra_Imports-dde88</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_servicebus</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
   </connectionreferences>
   <Languages>
     <Language>1033</Language>

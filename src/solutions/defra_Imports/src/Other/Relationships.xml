@@ -256,6 +256,7 @@
   <EntityRelationship Name="defraimp_ImporterNotification_CountriesofTransit" />
   <EntityRelationship Name="defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification" />
   <EntityRelationship Name="defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNotification" />
+  <EntityRelationship Name="defraimp_importernotification_PlaceofOriginCountryId_defra_country" />
   <EntityRelationship Name="defraimp_importernotification_ProcessSession" />
   <EntityRelationship Name="defraimp_importinspection_ProcessSession" />
   <EntityRelationship Name="defraimp_importquery_businessunit_owningbusinessunit" />

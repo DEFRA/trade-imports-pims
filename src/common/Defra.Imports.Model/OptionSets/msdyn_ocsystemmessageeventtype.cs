@@ -707,6 +707,12 @@ namespace Defra.Imports.Model
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Offercallbackwithalternatenumber = 192380014,
+		
+		/// <summary>
+		/// Message to be played to the customer while completing a callback request
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfferCallbackAlternatenumberbottransfermessage = 192380015,
 	}
 }
 #pragma warning restore CS1591
