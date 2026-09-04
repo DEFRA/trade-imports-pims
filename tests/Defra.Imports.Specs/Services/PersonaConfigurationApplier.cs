@@ -183,6 +183,12 @@ namespace Defra.Imports.Specs.Services
             relatedLink.EntityAlias = "related";
             relatedLink.Columns = new ColumnSet(relatedIdAttribute);
 
+            if (relatedEntityLogicalName == "team")
+            {
+                // A user cannot be removed from the default team of their business unit - Dataverse manages this membership automatically.
+                relatedLink.LinkCriteria.Conditions.Add(new ConditionExpression("isdefault", ConditionOperator.Equal, false));
+            }
+
             var result = await serviceClient.RetrieveMultipleAsync(query).ConfigureAwait(false);
 
             var relatedIdColumn = $"related.{relatedIdAttribute}";

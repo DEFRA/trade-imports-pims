@@ -93,8 +93,7 @@
             testThreadContainer.RegisterInstanceAs(new UserPoolService(
                 testConfiguration.Credentials,
                 testConfiguration.Personas,
-                new PersonaConfigurationApplier(serviceClient),
-                testThreadContainer.Resolve<IReqnrollOutputHelper>()));
+                new PersonaConfigurationApplier(serviceClient)));
         }
 
         /// <summary>
@@ -104,7 +103,10 @@
         [AfterTestRun(Order = 1000000)]
         public static void DisposeAssemblyHookClient(ObjectContainer testThreadContainer)
         {
-            testThreadContainer.Resolve<ServiceClient>().Dispose();
+            if (testThreadContainer.IsRegistered<ServiceClient>())
+            {
+                testThreadContainer.Resolve<ServiceClient>().Dispose();
+            }
         }
 
         /// <summary>

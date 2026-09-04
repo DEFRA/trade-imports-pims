@@ -1,7 +1,7 @@
 {
-  "url": "",
-  "clientId": "",
-  "tenantId": "",
+  "url": null,
+  "clientId": null,
+  "tenantId": null,
   "personas": {
     "caseworker": {
       "roles": [ "EU Imports Caseworker" ],
@@ -22,8 +22,8 @@
   },
   "credentials": [],
   "keyVault": {
-    "tenantId": "",
-    "clientId": "",
-    "name": ""
+    "tenantId": null,
+    "clientId": null,
+    "name": null
   }
 }

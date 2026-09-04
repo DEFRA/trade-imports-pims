@@ -20,7 +20,6 @@
         private readonly List<Entry> users;
         private readonly IDictionary<Persona, PersonaConfiguration> personaConfigurations;
         private readonly IPersonaConfigurationApplier personaApplicator;
-        private readonly IReqnrollOutputHelper outputHelper;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserPoolService"/> class with the specified users.
@@ -28,12 +27,10 @@
         /// <param name="credentials">The credentials of every user in the pool.</param>
         /// <param name="personaConfigurations">The configuration for every known persona. A credential is treated as explicitly assigned to a persona if its username appears in that persona's <see cref="PersonaConfiguration.Users"/>.</param>
         /// <param name="personaApplicator">The applicator used to dynamically configure users for personas that have no explicitly assigned users.</param>
-        /// <param name="outputHelper">The output helper used to log diagnostic information.</param>
         internal UserPoolService(
             IEnumerable<CredentialConfiguration> credentials,
             IDictionary<Persona, PersonaConfiguration> personaConfigurations,
-            IPersonaConfigurationApplier personaApplicator,
-            IReqnrollOutputHelper outputHelper)
+            IPersonaConfigurationApplier personaApplicator)
         {
             if (credentials is null)
             {
@@ -42,13 +39,10 @@
 
             this.personaConfigurations = personaConfigurations ?? throw new ArgumentNullException(nameof(personaConfigurations));
             this.personaApplicator = personaApplicator ?? throw new ArgumentNullException(nameof(personaApplicator));
-            this.outputHelper = outputHelper ?? throw new ArgumentNullException(nameof(outputHelper));
 
             this.users = credentials
                 .Select(c => new Entry(c, this.GetAssignedPersonas(c.Username)))
                 .ToList();
-
-            this.outputHelper.WriteLine($"UserPoolService initialized with {this.users.Count} user(s), of which {this.users.Count(e => e.IsStatic)} are statically assigned to personas.");
         }
 
         /// <summary>
@@ -73,8 +67,6 @@
                 throw new ArgumentException("At least one persona must be specified.", nameof(personas));
             }
 
-            this.outputHelper.WriteLine($"UserPoolService.GetAsync: requested personas '{string.Join(", ", requested)}'.");
-
             var unknownPersonas = requested.Where(p => !this.personaConfigurations.ContainsKey(p)).ToList();
             if (unknownPersonas.Count > 0)
             {
@@ -94,19 +86,13 @@
                     throw new InvalidOperationException($"No user exists for the requested personas '{string.Join(", ", requested)}'.");
                 }
 
-                candidates = this.users.Where(e => !e.IsStatic && e.Personas.Count == 0).ToList();
+                candidates = this.users.Where(e => !e.IsStatic).ToList();
                 isDynamic = true;
 
                 if (candidates.Count == 0)
                 {
                     throw new InvalidOperationException($"No unassigned user is available to dynamically configure for the requested personas '{string.Join(", ", requested)}'.");
                 }
-
-                this.outputHelper.WriteLine($"UserPoolService.GetAsync: no statically assigned user found, {candidates.Count} unassigned user(s) eligible for dynamic configuration.");
-            }
-            else
-            {
-                this.outputHelper.WriteLine($"UserPoolService.GetAsync: {candidates.Count} statically assigned user(s) found.");
             }
 
             var waitTimeout = TimeSpan.FromMinutes(30);
@@ -125,7 +111,6 @@
             if (winnerTask.IsCanceled || winnerTask.IsFaulted)
             {
                 cts.Dispose();
-                this.outputHelper.WriteLine($"UserPoolService.GetAsync: timed out after {waitTimeout.TotalMinutes} minutes waiting for personas '{string.Join(", ", requested)}'.");
                 throw new TimeoutException($"No user for the requested personas '{string.Join(", ", requested)}' became available within {waitTimeout.TotalMinutes} minutes.");
             }
 
@@ -133,8 +118,6 @@
 
             var winnerEntry = await winnerTask.ConfigureAwait(false);
             winnerEntry.MarkAcquired();
-
-            this.outputHelper.WriteLine($"UserPoolService.GetAsync: acquired user '{winnerEntry.Value.Username}' ({(isDynamic ? "dynamic" : "static")}).");
 
             foreach (var kvp in tasks.Where(kvp => kvp.Key != winnerEntry))
             {
@@ -151,18 +134,26 @@
                 TaskContinuationOptions.None,
                 TaskScheduler.Default);
 
-            if (isDynamic)
+            if (isDynamic && !(winnerEntry.PersonaStateVerified && winnerEntry.Personas.SetEquals(requested)))
             {
                 try
                 {
+                    // Strip any leftover configuration from the previous dynamic lease here, right
+                    // before applying the new one, rather than at release time (which is unreliable).
+                    // An unverified entry may carry stale remote configuration from a process that
+                    // exited early, so it must be removed defensively regardless of the tracked personas.
+                    if (!winnerEntry.PersonaStateVerified || winnerEntry.Personas.Count > 0)
+                    {
+                        await this.personaApplicator.RemoveAsync(winnerEntry.Value.Username).ConfigureAwait(false);
+                    }
+
                     var configurations = requested.Select(p => this.personaConfigurations[p]).ToList();
                     await this.personaApplicator.ApplyAsync(winnerEntry.Value.Username, configurations).ConfigureAwait(false);
                     winnerEntry.Personas = requested;
-                    this.outputHelper.WriteLine($"UserPoolService.GetAsync: applied dynamic persona configuration for '{string.Join(", ", requested)}' to user '{winnerEntry.Value.Username}'.");
+                    winnerEntry.PersonaStateVerified = true;
                 }
                 catch (Exception ex)
                 {
-                    this.outputHelper.WriteLine($"UserPoolService.GetAsync: failed to apply dynamic persona configuration to user '{winnerEntry.Value.Username}': {ex.Message}.");
                     winnerEntry.TryClaimRelease();
                     winnerEntry.OpenGate();
                     throw;
@@ -181,7 +172,7 @@
         }
 
         /// <summary>
-        /// Releases a previously acquired user lease, removing any dynamically applied persona configuration and returning it to the pool, and signalling any code holding the lease that it has been revoked. If the lease has already expired by the time this method is called, it will have no effect since the user will already have been returned to the pool and any holders will have already been signalled.
+        /// Releases a previously acquired user lease, returning it to the pool and signalling any code holding the lease that it has been revoked. Any dynamically applied persona configuration is left in place until the entry is next leased, at which point it is removed just before the new configuration is applied. If the lease has already expired by the time this method is called, it will have no effect since the user will already have been returned to the pool and any holders will have already been signalled.
         /// </summary>
         /// <param name="lease">The lease.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
@@ -199,31 +190,19 @@
             return this.ReleaseEntryAsync(entry, lease);
         }
 
-        private async Task ReleaseEntryAsync(Entry entry, UserLease lease)
+        private Task ReleaseEntryAsync(Entry entry, UserLease lease)
         {
-            var wasExpired = lease.IsExpired;
-
             // Signal first so the revocation token fires before the gate opens, preventing any
             // new acquirer from seeing a non-revoked token on the old lease object.
             lease.SignalRevoked();
 
             // Only proceed if the lease timer has not already done so.
-            if (!entry.TryClaimRelease())
+            if (entry.TryClaimRelease())
             {
-                this.outputHelper.WriteLine($"UserPoolService.ReleaseEntryAsync: user '{entry.Value.Username}' has already been released, skipping.");
-                return;
+                entry.OpenGate();
             }
 
-            this.outputHelper.WriteLine($"UserPoolService.ReleaseEntryAsync: releasing user '{entry.Value.Username}'{(wasExpired ? " (lease timed out)" : string.Empty)}.");
-
-            if (!entry.IsStatic && entry.Personas.Count > 0)
-            {
-                await this.personaApplicator.RemoveAsync(entry.Value.Username).ConfigureAwait(false);
-                entry.Personas = new HashSet<Persona>();
-                this.outputHelper.WriteLine($"UserPoolService.ReleaseEntryAsync: removed dynamic persona configuration from user '{entry.Value.Username}'.");
-            }
-
-            entry.OpenGate();
+            return Task.CompletedTask;
         }
 
         private IEnumerable<Persona> GetAssignedPersonas(string username)
@@ -257,6 +236,11 @@
             public bool IsStatic { get; }
 
             public HashSet<Persona> Personas { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether <see cref="Personas"/> reflects a remove/apply this process actually performed. A previous process may have exited before releasing a dynamically configured user, leaving stale configuration in place that this process has no record of, so a freshly constructed entry cannot be trusted until it has been forcibly synced at least once.
+            /// </summary>
+            public bool PersonaStateVerified { get; set; }
 
             public SemaphoreSlim Gate { get; } = new SemaphoreSlim(1, 1);
 
