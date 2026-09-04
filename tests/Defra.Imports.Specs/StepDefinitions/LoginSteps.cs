@@ -1,8 +1,11 @@
 ﻿namespace Defra.Imports.Specs.StepDefinitions
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using System.Threading.Tasks;
+    using Defra.Imports.Scenarios;
     using Defra.Imports.Specs.Extensions;
     using Defra.Imports.Specs.Services;
     using Microsoft.Playwright;
@@ -67,7 +70,7 @@
         [Given(@"I am logged in to the 'EU Imports' app as {string}")]
         public async Task GivenIAmLoggedInToTheEuImportsAppAs(string userAlias)
         {
-            var credentials = await this.userPool.GetByAliasAsync(userAlias, allowMultiplePersonas: true);
+            var credentials = await this.userPool.GetAsync(this.ResolvePersonas(userAlias));
 
             await this.LoginAndSetContextAsync(credentials.Username, credentials.Password);
         }
@@ -80,9 +83,30 @@
         [Given(@"I am logged in to the 'EU Imports' app as {string} with no other roles")]
         public async Task GivenIAmLoggedInToTheEuImportsAppAsWithNoOtherRoles(string userAlias)
         {
-            var credentials = await this.userPool.GetByAliasAsync(userAlias, allowMultiplePersonas: false);
+            var credentials = await this.userPool.GetAsync(this.ResolvePersonas(userAlias));
 
             await this.LoginAndSetContextAsync(credentials.Username, credentials.Password);
+        }
+
+        /// <summary>
+        /// Resolves the personas described by the given alias, as configured in <see cref="Config.TestConfiguration.Personas"/>.
+        /// </summary>
+        /// <param name="alias">The alias.</param>
+        /// <returns>The personas described by the alias.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if no persona is configured with the given alias.</exception>
+        private IEnumerable<Persona> ResolvePersonas(string alias)
+        {
+            var personas = this.testConfig.Personas
+                .Where(p => p.Value.Aliases != null && p.Value.Aliases.Contains(alias))
+                .Select(p => p.Key)
+                .ToList();
+
+            if (personas.Count == 0)
+            {
+                throw new InvalidOperationException($"No persona is configured with alias '{alias}'.");
+            }
+
+            return personas;
         }
 
         private async Task LoginAndSetContextAsync(string username, string password)
