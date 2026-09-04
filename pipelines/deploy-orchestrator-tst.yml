@@ -27,4 +27,4 @@ jobs:
   - template: templates/jobs/trigger-deployment-if-new-artifacts-job.yml
     parameters:
       environment: TST
-      deployPipelineName: deploy-package-tst
+      deployPipelineName: pims.deploy.tst
