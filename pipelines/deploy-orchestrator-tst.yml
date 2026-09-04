@@ -1,0 +1,30 @@
+name: $(Date:yyyyMMdd)$(Rev:.r)
+
+pool:
+  vmImage: windows-latest
+
+schedules:
+  - cron: '0 0 * * *'
+    displayName: Daily midnight run
+    branches:
+      include:
+        - main
+    always: true
+
+trigger: none
+pr: none
+
+resources:
+  pipelines:
+    - pipeline: pims
+      source: pims
+      branch: main
+
+# Lightweight nightly check - only triggers deploy-package-tst.yml when there are
+# new pims artifacts that haven't already been deployed to TST. Avoids wasting
+# hosted agent minutes and rerunning test jobs when nothing has changed.
+jobs:
+  - template: templates/jobs/trigger-deployment-if-new-artifacts-job.yml
+    parameters:
+      environment: TST
+      deployPipelineName: deploy-package-tst
