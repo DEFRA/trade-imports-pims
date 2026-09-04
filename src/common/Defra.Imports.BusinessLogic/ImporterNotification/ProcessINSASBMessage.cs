@@ -255,6 +255,37 @@
             return ordered.FirstOrDefault(predicate);
         }
 
+        private static int? GetNumberOfAnimals(IncludedTradeLineItem lineItem)
+        {
+            return lineItem.SpecifiedLineTradeDelivery != null && lineItem.SpecifiedLineTradeDelivery.Length > 0
+                ? lineItem.SpecifiedLineTradeDelivery[0]?.ProductUnitQuantity?.Content
+                : null;
+        }
+
+        private static string FormatNumberOfAnimals(int? numberOfAnimals)
+        {
+            return numberOfAnimals.HasValue ? numberOfAnimals.Value.ToString(CultureInfo.InvariantCulture) : null;
+        }
+
+        private static int? GetNumberOfPackages(IncludedTradeLineItem lineItem)
+        {
+            return lineItem.PhysicalReferencedLogisticsPackage != null && lineItem.PhysicalReferencedLogisticsPackage.Length > 0
+                ? lineItem.PhysicalReferencedLogisticsPackage[0]?.ItemQuantity
+                : null;
+        }
+
+        private static string GetCommodityId(IncludedTradeLineItem lineItem)
+        {
+            return lineItem.ApplicableClassification?.Length > 0 ? lineItem.ApplicableClassification[0]?.ClassCode?.Value : null;
+        }
+
+        private static string GetCommodityDescription(IncludedTradeLineItem lineItem)
+        {
+            return lineItem.Description != null && lineItem.Description.Length > 0
+                ? string.Join(", ", lineItem.Description)
+                : null;
+        }
+
         private Tuple<bool, string> TryUpdateExisting(defraimp_ImporterNotification existing, INSObject insObject)
         {
             var identifier = insObject.Data.ExchangedDocument.Identifier;
@@ -742,43 +773,42 @@
 
             foreach (var consignmentItem in includedConsignmentItem)
             {
-                if (consignmentItem?.IncludedTradeLineItem == null || consignmentItem.IncludedTradeLineItem.Length == 0)
+                this.ApplyTradeLineItemDetails(importerNotification, consignmentItem?.IncludedTradeLineItem);
+            }
+        }
+
+        private void ApplyTradeLineItemDetails(defraimp_ImporterNotification importerNotification, IncludedTradeLineItem[] includedTradeLineItem)
+        {
+            if (includedTradeLineItem == null || includedTradeLineItem.Length == 0)
+            {
+                return;
+            }
+
+            foreach (var lineItem in includedTradeLineItem)
+            {
+                if (lineItem == null)
                 {
                     continue;
                 }
 
-                foreach (var lineItem in consignmentItem.IncludedTradeLineItem)
-                {
-                    if (lineItem == null)
-                    {
-                        continue;
-                    }
-
-                    var numberOfAnimals = lineItem.SpecifiedLineTradeDelivery != null && lineItem.SpecifiedLineTradeDelivery.Length > 0
-                        ? lineItem.SpecifiedLineTradeDelivery[0]?.ProductUnitQuantity?.Content
-                        : null;
-
-                    var numberOfPackages = lineItem.PhysicalReferencedLogisticsPackage != null && lineItem.PhysicalReferencedLogisticsPackage.Length > 0
-                        ? lineItem.PhysicalReferencedLogisticsPackage[0]?.ItemQuantity
-                        : null;
-
-                    var commodityComplement = new defraimp_commoditycomplement
-                    {
-                        defraimp_ImporterNotificationId = importerNotification.ToEntityReference(),
-                        defraimp_NumberofAnimals = numberOfAnimals.HasValue ? numberOfAnimals.Value.ToString(CultureInfo.InvariantCulture) : null,
-                        defraimp_NumberofPackages = numberOfPackages,
-                        defraimp_name = lineItem.ScientificName,
-                        defraimp_commodityid = lineItem.ApplicableClassification?.Length > 0 ? lineItem.ApplicableClassification[0]?.ClassCode?.Value : null,
-                        defraimp_commoditydescription = lineItem.Description != null && lineItem.Description.Length > 0
-                            ? string.Join(", ", lineItem.Description)
-                            : null,
-                        defraimp_speciesname = lineItem.ScientificName,
-                        defraimp_speciescommonname = lineItem.CommonName,
-                    };
-
-                    this.orgSvc.Create(commodityComplement);
-                }
+                var commodityComplement = this.BuildCommodityComplement(importerNotification, lineItem);
+                this.orgSvc.Create(commodityComplement);
             }
+        }
+
+        private defraimp_commoditycomplement BuildCommodityComplement(defraimp_ImporterNotification importerNotification, IncludedTradeLineItem lineItem)
+        {
+            return new defraimp_commoditycomplement
+            {
+                defraimp_ImporterNotificationId = importerNotification.ToEntityReference(),
+                defraimp_NumberofAnimals = FormatNumberOfAnimals(GetNumberOfAnimals(lineItem)),
+                defraimp_NumberofPackages = GetNumberOfPackages(lineItem),
+                defraimp_name = lineItem.ScientificName,
+                defraimp_commodityid = GetCommodityId(lineItem),
+                defraimp_commoditydescription = GetCommodityDescription(lineItem),
+                defraimp_speciesname = lineItem.ScientificName,
+                defraimp_speciescommonname = lineItem.CommonName,
+            };
         }
 
         private void DeleteExistingConsignmentItems(defraimp_ImporterNotification existing)
