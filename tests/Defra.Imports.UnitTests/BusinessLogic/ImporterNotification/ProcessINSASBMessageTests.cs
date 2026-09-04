@@ -1302,7 +1302,7 @@
         /// Tests that existing commodity complements are deleted when an importer notification is updated.
         /// </summary>
         [Fact]
-public void DeleteExistingConsignmentItems_WhenUpdatingExistingNotification_DeletesExistingCommodityComplements()
+        public void DeleteExistingConsignmentItems_WhenUpdatingExistingNotification_DeletesExistingCommodityComplements()
         {
             // Arrange
             var existingId = Guid.NewGuid();
@@ -1340,6 +1340,243 @@ public void DeleteExistingConsignmentItems_WhenUpdatingExistingNotification_Dele
             this.orgSvcMock.Verify(o => o.Update(It.Is<Entity>(e => e.LogicalName == defraimp_ImporterNotification.EntityLogicalName)), Times.Once);
             this.orgSvcMock.Verify(o => o.Delete(defraimp_commoditycomplement.EntityLogicalName, commodityId1), Times.Once);
             this.orgSvcMock.Verify(o => o.Delete(defraimp_commoditycomplement.EntityLogicalName, commodityId2), Times.Once);
+        }
+
+        // ── PopulateConsignmentDetails: FinalDestinationLocation / UnloadingBaseportLocation ──
+
+        /// <summary>
+        /// Tests that PopulateConsignmentDetails sets the CPH number and port of entry from
+        /// the final destination location and unloading baseport location.
+        /// </summary>
+        [Fact]
+        public void PopulateConsignmentDetails_WithFinalDestinationAndUnloadingBaseport_SetsCphNumberAndPortOfEntry()
+        {
+            // Arrange
+            var message = BuildMessageWithLocations("INS-300", finalDestinationIdentifier: "CPH-123", unloadingBaseportIdentifier: "PORT-456");
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("CPH-123", created.defraimp_cphnumber);
+            Assert.Equal("PORT-456", created.defraimp_portofentry);
+        }
+
+        /// <summary>
+        /// Tests that a commodity complement's number-of-animals, number-of-packages, commodity ID,
+        /// and commodity description fields are all null when the trade line item has no
+        /// specifiedLineTradeDelivery, physicalReferencedLogisticsPackage, applicableClassification,
+        /// or description data (exercises the null-returning branches of GetNumberOfAnimals,
+        /// GetNumberOfPackages, GetCommodityId, and GetCommodityDescription).
+        /// </summary>
+        [Fact]
+        public void ApplyConsignmentItemDetails_WhenTradeLineItemHasNoOptionalData_CreatesCommodityComplementWithNullFields()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+
+            var message = this.BuildMessageWithMinimalTradeLineItem("INS-CC-002", "Loris tardigradus", "Slow Loris");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+
+            this.orgSvcMock.Verify(
+                o => o.Create(It.Is<defraimp_commoditycomplement>(e =>
+                    e.defraimp_NumberofAnimals == null &&
+                    e.defraimp_NumberofPackages == null &&
+                    e.defraimp_commodityid == null &&
+                    e.defraimp_commoditydescription == null &&
+                    e.defraimp_name == "Loris tardigradus" &&
+                    e.defraimp_speciesname == "Loris tardigradus" &&
+                    e.defraimp_speciescommonname == "Slow Loris")),
+                Times.Once);
+        }
+
+        /// <summary>
+        /// Tests that PopulateConsignmentDetails does not set the CPH number or port of entry
+        /// when the final destination location and unloading baseport location are absent.
+        /// </summary>
+        [Fact]
+        public void PopulateConsignmentDetails_WithNoLocations_DoesNotSetCphNumberOrPortOfEntry()
+        {
+            // Arrange
+            var message = BuildMessageWithEmptyConsignment("INS-301", 1, "SUBMITTED");
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_cphnumber);
+            Assert.Null(created.defraimp_portofentry);
+        }
+
+        // ── ApplyOriginDetails: defraimp_CountryofOriginId ──────────────────────
+
+        /// <summary>
+        /// Tests that ApplyOriginDetails sets the country of origin lookup when the origin
+        /// country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyOriginDetails_WithMatchingOriginCountry_SetsCountryOfOriginId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithOriginCountry("INS-310", 1, "SUBMITTED", countryCode: "FR", regionIdentifier: null);
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_CountryofOriginId);
+            Assert.Equal(frCountry.Id, created.defraimp_CountryofOriginId.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyOriginDetails does not set the country of origin lookup when the
+        /// origin country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyOriginDetails_WithUnknownOriginCountry_DoesNotSetCountryOfOriginId()
+        {
+            // Arrange — country lookup returns nothing for "ZZ" (default constructor mock)
+            var message = BuildMessageWithOriginCountry("INS-311", 1, "SUBMITTED", countryCode: "ZZ", regionIdentifier: null);
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_CountryofOriginId);
+        }
+
+        // ── ApplyConsigneeDetails: defraimp_ConsigneeAddressCountryId ───────────
+
+        /// <summary>
+        /// Tests that ApplyConsigneeDetails sets the consignee address country lookup when the
+        /// consignee's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyConsigneeDetails_WithMatchingCountry_SetsConsigneeAddressCountryId()
+        {
+            // Arrange
+            var gbCountry = new defra_country { defra_isocodealpha2 = "GB" };
+            gbCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { gbCountry }));
+
+            var message = BuildMessageWithParty(
+                "INS-320",
+                "consigneeParty",
+                name: "Buyer Co",
+                line1: "1 Buy St",
+                line2: null,
+                city: "Bristol",
+                postcode: "BS1 1AA",
+                country: "GB",
+                email: "buyer@example.com",
+                phone: "01234 000001");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_ConsigneeAddressCountryId);
+            Assert.Equal(gbCountry.Id, created.defraimp_ConsigneeAddressCountryId.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyConsigneeDetails does not set the consignee address country lookup
+        /// when the consignee's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyConsigneeDetails_WithUnknownCountry_DoesNotSetConsigneeAddressCountryId()
+        {
+            // Arrange — country lookup returns nothing for "ZZ" (default constructor mock)
+            var message = BuildMessageWithParty(
+                "INS-321",
+                "consigneeParty",
+                name: "Buyer Co",
+                line1: "1 Buy St",
+                line2: null,
+                city: "Bristol",
+                postcode: "BS1 1AA",
+                country: "ZZ",
+                email: "buyer@example.com",
+                phone: "01234 000001");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_ConsigneeAddressCountryId);
+        }
+
+        // ── ApplyImporterDetails: defraimp_ImporterAddressCountryid ─────────────
+
+        /// <summary>
+        /// Tests that ApplyImporterDetails sets the importer address country lookup when the
+        /// importer's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyImporterDetails_WithMatchingCountry_SetsImporterAddressCountryId()
+        {
+            // Arrange
+            var gbCountry = new defra_country { defra_isocodealpha2 = "GB" };
+            gbCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { gbCountry }));
+
+            var message = BuildMessageWithParty(
+                "INS-330",
+                "importer",
+                name: "Importer Co",
+                line1: "2 Import Rd",
+                line2: null,
+                city: "Leeds",
+                postcode: "LS1 1BB",
+                country: "GB",
+                email: "imp@example.com",
+                phone: "01234 000002");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_ImporterAddressCountryid);
+            Assert.Equal(gbCountry.Id, created.defraimp_ImporterAddressCountryid.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyImporterDetails does not set the importer address country lookup
+        /// when the importer's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyImporterDetails_WithUnknownCountry_DoesNotSetImporterAddressCountryId()
+        {
+            // Arrange — country lookup returns nothing for "ZZ" (default constructor mock)
+            var message = BuildMessageWithParty(
+                "INS-331",
+                "importer",
+                name: "Importer Co",
+                line1: "2 Import Rd",
+                line2: null,
+                city: "Leeds",
+                postcode: "LS1 1BB",
+                country: "ZZ",
+                email: "imp@example.com",
+                phone: "01234 000002");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_ImporterAddressCountryid);
         }
 
         // ── Private helpers ───────────────────────────────────────────────────
@@ -1625,7 +1862,33 @@ public void DeleteExistingConsignmentItems_WhenUpdatingExistingNotification_Dele
             return value == null ? "null" : $"\"{value}\"";
         }
 
-        private static string BuildMessageWithIncludedTradeLineItems(string identifier, int aggregateVersion, string statusCode)
+        private string BuildMessageWithMinimalTradeLineItem(string identifier, string scientificName, string commonName)
+        {
+            return $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""{identifier}"",
+                  ""notificationStatusCode"": ""SUBMITTED"",
+                  ""versionId"": 1
+                }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    {{
+                      ""includedTradeLineItem"": [
+                        {{
+                          ""scientificName"": ""{scientificName}"",
+                          ""commonName"": ""{commonName}""
+                        }}
+                      ]
+                    }}
+                  ]
+                }}
+              }}
+            }}";
+        }
+
+        private string BuildMessageWithIncludedTradeLineItems(string identifier, int aggregateVersion, string statusCode)
         {
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
@@ -1703,204 +1966,6 @@ public void DeleteExistingConsignmentItems_WhenUpdatingExistingNotification_Dele
 
             Assert.NotNull(created);
             return created;
-        }
-
-        // ── PopulateConsignmentDetails: FinalDestinationLocation / UnloadingBaseportLocation ──
-
-        /// <summary>
-        /// Tests that PopulateConsignmentDetails sets the CPH number and port of entry from
-        /// the final destination location and unloading baseport location.
-        /// </summary>
-        [Fact]
-        public void PopulateConsignmentDetails_WithFinalDestinationAndUnloadingBaseport_SetsCphNumberAndPortOfEntry()
-        {
-            // Arrange
-            var message = BuildMessageWithLocations("INS-300", finalDestinationIdentifier: "CPH-123", unloadingBaseportIdentifier: "PORT-456");
-            var created = this.CaptureCreatedEntity(message);
-
-            // Assert
-            Assert.Equal("CPH-123", created.defraimp_cphnumber);
-            Assert.Equal("PORT-456", created.defraimp_portofentry);
-        }
-
-        /// <summary>
-        /// Tests that PopulateConsignmentDetails does not set the CPH number or port of entry
-        /// when the final destination location and unloading baseport location are absent.
-        /// </summary>
-        [Fact]
-        public void PopulateConsignmentDetails_WithNoLocations_DoesNotSetCphNumberOrPortOfEntry()
-        {
-            // Arrange
-            var message = BuildMessageWithEmptyConsignment("INS-301", 1, "SUBMITTED");
-            var created = this.CaptureCreatedEntity(message);
-
-            // Assert
-            Assert.Null(created.defraimp_cphnumber);
-            Assert.Null(created.defraimp_portofentry);
-        }
-
-        // ── ApplyOriginDetails: defraimp_CountryofOriginId ──────────────────────
-
-        /// <summary>
-        /// Tests that ApplyOriginDetails sets the country of origin lookup when the origin
-        /// country code matches a known Dataverse country.
-        /// </summary>
-        [Fact]
-        public void ApplyOriginDetails_WithMatchingOriginCountry_SetsCountryOfOriginId()
-        {
-            // Arrange
-            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
-            frCountry.Id = Guid.NewGuid();
-
-            this.orgSvcMock
-                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
-                .Returns(new EntityCollection(new List<Entity> { frCountry }));
-
-            var message = BuildMessageWithOriginCountry("INS-310", 1, "SUBMITTED", countryCode: "FR", regionIdentifier: null);
-            var created = this.CaptureCreatedEntity(message);
-
-            // Assert
-            Assert.NotNull(created.defraimp_CountryofOriginId);
-            Assert.Equal(frCountry.Id, created.defraimp_CountryofOriginId.Id);
-        }
-
-        /// <summary>
-        /// Tests that ApplyOriginDetails does not set the country of origin lookup when the
-        /// origin country code does not match any known Dataverse country.
-        /// </summary>
-        [Fact]
-        public void ApplyOriginDetails_WithUnknownOriginCountry_DoesNotSetCountryOfOriginId()
-        {
-            // Arrange — country lookup returns nothing for "ZZ" (default constructor mock)
-            var message = BuildMessageWithOriginCountry("INS-311", 1, "SUBMITTED", countryCode: "ZZ", regionIdentifier: null);
-            var created = this.CaptureCreatedEntity(message);
-
-            // Assert
-            Assert.Null(created.defraimp_CountryofOriginId);
-        }
-
-        // ── ApplyConsigneeDetails: defraimp_ConsigneeAddressCountryId ───────────
-
-        /// <summary>
-        /// Tests that ApplyConsigneeDetails sets the consignee address country lookup when the
-        /// consignee's postal address country code matches a known Dataverse country.
-        /// </summary>
-        [Fact]
-        public void ApplyConsigneeDetails_WithMatchingCountry_SetsConsigneeAddressCountryId()
-        {
-            // Arrange
-            var gbCountry = new defra_country { defra_isocodealpha2 = "GB" };
-            gbCountry.Id = Guid.NewGuid();
-
-            this.orgSvcMock
-                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
-                .Returns(new EntityCollection(new List<Entity> { gbCountry }));
-
-            var message = BuildMessageWithParty(
-                "INS-320",
-                "consigneeParty",
-                name: "Buyer Co",
-                line1: "1 Buy St",
-                line2: null,
-                city: "Bristol",
-                postcode: "BS1 1AA",
-                country: "GB",
-                email: "buyer@example.com",
-                phone: "01234 000001");
-
-            var created = this.CaptureCreatedEntity(message);
-
-            // Assert
-            Assert.NotNull(created.defraimp_ConsigneeAddressCountryId);
-            Assert.Equal(gbCountry.Id, created.defraimp_ConsigneeAddressCountryId.Id);
-        }
-
-        /// <summary>
-        /// Tests that ApplyConsigneeDetails does not set the consignee address country lookup
-        /// when the consignee's postal address country code does not match any known Dataverse country.
-        /// </summary>
-        [Fact]
-        public void ApplyConsigneeDetails_WithUnknownCountry_DoesNotSetConsigneeAddressCountryId()
-        {
-            // Arrange — country lookup returns nothing for "ZZ" (default constructor mock)
-            var message = BuildMessageWithParty(
-                "INS-321",
-                "consigneeParty",
-                name: "Buyer Co",
-                line1: "1 Buy St",
-                line2: null,
-                city: "Bristol",
-                postcode: "BS1 1AA",
-                country: "ZZ",
-                email: "buyer@example.com",
-                phone: "01234 000001");
-
-            var created = this.CaptureCreatedEntity(message);
-
-            // Assert
-            Assert.Null(created.defraimp_ConsigneeAddressCountryId);
-        }
-
-        // ── ApplyImporterDetails: defraimp_ImporterAddressCountryid ─────────────
-
-        /// <summary>
-        /// Tests that ApplyImporterDetails sets the importer address country lookup when the
-        /// importer's postal address country code matches a known Dataverse country.
-        /// </summary>
-        [Fact]
-        public void ApplyImporterDetails_WithMatchingCountry_SetsImporterAddressCountryId()
-        {
-            // Arrange
-            var gbCountry = new defra_country { defra_isocodealpha2 = "GB" };
-            gbCountry.Id = Guid.NewGuid();
-
-            this.orgSvcMock
-                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
-                .Returns(new EntityCollection(new List<Entity> { gbCountry }));
-
-            var message = BuildMessageWithParty(
-                "INS-330",
-                "importer",
-                name: "Importer Co",
-                line1: "2 Import Rd",
-                line2: null,
-                city: "Leeds",
-                postcode: "LS1 1BB",
-                country: "GB",
-                email: "imp@example.com",
-                phone: "01234 000002");
-
-            var created = this.CaptureCreatedEntity(message);
-
-            // Assert
-            Assert.NotNull(created.defraimp_ImporterAddressCountryid);
-            Assert.Equal(gbCountry.Id, created.defraimp_ImporterAddressCountryid.Id);
-        }
-
-        /// <summary>
-        /// Tests that ApplyImporterDetails does not set the importer address country lookup
-        /// when the importer's postal address country code does not match any known Dataverse country.
-        /// </summary>
-        [Fact]
-        public void ApplyImporterDetails_WithUnknownCountry_DoesNotSetImporterAddressCountryId()
-        {
-            // Arrange — country lookup returns nothing for "ZZ" (default constructor mock)
-            var message = BuildMessageWithParty(
-                "INS-331",
-                "importer",
-                name: "Importer Co",
-                line1: "2 Import Rd",
-                line2: null,
-                city: "Leeds",
-                postcode: "LS1 1BB",
-                country: "ZZ",
-                email: "imp@example.com",
-                phone: "01234 000002");
-
-            var created = this.CaptureCreatedEntity(message);
-
-            // Assert
-            Assert.Null(created.defraimp_ImporterAddressCountryid);
         }
     }
 }
