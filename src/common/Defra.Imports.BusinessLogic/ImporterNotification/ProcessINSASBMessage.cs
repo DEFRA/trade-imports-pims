@@ -783,9 +783,9 @@
 
         private void DeleteExistingConsignmentItems(defraimp_ImporterNotification existing)
         {
-            var query = new QueryExpression(defraimp_commoditycomplement.EntityLogicalName);
-            query.Criteria.AddCondition(new ConditionExpression(defraimp_commoditycomplement.Fields.defraimp_ImporterNotificationId, ConditionOperator.Equal, existing.defraimp_ImporterNotificationId));
-            query.ColumnSet = new ColumnSet();
+var query = new QueryExpression(defraimp_commoditycomplement.EntityLogicalName);
+query.Criteria.AddCondition(new ConditionExpression(defraimp_commoditycomplement.Fields.defraimp_ImporterNotificationId, ConditionOperator.Equal, existing.Id));
+query.ColumnSet = new ColumnSet();
 
             var results = this.orgSvc.RetrieveMultiple(query);
 
