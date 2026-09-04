@@ -1302,7 +1302,7 @@
         /// Tests that existing commodity complements are deleted when an importer notification is updated.
         /// </summary>
         [Fact]
-        public void DeleteExistingConsigmentItems_WhenUpdatingExistingNotification_DeletesExistingCommodityComplements()
+public void DeleteExistingConsignmentItems_WhenUpdatingExistingNotification_DeletesExistingCommodityComplements()
         {
             // Arrange
             var existingId = Guid.NewGuid();
