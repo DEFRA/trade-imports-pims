@@ -28,6 +28,7 @@ jobs:
             $collectionUri = "$(System.TeamFoundationCollectionUri)".TrimEnd('/')
             $project = [uri]::EscapeDataString("$(System.TeamProject)")
             $runId = "$(resources.pipeline.${{ parameters.pipelineResource }}.runID)"
+            $runName = "$(resources.pipeline.${{ parameters.pipelineResource }}.runName)"
             $deployedTag = "Deployed to ${{ parameters.environment }}"
             $deployPipelineName = "${{ parameters.deployPipelineName }}"
             $branch = "${{ parameters.branch }}"
@@ -45,7 +46,7 @@ jobs:
               exit 0
             }
 
-            Write-Host "New artifacts found - run $runId is not yet tagged '$deployedTag'. Triggering $deployPipelineName..."
+            Write-Host "New artifacts found - run $runId (version $runName) is not yet tagged '$deployedTag'. Triggering $deployPipelineName..."
 
             $definitionsUri = "$collectionUri/$project/_apis/build/definitions?name=$([uri]::EscapeDataString($deployPipelineName))&api-version=7.1"
             $definitions = Invoke-RestMethod -Method Get -Uri $definitionsUri -Headers $headers
@@ -62,7 +63,8 @@ jobs:
                   self = @{ refName = "refs/heads/$branch" }
                 }
                 pipelines  = @{
-                  "${{ parameters.pipelineResource }}" = @{ version = $runId }
+                  # Pipeline resources are pinned by run name/version (e.g. "3.2.3"), not run ID.
+                  "${{ parameters.pipelineResource }}" = @{ version = $runName }
                 }
               }
             } | ConvertTo-Json -Depth 10
