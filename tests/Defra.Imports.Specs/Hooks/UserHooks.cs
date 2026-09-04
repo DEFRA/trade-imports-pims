@@ -1,6 +1,7 @@
 ﻿namespace Defra.Imports.Specs.Hooks
 {
     using System;
+    using System.Threading.Tasks;
     using Defra.Imports.Specs.Services;
     using Reqnroll;
 
@@ -31,8 +32,9 @@
         /// Removes the user from the users in use list and fails the scenario if the lease was
         /// automatically revoked due to the lease timeout being exceeded.
         /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [AfterScenario(Order = -100000)]
-        public void RemoveUserFromUsersInUse()
+        public async Task RemoveUserFromUsersInUse()
         {
             // Check for a stored lease revocation error before releasing, so the scenario is
             // failed with the original revocation message rather than a generic cleanup error.
@@ -40,7 +42,7 @@
 
             try
             {
-                this.userPoolClient.Release();
+                await this.userPoolClient.ReleaseAsync();
             }
             catch (Exception ex)
             {
