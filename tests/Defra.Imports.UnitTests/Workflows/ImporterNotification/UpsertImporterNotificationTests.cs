@@ -28,6 +28,11 @@ namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
             this.OrgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
                 .Returns(new EntityCollection());
+
+            // Default: commodity complement lookups return empty collection (no existing complements to delete)
+            this.OrgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_commoditycomplement.EntityLogicalName)))
+                .Returns(new EntityCollection());
         }
 
         /// <summary>

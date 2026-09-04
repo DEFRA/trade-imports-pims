@@ -34,6 +34,11 @@
             this.orgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
                 .Returns(new EntityCollection());
+
+            // Default: commodity complement lookups return empty collection (no existing complements to delete)
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_commoditycomplement.EntityLogicalName)))
+                .Returns(new EntityCollection());
         }
 
         /// <summary>
@@ -1230,6 +1235,113 @@
             Assert.Null(created.defraimp_ArrivalDate);
         }
 
+        /// <summary>
+        /// Tests that one commodity complement is created per included trade line item
+        /// and that mapped fields are populated correctly.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignmentItemDetails_WhenTradeLineItemsExist_CreatesCommodityComplementsWithMappedFields()
+        {
+            // Arrange
+            var importerNotificationId = Guid.NewGuid();
+            var createdEntities = new List<Entity>();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Callback<Entity>(e => createdEntities.Add(e))
+                .Returns<Entity>(e =>
+                    e.LogicalName == defraimp_ImporterNotification.EntityLogicalName
+                        ? importerNotificationId
+                        : Guid.NewGuid());
+
+            var message = BuildMessageWithIncludedTradeLineItems("INS-CC-001", 1, "SUBMITTED");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+
+            var complements = new List<defraimp_commoditycomplement>();
+            foreach (var entity in createdEntities)
+            {
+                if (entity.LogicalName == defraimp_commoditycomplement.EntityLogicalName)
+                {
+                    complements.Add((defraimp_commoditycomplement)entity);
+                }
+            }
+
+            Assert.Equal(2, complements.Count);
+
+            var first = complements[0];
+            Assert.NotNull(first.defraimp_ImporterNotificationId);
+            Assert.Equal(importerNotificationId, first.defraimp_ImporterNotificationId.Id);
+            Assert.Equal("12", first.defraimp_NumberofAnimals);
+            Assert.Equal(3, first.defraimp_NumberofPackages);
+            Assert.Equal("Canis lupus", first.defraimp_name);
+            Assert.Equal("01012100", first.defraimp_commodityid);
+            Assert.Equal("Dog, Mammal", first.defraimp_commoditydescription);
+            Assert.Equal("Canis lupus", first.defraimp_speciesname);
+            Assert.Equal("Dog", first.defraimp_speciescommonname);
+
+            var second = complements[1];
+            Assert.Equal("5", second.defraimp_NumberofAnimals);
+            Assert.Equal(1, second.defraimp_NumberofPackages);
+            Assert.Equal("Felis catus", second.defraimp_name);
+            Assert.Equal("01061900", second.defraimp_commodityid);
+            Assert.Equal("Cat", second.defraimp_commoditydescription);
+            Assert.Equal("Felis catus", second.defraimp_speciesname);
+            Assert.Equal("Cat", second.defraimp_speciescommonname);
+        }
+
+        /// <summary>
+        /// Tests that existing commodity complements are deleted when an importer notification is updated.
+        /// </summary>
+        [Fact]
+        public void DeleteExistingConsigmentItems_WhenUpdatingExistingNotification_DeletesExistingCommodityComplements()
+        {
+            // Arrange
+            var existingId = Guid.NewGuid();
+            var commodityId1 = Guid.NewGuid();
+            var commodityId2 = Guid.NewGuid();
+
+            var existingRecord = new defraimp_ImporterNotification
+            {
+                Id = existingId,
+                defraimp_ImporterNotificationId = existingId,
+                defraimp_Name = "INS-DEL-001",
+                defraimp_AggregateVersion = 1,
+            };
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { existingRecord }));
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_commoditycomplement.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity>
+                {
+                    new defraimp_commoditycomplement { Id = commodityId1 },
+                    new defraimp_commoditycomplement { Id = commodityId2 },
+                }));
+
+            var message = BuildMessage("INS-DEL-001", 2, "SUBMITTED");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+
+            this.orgSvcMock.Verify(o => o.Update(It.Is<Entity>(e => e.LogicalName == defraimp_ImporterNotification.EntityLogicalName)), Times.Once);
+            this.orgSvcMock.Verify(o => o.Delete(defraimp_commoditycomplement.EntityLogicalName, commodityId1), Times.Once);
+            this.orgSvcMock.Verify(o => o.Delete(defraimp_commoditycomplement.EntityLogicalName, commodityId2), Times.Once);
+        }
+
         // ── Private helpers ───────────────────────────────────────────────────
         private static INSObject BuildInsObject(string identifier, int aggregateVersion, string statusCode)
         {
@@ -1515,6 +1627,68 @@
 
             Assert.NotNull(created);
             return created;
+        }
+
+        private static string BuildMessageWithIncludedTradeLineItems(string identifier, int aggregateVersion, string statusCode)
+        {
+            return $@"{{
+              ""aggregateVersion"": {aggregateVersion},
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""{identifier}"",
+                  ""notificationStatusCode"": ""{statusCode}"",
+                  ""versionId"": 1
+                }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    {{
+                      ""includedTradeLineItem"": [
+                        {{
+                          ""applicableClassification"": [
+                            {{
+                              ""classCode"": {{ ""value"": ""01012100"" }}
+                            }}
+                          ],
+                          ""description"": [""Dog"", ""Mammal""],
+                          ""scientificName"": ""Canis lupus"",
+                          ""commonName"": ""Dog"",
+                          ""physicalReferencedLogisticsPackage"": [
+                            {{ ""itemQuantity"": 3 }}
+                          ],
+                          ""specifiedLineTradeDelivery"": [
+                            {{
+                              ""productUnitQuantity"": {{
+                                ""content"": 12
+                              }}
+                            }}
+                          ]
+                        }},
+                        {{
+                          ""applicableClassification"": [
+                            {{
+                              ""classCode"": {{ ""value"": ""01061900"" }}
+                            }}
+                          ],
+                          ""description"": [""Cat""],
+                          ""scientificName"": ""Felis catus"",
+                          ""commonName"": ""Cat"",
+                          ""physicalReferencedLogisticsPackage"": [
+                            {{ ""itemQuantity"": 1 }}
+                          ],
+                          ""specifiedLineTradeDelivery"": [
+                            {{
+                              ""productUnitQuantity"": {{
+                                ""content"": 5
+                              }}
+                            }}
+                          ]
+                        }}
+                      ]
+                    }}
+                  ]
+                }}
+              }}
+            }}";
         }
     }
 }

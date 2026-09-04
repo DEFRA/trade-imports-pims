@@ -24,7 +24,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         /// Gets class name.
         /// </summary>
         [DataMember(Name = "className")]
-        public string ClassName { get; internal set; }
+        public string[] ClassName { get; internal set; }
 
         /// <summary>
         /// Gets class code.
