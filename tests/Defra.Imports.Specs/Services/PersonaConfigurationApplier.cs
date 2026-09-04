@@ -143,7 +143,7 @@ namespace Defra.Imports.Specs.Services
 
             var query = new QueryExpression(entityLogicalName)
             {
-                ColumnSet = new ColumnSet(idAttribute),
+                ColumnSet = new ColumnSet(idAttribute, nameAttribute),
                 Criteria = new FilterExpression
                 {
                     Conditions = { new ConditionExpression(nameAttribute, ConditionOperator.In, names.ToArray<object>()) },
@@ -151,13 +151,21 @@ namespace Defra.Imports.Specs.Services
             };
 
             var result = await serviceClient.RetrieveMultipleAsync(query).ConfigureAwait(false);
-            var ids = result.Entities.Select(e => e.Id).ToList();
+            var foundNames = result.Entities
+                .Where(e => e.Contains(nameAttribute))
+                .Select(e => (string)e[nameAttribute])
+                .ToHashSet(StringComparer.OrdinalIgnoreCase);
+            var missingNames = names.Where(name => !foundNames.Contains(name)).ToList();
 
-            var missing = names.Count - ids.Count;
-            if (missing > 0)
+            if (missingNames.Count > 0)
             {
-                throw new InvalidOperationException($"{missing} of the requested '{entityLogicalName}' records could not be found: {string.Join(", ", names)}.");
+                throw new InvalidOperationException($"The following requested '{entityLogicalName}' records could not be found: {string.Join(", ", missingNames)}.");
             }
+
+            var ids = result.Entities
+                .Where(e => e.Contains(nameAttribute) && names.Contains((string)e[nameAttribute], StringComparer.OrdinalIgnoreCase))
+                .Select(e => e.Id)
+                .ToList();
 
             await serviceClient.ExecuteAsync(new AssociateRequest
             {

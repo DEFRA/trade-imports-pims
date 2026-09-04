@@ -47,7 +47,7 @@
         /// <summary>
         /// Validates the persona configuration.
         /// </summary>
-        /// <exception cref="Exception">Thrown if the roles or app ID or users are not set.</exception>
+        /// <exception cref="Exception">Thrown if the roles are not set.</exception>
         public void Validate()
         {
             if (this.Roles is null || !this.Roles.Any())

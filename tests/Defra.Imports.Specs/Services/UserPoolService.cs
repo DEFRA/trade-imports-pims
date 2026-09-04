@@ -7,7 +7,6 @@
     using System.Threading.Tasks;
     using Defra.Imports.Scenarios;
     using Defra.Imports.Specs.Config;
-    using Reqnroll;
 
     /// <summary>
     /// Manages the user pool.
@@ -46,7 +45,7 @@
         }
 
         /// <summary>
-        /// Gets a user from the pool with exactly the specified personas, waiting if necessary until one becomes available. If no user has been explicitly configured (via <see cref="PersonaConfiguration.Users"/>) for every one of the requested personas, an unassigned user is instead borrowed from the pool and dynamically configured to match, for the duration of the lease. The returned user is leased to the caller for a maximum of <see cref="LeaseTimeout"/>, after which it is automatically returned to the pool (and any dynamically applied configuration removed) and any code holding the lease is signalled that it has been revoked. Callers should call <see cref="ReleaseAsync"/> to return the user to the pool as soon as they are finished with it, which will also signal any holders that the lease has been revoked; if they do not do so within the lease timeout, the user will be returned to the pool automatically when the timeout is exceeded.
+        /// Gets a user from the pool with exactly the specified personas, waiting if necessary until one becomes available. If no user has been explicitly configured (via <see cref="PersonaConfiguration.Users"/>) for every one of the requested personas, an unassigned user is instead borrowed from the pool and dynamically configured to match, for the duration of the lease. The returned user is leased to the caller for a maximum of <see cref="LeaseTimeout"/>, after which it is automatically returned to the pool and any code holding the lease is signalled that it has been revoked. Dynamically applied configuration remains in place until the user is next leased, at which point it is removed immediately before the next configuration is applied. Callers should call <see cref="ReleaseAsync"/> to return the user to the pool as soon as they are finished with it, which will also signal any holders that the lease has been revoked; if they do not do so within the lease timeout, the user will be returned to the pool automatically when the timeout is exceeded.
         /// </summary>
         /// <param name="personas">The personas the returned user must have.</param>
         /// <returns>A lease on the acquired user.</returns>
@@ -152,7 +151,7 @@
                     winnerEntry.Personas = requested;
                     winnerEntry.PersonaStateVerified = true;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     winnerEntry.TryClaimRelease();
                     winnerEntry.OpenGate();
@@ -193,8 +192,13 @@
         private Task ReleaseEntryAsync(Entry entry, UserLease lease)
         {
             // Signal first so the revocation token fires before the gate opens, preventing any
-            // new acquirer from seeing a non-revoked token on the old lease object.
-            lease.SignalRevoked();
+            // new acquirer from seeing a non-revoked token on the old lease object. If this is
+            // being called from the lease timeout callback then the token has already been cancelled,
+            // so the lease must remain marked as expired rather than explicitly released.
+            if (!lease.RevocationToken.IsCancellationRequested)
+            {
+                lease.SignalRevoked();
+            }
 
             // Only proceed if the lease timer has not already done so.
             if (entry.TryClaimRelease())

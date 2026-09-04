@@ -83,7 +83,8 @@
         [Given(@"I am logged in to the 'EU Imports' app as {string} with no other roles")]
         public async Task GivenIAmLoggedInToTheEuImportsAppAsWithNoOtherRoles(string userAlias)
         {
-            var credentials = await this.userPool.GetAsync(this.ResolvePersonas(userAlias));
+            var persona = this.ResolveSinglePersona(userAlias);
+            var credentials = await this.userPool.GetAsync(new[] { persona });
 
             await this.LoginAndSetContextAsync(credentials.Username, credentials.Password);
         }
@@ -107,6 +108,17 @@
             }
 
             return personas;
+        }
+
+        private Persona ResolveSinglePersona(string alias)
+        {
+            var personas = this.ResolvePersonas(alias).ToList();
+            if (personas.Count > 1)
+            {
+                throw new InvalidOperationException($"Alias '{alias}' maps to multiple personas: {string.Join(", ", personas)}. This step requires exactly one persona.");
+            }
+
+            return personas.Single();
         }
 
         private async Task LoginAndSetContextAsync(string username, string password)
