@@ -1,0 +1,6 @@
+<Project>
+    <PropertyGroup>
+        <MainlineBranch>main</MainlineBranch>
+        <ReleaseBranchPrefix>release/</ReleaseBranchPrefix>
+    </PropertyGroup>
+</Project>
