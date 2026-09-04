@@ -1,0 +1,74 @@
+parameters:
+  - name: environment
+    type: string
+  - name: deployPipelineName
+    type: string
+  - name: pipelineResource
+    type: string
+    default: pims
+  - name: branch
+    type: string
+    default: main
+
+jobs:
+  - job: CheckForNewArtifacts
+    displayName: Check for new artifacts
+    steps:
+      - checkout: none
+
+      - task: PowerShell@2
+        displayName: Check for new artifacts and trigger deployment if found
+        env:
+          SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+        inputs:
+          targetType: inline
+          script: |
+            $ErrorActionPreference = 'Stop'
+
+            $collectionUri = "$(System.TeamFoundationCollectionUri)".TrimEnd('/')
+            $project = [uri]::EscapeDataString("$(System.TeamProject)")
+            $runId = "$(resources.pipeline.${{ parameters.pipelineResource }}.runID)"
+            $runName = "$(resources.pipeline.${{ parameters.pipelineResource }}.runName)"
+            $deployedTag = "Deployed to ${{ parameters.environment }}"
+            $deployPipelineName = "${{ parameters.deployPipelineName }}"
+            $branch = "${{ parameters.branch }}"
+
+            $headers = @{
+              Authorization = "Bearer $env:SYSTEM_ACCESSTOKEN"
+            }
+
+            Write-Host "Checking whether $(resources.pipeline.${{ parameters.pipelineResource }}.pipelineName) run $runId is already tagged '$deployedTag'..."
+
+            $run = Invoke-RestMethod -Method Get -Uri "$collectionUri/$project/_apis/build/builds/$($runId)?api-version=7.1" -Headers $headers
+
+            if ($run.tags -contains $deployedTag) {
+              Write-Host "No new artifacts to deploy - run $runId is already tagged '$deployedTag'. Skipping $deployPipelineName."
+              exit 0
+            }
+
+            Write-Host "New artifacts found - run $runId (version $runName) is not yet tagged '$deployedTag'. Triggering $deployPipelineName..."
+
+            $definitionsUri = "$collectionUri/$project/_apis/build/definitions?name=$([uri]::EscapeDataString($deployPipelineName))&api-version=7.1"
+            $definitions = Invoke-RestMethod -Method Get -Uri $definitionsUri -Headers $headers
+
+            if (-not $definitions.value -or $definitions.value.Count -eq 0) {
+              throw "Unable to locate a pipeline definition named '$deployPipelineName'. Ensure this matches the pipeline's name in Azure DevOps."
+            }
+
+            $pipelineId = $definitions.value[0].id
+
+            $runBody = @{
+              resources = @{
+                repositories = @{
+                  self = @{ refName = "refs/heads/$branch" }
+                }
+                pipelines  = @{
+                  # Pipeline resources are pinned by run name/version (e.g. "3.2.3"), not run ID.
+                  "${{ parameters.pipelineResource }}" = @{ version = $runName }
+                }
+              }
+            } | ConvertTo-Json -Depth 10
+
+            $triggeredRun = Invoke-RestMethod -Method Post -Uri "$collectionUri/$project/_apis/pipelines/$pipelineId/runs?api-version=7.1" -Headers $headers -ContentType 'application/json' -Body $runBody
+
+            Write-Host "Triggered $deployPipelineName run $($triggeredRun.id): $($triggeredRun._links.web.href)"
