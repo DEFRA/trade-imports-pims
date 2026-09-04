@@ -1185,14 +1185,16 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             var json = @"{
                 ""systemId"": ""CN"",
                 ""systemName"": ""Combined Nomenclature"",
-                ""className"": ""Live animals""
+                ""className"": [""Live animals""]
             }";
 
             var result = json.FromJSON<ApplicableClassification>();
 
             Assert.Equal("CN", result.SystemId);
             Assert.Equal("Combined Nomenclature", result.SystemName);
-            Assert.Equal("Live animals", result.ClassName);
+            Assert.NotNull(result.ClassName);
+            Assert.Single(result.ClassName);
+            Assert.Equal("Live animals", result.ClassName[0]);
         }
 
         /// <summary>
@@ -1268,18 +1270,21 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
         {
             var json = @"{
                 ""typeCode"": ""LIVE"",
-                ""applicableClassification"": {
-                    ""systemId"": ""CN"",
-                    ""classCode"": { ""value"": ""0101"" }
-                }
+                ""applicableClassification"": [
+                    {
+                        ""systemId"": ""CN"",
+                        ""classCode"": { ""value"": ""0101"" }
+                    }
+                ]
             }";
 
             var result = json.FromJSON<IncludedTradeLineItem>();
 
             Assert.NotNull(result.ApplicableClassification);
-            Assert.Equal("CN", result.ApplicableClassification.SystemId);
-            Assert.NotNull(result.ApplicableClassification.ClassCode);
-            Assert.Equal("0101", result.ApplicableClassification.ClassCode.Value);
+            Assert.Single(result.ApplicableClassification);
+            Assert.Equal("CN", result.ApplicableClassification[0].SystemId);
+            Assert.NotNull(result.ApplicableClassification[0].ClassCode);
+            Assert.Equal("0101", result.ApplicableClassification[0].ClassCode.Value);
         }
 
         /// <summary>
