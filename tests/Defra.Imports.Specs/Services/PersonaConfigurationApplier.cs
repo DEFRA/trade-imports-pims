@@ -151,10 +151,11 @@ namespace Defra.Imports.Specs.Services
             };
 
             var result = await serviceClient.RetrieveMultipleAsync(query).ConfigureAwait(false);
-            var foundNames = result.Entities
-                .Where(e => e.Contains(nameAttribute))
-                .Select(e => (string)e[nameAttribute])
-                .ToHashSet(StringComparer.OrdinalIgnoreCase);
+            var foundNames = new HashSet<string>(
+                result.Entities
+                    .Where(e => e.Contains(nameAttribute))
+                    .Select(e => (string)e[nameAttribute]),
+                StringComparer.OrdinalIgnoreCase);
             var missingNames = names.Where(name => !foundNames.Contains(name)).ToList();
 
             if (missingNames.Count > 0)
