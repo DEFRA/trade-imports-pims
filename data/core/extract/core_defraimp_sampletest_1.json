@@ -56,7 +56,7 @@
       "Attributes": [
         {
           "AttributeName": "defraimp_name",
-          "AttributeValue": "B.Abortus",
+          "AttributeValue": "Brucella Abortus",
           "AttributeType": "System.String"
         }
       ]
@@ -68,7 +68,7 @@
       "Attributes": [
         {
           "AttributeName": "defraimp_name",
-          "AttributeValue": "B.Melintensis",
+          "AttributeValue": "Brucella Melintensis",
           "AttributeType": "System.String"
         }
       ]
