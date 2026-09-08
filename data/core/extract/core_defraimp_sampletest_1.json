@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 16,
+  "RecordsCount": 21,
   "ExportedEntities": [
     {
       "LogicalName": "defraimp_sampletest",
@@ -189,6 +189,66 @@
         {
           "AttributeName": "defraimp_name",
           "AttributeValue": "TB",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "ffa2ff39-506e-42be-add8-2818456b9f86",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "EHDV",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "9e34aadc-7623-41f6-b8f9-3ce0fcf26217",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Goat Pox",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "670fd440-483a-4b12-916a-58faf3d4a706",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Newcastle Disease",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "fc40d636-2caf-4f6d-9fcc-53f2a93fafe4",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Psittacosis",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defraimp_sampletest",
+      "Id": "1d0fb779-be48-4789-ad27-73de682cfa4d",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defraimp_name",
+          "AttributeValue": "Sheep Pox",
           "AttributeType": "System.String"
         }
       ]
