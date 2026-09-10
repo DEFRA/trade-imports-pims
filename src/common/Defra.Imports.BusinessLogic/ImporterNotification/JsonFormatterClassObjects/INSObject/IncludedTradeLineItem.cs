@@ -12,7 +12,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         /// Gets applicable classification.
         /// </summary>
         [DataMember(Name = "applicableClassification")]
-        public ApplicableClassification ApplicableClassification { get; internal set; }
+        public ApplicableClassification[] ApplicableClassification { get; internal set; }
 
         /// <summary>
         /// Gets type code.
