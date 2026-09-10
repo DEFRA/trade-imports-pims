@@ -130,6 +130,8 @@ Changes should:
 
 # Documentation Standards
 
+All documentation must be written in clear, concise, grammatically correct British English. Documentation should be free from spelling and typographical errors and use consistent terminology throughout.
+
 Documentation should be updated when changes affect:
 
 - Behaviour
@@ -328,4 +330,4 @@ Where `<solutionName>` is replaced by the unique name of the solution.
 
 ## Release Management
 
-We require Azure Boards work items to be linked to GitHub pull requests for traceability. We must use the `AB#12345` syntax in both the pull reuest title and body.
+We require Azure Boards work items to be linked to GitHub pull requests for traceability. We must use the `AB#12345` syntax in both the pull request title and body.
