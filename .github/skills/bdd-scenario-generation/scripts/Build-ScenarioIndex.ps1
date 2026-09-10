@@ -46,6 +46,8 @@ try {
 }
 if ($repoRoot) { $repoRoot = $repoRoot.Trim() }
 
+$featuresPathWasProvided = -not [string]::IsNullOrWhiteSpace($FeaturesPath)
+
 if (-not $FeaturesPath) {
     if (-not $repoRoot) {
         throw "Unable to determine repository root. Run this script from within the trade-imports-pims repository, or pass -FeaturesPath explicitly."
@@ -54,7 +56,7 @@ if (-not $FeaturesPath) {
     $FeaturesPath = Join-Path $repoRoot "tests/Defra.Imports.Specs/Features"
 }
 
-if (-not (Test-Path $FeaturesPath)) {
+if (-not (Test-Path -Path $FeaturesPath -PathType Container) -and $featuresPathWasProvided) {
     throw "Features path not found: $FeaturesPath"
 }
 
@@ -65,7 +67,10 @@ if (-not $OutputPath) {
 # Relative paths in the index are anchored to the repo root when known, otherwise to the scanned folder.
 $basePathForRelative = if ($repoRoot) { $repoRoot } else { $FeaturesPath }
 
-$files = Get-ChildItem -Path $FeaturesPath -Recurse -Filter "*.feature" -File
+$files = @()
+if (Test-Path -Path $FeaturesPath -PathType Container) {
+    $files = @(Get-ChildItem -Path $FeaturesPath -Recurse -Filter "*.feature" -File)
+}
 
 $lines = @("features:")
 $scenarioCount = 0
@@ -100,7 +105,8 @@ foreach ($file in $files) {
             $lines += "      - name: '$name'"
             $lines += "        line: $($i + 1)"
             if ($pendingTags.Count -gt 0) {
-                $lines += "        tags: [$($pendingTags -join ', ')]"
+                $quotedTags = $pendingTags | ForEach-Object { "'$_'" }
+                $lines += "        tags: [$($quotedTags -join ', ')]"
             }
             $scenarioCount++
             $pendingTags = @()

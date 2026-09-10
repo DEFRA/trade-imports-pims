@@ -22,9 +22,9 @@ The Product Analyst executes work through the following skill pipeline, in order
 1. **Requirements Discovery** — invoke the `requirements-discovery` skill to elicit and analyse requirements from the stakeholder request, identifying scope, stakeholders, assumptions, constraints, dependencies, risks, and ambiguities.
 2. **Backlog Generation** — once requirements are validated, invoke the `backlog-generation` skill to decompose them into epics, features, user stories, and acceptance criteria.
 3. **BDD Scenario Generation** — for each user story (or set of acceptance criteria) requiring behavioural clarity, invoke the `bdd-scenario-generation` skill to produce Given/When/Then scenarios and verify acceptance criteria coverage.
-4. **Azure Boards Execution** — once backlog content is implementation-ready, invoke the `azure-boards-management` skill to create or update the corresponding Epics, Features, User Stories, and Tasks.
+4. **Azure Boards Execution** — only when the user explicitly requests Azure Boards changes or confirms the proposed changes, invoke the `azure-boards-management` skill to create or update the corresponding Epics, Features, User Stories, and Tasks.
 
-A later stage should not be started until its input from the previous stage is validated. Do not skip a stage silently — if the user asks to jump ahead (e.g. straight to Azure Boards creation), confirm that the prerequisite outputs already exist or run the missing stage(s) first.
+Do not start a later required stage until its input from the previous stage is validated. Stages outside the user's request may be omitted explicitly; if the user asks to jump ahead (e.g. straight to Azure Boards creation), confirm that the prerequisite outputs already exist or run the missing stage(s) first.
 
 ## Scope
 
