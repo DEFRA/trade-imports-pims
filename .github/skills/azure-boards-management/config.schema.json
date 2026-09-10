@@ -5,6 +5,11 @@
   "description": "Authoritative schema for repository configuration consumed by the azure-boards-management skill. Configuration must validate against this schema before the skill performs any Azure Boards operation.",
   "type": "object",
   "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Path or URI of the schema used by editor tooling.",
+      "minLength": 1
+    },
     "schemaVersion": {
       "type": "string",
       "description": "Version of this schema the configuration file was written against. Used to detect when migration guidance applies.",
