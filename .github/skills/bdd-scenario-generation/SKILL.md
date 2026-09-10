@@ -17,7 +17,10 @@ Convert requirements, user stories, and acceptance criteria into Given/When/Then
 
 ## Expected Inputs
 
-Requirements, user stories (As a/I want/So that), acceptance criteria, business rules — in any combination. If none of these are supplied, ask for at least one before generating scenarios.
+Requirements, user stories (As a/I want/So that), acceptance criteria, business rules — in any combination, or an Azure Boards work item reference (ID or URL) to pull them from directly.
+
+- **If an Azure Boards work item reference is supplied** (e.g. a User Story ID/URL, or "pick up AB#12345"), invoke the `azure-boards-management` skill to fetch that work item's title, description, and acceptance criteria before proceeding — do not ask the user to re-paste content that already exists on the work item. Treat the fetched fields as the source material for the rest of this skill.
+- **If neither inline requirements nor a work item reference are supplied**, ask for at least one before generating scenarios.
 
 ## Working Principles
 
@@ -110,7 +113,7 @@ Before adding a new scenario, check whether an existing scenario in the target f
 
 ## Procedure
 
-1. **Confirm the source material** — identify the requirement, user story or acceptance criteria being converted. If the business objective is unclear, treat it as a blocking question rather than assuming.
+1. **Confirm the source material** — identify the requirement, user story or acceptance criteria being converted. If an Azure Boards work item reference was supplied instead, fetch it via the `azure-boards-management` skill per Expected Inputs before proceeding. If the business objective is unclear, treat it as a blocking question rather than assuming.
 2. **Run the Applicability Assessment** for each user story/acceptance criterion and record the recommendation (Scenario recommended / Scenario not recommended / Needs clarification) before writing any Gherkin.
 3. **Build or refresh the step binding and scenario indexes** per Step Binding Reuse and Scenario Reuse, so existing bindings and scenarios can be considered while drafting scenarios.
 4. **Identify the feature** the scenarios belong to, and name it from the user's perspective, following the Folder and Naming Conventions — only for items marked "Scenario recommended".
