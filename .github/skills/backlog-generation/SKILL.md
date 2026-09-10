@@ -93,4 +93,4 @@ This skill succeeds when a delivery team can estimate and implement every story 
 
 ## Handoff
 
-This skill produces backlog *content*, not Azure DevOps Boards work items. To create or update Epics/Features/User Stories in Azure Boards (including `AB#` linkage per [AGENTS.md](../../../AGENTS.md)), hand off to the Product Analyst agent, which owns Azure DevOps CLI operations and INVEST quality checks.
+This skill produces backlog *content*, not Azure Boards work items. To create or update Epics/Features/User Stories in Azure Boards (including `AB#` linkage per [AGENTS.md](../../../AGENTS.md)), hand off to the Product Analyst agent, which owns INVEST quality checks and delegates execution to the `azure-boards-management` skill.
