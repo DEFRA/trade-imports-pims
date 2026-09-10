@@ -56,6 +56,18 @@ Not every user story or acceptance criterion warrants a new automated BDD scenar
 - Abstract procedural detail that isn't relevant to the scenario's behaviour into a single higher-level step, rather than spelling out every intermediate step needed to reach that state. For example, prefer `Given I have processed an application` over enumerating each step of the process (assign, review, approve) unless one of those intermediate steps is relevant to the desired behaviour being documented by the scenario.
 - Use business-level terminology, not product/UI-level terminology, unless the requirement explicitly mandates a specific UI element or label. For example, prefer `And I have recorded a visit` over `And I have selected the Visit tab / And I have created a visit` — the tab name may be implementation detail, not a business requirement.
 
+## Persona and Login Step
+
+Every scenario must begin with the mandatory login step:
+
+```gherkin
+Given I am logged in to the 'EU Imports' app as '<persona alias>'
+```
+
+1. **The persona alias must be one of the `aliases`** defined for a persona in [environment.json](../../../tests/Defra.Imports.Specs/environment.json) (e.g. `a caseworker`, `a business rules admin`, `a team leader`, `a caseworker with export to Excel permissions`). Do not invent a new persona alias — if the required role combination doesn't exist, flag it as a testability concern rather than fabricating one.
+2. **A scenario runs as exactly one persona.** Do not switch persona partway through a scenario; if the behaviour genuinely requires two different personas interacting (e.g. one user submits, another approves), split it into separate scenarios or treat the second persona's action as an existing precondition rather than acting it out inline.
+3. **Choose the least-privileged persona** that satisfies the scenario's precondition, unless the scenario is specifically testing permission/role-based behaviour, in which case the persona choice is the point of the scenario.
+
 ## Folder and Naming Conventions
 
 Feature files are organised by table/entity, then by action, then by business scenario. Follow this structure unless the repository defines an existing, conflicting convention — in which case follow the existing convention.
@@ -127,7 +139,7 @@ Feature: <feature name>
 
 @scenario-type:happy-path
 Scenario: <scenario name>
-  Given <precondition>
+  Given I am logged in to the 'EU Imports' app as '<persona alias>'
   And <additional precondition>
   When <action or event>
   Then <expected outcome>
