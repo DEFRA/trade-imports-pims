@@ -4,7 +4,7 @@
 
 This repository contains source code, configuration, documentation, architecture assets, and delivery artefacts for a Power Platform package.
 
-All agents working in this repository must follow the guidance in this document regardless of their individual specialization.
+All agents working in this repository must follow the guidance in this document regardless of their individual specialisation.
 
 The objectives are:
 
@@ -289,7 +289,7 @@ Agents should not:
 
 This Power Platform package is developed using an ephemeral approach to development and test environments. Development and CI environments are clearly distinguished by their URLs. 
 
-All work is developed and tested in isolation in these environments before beging merged to main.
+All work is developed and tested in isolation in these environments before being merged into main.
 
 ## Coding
 
@@ -299,11 +299,11 @@ Coding standards are defined in the relevant instructions files.
 
 We prefer a low-code approach to implementation. A good rule of thumb is that any code written should be **highly reusable** and **unlikely to change** (e.g. platform extensions rather than business processes. This means making CWAs and plug-ins as configurable, generic, and granular as possible.
 
-Business logic primarily lives in declarative components such as  workflows, actions, business process flows, and cloud flows. Atomic processes should be encapsulated as actions.
+Business logic primarily lives in declarative components such as workflows, actions, business process flows, and cloud flows. Atomic processes should be encapsulated as actions.
 
-Plug-in handlers are rarely required only when needing to alter the behaviour of managed actions or trigger logic on messages not supported by workflows or flows. Plug-in steps don't offer the scoping functionality of workflows and flows (especially important when dealing with out-of-the-box components - see [Future-proofing](#Future-proofing)) or the input & ouput functionality found in actions and custom workflow activities (meaning less flexible and reusable).
+Plug-in handlers are rarely required; they are only needed when you must alter the behaviour of managed actions or trigger logic on messages not supported by workflows or flows. Plug-in steps don't offer the scoping functionality of workflows and flows (especially important when dealing with out-of-the-box components) or the input & output functionality found in actions and custom workflow activities (meaning less flexible and reusable).
 
-An environment may have many solutions deployed to it over it's lifetime. For this reason, we must ensure that our solution is future-proof and compatible with other solutions that may be introduced. This principle can be applied in countless different ways, but some examples might be:
+An environment may have many solutions deployed to it over its lifetime. For this reason, we must ensure that our solution is future-proof and compatible with other solutions that may be introduced. This principle can be applied in countless different ways, but some examples might be:
 
 - Avoid organisation scoped processes or plug-in handlers on out-of-the-box actions for out-of-the-box entities as this may prevent these entities from being reused by other parts of the business
 - Avoid customising managed forms or views as other solutions can also introduce changes to these, create new forms for your app instead
