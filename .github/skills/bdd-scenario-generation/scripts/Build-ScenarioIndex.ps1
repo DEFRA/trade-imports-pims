@@ -78,6 +78,7 @@ $scenarioCount = 0
 foreach ($file in $files) {
     $content = Get-Content $file.FullName
     $relativePath = [System.IO.Path]::GetRelativePath($basePathForRelative, $file.FullName) -replace '\\', '/'
+    $escapedRelativePath = $relativePath.Replace("'", "''")
 
     $featureName = ""
     foreach ($line in $content) {
@@ -87,7 +88,7 @@ foreach ($file in $files) {
         }
     }
 
-    $lines += "  - file: '$relativePath'"
+    $lines += "  - file: '$escapedRelativePath'"
     $lines += "    feature: '$($featureName.Replace("'", "''"))'"
     $lines += "    scenarios:"
 

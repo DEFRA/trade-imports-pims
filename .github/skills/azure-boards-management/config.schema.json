@@ -55,11 +55,13 @@
     },
     "defaultAreaPath": {
       "type": "string",
-      "description": "Default Area Path applied to new work items when no more specific path is supplied."
+      "description": "Default Area Path applied to new work items when no more specific path is supplied.",
+      "minLength": 1
     },
     "defaultIterationPath": {
       "type": "string",
-      "description": "Default Iteration Path applied to new work items when no more specific path is supplied."
+      "description": "Default Iteration Path applied to new work items when no more specific path is supplied.",
+      "minLength": 1
     }
   },
   "required": ["organization", "project", "workItemTypes"],
