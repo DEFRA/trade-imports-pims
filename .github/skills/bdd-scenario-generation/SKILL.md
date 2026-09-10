@@ -27,6 +27,7 @@ Requirements, user stories (As a/I want/So that), acceptance criteria, business 
 - Keep scenarios understandable by business and technical stakeholders alike.
 - Treat automated acceptance scenarios as a cost, not a default. Every scenario becomes a deployment gate: a single failure blocks promotion to higher environments. Write scenarios sparingly, reserving them for genuine business-critical behaviour and the negative paths that must never regress.
 - Reuse existing step bindings wherever possible instead of authoring new ones, but never at the expense of scenario clarity or any other principle in this document — a slightly awkward reused step is preferable to a duplicate binding, but a genuinely misleading one is not worth reusing.
+- Prefer extending an existing scenario with an additional assertion over creating a near-duplicate scenario, but only where the extension keeps the scenario's single-action, single-behaviour focus intact — a genuinely distinct business scenario still deserves its own `Scenario:`.
 
 ## Applicability Assessment (Run Before Generating Scenarios)
 
@@ -86,11 +87,20 @@ Before writing `Given`/`When`/`Then` steps, check whether an existing step bindi
 3. **Prefer reuse when the existing step's wording and behaviour genuinely match** the scenario being written. Prefer a new step when reuse would require awkward phrasing, misrepresent the action, or bind unrelated behaviour together.
 4. **Re-run the script per session, not per scenario.** The index is a point-in-time snapshot; regenerate it at the start of a scenario-authoring session (or after step bindings are known to have changed) rather than caching it indefinitely, and never commit the generated file to source control.
 
+## Scenario Reuse
+
+Before adding a new scenario, check whether an existing scenario in the target feature file already covers most of the same behaviour and could be extended with an additional assertion instead.
+
+1. **Build the scenario index** by running the script at [scripts/Build-ScenarioIndex.ps1](./scripts/Build-ScenarioIndex.ps1). It scans `.feature` files (`tests/Defra.Imports.Specs/Features` by default) for `Feature:`/`Scenario:`/`Scenario Outline:` lines and any preceding `@tag`s, and writes a YAML index of each scenario's name, tags, source file, and line number to a temporary file — never to a path inside the repository.
+2. **Query the index, not every feature file.** Read the generated YAML to check whether a scenario with a similar name or tag already exists in the relevant feature file before drafting a new one. Use the recorded `line` to jump straight to the candidate scenario rather than reading the whole file.
+3. **Extend rather than duplicate when the existing scenario's `Given`/`When` already matches** and only the expected outcome differs — add a `Then`/`And` assertion to the existing scenario. Write a new scenario when the precondition or action genuinely differs, or when extending would violate the one-action-per-scenario or single-behaviour principles.
+4. **Re-run the script per session, not per scenario.** As with the step index, this is a point-in-time snapshot — regenerate it at the start of a scenario-authoring session rather than caching it, and never commit the generated file to source control.
+
 ## Procedure
 
 1. **Confirm the source material** — identify the requirement, user story or acceptance criteria being converted. If the business objective is unclear, treat it as a blocking question rather than assuming.
 2. **Run the Applicability Assessment** for each user story/acceptance criterion and record the recommendation (Scenario recommended / Scenario not recommended / Needs clarification) before writing any Gherkin.
-3. **Build or refresh the step binding index** per Step Binding Reuse, so existing bindings can be considered while drafting scenarios.
+3. **Build or refresh the step binding and scenario indexes** per Step Binding Reuse and Scenario Reuse, so existing bindings and scenarios can be considered while drafting scenarios.
 4. **Identify the feature** the scenarios belong to, and name it from the user's perspective, following the Folder and Naming Conventions — only for items marked "Scenario recommended".
 5. **Generate happy-path scenarios** — the primary successful flow(s) described by the acceptance criteria.
 6. **Generate validation scenarios** — required fields, format rules, boundary values, and business rule constraints, where these represent genuine business risk rather than minor UI polish.
