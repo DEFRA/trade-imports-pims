@@ -280,9 +280,3 @@ Agents should not:
 - Ignore documented decisions
 - Create duplicate documentation
 - Invent requirements that are not supported by available information
-
----
-
-# Repository-Specific Standards
-
-Please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md)
