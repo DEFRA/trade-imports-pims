@@ -280,3 +280,52 @@ Agents should not:
 - Ignore documented decisions
 - Create duplicate documentation
 - Invent requirements that are not supported by available information
+
+---
+
+# Repository-Specific Standards
+
+## Environments
+
+This Power Platform package is developed using an ephemeral approach to development and test environments. Development and CI environments are clearly distinguished by their URLs. 
+
+All work is developed and tested in isolation in these environments before beging merged to main.
+
+## Coding
+
+Coding standards are defined in the relevant instructions files.
+
+## Power Platform
+
+We prefer a low-code approach to implementation. A good rule of thumb is that any code written should be **highly reusable** and **unlikely to change** (e.g. platform extensions rather than business processes. This means making CWAs and plug-ins as configurable, generic, and granular as possible.
+
+Business logic primarily lives in declarative components such as  workflows, actions, business process flows, and cloud flows. Atomic processes should be encapsulated as actions.
+
+Plug-in handlers are rarely required only when needing to alter the behaviour of managed actions or trigger logic on messages not supported by workflows or flows. Plug-in steps don't offer the scoping functionality of workflows and flows (especially important when dealing with out-of-the-box components - see [Future-proofing](#Future-proofing)) or the input & ouput functionality found in actions and custom workflow activities (meaning less flexible and reusable).
+
+An environment may have many solutions deployed to it over it's lifetime. For this reason, we must ensure that our solution is future-proof and compatible with other solutions that may be introduced. This principle can be applied in countless different ways, but some examples might be:
+
+- Avoid organisation scoped processes or plug-in handlers on out-of-the-box actions for out-of-the-box entities as this may prevent these entities from being reused by other parts of the business
+- Avoid customising managed forms or views as other solutions can also introduce changes to these, create new forms for your app instead
+
+## Versioning
+
+Solutions are versioned automatically based on the Git history. Ensure that you write commit and pull request titles that conform to Conventional Commits. A Git commit where there are changes within a solution metadata folder counts as a version increment for that solution. 
+
+| Commit message                | Increment | Explanation                                                                    |
+| ----------------------------- | --------- | ------------------------------------------------------------------------------ |
+| feat!: my breaking feature    | Major     | Exclamation is present after the commit type.                                  |
+| feat: my non-breaking feature | Minor     | No exclamation is present after the commit type and commit type is 'feat'.     |
+| fix: my non-breaking bug fix  | Patch     | No exclamation is present after the commit type and commit type is not 'feat'. |
+
+If you're making changes for a solution (e.g. plug-in or web resource changes) that sit outside the solution metadata folder, you must increment the version for the solution manually by including one of the following lines in the commit body:
+
+`+solutionVer(<solutionName>): major`
+`+solutionVer(<solutionName>): minor`
+`+solutionVer(<solutionName>): patch`
+
+Where `<solutionName>` is replaced by the unique name of the solution.
+
+## Release Management
+
+We require Azure Boards work items to be linked to GitHub pull requests for traceability. We must use the `AB#12345` syntax in both the pull reuest title and body.
