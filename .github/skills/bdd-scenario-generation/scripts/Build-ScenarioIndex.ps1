@@ -105,7 +105,8 @@ foreach ($file in $files) {
             $lines += "      - name: '$name'"
             $lines += "        line: $($i + 1)"
             if ($pendingTags.Count -gt 0) {
-                $lines += "        tags: [$($pendingTags -join ', ')]"
+                $quotedTags = $pendingTags | ForEach-Object { "'$_'" }
+                $lines += "        tags: [$($quotedTags -join ', ')]"
             }
             $scenarioCount++
             $pendingTags = @()
