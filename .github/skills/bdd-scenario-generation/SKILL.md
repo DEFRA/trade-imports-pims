@@ -101,7 +101,7 @@ Feature files are organised by table/entity, then by action, then by business sc
 1. **Folder per table/entity** — one folder for each Dataverse table or business entity the scenarios relate to, named after the entity in plural form (e.g. `Contacts/`, `Applications/`).
 2. **Feature file per action** — within the entity folder, one `.feature` file per distinct user-facing action or capability associated with that table (e.g. `View contacts.feature`, `View a contact.feature`, `Create a contact.feature`, `Update a contact.feature`). A feature file represents a single action, not the whole entity — do not combine multiple actions (e.g. Create and Update) into one feature file.
 3. **`Feature:` name matches the action** — the Gherkin `Feature:` line should read the same as the file name (e.g. `Feature: Update a contact`).
-4. **Scenario per business scenario** — within a feature file, one `Scenario:` per genuine business scenario, named specifically enough to distinguish it from sibling scenarios (e.g. `Update a contact with a new name`, `View contacts that are active`, `View a contact's applications`). Avoid generic names such as "Success" or "Test 1".
+4. **Scenario per business scenario** — within a feature file, one `Scenario:` per genuine business scenario, named specifically enough to distinguish it from sibling scenarios (e.g. `A caseworker updates a contact with a new name`, `A caseworker views active contacts`, `A caseworker views a contact's applications`). Avoid generic names such as "Success" or "Test 1".
 5. **Only include scenarios that passed the Applicability Assessment** — a feature file may legitimately contain fewer scenarios than acceptance criteria if some were marked "not recommended".
 
 Example structure:
