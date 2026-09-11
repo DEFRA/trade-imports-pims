@@ -13,7 +13,7 @@
     "schemaVersion": {
       "type": "string",
       "description": "Version of this schema the configuration file was written against. Used to detect when migration guidance applies.",
-      "default": "1.0"
+      "enum": ["1.0"]
     },
     "organization": {
       "type": "string",
@@ -64,6 +64,6 @@
       "minLength": 1
     }
   },
-  "required": ["organization", "project", "workItemTypes"],
+  "required": ["schemaVersion", "organization", "project", "workItemTypes"],
   "additionalProperties": false
 }

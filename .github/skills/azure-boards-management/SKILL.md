@@ -41,9 +41,12 @@ This skill is configuration-driven. [config.schema.json](./config.schema.json) i
 
 **Optional fields:**
 
-- `schemaVersion` — the schema version the configuration was written against; used to detect when migration guidance applies.
 - `defaultAreaPath` — applied to new work items when no more specific Area Path is supplied.
 - `defaultIterationPath` — applied to new work items when no more specific Iteration Path is supplied.
+
+**Required version field:**
+
+- `schemaVersion` — required and must be one of the schema versions currently supported by [config.schema.json](./config.schema.json); used to detect when migration guidance applies.
 
 **Validation behaviour:**
 

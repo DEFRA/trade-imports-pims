@@ -40,8 +40,8 @@ Not every user story or acceptance criterion warrants a new automated BDD scenar
    - A genuine business rule, workflow, calculation, permission, or integration behaviour — a strong candidate for a scenario.
    - A negative/failure path that, if it silently broke, would cause material harm (data loss, incorrect approval, security bypass, financial impact) — a strong candidate for a scenario.
    - A cosmetic, layout, copy, styling, or minor UI/UX change with no behavioural or business-rule impact — generally **not** a candidate for a new automated scenario.
-   - A change already exercised by an existing step binding/scenario — do not duplicate; note that existing coverage applies instead of writing a new one.
-2. **Check for existing coverage.** If the workspace or supplied context indicates the behaviour is already covered by an existing feature file or step binding, state this and recommend no new scenario rather than generating a duplicate.
+   - A change already exercised by an existing scenario — do not duplicate; note that existing coverage applies instead of writing a new one.
+2. **Check for existing coverage.** If the workspace or supplied context indicates the behaviour is already covered by an existing scenario in a feature file, state this and recommend no new scenario rather than generating a duplicate.
 3. **Weigh the deployment-gate cost.** For borderline cases, ask: if this scenario failed intermittently or the underlying UI text/layout changed again, would blocking a release be proportionate to the risk being guarded against? If not, recommend a lighter-weight verification (manual check, unit/component test, visual review) instead of a BDD scenario.
 4. **Recommend, don't silently decide.** For each user story or acceptance criterion assessed, output one of:
    - **Scenario recommended** — genuine business behaviour or imperative negative path; proceed to generate.

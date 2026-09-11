@@ -96,7 +96,7 @@ foreach ($file in $files) {
     for ($i = 0; $i -lt $content.Length; $i++) {
         $line = $content[$i].Trim()
 
-        if ($line -match '^(@[\w:-]+\s*)+$') {
+        if ($line -match '^(@\S+\s*)+$') {
             $pendingTags += ($line -split '\s+' | Where-Object { $_ })
             continue
         }
@@ -106,7 +106,7 @@ foreach ($file in $files) {
             $lines += "      - name: '$name'"
             $lines += "        line: $($i + 1)"
             if ($pendingTags.Count -gt 0) {
-                $quotedTags = $pendingTags | ForEach-Object { "'$_'" }
+                $quotedTags = $pendingTags | ForEach-Object { "'$($_.Replace("'", "''"))'" }
                 $lines += "        tags: [$($quotedTags -join ', ')]"
             }
             $scenarioCount++
