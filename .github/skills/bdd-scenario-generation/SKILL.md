@@ -56,20 +56,43 @@ Not every user story or acceptance criterion warrants a new automated BDD scenar
 - Keep each scenario independent — it must not rely on the state left behind by another scenario.
 - Express the outcome (`Then`) clearly and, where possible, in a way that is directly verifiable.
 - One action per scenario — a scenario should contain a single contiguous `When` (with `And` steps for the same action if needed), not multiple separate `When`/`Then` pairs chained together (e.g. `When`/`Then`/`When`/`Then`). If a second action is needed to observe a further outcome, it belongs in its own scenario. Multiple `Then`/`And` assertions verifying the outcome of that one action are fine and encouraged where they aid clarity.
+- Avoid duplicate assertions within the same scenario. Do not restate the same fact in multiple ways, or assert the same outcome twice using different steps when a single representative assertion already suffices. For example, do not check both "the view exists" and "the view is visible" in the same scenario if they are validating the same condition; choose the single most meaningful evidence of that behaviour.
 - Abstract procedural detail that isn't relevant to the scenario's behaviour into a single higher-level step, rather than spelling out every intermediate step needed to reach that state. For example, prefer `Given I have processed an application` over enumerating each step of the process (assign, review, approve) unless one of those intermediate steps is relevant to the desired behaviour being documented by the scenario.
 - Use business-level terminology, not product/UI-level terminology, unless the requirement explicitly mandates a specific UI element or label. For example, prefer `And I have recorded a visit` over `And I have selected the Visit tab / And I have created a visit` — the tab name may be implementation detail, not a business requirement.
+- Scenario names must follow the business wording pattern `<Subject> <verb> <object> <context>`, such as `A team leader creates a sample / test record`, `A caseworker attempts to create a new Sample / Test record`, or `A team leader views Sample / Test records`.
+- Keep scenario names concise and avoid procedural detail. Do not include field-level implementation detail in the name unless the field or condition is the core business meaning of the scenario. For example, prefer `A team leader creates a sample / test record` over `A team leader creates a sample / test record with a name`.
+- For validation scenarios, batch related checks into a single scenario where the underlying business rule is the same. Prefer `A team leader attempts to create a new Sample / Test record without mandatory fields` over a series of near-duplicate scenarios for each required field.
+- For negative scenarios, use `attempts to` rather than `cannot` or `is prevented from` in the scenario title unless the requirement explicitly focuses on a user-visible permission check; the key is to describe the unsuccessful business action, not the implementation detail behind it.
+- Scenario names should describe the behaviour under test, not the exact UI path or internal state. For list/table navigation scenarios, assert the available views, columns, and list behaviour via existing list-page steps rather than naming a scenario around a form that may not exist in that area.
+
+## Scenario Naming Examples
+
+- Good: `A team leader creates a sample / test record`
+- Good: `A team leader attempts to create a new Sample / Test record without mandatory fields`
+- Good: `A team leader views Sample / Test records`
+- Good: `A caseworker attempts to create a new Sample / Test record`
+- Avoid: `A team leader creates a sample / test record with a name`
+- Avoid: `A team leader can navigate to Sample / Test records from the site map` when the scenario is actually validating the list page or view configuration.
 
 ## Persona and Login Step
 
-Every scenario must begin with the mandatory login step:
+Every scenario must begin with exactly one login step, chosen from the login step definitions in [LoginSteps.cs](../../../tests/Defra.Imports.Specs/StepDefinitions/LoginSteps.cs), e.g.:
 
 ```gherkin
 Given I am logged in to the 'EU Imports' app as '<persona alias>'
 ```
 
-1. **The persona alias must be one of the `aliases`** defined for a persona in [environment.json](../../../tests/Defra.Imports.Specs/environment.json) (e.g. `a caseworker`, `a business rules admin`, `a team leader`, `a caseworker with export to Excel permissions`). Do not invent a new persona alias — if the required role combination doesn't exist, flag it as a testability concern rather than fabricating one.
-2. **A scenario runs as exactly one persona.** Do not switch persona partway through a scenario; if the behaviour genuinely requires two different personas interacting (e.g. one user submits, another approves), split it into separate scenarios or treat the second persona's action as an existing precondition rather than acting it out inline.
-3. **Choose the least-privileged persona** that satisfies the scenario's precondition, unless the scenario is specifically testing permission/role-based behaviour, in which case the persona choice is the point of the scenario.
+or, where a scenario specifically requires a persona to hold no roles beyond those named:
+
+```gherkin
+Given I am logged in to the 'EU Imports' app as '<persona alias>' with no other roles
+```
+
+There is no single mandatory login step — there are multiple login step definitions, and a scenario is expected to call whichever one its precondition genuinely requires.
+
+1. **A persona alias is a conceptual link, not a literal string to invent.** Each entry under `personas` in [environment.json](../../../tests/Defra.Imports.Specs/environment.json) defines a set of Dataverse security `roles` and one or more `aliases` — the alias is simply the business-readable name a scenario uses to refer to that role combination (e.g. `a caseworker` resolves to the `caseworker` persona's roles, `a caseworker with export to Excel permissions` resolves to `excelExporter`). The login step definition resolves the alias to a persona (or personas) by matching against `aliases`, then authenticates as a pooled user holding those roles. Do not invent a new persona alias — if the required role combination doesn't exist, flag it as a testability concern rather than fabricating one.
+2. **A scenario runs as exactly one user, and therefore contains exactly one login step.** Do not switch persona partway through a scenario, and do not add a second login step; if the behaviour genuinely requires two different personas interacting (e.g. one user submits, another approves), split it into separate scenarios or treat the second persona's action as an existing precondition rather than acting it out inline.
+3. **Choose the least-privileged persona alias** that satisfies the scenario's precondition, unless the scenario is specifically testing permission/role-based behaviour, in which case the persona choice is the point of the scenario. Only use the `with no other roles` variant when the scenario is specifically asserting that a persona's access is limited to the named roles; otherwise prefer the plain login step.
 
 ## Folder and Naming Conventions
 
@@ -133,14 +156,13 @@ First, present the applicability assessment as a table:
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------------------- |
 | <reference>     | Business rule / Negative path / Cosmetic / Existing coverage | Scenario recommended / Not recommended / Needs clarification | <1-2 sentence justification> |
 
-Then, for items marked "Scenario recommended" only, state the target file path per the Folder and Naming Conventions, followed by the feature content:
+Then, for items marked "Scenario recommended" only, write the scenarios to the actual .feature file on disk at the target path per the Folder and Naming Conventions — creating the entity folder and/or file if they don't yet exist, or appending/extending an existing file per Scenario Reuse. Writing the file is the deliverable of this skill, not merely printing it in the response. After writing, state the file path used and show the resulting feature content in the response as a summary of what was written:
 
 ```
 tests/Defra.Imports.Specs/Features/<Entity>/<Action>.feature
 
 Feature: <feature name>
 
-@scenario-type:happy-path
 Scenario: <scenario name>
   Given I am logged in to the 'EU Imports' app as '<persona alias>'
   And <additional precondition>
@@ -149,7 +171,7 @@ Scenario: <scenario name>
   And <additional outcome>
 ```
 
-Group scenarios under their feature, and tag each scenario with its category using `@scenario-type:<category>` immediately above the `Scenario:` line, using one of: `@scenario-type:happy-path`, `@scenario-type:validation`, `@scenario-type:error`, `@scenario-type:edge-case`.
+Group scenarios under their feature. Keep the feature file focused on the business behaviour described by the Given/When/Then steps.
 
 ## Additional Analysis
 
@@ -169,4 +191,4 @@ This skill succeeds when stakeholders, developers and testers share a common, un
 
 ## Handoff
 
-This skill produces scenario _content_, not automated test code. Automated step definitions or test implementation should be handled by a dedicated test-authoring skill or agent for the target framework.
+This skill's deliverable is `.feature` files and Given/When/Then scenarios written to disk under `tests/Defra.Imports.Specs/Features`, not automated test code. It does not write step definitions or test implementation — those are handled by a dedicated test-authoring skill or agent for the target framework, which consumes the `.feature` files this skill produces.

@@ -68,6 +68,12 @@ Select the first available mechanism, in order:
 
 Confirm which mechanism is available before starting; do not assume MCP tools exist without checking. State which mechanism was used in the output.
 
+### CLI Field Value Handling (Windows)
+
+- When passing rich-text field values (e.g. `System.Description`, `Microsoft.VSTS.Common.AcceptanceCriteria`) via `--fields "Field=$value"` to `az boards work-item create`/`update`, the value must not contain embedded newline characters. On Windows, `az` is a `.cmd` wrapper invoked through `cmd.exe`, which truncates an argument at the first embedded newline, silently dropping the remainder of that field and any `--fields` arguments that follow it, with no error and a successful exit code.
+- Build multi-line HTML/rich-text content as a single-line string (e.g. join paragraph `<div>...</div>` blocks with no separator) before passing it as a CLI argument.
+- After any create or update that sets field content via the CLI, re-fetch the work item and check the affected field length/content. Do not treat a non-error exit code as confirmation that the value was written as intended.
+
 ## Required Validation
 
 Before any operation, confirm:
