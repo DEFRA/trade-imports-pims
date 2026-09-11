@@ -136,7 +136,7 @@ First, present the applicability assessment as a table:
 Then, for items marked "Scenario recommended" only, state the target file path per the Folder and Naming Conventions, followed by the feature content:
 
 ```
-<Entity>/<Action>.feature
+tests/Defra.Imports.Specs/Features/<Entity>/<Action>.feature
 
 Feature: <feature name>
 

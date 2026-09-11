@@ -67,4 +67,4 @@ This skill succeeds when a delivery team, reading only the output, understands t
 
 ## Handoff
 
-This skill produces analysis, not backlog items. To turn Candidate Requirements into Azure DevOps Epics/Features/User Stories, hand off to the Product Analyst agent, which owns backlog creation, INVEST quality checks, and Azure Boards CLI operations.
+This skill produces analysis, not backlog items. To turn Candidate Requirements into Azure DevOps Epics/Features/User Stories, hand off to the Product Analyst agent, which owns backlog quality and orchestration and delegates Azure Boards execution to the `azure-boards-management` skill.

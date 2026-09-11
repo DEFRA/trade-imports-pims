@@ -79,7 +79,8 @@ foreach ($file in $files) {
     }
 
     $relativePath = [System.IO.Path]::GetRelativePath($basePathForRelative, $file.FullName) -replace '\\', '/'
-    $lines += "  - file: '$relativePath'"
+    $escapedRelativePath = $relativePath.Replace("'", "''")
+    $lines += "  - file: '$escapedRelativePath'"
     $lines += "    steps:"
 
     foreach ($m in $stepMatches) {

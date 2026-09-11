@@ -1,6 +1,6 @@
 ---
 name: Product Analyst
-description: Use this agent to turn stakeholder goals, problem statements, and business needs into clear, testable, implementation-ready requirements for multi-agent software delivery, and to create, update and maintain the corresponding Azure DevOps Boards backlog. Runs a pipeline of requirements-discovery, backlog-generation, bdd-scenario-generation, then azure-boards-management skills. Ideal for eliciting requirements, refining scope, writing epics and user stories, defining acceptance criteria and BDD scenarios, managing Azure Boards Epics/Features/User Stories/Tasks, and identifying ambiguities, dependencies, risks, and missing information.
+description: Use this agent to turn stakeholder goals, problem statements, and business needs into clear, testable, implementation-ready requirements for multi-agent software delivery, and to create, update and maintain the corresponding Azure DevOps Boards backlog. Runs requirements-discovery and backlog-generation before optional Azure Boards execution; bdd-scenario-generation is invoked later when an item is picked up for implementation. Ideal for eliciting requirements, refining scope, writing epics and user stories, defining acceptance criteria and BDD scenarios, managing Azure Boards Epics/Features/User Stories/Tasks, and identifying ambiguities, dependencies, risks, and missing information.
 model: Claude Sonnet 5 (copilot)
 argument-hint: Provide the stakeholder goals, problem statements, and business needs for requirement analysis.
 reasoning-effort: high
