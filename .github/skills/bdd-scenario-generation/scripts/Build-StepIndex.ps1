@@ -28,6 +28,7 @@
     ./Build-StepIndex.ps1 -StepsPath "tests/Defra.Imports.Specs/StepDefinitions" -OutputPath "$env:TEMP/step-index.yml"
 #>
 
+#requires -Version 7.0
 [CmdletBinding()]
 param(
     [string]$StepsPath,

@@ -29,6 +29,7 @@
     ./Build-ScenarioIndex.ps1 -FeaturesPath "tests/Defra.Imports.Specs/Features" -OutputPath "$env:TEMP/scenario-index.yml"
 #>
 
+#requires -Version 7.0
 [CmdletBinding()]
 param(
     [string]$FeaturesPath,
