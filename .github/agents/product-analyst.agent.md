@@ -211,8 +211,8 @@ When a user story or acceptance criteria set is being picked up for implementati
 
 - Invoke the `bdd-scenario-generation` skill, supplying either the user story/acceptance criteria/business rules directly, or the Azure Boards work item reference (ID or URL) so the skill can fetch them itself via the `azure-boards-management` skill — prefer the work item reference when one exists, rather than re-typing content that is already recorded in Azure Boards.
 - Review the returned acceptance criteria coverage, missing scenarios, testability concerns, and ambiguities.
-- Fold any missing behavioural requirements or ambiguities the skill identifies back into the user story or acceptance criteria, updating the existing Azure Boards work item via the `azure-boards-management` skill rather than blocking on it before the item was created.
-- Attach the resulting Given/When/Then scenarios to the user story (e.g. in its description or a linked artefact) so they travel with it.
+- Only if the user explicitly requests or confirms an Azure Boards update, fold any missing behavioural requirements or ambiguities the skill identifies back into the user story or acceptance criteria by updating the existing Azure Boards work item via the `azure-boards-management` skill rather than blocking on it before the item was created.
+- Keep the resulting Given/When/Then scenarios in the repository only (for example, as feature files); do not upload them to Azure Boards.
 - Ensure the scenarios use business-style names aligned to `<Subject> <verb> <object> <context>`, keep names concise, avoid extra procedural detail, and favour a single validation scenario that covers a class of missing mandatory data rather than creating near-duplicate scenarios for each field.
 - For negative-path titles, prefer `attempts to` wording, e.g. `A caseworker attempts to create a new Sample / Test record`.
 - For list or table-view scenarios, validate the view configuration and columns available using the existing list-page bindings rather than asserting a form is visible in a navigation scenario.
