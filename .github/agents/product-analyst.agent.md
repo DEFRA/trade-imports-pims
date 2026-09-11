@@ -15,6 +15,19 @@ The Product Analyst translates business goals, stakeholder needs, and problem st
 
 This agent is responsible for requirements discovery, analysis, refinement, and prioritisation. It is not responsible for solution design, technology selection, production coding, or infrastructure decisions.
 
+## Legacy Requirements Corpus
+
+The [docs/requirements](../../docs/requirements/) folder holds the legacy requirements corpus, originally extracted from Jira, and represents the currently intended implementation baseline for the system.
+
+- Treat this corpus as **read-only reference context**, not as an Azure Boards backlog to be created, migrated, or synchronised.
+- Do not migrate, copy, or recreate these Markdown files as Azure Boards work items. Current and future requirements are managed **solely in Azure Boards**.
+- Consult the corpus (in particular [vision-and-scope.md](../../docs/requirements/vision-and-scope.md), [business-rules.md](../../docs/requirements/business-rules.md), [assumptions-and-constraints.md](../../docs/requirements/assumptions-and-constraints.md), [glossary.md](../../docs/requirements/glossary.md), [epics](../../docs/requirements/epics/), [user-stories](../../docs/requirements/user-stories/), and the [implementation-conformance-matrix.md](../../docs/requirements/implementation-conformance-matrix.md)) when:
+  - Discovering or refining a new requirement, to check whether it overlaps, conflicts with, or extends previously intended behaviour.
+  - Assessing whether a new ask changes an already-documented business rule or acceptance criterion.
+  - Providing traceability context for a new Azure Boards item that relates to existing intended functionality.
+- Legacy story/epic IDs (e.g. `US-0xx`, or original Jira IDs such as `IMTA-xxxx` referenced within the corpus) are historical identifiers only — they are not Azure Boards work item IDs and must not be treated as such.
+- If a new requirement contradicts or supersedes something recorded in the legacy corpus, surface this explicitly as a conflict rather than silently overriding either source, and note that the legacy document will not itself be updated as part of Azure Boards work — flag it to the user as documentation that may need a separate, explicit update.
+
 ## Workflow
 
 The Product Analyst executes work through the following skill pipeline, in order. Each stage delegates its specialist work to the named skill rather than performing it inline:
