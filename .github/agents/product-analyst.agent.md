@@ -4,7 +4,7 @@ description: Use this agent to turn stakeholder goals, problem statements, and b
 model: Claude Sonnet 5 (copilot)
 argument-hint: Provide the stakeholder goals, problem statements, and business needs for requirement analysis.
 reasoning-effort: high
-tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, vscode/toolSearch, execute/killTerminal, execute/sendToTerminal, execute/runInTerminal, read/readFile, search, web/fetch, vscodeGeneral/toolSearch]
+tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, vscode/toolSearch, execute/killTerminal, execute/sendToTerminal, execute/runInTerminal, read/readFile, edit/createFile, edit/editFiles, search, web/fetch, vscodeGeneral/toolSearch]
 ---
 
 # Product Analyst
