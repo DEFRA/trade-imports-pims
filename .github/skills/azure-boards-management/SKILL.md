@@ -15,6 +15,7 @@ Execute CRUD and query operations against Azure Boards so that approved requirem
 - An existing work item's fields, state, or relationships need to be updated.
 - Parent-child or related-item links need to be created or verified.
 - Existing work items need to be queried before creating new ones (duplicate/overlap check, hierarchy check, status check).
+- A comment needs to be added to an existing work item (e.g. linking an architecture artefact, flagging a gap back to the Product Analyst) without changing its fields, state, or relationships.
 - A pull request needs an `AB#` work item reference resolved or confirmed per [AGENTS.md](../../../AGENTS.md).
 
 ## Expected Inputs
@@ -66,7 +67,7 @@ This skill is configuration-driven. [config.schema.json](./config.schema.json) i
 Select the first available mechanism, in order:
 
 1. **Azure DevOps MCP tools**, if an MCP server exposing Azure Boards operations is available.
-2. **Azure DevOps CLI** (`az boards ...`) via terminal execution.
+2. **Azure DevOps CLI** — `az boards ...` for work item CRUD, relations, and queries; `az devops invoke` for operations `az boards` does not expose (e.g. adding or listing comments) — via terminal execution.
 3. **Azure DevOps REST API** via terminal execution (e.g. `curl`/`Invoke-RestMethod`), only if the CLI cannot perform the operation.
 
 Confirm which mechanism is available before starting; do not assume MCP tools exist without checking. State which mechanism was used in the output.
@@ -76,6 +77,48 @@ Confirm which mechanism is available before starting; do not assume MCP tools ex
 - When passing rich-text field values (e.g. `System.Description`, `Microsoft.VSTS.Common.AcceptanceCriteria`) via `--fields "Field=$value"` to `az boards work-item create`/`update`, the value must not contain embedded newline characters. On Windows, `az` is a `.cmd` wrapper invoked through `cmd.exe`, which truncates an argument at the first embedded newline, silently dropping the remainder of that field and any `--fields` arguments that follow it, with no error and a successful exit code.
 - Build multi-line HTML/rich-text content as a single-line string (e.g. join paragraph `<div>...</div>` blocks with no separator) before passing it as a CLI argument.
 - After any create or update that sets field content via the CLI, re-fetch the work item and check the affected field length/content. Do not treat a non-error exit code as confirmation that the value was written as intended.
+
+### Adding Comments (Discussions)
+
+- `az boards work-item` has **no comment subcommand** (only `create`, `delete`, `show`, `update`, and `relation`). To add a comment, use `az devops invoke`:
+
+  ```powershell
+  az devops invoke --area wit --resource comments `
+    --route-parameters project="<project>" workItemId=<id> `
+    --http-method POST --in-file <body.json> `
+    --api-version "6.0-preview" --organization "<org url>"
+  ```
+
+  where `<body.json>` contains `{ "text": "..." }`. The same newline-truncation risk as `--fields` applies to the `text` value — build it as a single-line string before writing the body file.
+- **CRITICAL**: `--api-version` values with a numeric preview suffix (e.g. `"7.1-preview.4"`, `"5.1-preview.3"`) fail with `could not convert string to float: '7.1.4'` — this `az devops` extension cannot parse the `-preview.N` suffix format. Use the bare `"6.0-preview"` (no trailing `.N`) instead.
+- To list existing comments (e.g. to check for a duplicate before adding another, or to verify one was actually created), use the same `az devops invoke` call with `--http-method GET` and no `--in-file`.
+
+### Comment Content Formatting
+
+Azure Boards discussion comments render HTML, and the comment `text` value must be built as a single-line string with no embedded newlines (see CLI Field Value Handling above). These two constraints together mean structure must come from **HTML tags**, not from literal line breaks — never submit a comment as one undifferentiated paragraph of run-on sentences.
+
+- Use `<h3>`/`<h4>` (or `<b>...</b>` for a lighter heading) to label distinct sections of the comment (e.g. artefact reference, summary, open questions, status change).
+- Use `<p>...</p>` to separate each distinct point or paragraph — do not rely on plain sentence-ending periods to imply a new thought.
+- Use `<ul><li>...</li></ul>` for any list of more than one item (options considered, open questions, risks, follow-ups) instead of comma- or semicolon-joined prose.
+- Use `<br>` for a single line break within a section where a full paragraph/list is unnecessary.
+- Keep each section short and scannable; a reader should be able to tell what changed and what (if anything) they need to do within a few seconds.
+- Example skeleton (all on one line when written to the body file): `<h3>Architecture Update</h3><p><b>Artefact:</b> <a href="...">0001-title.md</a> (Status, Confidence: Medium)</p><h4>Summary</h4><p>...</p><h4>Open Questions</h4><ul><li>...</li></ul>`
+- This formatting standard applies to every comment written by any agent using this skill, not only architecture-related ones.
+
+### Verifying Ambiguous Output Before Retrying (Non-Idempotent Operations)
+
+- Create, update, comment, and relation-add operations are **not idempotent** — resubmitting them creates or changes something new each time, unlike a query/show/list command, which is always safe to re-run.
+- If a create/update/comment command's output is empty, truncated, or appears only as command-echo (a known terminal buffering/lag quirk in some environments), **do not immediately re-run the same mutating command**. First re-query current state with a read-only command (e.g. re-fetch the work item, or list comments) to check whether the operation already applied server-side. Only resubmit the mutating command if the query confirms it did not apply.
+- Treat a non-error exit code plus unreadable output as **unknown**, not **failed** — querying first is the only reliable way to tell the difference, and prevents duplicate work items, duplicate comments, or unintended repeat field updates.
+
+### Known CLI Quirks
+
+- `az boards query --wiql "..."` is the correct command to search existing work items — there is no `az boards work-item list`.
+- `az boards work-item show --id <id>` does **not** accept `--project` (organisation-only); `az boards query --wiql` **does** accept `--project` alongside `--organization`. Flag support is inconsistent per subcommand — verify rather than assuming uniformity.
+- Relation link type names: a parent link is `System.LinkTypes.Hierarchy-Reverse` (the `url` points to the parent); children are `System.LinkTypes.Hierarchy-Forward`. Use `az boards work-item relation add --id <child> --relation-type parent --target-id <parent>` to link a child to a parent.
+- Piping `az boards work-item create/show ... -o json | Select-Object -ExpandProperty fields | ...` inline in one line can produce garbled or truncated terminal echo even when the underlying command succeeded. Write `-o json` output to a temp file first, then read and parse it in a separate step, to reliably verify results.
+- Angle brackets in HTML field content (`<div>`, `</div>`, `<b>`) are safe to pass via `--fields` on Windows PowerShell — only embedded newlines are the real risk (see CLI Field Value Handling above). Avoid literal `&` (even as `&gt;`/`&amp;` entities) in case `cmd.exe` misparses it; prefer plain text (e.g. `->`) over HTML-encoded arrows/ampersands.
+- Never trust a previously recorded work item ID (from memory, notes, or an earlier session) without re-querying Azure Boards first — a remembered ID may not exist, may have been reverted, or may belong to a different item than expected.
 
 ## Required Validation
 
@@ -121,7 +164,7 @@ Before updating a work item, confirm:
 4. **Validate inputs** against the Required Validation checklist for the operation being performed (create vs update).
 5. **Resolve hierarchy.** For creates, identify or confirm the parent Epic/Feature. For updates, confirm existing parent-child and related links are not broken by the change.
 6. **Execute the operation** (create, update, state change, field change, link creation) using the selected mechanism and the work item type names from `workItemTypes` in configuration.
-7. **Verify the result** — re-query the created/updated work item to confirm the operation applied as expected.
+7. **Verify the result** — re-query the created/updated work item (or list comments, for comment operations) to confirm the operation applied as expected. If the initial attempt's output was ambiguous, this query — not a blind retry — determines whether a retry is needed (see Verifying Ambiguous Output Before Retrying).
 8. **Report the outcome** using the Output Format below.
 
 ## Output Format
@@ -142,6 +185,7 @@ For every operation (or batch of operations), report:
 - Do not create incomplete work items when required information is absent — ask the user or hand back to the Product Analyst agent for the missing detail instead.
 - Do not perform any Azure Boards operation against configuration that has failed schema validation.
 - If the execution mechanism itself fails (auth, permissions, connectivity), report the failure and the mechanism attempted; do not silently fall back without stating so.
+- If a mutating operation's result is ambiguous (empty/truncated output, terminal lag), re-query current state before retrying — see Verifying Ambiguous Output Before Retrying above. Never resubmit a create/update/comment command purely because its own output was unreadable.
 
 ## Working Principles
 
@@ -153,6 +197,7 @@ For every operation (or batch of operations), report:
 - Validate before creating or updating.
 - Never rely on configuration properties that are not defined in [config.schema.json](./config.schema.json).
 - Confirm significant or destructive changes (state changes that close/remove work, deletions, removing links) with the user before executing.
+- Treat create, update, comment, and relation-add operations as non-idempotent — never blindly retry one after ambiguous output; re-query first.
 
 ## Success Criteria
 
