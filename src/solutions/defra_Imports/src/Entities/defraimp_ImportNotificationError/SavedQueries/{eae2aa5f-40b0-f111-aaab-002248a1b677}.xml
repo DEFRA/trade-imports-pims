@@ -32,7 +32,7 @@
         </entity>
       </fetch>
     </fetchxml>
-    <IntroducedVersion>1.2.2</IntroducedVersion>
+    <IntroducedVersion>1.1.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="All Import Notification Errors" languagecode="1033" />
     </LocalizedNames>

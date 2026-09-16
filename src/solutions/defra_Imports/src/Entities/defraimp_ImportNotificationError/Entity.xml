@@ -223,7 +223,7 @@
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.2.2</IntroducedVersion>
+          <IntroducedVersion>1.1.0</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -243,7 +243,7 @@
           <AppDefaultValue>-1</AppDefaultValue>
           <optionset Name="defraimp_importnotificationerror_defraimp_errortype">
             <OptionSetType>picklist</OptionSetType>
-            <IntroducedVersion>1.2.2</IntroducedVersion>
+            <IntroducedVersion>1.1.0</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <ExternalTypeName></ExternalTypeName>
             <displaynames>
