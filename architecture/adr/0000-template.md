@@ -4,6 +4,7 @@
 - **Date**: YYYY-MM-DD
 - **Related requirement(s)**: Azure Boards item ID(s) (e.g. `AB#12345`)
 - **Related ADR(s)**: links to prior/related decisions in this folder
+- **Decision confidence**: High | Medium | Low — include rationale and validation actions for Medium or Low
 
 ## Context
 
