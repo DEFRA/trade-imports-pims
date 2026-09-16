@@ -60,6 +60,7 @@
   <EntityRelationship Name="business_unit_defraimp_importapplication" />
   <EntityRelationship Name="business_unit_defraimp_importernotification" />
   <EntityRelationship Name="business_unit_defraimp_importinspection" />
+  <EntityRelationship Name="business_unit_defraimp_importnotificationerror" />
   <EntityRelationship Name="business_unit_defraimp_imptype" />
   <EntityRelationship Name="business_unit_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="business_unit_defraimp_ipaffsdocument" />
@@ -423,6 +424,8 @@
   <EntityRelationship Name="lk_defraimp_importernotification_modifiedby" />
   <EntityRelationship Name="lk_defraimp_importinspection_createdby" />
   <EntityRelationship Name="lk_defraimp_importinspection_modifiedby" />
+  <EntityRelationship Name="lk_defraimp_importnotificationerror_createdby" />
+  <EntityRelationship Name="lk_defraimp_importnotificationerror_modifiedby" />
   <EntityRelationship Name="lk_defraimp_importrisklevel_createdby" />
   <EntityRelationship Name="lk_defraimp_importrisklevel_modifiedby" />
   <EntityRelationship Name="lk_defraimp_imptype_createdby" />
@@ -718,6 +721,7 @@
   <EntityRelationship Name="owner_defraimp_importapplication" />
   <EntityRelationship Name="owner_defraimp_importernotification" />
   <EntityRelationship Name="owner_defraimp_importinspection" />
+  <EntityRelationship Name="owner_defraimp_importnotificationerror" />
   <EntityRelationship Name="owner_defraimp_imptype" />
   <EntityRelationship Name="owner_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="owner_defraimp_ipaffsdocument" />
@@ -854,6 +858,7 @@
   <EntityRelationship Name="team_defraimp_importapplication" />
   <EntityRelationship Name="team_defraimp_importernotification" />
   <EntityRelationship Name="team_defraimp_importinspection" />
+  <EntityRelationship Name="team_defraimp_importnotificationerror" />
   <EntityRelationship Name="team_defraimp_imptype" />
   <EntityRelationship Name="team_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="team_defraimp_ipaffsdocument" />
@@ -902,6 +907,7 @@
   <EntityRelationship Name="user_defraimp_importapplication" />
   <EntityRelationship Name="user_defraimp_importernotification" />
   <EntityRelationship Name="user_defraimp_importinspection" />
+  <EntityRelationship Name="user_defraimp_importnotificationerror" />
   <EntityRelationship Name="user_defraimp_imptype" />
   <EntityRelationship Name="user_defraimp_inspectioncoveragerule" />
   <EntityRelationship Name="user_defraimp_ipaffsdocument" />

@@ -17,6 +17,7 @@
     <RolePrivilege name="prvAppenddefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_importinspection" level="Global" />
+    <RolePrivilege name="prvAppenddefraimp_ImportNotificationError" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_inspectioncoveragerule" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_itahc" level="Global" />
     <RolePrivilege name="prvAppenddefraimp_matchrecord" level="Global" />
@@ -61,6 +62,7 @@
     <RolePrivilege name="prvAppendTodefraimp_importapplicationbusinessprocessflow" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importinspection" level="Global" />
+    <RolePrivilege name="prvAppendTodefraimp_ImportNotificationError" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_imptype" level="Global" />
     <RolePrivilege name="prvAppendTodefraimp_inspectioncoveragerule" level="Global" />
@@ -209,6 +211,7 @@
     <RolePrivilege name="prvReaddefraimp_importcountrycommodityrisklevel" level="Global" />
     <RolePrivilege name="prvReaddefraimp_ImporterNotification" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importinspection" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_ImportNotificationError" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvReaddefraimp_imptype" level="Global" />
     <RolePrivilege name="prvReaddefraimp_inspectioncoveragerule" level="Global" />
@@ -279,6 +282,7 @@
     <RolePrivilege name="prvSharedefraimp_docom" level="Global" />
     <RolePrivilege name="prvSharedefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvSharedefraimp_ImporterNotification" level="Global" />
+    <RolePrivilege name="prvSharedefraimp_ImportNotificationError" level="Global" />
     <RolePrivilege name="prvSharedefraimp_itahc" level="Global" />
     <RolePrivilege name="prvSharedefraimp_matchrecord" level="Global" />
     <RolePrivilege name="prvSharedefraimp_notificationpermanentaddress" level="Global" />

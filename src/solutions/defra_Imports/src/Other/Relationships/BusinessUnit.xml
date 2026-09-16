@@ -220,6 +220,26 @@
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
+  <EntityRelationship Name="business_unit_defraimp_importnotificationerror">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>defraimp_ImportNotificationError</ReferencingEntityName>
+    <ReferencedEntityName>BusinessUnit</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>NoCascade</CascadeDelete>
+    <CascadeArchive>NoCascade</CascadeArchive>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <ReferencingAttributeName>OwningBusinessUnit</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Unique identifier for the business unit that owns the record" languagecode="1033" />
+      </Descriptions>
+    </RelationshipDescription>
+  </EntityRelationship>
   <EntityRelationship Name="business_unit_defraimp_imptype">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
@@ -623,7 +643,7 @@
   <EntityRelationship Name="defraimp_importquery_businessunit_owningbusinessunit">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.1.0</IntroducedVersion>
+    <IntroducedVersion>1.2.2</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>defraimp_importquery</ReferencingEntityName>
     <ReferencedEntityName>BusinessUnit</ReferencedEntityName>

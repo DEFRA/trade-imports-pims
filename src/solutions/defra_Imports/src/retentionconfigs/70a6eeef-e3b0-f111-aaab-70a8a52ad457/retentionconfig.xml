@@ -1,0 +1,13 @@
+<retentionconfig retentionconfigid="70a6eeef-e3b0-f111-aaab-70a8a52ad457">
+  <criteria>{"QuerySet":["&lt;fetch version=\"1.0\" mapping=\"logical\" savedqueryid=\"eae2aa5f-40b0-f111-aaab-002248a1b677\" distinct=\"true\"&gt;\n    &lt;entity name=\"defraimp_importnotificationerror\"&gt;\n        &lt;attribute name=\"defraimp_importnotificationerrorid\"/&gt;\n        &lt;attribute name=\"createdon\"/&gt;\n        &lt;attribute name=\"defraimp_errortype\"/&gt;\n        &lt;attribute name=\"defraimp_errordetails\"/&gt;\n        &lt;attribute name=\"defraimp_messagesentdate\"/&gt;\n        &lt;attribute name=\"defraimp_aggregateversion\"/&gt;\n        &lt;order attribute=\"createdon\" descending=\"true\"/&gt;\n        &lt;filter type=\"and\"&gt;\n            &lt;condition attribute=\"createdon\" operator=\"olderthan-x-days\" value=\"30\"/&gt;\n        &lt;/filter&gt;\n    &lt;/entity&gt;\n&lt;/fetch&gt;"],"SendEmailNotification":false,"ToRecipients":[],"CCRecipients":[],"OptionsJson":"{\"CanRecoverDeletedRecords\":true}"}</criteria>
+  <entitylogicalname>defraimp_importnotificationerror</entitylogicalname>
+  <iscustomizable>1</iscustomizable>
+  <name>BD - on Import Notification Error table rows older than 30 days</name>
+  <recurrence>FREQ=DAILY;INTERVAL=1</recurrence>
+  <starttime>8/31/2026 11:00:00 PM</starttime>
+  <statecode>0</statecode>
+  <statuscode>20</statuscode>
+  <timezoneruleversionnumber>4</timezoneruleversionnumber>
+  <type>1</type>
+  <uniquename>BD - on Import Notification Error table rows older than 30 days</uniquename>
+</retentionconfig>
