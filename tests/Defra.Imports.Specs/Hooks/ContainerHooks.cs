@@ -143,6 +143,20 @@
         }
 
         /// <summary>
+        /// Registers the <see cref="KnownDefectRecorder"/> for the scenario.
+        /// </summary>
+        /// <remarks>
+        /// The recorder is scenario scoped so that the defects reported at the end of a scenario
+        /// only relate to that scenario.
+        /// </remarks>
+        [BeforeScenario(Order = 0)]
+        public void RegisterKnownDefectRecorder()
+        {
+            this.objectContainer.RegisterInstanceAs(
+                new KnownDefectRecorder(this.objectContainer.Resolve<IReqnrollOutputHelper>()));
+        }
+
+        /// <summary>
         /// Sets up the Power Playwright instance for the scenario.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>

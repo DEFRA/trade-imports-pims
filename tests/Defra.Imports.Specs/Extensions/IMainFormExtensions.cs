@@ -50,6 +50,97 @@
         }
 
         /// <summary>
+        /// Opens a tab on the form, matching the tab name exactly.
+        /// </summary>
+        /// <param name="mainForm">The main form.</param>
+        /// <param name="tabName">The tab name.</param>
+        /// <returns>A <see cref="Task"/> representing an asynchronous operation.</returns>
+        public static async Task OpenTabByExactNameAsync(this IMainForm mainForm, string tabName)
+        {
+            await mainForm.Container.Page.WaitForAppIdleAsync();
+
+            var tab = mainForm.Container
+                .GetByRole(AriaRole.Tab, new LocatorGetByRoleOptions { Name = tabName, Exact = true })
+                .First;
+
+            // The form renders its tab list progressively, so poll rather than checking once.
+            // A tab that is not on the tab strip may still be reachable via the overflow ("...") menu.
+            const int MaxAttempts = 15;
+
+            for (var attempt = 0; attempt < MaxAttempts; attempt++)
+            {
+                if (await tab.IsVisibleAsync())
+                {
+                    await tab.ClickAsync();
+                    await mainForm.Container.Page.WaitForAppIdleAsync();
+
+                    return;
+                }
+
+                var overflow = await GetTabOverflowButtonAsync(mainForm);
+
+                if (overflow != null)
+                {
+                    await overflow.ClickAsync();
+                    await mainForm.Container.Page.WaitForAppIdleAsync();
+
+                    var flyoutItem = mainForm.Container.Page
+                        .GetByRole(AriaRole.Menuitem, new PageGetByRoleOptions { Name = tabName })
+                        .First;
+
+                    if (await flyoutItem.IsVisibleAsync())
+                    {
+                        await flyoutItem.ClickAsync();
+                        await mainForm.Container.Page.WaitForAppIdleAsync();
+
+                        return;
+                    }
+
+                    // Close the flyout again so the next attempt starts from a clean state.
+                    await mainForm.Container.Page.Keyboard.PressAsync("Escape");
+                }
+
+                await mainForm.Container.Page.WaitForTimeoutAsync(1000);
+            }
+
+            var available = await mainForm.Container.GetByRole(AriaRole.Tab).AllTextContentsAsync();
+
+            throw new InvalidOperationException(
+                $"Unable to find a tab named '{tabName}' on the form. Tabs actually rendered: [{string.Join(" | ", available)}].");
+        }
+
+        /// <summary>
+        /// Gets the tab list overflow ("...") button, or null when every tab fits on the tab strip.
+        /// </summary>
+        /// <param name="mainForm">The main form.</param>
+        /// <returns>A <see cref="Task"/> representing an asynchronous operation.</returns>
+        private static async Task<ILocator> GetTabOverflowButtonAsync(IMainForm mainForm)
+        {
+            var candidates = new[]
+            {
+                "[data-id='tablist-overflowButton']",
+                "[data-id='moreTabsButton']",
+                "[id*='tablist-overflowButton']",
+                "button[aria-label='More tabs']",
+                "[role='tab'][aria-haspopup='true']",
+                "[role='tablist'] [aria-label*='More']",
+                "[role='tablist'] button[title*='More']",
+            };
+
+            foreach (var candidate in candidates)
+            {
+                var locator = mainForm.Container.Locator(candidate).First;
+
+                if (await locator.IsVisibleAsync())
+                {
+                    return locator;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Gets a related grid on the form.
         /// </summary>
         /// <param name="mainForm">The main form.</param>

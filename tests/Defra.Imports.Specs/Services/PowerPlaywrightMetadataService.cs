@@ -183,14 +183,21 @@
         {
             var customControlName = this.formMetadataSvc.GetCustomControlTypeName(formId, columnName);
 
-            if (string.IsNullOrEmpty(customControlName))
+            if (!string.IsNullOrEmpty(customControlName))
             {
-                return this.GetPowerPlaywrightControlClass(
-                    this.formMetadataSvc.GetTableLogicalNameByFormId(formId),
-                    columnName);
+                var customControlType = this.FindControlType(customControlName);
+
+                if (customControlType != null)
+                {
+                    return customControlType;
+                }
             }
 
-            return this.FindControlType(customControlName);
+            // The control is either not a custom control, or is one for which no page object is
+            // available. Fall back to the control implied by the column type.
+            return this.GetPowerPlaywrightControlClass(
+                this.formMetadataSvc.GetTableLogicalNameByFormId(formId),
+                columnName);
         }
 
         private Type FindControlType(string controlTypeName)
@@ -209,9 +216,11 @@
             var dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             return assemblyFiles
-                .SelectMany(assemblyFile =>
+                .Select(assemblyFile => Path.Combine(dir, assemblyFile))
+                .Where(File.Exists)
+                .SelectMany(assemblyPath =>
                 {
-                    var assembly = Assembly.LoadFrom(Path.Combine(dir, assemblyFile));
+                    var assembly = Assembly.LoadFrom(assemblyPath);
                     return assembly
                         .GetTypes()
                         .SelectMany(t => t.GetCustomAttributes<PcfControlAttribute>()

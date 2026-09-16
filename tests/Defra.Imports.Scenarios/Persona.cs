@@ -5,5 +5,6 @@
     /// </summary>
     public enum Persona
     {
+        EuImportsCaseworker = 0,
     }
 }
