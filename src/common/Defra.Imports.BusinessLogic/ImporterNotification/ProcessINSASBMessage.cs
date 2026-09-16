@@ -255,6 +255,37 @@
             return ordered.FirstOrDefault(predicate);
         }
 
+        private static int? GetNumberOfAnimals(IncludedTradeLineItem lineItem)
+        {
+            return lineItem.SpecifiedLineTradeDelivery != null && lineItem.SpecifiedLineTradeDelivery.Length > 0
+                ? lineItem.SpecifiedLineTradeDelivery[0]?.ProductUnitQuantity?.Content
+                : null;
+        }
+
+        private static string FormatNumberOfAnimals(int? numberOfAnimals)
+        {
+            return numberOfAnimals.HasValue ? numberOfAnimals.Value.ToString(CultureInfo.InvariantCulture) : null;
+        }
+
+        private static int? GetNumberOfPackages(IncludedTradeLineItem lineItem)
+        {
+            return lineItem.PhysicalReferencedLogisticsPackage != null && lineItem.PhysicalReferencedLogisticsPackage.Length > 0
+                ? lineItem.PhysicalReferencedLogisticsPackage[0]?.ItemQuantity
+                : null;
+        }
+
+        private static string GetCommodityId(IncludedTradeLineItem lineItem)
+        {
+            return lineItem.ApplicableClassification?.Length > 0 ? lineItem.ApplicableClassification[0]?.ClassCode?.Value : null;
+        }
+
+        private static string GetCommodityDescription(IncludedTradeLineItem lineItem)
+        {
+            return lineItem.Description != null && lineItem.Description.Length > 0
+                ? string.Join(", ", lineItem.Description)
+                : null;
+        }
+
         private Tuple<bool, string> TryUpdateExisting(defraimp_ImporterNotification existing, INSObject insObject)
         {
             var identifier = insObject.Data.ExchangedDocument.Identifier;
@@ -263,6 +294,9 @@
             {
                 this.PopulateImporterNotificationFields(existing, insObject, true);
                 this.orgSvc.Update(existing);
+                this.DeleteExistingConsignmentItems(existing);
+                this.ApplyConsignmentItemDetails(existing, insObject.Data?.SpecifiedConsignment?.IncludedConsignmentItem);
+
                 var successMessage = $"Importer Notification with Name: {identifier} updated successfully.";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
                 return Tuple.Create(true, successMessage);
@@ -299,6 +333,9 @@
             {
                 this.PopulateImporterNotificationFields(existing, insObject, true);
                 this.orgSvc.Update(existing);
+                this.DeleteExistingConsignmentItems(existing);
+                this.ApplyConsignmentItemDetails(existing, insObject.Data?.SpecifiedConsignment?.IncludedConsignmentItem);
+
                 var successMessage = $"Importer Notification with Name: {identifier} updated successfully based on last updated date.";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
                 return Tuple.Create(true, successMessage);
@@ -317,7 +354,11 @@
 
             if (newNotification.defraimp_status != defraimp_importernotificationstatus.Draft)
             {
-                this.orgSvc.Create(newNotification);
+                var importerNotificationId = this.orgSvc.Create(newNotification);
+                newNotification.Id = importerNotificationId;
+
+                this.ApplyConsignmentItemDetails(newNotification, insObject.Data?.SpecifiedConsignment?.IncludedConsignmentItem);
+
                 var successMessage = $"Importer Notification with Name: {identifier} created successfully.";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
                 return Tuple.Create(true, successMessage);
@@ -715,6 +756,72 @@
                 importerNotification.defraimp_personresponsiblename = contact.PersonName;
                 importerNotification.defraimp_personresponsibleemail = contact.EmailURIUniversalCommunication;
                 importerNotification.defraimp_personresponsiblephone = contact.TelephoneUniversalCommunication;
+            }
+        }
+
+        private void ApplyConsignmentItemDetails(defraimp_ImporterNotification importerNotification, IncludedConsignmentItem[] includedConsignmentItem)
+        {
+            if (importerNotification == null || importerNotification.Id == Guid.Empty)
+            {
+                return;
+            }
+
+            if (includedConsignmentItem == null || includedConsignmentItem.Length == 0)
+            {
+                return;
+            }
+
+            foreach (var consignmentItem in includedConsignmentItem)
+            {
+                this.ApplyTradeLineItemDetails(importerNotification, consignmentItem?.IncludedTradeLineItem);
+            }
+        }
+
+        private void ApplyTradeLineItemDetails(defraimp_ImporterNotification importerNotification, IncludedTradeLineItem[] includedTradeLineItem)
+        {
+            if (includedTradeLineItem == null || includedTradeLineItem.Length == 0)
+            {
+                return;
+            }
+
+            foreach (var lineItem in includedTradeLineItem)
+            {
+                if (lineItem == null)
+                {
+                    continue;
+                }
+
+                var commodityComplement = this.BuildCommodityComplement(importerNotification, lineItem);
+                this.orgSvc.Create(commodityComplement);
+            }
+        }
+
+        private defraimp_commoditycomplement BuildCommodityComplement(defraimp_ImporterNotification importerNotification, IncludedTradeLineItem lineItem)
+        {
+            return new defraimp_commoditycomplement
+            {
+                defraimp_ImporterNotificationId = importerNotification.ToEntityReference(),
+                defraimp_NumberofAnimals = FormatNumberOfAnimals(GetNumberOfAnimals(lineItem)),
+                defraimp_NumberofPackages = GetNumberOfPackages(lineItem),
+                defraimp_name = lineItem.ScientificName,
+                defraimp_commodityid = GetCommodityId(lineItem),
+                defraimp_commoditydescription = GetCommodityDescription(lineItem),
+                defraimp_speciesname = lineItem.ScientificName,
+                defraimp_speciescommonname = lineItem.CommonName,
+            };
+        }
+
+        private void DeleteExistingConsignmentItems(defraimp_ImporterNotification existing)
+        {
+            var query = new QueryExpression(defraimp_commoditycomplement.EntityLogicalName);
+            query.Criteria.AddCondition(new ConditionExpression(defraimp_commoditycomplement.Fields.defraimp_ImporterNotificationId, ConditionOperator.Equal, existing.Id));
+            query.ColumnSet = new ColumnSet();
+
+            var results = this.orgSvc.RetrieveMultiple(query);
+
+            foreach (var commodity in results.Entities)
+            {
+                this.orgSvc.Delete(defraimp_commoditycomplement.EntityLogicalName, commodity.Id);
             }
         }
 
