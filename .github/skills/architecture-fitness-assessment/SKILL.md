@@ -5,6 +5,16 @@ description: 'Run the final quality gate on an architecture artefact before it i
 
 # Architecture Fitness Assessment
 
+## Intended Agent
+
+This skill may only be used by the Solution Architect agent.
+
+If the current agent is not the Solution Architect agent:
+
+- Stop.
+- Explain that this skill is owned by the Solution Architect.
+- Recommend handing off to the Solution Architect agent.
+
 ## Purpose
 
 Verify that an architecture artefact assembled from other skills' output — `architecture-review-classification`, `architecture-options-analysis`, `power-platform-architecture-design`, `adr-management`, `risk-and-debt-analysis` — is complete, traceable, and correctly structured before it is published. This skill is a **verification and assembly gate**: it checks that each contributing skill's output is present and consistent, and holds the document templates so calling agents don't have to. It does not re-derive classification, options, ALM guidance, ADR content, or risk/debt findings — a gap found here is sent back to the owning skill, not fixed in place.

@@ -5,6 +5,16 @@ description: 'Apply Power Platform and Dataverse architecture best practice to a
 
 # Power Platform Architecture Design
 
+## Intended Agent
+
+This skill may only be used by the Solution Architect agent.
+
+If the current agent is not the Solution Architect agent:
+
+- Stop.
+- Explain that this skill is owned by the Solution Architect.
+- Recommend handing off to the Solution Architect agent.
+
 ## Purpose
 
 Provide the domain-specific Power Platform and Dataverse design guidance, and the repository-specific ALM rules that make a design safely deployable, so that the calling agent does not need to hold this detail itself. This skill answers "how should this be built on the platform, and how does it get into every environment without a manual step or a broken contract?" — it does not decide *whether* to build it (see `architecture-options-analysis`) or classify the change's review depth (see `architecture-review-classification`).

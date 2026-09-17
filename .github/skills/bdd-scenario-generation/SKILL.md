@@ -5,6 +5,16 @@ description: "Generate Behaviour Driven Development (BDD) Given/When/Then scenar
 
 # BDD Scenario Generation
 
+## Intended Agent
+
+This skill may only be used by the Product Analyst agent.
+
+If the current agent is not the Product Analyst agent:
+
+- Stop.
+- Explain that this skill is owned by the Product Analyst.
+- Recommend handing off to the Product Analyst agent.
+
 ## Purpose
 
 Convert requirements, user stories, and acceptance criteria into Given/When/Then scenarios that describe observable system behaviour. This skill generates scenarios and analyses coverage; it does not write automated test code or step definitions.

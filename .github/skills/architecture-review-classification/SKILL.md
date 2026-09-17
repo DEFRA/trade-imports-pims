@@ -5,6 +5,16 @@ description: 'Classify a requirement (Epic/Feature/User Story) or a proposed des
 
 # Architecture Review Classification
 
+## Intended Agent
+
+This skill may only be used by the Solution Architect agent.
+
+If the current agent is not the Solution Architect agent:
+
+- Stop.
+- Explain that this skill is owned by the Solution Architect.
+- Recommend handing off to the Solution Architect agent.
+
 ## Purpose
 
 Determine, before any architecture artefact is produced, whether a requirement or design change fits an existing approved pattern, extends one, or requires a new pattern — and how much analytical depth and documentation is proportionate to it. This prevents both under-analysis of strategic change and over-documentation of routine, pattern-conformant work.

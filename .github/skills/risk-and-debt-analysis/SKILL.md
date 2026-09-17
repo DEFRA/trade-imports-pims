@@ -5,6 +5,16 @@ description: 'Assess non-functional requirement (NFR) coverage across all 12 cat
 
 # Risk and Debt Analysis
 
+## Intended Agent
+
+This skill may only be used by the Solution Architect agent.
+
+If the current agent is not the Solution Architect agent:
+
+- Stop.
+- Explain that this skill is owned by the Solution Architect.
+- Recommend handing off to the Solution Architect agent.
+
 ## Purpose
 
 Make the NFR coverage, risk exposure, and technical/architecture debt of a design explicit and classified, so they are governed rather than discovered later.

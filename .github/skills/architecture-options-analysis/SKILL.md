@@ -5,6 +5,16 @@ description: 'Evaluate multiple design options for a non-trivial architectural d
 
 # Architecture Options Analysis
 
+## Intended Agent
+
+This skill may only be used by the Solution Architect agent.
+
+If the current agent is not the Solution Architect agent:
+
+- Stop.
+- Explain that this skill is owned by the Solution Architect.
+- Recommend handing off to the Solution Architect agent.
+
 ## Purpose
 
 Ensure every non-trivial architectural decision results from genuine option evaluation, with trade-offs, reuse implications, and confidence made explicit, rather than a single assumed approach. This skill produces the structured recommendation content that other artefacts (ADRs, SADs, Architecture Review Summaries) reference or embed — it does not decide governance status (see `adr-management`), classify review depth (see `architecture-review-classification`), or perform full NFR/risk/debt analysis (see `risk-and-debt-analysis`).

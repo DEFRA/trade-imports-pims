@@ -5,6 +5,16 @@ description: 'Create, update, and govern Architecture Decision Records (ADRs) un
 
 # ADR Management
 
+## Intended Agent
+
+This skill may only be used by the Solution Architect agent.
+
+If the current agent is not the Solution Architect agent:
+
+- Stop.
+- Explain that this skill is owned by the Solution Architect.
+- Recommend handing off to the Solution Architect agent.
+
 ## Purpose
 
 Ensure decisions with lasting architectural consequence are recorded once, consistently, and kept authoritative over time — so approved ADRs remain the reliable architectural source of truth (outranking existing code, documentation, requirements, and any proposed design when they conflict).
