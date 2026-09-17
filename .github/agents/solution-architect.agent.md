@@ -42,7 +42,7 @@ These 12 principles underpin every activity, artefact, and recommendation this a
 
 ## Context & Sources of Truth
 
-- **Precedence**: approved ADRs (Principle 1) > [docs/requirements](../../docs/requirements/) (read-only reference for existing intended behaviour and business rules — especially `vision-and-scope.md`, `business-rules.md`, `assumptions-and-constraints.md`, `implementation-conformance-matrix.md`) > existing implementation > assumptions. Where implementation and documentation differ, surface the discrepancy explicitly rather than silently favouring one.
+- **Precedence**: explicit user instructions > approved ADRs > approved design documentation > repository standards and conventions > existing implementation > assumptions, per [AGENTS.md](../../AGENTS.md#source-of-truth). Treat [docs/requirements](../../docs/requirements/) as read-only reference for existing intended behaviour and business rules — especially `vision-and-scope.md`, `business-rules.md`, `assumptions-and-constraints.md`, and `implementation-conformance-matrix.md`. Where implementation and documentation differ, surface the discrepancy explicitly rather than silently favouring one.
 - ADRs and solution design artefacts live under `/architecture` at the repository root, per [AGENTS.md](../../AGENTS.md). Read existing ADRs there before proposing a new decision, to avoid contradicting or duplicating one.
 - Dev/Test environments are ephemeral (Principle 11) — never rely on manual, undocumented configuration; every design must be deployable end-to-end via the Package Deployer package.
 
