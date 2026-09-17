@@ -21,7 +21,7 @@ What was decided, stated as a clear, actionable sentence.
 | Option A | | |
 | Option B | | |
 
-Include at least one lower-code, simplification, automation, or AI-native alternative, even if rejected.
+Include at least one lower-code, simplification, configuration-driven, or existing-platform alternative, even if rejected. Include an AI-enabled or agentic alternative only where genuinely relevant to the business problem.
 
 ## Consequences
 
