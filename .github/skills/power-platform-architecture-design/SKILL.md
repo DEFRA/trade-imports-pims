@@ -19,18 +19,26 @@ Use this skill whenever a design:
 - Changes or retires an existing component that other solutions, flows, or integrations may depend on.
 - Touches security model, environment/tenant strategy, Copilot Studio, Power Pages, or licensing.
 
+## Expected Inputs
+
+- The requirement or proposed design, and its Review Level/Complexity classification from `architecture-review-classification` (to gauge how much platform-guidance depth is proportionate).
+- The existing Dataverse schema, flows, plug-ins, connectors, and integrations in the affected area, to support reuse-before-create.
+- Where the design changes or retires a component, its known consumers/dependents.
+- Any options already selected by `architecture-options-analysis` that need Power Platform-specific placement or ALM guidance applied.
+
 ## Responsibilities
 
 ### Component placement (Dataverse-first design)
 
+- Reuse or extend an existing table/flow/integration/API/plug-in/connector before proposing a new one; justify why a new component is required when one is proposed.
 - Prefer Dataverse-native, declarative, low-code capabilities (workflows, actions, business process flows, cloud flows) over plug-ins, custom code, external services, custom databases, or additional integration platforms; introduce these only when the platform cannot reasonably satisfy the requirement.
 - Cloud flows have no synchronous equivalent. For synchronous, server-side logic, apply this hierarchy: table-scoped business rules → real-time workflows → actions/custom workflow activities → plug-ins. Use custom workflow activities where reusable input/output behaviour is required; use plug-ins only where earlier options cannot satisfy the requirement (e.g. to augment a managed action).
 - Decompose high-level, end-to-end processes into their constituent rules/processes/actions rather than a single monolithic flow or workflow, so cross-cutting behaviours (e.g. validation) apply consistently wherever the underlying data or action is used.
-- Review existing tables/flows/integrations/APIs/plug-ins/connectors for reuse or extension before proposing a new one, and justify why a new component is required when one is proposed.
+- Design for reuse with configuration tables over hard-coded behaviour, environment variables over environment-specific customisation, reusable cloud flows over duplicated logic, and Custom APIs for reusable service boundaries. Discourage large plug-in frameworks, generic processing engines, excessive abstraction layers, bespoke orchestration platforms, and reusable infrastructure built solely for hypothetical future requirements.
 
 ### Power Platform architecture guidance
 
-State which of the following are relevant to the requirement at hand, and apply them:
+State which of the following are relevant to the requirement at hand, and apply them; state explicitly which are not relevant, and why:
 
 - **Dataverse design** — entity modelling, relationships, choices/option sets, calculated/rollup fields; avoid unnecessary customisation of shared/out-of-the-box entities.
 - **Security model design** — business units, security roles, teams, column-level security, least-privilege access.
@@ -41,7 +49,6 @@ State which of the following are relevant to the requirement at hand, and apply 
 - **Power Pages** — external-facing security, authentication, and content model impact where applicable.
 - **Licensing impact analysis** — licence/entitlement consequences (per-user, per-app, premium connectors, add-on capacity).
 - **Capacity and scale** — API limits, storage capacity, throughput implications.
-- **Reusable design patterns** — encourage configuration tables over hard-coded behaviour, environment variables over environment-specific customisation, reusable cloud flows over duplicated logic, Custom APIs for reusable service boundaries. Discourage large plug-in frameworks, generic processing engines, excessive abstraction layers, bespoke orchestration platforms, and reusable infrastructure built solely for hypothetical future requirements.
 
 ### Reference and configuration data migration (repository-specific)
 
@@ -64,11 +71,11 @@ This repository builds and evolves **to contract**: never break an existing inte
 
 ## Workflow
 
-1. Identify which of the guidance areas above are relevant to the requirement; state explicitly which are not and why.
+1. Identify which guidance areas above are relevant to the requirement; state explicitly which are not, and why.
 2. Apply reuse-before-create and Dataverse-first component placement.
 3. Where a new configuration/reference record is introduced, define its ALM path per **Reference and configuration data migration**.
 4. Where an existing component is changed or retired, apply **Non-breaking change and deprecation management** and update `architecture/deprecated-components.md`.
-5. Summarise the applicable guidance, the placement decision, and the ALM/deprecation mechanism as an **ALM Considerations** block for inclusion in the calling agent's SAD/ADR/solution design.
+5. Summarise the applicable guidance, the placement decision, and the ALM/deprecation mechanism as an **ALM Considerations** block for inclusion in the calling agent's SAD/solution design. Where the placement decision itself has lasting consequence (e.g. a new pattern, a plug-in introduced to augment a managed action), flag it back to the calling agent for recording via `adr-management`.
 
 ## Output Standards
 
@@ -76,6 +83,7 @@ Produce an **ALM Considerations** block covering: solution boundaries, managed v
 
 ## Escalation Guidance
 
-- Treat any design that would rely on a manual, undocumented post-deployment step as a blocking gap — escalate for redesign rather than presenting the design as complete.
-- Escalate proposed deletions that still have unresolved dependents rather than proceeding to mark them obsolete.
-- Escalate requirements that conflict with Dataverse-first/reuse-first principles for a compliant alternative, rejection, deferral, or redesign decision.
+- **Manual/undocumented deployment steps** — never accept as the resolution (see Reference and configuration data migration); flag as a blocking risk requiring redesign.
+- **Unresolved dependents on a proposed deletion** — never mark obsolete until resolved (see Non-breaking change and deprecation management); escalate rather than proceeding.
+- **Conflicts with Dataverse-first/reuse-first principles** — surface for a compliant alternative, rejection, deferral, or redesign decision rather than silently overriding the principle.
+

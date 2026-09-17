@@ -9,7 +9,9 @@ description: 'Classify a requirement (Epic/Feature/User Story) or a proposed des
 
 Determine, before any architecture artefact is produced, whether a requirement or design change fits an existing approved pattern, extends one, or requires a new pattern — and how much analytical depth and documentation is proportionate to it. This prevents both under-analysis of strategic change and over-documentation of routine, pattern-conformant work.
 
-This skill performs **classification only**. It does not evaluate design options (see `architecture-options-analysis`), write ADRs (see `adr-management`), or assess risk/debt (see `risk-and-debt-analysis`) — it tells the calling agent how much of those activities to perform.
+## Boundaries
+
+This skill **classifies only**. It does not evaluate design options (`architecture-options-analysis`), write ADRs (`adr-management`), or assess risk/debt (`risk-and-debt-analysis`) — its output tells the calling agent which of those activities to invoke, and at what depth.
 
 ## Trigger Conditions
 
@@ -25,16 +27,17 @@ Use this skill whenever:
 - Any existing ADRs and architecture artefacts under `/architecture` relevant to the affected area.
 - Awareness of existing solutions, tables, flows, plug-ins, and connectors that may already implement a similar pattern.
 
-## Responsibilities
+## Process
 
-1. **Pattern-fit triage** — state explicitly whether the requirement:
+1. **Gather context** — read the requirement/change description and search `/architecture` and `/architecture/adr` for governing patterns.
+2. **Pattern-fit triage** — state whether the requirement:
    - (a) **Fits** an existing approved pattern/ADR,
    - (b) **Extends** an existing approved pattern, or
    - (c) **Requires** a new pattern or ADR.
 
    Where an approved ADR already governs the area, treat it as the architectural source of truth and check the requirement against it rather than designing independently.
 
-2. **Classify Architecture Review Level:**
+3. **Classify Architecture Review Level** using the table below:
 
    | Level | Fits when… | Expected output |
    |---|---|---|
@@ -42,20 +45,20 @@ Use this skill whenever:
    | **2 – Pattern Extension** | Extends an existing approved pattern but stays consistent with direction; moderate design considerations; limited security/operational/integration/ALM/licensing impact | Targeted architecture assessment; ADR update or new ADR where justified; only the design artefacts necessary to communicate the change |
    | **3 – New Pattern / Strategic Change** | Introduces a new pattern, materially affects solution direction, or has significant cross-solution impact; significant integration/security/ALM/operational/licensing implications; strategic consequences | Full architecture assessment; ADR creation; SAD and supporting artefacts where justified |
 
-3. **Classify Architecture Complexity** as **Low / Medium / High / Strategic**, based on: number of systems affected, security impact, integration complexity, licensing impact, ALM impact, operational impact, cross-solution impact, data model impact, and architectural novelty.
+4. **Classify Architecture Complexity** as **Low / Medium / High / Strategic**, based on:
+   - Number of systems affected
+   - Security impact
+   - Integration complexity
+   - Licensing impact
+   - ALM impact
+   - Operational impact
+   - Cross-solution impact
+   - Data model impact
+   - Architectural novelty
 
-4. **Reconcile mismatches** — a low Review Level with unexpectedly high Complexity (or vice versa) is a signal to reconsider the classification before proceeding; state the reconciled classification and why.
+5. **Reconcile mismatches** — a low Review Level with unexpectedly high Complexity (or vice versa) is a signal to reconsider the classification before proceeding; state the reconciled classification and why.
 
-5. **Recommend the proportionate artefact set** for the calling agent to produce (e.g. "Level 1/Low → Architecture Review Summary only; no ADR"), so downstream skills (`adr-management`, `architecture-fitness-assessment`) are invoked at the right depth, not by default.
-
-## Workflow
-
-1. Gather the requirement/change description and search `/architecture` and `/architecture/adr` for governing patterns.
-2. Perform pattern-fit triage (fits / extends / new).
-3. Classify Review Level using the table above.
-4. Classify Complexity across the nine factors.
-5. Reconcile any mismatch between Level and Complexity.
-6. Output the classification with rationale and the recommended artefact set.
+6. **Recommend the proportionate artefact set** for the calling agent to produce (e.g. "Level 1/Low → Architecture Review Summary only; no ADR"), so downstream skills (`adr-management`, `architecture-fitness-assessment`) are invoked at the right depth, not by default.
 
 ## Output Standards
 

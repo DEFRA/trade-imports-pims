@@ -1,13 +1,13 @@
 ---
 name: architecture-options-analysis
-description: 'Evaluate multiple design options for a non-trivial architectural decision — including at least one lower-code/simplification/configuration-driven/existing-platform alternative, and an AI-enabled or agentic alternative only where genuinely relevant — and produce a structured, trade-off-explicit architectural recommendation with an assessed Decision Confidence. Also assesses whether a capability should be reusable, an extension of an existing reusable capability, or requirement-specific. Use whenever a design decision needs options considered rather than a single option presented as a foregone conclusion. Reusable by any architecture-focused agent producing recommendations, SADs, or ADR content.'
+description: 'Evaluate multiple design options for a non-trivial architectural decision and produce a structured, trade-off-explicit recommendation with an assessed Decision Confidence and a reuse assessment (reusable capability, extension, or requirement-specific). Use whenever a design decision at Review Level 2 or 3 needs genuine options considered rather than a single assumed approach presented as a foregone conclusion. Reusable by any architecture-focused agent producing recommendations, SADs, or ADR content.'
 ---
 
 # Architecture Options Analysis
 
 ## Purpose
 
-Ensure every non-trivial architectural decision is the result of genuine option evaluation rather than a single assumed approach, with trade-offs, reuse implications, and confidence made explicit. This skill produces the structured recommendation content that other skills/artefacts (ADRs, SADs, Architecture Review Summaries) then reference or embed — it does not itself decide governance status (see `adr-management`) or classify review depth (see `architecture-review-classification`).
+Ensure every non-trivial architectural decision results from genuine option evaluation, with trade-offs, reuse implications, and confidence made explicit, rather than a single assumed approach. This skill produces the structured recommendation content that other artefacts (ADRs, SADs, Architecture Review Summaries) reference or embed — it does not decide governance status (see `adr-management`), classify review depth (see `architecture-review-classification`), or perform full NFR/risk/debt analysis (see `risk-and-debt-analysis`).
 
 ## Trigger Conditions
 
@@ -15,24 +15,26 @@ Use this skill whenever:
 
 - A design decision has more than one plausible implementation approach.
 - A requirement could be met by a new component, an extension of an existing one, or a configuration change.
-- A recommendation is about to be written into an ADR, SAD, or Architecture Review Summary and does not yet have documented alternatives, trade-offs, or a confidence rating.
+- A recommendation is about to be written into an ADR, SAD, or Architecture Review Summary without documented alternatives, trade-offs, or a confidence rating.
+
+**Skip or scale down for Level 1 (Pattern Conformance)** changes per `architecture-review-classification` — where an existing approved pattern/ADR already answers the question, restate that pattern rather than re-deriving options from scratch. If pattern-fit triage found a governing ADR, treat its original option evaluation as prior art and only re-evaluate what has materially changed.
 
 ## Expected Inputs
 
 - The requirement/problem statement and its acceptance criteria.
 - The Architecture Review Level/Complexity classification from `architecture-review-classification` (to scale how many options and how much depth is proportionate).
+- Any governing ADR identified by pattern-fit triage, and its original option evaluation.
 - Knowledge of existing components, patterns, and platform capabilities available for reuse.
 
 ## Responsibilities
 
-1. **Challenge the first idea.** Treat the assumed or most obvious approach as one option among several, not a foregone conclusion.
-2. **Enumerate options**, including:
+1. **Enumerate options**, treating the obvious/assumed approach as one candidate among several rather than a foregone conclusion. Include at minimum:
    - At least one lower-code / simplification / configuration-driven / existing-platform alternative.
    - An AI-enabled or agentic alternative **only** where genuinely relevant to the business problem, with clear business/operational/economic justification — never merely to appear thorough.
-3. **Evaluate each option** against: governance fit, security, scalability, maintainability, supportability, licensing, cost, and technical debt implications.
-4. **Assess reusability** for each option under consideration — whether it should be a reusable platform service, an extension of an existing reusable capability, a configuration-driven process, or a requirement-specific implementation. Prefer configuration-driven reuse (configuration tables, environment variables, parameterised flows) over framework-driven reuse (bespoke generic engines, plug-in frameworks). Avoid speculative frameworks, abstractions, or extensibility built solely for hypothetical future requirements — reusable design must be justified by a reasonable expectation of future value, not mere possibility.
-5. **Select and justify** the recommended option, documenting what is gained and given up relative to the alternatives.
-6. **Assess Decision Confidence** for the recommendation:
+2. **Evaluate each option** as a comparative lens for choosing between them — governance fit, security, scalability, maintainability, supportability, licensing, cost, and technical debt implications. This is a lighter-weight comparison to inform the choice, not a substitute for the full NFR assessment and risk register produced by `risk-and-debt-analysis`.
+3. **Assess reusability** for each option — whether it should be a reusable platform service, an extension of an existing reusable capability, or a requirement-specific implementation. Prefer configuration-driven reuse over framework-driven reuse (bespoke generic engines, plug-in frameworks), and justify reusable design by a reasonable expectation of future value rather than mere possibility — never build speculative frameworks or abstractions for hypothetical future requirements alone. (Platform-specific reuse patterns, e.g. for Power Platform, are detailed in `power-platform-architecture-design`.)
+4. **Select and justify** the recommended option, documenting what is gained and given up relative to the alternatives.
+5. **Assess Decision Confidence** for the recommendation:
    - **High** — validated requirements, established patterns, approved ADRs, sufficient repository context, minimal material uncertainty.
    - **Medium** — sound but relies on one or more assumptions, incomplete information, or areas requiring validation during delivery.
    - **Low** — significant requirements gaps, architectural unknowns, external dependencies, or unresolved decisions materially affect confidence.
@@ -41,10 +43,10 @@ Use this skill whenever:
 
 ## Workflow
 
-1. Confirm the Review Level/Complexity classification (from `architecture-review-classification`) to gauge how many options and how much rigour is proportionate.
-2. List the candidate options (minimum: the obvious approach, a lower-code/configuration-driven alternative, and — where relevant — an AI/agentic alternative).
-3. Evaluate each option against the criteria in Responsibility 3.
-4. For each option, assess the reuse dimension (Responsibility 4).
+1. Confirm the Review Level/Complexity classification; for Level 1, restate the governing pattern instead of running this workflow.
+2. List candidate options (minimum: the obvious approach, a lower-code/configuration-driven alternative, and — where relevant — an AI/agentic alternative), reusing any prior ADR evaluation as a starting point.
+3. Evaluate each option against the criteria in Responsibility 2.
+4. Assess the reuse dimension for each option (Responsibility 3).
 5. Select the recommended option and document the trade-off rationale.
 6. Assign and justify the Decision Confidence rating.
 
@@ -69,3 +71,4 @@ Where reuse was assessed, additionally state: why reuse is valuable in this case
 
 - Where information needed to evaluate an option is absent, do not invent requirements — document the assumption/constraint/open question and flag the gap back to the calling agent (which routes it to the Product Analyst if it is a requirements gap).
 - Escalate Medium/Low confidence recommendations to stakeholders or the Product Analyst rather than proceeding as if the decision were settled.
+- If pattern-fit triage surfaces a conflict between a candidate option and an existing approved ADR, surface it explicitly rather than silently favouring the new option.

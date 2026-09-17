@@ -7,48 +7,45 @@ description: 'Run the final quality gate on an architecture artefact before it i
 
 ## Purpose
 
-Confirm that an architecture artefact produced by combining the outputs of other skills (`architecture-review-classification`, `architecture-options-analysis`, `power-platform-architecture-design`, `adr-management`, `risk-and-debt-analysis`) is complete, internally consistent, traceable, and structured to the repository's expected artefact templates before it is published. This skill is the single place document-assembly standards live, so calling agents do not need to hold document templates themselves — it does not perform the underlying architectural reasoning, only verifies and assembles it.
+Verify that an architecture artefact assembled from other skills' output — `architecture-review-classification`, `architecture-options-analysis`, `power-platform-architecture-design`, `adr-management`, `risk-and-debt-analysis` — is complete, traceable, and correctly structured before it is published. This skill is a **verification and assembly gate**: it checks that each contributing skill's output is present and consistent, and holds the document templates so calling agents don't have to. It does not re-derive classification, options, ALM guidance, ADR content, or risk/debt findings — a gap found here is sent back to the owning skill, not fixed in place.
 
 ## Trigger Conditions
 
-Use this skill:
-
-- Before finalising or publishing any SAD, solution design, ADR, Design Review Report, Architecture Review Summary, or Operational Support Model.
-- Before linking an architecture artefact back to a work item.
-- When assembling the outputs of multiple other skills into a single stakeholder-facing document.
+Use this skill before finalising, publishing, or linking to a work item any SAD, solution design, ADR, Design Review Report, Architecture Review Summary, or Operational Support Model — i.e. whenever the outputs of multiple other architecture skills are being assembled into one stakeholder-facing document.
 
 ## Expected Inputs
 
-- The draft artefact content and the outputs of the other skills that contributed to it (classification, options analysis, Power Platform/ALM guidance, ADR content, risk/debt content).
+- The draft artefact and the outputs of the skills that contributed to it (classification, options analysis, Power Platform/ALM guidance, ADR content, risk/debt content).
 - The originating work item(s) and their acceptance criteria.
 
 ## Responsibilities
 
-### Architecture Traceability
+### 1. Traceability
 
-Maintain traceability from business objectives to implemented components: Business Objective → Epic → Feature → User Story → Acceptance Criteria → Solution Design/SAD → ADRs → Solution Components.
+Confirm the chain Business Objective → Epic → Feature → User Story → Acceptance Criteria → Solution Design/SAD → ADRs → Solution Components holds:
 
-- Confirm every recommendation, design artefact, ADR, review report, and Architecture Review Summary identifies its originating work item(s) and traces to one or more acceptance criteria.
-- Make explicit where a design influences multiple Epics/Features/User Stories.
+- Every recommendation, ADR, review report, and Architecture Review Summary names its originating work item(s) and the acceptance criteria it satisfies.
+- Where a design influences multiple Epics/Features/User Stories, this is stated explicitly.
 
-### Architecture Fitness checklist
+### 2. Fitness checklist
 
-Before finalising or publishing any output, verify:
+Verify each item below is present and adequately covered — do not re-perform the underlying analysis, only confirm the owning skill's output was applied and return any gap to that skill:
 
-- Alignment with approved ADRs (including whether an existing ADR was reviewed and superseded/updated rather than duplicated), existing architectural principles, and Power Platform guidance.
-- Architecture Review Level and Complexity have been classified and the depth of analysis/artefacts matches them.
-- Reuse opportunities and existing approved patterns have been considered.
-- Acceptance criteria are satisfied and relevant NFRs (including observability) have been addressed.
-- Technical debt and architecture debt have each been identified and classified.
-- Any material divergence between implementation and approved architecture has been recorded, with impact/risk assessed and a remediation path recommended.
-- Licensing, cost, and ALM impact have been assessed — including the migration path for any new configuration/reference record, not left as an implicit manual-creation assumption.
-- The design contains no manual, undocumented deployment/configuration step.
-- No existing contract/integration is broken; any component change/retirement removes dependencies first, marks components obsolete rather than deleting them outright, and updates `architecture/deprecated-components.md`.
-- Operational support requirements and security implications have been considered.
-- Incremental delivery has been considered and the Minimum Viable Implementation identified where appropriate.
-- Recommendation confidence has been assessed and stated for every significant recommendation; assumptions distinguished from facts; validation activities identified where confidence is Medium or Low.
+| Check | Owning skill | Fails when |
+|---|---|---|
+| Review Level and Complexity classified; artefact set/depth matches | `architecture-review-classification` | No classification stated, or artefact depth doesn't match it |
+| Alignment with approved ADRs and existing patterns; reuse considered | `adr-management` / `architecture-options-analysis` | Conflicting ADR not surfaced, or no reuse consideration recorded |
+| Options evaluated with trade-offs and a Decision Confidence on every significant recommendation | `architecture-options-analysis` | A recommendation has no alternatives, rationale, or confidence rating |
+| NFRs (incl. observability) assessed; risk register and debt classifications complete | `risk-and-debt-analysis` | Any NFR category silently omitted, or debt/risk left unclassified |
+| ALM path defined for any new configuration/reference data; no manual/undocumented deployment step | `power-platform-architecture-design` | A new config/reference record has no stated migration mechanism |
+| No broken contract/integration; obsolete components marked (not deleted) and logged in `architecture/deprecated-components.md` | `power-platform-architecture-design` | Unresolved dependents on a retired component, or the log wasn't updated |
+| Operational support and security implications considered | `risk-and-debt-analysis` | Support/security not addressed for a material change |
+| Incremental delivery / Minimum Viable Implementation considered where appropriate | calling agent | No MVI discussion for a multi-stage change |
+| Acceptance criteria satisfied | calling agent | A stated acceptance criterion isn't addressed anywhere in the artefact |
 
-### Document assembly standards
+Any material divergence between implementation and approved architecture must be recorded with impact/risk and a remediation path — do not resolve it silently.
+
+### 3. Document assembly standards
 
 Assemble the verified content into the appropriate standard structure:
 
@@ -66,8 +63,8 @@ Requirement summary and work item link; solution vision and guiding principles (
 ## Workflow
 
 1. Collect the outputs of the contributing skills for the artefact being assembled.
-2. Confirm Architecture Traceability from work item through to solution components.
-3. Work through the Architecture Fitness checklist item by item; do not proceed to publish while any item is unresolved.
+2. Confirm traceability from work item through to solution components (Responsibility 1).
+3. Work through the fitness checklist row by row (Responsibility 2); do not publish while any row is unresolved.
 4. Assemble the content into the correct document structure for the artefact type, scaled to the Review Level/Complexity classification (a Level 1/Low change needs only an Architecture Review Summary, not a full SAD).
 5. State what was included and what was deliberately omitted as disproportionate, and why.
 
