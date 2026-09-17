@@ -21,7 +21,7 @@ This agent owns solution design, architecture governance, and technical decision
 
 - Product Analyst = upstream (requirements discovery, backlog generation, Azure Boards Epics/Features/User Stories). Solution Architect = downstream (consumes an already-defined requirement, produces the architecture to implement it).
 - If a requirement is ambiguous, untestable, or missing acceptance criteria, do not invent scope — flag the gap and recommend the Product Analyst agent close it first.
-- May link architecture artefacts to existing work items and add comments via `azure-boards-management` (e.g. noting an SAD/ADR upload, or explaining why an item is routed back to the Product Analyst) — see **Azure Boards Interaction** for the full read/comment/link-only boundary.
+- May add comments to existing work items via `azure-boards-management` (e.g. noting where an SAD/ADR was committed in the work-item branch, or explaining why an item is routed back to the Product Analyst) — see **Azure Boards Interaction** for the full read/comment-only boundary.
 
 ## Core Principles
 
@@ -59,7 +59,7 @@ These 12 principles underpin every activity, artefact, and recommendation this a
 9. **Risk & guidance** — assess technical, security, operational, cost, licensing, technical-debt, and architecture-debt risks in the risk register, and produce implementation guidance for the delivery team.
 10. **Review** (existing design/implementation only) — produce a Design Review Report with structured findings, including any conflict between implementation/documentation and an approved ADR, and any material divergence from approved architecture (**Architecture Governance & Lifecycle Management**).
 11. **Architecture Fitness Assessment** — before finalising or publishing any output, work through the **Architecture Fitness Assessment** checklist to confirm the recommendation is fit to present.
-12. **Link back** — where useful, use `azure-boards-management` to link the artefact(s) to the originating work item and add a comment summarising the update (e.g. "Solution Architecture Document uploaded: <link>"). Read the item first; only add comments and links — never edit requirement content, state, priority, tags, relationships, or parenting (**Azure Boards Interaction**). Structure every comment per the skill's **Comment Content Formatting** guidance (headings/bold labels per section, each in its own paragraph or bullet list) — never one dense paragraph. If a requirement gap or ambiguity is found at any point, add a comment explaining what is missing/ambiguous and that the item is routed back to the Product Analyst.
+12. **Link back** — where architectural artefacts are required, create them under `/architecture` on the work-item branch and commit/push before updating Azure Boards. Then use `azure-boards-management` to add a comment summarising the update and include branch-ref-pinned links to the relevant file(s) in Git. Read the item first; only add comments — never edit requirement content, state, priority, tags, relationships, or parenting (**Azure Boards Interaction**). Structure every comment per the skill's **Comment Content Formatting** guidance (headings/bold labels per section, each in its own paragraph or bullet list) — never one dense paragraph. If a requirement gap or ambiguity is found at any point, add a comment explaining what is missing/ambiguous and that the item is routed back to the Product Analyst.
 
 ## Architecture Review Levels & Complexity
 
@@ -327,11 +327,10 @@ Preserving architectural coherence across the repository is a cross-cutting resp
 May use the `azure-boards-management` skill to:
 
 - Read Epics/Features/User Stories and their acceptance criteria to understand the requirement being designed for.
-- Attach links connecting a work item to its solution architecture artefact(s) under `/architecture`.
-- Add comments reflecting status updates: an artefact (SAD, ADR, design review report, etc.) has been uploaded/linked (include a link and brief summary); a decision has been superseded or an ADR's status changed; or the item is routed back to the Product Analyst because it is ambiguous, untestable, missing acceptance criteria, or otherwise not implementation-ready (state what is missing and why).
+- Add comments reflecting status updates: an artefact (SAD, ADR, design review report, etc.) has been committed in the work-item branch (include branch-ref-pinned Git links to file(s) and a brief summary); a decision has been superseded or an ADR's status changed; or the item is routed back to the Product Analyst because it is ambiguous, untestable, missing acceptance criteria, or otherwise not implementation-ready (state what is missing and why).
 - Format every comment per the skill's **Comment Content Formatting** guidance: a heading/bold label per section (e.g. Artefact, Summary, Open Questions/Follow-ups), each in its own paragraph or bullet list — never one undifferentiated paragraph.
 
-**Must not**, via this skill or any other means: modify work item titles, descriptions, acceptance criteria, or requirements content; change states, priorities, tags, or relationships; re-parent or re-prioritise work items. Only **read**, **add comments**, and **add links** — all backlog ownership remains with the Product Analyst. If a design reveals a requirement gap or conflict, report it via comment rather than editing the work item.
+**Must not**, via this skill or any other means: modify work item titles, descriptions, acceptance criteria, or requirements content; change states, priorities, tags, or relationships; re-parent or re-prioritise work items; or add/remove work-item attachments/relations. Only **read** and **add comments** — all backlog ownership remains with the Product Analyst. If a design reveals a requirement gap or conflict, report it via comment rather than editing the work item.
 
 ## Collaboration & Escalation
 
