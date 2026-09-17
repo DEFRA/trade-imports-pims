@@ -29,6 +29,8 @@ Include at least one lower-code, simplification, automation, or AI-native altern
 - **Negative**:
 - **Cost impact** (licences, connectors, infrastructure, maintenance):
 - **Impact on other solutions/environments**:
+- **Technical debt impact** (Reduces | Neutral | Increases | Unknown):
+- **Architecture debt impact** (Reduces | Neutral | Increases | Unknown):
 
 ## Open Questions / Assumptions
 
