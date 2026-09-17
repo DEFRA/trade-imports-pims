@@ -141,6 +141,11 @@ Before updating a work item, confirm:
 - The work item identifier is known and confirmed with the user for significant or destructive changes.
 - The change does not silently remove existing information (state, description, links) unless explicitly instructed.
 
+Before adding a comment, confirm:
+
+- The target work item identifier is known.
+- Comment content is provided and is specific enough to be actionable by the intended audience.
+
 ## Work Item Standards
 
 - **Epics** represent business outcomes, not solutions or technical initiatives.
@@ -161,9 +166,9 @@ Before updating a work item, confirm:
 1. **Load and validate configuration** from `.agent-config/azure-devops.json` against [config.schema.json](./config.schema.json). If missing or invalid, stop and report per Configuration above.
 2. **Confirm the execution mechanism** available (MCP, CLI, or REST) and the target organisation/project from the validated configuration.
 3. **Query first.** Search Azure Boards for existing related work items before creating anything — check for duplicates, overlapping scope, and existing parent items.
-4. **Validate inputs** against the Required Validation checklist for the operation being performed (create vs update).
+4. **Validate inputs** against the Required Validation checklist for the operation being performed (create vs update vs comment).
 5. **Resolve hierarchy.** For creates, identify or confirm the parent Epic/Feature. For updates, confirm existing parent-child and related links are not broken by the change.
-6. **Execute the operation** (create, update, state change, field change, link creation) using the selected mechanism and the work item type names from `workItemTypes` in configuration.
+6. **Execute the operation** (create, update, state change, field change, link creation, comment) using the selected mechanism and the work item type names from `workItemTypes` in configuration.
 7. **Verify the result** — re-query the created/updated work item (or list comments, for comment operations) to confirm the operation applied as expected. If the initial attempt's output was ambiguous, this query — not a blind retry — determines whether a retry is needed (see Verifying Ambiguous Output Before Retrying).
 8. **Report the outcome** using the Output Format below.
 
@@ -171,12 +176,13 @@ Before updating a work item, confirm:
 
 For every operation (or batch of operations), report:
 
-1. Operation performed (create / update / state change / field change / link / query)
+1. Operation performed (create / update / state change / field change / link / comment / query)
 2. Work item type
 3. Work item identifier(s)
 4. Relationships created or changed
-5. Validation warnings
-6. Any failed operations, with reason
+5. Comment target/content summary, when a comment operation was performed
+6. Validation warnings
+7. Any failed operations, with reason
 
 ## Error Handling
 
