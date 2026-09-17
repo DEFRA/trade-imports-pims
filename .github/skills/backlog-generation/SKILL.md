@@ -5,6 +5,16 @@ description: 'Convert validated requirements into implementation-ready epics, fe
 
 # Backlog Generation
 
+## Intended Agent
+
+This skill may only be used by the Product Analyst agent.
+
+If the current agent is not the Product Analyst agent:
+
+- Stop.
+- Explain that this skill is owned by the Product Analyst.
+- Recommend handing off to the Product Analyst agent.
+
 ## Purpose
 
 Turn validated, discovered requirements into an implementation-ready backlog structure — epics, features, user stories, and acceptance criteria — that a delivery team can estimate and build with minimal further clarification. This skill decomposes and writes stories; it does not create or update Azure DevOps Boards work items and does not make architecture or technology decisions.

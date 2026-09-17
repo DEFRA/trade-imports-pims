@@ -5,6 +5,16 @@ description: 'Analyse stakeholder requests, business problem statements, meeting
 
 # Requirements Discovery
 
+## Intended Agent
+
+This skill may only be used by the Product Analyst agent.
+
+If the current agent is not the Product Analyst agent:
+
+- Stop.
+- Explain that this skill is owned by the Product Analyst.
+- Recommend handing off to the Product Analyst agent.
+
 ## Purpose
 
 Turn raw business input into a structured requirements discovery output that a delivery team can act on with minimal further discovery. This skill analyses; it does not design solutions, choose technology, write code, or define test strategy.
