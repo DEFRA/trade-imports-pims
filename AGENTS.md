@@ -195,6 +195,8 @@ Place new content in the most appropriate location.
 
 Avoid creating new top-level folders without clear justification.
 
+A script used primarily to support a specific skill (e.g. building an index or metadata report the skill's procedure depends on) belongs under that skill's own `.github/skills/<skill-name>/scripts/` folder instead of the top-level `/scripts` — keep it discoverable alongside the skill that owns it rather than in the general-purpose utilities folder. Reserve `/scripts` for utilities that are not tied to a single skill's procedure.
+
 ---
 
 # Change Management
