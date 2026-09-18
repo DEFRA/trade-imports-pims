@@ -7,6 +7,7 @@ Worked example: an `ImportRecordScenario` covering a user submitting an import r
 ```csharp
 namespace Defra.Imports.Scenarios.Events
 {
+    Using System;
     using System.Threading.Tasks;
     using Defra.Imports.Model;
     using Microsoft.Extensions.Logging;
@@ -241,11 +242,12 @@ var scenario = await this.scenarioBuilder
 
 // Only as far as submission, with specific data.
 var scenario = await this.scenarioBuilder
-    .UserSubmitsImportRecord(b => b.WithImportRecord(new ImportRecordFaker().RuleFor(x => x.Commodity, "Live animals")))
+    .UserSubmitsImportRecord(b => b
+        .WithImportRecord(new ImportRecordFaker().RuleFor(x => x.Commodity, "Live animals")))
     .BuildAsync();
 
 // Incremental (e.g. across Reqnroll Given steps), caching the scenario in context.
 var scenario = await this.scenarioBuilder
-    .UserSubmitsImportRecord()
-    .BuildAsync();
+    .UserUpdatesImportRecord()
+    .BuildAsync(existingScenario);
 ```
