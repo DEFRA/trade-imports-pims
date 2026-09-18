@@ -246,7 +246,7 @@ var scenario = await this.scenarioBuilder
         .WithImportRecord(new ImportRecordFaker().RuleFor(x => x.Commodity, "Live animals")))
     .BuildAsync();
 
-// Incremental (e.g. across Reqnroll Given steps), caching the scenario in context.
+// Incremental (e.g. across Reqnroll Given steps), caching the scenario in context. Note: imaginary event method for illustrative purposes only.
 var scenario = await this.scenarioBuilder
     .UserUpdatesImportRecord()
     .BuildAsync(existingScenario);
