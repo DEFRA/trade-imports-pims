@@ -7,7 +7,7 @@ Worked example: an `ImportRecordScenario` covering a user submitting an import r
 ```csharp
 namespace Defra.Imports.Scenarios.Events
 {
-    Using System;
+    using System;
     using System.Threading.Tasks;
     using Defra.Imports.Model;
     using Microsoft.Extensions.Logging;
