@@ -167,6 +167,7 @@ namespace Defra.Imports.Scenarios
 ```csharp
 namespace Defra.Imports.Scenarios.Events
 {
+    using System;
     using ScenarioBuilder;
 
     /// <summary>
@@ -241,9 +242,12 @@ var scenario = await this.scenarioBuilder
     .BuildAsync();
 
 // Only as far as submission, with specific data.
+var importRecordFaker = new ImportRecordFaker();
+importRecordFaker.RuleFor(x => x.Commodity, "Live animals");
+
 var scenario = await this.scenarioBuilder
     .UserSubmitsImportRecord(b => b
-        .WithImportRecord(new ImportRecordFaker().RuleFor(x => x.Commodity, "Live animals")))
+        .WithImportRecord(importRecordFaker))
     .BuildAsync();
 
 // Incremental (e.g. across Reqnroll Given steps), caching the scenario in context. Note: imaginary event method for illustrative purposes only.

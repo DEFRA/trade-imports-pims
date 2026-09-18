@@ -56,6 +56,7 @@ $clrTypeByAttributeType = @{
     lookup     = "Microsoft.Xrm.Sdk.EntityReference"
     owner      = "Microsoft.Xrm.Sdk.EntityReference"
     customer   = "Microsoft.Xrm.Sdk.EntityReference"
+    partylist  = "System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity>"
     datetime   = "System.Nullable<System.DateTime>"
     int        = "System.Nullable<System.Int32>"
     decimal    = "System.Nullable<System.Decimal>"
@@ -63,6 +64,7 @@ $clrTypeByAttributeType = @{
     nvarchar   = "string"
     ntext      = "string"
     bit        = "System.Nullable<System.Boolean>"
+    uniqueidentifier = "System.Nullable<System.Guid>"
     primarykey = "System.Nullable<System.Guid>"
 }
 
@@ -130,9 +132,21 @@ function Get-OptionSetValues {
 function Get-ClrType {
     param($Attribute)
 
+    $optionSetName = if ($Attribute.OptionSetName) {
+        $Attribute.OptionSetName
+    } elseif ($Attribute.Type -in @("picklist", "multiselectpicklist")) {
+        "$EntityLogicalName" + "_" + "$($Attribute.LogicalName)"
+    } else {
+        $null
+    }
+
     switch ($Attribute.Type) {
         "picklist" {
-            if ($Attribute.OptionSetName) { return "$($Attribute.OptionSetName)?" }
+            if ($optionSetName) { return "$optionSetName?" }
+            return $null
+        }
+        "multiselectpicklist" {
+            if ($optionSetName) { return "System.Collections.Generic.IEnumerable<$optionSetName>" }
             return $null
         }
         "state" { return "$($EntityLogicalName)_statecode?" }
@@ -157,7 +171,24 @@ if ($Fields) {
 }
 
 $results = foreach ($attribute in $attributes) {
-    $optionValues = if ($attribute.OptionSetName) { Get-OptionSetValues -OptionSetName $attribute.OptionSetName } else { $null }
+    $optionSetName = if ($attribute.OptionSetName) {
+        $attribute.OptionSetName
+    } elseif ($attribute.Type -in @("picklist", "multiselectpicklist")) {
+        "$EntityLogicalName" + "_" + "$($attribute.LogicalName)"
+    } else {
+        $null
+    }
+
+    $optionValues = if ($attribute.optionset.options.option) {
+        @($attribute.optionset.options.option | ForEach-Object {
+                $label = $_.labels.label | Where-Object { $_.languagecode -eq '1033' } | Select-Object -First 1
+                "$($_.value)=$($label.description)"
+            }) -join '; '
+    } elseif ($attribute.OptionSetName) {
+        Get-OptionSetValues -OptionSetName $attribute.OptionSetName
+    } else {
+        $null
+    }
 
     [pscustomobject]@{
         LogicalName       = $attribute.LogicalName
@@ -170,14 +201,14 @@ $results = foreach ($attribute in $attributes) {
         MaxValue          = $attribute.MaxValue
         Precision         = $attribute.Precision
         ValidForCreateApi = $attribute.ValidForCreateApi
-        OptionSet         = $attribute.OptionSetName
+        OptionSet         = $optionSetName
         OptionValues      = $optionValues
     }
 }
 
 if ($OutputPath) {
     $results | Export-Csv -Path $OutputPath -NoTypeInformation
-    Write-Output "Field metadata for '$EntityLogicalName' ($($results.Count) attributes) also written to $OutputPath"
+    Write-Information "Field metadata for '$EntityLogicalName' ($($results.Count) attributes) also written to $OutputPath"
 }
 
 $results
