@@ -51,6 +51,7 @@
     <RolePrivilege name="prvReaddefraimp_importapplication" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importcountrycommodityrisklevel" level="Global" />
     <RolePrivilege name="prvReaddefraimp_ImporterNotification" level="Global" />
+    <RolePrivilege name="prvReaddefraimp_ImportNotificationError" level="Global" />
     <RolePrivilege name="prvReaddefraimp_importrisklevel" level="Global" />
     <RolePrivilege name="prvReaddefraimp_imptype" level="Global" />
     <RolePrivilege name="prvReaddefraimp_inspectioncoveragerule" level="Global" />
