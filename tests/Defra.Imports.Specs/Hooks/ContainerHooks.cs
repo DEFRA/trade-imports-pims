@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Defra.Imports.Scenarios;
+    using Defra.Imports.Scenarios.Logging;
     using Defra.Imports.Specs;
     using Defra.Imports.Specs.Services;
     using Microsoft.Extensions.Logging;
@@ -138,7 +139,10 @@
         [BeforeScenario(Order = 0)]
         public void RegisterLogger()
         {
-            this.objectContainer.RegisterInstanceAs<ILogger>(new MsTestLogger(this.objectContainer.Resolve<TestContext>()));
+            var testContext = this.objectContainer.Resolve<TestContext>();
+
+            this.objectContainer.RegisterInstanceAs<ILogger>(new MsTestLogger(testContext));
+            this.objectContainer.RegisterInstanceAs<ILoggerProvider>(new MsTestLoggerProvider(testContext));
         }
 
         /// <summary>

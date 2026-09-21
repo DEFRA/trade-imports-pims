@@ -105,6 +105,8 @@ namespace Defra.Imports.Scenarios
     using System;
     using Defra.Imports.Scenarios.Events;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Logging.Abstractions;
     using ScenarioBuilder;
 
     /// <summary>
@@ -136,9 +138,14 @@ namespace Defra.Imports.Scenarios
         /// A builder for the <see cref="ImportRecordScenario"/>.
         /// </summary>
         /// <param name="clientFactory">A client factory.</param>
-        public class Builder(ServiceClientFactory clientFactory) : Builder<ImportRecordScenario>
+        /// <param name="loggerProvider">
+        /// An <see cref="ILoggerProvider"/> used to route the typed loggers injected into events (e.g. <see cref="ILogger{TCategoryName}"/>)
+        /// to a test framework's output. Defaults to <see cref="NullLoggerProvider"/> (no output) when not supplied.
+        /// </param>
+        public class Builder(ServiceClientFactory clientFactory, ILoggerProvider loggerProvider = null) : Builder<ImportRecordScenario>
         {
             private readonly ServiceClientFactory clientFactory = clientFactory;
+            private readonly ILoggerProvider loggerProvider = loggerProvider ?? NullLoggerProvider.Instance;
 
             /// <summary>
             /// Configures the user submitting an import record event.
@@ -155,7 +162,9 @@ namespace Defra.Imports.Scenarios
             /// <inheritdoc/>
             protected override IServiceCollection InitializeServices(ServiceCollection serviceCollection)
             {
-                return serviceCollection.AddSingleton(this.clientFactory);
+                return serviceCollection
+                    .AddSingleton(this.clientFactory)
+                    .AddLogging(builder => builder.AddProvider(this.loggerProvider));
             }
         }
     }

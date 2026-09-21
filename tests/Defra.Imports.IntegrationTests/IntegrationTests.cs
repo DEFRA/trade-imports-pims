@@ -10,6 +10,7 @@ namespace Defra.Imports.IntegrationTests
     using Defra.Imports.IntegrationTests.ServiceBus;
     using Defra.Imports.Model;
     using Defra.Imports.Scenarios;
+    using Defra.Imports.Scenarios.Logging;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Logging;
     using Microsoft.PowerPlatform.Dataverse.Client;
@@ -54,7 +55,7 @@ namespace Defra.Imports.IntegrationTests
             {
                 if (this.logger == null)
                 {
-                    this.logger = new MsTestLogger(this.TestContext);
+                    this.logger = new MsTestLogger(this.TestContext, this.GetType().FullName);
                 }
 
                 return this.logger;
