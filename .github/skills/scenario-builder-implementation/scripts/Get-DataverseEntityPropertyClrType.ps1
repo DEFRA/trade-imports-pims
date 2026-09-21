@@ -61,7 +61,8 @@ if (-not $repoRoot) {
     throw "Unable to determine repository root. Run this script from within the trade-imports-pims repository."
 }
 
-$entityCsPath = Join-Path $repoRoot "src/common/Defra.Imports.Model/Entities/$EntityLogicalName.cs"
+$entityFileName = "$($EntityLogicalName.ToLowerInvariant()).cs"
+$entityCsPath = Join-Path $repoRoot "src/common/Defra.Imports.Model/Entities/$entityFileName"
 if (-not (Test-Path $entityCsPath)) {
     throw "Could not find generated entity class at $entityCsPath. Run the 'Generate model' task if the model is out of date."
 }
