@@ -94,6 +94,10 @@ $results = for ($i = 0; $i -lt $lines.Count; $i++) {
         continue
     }
 
+    if ($Matches.name -eq "Id" -and $Matches.type -like "override *") {
+        continue
+    }
+
     [pscustomobject]@{
         LogicalName = $logicalName
         Property    = $Matches.name
