@@ -18,7 +18,7 @@
     and type from the declaration line immediately following it - this both confirms the match is the real
     property (not the same-named constant in the nested Fields class, which has no such preceding annotation)
     and captures the property name/type exactly as written, including System.Nullable<T> wrapping, a trailing
-    `?`, `virtual`, and generated enum/option-set/collection type names.
+    `?`, and generated enum/option-set/collection type names.
 
 .PARAMETER EntityLogicalName
     The entity's logical (schema) name, e.g. defraimp_importernotification. Used to locate

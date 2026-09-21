@@ -20,6 +20,8 @@ Rule of thumb: if you are creating data, use ScenarioBuilder; if you are verifyi
 
 ## Worked example
 
+The below example uses some pseudo-code for conciseness (`SalesScenarioBuilder`, `OpportunityState`, `DeactivateAsync`, and `RetrieveOpportunityAsync`), but the principles remain the same.
+
 ```csharp
 [TestMethod]
 public async Task Deactivate_WhenAccountHasAnOpenOpportunity_DeactivatesOpportunity()

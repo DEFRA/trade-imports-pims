@@ -19,7 +19,7 @@ Do not add a `PackageReference` to `Marktek.Fluent.Testing.Engine` or `MarkTek.F
 ## What this means in practice
 
 - **Test setup / pre-conditions**: use or extend a scenario step builder in `Defra.Imports.Scenarios` instead of a Marktek record generator. If the scenario you need doesn't exist yet, add a new step builder there rather than a Marktek-based one in `Defra.Imports.IntegrationTests`.
-- **Incremental builds**: chain scenario steps by passing the previously built scenario (and the `out` last-built-step) into subsequent `BuildAsync` calls, rather than re-running an entire builder chain.
+- **Incremental builds**: chain scenario steps by passing the previously built scenario into subsequent `BuildAsync` calls, rather than re-running an entire builder chain.
 - **Existing Marktek-based tests**: leave working tests as-is unless the ticket specifically asks for migration. Don't block unrelated changes on a rewrite.
 - **Migrating an existing test**: if you touch a test that still uses Marktek and a suitable scenario/step builder already exists in `Defra.Imports.Scenarios`, prefer switching it over as part of the change.
 

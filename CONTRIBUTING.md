@@ -212,9 +212,9 @@ A scenario builder instance is available to integration tests via the `ScenarioB
 
 ##### Incremental scenarios
 
-Integration tests can build scenarios with a single call to `Build`. This is not the case for acceptance tests, as these may have many `Given` steps chained together. For this reason, the scenario builder supports incremental building. 
+Integration tests can build scenarios with a single call to `BuildAsync`. This is not the case for acceptance tests, as these may have many `Given` steps chained together. For this reason, the scenario builder supports incremental building. 
 
-The scenario returned by calling `Build` can be passed into future calls to `Build` and only the steps that haven't yet run will execute. To assist with this, there is an overload of `Build` that returns the scenario as well as the last built step as a `out` parameter. Both the step and the scenario can then be passed to other `Given` step bindings through the `ScenarioContext`.
+The scenario returned by calling `BuildAsync` can be passed into future calls to `BuildAsync` and only the steps that haven't yet run will execute. Both the step and the scenario can then be passed to other `Given` step bindings through the `ScenarioContext`.
 
 ### Writing acceptance tests
 

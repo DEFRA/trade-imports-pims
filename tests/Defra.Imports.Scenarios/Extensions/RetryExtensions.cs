@@ -28,6 +28,11 @@ namespace Defra.Imports.Scenarios.Extensions
                 throw new ArgumentNullException(nameof(action));
             }
 
+            if (logger is null)
+            {
+                throw new ArgumentNullException(nameof(logger));
+            }
+
             var waitBetweenAttempts = delay ?? TimeSpan.FromSeconds(10);
 
             for (var attempt = 1; ; attempt++)

@@ -140,12 +140,12 @@ namespace Defra.Imports.Scenarios
         /// <param name="clientFactory">A client factory.</param>
         /// <param name="loggerProvider">
         /// An <see cref="ILoggerProvider"/> used to route the typed loggers injected into events (e.g. <see cref="ILogger{TCategoryName}"/>)
-        /// to a test framework's output. Defaults to <see cref="NullLoggerProvider"/> (no output) when not supplied.
+        /// to a test framework's output.
         /// </param>
-        public class Builder(ServiceClientFactory clientFactory, ILoggerProvider loggerProvider = null) : Builder<ImportRecordScenario>
+        public class Builder(ServiceClientFactory clientFactory, ILoggerProvider loggerProvider) : Builder<ImportRecordScenario>
         {
             private readonly ServiceClientFactory clientFactory = clientFactory;
-            private readonly ILoggerProvider loggerProvider = loggerProvider ?? NullLoggerProvider.Instance;
+            private readonly ILoggerProvider loggerProvider = loggerProvider;
 
             /// <summary>
             /// Configures the user submitting an import record event.
