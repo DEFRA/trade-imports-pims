@@ -40,7 +40,7 @@ namespace Defra.Imports.Scenarios.Events
 
             this.logger.LogInformation("Created import record {ImportRecordId}.", importRecordId);
 
-            context.Set(nameof(Info.ImportRecordId), importRecordId);
+            context.Set(nameof(UserSubmitsImportRecordEvent), new Info { ImportRecordId = importRecordId });
         }
 
         /// <summary>
@@ -116,12 +116,12 @@ namespace Defra.Imports.Scenarios
     public class ImportRecordScenario : Scenario
     {
         /// <summary>
-        /// Gets the ID of the created import record.
+        /// Gets the outputs of the user submitting an import record.
         /// </summary>
         /// <remarks>
-        /// Named to match <see cref="UserSubmitsImportRecordEvent.Info.ImportRecordId"/> so it is populated automatically from <see cref="ScenarioContext"/>.
+        /// Named to match <see cref="UserSubmitsImportRecordEvent"/> so it is populated automatically from <see cref="ScenarioContext"/>.
         /// </remarks>
-        public Guid? ImportRecordId { get; internal set; }
+        public UserSubmitsImportRecordEvent.Info UserSubmitsImportRecordEvent { get; internal set; }
 
         /// <summary>
         /// The event IDs for the events within the <see cref="ImportRecordScenario"/>.

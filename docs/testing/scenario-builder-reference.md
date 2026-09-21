@@ -17,8 +17,8 @@ project.
   `ApproverAssignsWorkItemEvent` + `ApproverProcessesWorkItemTasksEvent`.
 - **Scenario** - the top-level orchestration of a full journey, e.g.
   `RequestScenario`, `NotificationScenario`. Declares its events with
-  `[ComposeUsing]` and exposes each event's captured output as a property
-  (e.g. `SubmitterSubmitsRequestEvent.Info`).
+  `[ComposeUsing]` and exposes captured output through properties 
+  (automatically mapped from context by key to property name).
 - **Builder** - a nested class on every Event/CompositeEvent/Scenario that
   exposes fluent `With...`/`By...` configuration methods and is the only way
   steps configure a scenario.
