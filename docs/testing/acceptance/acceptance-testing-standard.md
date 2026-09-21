@@ -8,7 +8,7 @@ authoring or reviewing acceptance tests.
 
 For deep dives, see the companion documents:
 
-- [scenario-builder-reference.md](scenario-builder-reference.md) - test data setup
+- [scenario-builder-reference.md](../scenario-builder-reference.md) - test data setup (shared with integration tests)
 - [power-playwright-reference.md](power-playwright-reference.md) - UI automation
 - [recipes.md](recipes.md) - copy-paste implementation patterns
 - [anti-patterns.md](anti-patterns.md) - things to avoid, with reasons
