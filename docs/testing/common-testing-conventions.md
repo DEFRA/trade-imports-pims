@@ -27,7 +27,7 @@ Where a layer has its own terminology, this document uses:
   instead (see "Defensive coding" below).
 - Prefer asserting on a **table/collection of expected values** in one step
   over many single-field assertions.
-- Group related assertions with FluentAssertions' `AssertionScope` where so all
+- Group related assertions with FluentAssertions' `AssertionScope` so that all
   failures are reported together instead of the first failure masking the
   rest, and add a reason to each assertion for additional context:
 
