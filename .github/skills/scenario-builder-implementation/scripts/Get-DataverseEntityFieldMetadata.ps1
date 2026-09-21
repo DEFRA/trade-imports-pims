@@ -161,8 +161,11 @@ $results = foreach ($attribute in $attributes) {
         MinValue          = $attribute.MinValue
         MaxValue          = $attribute.MaxValue
         Precision         = $attribute.Precision
-        Format            = $attribute.Format
-        Behavior          = $attribute.Behavior
+        Format            = switch ($attribute.Format) {
+            0 { "DateOnly" }
+            1 { "DateAndTime" }
+            default { $null }
+        }
         ValidForCreateApi = $attribute.ValidForCreateApi
         OptionSet         = $optionSetName
         OptionValues      = $optionValues
