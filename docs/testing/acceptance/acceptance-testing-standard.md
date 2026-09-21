@@ -42,9 +42,9 @@ actually being verified.
 - Files are grouped into folders **by business entity/domain**, e.g.
   `Features/Orders/`, `Features/Work items/`, `Features/Submissions/`.
 - `Feature:` title matches the file name.
-- `Scenario:` titles are first-person, persona-led narratives that match the
-  verb phrase of the feature file with additional context appended:
-  `Approver views a work item`, `Administrator creates an order with a discount`.
+- `Scenario:` titles are persona-led narratives that match the verb phrase of
+  the feature file with additional context appended: `Approver views a work
+  item`, `Administrator creates an order with a discount`.
 - `Scenario Outline:` + `Examples:` is used for **permutation testing** across
   entity variants/categories:
 
