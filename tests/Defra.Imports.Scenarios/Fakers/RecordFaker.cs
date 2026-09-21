@@ -1,6 +1,5 @@
 namespace Defra.Imports.Scenarios.Fakers
 {
-    using System;
     using Bogus;
     using Microsoft.Xrm.Sdk;
 
@@ -19,7 +18,7 @@ namespace Defra.Imports.Scenarios.Fakers
         {
             this.Locale = "en_GB";
 
-            this.RuleFor(e => e.Id, f => Guid.NewGuid());
+            this.RuleFor(e => e.Id, f => f.Random.Guid());
         }
     }
 }

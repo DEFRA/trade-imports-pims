@@ -33,6 +33,16 @@ namespace Defra.Imports.Scenarios.Extensions
                 throw new ArgumentNullException(nameof(logger));
             }
 
+            if (retryCount <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(retryCount), retryCount, "Retry count must be greater than zero.");
+            }
+
+            if (delay.HasValue && delay.Value < TimeSpan.Zero)
+            {
+                throw new ArgumentOutOfRangeException(nameof(delay), delay, "Delay must not be negative.");
+            }
+
             var waitBetweenAttempts = delay ?? TimeSpan.FromSeconds(10);
 
             for (var attempt = 1; ; attempt++)
