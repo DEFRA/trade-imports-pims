@@ -125,11 +125,13 @@ public async Task GivenIHaveScheduledAReview()
         // New scenario
         scenario = await this.scenarioBuilder
             .ApproverProcessesWorkItem(a => a
-                .ByAssigningWorkItem(b => b.WithAssignee(this.powerPlaywrightCtx.ActiveUserId))
+                .ByAssigningWorkItem(b => b
+                    .WithAssignee(this.powerPlaywrightCtx.ActiveUserId))
                 .ByProcessingWorkItemTasks(c => c
                     .ByProcessingReviewTask(d => d
                         .ByScheduling()
-                        .AndAllPreviousSteps()))
+                        .AndAllPreviousSteps())
+                    .AndAllPreviousSteps())
                 .AndAllPreviousSteps())
             .BuildAsync();
     }
