@@ -161,9 +161,11 @@ $results = foreach ($attribute in $attributes) {
         MinValue          = $attribute.MinValue
         MaxValue          = $attribute.MaxValue
         Precision         = $attribute.Precision
-        Format            = switch ($attribute.Format) {
-            0 { "DateOnly" }
-            1 { "DateAndTime" }
+        Format            = $attribute.Format
+        Behavior          = switch ($attribute.Behavior) {
+            "1" { "UserLocal" }
+            "2" { "DateOnly" }
+            "3" { "TimeZoneIndependent" }
             default { $null }
         }
         ValidForCreateApi = $attribute.ValidForCreateApi
