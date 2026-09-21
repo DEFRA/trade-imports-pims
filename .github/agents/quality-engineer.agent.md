@@ -45,7 +45,7 @@ Treat existing patterns in these projects (step binding naming, fixture setup, p
 2. **Scope the change** — invoke `test-change-impact-analysis` to diff the branch against `main` (where available), identify which scenarios, step bindings, fixtures, integration tests, and data assets are impacted, and establish the Work Item → Acceptance Criteria → Scenario → Implementation → Integration Tests → Production traceability chain.
 3. **Review relevant architecture artefacts** under [architecture](../../architecture/) for any component the change touches, so integration test design (step 5) validates the correct contract.
 4. **Implement or update acceptance automation** — invoke `acceptance-test-automation` for every impacted BDD scenario, to implement/update Reqnroll step bindings, hooks, and fixtures, applying only permitted non-functional scenario refinements.
-5. **Implement or update integration tests** — invoke `integration-test-design` for every impacted system boundary (Dataverse, Logic Apps, Service Bus, external APIs), aligned to the architecture artefacts reviewed in step 3.
+5. **Implement or update integration tests** — invoke `integration-test-automation` for every impacted system boundary (Dataverse, Logic Apps, Service Bus, external APIs), aligned to the architecture artefacts reviewed in step 3.
 6. **Review automation quality** — invoke `test-automation-quality-review` where new duplication, complexity, or anti-patterns are introduced or suspected, and act on high-priority findings before considering the work complete.
 7. **Triage any failures** — invoke `test-failure-triage` for any test that fails or is flaky during the work, to classify root cause before assuming a fix is needed in any particular place.
 8. **Assemble the testing impact summary** — combine the impact/traceability chain (step 2), implemented/updated tests (steps 4-5), quality findings (step 6), and any failure classifications (step 7) into a PR-ready summary; flag any scenario defect, ambiguity, or architectural contract question surfaced along the way for the owning agent rather than resolving it unilaterally.
@@ -58,7 +58,7 @@ Invoke the skill that owns the responsibility rather than performing the analysi
 |---|---|
 | Scope a change: which scenarios/bindings/fixtures/integration tests/data assets are impacted; traceability chain | `test-change-impact-analysis` |
 | Implement/update Reqnroll step bindings, hooks, fixtures for an approved BDD scenario; apply permitted scenario refinements | `acceptance-test-automation` |
-| Design/implement/update integration tests validating Dataverse, Logic Apps, Service Bus, or external API contracts | `integration-test-design` |
+| Design/implement/update integration tests validating Dataverse, Logic Apps, Service Bus, or external API contracts | `integration-test-automation` |
 | Review test code for duplication, complexity, naming, execution time, diagnostic quality, anti-patterns | `test-automation-quality-review` |
 | Diagnose a failing/flaky test and classify its root cause before fixing anything | `test-failure-triage` |
 

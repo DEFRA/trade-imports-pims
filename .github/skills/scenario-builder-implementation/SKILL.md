@@ -13,7 +13,13 @@ Test data must be created the way production data is created — through the sam
 - **Single source of truth** — the sequence of steps in a business process lives in one `Scenario` class, so process changes touch one place instead of dozens of tests.
 - **Low brittleness** — tests don't reference steps they don't care about, so unrelated process changes don't break unrelated tests.
 
-All new scenario/event classes live in [Defra.Imports.Scenarios](../../../tests/Defra.Imports.Scenarios/) (`netstandard2.0`): events under the `Defra.Imports.Scenarios.Events` namespace, scenarios under `Defra.Imports.Scenarios`. See also the [integration-tests instruction file](../../instructions/integration-tests.instructions.md) and `CONTRIBUTING.md` → "Scenario builder" for the repo-level policy this skill implements.
+All new scenario/event classes live in [Defra.Imports.Scenarios](../../../tests/Defra.Imports.Scenarios/) (`netstandard2.0`): events under the `Defra.Imports.Scenarios.Events` namespace, scenarios under `Defra.Imports.Scenarios`. See also the [integration-tests instruction file](../../instructions/integration-tests.instructions.md), `CONTRIBUTING.md` → "Scenario builder", and the canonical project guidance in [docs/testing/scenario-builder-reference.md](../../../docs/testing/scenario-builder-reference.md) for the repo-level policy this skill implements.
+
+## Reference documentation
+
+- [docs/testing/scenario-builder-reference.md](../../../docs/testing/scenario-builder-reference.md) — project-level ScenarioBuilder conventions, builder chains, and data-generation patterns.
+- [docs/testing/acceptance/acceptance-testing-standard.md](../../../docs/testing/acceptance/acceptance-testing-standard.md) — how acceptance tests consume the shared scenario builders.
+- [docs/testing/acceptance/power-playwright-reference.md](../../../docs/testing/acceptance/power-playwright-reference.md) — UI automation stack that consumes the data setup.
 
 ## Core concepts
 

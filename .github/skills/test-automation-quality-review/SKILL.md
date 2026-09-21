@@ -13,13 +13,22 @@ Primarily used by the Quality Engineer agent for the acceptance (Reqnroll) and i
 
 Assess the maintainability, architecture, and reuse discipline of an automated test estate — independent of testing layer (acceptance, integration, unit) — and produce concrete consolidation or anti-pattern-fix recommendations.
 
-This skill reviews and recommends only; it does not author new tests or scenario intent (`acceptance-test-automation`, `integration-test-design`) and does not judge whether a failing test is a defect (`test-failure-triage`).
+This skill reviews and recommends only; it does not author new tests or scenario intent (`acceptance-test-automation`, `integration-test-automation`) and does not judge whether a failing test is a defect (`test-failure-triage`).
+
+## Reference documentation
+
+Use the repository's testing guidance alongside this skill when reviewing or refactoring automation:
+
+- [docs/testing/acceptance/acceptance-testing-standard.md](../../../docs/testing/acceptance/acceptance-testing-standard.md) — canonical acceptance testing conventions.
+- [docs/testing/acceptance/anti-patterns.md](../../../docs/testing/acceptance/anti-patterns.md) — repository anti-patterns and prohibited patterns.
+- [docs/testing/acceptance/power-playwright-reference.md](../../../docs/testing/acceptance/power-playwright-reference.md) — UI automation conventions.
+- [docs/testing/scenario-builder-reference.md](../../../docs/testing/scenario-builder-reference.md) — shared data setup and ScenarioBuilder conventions.
 
 ## Boundaries
 
 **Out of scope:**
 
-- Writing new step bindings, fixtures, or integration tests from scratch to cover new behaviour — `acceptance-test-automation`, `integration-test-design`.
+- Writing new step bindings, fixtures, or integration tests from scratch to cover new behaviour — `acceptance-test-automation`, `integration-test-automation`.
 - Diagnosing why a specific test is failing — `test-failure-triage`.
 - Determining which tests are impacted by a change — `test-change-impact-analysis`.
 - Changing business intent, scope, or acceptance criteria of a scenario.
@@ -29,7 +38,7 @@ This skill reviews and recommends only; it does not author new tests or scenario
 - The test estate shows signs of duplicated bindings, fixtures, or helper methods.
 - Naming, structure, or diagnostic output has become inconsistent across the suite.
 - Execution time or flakiness has become a concern.
-- `acceptance-test-automation` or `integration-test-design` flags a maintainability concern discovered while implementing a scenario, and asks for a broader review before refactoring.
+- `acceptance-test-automation` or `integration-test-automation` flags a maintainability concern discovered while implementing a scenario, and asks for a broader review before refactoring.
 
 ## Expected Inputs
 

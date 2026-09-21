@@ -17,7 +17,7 @@ Given a work item, branch, or diff, determine the full scope of test-related art
 
 **Out of scope:**
 
-- Implementing or updating the impacted step bindings, fixtures, or integration tests — hand off to `acceptance-test-automation` / `integration-test-design`.
+- Implementing or updating the impacted step bindings, fixtures, or integration tests — hand off to `acceptance-test-automation` / `integration-test-automation`.
 - Diagnosing root cause of a test failure — `test-failure-triage`.
 - Reviewing test code for maintainability/duplication — `test-automation-quality-review`.
 - Changing requirements, acceptance criteria, or scenario intent — Product Analyst.

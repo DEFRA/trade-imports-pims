@@ -26,4 +26,4 @@ Do not add a `PackageReference` to `Marktek.Fluent.Testing.Engine` or `MarkTek.F
 
 ## Reference
 
-See [CONTRIBUTING.md](../../CONTRIBUTING.md) "Scenario builder" section for the full builder-pattern rationale, and the `integration-test-design` skill for the broader integration test design process.
+See [CONTRIBUTING.md](../../CONTRIBUTING.md) "Scenario builder" section for the full builder-pattern rationale, and the `integration-test-automation` skill for the broader integration test design process.

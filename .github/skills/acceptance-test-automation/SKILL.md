@@ -19,7 +19,17 @@ If the current agent is not the Quality Engineer agent:
 
 Turn approved BDD Given/When/Then scenarios into passing, maintainable Reqnroll step bindings, hooks, and fixtures — without altering the business intent, scope, or acceptance-criteria coverage the Product Analyst authored.
 
-This skill implements automation only. It does not author scenario business intent (`bdd-scenario-generation`), design integration tests (`integration-test-design`), or decide whether existing automation needs a maintainability refactor (`test-automation-quality-review`) — though it applies that skill's reuse and anti-pattern principles while writing, and defers to it for broader review.
+This skill implements automation only. It does not author scenario business intent (`bdd-scenario-generation`), design integration tests (`integration-test-automation`), or decide whether existing automation needs a maintainability refactor (`test-automation-quality-review`) — though it applies that skill's reuse and anti-pattern principles while writing, and defers to it for broader review.
+
+## Reference documentation
+
+Use the project testing guidance alongside this skill when implementing or updating acceptance automation:
+
+- [docs/testing/acceptance/acceptance-testing-standard.md](../../../docs/testing/acceptance/acceptance-testing-standard.md) — canonical acceptance test standards and conventions.
+- [docs/testing/acceptance/power-playwright-reference.md](../../../docs/testing/acceptance/power-playwright-reference.md) — project-specific Power Playwright automation patterns.
+- [docs/testing/acceptance/recipes.md](../../../docs/testing/acceptance/recipes.md) — implementable step and hook recipes.
+- [docs/testing/acceptance/anti-patterns.md](../../../docs/testing/acceptance/anti-patterns.md) — forbidden patterns and common mistakes to avoid.
+- [docs/testing/scenario-builder-reference.md](../../../docs/testing/scenario-builder-reference.md) — shared ScenarioBuilder setup used by acceptance tests.
 
 ## Boundaries
 
@@ -27,7 +37,7 @@ This skill implements automation only. It does not author scenario business inte
 
 - Eliciting requirements, defining acceptance criteria, or authoring scenario business intent — Product Analyst.
 - Deciding *whether* an automated scenario is warranted at all — that judgement belongs to `bdd-scenario-generation`'s Applicability Assessment, already applied before this skill is invoked.
-- Integration tests validating Dataverse/Logic Apps/Service Bus/external API boundaries directly — `integration-test-design`.
+- Integration tests validating Dataverse/Logic Apps/Service Bus/external API boundaries directly — `integration-test-automation`.
 - Broad consolidation/duplication review across the automation estate — `test-automation-quality-review` (this skill applies its principles locally but does not run the full review).
 - Production implementation of business logic (workflows, actions, cloud flows, plug-ins, CWAs) — Developer agents.
 

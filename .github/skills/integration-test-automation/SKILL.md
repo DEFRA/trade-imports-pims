@@ -1,9 +1,9 @@
 ---
-name: integration-test-design
+name: integration-test-automation
 description: 'Design, implement, and maintain integration tests that validate Dataverse, Logic Apps, Service Bus, and external API behaviour against documented architectural contracts. Use when an implemented solution needs integration test coverage for component interactions, system boundaries, data transformations, security boundaries, or deployment assumptions. Owned by the Quality Engineer agent.'
 ---
 
-# Integration Test Design
+# Integration Test Automation
 
 ## Intended Agent
 
@@ -12,6 +12,8 @@ This skill may only be used by the Quality Engineer agent. If invoked by another
 ## Purpose
 
 Design, implement, and maintain integration tests that validate real system boundaries — Dataverse, Logic Apps, Service Bus, and external APIs — confirming the implementation honours its intended architectural contract, not just incidental implementation detail.
+
+Integration tests and acceptance tests (`acceptance-test-automation`) complement each other rather than duplicate coverage. Integration tests are cheaper and faster to run than acceptance tests, since they exercise backend components and contracts directly without driving the model-driven app UI — this lets backend-affecting changes be validated at a more granular level than acceptance tests can economically provide. Acceptance tests remain necessary to validate end-to-end, user-facing behaviour through the UI; use both together rather than substituting one for the other.
 
 ## Boundaries
 
@@ -25,8 +27,7 @@ Design, implement, and maintain integration tests that validate real system boun
 
 ## Trigger Conditions
 
-- A newly implemented solution component (Dataverse table/plug-in/flow, Logic App, Service Bus integration, external API integration) needs integration test coverage.
-- An existing integration test needs updating because an architectural contract or implementation has changed.
+- An update to the solution or deployment logic (except for UI-only changes).
 - `test-change-impact-analysis` has identified affected integration tests.
 
 ## Expected Inputs
@@ -49,7 +50,7 @@ Design, implement, and maintain integration tests that validate real system boun
 ## Output Standards
 
 - The implemented/updated integration test(s), committed against [Defra.Imports.IntegrationTests](../../../tests/Defra.Imports.IntegrationTests/), built and passing.
-- A short summary of: which boundary/contract was validated, which ADR/SAD it was aligned to, and which existing (or newly added) data builders were used.
+- A short summary of: which boundary/contract was validated, which ADR/SAD/work item it was aligned to, and which existing (or newly added) data builders were used.
 
 ## Escalation Guidance
 

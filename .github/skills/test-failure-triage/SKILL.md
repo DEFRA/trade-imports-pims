@@ -19,7 +19,7 @@ This skill classifies and routes only — it does not implement the fix. The fix
 
 **Out of scope:**
 
-- Implementing the fix for a test implementation defect — hand off to `acceptance-test-automation` / `integration-test-design`.
+- Implementing the fix for a test implementation defect — hand off to `acceptance-test-automation` / `integration-test-automation`.
 - Changing production code — Developer agents.
 - Changing business requirements or scenario intent — Product Analyst.
 - Reviewing test code for general maintainability outside the specific failure — `test-automation-quality-review`.
@@ -44,7 +44,7 @@ This skill classifies and routes only — it does not implement the fix. The fix
 | --- | --- | --- |
 | Requirement defect | The requirement itself is wrong, ambiguous, or incomplete | Product Analyst |
 | BDD scenario defect | The scenario is written incorrectly relative to a correct requirement | Product Analyst |
-| Test implementation defect | The automation (step binding, fixture, integration test) doesn't correctly implement a correct scenario | `acceptance-test-automation` / `integration-test-design` |
+| Test implementation defect | The automation (step binding, fixture, integration test) doesn't correctly implement a correct scenario | `acceptance-test-automation` / `integration-test-automation` |
 | Production implementation defect | The system under test doesn't behave as the correct requirement/scenario specifies | Developer agent |
 | Environmental/configuration issue | The failure is caused by test data, environment state, or configuration rather than any of the above | Environment/configuration owner |
 
