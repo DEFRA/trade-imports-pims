@@ -8,6 +8,7 @@ authoring or reviewing acceptance tests.
 
 For deep dives, see the companion documents:
 
+- [common-testing-conventions.md](../common-testing-conventions.md) - assertions, defensive coding, error handling, and logging conventions shared with integration tests
 - [scenario-builder-reference.md](../scenario-builder-reference.md) - test data setup (shared with integration tests)
 - [power-playwright-reference.md](power-playwright-reference.md) - UI automation
 - [recipes.md](recipes.md) - copy-paste implementation patterns
@@ -101,71 +102,15 @@ actually being verified.
   because it is immutable shared context rather than scenario-specific state. This approach
   runs once and enables both automated testing and manual testing.
 
-### Assertions
+### Assertions, defensive coding, error handling, and logging
 
-- All UI/business assertions use **FluentAssertions** (`.Should()...`).
-  Plain `Assert.*`/boolean `if` + throw is not the repository convention.
-- FluentAssertions (or any assertion library) exceptions are reserved for
-  the test's actual assertion. **`Given`/`When` steps must never throw an
-  assertion library exception** - if a precondition fails to establish
-  correctly, throw a plain, high-level exception written in domain language
-  instead (see "Defensive coding" below).
-- Prefer asserting on a **table of expected values** in one step over many
-  single-field assertion steps (see `Then I see the following fields`).
-- Group related assertions with FluentAssertions' `AssertionScope` so all
-  failures in a `Then` step are reported together instead of the first
-  failure masking the rest, and add a reason to each assertion for
-  additional context:
-
-  ```csharp
-  using (new AssertionScope($"request {actualRequest.Id}"))
-  {
-      actualRequest.Status.Should().Be(expectedStatus, because: "the request should have moved to the expected status");
-      actualRequest.StatusReason.Should().Be(expectedReason, because: "the request should record why its status changed");
-  }
-  ```
-
-### Defensive coding
-
-- Code tests defensively: expect failures at every junction (data setup,
-  navigation, waiting on asynchronous processes, UI interaction), not just
-  at the final assertion.
-- When a `Given`/`When` step's precondition or action could fail (e.g.
-  polling for an asynchronously-created record times out), throw an easily
-  diagnosable, plain exception written in domain language rather than a
-  generic/technical one. For example, prefer `"The work item for request
-  '{requestId}' was not created within the expected time"` over a bare
-  timeout message such as `"records did not appear within 180s"`.
-- These defensive exceptions are never assertion library exceptions (see
-  "Assertions" above) - assertion library usage is reserved for `Then`
-  steps that verify the behaviour actually under test.
-
-### Error handling
-
-- Transient/eventually-consistent conditions (e.g. waiting for an integration
-  to update a record) use the `RetryExtensions.RetryUntilSucceedsAsync`
-  helper, not `Task.Delay` loops. This project deliberately does not take a
-  dependency on Polly - the retry need here is a fixed attempt count with a
-  fixed delay, which doesn't warrant a third-party library. Treat any
-  `Task.Delay`-based wait as an anti-pattern to fix, not a template to copy
-  (see [anti-patterns.md](anti-patterns.md)).
-
-### Logging
-
-- ScenarioBuilder `Scenario`/`Event` builders accept an `ILogger` dependency
-  (from `Microsoft.Extensions.Logging`) rather than `NullLogger.Instance`.
-  Register a real logger (e.g. one that writes through the test framework's
-  output) so data-setup actions are diagnosable from CI output, not just
-  local runs.
-- Every Dataverse/API request made during data setup is logged with the
-  operation and the key identifying details of its payload, e.g. `"creating
-  contact: <id>"`, `"updating order <id>: status=<status>"` - not just that a
-  request happened, but which entity/record and which values were involved.
-  This lets a CI failure be diagnosed from logs alone, without reproducing
-  locally.
-- Step bindings log key waits/retries and non-obvious actions through the
-  same injected logger (see the retry recipe in [recipes.md](recipes.md)),
-  rather than failing silently or relying only on assertion messages.
+These conventions are shared with integration tests and documented once in
+[common-testing-conventions.md](../common-testing-conventions.md). The
+acceptance-specific addition to that shared standard: prefer asserting on a
+**table of expected values** in one step over many single-field assertion
+steps (see `Then I see the following fields`), and see the retry recipe in
+[recipes.md](recipes.md) for the logging convention applied to step
+bindings.
 
 ## Reqnroll usage rules
 

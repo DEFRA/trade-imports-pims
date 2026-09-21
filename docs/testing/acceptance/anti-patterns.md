@@ -109,7 +109,7 @@ diagnose.
 in a FluentAssertions `AssertionScope` so every failure in the group is
 reported together, with a reason attached to each assertion for context
 (see the `AssertionScope` example in
-[acceptance-testing-standard.md](acceptance-testing-standard.md)).
+[common-testing-conventions.md](../common-testing-conventions.md)).
 
 ## 6b. Assertion library exceptions thrown from `Given`/`When` steps
 
@@ -126,7 +126,7 @@ hard-to-diagnose messages (e.g. a bare timeout) instead of domain language.
 
 **Instead:** throw a plain, domain-language exception from `Given`/`When`
 steps when a precondition fails (see "Defensive coding" in
-[acceptance-testing-standard.md](acceptance-testing-standard.md)). Reserve
+[common-testing-conventions.md](../common-testing-conventions.md)). Reserve
 assertion library usage for `Then` steps verifying the behaviour actually
 under test.
 

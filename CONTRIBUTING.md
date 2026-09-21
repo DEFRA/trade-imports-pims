@@ -32,7 +32,6 @@ Please ensure that you've read this document before contributing to this reposit
       - [Fakers](#fakers)
       - [Scenario builder](#scenario-builder)
         - [Accessing a builder](#accessing-a-builder)
-        - [Caching scenarios](#caching-scenarios)
         - [Incremental scenarios](#incremental-scenarios)
     - [Writing acceptance tests](#writing-acceptance-tests)
 
@@ -210,10 +209,6 @@ The scenario builder is chain of builder classes that implement `AsyncScenarioSt
 ##### Accessing a builder
 
 A scenario builder instance is available to integration tests via the `ScenarioBuilder` property. Acceptance tests can access an instance by using Reqnroll [context injection](https://docs.Reqnroll.org/projects/Reqnroll/en/latest/Bindings/Context-Injection.html) - for example, adding an `IImportsScenarioBuilder` parameter to a binding class constructor.
-
-##### Caching scenarios
-
-Read-only scenarios (i.e. scenarios where we don't make subsequent requests except for read requests on the data that gets created) can be pass a `cacheKey` to the `BuildAsync` method. If there is a hit on the cache key, then a previously constructed scenario that used the same key will be returned. If there is a cache miss, the scenario will be cached for future tests. This can greatly improve test performance and reduce the amount of test data generated.
 
 ##### Incremental scenarios
 
