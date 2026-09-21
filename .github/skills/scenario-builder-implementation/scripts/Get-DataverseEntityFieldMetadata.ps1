@@ -136,8 +136,8 @@ if ($Fields) {
 $results = foreach ($attribute in $attributes) {
     $optionSetName = if ($attribute.OptionSetName) {
         $attribute.OptionSetName
-    } elseif ($attribute.Type -in @("picklist", "multiselectpicklist")) {
-        "$EntityLogicalName" + "_" + "$($attribute.LogicalName)"
+    } elseif ($attribute.optionset.Name) {
+        $attribute.optionset.Name
     } else {
         $null
     }
