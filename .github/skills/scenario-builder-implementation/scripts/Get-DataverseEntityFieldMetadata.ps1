@@ -1,22 +1,28 @@
 <#
 .SYNOPSIS
-    Reports the generated C# property name/type and Entity.xml constraints (MaxLength, RequiredLevel, range,
-    option set values, ValidForCreateApi) for the attributes of a Dataverse entity, so a Faker (or manual
-    field-by-field review) can be written against verified values instead of assumptions.
+    Reports Entity.xml constraints (MaxLength, RequiredLevel, range, option set values, ValidForCreateApi) for
+    the attributes of a Dataverse entity, so a Faker (or manual field-by-field review) can be written against
+    verified values instead of assumptions.
 
 .DESCRIPTION
     Locates the entity's Entity.xml (under src/solutions/**/Entities/*/Entity.xml, matched by schema name) and
     reads, per attribute:
-      - Property: the attribute's PhysicalName - this is the exact casing Dataverse Model Builder uses for the
-        generated C# property, and cannot be inferred from the LogicalName (schema name).
-      - ClrType: derived from the attribute's Type (and, for picklists, its OptionSetName).
       - Type, RequiredLevel, MaxLength, MinValue, MaxValue, Precision, ValidForCreateApi.
+      - Format: for nvarchar distinguishes text vs textarea (multiline); for datetime distinguishes date vs
+        datetime.
+      - Behavior: datetime attributes only - distinguishes UserLocal/DateOnly/TimeZoneIndependent. A date-only
+        behavior means a Faker rule must not generate a time-of-day component.
       - OptionSet name and OptionValues (value=label pairs, read from the referenced OptionSets/*.xml), where
         applicable.
 
-    Dataverse Model Builder casing is inconsistent per-attribute (e.g. defraimp_ArrivalDate vs
-    defraimp_departuredate vs defraimp_CommodityId) and cannot be inferred from the logical (schema) name -
-    always verify against this script's output before writing Faker rules or direct field assignments.
+    This script does NOT report the generated C# property name or a CLR type - Dataverse Model Builder property
+    casing is inconsistent per-attribute (e.g. defraimp_ArrivalDate vs defraimp_departuredate vs
+    defraimp_CommodityId) and cannot be inferred from the LogicalName (schema name), and mapping an Entity.xml
+    attribute Type to a CLR type via rules is unreliable (nullable wrapping, `virtual`, generated enum/option-
+    set type names, and collection element types all depend on the actual generated code). Verify both by
+    grepping the generated entity class under src/common/Defra.Imports.Model/Entities/<EntityLogicalName>.cs
+    for the LogicalName reported here - see Get-DataverseEntityPropertyClrType.ps1 and the skill's "Determine
+    the property name and CLR type from the generated entity class" section.
 
     Returns objects to the pipeline; pipe to Format-Table, Export-Csv, or ConvertTo-Json as needed. Only writes
     a file if -OutputPath is supplied - if so, do not commit that file to source control.
@@ -50,23 +56,6 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-
-# Dataverse attribute Type -> generated CLR type. Picklist/state/status are resolved per-attribute below.
-$clrTypeByAttributeType = @{
-    lookup     = "Microsoft.Xrm.Sdk.EntityReference"
-    owner      = "Microsoft.Xrm.Sdk.EntityReference"
-    customer   = "Microsoft.Xrm.Sdk.EntityReference"
-    partylist  = "System.Collections.Generic.IEnumerable<Microsoft.Xrm.Sdk.Entity>"
-    datetime   = "System.Nullable<System.DateTime>"
-    int        = "System.Nullable<System.Int32>"
-    decimal    = "System.Nullable<System.Decimal>"
-    money      = "Microsoft.Xrm.Sdk.Money"
-    nvarchar   = "string"
-    ntext      = "string"
-    bit        = "System.Nullable<System.Boolean>"
-    uniqueidentifier = "System.Nullable<System.Guid>"
-    primarykey = "System.Nullable<System.Guid>"
-}
 
 $repoRoot = $null
 try {
@@ -129,32 +118,6 @@ function Get-OptionSetValues {
     return $optionSetCache[$OptionSetName]
 }
 
-function Get-ClrType {
-    param($Attribute)
-
-    $optionSetName = if ($Attribute.OptionSetName) {
-        $Attribute.OptionSetName
-    } elseif ($Attribute.Type -in @("picklist", "multiselectpicklist")) {
-        "$EntityLogicalName" + "_" + "$($Attribute.LogicalName)"
-    } else {
-        $null
-    }
-
-    switch ($Attribute.Type) {
-        "picklist" {
-            if ($optionSetName) { return "$optionSetName?" }
-            return $null
-        }
-        "multiselectpicklist" {
-            if ($optionSetName) { return "System.Collections.Generic.IEnumerable<$optionSetName>" }
-            return $null
-        }
-        "state" { return "$($EntityLogicalName)_statecode?" }
-        "status" { return "$($EntityLogicalName)_statuscode?" }
-        default { return $clrTypeByAttributeType[$Attribute.Type] }
-    }
-}
-
 $attributes = @($entityXml.Entity.EntityInfo.entity.attributes.attribute)
 
 if ($Fields) {
@@ -192,14 +155,14 @@ $results = foreach ($attribute in $attributes) {
 
     [pscustomobject]@{
         LogicalName       = $attribute.LogicalName
-        Property          = $attribute.PhysicalName
-        ClrType           = Get-ClrType -Attribute $attribute
         Type              = $attribute.Type
         RequiredLevel     = $attribute.RequiredLevel
         MaxLength         = $attribute.MaxLength
         MinValue          = $attribute.MinValue
         MaxValue          = $attribute.MaxValue
         Precision         = $attribute.Precision
+        Format            = $attribute.Format
+        Behavior          = $attribute.Behavior
         ValidForCreateApi = $attribute.ValidForCreateApi
         OptionSet         = $optionSetName
         OptionValues      = $optionValues

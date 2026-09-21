@@ -56,12 +56,26 @@ Conventions for every `Faker`:
 
 ### Verifying entity fields before writing a Faker
 
-Dataverse Model Builder casing is inconsistent per-attribute (e.g. `defraimp_ArrivalDate` vs `defraimp_departuredate` vs `defraimp_CommodityId`) and cannot be inferred from the logical (schema) name. Before writing `Faker` rules or direct field assignments for a Dataverse early-bound entity, verify the exact generated property name, CLR type, and `Entity.xml` constraints instead of guessing.
+Verify two things separately instead of guessing:
 
-1. **Run the field metadata script** at [scripts/Get-DataverseEntityFieldMetadata.ps1](./scripts/Get-DataverseEntityFieldMetadata.ps1) using PowerShell 7 (`pwsh`), passing the entity's logical name (and, optionally, the specific fields you need via `-Fields`). It reads the entity's `Entity.xml` (plus any referenced `OptionSets/*.xml`) to report, per attribute: the generated C# property name (the attribute's `PhysicalName`, which is the exact casing Dataverse Model Builder uses), its CLR type, `Type`, `RequiredLevel`, `MaxLength`, `MinValue`/`MaxValue`, `Precision`, `ValidForCreateApi`, and option set values.
-2. **Use the reported property name verbatim** in `RuleFor`/field-assignment expressions — do not assume it matches the logical name's casing.
-3. **Respect the reported constraints** — clamp/truncate generated string values to `MaxLength`, keep numeric values within `MinValue`/`MaxValue`, and only assign an attribute if `ValidForCreateApi` is `1`.
-4. **Re-run per entity, not per field.** The script reports every attribute by default (or a supplied subset via `-Fields`) in one pass — there's no need to look up fields one at a time.
+1. The attributes on the entity and the constraints `Entity.xml` places on them (`RequiredLevel`, `MaxLength`, range, `Format`/`Behavior`, option set values, `ValidForCreateApi`).
+2. The exact generated property name and CLR type of each attribute you'll use, taken from the generated code itself.
+
+These are deliberately two different lookups against two different sources of truth — don't try to derive one from the other.
+
+#### 1. Determine attributes and constraints from `Entity.xml`
+
+1. **Run the field metadata script** at [scripts/Get-DataverseEntityFieldMetadata.ps1](./scripts/Get-DataverseEntityFieldMetadata.ps1) using PowerShell 7 (`pwsh`), passing the entity's logical name (and, optionally, the specific fields you need via `-Fields`). It reads the entity's `Entity.xml` (plus any referenced `OptionSets/*.xml`) to report, per attribute: `LogicalName`, `Type`, `RequiredLevel`, `MaxLength`, `MinValue`/`MaxValue`, `Precision`, `ValidForCreateApi`, `Format`, `Behavior`, and option set values. **It does not report the generated property name or a CLR type** — get those from step 2.
+2. **Respect the reported constraints** — clamp/truncate generated string values to `MaxLength`, keep numeric values within `MinValue`/`MaxValue`, only assign an attribute if `ValidForCreateApi` is `1`, and never generate a time-of-day component for a `datetime` attribute whose `Behavior` is date-only.
+3. **Re-run per entity, not per field.** The script reports every attribute by default (or a supplied subset via `-Fields`) in one pass — there's no need to look up multiple fields one at a time.
+
+#### 2. Determine the property name and type from the generated entity class
+
+Verify the property name and type for an early-bound model class by grepping the generated partial class in [Entities](../../../src/common/Defra.Imports.Model/Entities/).
+
+1. **Run the property/type script** at [scripts/Get-DataverseEntityPropertyClrType.ps1](./scripts/Get-DataverseEntityPropertyClrType.ps1) using PowerShell 7 (`pwsh`), passing the entity's logical name and the `LogicalName` value(s) reported in step 1 via `-AttributeName`. It locates `src/common/Defra.Imports.Model/Entities/<EntityLogicalName>.cs` and greps it for each attribute's `[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("...")]` annotation, then reads the property name and type from the declaration line immediately after it — reliably distinguishing the real property from the same-named constant in the nested `Fields` class. It returns `LogicalName`, `Property`, and `ClrType`.
+2. Alternatively, grep the entity's `.cs` file directly yourself (e.g. via the `grep_search` tool) for the attribute's `AttributeLogicalNameAttribute` and read the property name/type from the following declaration line — the script exists to make this repeatable, not to replace it.
+3. **Use the reported property name and type verbatim** in `RuleFor`/field-assignment expressions — including `System.Nullable<T>` wrapping, a trailing `?`, or a generated enum/option-set/collection type name. Never strip `System.Nullable<T>` down to `T`, and never assume a picklist is a plain `int` or `string`.
 
 ## Procedure
 
@@ -87,5 +101,6 @@ Dataverse Model Builder casing is inconsistent per-attribute (e.g. `defraimp_Arr
 - [ ] `CompositeEvent.Builder`/`Scenario.Builder` configurator methods only call `ConfigureEvent(...)` — no inline business logic.
 - [ ] No test-only shortcuts: events perform the same API call sequence a real user/system would.
 - [ ] `Faker` classes default to `en_GB`, always produce valid records, and entity-backed ones inherit `RecordFaker<TEntity>` rather than `Faker<TEntity>` directly.
-- [ ] Entity-backed `Faker` field names/casing, `MaxLength`, `RequiredLevel`, and range/option-set constraints were verified via [scripts/Get-DataverseEntityFieldMetadata.ps1](./scripts/Get-DataverseEntityFieldMetadata.ps1) rather than assumed from the logical name.
+- [ ] Entity-backed `Faker` `MaxLength`, `RequiredLevel`, and range/option-set constraints were verified via [scripts/Get-DataverseEntityFieldMetadata.ps1](./scripts/Get-DataverseEntityFieldMetadata.ps1) rather than assumed from the logical name.
+- [ ] Entity-backed `Faker` property names and CLR types (nullability, `virtual`, enum/option-set/collection types) were verified by grepping the generated entity class (via [scripts/Get-DataverseEntityPropertyClrType.ps1](./scripts/Get-DataverseEntityPropertyClrType.ps1) or directly) rather than assumed from the `Entity.xml` `PhysicalName`/attribute `Type`.
 - [ ] New logic goes into `Defra.Imports.Scenarios`, not into `Marktek.Fluent.Testing.Engine`/`RecordGeneration` or ad-hoc test code (see [integration-tests instructions](../../instructions/integration-tests.instructions.md)).
