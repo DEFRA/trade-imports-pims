@@ -159,7 +159,7 @@ entity (e.g. the same submitter or destination).
 
 - Built on **Bogus** (`Faker<T>`), locale matching your target audience
   (e.g. `en_GB`).
-- Base class: `EntityFaker<TEntity> : Faker<TEntity>` sets `Id` and any
+- Base class: `RecordFaker<TEntity> : Faker<TEntity>` sets `Id` and any
   entity-wide defaults.
 - Fakers are organised by entity folder (`Fakers/Requests`,
   `Fakers/WorkItems`, `Fakers/LineItems`, ...) with an abstract base per

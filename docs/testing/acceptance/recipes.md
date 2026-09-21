@@ -26,7 +26,7 @@ public async Task GivenASubmitterHasSubmittedARequest(string category)
 }
 ```
 
-**Notes/caveats:** if appicable, check `ScenarioContext` for an existing scenario 
+**Notes/caveats:** if applicable, check `ScenarioContext` for an existing scenario
 of the same type first (`TryGetValue`) - if found, continue building on it with
 `BuildAsync(scenario)` instead of creating a second, unrelated record.
 

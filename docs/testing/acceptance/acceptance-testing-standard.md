@@ -21,7 +21,7 @@ Every acceptance test is composed of three concerns, kept deliberately separate:
 
 1. **Gherkin** (e.g. `Features/**/*.feature`) - describes behaviour from a persona's
    point of view. No technical detail.
-2. **Step definitions** (e.g. `Steps/Playwright/*.cs`) - translate Gherkin into
+2. **Step definitions** (e.g. `StepDefinitions/*.cs`) - translate Gherkin into
    (a) data setup via ScenarioBuilder, or (b) UI interaction via Power
    Playwright.
 3. **Scenario Builder** - creates the Dataverse state a scenario needs *without* 
