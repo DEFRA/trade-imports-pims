@@ -54,7 +54,7 @@ var scenario = await this.scenarioBuilder
 
 **Notes/caveats:** `AndAllPreviousSteps()` is required at child event
 level to also run sibling events you didn't explicitly configure. Forgetting
-it silently skips setup steps other assertions may depend on. `AndAllOtherSteps`
+it silently skips setup steps other assertions may depend on. `AndAllOtherSteps()`
 will execute all sibling events in the composite event.
 
 ## Prepare security roles / configure users

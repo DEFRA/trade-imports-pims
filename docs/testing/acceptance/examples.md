@@ -192,7 +192,7 @@ Illustrative source location: `Steps/Playwright/IntegrationSteps.cs`. Log
 each retry attempt via an injected logger so a flaky failure can be
 diagnosed from CI output alone.
 
-## 10. A `Scenario` class declaring its composed events
+## 8. A `Scenario` class declaring its composed events
 
 ```csharp
 [ComposeUsing(order: 0, SubmitterSubmitsRequestEventId, typeof(SubmitterSubmitsRequestEvent))]
@@ -208,18 +208,9 @@ public sealed class RequestScenario : Scenario
 
 Illustrative source location: `Scenarios/RequestScenario.cs`.
 
-## 11. Registering scenario builders and Power Playwright in DI
+## 9. Registering Power Playwright in DI
 
 ```csharp
-[BeforeScenario]
-public void SetupScenarioBuilder()
-{
-    this.objectContainer.RegisterInstanceAs(
-        new RequestScenario.Builder(
-            this.objectContainer.Resolve<ServiceClientFactory>(),
-            this.objectContainer.Resolve<ILogger<RequestScenario.Builder>>()));
-}
-
 [BeforeScenario(Order = -9998)]
 public async Task SetupPowerPlaywright()
 {
@@ -230,6 +221,4 @@ public async Task SetupPowerPlaywright()
 
 Illustrative source location: `Hooks/ContainerHooks.cs`. New shared services
 should be registered the same way, with an `Order` chosen relative to the
-existing registrations. Resolve a real `ILogger<T>` (wired to the test
-framework's output) rather than `NullLogger.Instance`, so ScenarioBuilder's
-data-setup actions are visible in CI logs.
+existing registrations.

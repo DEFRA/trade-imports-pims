@@ -27,7 +27,7 @@ Every acceptance test is composed of three concerns, kept deliberately separate:
 3. **Scenario Builder** - creates the Dataverse state a scenario needs *without* 
    going through the UI, so tests only exercise the UI/behaviour actually under test.
 
-Rule of thumb: **if a precondition can be setup directly via API, it
+Rule of thumb: **if a precondition can be set up directly via API, it
 should be** (via ScenarioBuilder). Only use Power Playwright for the behaviour
 actually being verified.
 
