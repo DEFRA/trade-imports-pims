@@ -23,6 +23,11 @@ namespace Defra.Imports.Scenarios.Extensions
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         public static async Task RetryUntilSucceedsAsync(Func<Task> action, ILogger logger, int retryCount = 6, TimeSpan? delay = null)
         {
+            if (action is null)
+            {
+                throw new ArgumentNullException(nameof(action));
+            }
+
             var waitBetweenAttempts = delay ?? TimeSpan.FromSeconds(10);
 
             for (var attempt = 1; ; attempt++)
