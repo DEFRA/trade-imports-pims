@@ -32,7 +32,7 @@ namespace Defra.Imports.Scenarios.Extensions
                     await action();
                     return;
                 }
-                catch (Exception ex) when (attempt < retryCount)
+                catch (Exception ex) when (ex is not OperationCanceledException && attempt < retryCount)
                 {
                     logger.LogWarning(ex, "Retry attempt {Attempt}", attempt);
                     await Task.Delay(waitBetweenAttempts);
