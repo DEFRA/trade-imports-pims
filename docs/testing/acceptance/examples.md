@@ -36,8 +36,7 @@ Scenario Outline: An approver rejects a submission
 		| expedited     | type b   |
 ```
 
-Why this is representative: `@issue:` tags, a
-`Background` handling login only, a persona-first `Given` chain that
+Why this is representative: `@issue:` traceability and a persona-first `Given` chain that
 delegates data setup to ScenarioBuilder ("a submitter has submitted...",
 "the request's work item is assigned to me", "I have created a record
 for..."), a single UI action (`When`), and a single table-driven assertion
