@@ -111,7 +111,8 @@ if (!this.scenarioContext.TryGetValue<RequestScenario>(out var scenario))
             .ByProcessingWorkItemTasks(c => c
                 .ByProcessingReviewTask(d => d
                     .ByScheduling()
-                    .AndAllPreviousSteps()))
+                    .AndAllPreviousSteps())
+                .AndAllPreviousSteps())
             .AndAllPreviousSteps())
         .BuildAsync();
 }

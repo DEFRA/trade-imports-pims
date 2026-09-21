@@ -37,11 +37,11 @@ homePage = await this.powerPlaywright.LaunchAppAsync(
 
 // Open a new record form
 this.powerPlaywrightCtx.ActivePage = await this.powerPlaywrightCtx.ActivePage.ClientApi
-    .OpenFormAsync(logicalName)
+    .OpenFormAsync(logicalName);
 
 // Navigate directly to an existing record, with a bounded timeout
 var appPage = await this.powerPlaywrightCtx.ActivePage.ClientApi
-    .NavigateToRecordAsync(record.LogicalName, record.Id)
+    .NavigateToRecordAsync(record.LogicalName, record.Id);
 ```
 
 ## Form interaction

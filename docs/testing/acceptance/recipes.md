@@ -104,7 +104,7 @@ homePage = await this.powerPlaywright.LaunchAppAsync(
 
 // Navigate directly to a specific existing record
 this.powerPlaywrightCtx.ActivePage = await this.powerPlaywrightCtx.ActivePage.ClientApi
-    .NavigateToRecordAsync(logicalName, recordId)
+    .NavigateToRecordAsync(logicalName, recordId);
 ```
 
 ## Execute a command (ribbon/command bar button)
