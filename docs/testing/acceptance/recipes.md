@@ -179,7 +179,7 @@ be unjustified complexity:
 await RetryExtensions.RetryUntilSucceedsAsync(
     async () =>
     {
-        var workItem = await this.serviceClient.WaitForWorkItemForRequestAsync(requestId);
+        var workItem = await this.serviceClient.RetrieveWorkItemForRequestAsync(requestId);
 
         if (workItem is null)
         {
@@ -189,10 +189,7 @@ await RetryExtensions.RetryUntilSucceedsAsync(
     this.logger);
 ```
 
-Or use a dedicated extension helper if one already exists (see
-`ServiceClientExtensions.WaitForFieldValueAsync`, `WaitForRecordsAsync`)
-rather than writing a new bespoke polling loop. `RetryUntilSucceedsAsync`
-logs each retry attempt via the passed-in logger so a flaky failure can be
+`RetryUntilSucceedsAsync` logs each retry attempt via the passed-in logger so a flaky failure can be
 diagnosed from CI output alone.
 
 **Notes/caveats:** never assert immediately after triggering an async
