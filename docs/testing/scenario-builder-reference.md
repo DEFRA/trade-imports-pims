@@ -198,7 +198,7 @@ parameters - they are what Gherkin table/value transformations produce.
 - Store the built scenario in `ScenarioContext` immediately after
   `BuildAsync()`: `this.scenarioContext.Set(scenario)`.
 - Retrieve it later with `this.scenarioContext.Get<TScenario>()` (or
-  `TryGetValue`/the `TryGet<T>` extension for optional retrieval).
+  `TryGetValue<T>` for optional retrieval).
 - Read captured outputs off the scenario's event properties, e.g.
   `scenario.SubmitterSubmitsRequestEvent.RequestOnSubmission`, rather than
   re-querying Dataverse for values the builder already captured.
