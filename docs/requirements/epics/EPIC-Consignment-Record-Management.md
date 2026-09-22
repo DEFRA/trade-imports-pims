@@ -54,9 +54,7 @@ Supporting case management capabilities include document attachment, IV65 respon
 | [US-033](../user-stories/US-033-Quick-Create-Import-Record.md)              | Quick Create Import Record              |
 | [US-044](../user-stories/US-044-View-Importer-Notification.md)              | View Importer Notification in PIMS      |
 | [US-046](../user-stories/US-046-Match-Inbound-Records-to-Import-Records.md) | Match Inbound Records to Import Records |
-| [US-048](../user-stories/US-048-DOCOM-Details-on-Import-Record.md)          | DOCOM Details on Import Record          |
 | [US-049](../user-stories/US-049-Non-Compliance-Management.md)              | Non-Compliance Management               |
-| [US-050](../user-stories/US-050-Importer-Notification-Received-Date.md)    | Importer Notification Received Date and Timescale |
 
 ## Source Jira Issues
 

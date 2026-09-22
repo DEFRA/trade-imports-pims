@@ -379,7 +379,7 @@ When a user selects "Create Import Record" on an Importer Notification, PIMS mus
 
 When an Import Record is created from an Importer Notification via the "Create Import Record" button, PIMS must auto-populate the Import Record's Date Importer Notification Received field with the value held in the Submission Date field on the associated Importer Notification.
 
-- **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md), [US-050](user-stories/US-050-Importer-Notification-Received-Date.md)
+- **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md)
 - **Jira:** PLNT-4540 AC-1
 
 ---

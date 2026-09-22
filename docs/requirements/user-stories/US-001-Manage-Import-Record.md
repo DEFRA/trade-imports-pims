@@ -35,7 +35,7 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
     - Warble Fly Treatment Declaration Required, Received Date
     - General Comments
     - IV65 Sent, IV65 Sent Date, IV65 Response Received Date, IV65 Response Due Date
-    - Date Importer Notification Received, Importer Notification Received within Timescales (previously labelled "Date IV66 Received" and "IV66 received in required timescales" — PLNT-4541; see [US-050](US-050-Importer-Notification-Received-Date.md))
+    - Date Importer Notification Received, Importer Notification Received within Timescales (previously labelled "Date IV66 Received" and "IV66 received in required timescales" — PLNT-4541; see AC-10)
     - Region / Area Allocated to
     - Moved to Completion?, Moved to Completion Date (read-only)
 
@@ -50,6 +50,16 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 - **AC-6 (Triage step no longer clears Commodity Code):** Entering a value in the Primary ITAHC field during the Triage stage of the Import Record business process flow no longer removes or updates the Commodity Code value on the Import Record on save. Primary ITAHC carries no business process logic. This resolves the defect reported as DEFRA incident INC0838632.
 
 - **AC-7 (Import Record Type value list):** The Import Record Type field offers exactly the following values, with no default selected: Importer Notification, Health Certificate, ITAHC - Landbridge, CHEDA, CHEDP, DOCOM, ITAHC. The legacy values CED, CVEDA and CVEDP are removed. Selecting "Create Import Record" on an Importer Notification sets the new Import Record's Import Record Type to Importer Notification.
+
+- **AC-8 (DOCOM tab fields):** A DOCOM tab is displayed on the Import Record form immediately to the right of the Post Import Checks tab, with the section heading "DOCOM". The tab contains the following optional fields (no BR — CIT's off-system Proof of Delivery tracking process, see PLNT-4539):
+    - DOCOM Category (Option Set — Cat1, Cat2, Cat3 - PAP, Cat3 – PAP Fish, Cat3 - Other)
+    - Requested POD (Option Set — Blank, Y, N)
+    - Date POD Requested (Date/Time)
+    - Reply Received (Option Set — Blank, Y, N)
+
+- **AC-9 (Auto-populate Date Importer Notification Received):** When an EU Imports Caseworker selects "Create Import Record" on an Importer Notification, PIMS auto-populates the new Import Record's Date Importer Notification Received field with the value of the associated Importer Notification's Submission Date field.
+
+- **AC-10 (IV66 section relabelled to Importer Notification):** For records with Import Record Type = Importer Notification, the Import Record form's "IV66" section is labelled "Importer Notification", the "Date IV66 Received" field is labelled "Date Importer Notification Received", and the "IV66 received in required timescales" field is labelled "Importer Notification Received within Timescales".
 
 ## Business Rules
 
@@ -70,8 +80,8 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 - [US-002](US-002-Manage-ITAHC.md) (ITAHC lookup), [US-003](US-003-Manage-Import-Notification.md) (Import Notification lookup), [US-017](US-017-Manage-Place-of-Origin.md) (Place of Origin lookup)
 - [US-011](US-011-Manage-Commodity-Risk-Levels.md) (Commodity Risk Level rules applied on create/update)
 - [US-028](US-028-Generate-Unique-Reference-Number.md) (Unique reference number)
+- [US-004](US-004-Manage-DOCOM.md) (DOCOM record — the DOCOM tab on the Import Record is additional triage context, not a replacement for the DOCOM entity)
 - [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md), [US-044](US-044-View-Importer-Notification.md) (Importer Notification — source of the "Create Import Record" button and Submission Date)
-- [US-050](US-050-Importer-Notification-Received-Date.md) (Date Importer Notification Received auto-population and section relabelling)
 
 ## Traceability
 
@@ -81,3 +91,6 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 - IMTA-5985
 - PLNT-4535
 - PLNT-4536
+- PLNT-4539
+- PLNT-4540
+- PLNT-4541
