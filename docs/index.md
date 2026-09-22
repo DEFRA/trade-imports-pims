@@ -8,7 +8,7 @@ PIMS is a Dynamics 365 Model-Driven App used by EU Imports caseworkers to receiv
 
 ## About this baseline
 
-This site is the consolidated, deduplicated and traceable requirements baseline for PIMS. It was reconstructed from the original requirement records (referenced throughout as `IMTA-nnnn`) and from the current implementation, and consolidates 65 source records plus 8 PLNT issues into 48 user stories.
+This site is the consolidated, deduplicated and traceable requirements baseline for PIMS. It was reconstructed from the original requirement records (referenced throughout as `IMTA-nnnn`) and from the current implementation, and consolidates 65 source records plus 9 PLNT issues into 48 user stories.
 
 Where the source records and the implementation disagreed, **the implementation was taken as the source of truth**. Statements that could not be evidenced in either are marked explicitly as not specified.
 
