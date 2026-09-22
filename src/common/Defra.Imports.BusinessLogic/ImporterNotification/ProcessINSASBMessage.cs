@@ -9,6 +9,7 @@
     using Defra.Imports.BusinessLogic.Logging;
     using Defra.Imports.Model;
     using Microsoft.Xrm.Sdk;
+    using Microsoft.Xrm.Sdk.Messages;
     using Microsoft.Xrm.Sdk.Query;
 
     /// <summary>
@@ -784,6 +785,8 @@
                 return;
             }
 
+            var createRequests = new OrganizationRequestCollection();
+
             foreach (var lineItem in includedTradeLineItem)
             {
                 if (lineItem == null)
@@ -792,7 +795,12 @@
                 }
 
                 var commodityComplement = this.BuildCommodityComplement(importerNotification, lineItem);
-                this.orgSvc.Create(commodityComplement);
+                createRequests.Add(new CreateRequest { Target = commodityComplement });
+            }
+
+            if (createRequests.Count > 0)
+            {
+                this.ExecuteMultiple(createRequests);
             }
         }
 
@@ -819,10 +827,35 @@
 
             var results = this.orgSvc.RetrieveMultiple(query);
 
+            var deleteRequests = new OrganizationRequestCollection();
+
             foreach (var commodity in results.Entities)
             {
-                this.orgSvc.Delete(defraimp_commoditycomplement.EntityLogicalName, commodity.Id);
+                deleteRequests.Add(new DeleteRequest
+                {
+                    Target = new EntityReference(defraimp_commoditycomplement.EntityLogicalName, commodity.Id),
+                });
             }
+
+            if (deleteRequests.Count > 0)
+            {
+                this.ExecuteMultiple(deleteRequests);
+            }
+        }
+
+        private void ExecuteMultiple(OrganizationRequestCollection requests)
+        {
+            var request = new ExecuteMultipleRequest
+            {
+                Settings = new ExecuteMultipleSettings
+                {
+                    ContinueOnError = true,
+                    ReturnResponses = false,
+                },
+                Requests = requests,
+            };
+
+            this.orgSvc.Execute(request);
         }
 
         private bool TryDeserializeMessage(string message, out INSObject insObject, out string errorMessage)

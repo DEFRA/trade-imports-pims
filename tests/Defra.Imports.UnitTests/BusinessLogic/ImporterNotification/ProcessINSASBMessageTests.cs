@@ -2,12 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Defra.Imports.BusinessLogic.Extensions;
     using Defra.Imports.BusinessLogic.ImporterNotification;
     using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.INSObject;
     using Defra.Imports.BusinessLogic.Logging;
     using Defra.Imports.Model;
     using Microsoft.Xrm.Sdk;
+    using Microsoft.Xrm.Sdk.Messages;
     using Microsoft.Xrm.Sdk.Query;
     using Moq;
     using Xunit;
@@ -1244,7 +1246,6 @@
         {
             // Arrange
             var importerNotificationId = Guid.NewGuid();
-            var createdEntities = new List<Entity>();
 
             this.orgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
@@ -1252,26 +1253,29 @@
 
             this.orgSvcMock
                 .Setup(o => o.Create(It.IsAny<Entity>()))
-                .Callback<Entity>(e => createdEntities.Add(e))
-                .Returns<Entity>(e =>
-                    e.LogicalName == defraimp_ImporterNotification.EntityLogicalName
-                        ? importerNotificationId
-                        : Guid.NewGuid());
+                .Returns(importerNotificationId);
 
-            var message = BuildMessageWithIncludedTradeLineItems("INS-CC-001", 1, "SUBMITTED");
+            OrganizationRequestCollection capturedRequests = null;
+            this.orgSvcMock
+                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
+                .Callback<OrganizationRequest>(r => capturedRequests = ((ExecuteMultipleRequest)r).Requests)
+                .Returns(new ExecuteMultipleResponse());
+
+            var message = this.BuildMessageWithIncludedTradeLineItems("INS-CC-001", 1, "SUBMITTED");
 
             // Act
             var result = this.sut.UpsertImporterNotification(message);
 
             // Assert
             Assert.True(result.Item1);
+            Assert.NotNull(capturedRequests);
 
             var complements = new List<defraimp_commoditycomplement>();
-            foreach (var entity in createdEntities)
+            foreach (var request in capturedRequests)
             {
-                if (entity.LogicalName == defraimp_commoditycomplement.EntityLogicalName)
+                if (request is CreateRequest createRequest && createRequest.Target.LogicalName == defraimp_commoditycomplement.EntityLogicalName)
                 {
-                    complements.Add((defraimp_commoditycomplement)entity);
+                    complements.Add((defraimp_commoditycomplement)createRequest.Target);
                 }
             }
 
@@ -1329,6 +1333,12 @@
                     new defraimp_commoditycomplement { Id = commodityId2 },
                 }));
 
+            OrganizationRequestCollection capturedRequests = null;
+            this.orgSvcMock
+                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
+                .Callback<OrganizationRequest>(r => capturedRequests = ((ExecuteMultipleRequest)r).Requests)
+                .Returns(new ExecuteMultipleResponse());
+
             var message = BuildMessage("INS-DEL-001", 2, "SUBMITTED");
 
             // Act
@@ -1336,10 +1346,22 @@
 
             // Assert
             Assert.True(result.Item1);
+            Assert.NotNull(capturedRequests);
 
             this.orgSvcMock.Verify(o => o.Update(It.Is<Entity>(e => e.LogicalName == defraimp_ImporterNotification.EntityLogicalName)), Times.Once);
-            this.orgSvcMock.Verify(o => o.Delete(defraimp_commoditycomplement.EntityLogicalName, commodityId1), Times.Once);
-            this.orgSvcMock.Verify(o => o.Delete(defraimp_commoditycomplement.EntityLogicalName, commodityId2), Times.Once);
+
+            var deletedIds = new List<Guid>();
+            foreach (var request in capturedRequests)
+            {
+                if (request is DeleteRequest deleteRequest && deleteRequest.Target.LogicalName == defraimp_commoditycomplement.EntityLogicalName)
+                {
+                    deletedIds.Add(deleteRequest.Target.Id);
+                }
+            }
+
+            Assert.Contains(commodityId1, deletedIds);
+            Assert.Contains(commodityId2, deletedIds);
+            Assert.Equal(2, deletedIds.Count);
         }
 
         // ── PopulateConsignmentDetails: FinalDestinationLocation / UnloadingBaseportLocation ──
@@ -1379,6 +1401,12 @@
                 .Setup(o => o.Create(It.IsAny<Entity>()))
                 .Returns(Guid.NewGuid());
 
+            OrganizationRequestCollection capturedRequests = null;
+            this.orgSvcMock
+                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
+                .Callback<OrganizationRequest>(r => capturedRequests = ((ExecuteMultipleRequest)r).Requests)
+                .Returns(new ExecuteMultipleResponse());
+
             var message = this.BuildMessageWithMinimalTradeLineItem("INS-CC-002", "Loris tardigradus", "Slow Loris");
 
             // Act
@@ -1386,17 +1414,21 @@
 
             // Assert
             Assert.True(result.Item1);
+            Assert.NotNull(capturedRequests);
 
-            this.orgSvcMock.Verify(
-                o => o.Create(It.Is<defraimp_commoditycomplement>(e =>
-                    e.defraimp_NumberofAnimals == null &&
-                    e.defraimp_NumberofPackages == null &&
-                    e.defraimp_commodityid == null &&
-                    e.defraimp_commoditydescription == null &&
-                    e.defraimp_name == "Loris tardigradus" &&
-                    e.defraimp_speciesname == "Loris tardigradus" &&
-                    e.defraimp_speciescommonname == "Slow Loris")),
-                Times.Once);
+            var complement = capturedRequests
+                .OfType<CreateRequest>()
+                .Select(r => r.Target)
+                .OfType<defraimp_commoditycomplement>()
+                .Single();
+
+            Assert.Null(complement.defraimp_NumberofAnimals);
+            Assert.Null(complement.defraimp_NumberofPackages);
+            Assert.Null(complement.defraimp_commodityid);
+            Assert.Null(complement.defraimp_commoditydescription);
+            Assert.Equal("Loris tardigradus", complement.defraimp_name);
+            Assert.Equal("Loris tardigradus", complement.defraimp_speciesname);
+            Assert.Equal("Slow Loris", complement.defraimp_speciescommonname);
         }
 
         /// <summary>
@@ -1560,7 +1592,7 @@
         [Fact]
         public void ApplyImporterDetails_WithUnknownCountry_DoesNotSetImporterAddressCountryId()
         {
-            // Arrange — country lookup returns nothing for "ZZ" (default constructor mock)
+            // Arrange
             var message = BuildMessageWithParty(
                 "INS-331",
                 "importer",
