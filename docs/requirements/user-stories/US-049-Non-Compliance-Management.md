@@ -3,8 +3,8 @@
 ## Summary
 
 As a CIT Case Worker,  
-I want to see non-compliance fields displayed on the Importer Notification and Import Record in Dynamics, and pre-defined system views to find them,  
-So that I can save time on the number of notifications allocated to me and easily navigate to non-compliant records.
+I want to see non-compliance fields displayed on the Importer Notification and Import Record in Dynamics, pre-defined system views to find them, and a chronological comments timeline on the Importer Notification,  
+So that I can save time on the number of notifications allocated to me, easily navigate to non-compliant records, and keep a record of all comments relating to import notifications with no associated health certificate.
 
 ## Description
 
@@ -12,7 +12,9 @@ CIT currently manage a manual off-system process for recording non-compliance qu
 
 Non-compliance fields are new to both the Importer Notification and Import Record entities — they are not currently surfaced from one entity to the other via a sub-grid. The relationship between an Importer Notification and its Import Records is 1:N, implemented as a lookup from Import Record to Importer Notification.
 
-This story was identified from Jira issues PLNT-4537 and PLNT-4538, which were missing from the original corpus compilation.
+Where an Importer Notification is being chased with the importer (for example, no health certificate attached) or a caseworker needs to record contact with International Trade Vets (ITV), a chronological comments timeline on the Importer Notification lets caseworkers keep a record of that contact.
+
+This story was identified from Jira issues PLNT-4537, PLNT-4538 and PLNT-4543, which were missing from the original corpus compilation.
 
 ## Acceptance Criteria
 
@@ -53,6 +55,9 @@ This story was identified from Jira issues PLNT-4537 and PLNT-4538, which were m
 - **AC-5 (System views — Import Records with active/closed non-compliance queries):**  
   An EU Imports Caseworker can select system views on the Import Record entity filtered by Non-Compliance Status = In Progress ("active") and Non-Compliance Status = Completed ("closed"). Column widths are adjusted so the whole column title is visible.
 
+- **AC-6 (Add chronological comments to Importer Notification):**  
+  The Importer Notification form displays a timeline beneath the Document section, where a CIT Case Worker can add free-text, chronological notes (for example, recording contact made with the importer, or with International Trade Vets (ITV)) for notifications that do not have a health certificate attached and are being chased.
+
 ## Business Rules
 
 - [BR-043](../business-rules.md#br-043) — Non-compliance fields default state
@@ -60,7 +65,7 @@ This story was identified from Jira issues PLNT-4537 and PLNT-4538, which were m
 
 ## Dependencies
 
-- [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md), [US-044](US-044-View-Importer-Notification.md) (Importer Notification — the entity the non-compliance tab is added to)
+- [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md), [US-044](US-044-View-Importer-Notification.md) (Importer Notification — the entity the non-compliance tab and comments timeline are added to)
 - [US-001](US-001-Manage-Import-Record.md) (Import Record — the entity the non-compliance tab and quick view are added to)
 - [US-025](US-025-Import-Query-Management.md) (Import Query — the existing Queries tab that the Non-Compliance tab is positioned next to; non-compliance tracking is distinct from the Import Query entity)
 
@@ -70,3 +75,4 @@ This story was identified from Jira issues PLNT-4537 and PLNT-4538, which were m
 
 - PLNT-4537
 - PLNT-4538
+- PLNT-4543
