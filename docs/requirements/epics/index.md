@@ -162,7 +162,7 @@ This page lists all 9 epics in the PIMS requirements baseline. Each epic groups 
 | Smallest epic               | Import Query Management (1 story)                               |
 | Average stories per epic    | 5.3                                                              |
 | Stories shared across epics | 1 ([US-021](../user-stories/US-021-Revoke-Gold-Trust-Level.md)) |
-| Source records consolidated | 65 + 8 PLNT issues → 48 stories                                 |
+| Source records consolidated | 65 + 9 PLNT issues → 48 stories                                 |
 
 ---
 
