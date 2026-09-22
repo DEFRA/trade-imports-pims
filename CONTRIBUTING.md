@@ -32,7 +32,6 @@ Please ensure that you've read this document before contributing to this reposit
       - [Fakers](#fakers)
       - [Scenario builder](#scenario-builder)
         - [Accessing a builder](#accessing-a-builder)
-        - [Caching scenarios](#caching-scenarios)
         - [Incremental scenarios](#incremental-scenarios)
     - [Writing acceptance tests](#writing-acceptance-tests)
 
@@ -211,15 +210,11 @@ The scenario builder is chain of builder classes that implement `AsyncScenarioSt
 
 A scenario builder instance is available to integration tests via the `ScenarioBuilder` property. Acceptance tests can access an instance by using Reqnroll [context injection](https://docs.Reqnroll.org/projects/Reqnroll/en/latest/Bindings/Context-Injection.html) - for example, adding an `IImportsScenarioBuilder` parameter to a binding class constructor.
 
-##### Caching scenarios
-
-Read-only scenarios (i.e. scenarios where we don't make subsequent requests except for read requests on the data that gets created) can be pass a `cacheKey` to the `BuildAsync` method. If there is a hit on the cache key, then a previously constructed scenario that used the same key will be returned. If there is a cache miss, the scenario will be cached for future tests. This can greatly improve test performance and reduce the amount of test data generated.
-
 ##### Incremental scenarios
 
-Integration tests can build scenarios with a single call to `Build`. This is not the case for acceptance tests, as these may have many `Given` steps chained together. For this reason, the scenario builder supports incremental building. 
+Integration tests can build scenarios with a single call to `BuildAsync`. This is not the case for acceptance tests, as these may have many `Given` steps chained together. For this reason, the scenario builder supports incremental building. 
 
-The scenario returned by calling `Build` can be passed into future calls to `Build` and only the steps that haven't yet run will execute. To assist with this, there is an overload of `Build` that returns the scenario as well as the last built step as a `out` parameter. Both the step and the scenario can then be passed to other `Given` step bindings through the `ScenarioContext`.
+The scenario returned by calling `BuildAsync` can be passed into future calls to `BuildAsync` and only the steps that haven't yet run will execute. The scenario can be passed to other `Given` step bindings through the `ScenarioContext`.
 
 ### Writing acceptance tests
 

@@ -8,6 +8,19 @@ repo_name: DEFRA/trade-imports-pims
 edit_uri: edit/main/docs/
 docs_dir: docs
 
+# Only the requirements baseline (plus the homepage and site assets) is published.
+# Other documentation (e.g. docs/testing) can live under docs/ without being built or
+# tripping the --strict nav-orphan check.
+exclude_docs: |
+  /*
+  !/index.md
+  !/requirements/
+  !/requirements/**
+  !/scripts/
+  !/scripts/**
+  !/stylesheets/
+  !/stylesheets/**
+
 theme:
   name: material
   palette:
