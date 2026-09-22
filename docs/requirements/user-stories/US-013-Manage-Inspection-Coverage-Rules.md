@@ -12,14 +12,14 @@ Inspection Coverage Rules define the thresholds at which random post-import chec
 
 ## Acceptance Criteria
 
-- [x] **AC-1:** A Dynamics 365 System Administrator can update an existing Inspection Coverage Rule record with the following mandatory fields:
+- **AC-1:** A Dynamics 365 System Administrator can update an existing Inspection Coverage Rule record with the following mandatory fields:
   - Rule Name (Free text — Mandatory)
   - Risk Level (Lookup — Mandatory)
   - Number of Records Until Inspection (Whole Number — Mandatory)
 
-- [x] **AC-2:** Only the Dynamics 365 System Administrator role can create or update Inspection Coverage Rule records. All other business user security roles are restricted to read access.
+- **AC-2:** Only the Dynamics 365 System Administrator role can create or update Inspection Coverage Rule records. All other business user security roles are restricted to read access.
 
-- [x] **AC-3:** Inspection Coverage Rules are associated to a Risk Level, enabling PIMS to apply the correct rule per risk level.
+- **AC-3:** Inspection Coverage Rules are associated to a Risk Level, enabling PIMS to apply the correct rule per risk level.
 
 ## Business Rules
 
@@ -37,37 +37,3 @@ Inspection Coverage Rules define the thresholds at which random post-import chec
 ### Source Jira Issues
 
 - IMTA-5891
-
-### Original Links
-
-- IMTA-5891
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                        |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | [defraimp_inspectioncoveragerule] entity with Rule Name, Risk Level (mandatory), Number of Records Until Inspection (mandatory) |
-| AC-2                 | ✅ Implemented | Security role configuration restricts Create/Update to System Administrator role                                                |
-| AC-3                 | ✅ Implemented | Rules associated to Risk Level (P1, P2, P3)                                                                                     |

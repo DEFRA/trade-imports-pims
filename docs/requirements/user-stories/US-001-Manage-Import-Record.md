@@ -16,11 +16,12 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 
 ## Acceptance Criteria
 
-- [x] **AC-1:** An EU Imports Caseworker can create or update an Import Record with the following fields (all optional unless stated):
+- **AC-1:** An EU Imports Caseworker can create or update an Import Record with the following fields (all optional unless stated):
 
-    - Import Record Type
+    - Import Record Type (see AC-7 for the value list — PLNT-4536)
     - Primary ITAHC (Lookup; includes "No ITAHC Received" option)
     - Primary Import Notification (Lookup)
+    - GB Import Health Certificate, Traces Export Health Certificate, ITAHC Reference, DOCOM Reference (single line of text; non-mandatory; manually populated — PLNT-4535, see AC-5)
     - Devolved Office
     - Importer Name, Address (Line 1-3, City, Postcode), Telephone, Email
     - Country of Origin, Countries of Transit, Date of Import
@@ -34,14 +35,31 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
     - Warble Fly Treatment Declaration Required, Received Date
     - General Comments
     - IV65 Sent, IV65 Sent Date, IV65 Response Received Date, IV65 Response Due Date
+    - Date Importer Notification Received, Importer Notification Received within Timescales (previously labelled "Date IV66 Received" and "IV66 received in required timescales" — PLNT-4541; see AC-10)
     - Region / Area Allocated to
     - Moved to Completion?, Moved to Completion Date (read-only)
 
-- [x] **AC-2:** An EU Imports Caseworker can view a list of all Import Records ordered by creation date (newest first), showing: Primary ITAHC, Commodity Type, Country of Origin, Import Risk Level, Place of Origin Organisation, Place of Destination, Created On Date.
+- **AC-2:** An EU Imports Caseworker can view a list of all Import Records ordered by creation date (newest first), showing: Primary ITAHC, Commodity Type, Country of Origin, Import Risk Level, Place of Origin Organisation, Place of Destination, Created On Date.
 
-- [x] **AC-3:** An EU Imports Caseworker can perform a free text search for an Import Record using: Importer Name, Date of Import, Premises of Origin Name (Place of Origin Organisation), ITAHC Certificate Reference Number, Import Notification Local Reference Number.
+- **AC-3:** An EU Imports Caseworker can perform a free text search for an Import Record using: Importer Name, Date of Import, Premises of Origin Name (Place of Origin Organisation), ITAHC Certificate Reference Number, Import Notification Local Reference Number.
 
-- [x] **AC-4:** The user can select "No ITAHC Received" in the Primary ITAHC field and save the Import Record without a linked ITAHC.
+- **AC-4:** The user can select "No ITAHC Received" in the Primary ITAHC field and save the Import Record without a linked ITAHC.
+
+- **AC-5 (Reference number fields):** GB Import Health Certificate, Traces Export Health Certificate, ITAHC Reference and DOCOM Reference are displayed as single-line text fields immediately below the Primary Import Notification field, in the Commodity section of the Summary tab. All four fields are non-mandatory and are populated manually; none are auto-populated by PIMS.
+
+- **AC-6 (Triage step no longer clears Commodity Code):** Entering a value in the Primary ITAHC field during the Triage stage of the Import Record business process flow no longer removes or updates the Commodity Code value on the Import Record on save. Primary ITAHC carries no business process logic. This resolves the defect reported as DEFRA incident INC0838632.
+
+- **AC-7 (Import Record Type value list):** The Import Record Type field offers exactly the following values, with no default selected: Importer Notification, Health Certificate, ITAHC - Landbridge, CHEDA, CHEDP, DOCOM, ITAHC. The legacy values CED, CVEDA and CVEDP are removed. Selecting "Create Import Record" on an Importer Notification sets the new Import Record's Import Record Type to Importer Notification.
+
+- **AC-8 (DOCOM tab fields):** A DOCOM tab is displayed on the Import Record form immediately to the right of the Post Import Checks tab, with the section heading "DOCOM". The tab contains the following optional fields (no BR — CIT's off-system Proof of Delivery tracking process, see PLNT-4539):
+    - DOCOM Category (Option Set — Cat1, Cat2, Cat3 - PAP, Cat3 – PAP Fish, Cat3 - Other)
+    - Requested POD (Option Set — Blank, Y, N)
+    - Date POD Requested (Date/Time)
+    - Reply Received (Option Set — Blank, Y, N)
+
+- **AC-9 (Auto-populate Date Importer Notification Received):** When an EU Imports Caseworker selects "Create Import Record" on an Importer Notification, PIMS auto-populates the new Import Record's Date Importer Notification Received field with the value of the associated Importer Notification's Submission Date field.
+
+- **AC-10 (IV66 section relabelled to Importer Notification):** For records with Import Record Type = Importer Notification, the Import Record form's "IV66" section is labelled "Importer Notification", the "Date IV66 Received" field is labelled "Date Importer Notification Received", and the "IV66 received in required timescales" field is labelled "Importer Notification Received within Timescales".
 
 ## Business Rules
 
@@ -51,12 +69,19 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 - [BR-025](../business-rules.md#br-025) — Warble Fly Treatment Declaration Received Date only enabled when Required = Yes
 - [BR-026](../business-rules.md#br-026) — Moved to Completion Date journalled automatically
 - [BR-028](../business-rules.md#br-028) — "No ITAHC Received" option available on Primary ITAHC field
+- [BR-036](../business-rules.md#br-036) — Certificate/notification reference fields are optional and manually entered
+- [BR-037](../business-rules.md#br-037) — Triage step must not clear or update Commodity Code
+- [BR-038](../business-rules.md#br-038) — Import Record Type value list
+- [BR-039](../business-rules.md#br-039) — Import Record Type set to Importer Notification when created from an Importer Notification
+- [BR-040](../business-rules.md#br-040) — Date Importer Notification Received auto-populated from Submission Date
 
 ## Dependencies
 
 - [US-002](US-002-Manage-ITAHC.md) (ITAHC lookup), [US-003](US-003-Manage-Import-Notification.md) (Import Notification lookup), [US-017](US-017-Manage-Place-of-Origin.md) (Place of Origin lookup)
 - [US-011](US-011-Manage-Commodity-Risk-Levels.md) (Commodity Risk Level rules applied on create/update)
 - [US-028](US-028-Generate-Unique-Reference-Number.md) (Unique reference number)
+- [US-004](US-004-Manage-DOCOM.md) (DOCOM record — the DOCOM tab on the Import Record is additional triage context, not a replacement for the DOCOM entity)
+- [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md), [US-044](US-044-View-Importer-Notification.md) (Importer Notification — source of the "Create Import Record" button and Submission Date)
 
 ## Traceability
 
@@ -64,40 +89,8 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 
 - IMTA-5870
 - IMTA-5985
-
-### Original Links
-
-- IMTA-5870
-- IMTA-5985
-
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- src/solutions/defra_Imports/src/Entities/defraimp_importapplication/Entity.xml
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                                                                                                                                                                                                                                |
-| -------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | src/solutions/defra_Imports/src/Entities/defraimp_importapplication/Entity.xml - All fields present (Import Record Type, Primary ITAHC, Primary Import Notification, Devolved Office, Importer fields, Place of Origin, Transporter, Commodity, Port of Entry, Risk Level, Region, IV65 fields, Warble Fly fields, Moved to Completion) |
-| AC-2                 | ✅ Implemented | SavedQueries with ordered views showing required fields                                                                                                                                                                                                                                                                                 |
-| AC-3                 | ✅ Implemented | Free-text search on Importer Name, ITAHC Reference, etc.                                                                                                                                                                                                                                                                                |
-| AC-4                 | ✅ Implemented | "No ITAHC Received" option exists in field configuration                                                                                                                                                                                                                                                                                |
+- PLNT-4535
+- PLNT-4536
+- PLNT-4539
+- PLNT-4540
+- PLNT-4541

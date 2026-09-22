@@ -12,7 +12,7 @@ When a caseworker manually sets Post Import Check Required? = Yes on an Import R
 
 ## Acceptance Criteria
 
-- [x] **AC-1 (Reset counter when manual early inspection scheduled):**  
+- **AC-1 (Reset counter when manual early inspection scheduled):**  
   When a user sets Post Import Check Required? = Yes on an Import Record where:
   - The previous value was No, AND
   - The linked Place of Origin has Trust Level = Gold, AND
@@ -34,35 +34,3 @@ When a caseworker manually sets Post Import Check Required? = Yes on an Import R
 ### Source Jira Issues
 
 - IMTA-6680
-
-### Original Links
-
-- IMTA-6680
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- src/solutions/defra_Imports/src/Workflows/ImportApplication-ManualPostImportCheckDecision-7436FAAE-9A22-4821-9A1B-2AA5A22BE272.xaml
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                                                                                                                                                                               |
-| -------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | Workflow src/solutions/defra_Imports/src/Workflows/ImportApplication-ManualPostImportCheckDecision-7436FAAE-9A22-4821-9A1B-2AA5A22BE272.xaml detects: Post Import Checks Required? changed from No to Yes + Gold Place of Origin + counter 1-9 → reset counter to 0 on Place of Origin |

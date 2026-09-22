@@ -12,7 +12,7 @@ Every increment, decrement, non-increment or reset of a risk assessment counter 
 
 ## Acceptance Criteria
 
-- [x] **AC-1 (Record reason for Import Record counter changes):**  
+- **AC-1 (Record reason for Import Record counter changes):**  
   PIMS records a Counter History entry for every change to a P1/P2/P3 auto-number counter with:
   - Import Record (Lookup — Mandatory)
   - Counter History Type = Auto Number (Option Set — Mandatory)
@@ -22,7 +22,7 @@ Every increment, decrement, non-increment or reset of a risk assessment counter 
   - Previous Counter Value (Integer — Mandatory)
   - Current Counter Value (Integer — Mandatory)
 
-- [x] **AC-2 (Record reason for Place of Origin counter changes):**  
+- **AC-2 (Record reason for Place of Origin counter changes):**  
   PIMS records a Counter History entry for every change to a Place of Origin trust level counter with:
   - Import Record (Lookup — Mandatory)
   - Counter History Type = Place of Origin (Option Set — Mandatory)
@@ -32,7 +32,7 @@ Every increment, decrement, non-increment or reset of a risk assessment counter 
   - Previous Counter Value (Integer — Mandatory)
   - Current Counter Value (Integer — Mandatory)
 
-- [x] **AC-3 (Visibility):**  
+- **AC-3 (Visibility):**  
   Counter History entries are visible against the Auto Number entity and against the Import Record within the Related tab in PIMS.
 
 ## Business Rules
@@ -49,37 +49,3 @@ None additional (Counter History is an audit mechanism for existing rules).
 ### Source Jira Issues
 
 - IMTA-6950
-
-### Original Links
-
-- IMTA-6950
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- src/solutions/defra_Imports/src/Entities/defraimp_counterhistory/Entity.xml
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                                                                                                                                                                                                                        |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | src/solutions/defra_Imports/src/Entities/defraimp_counterhistory/Entity.xml entity records P1/P2/P3 counter changes with: Import Record (Lookup), Counter History Type = Auto Number, Auto Number (Lookup), Operation (Increment/Decrement/Did Not Increment/Did Not Decrement/Set to 0), Reason, Previous Value, Current Value |
-| AC-2                 | ✅ Implemented | Place of Origin counter changes recorded in Counter History with same schema                                                                                                                                                                                                                                                    |
-| AC-3                 | ✅ Implemented | Counter History visible on Auto Number entity and Import Record Related tab                                                                                                                                                                                                                                                     |

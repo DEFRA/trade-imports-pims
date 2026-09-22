@@ -12,12 +12,12 @@ Caseworkers can override PIMS's automated Post Import Check determination in bot
 
 ## Acceptance Criteria
 
-- [x] **AC-1 (Manually skip a system-required Post Import Check):**  
+- **AC-1 (Manually skip a system-required Post Import Check):**  
   An EU Imports Caseworker can activate a "Skip this Post Import Check" action on an Import Record that was flagged for a Post Import Check. This sets:
   - Post Import Checks Required? = **No**
   - Post Import Checks Declined Reason = **System Required Post Import Check Skipped**
 
-- [x] **AC-2 (Manually schedule a Post Import Check):**  
+- **AC-2 (Manually schedule a Post Import Check):**  
   An EU Imports Caseworker can activate a "Post Import Check this Record" action on an Import Record that was not flagged for a Post Import Check. This sets:
   - Post Import Checks Required? = **Yes**
   - Post Import Checks Required Reason = **Manually Requested Post Import Check**
@@ -36,36 +36,3 @@ Caseworkers can override PIMS's automated Post Import Check determination in bot
 ### Source Jira Issues
 
 - IMTA-6699
-
-### Original Links
-
-- IMTA-6699
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                               |
-| -------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | Manual Post Import Check Decision field on Import Record with logic to skip checks                                                     |
-| AC-2                 | ✅ Implemented | Manual "Post Import Check this Record" action sets Post Import Checks Required? = Yes, Reason = "Manually Requested Post Import Check" |

@@ -16,27 +16,27 @@ PIMS automatically manages the Trust Level (Gold/Bronze) of each Place of Origin
 
 ## Acceptance Criteria
 
-- [x] **AC-1:** When a Place of Origin is created, its Trust Level defaults to Bronze.
+- **AC-1:** When a Place of Origin is created, its Trust Level defaults to Bronze.
 
-- [x] **AC-2 (Consecutive satisfactory count — increment):**  
+- **AC-2 (Consecutive satisfactory count — increment):**  
   When an Import Record with a Gold/Bronze Commodity and a Place of Origin is completed with Post Import Check Outcome = Satisfactory or Not Visited, increment the Number of Consecutive Satisfactory Import Records for the Place of Origin by 1.
 
-- [x] **AC-3 (Consecutive satisfactory count — reset):**  
+- **AC-3 (Consecutive satisfactory count — reset):**  
   When an Import Record with a Gold/Bronze Commodity and a Place of Origin is completed with Post Import Check Outcome = Unsatisfactory, reset the Number of Consecutive Satisfactory Import Records for the Place of Origin to 0.
 
-- [x] **AC-4 (Gold promotion after 3 consecutive satisfactory outcomes):**  
+- **AC-4 (Gold promotion after 3 consecutive satisfactory outcomes):**  
   After 3 consecutive Satisfactory or Not Visited outcomes, if the Place of Origin Trust Level is Bronze and Lock to Bronze = No, PIMS promotes the Trust Level to Gold.
 
-- [x] **AC-5 (Bronze demotion after unsatisfactory + Gold revocation):**  
+- **AC-5 (Bronze demotion after unsatisfactory + Gold revocation):**  
   When a Post Import Check Outcome is Unsatisfactory AND the user sets Reset Gold Trust Level to Bronze? = Yes on the Import Record, PIMS sets the Trust Level to Bronze.
 
-- [x] **AC-6 (Number of Import Records — increment):**  
+- **AC-6 (Number of Import Records — increment):**  
   When an Import Record with a Primary ITAHC is linked to a Place of Origin, increment the Number of Import Records counter on the Place of Origin by 1.
 
-- [x] **AC-7 (Number of Import Records — decrement):**  
+- **AC-7 (Number of Import Records — decrement):**  
   When a Place of Origin is unlinked from an Import Record, or the Primary ITAHC is cleared, decrement the Number of Import Records counter by 1.
 
-- [x] **AC-8 (Number of Import Records Since Last Check — increment):**  
+- **AC-8 (Number of Import Records Since Last Check — increment):**  
   When an Import Record with a Gold/Bronze Commodity and a Gold Trust Level Place of Origin is completed, increment the Number of Import Records Since Last Post Import Check on the Place of Origin by 1.
 
 ## Business Rules
@@ -59,42 +59,3 @@ PIMS automatically manages the Trust Level (Gold/Bronze) of each Place of Origin
 ### Source Jira Issues
 
 - IMTA-5886
-
-### Original Links
-
-- IMTA-5886
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                                    |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | New Place of Origin defaults to Bronze Trust Level (BR-010)                                                                                 |
-| AC-2                 | ✅ Implemented | Consecutive Satisfactory counter incremented on Post Import Check Outcome = Satisfactory or Not Visited with Gold/Bronze Commodity          |
-| AC-3                 | ✅ Implemented | Consecutive Satisfactory counter reset to 0 on Outcome = Unsatisfactory                                                                     |
-| AC-4                 | ✅ Implemented | After 3 consecutive Satisfactory outcomes (Lock to Bronze = No) → promote to Gold                                                           |
-| AC-5                 | ✅ Implemented | Unsatisfactory + Reset Gold = Yes → set Trust Level to Bronze                                                                               |
-| AC-6                 | ✅ Implemented | Primary ITAHC linked → increment Number of Import Records counter on Place of Origin                                                        |
-| AC-7                 | ✅ Implemented | Place of Origin unlinked or Primary ITAHC cleared → decrement Number of Import Records counter                                              |
-| AC-8                 | ✅ Implemented | Import Record with Gold/Bronze Commodity + Gold Place of Origin completed → increment Number of Import Records Since Last Post Import Check |

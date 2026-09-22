@@ -12,13 +12,13 @@ Gold/Bronze Commodity rules define which Commodity Types (and optionally, which 
 
 ## Acceptance Criteria
 
-- [x] **AC-1:** An EU Imports Business Rules Admin can create or update a Gold/Bronze Commodity record with the following fields:
+- **AC-1:** An EU Imports Business Rules Admin can create or update a Gold/Bronze Commodity record with the following fields:
   - Name (Free text — Mandatory)
   - Commodity Type (Lookup — Mandatory)
 
-- [x] **AC-2:** An EU Imports Business Rules Admin can link multiple Countries to a Gold/Bronze Commodity record via a "Countries This Rule Applies To" related list.
+- **AC-2:** An EU Imports Business Rules Admin can link multiple Countries to a Gold/Bronze Commodity record via a "Countries This Rule Applies To" related list.
 
-- [x] **AC-3:** Only users with the EU Imports Business Rules Admin security role can create or update Gold/Bronze Commodity records.
+- **AC-3:** Only users with the EU Imports Business Rules Admin security role can create or update Gold/Bronze Commodity records.
 
 ## Business Rules
 
@@ -34,37 +34,3 @@ Gold/Bronze Commodity rules define which Commodity Types (and optionally, which 
 ### Source Jira Issues
 
 - IMTA-5888
-
-### Original Links
-
-- IMTA-5888
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                |
-| -------------------- | ------------- | --------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | [defraimp_goldbronzecommodity] entity with Name (mandatory), Commodity Type (mandatory) |
-| AC-2                 | ✅ Implemented | Related list "Countries This Rule Applies To" via N:N relationship                      |
-| AC-3                 | ✅ Implemented | Security role configuration enforces role-based CRUD                                    |
