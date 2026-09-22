@@ -1530,7 +1530,7 @@
         [Fact]
         public void ApplyConsigneeDetails_WithUnknownCountry_DoesNotSetConsigneeAddressCountryId()
         {
-            // Arrange — country lookup returns nothing for "ZZ" (default constructor mock)
+            // Arrange
             var message = BuildMessageWithParty(
                 "INS-321",
                 "consigneeParty",
@@ -1609,6 +1609,130 @@
 
             // Assert
             Assert.Null(created.defraimp_ImporterAddressCountryid);
+        }
+
+        // ── ApplyConsignorDetails: defraimp_ConsignorAddressCountryid ───────────
+
+        /// <summary>
+        /// Tests that ApplyConsignorDetails sets the consignor address country lookup when the
+        /// consignor's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignorDetails_WithMatchingCountry_SetsConsignorAddressCountryId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithParty(
+                "INS-340",
+                "consignorParty",
+                name: "Seller Co",
+                line1: "3 Sell Ave",
+                line2: null,
+                city: "Paris",
+                postcode: "75001",
+                country: "FR",
+                email: "seller@example.com",
+                phone: "01234 000003");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_ConsignorAddressCountryid);
+            Assert.Equal(frCountry.Id, created.defraimp_ConsignorAddressCountryid.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyConsignorDetails does not set the consignor address country lookup
+        /// when the consignor's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignorDetails_WithUnknownCountry_DoesNotSetConsignorAddressCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithParty(
+                "INS-341",
+                "consignorParty",
+                name: "Seller Co",
+                line1: "3 Sell Ave",
+                line2: null,
+                city: "Paris",
+                postcode: "75001",
+                country: "ZZ",
+                email: "seller@example.com",
+                phone: "01234 000003");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_ConsignorAddressCountryid);
+        }
+
+        // ── ApplyPlaceOfOriginDetails: defraimp_PlaceofOriginCountryId ──────────
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfOriginDetails sets the place-of-origin country lookup when the
+        /// despatch party's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfOriginDetails_WithMatchingCountry_SetsPlaceOfOriginCountryId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithParty(
+                "INS-350",
+                "despatchParty",
+                name: "Origin Farm",
+                line1: "4 Farm Ln",
+                line2: null,
+                city: "Lyon",
+                postcode: "69001",
+                country: "FR",
+                email: "farm@example.com",
+                phone: "01234 000004");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_PlaceofOriginCountryId);
+            Assert.Equal(frCountry.Id, created.defraimp_PlaceofOriginCountryId.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfOriginDetails does not set the place-of-origin country lookup
+        /// when the despatch party's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfOriginDetails_WithUnknownCountry_DoesNotSetPlaceOfOriginCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithParty(
+                "INS-351",
+                "despatchParty",
+                name: "Origin Farm",
+                line1: "4 Farm Ln",
+                line2: null,
+                city: "Lyon",
+                postcode: "69001",
+                country: "ZZ",
+                email: "farm@example.com",
+                phone: "01234 000004");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_PlaceofOriginCountryId);
         }
 
         // ── Private helpers ───────────────────────────────────────────────────
