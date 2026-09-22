@@ -166,4 +166,4 @@ This page lists all 9 epics in the PIMS requirements baseline. Each epic groups 
 
 ---
 
-*See also: [User Story Catalogue](../user-stories/index.md) · [Business Rules](../business-rules.md) · [Implementation Conformance Matrix](../implementation-conformance-matrix.md)*
+*See also: [User Story Catalogue](../user-stories/index.md) · [Business Rules](../business-rules.md)*

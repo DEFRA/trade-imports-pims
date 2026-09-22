@@ -113,6 +113,7 @@ nav:
       - US-033 Quick Create Import Record: requirements/user-stories/US-033-Quick-Create-Import-Record.md
       - US-044 View Importer Notification: requirements/user-stories/US-044-View-Importer-Notification.md
       - US-046 Match Inbound Records to Import Records: requirements/user-stories/US-046-Match-Inbound-Records-to-Import-Records.md
+      - US-049 Non-Compliance Management: requirements/user-stories/US-049-Non-Compliance-Management.md
     - External System Integration:
       - US-006 Receive Importer Notification from IPAFFS: requirements/user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md
       - US-007 Receive ITAHC from TRACES: requirements/user-stories/US-007-Receive-ITAHC-From-TRACES.md
@@ -156,5 +157,3 @@ nav:
       - US-035 Audit Import Records: requirements/user-stories/US-035-Audit-Import-Records.md
       - US-036 Audit Post Import Checks: requirements/user-stories/US-036-Audit-Post-Import-Checks.md
       - US-045 Counter History Tracking: requirements/user-stories/US-045-Counter-History-Tracking.md
-  - Traceability:
-    - Implementation Conformance Matrix: requirements/implementation-conformance-matrix.md

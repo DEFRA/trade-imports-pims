@@ -8,7 +8,7 @@ So that I can use the information contained within an Importer Notification to s
 
 ## Description
 
-Caseworkers can view Importer Notification records in PIMS (auto-received from IPAFFS via [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md)). Caseworkers have read-only access to these records and cannot edit them. The Importer Notification entity is the current record type, although some legacy labels and views may still use the term Import Notification.
+Caseworkers can view Importer Notification records in PIMS (auto-received from IPAFFS via [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md)). Caseworkers have global Read, Append, Append To, Assign, Share and Write (Update) permissions on these records, but cannot create them manually. The Importer Notification entity is the current record type, although some legacy labels and views may still use the term Import Notification.
 
 ## Acceptance Criteria
 

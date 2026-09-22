@@ -337,7 +337,7 @@ If an inbound ITAHC or DOCOM receipt from TRACES Classic cannot be processed int
 
 ## Reference Data, Notification and Triage Rules
 
-The following rules were added after PLNT-4535 to PLNT-4542 were identified as Jira issues missing from the original corpus compilation. They have not yet been re-verified against implementation evidence; see the affected user stories' Conformance sections.
+The following rules were added after PLNT-4535 to PLNT-4542 were identified as Jira issues missing from the original corpus compilation. They have not yet been re-verified against implementation evidence.
 
 ### BR-036 — Certificate and Notification Reference Fields Are Optional and Manually Entered
 

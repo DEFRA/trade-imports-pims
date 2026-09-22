@@ -22,7 +22,6 @@ A reasonable reading order for someone new to PIMS:
 2. **[User Stories](requirements/user-stories/index.md)** — the detailed specification, one story per capability, each with acceptance criteria.
 3. **[Business Rules](requirements/business-rules.md)** — the numbered decision logic (BR-001 to BR-035) that the stories depend on.
 4. **[Process Flows](requirements/diagrams/process-flows.md)** and **[Sequence Diagrams](requirements/diagrams/sequence-diagrams.md)** — how the capabilities fit together, including failure paths.
-5. **[Implementation Conformance Matrix](requirements/implementation-conformance-matrix.md)** — which requirements are evidenced in the current implementation, and which are only partially evidenced.
 
 ---
 
@@ -38,7 +37,6 @@ A reasonable reading order for someone new to PIMS:
 | [Models & Flows](requirements/diagrams/domain-model.md)          | Domain model, process flows, sequence and context diagrams   |
 | [Epics](requirements/epics/index.md)                             | 9 epics grouping all 47 user stories                         |
 | [User Stories](requirements/user-stories/index.md)               | 47 consolidated user stories                                 |
-| [Conformance Matrix](requirements/implementation-conformance-matrix.md) | Implementation evidence for every story                |
 
 ---
 

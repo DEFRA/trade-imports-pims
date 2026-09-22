@@ -10,7 +10,7 @@ So that I can save time on the number of notifications allocated to me and easil
 
 CIT currently manage a manual off-system process for recording non-compliance queries against an import notification or Import Record. Capturing non-compliance directly in PIMS saves caseworkers time, increases the number of notifications that can be handled, and improves reporting visibility.
 
-Non-compliance fields are new to both the Importer Notification and Import Record entities — they are not currently surfaced from one entity to the other via a sub-grid. The relationship between an Importer Notification and its Import Records is 1:N (the system allows many Import Records per notification, though in practice the team currently treats it as 1:1); the relationship between an Importer Notification and its non-compliance records is also 1:N.
+Non-compliance fields are new to both the Importer Notification and Import Record entities — they are not currently surfaced from one entity to the other via a sub-grid. The relationship between an Importer Notification and its Import Records is 1:N, implemented as a lookup from Import Record to Importer Notification.
 
 This story was identified from Jira issues PLNT-4537 and PLNT-4538, which were missing from the original corpus compilation.
 
