@@ -34,6 +34,9 @@ Supporting case management capabilities include document attachment, IV65 respon
 - View Importer Notifications received from IPAFFS
 - Select "No ITAHC Received" on an Import Record where applicable
 - Review Match View candidates and Work Schedule Number context when matching inbound records
+- Record DOCOM-specific triage details (category, Proof of Delivery request/reply) on the Import Record
+- Record and track non-compliance queries against Importer Notifications and Import Records
+- Auto-populate the Date Importer Notification Received field from the linked Importer Notification's Submission Date
 
 ## Associated User Stories
 
@@ -51,7 +54,10 @@ Supporting case management capabilities include document attachment, IV65 respon
 | [US-033](../user-stories/US-033-Quick-Create-Import-Record.md)              | Quick Create Import Record              |
 | [US-044](../user-stories/US-044-View-Importer-Notification.md)              | View Importer Notification in PIMS      |
 | [US-046](../user-stories/US-046-Match-Inbound-Records-to-Import-Records.md) | Match Inbound Records to Import Records |
+| [US-048](../user-stories/US-048-DOCOM-Details-on-Import-Record.md)          | DOCOM Details on Import Record          |
+| [US-049](../user-stories/US-049-Non-Compliance-Management.md)              | Non-Compliance Management               |
+| [US-050](../user-stories/US-050-Importer-Notification-Received-Date.md)    | Importer Notification Received Date and Timescale |
 
 ## Source Jira Issues
 
-IMTA-5868, IMTA-5869, IMTA-5870, IMTA-5913, IMTA-5984, IMTA-5985, IMTA-6132, IMTA-6158, IMTA-6166, IMTA-6180, IMTA-6252, IMTA-6357, IMTA-6411, IMTA-7201, IMTA-7240
+IMTA-5868, IMTA-5869, IMTA-5870, IMTA-5913, IMTA-5984, IMTA-5985, IMTA-6132, IMTA-6158, IMTA-6166, IMTA-6180, IMTA-6252, IMTA-6357, IMTA-6411, IMTA-7201, IMTA-7240, PLNT-4535, PLNT-4536, PLNT-4537, PLNT-4538, PLNT-4539, PLNT-4540, PLNT-4541, PLNT-4542

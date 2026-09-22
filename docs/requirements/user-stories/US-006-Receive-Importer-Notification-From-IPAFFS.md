@@ -30,22 +30,27 @@ Related records (e.g. Additional Permanent Addresses) that are removed in an IPA
 
 - [x] **AC-5:** When an IPAFFS update introduces a new related record, a new equivalent PIMS record is created.
 
-- [~] **AC-6:** If the processing of an inbound IPAFFS message fails, the message is placed on the Dead Letter Queue for manual investigation.
+- [x] **AC-6:** If the processing of an inbound IPAFFS message fails, the message is placed on the Dead Letter Queue for manual investigation.
 
 - [x] **AC-7:** When IPAFFS commodity identifiers are used for downstream Import Record processing, PIMS translates them to the D365 commodity classification using Commodity Type Mapping.
+
+- [ ] **AC-8 (Health Certificate attached after completion re-opens the Importer Notification):** When a Health Certificate is attached to an Importer Notification that has already been completed, PIMS sets the Health Certificate Attached field to Y, changes the Owner of the Importer Notification to the EU Imports Dynamics Application User, and changes the Status to Amend, so the notification is surfaced back to the caseworker team for processing. See [US-044](US-044-View-Importer-Notification.md) for the Health Certificate Attached field definition.
+
+**Clarification (2026-09-22):** PLNT-4536 changes the **Import Record Type** field on the **Import Record** entity (`defraimp_importapplication`) — replacing CED, CVEDA and CVEDP with CHEDA, CHEDP and Health Certificate ([BR-038](../business-rules.md#br-038)). This is a different table from the **Importer Notification** entity (`defraimp_importernotification`) referenced in this story, and this AC-1's IPAFFS notification type list (CVEDA, CVEDP, CED, IMP) is not affected by that change. The only cross-entity effect confirmed by PLNT-4536 (AC-3) is that the shared "IMP" option label displays as "Importer Notification" wherever it is used, including on the Importer Notification Details form (see [US-044](US-044-View-Importer-Notification.md) AC-5) — the removal of CED, CVEDA and CVEDP is scoped to Import Record Type only.
 
 ## Business Rules
 
 - [BR-029](../business-rules.md#br-029) — Related records retained on PIMS even when removed from IPAFFS update
 - [BR-033](../business-rules.md#br-033) — Failed IPAFFS messages go to Dead Letter Queue
 - [BR-034](../business-rules.md#br-034) — IPAFFS commodity identifiers translated to D365 commodity classification
+- [BR-042](../business-rules.md#br-042) — Health Certificate attached after completion triggers amendment and reassignment
 
 ## Dependencies
 
 - Azure Service Bus Queue provisioned (see [assumptions-and-constraints.md](../assumptions-and-constraints.md) DEP-004)
 - IPAFFS JSON message schema agreed (DEP-002)
 - [US-001](US-001-Manage-Import-Record.md) (Importer Notification processing may support downstream Import Record creation or update)
-- [US-044](US-044-View-Importer-Notification.md) (Caseworker view of Importer Notification records)
+- [US-044](US-044-View-Importer-Notification.md) (Caseworker view of Importer Notification records; Health Certificate Attached field)
 
 ## Traceability
 
@@ -54,12 +59,14 @@ Related records (e.g. Additional Permanent Addresses) that are removed in an IPA
 - IMTA-5862
 - IMTA-5864
 - IMTA-7222
+- PLNT-4542
 
 ### Original Links
 
 - IMTA-5862
 - IMTA-5864
 - IMTA-7222
+- PLNT-4542
 ## Implementation Traceability
 
 ### Plugins
@@ -78,10 +85,10 @@ Related records (e.g. Additional Permanent Addresses) that are removed in an IPA
 
 High
 
-## Conformance Snapshot (2026-07-22)
+## Conformance Snapshot (2026-07-22, AC-8 added 2026-09-22)
 
 - Status: ⚠️ Partially Implemented
-- Conflicts/Gaps: AC-6 (Dead Letter Queue handling) partially evident through business rule reference only
+- Conflicts/Gaps: AC-6 (Dead Letter Queue handling) partially evident through business rule reference only. AC-8 is a newly identified requirement (PLNT-4542) and has not yet been checked against solution metadata.
 
 ## Acceptance Criteria Conformance
 
@@ -94,3 +101,4 @@ High
 | AC-5                 | ✅ Implemented           | New related records created via Importer Notification workflow                                    |
 | AC-6                 | ⚠️ Partially Implemented | Failed messages routing to Dead Letter Queue mentioned in business rules                          |
 | AC-7                 | ✅ Implemented           | Commodity Type Mapping entity (`defraimp_commoditytypemapping`) for IPAFFS-to-D365 translation    |
+| AC-8                 | ⬜ No Evidence Found     | Newly identified requirement (PLNT-4542); Amend/reassignment behaviour not yet checked against solution metadata |

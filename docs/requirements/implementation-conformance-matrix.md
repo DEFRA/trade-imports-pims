@@ -6,10 +6,10 @@ This page records, for every user story, whether the requirement is evidenced in
 
 | Metric                         | Value       |
 | ------------------------------ | ----------- |
-| Total User Stories             | 47          |
-| Fully Implemented              | 43          |
-| Partially Implemented          | 4           |
-| No Evidence Found              | 0           |
+| Total User Stories             | 50          |
+| Fully Implemented              | 41          |
+| Partially Implemented          | 6           |
+| No Evidence Found              | 3           |
 | Contradicted by Implementation | 0           |
 | Average Confidence             | Medium-High |
 
@@ -25,12 +25,12 @@ This page records, for every user story, whether the requirement is evidenced in
 
 | User Story                                                                 | Epic                             | Status                  | Confidence | Evidence Count | Conflicts/Gaps                                                                                                                                                                           |
 | -------------------------------------------------------------------------- | -------------------------------- | ----------------------- | ---------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [US-001](user-stories/US-001-Manage-Import-Record.md)                      | Consignment Record Management    | ✅ Fully Implemented     | High       | 1              | None identified                                                                                                                                                                          |
+| [US-001](user-stories/US-001-Manage-Import-Record.md)                      | Consignment Record Management    | ⚠️ Partially Implemented     | High       | 1              | AC-5 to AC-7 are newly identified requirements (PLNT-4535, PLNT-4536) not yet checked against solution metadata                                                                                                                          |
 | [US-002](user-stories/US-002-Manage-ITAHC.md)                              | Consignment Record Management    | ✅ Fully Implemented     | High       | 1              | None identified                                                                                                                                                                          |
 | [US-003](user-stories/US-003-Manage-Import-Notification.md)                | Consignment Record Management    | ⚠️ Partially Implemented | Medium     | 0              | Terminology: "Import Notification" and "Importer Notification" are both used in the source records; the implementation uses Importer Notification as the primary entity.                  |
 | [US-004](user-stories/US-004-Manage-DOCOM.md)                              | Consignment Record Management    | ✅ Fully Implemented     | High       | 1              | None identified                                                                                                                                                                          |
 | [US-005](user-stories/US-005-Manage-CVED.md)                               | Consignment Record Management    | ✅ Fully Implemented     | High       | 1              | None identified                                                                                                                                                                          |
-| [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md) | External System Integration      | ⚠️ Partially Implemented | High       | 1              | AC-6 (Dead Letter Queue handling) partially evident through business rule reference only                                                                                                 |
+| [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md) | External System Integration      | ⚠️ Partially Implemented | High       | 1              | AC-6 (Dead Letter Queue handling) partially evident through business rule reference only; AC-8 is a newly identified requirement (PLNT-4542) not yet checked against solution metadata                                                                                                 |
 | [US-007](user-stories/US-007-Receive-ITAHC-From-TRACES.md)                 | External System Integration      | ✅ Fully Implemented     | Medium     | 1              | Attribute-level field mapping is not specified in this baseline                                                                                                 |
 | [US-008](user-stories/US-008-Receive-DOCOM-From-TRACES.md)                 | External System Integration      | ✅ Fully Implemented     | Medium     | 0              | Attribute-level field mapping is not specified in this baseline                                                                                                                                                    |
 | [US-009](user-stories/US-009-Auto-Create-Import-Record-From-ITAHC.md)      | External System Integration      | ✅ Fully Implemented     | High       | 1              | Attribute-level field mapping is not specified in this baseline                                                                                                                                                    |
@@ -68,17 +68,20 @@ This page records, for every user story, whether the requirement is evidenced in
 | [US-041](user-stories/US-041-APHA-Border-Control-Metrics-Dashboard.md)     | Reporting & Analytics            | ✅ Fully Implemented     | High       | 0              | None identified                                                                                                                                                                          |
 | [US-042](user-stories/US-042-FAET-Weekly-Report.md)                        | Reporting & Analytics            | ✅ Fully Implemented     | Medium     | 0              | None identified (user role "Excel Export" must be defined)                                                                                                                               |
 | [US-043](user-stories/US-043-Inspection-Coverage-Report.md)                | Reporting & Analytics            | ✅ Fully Implemented     | Medium     | 0              | Source record IMTA-6658 was empty; criteria inferred from the field list. Report specification is not a direct one-to-one match to the story. |
-| [US-044](user-stories/US-044-View-Importer-Notification.md)                | Consignment Record Management    | ✅ Fully Implemented     | High       | 0              | None identified                                                                                                                                                                          |
+| [US-044](user-stories/US-044-View-Importer-Notification.md)                | Consignment Record Management    | ⚠️ Partially Implemented     | High       | 0              | AC-2 wording corrected (Update permission is in fact granted); AC-4 to AC-6 are newly identified requirements (PLNT-4536, PLNT-4538, PLNT-4542) not yet checked against solution metadata                                                                                                                          |
 | [US-045](user-stories/US-045-Counter-History-Tracking.md)                  | Audit & Compliance               | ✅ Fully Implemented     | High       | 1              | None identified                                                                                                                                                                          |
 | [US-046](user-stories/US-046-Match-Inbound-Records-to-Import-Records.md)   | Consignment Record Management    | ✅ Fully Implemented     | High       | 2              | None identified                                                                                                                                                                          |
 | [US-047](user-stories/US-047-Manage-Failed-TRACES-Receipts.md)             | External System Integration      | ⚠️ Partially Implemented | Medium     | 0              | AC-3 partially evidenced - retry mechanism inferred from infrastructure but explicit UI/workflow not directly visible in audit scope                                                     |
+| [US-048](user-stories/US-048-DOCOM-Details-on-Import-Record.md)            | Consignment Record Management    | ⬜ No Evidence Found     | Low        | 0              | Newly identified requirement (PLNT-4539); not yet built or verified                                                                                                                      |
+| [US-049](user-stories/US-049-Non-Compliance-Management.md)                 | Consignment Record Management    | ⬜ No Evidence Found     | Low        | 0              | Newly identified requirement (PLNT-4537, PLNT-4538); not yet built or verified                                                                                                           |
+| [US-050](user-stories/US-050-Importer-Notification-Received-Date.md)       | Consignment Record Management    | ⬜ No Evidence Found     | Low        | 0              | Newly identified requirement (PLNT-4540, PLNT-4541); not yet built or verified                                                                                                           |
 
 ## Epic Coverage
 
 | Epic                             | Stories | Fully Implemented | Partially Implemented |
 | -------------------------------- | ------- | ----------------- | --------------------- |
 | Audit & Compliance               | 4       | 4                 | 0                     |
-| Consignment Record Management    | 12      | 11                | 1                     |
+| Consignment Record Management    | 15      | 9                 | 3                     |
 | External System Integration      | 6       | 4                 | 2                     |
 | Import Query Management          | 1       | 1                 | 0                     |
 | Place of Origin Trust Level      | 6       | 6                 | 0                     |
@@ -87,5 +90,5 @@ This page records, for every user story, whether the requirement is evidenced in
 | Risk Assessment & Business Rules | 6       | 5                 | 1                     |
 | Team & Geographic Assignment     | 3       | 3                 | 0                     |
 
-[US-021](user-stories/US-021-Revoke-Gold-Trust-Level.md) belongs to two epics, so the Stories column totals 48 against 47 distinct stories.
+[US-021](user-stories/US-021-Revoke-Gold-Trust-Level.md) belongs to two epics, so the Stories column totals 51 against 50 distinct stories. Consignment Record Management's totals do not sum to 15 because US-048, US-049 and US-050 are newly identified (PLNT-4535 to PLNT-4542) and carry no evidence yet — see the Story Conformance table above for their ⬜ No Evidence Found status.
 

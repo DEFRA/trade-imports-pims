@@ -2,13 +2,13 @@
 
 This page lists all 9 epics in the PIMS requirements baseline. Each epic groups related user stories around a coherent area of system functionality.
 
-**Total:** 9 epics · 47 user stories ([US-021](../user-stories/US-021-Revoke-Gold-Trust-Level.md) appears in two epics)
+**Total:** 9 epics · 50 user stories ([US-021](../user-stories/US-021-Revoke-Gold-Trust-Level.md) appears in two epics)
 
 ---
 
 | Epic                                                                             | Description                                                                                                                                                                                                | Stories |
 | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| [Consignment Record Management](./EPIC-Consignment-Record-Management.md)         | Enable EU Imports Caseworkers to create, manage and complete all types of consignment health certificate records and the Import Record that links them, throughout the full case lifecycle.                | 12      |
+| [Consignment Record Management](./EPIC-Consignment-Record-Management.md)         | Enable EU Imports Caseworkers to create, manage and complete all types of consignment health certificate records and the Import Record that links them, throughout the full case lifecycle.                | 15      |
 | [External System Integration](./EPIC-External-System-Integration.md)             | Automate the receipt of health certificate data from TRACES Classic (ITAHC, DOCOM) and importer notification data from IPAFFS into PIMS, eliminating manual re-keying and enabling timely risk assessment. | 6       |
 | [Risk Assessment & Business Rules](./EPIC-Risk-Assessment-and-Business-Rules.md) | Enable EU Imports Business Rules Admins to configure and maintain the rules that PIMS uses to automatically classify Import Records by risk level and determine whether a post-import check is required.   | 6       |
 | [Place of Origin Trust Level](./EPIC-Place-of-Origin-Trust-Level.md)             | Enable caseworkers to manage Places of Origin and allow PIMS to automatically maintain Trust Levels (Gold/Bronze) based on post-import check outcomes, to support risk-based inspection decisions.         | 6       |
@@ -40,6 +40,9 @@ This page lists all 9 epics in the PIMS requirements baseline. Each epic groups 
 | [US-033](../user-stories/US-033-Quick-Create-Import-Record.md)              | Quick Create Import Record              |
 | [US-044](../user-stories/US-044-View-Importer-Notification.md)              | View Importer Notification in PIMS      |
 | [US-046](../user-stories/US-046-Match-Inbound-Records-to-Import-Records.md) | Match Inbound Records to Import Records |
+| [US-048](../user-stories/US-048-DOCOM-Details-on-Import-Record.md)          | DOCOM Details on Import Record          |
+| [US-049](../user-stories/US-049-Non-Compliance-Management.md)              | Non-Compliance Management               |
+| [US-050](../user-stories/US-050-Importer-Notification-Received-Date.md)    | Importer Notification Received Date and Timescale |
 
 ---
 
@@ -156,12 +159,12 @@ This page lists all 9 epics in the PIMS requirements baseline. Each epic groups 
 | Metric                      | Value                                                           |
 | --------------------------- | --------------------------------------------------------------- |
 | Total epics                 | 9                                                               |
-| Total user stories          | 47                                                              |
-| Largest epic                | Consignment Record Management (12 stories)                      |
+| Total user stories          | 50                                                               |
+| Largest epic                | Consignment Record Management (15 stories)                      |
 | Smallest epic               | Import Query Management (1 story)                               |
-| Average stories per epic    | 5.3                                                             |
+| Average stories per epic    | 5.6                                                              |
 | Stories shared across epics | 1 ([US-021](../user-stories/US-021-Revoke-Gold-Trust-Level.md)) |
-| Source records consolidated | 65 → 47 stories                                                 |
+| Source records consolidated | 65 + 8 PLNT issues → 50 stories                                 |
 
 ---
 

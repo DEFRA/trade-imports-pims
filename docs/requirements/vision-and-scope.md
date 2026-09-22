@@ -55,6 +55,9 @@
 | 26  | ITAHC/DOCOM status tracking (Replaced By / Replaces chain)                                                                      |
 | 27  | Matching inbound certificates and notifications to candidate Import Records                                                     |
 | 28  | TRACES failed-receipt investigation and controlled reprocessing                                                                 |
+| 29  | DOCOM Proof of Delivery (POD) request/reply tracking on the Import Record                                                       |
+| 30  | Non-compliance query recording and tracking on Importer Notifications and Import Records                                        |
+| 31  | Health Certificate Attached flagging and automated re-amendment of Importer Notifications                                       |
 
 Business-facing requirements use **Import Record** as the canonical term. Technical schema names and some workflow artefacts may still use `importapplication` / "Import Application".
 
