@@ -28,7 +28,7 @@ This story was identified from Jira issues PLNT-4537 and PLNT-4538, which were m
   - PIMS Status (Option Set — values: Open, Amended, Completed)
   - Date Completed (Date only)
   
-  A caseworker can add a new non-compliance record.
+  A caseworker can populate these non-compliance fields.
 
 - **AC-2 (Add Non-Compliance fields to Import Record):**  
   Where the non-compliance was flagged on the Importer Notification (Type of Non-Compliance is not null), the Import Record form displays a "Non-Compliance" tab immediately to the right of the Queries tab, containing:
@@ -42,10 +42,10 @@ This story was identified from Jira issues PLNT-4537 and PLNT-4538, which were m
   - PIMS Status (Option Set — values: Open, Amended, Completed)
   - Date Completed (Date only)
   
-  A caseworker can add a new non-compliance record.
+  A caseworker can populate these non-compliance fields.
 
-- **AC-3 (Non-compliance record from Importer Notification is displayed on Import Record):**  
-  Where an Importer Notification with non-compliance recorded (per AC-1) has an associated Import Record, the Import Record's Non-Compliance tab displays a read-only quick view form below its own Non-Compliance fields (per AC-2), showing the Importer Notification's Non-Compliance tab fields (per AC-1).
+- **AC-3 (Non-compliance fields from Importer Notification are displayed on Import Record):**  
+  Where an Importer Notification with non-compliance fields populated (per AC-1) has an associated Import Record, the Import Record's Non-Compliance tab displays a read-only quick view form below its own Non-Compliance fields (per AC-2), showing the Importer Notification's Non-Compliance tab fields (per AC-1).
 
 - **AC-4 (System views — Importer Notifications with active/closed non-compliance queries):**  
   An EU Imports Caseworker can select system views on the Importer Notification entity filtered by Non-Compliance Status = In Progress ("active") and Non-Compliance Status = Completed ("closed"). Column widths are adjusted so the whole column title is visible.
