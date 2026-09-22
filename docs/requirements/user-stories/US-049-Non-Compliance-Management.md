@@ -46,6 +46,8 @@ This story was identified from Jira issues PLNT-4537, PLNT-4538 and PLNT-4543, w
   
   A caseworker can populate these non-compliance fields.
 
+  > **Known defect:** the "Non-Compliance" tab is only ever shown when the linked Importer Notification already has a non-null Type of Non-Compliance (its visibility is driven by a calculated field mirrored from the Importer Notification, confirmed via `defraimp_importapplication-defraimp_isnoncompliantcalculated.xaml` and `importrecord.form.ts`). Consequently, the "No Importer Notification" option in this field's own option set can never actually be selected, since the tab cannot be shown for an Import Record with no linked Importer Notification.
+
 - **AC-3 (Non-compliance fields from Importer Notification are displayed on Import Record):**  
   Where an Importer Notification with non-compliance fields populated (per AC-1) has an associated Import Record, the Import Record's Non-Compliance tab displays a read-only quick view form below its own Non-Compliance fields (per AC-2), showing the Importer Notification's Non-Compliance tab fields (per AC-1).
 
