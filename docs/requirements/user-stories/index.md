@@ -1,6 +1,6 @@
 # User Story Catalogue
 
-This page lists all 48 consolidated user stories in the PIMS requirements baseline, derived from 65 source records plus 8 PLNT issues added on 22 September 2026 that were missing from the original compilation. Five of those PLNT issues (PLNT-4535, PLNT-4536, PLNT-4539, PLNT-4540, PLNT-4541) were merged into existing stories ([US-001](US-001-Manage-Import-Record.md), [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md), [US-044](US-044-View-Importer-Notification.md)) rather than creating new ones; only PLNT-4537/PLNT-4538 (non-compliance) warranted a new story, [US-049](US-049-Non-Compliance-Management.md).
+This page lists all 48 consolidated user stories in the PIMS requirements baseline, derived from 65 source records plus 8 PLNT issues added on 22 September 2026 that were missing from the original compilation. Six of those PLNT issues (PLNT-4535, PLNT-4536, PLNT-4539, PLNT-4540, PLNT-4541, PLNT-4542) were merged into existing stories ([US-001](US-001-Manage-Import-Record.md), [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md), [US-044](US-044-View-Importer-Notification.md)) rather than creating new ones; only PLNT-4537/PLNT-4538 (non-compliance) warranted a new story, [US-049](US-049-Non-Compliance-Management.md).
 
 **Total:** 48 stories · 9 epics · 44 business rules
 
