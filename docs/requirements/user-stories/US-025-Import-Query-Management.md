@@ -16,7 +16,7 @@ Each query receives an auto-generated sequential query number in the format `RMQ
 
 ## Acceptance Criteria
 
-- [x] **AC-1 (Create/update Import Query):**  
+- **AC-1 (Create/update Import Query):**  
   An EU Imports Caseworker can create or update an Import Query with the following fields:
   - Query Sent To (email address)
   - Summary (Mandatory)
@@ -24,20 +24,20 @@ Each query receives an auto-generated sequential query number in the format `RMQ
   - Date Due to Be Resolved
   - Detailed Description of the Query
 
-- [x] **AC-2 (View related Import Record context):**  
+- **AC-2 (View related Import Record context):**  
   Within the Import Query form, the caseworker can view the following fields from the related Import Record:
   - The relevant Health Certificate (ITAHC/DOCOM)
   - Commodity Type
   - Place of Origin Country
   - Any additional Health Certificates
 
-- [x] **AC-3 (Auto-populated fields on creation):**  
+- **AC-3 (Auto-populated fields on creation):**  
   The following fields are auto-populated when an Import Query is created:
   - Date Raised = today's date
   - Who Raised the Query = the creating user
   - Query Number = auto-generated in format `RMQ{YY}-{SEQNUM:4}`, unique across all Import Queries
 
-- [x] **AC-4 (Global query views with filters):**  
+- **AC-4 (Global query views with filters):**  
   An EU Imports Caseworker can view all queries in the system filtered by:
   - All Active Queries
   - All Completed Queries
@@ -50,23 +50,23 @@ Each query receives an auto-generated sequential query number in the format `RMQ
   
   Queries are sorted by Query Number. Each view shows: Query Number, Related Import Record, Query Sent To, Who Raised the Query, Summary, Date Raised, Date Due, Completion Status, Resolution Date (if resolved).
 
-- [x] **AC-5 (Related query views within an Import Record):**  
+- **AC-5 (Related query views within an Import Record):**  
   An EU Imports Caseworker can view all queries related to a specific Import Record within the Import Record, filtered by:
   - All Related Queries
   - Overdue Related Queries
   
   Sorted by Query Number. Same fields as AC-4.
 
-- [x] **AC-6 (Search for queries):**  
+- **AC-6 (Search for queries):**  
   An EU Imports Caseworker can search for queries by Query Number or Import Record name.
 
-- [x] **AC-7 (Attach notes and files):**  
+- **AC-7 (Attach notes and files):**  
   An EU Imports Caseworker can attach notes and files to any Import Query, including queries they do not own. Notes and files record the date added and who added them.
 
-- [x] **AC-8 (Close as resolved):**  
+- **AC-8 (Close as resolved):**  
   An EU Imports Caseworker can close an Import Query as resolved. PIMS records the resolution date automatically.
 
-- [x] **AC-9 (Assign to another caseworker):**  
+- **AC-9 (Assign to another caseworker):**  
   An EU Imports Caseworker can assign an Import Query to another EU Imports Caseworker.
 
 ## Business Rules
@@ -84,44 +84,3 @@ Each query receives an auto-generated sequential query number in the format `RMQ
 
 - IMTA-6185
 - IMTA-6255
-
-### Original Links
-
-- IMTA-6185
-- IMTA-6255
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- src/solutions/defra_Imports/src/Entities/defraimp_importquery/Entity.xml
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                                                                                                  |
-| -------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | src/solutions/defra_Imports/src/Entities/defraimp_importquery/Entity.xml entity with Query Sent To, Summary (mandatory), Related Import Record (mandatory), Date Due to Be Resolved, Detailed Description |
-| AC-2                 | ✅ Implemented | Import Query form includes Read-Only section showing related Import Record context (Health Certificate, Commodity Type, Place of Origin, etc.)                                                            |
-| AC-3                 | ✅ Implemented | Auto-populated fields: Date Raised, Who Raised Query, Query Number (format RMQ{YY}-{SEQNUM:4})                                                                                                            |
-| AC-4                 | ✅ Implemented | Global query views with filters (All Active, All Completed, All Overdue, My Active, My Completed, My Overdue, All My Queries)                                                                             |
-| AC-5                 | ✅ Implemented | Related queries view within Import Record with filters (All Related, Overdue Related)                                                                                                                     |
-| AC-6                 | ✅ Implemented | Search by Query Number or Import Record name                                                                                                                                                              |
-| AC-7                 | ✅ Implemented | Attachment capability on Import Query (notes and files) via Activity association                                                                                                                          |
-| AC-8                 | ✅ Implemented | Close as Resolved workflow updates Resolution Date                                                                                                                                                        |
-| AC-9                 | ✅ Implemented | Query can be assigned to another caseworker                                                                                                                                                               |

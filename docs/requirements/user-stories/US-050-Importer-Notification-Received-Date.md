@@ -14,10 +14,10 @@ This story consolidates two closely related Jira issues, PLNT-4540 (auto-populat
 
 ## Acceptance Criteria
 
-- [ ] **AC-1 (Auto-populate "Date Importer Notification Received" with "Submission Date"):**  
+- **AC-1 (Auto-populate "Date Importer Notification Received" with "Submission Date"):**  
   When an EU Imports Caseworker selects "Create Import Record" on an Importer Notification, PIMS creates an Import Record with Import Record Type = Importer Notification (see [BR-039](../business-rules.md#br-039)) and auto-populates the new Import Record's "Date Importer Notification Received" field with the value of the associated Importer Notification's "Submission Date" field.
 
-- [ ] **AC-2 (Section and field labels updated):**  
+- **AC-2 (Section and field labels updated):**  
   On the Import Record form, for records with Import Record Type = Importer Notification, the section and field labels are updated as follows:
   - Section header: "IV66" → "Importer Notification"
   - Field: "Date IV66 Received" → "Date Importer Notification Received"
@@ -38,38 +38,3 @@ This story consolidates two closely related Jira issues, PLNT-4540 (auto-populat
 
 - PLNT-4540
 - PLNT-4541
-
-### Original Links
-
-- PLNT-4540
-- PLNT-4541
-
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-Low — newly identified requirement, not yet checked against solution metadata.
-
-## Conformance Snapshot (2026-09-22)
-
-- Status: ⬜ No Evidence Found
-- Conflicts/Gaps: Newly identified requirement (PLNT-4540, PLNT-4541). Not yet built or verified. Note: [US-030](US-030-IV65-Due-Date-Calculation.md) covers the separate IV65 (formal written query) fields and is not affected by this story.
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status              | Evidence                                                        |
-| --------------------- | ------------------- | ----------------------------------------------------------------- |
-| AC-1                  | ⬜ No Evidence Found | Newly identified requirement; not yet checked against solution metadata |
-| AC-2                  | ⬜ No Evidence Found | Newly identified requirement; not yet checked against solution metadata |

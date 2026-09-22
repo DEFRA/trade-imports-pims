@@ -16,7 +16,7 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 
 ## Acceptance Criteria
 
-- [x] **AC-1:** An EU Imports Caseworker can create or update an Import Record with the following fields (all optional unless stated):
+- **AC-1:** An EU Imports Caseworker can create or update an Import Record with the following fields (all optional unless stated):
 
     - Import Record Type (see AC-7 for the value list — PLNT-4536)
     - Primary ITAHC (Lookup; includes "No ITAHC Received" option)
@@ -39,17 +39,17 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
     - Region / Area Allocated to
     - Moved to Completion?, Moved to Completion Date (read-only)
 
-- [x] **AC-2:** An EU Imports Caseworker can view a list of all Import Records ordered by creation date (newest first), showing: Primary ITAHC, Commodity Type, Country of Origin, Import Risk Level, Place of Origin Organisation, Place of Destination, Created On Date.
+- **AC-2:** An EU Imports Caseworker can view a list of all Import Records ordered by creation date (newest first), showing: Primary ITAHC, Commodity Type, Country of Origin, Import Risk Level, Place of Origin Organisation, Place of Destination, Created On Date.
 
-- [x] **AC-3:** An EU Imports Caseworker can perform a free text search for an Import Record using: Importer Name, Date of Import, Premises of Origin Name (Place of Origin Organisation), ITAHC Certificate Reference Number, Import Notification Local Reference Number.
+- **AC-3:** An EU Imports Caseworker can perform a free text search for an Import Record using: Importer Name, Date of Import, Premises of Origin Name (Place of Origin Organisation), ITAHC Certificate Reference Number, Import Notification Local Reference Number.
 
-- [x] **AC-4:** The user can select "No ITAHC Received" in the Primary ITAHC field and save the Import Record without a linked ITAHC.
+- **AC-4:** The user can select "No ITAHC Received" in the Primary ITAHC field and save the Import Record without a linked ITAHC.
 
-- [ ] **AC-5 (Reference number fields):** GB Import Health Certificate, Traces Export Health Certificate, ITAHC Reference and DOCOM Reference are displayed as single-line text fields immediately below the Primary Import Notification field, in the Commodity section of the Summary tab. All four fields are non-mandatory and are populated manually; none are auto-populated by PIMS.
+- **AC-5 (Reference number fields):** GB Import Health Certificate, Traces Export Health Certificate, ITAHC Reference and DOCOM Reference are displayed as single-line text fields immediately below the Primary Import Notification field, in the Commodity section of the Summary tab. All four fields are non-mandatory and are populated manually; none are auto-populated by PIMS.
 
-- [ ] **AC-6 (Triage step no longer clears Commodity Code):** Entering a value in the Primary ITAHC field during the Triage stage of the Import Record business process flow no longer removes or updates the Commodity Code value on the Import Record on save. Primary ITAHC carries no business process logic. This resolves the defect reported as DEFRA incident INC0838632.
+- **AC-6 (Triage step no longer clears Commodity Code):** Entering a value in the Primary ITAHC field during the Triage stage of the Import Record business process flow no longer removes or updates the Commodity Code value on the Import Record on save. Primary ITAHC carries no business process logic. This resolves the defect reported as DEFRA incident INC0838632.
 
-- [ ] **AC-7 (Import Record Type value list):** The Import Record Type field offers exactly the following values, with no default selected: Importer Notification, Health Certificate, ITAHC - Landbridge, CHEDA, CHEDP, DOCOM, ITAHC. The legacy values CED, CVEDA and CVEDP are removed. Selecting "Create Import Record" on an Importer Notification sets the new Import Record's Import Record Type to Importer Notification.
+- **AC-7 (Import Record Type value list):** The Import Record Type field offers exactly the following values, with no default selected: Importer Notification, Health Certificate, ITAHC - Landbridge, CHEDA, CHEDP, DOCOM, ITAHC. The legacy values CED, CVEDA and CVEDP are removed. Selecting "Create Import Record" on an Importer Notification sets the new Import Record's Import Record Type to Importer Notification.
 
 ## Business Rules
 
@@ -81,33 +81,3 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 - IMTA-5985
 - PLNT-4535
 - PLNT-4536
-
-### Original Links
-
-- IMTA-5870
-- IMTA-5985
-- PLNT-4535
-- PLNT-4536
-
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- src/solutions/defra_Imports/src/Entities/defraimp_importapplication/Entity.xml
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified

@@ -4,7 +4,7 @@
 
 As an EU Imports Caseworker,  
 I want PIMS to automatically receive Importer Notifications from IPAFFS when submitted by an importer,  
-So that PIMS can create or update the implemented notification record, support matching to related certificates and Import Records, and commence a risk assessment.
+So that PIMS can create or update the notification record, support matching to related certificates and Import Records, and commence a risk assessment.
 
 ## Description
 
@@ -14,29 +14,29 @@ IPAFFS notification types received by PIMS: **CVEDA**, **CVEDP**, **CED**, **IMP
 
 The Importer Notification entity is distinct from the legacy Import Notification concept ([US-003](US-003-Manage-Import-Notification.md)). For the PIMS form and security role configuration related to viewing these records, see [US-044](US-044-View-Importer-Notification.md).
 
-The implemented IPAFFS flow uses the Importer Notification as the inbound entity and supports downstream Import Record creation or update workflows from that data. Earlier spike wording that described IPAFFS as creating ITAHC records is treated as legacy wording rather than the implemented solution shape.
+The IPAFFS flow uses the Importer Notification as the inbound entity and supports downstream Import Record creation or update from that data. Earlier spike wording that described IPAFFS as creating ITAHC records is treated as legacy wording.
 
 Related records (e.g. Additional Permanent Addresses) that are removed in an IPAFFS update are retained in PIMS as active records, as they may already be referenced by Import Records. IPAFFS commodity identifiers are translated to the D365 commodity classification using Commodity Type Mapping to support downstream case processing.
 
 ## Acceptance Criteria
 
-- [x] **AC-1:** When an Importer Notification in IPAFFS is created or updated with status Submitted, Amended or Cancelled, IPAFFS sends a JSON message to PIMS within 30 minutes.
+- **AC-1:** When an Importer Notification in IPAFFS is created or updated with status Submitted, Amended or Cancelled, IPAFFS sends a JSON message to PIMS within 30 minutes.
 
-- [x] **AC-2:** When an Importer Notification message is received from IPAFFS, PIMS creates or updates the corresponding Importer Notification record with all mapped attributes. Field updates are reflected on the record; cleared fields are captured in the audit history rather than overwriting data.
+- **AC-2:** When an Importer Notification message is received from IPAFFS, PIMS creates or updates the corresponding Importer Notification record with all mapped attributes. Field updates are reflected on the record; cleared fields are captured in the audit history rather than overwriting data.
 
-- [x] **AC-3:** When an IPAFFS update removes a previously present related record (e.g. an Additional Permanent Address), the equivalent PIMS record remains active and is not deleted.
+- **AC-3:** When an IPAFFS update removes a previously present related record (e.g. an Additional Permanent Address), the equivalent PIMS record remains active and is not deleted.
 
-- [x] **AC-4:** When an IPAFFS update modifies a related record, the change is reflected in the equivalent PIMS record.
+- **AC-4:** When an IPAFFS update modifies a related record, the change is reflected in the equivalent PIMS record.
 
-- [x] **AC-5:** When an IPAFFS update introduces a new related record, a new equivalent PIMS record is created.
+- **AC-5:** When an IPAFFS update introduces a new related record, a new equivalent PIMS record is created.
 
-- [x] **AC-6:** If the processing of an inbound IPAFFS message fails, the message is placed on the Dead Letter Queue for manual investigation.
+- **AC-6:** If the processing of an inbound IPAFFS message fails, the message is placed on the Dead Letter Queue for manual investigation.
 
-- [x] **AC-7:** When IPAFFS commodity identifiers are used for downstream Import Record processing, PIMS translates them to the D365 commodity classification using Commodity Type Mapping.
+- **AC-7:** When IPAFFS commodity identifiers are used for downstream Import Record processing, PIMS translates them to the D365 commodity classification using Commodity Type Mapping.
 
-- [ ] **AC-8 (Health Certificate attached after completion re-opens the Importer Notification):** When a Health Certificate is attached to an Importer Notification that has already been completed, PIMS sets the Health Certificate Attached field to Y, changes the Owner of the Importer Notification to the EU Imports Dynamics Application User, and changes the Status to Amend, so the notification is surfaced back to the caseworker team for processing. See [US-044](US-044-View-Importer-Notification.md) for the Health Certificate Attached field definition.
+- **AC-8 (Health Certificate attached after completion re-opens the Importer Notification):** When a Health Certificate is attached to an Importer Notification that has already been completed, PIMS sets the Health Certificate Attached field to Y, changes the Owner of the Importer Notification to the EU Imports Dynamics Application User, and changes the Status to Amend, so the notification is surfaced back to the caseworker team for processing. See [US-044](US-044-View-Importer-Notification.md) for the Health Certificate Attached field definition.
 
-**Clarification (2026-09-22):** PLNT-4536 changes the **Import Record Type** field on the **Import Record** entity (`defraimp_importapplication`) — replacing CED, CVEDA and CVEDP with CHEDA, CHEDP and Health Certificate ([BR-038](../business-rules.md#br-038)). This is a different table from the **Importer Notification** entity (`defraimp_importernotification`) referenced in this story, and this AC-1's IPAFFS notification type list (CVEDA, CVEDP, CED, IMP) is not affected by that change. The only cross-entity effect confirmed by PLNT-4536 (AC-3) is that the shared "IMP" option label displays as "Importer Notification" wherever it is used, including on the Importer Notification Details form (see [US-044](US-044-View-Importer-Notification.md) AC-5) — the removal of CED, CVEDA and CVEDP is scoped to Import Record Type only.
+**Clarification (2026-09-22):** PLNT-4536 changes the **Import Record Type** field on the **Import Record** entity — replacing CED, CVEDA and CVEDP with CHEDA, CHEDP and Health Certificate ([BR-038](../business-rules.md#br-038)). This is a different entity from **Importer Notification** referenced in this story, and this AC-1's IPAFFS notification type list (CVEDA, CVEDP, CED, IMP) is not affected by that change. The only cross-entity effect confirmed by PLNT-4536 (AC-3) is that the shared "IMP" option label displays as "Importer Notification" wherever it is used, including on the Importer Notification Details form (see [US-044](US-044-View-Importer-Notification.md) AC-5) — the removal of CED, CVEDA and CVEDP is scoped to Import Record Type only.
 
 ## Business Rules
 
@@ -60,45 +60,3 @@ Related records (e.g. Additional Permanent Addresses) that are removed in an IPA
 - IMTA-5864
 - IMTA-7222
 - PLNT-4542
-
-### Original Links
-
-- IMTA-5862
-- IMTA-5864
-- IMTA-7222
-- PLNT-4542
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- src/solutions/defra_Imports/src/Workflows/
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22, AC-8 added 2026-09-22)
-
-- Status: ⚠️ Partially Implemented
-- Conflicts/Gaps: AC-6 (Dead Letter Queue handling) partially evident through business rule reference only. AC-8 is a newly identified requirement (PLNT-4542) and has not yet been checked against solution metadata.
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status                  | Evidence                                                                                          |
-| -------------------- | ----------------------- | ------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented           | Importer Notification entity with IPAFFS-specific fields (`defraimp_ipaffsid`)                    |
-| AC-2                 | ✅ Implemented           | Workflow src/solutions/defra_Imports/src/Workflows/ creates/updates Importer Notification records |
-| AC-3                 | ✅ Implemented           | Related records (e.g., Additional Permanent Addresses) retained on entity                         |
-| AC-4                 | ✅ Implemented           | Changes to related records reflected in PIMS records                                              |
-| AC-5                 | ✅ Implemented           | New related records created via Importer Notification workflow                                    |
-| AC-6                 | ⚠️ Partially Implemented | Failed messages routing to Dead Letter Queue mentioned in business rules                          |
-| AC-7                 | ✅ Implemented           | Commodity Type Mapping entity (`defraimp_commoditytypemapping`) for IPAFFS-to-D365 translation    |
-| AC-8                 | ⬜ No Evidence Found     | Newly identified requirement (PLNT-4542); Amend/reassignment behaviour not yet checked against solution metadata |

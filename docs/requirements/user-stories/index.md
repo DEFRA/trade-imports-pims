@@ -94,4 +94,4 @@ This page lists all 50 consolidated user stories in the PIMS requirements baseli
 
 ---
 
-*See also: [Epic Catalogue](../epics/index.md) · [Business Rules](../business-rules.md) · [Implementation Conformance Matrix](../implementation-conformance-matrix.md)*
+*See also: [Epic Catalogue](../epics/index.md) · [Business Rules](../business-rules.md)*

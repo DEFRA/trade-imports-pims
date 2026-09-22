@@ -16,7 +16,7 @@ This story was identified from Jira issues PLNT-4537 and PLNT-4538, which were m
 
 ## Acceptance Criteria
 
-- [ ] **AC-1 (Add Non-Compliance fields to Importer Notification):**  
+- **AC-1 (Add Non-Compliance fields to Importer Notification):**  
   The Importer Notification form displays a "Non-Compliance" tab immediately to the right of the Queries tab, containing:
   - Contacted Due to Non-Compliance (Two Option, Y/N, default N)
   - Date Email Sent (Date only)
@@ -30,7 +30,7 @@ This story was identified from Jira issues PLNT-4537 and PLNT-4538, which were m
   
   A caseworker can add a new non-compliance record.
 
-- [ ] **AC-2 (Add Non-Compliance fields to Import Record):**  
+- **AC-2 (Add Non-Compliance fields to Import Record):**  
   Where the non-compliance was flagged on the Importer Notification (Type of Non-Compliance is not null), the Import Record form displays a "Non-Compliance" tab immediately to the right of the Queries tab, containing:
   - Contacted Due to Non-Compliance (Two Option, Y/N, default N)
   - Date Email Sent (Date only)
@@ -44,13 +44,13 @@ This story was identified from Jira issues PLNT-4537 and PLNT-4538, which were m
   
   A caseworker can add a new non-compliance record.
 
-- [ ] **AC-3 (Non-compliance record from Importer Notification is displayed on Import Record):**  
+- **AC-3 (Non-compliance record from Importer Notification is displayed on Import Record):**  
   Where an Importer Notification with non-compliance recorded (per AC-1) has an associated Import Record, the Import Record's Non-Compliance tab displays a read-only quick view form below its own Non-Compliance fields (per AC-2), showing the Importer Notification's Non-Compliance tab fields (per AC-1).
 
-- [ ] **AC-4 (System views — Importer Notifications with active/closed non-compliance queries):**  
+- **AC-4 (System views — Importer Notifications with active/closed non-compliance queries):**  
   An EU Imports Caseworker can select system views on the Importer Notification entity filtered by Non-Compliance Status = In Progress ("active") and Non-Compliance Status = Completed ("closed"). Column widths are adjusted so the whole column title is visible.
 
-- [ ] **AC-5 (System views — Import Records with active/closed non-compliance queries):**  
+- **AC-5 (System views — Import Records with active/closed non-compliance queries):**  
   An EU Imports Caseworker can select system views on the Import Record entity filtered by Non-Compliance Status = In Progress ("active") and Non-Compliance Status = Completed ("closed"). Column widths are adjusted so the whole column title is visible.
 
 ## Business Rules
@@ -70,41 +70,3 @@ This story was identified from Jira issues PLNT-4537 and PLNT-4538, which were m
 
 - PLNT-4537
 - PLNT-4538
-
-### Original Links
-
-- PLNT-4537
-- PLNT-4538
-
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-Low — newly identified requirement, not yet checked against solution metadata.
-
-## Conformance Snapshot (2026-09-22)
-
-- Status: ⬜ No Evidence Found
-- Conflicts/Gaps: Newly identified requirement (PLNT-4537, PLNT-4538). Not yet built or verified. PLNT-4538's fifth acceptance criterion (a system view for Importer Notifications amended after a Health Certificate is attached) is tracked instead against [US-044](US-044-View-Importer-Notification.md) AC-6, as it depends on the Health Certificate Attached behaviour (PLNT-4542) rather than non-compliance.
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status              | Evidence                                                        |
-| --------------------- | ------------------- | ----------------------------------------------------------------- |
-| AC-1                  | ⬜ No Evidence Found | Newly identified requirement; not yet checked against solution metadata |
-| AC-2                  | ⬜ No Evidence Found | Newly identified requirement; not yet checked against solution metadata |
-| AC-3                  | ⬜ No Evidence Found | Newly identified requirement; not yet checked against solution metadata |
-| AC-4                  | ⬜ No Evidence Found | Newly identified requirement; not yet checked against solution metadata |
-| AC-5                  | ⬜ No Evidence Found | Newly identified requirement; not yet checked against solution metadata |

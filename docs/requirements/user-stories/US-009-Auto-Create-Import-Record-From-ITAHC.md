@@ -14,11 +14,11 @@ When an ITAHC is auto-created in PIMS by the TRACES Classic integration ([US-007
 
 ## Acceptance Criteria
 
-- [x] **AC-1:** When an ITAHC is created in PIMS by the TRACES integration service account, PIMS automatically creates a linked Import Record with key fields copied from the ITAHC. The specific field list is not specified in this baseline.
+- **AC-1:** When an ITAHC is created in PIMS by the TRACES integration service account, PIMS automatically creates a linked Import Record with key fields copied from the ITAHC. The specific field list is not specified in this baseline.
 
-- [x] **AC-2:** The auto-created Import Record has the ITAHC set as the Primary ITAHC.
+- **AC-2:** The auto-created Import Record has the ITAHC set as the Primary ITAHC.
 
-- [x] **AC-3:** The auto-creation does not trigger when an ITAHC is manually created by a business user.
+- **AC-3:** The auto-creation does not trigger when an ITAHC is manually created by a business user.
 
 ## Business Rules
 
@@ -35,37 +35,3 @@ When an ITAHC is auto-created in PIMS by the TRACES Classic integration ([US-007
 ### Source Jira Issues
 
 - IMTA-6600
-
-### Original Links
-
-- IMTA-6600
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- src/solutions/defra_Imports/src/Workflows/ITAHC-CreateImportRecordFromITAHC-35DDCA57-47E9-459D-9900-7505B63F87CD.xaml
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: Field mapping schema is not specified in this baseline.
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                                                                             |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| AC-1                 | ✅ Implemented | Workflow src/solutions/defra_Imports/src/Workflows/ITAHC-CreateImportRecordFromITAHC-35DDCA57-47E9-459D-9900-7505B63F87CD.xaml creates linked Import Record with ITAHC fields copied |
-| AC-2                 | ✅ Implemented | Auto-created Import Record has Primary ITAHC set                                                                                                                                     |
-| AC-3                 | ✅ Implemented | Auto-creation conditional on TRACES service account ownership                                                                                                                        |

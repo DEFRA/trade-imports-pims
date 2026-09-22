@@ -14,7 +14,7 @@ This story was identified from Jira issue PLNT-4539, which was missing from the 
 
 ## Acceptance Criteria
 
-- [ ] **AC-1 (Add DOCOM section fields to Import Record):**  
+- **AC-1 (Add DOCOM section fields to Import Record):**  
   A DOCOM tab is displayed on the Import Record form immediately to the right of the Post Import Checks tab. The section heading on the tab is "DOCOM". The tab contains the following fields, all optional (not mandatory):
   - DOCOM Category (Option Set — values: Cat1, Cat2, Cat3 - PAP, Cat3 – PAP Fish, Cat3 - Other)
   - Requested POD (Option Set — values: Blank, Y, N)
@@ -35,36 +35,3 @@ None additional — all DOCOM tab fields are optional with no default value or c
 ### Source Jira Issues
 
 - PLNT-4539
-
-### Original Links
-
-- PLNT-4539
-
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-Low — newly identified requirement, not yet checked against solution metadata.
-
-## Conformance Snapshot (2026-09-22)
-
-- Status: ⬜ No Evidence Found
-- Conflicts/Gaps: Newly identified requirement (PLNT-4539). Not yet built or verified.
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status              | Evidence                                                        |
-| --------------------- | ------------------- | ----------------------------------------------------------------- |
-| AC-1                  | ⬜ No Evidence Found | Newly identified requirement; not yet checked against solution metadata |

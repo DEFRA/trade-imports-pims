@@ -12,14 +12,14 @@ Commodity Risk Level records define the mapping of Country + Commodity Type → 
 
 ## Acceptance Criteria
 
-- [x] **AC-1:** An EU Imports Business Rules Admin can create or update an Import Country Commodity Risk Level record with the following mandatory fields:
+- **AC-1:** An EU Imports Business Rules Admin can create or update an Import Country Commodity Risk Level record with the following mandatory fields:
   - Country (Lookup)
   - Commodity Type (Lookup)
   - Risk Level (Lookup: P1, P2, P3)
 
-- [x] **AC-2:** All three fields (Country, Commodity Type, Risk Level) are mandatory on create and update.
+- **AC-2:** All three fields (Country, Commodity Type, Risk Level) are mandatory on create and update.
 
-- [x] **AC-3:** When an Import Record is created or updated, PIMS evaluates the Commodity Risk Level rules to set the Import Risk Level field on the Import Record.
+- **AC-3:** When an Import Record is created or updated, PIMS evaluates the Commodity Risk Level rules to set the Import Risk Level field on the Import Record.
 
 ## Business Rules
 
@@ -39,40 +39,3 @@ Commodity Risk Level records define the mapping of Country + Commodity Type → 
 - IMTA-5914
 - IMTA-5915
 - IMTA-5916
-
-### Original Links
-
-- IMTA-5865
-- IMTA-5914
-- IMTA-5915
-- IMTA-5916
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- src/solutions/defra_Imports/src/Workflows/ImportApplication-AutoRiskAssessmentandInspection-8C09794A-1388-4113-B508-46DDE8A56422.xaml
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                                                                                                                                    |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | [defraimp_ImportCountryCommodityRiskLevel] entity with Country (Lookup), Commodity Type (Lookup), Risk Level (Lookup P1/P2/P3) all mandatory                                                                                                |
-| AC-2                 | ✅ Implemented | All three fields mandatory on create/update                                                                                                                                                                                                 |
-| AC-3                 | ✅ Implemented | Workflow src/solutions/defra_Imports/src/Workflows/ImportApplication-AutoRiskAssessmentandInspection-8C09794A-1388-4113-B508-46DDE8A56422.xaml evaluates Commodity Risk Level rules on Import Record create/update to set Import Risk Level |

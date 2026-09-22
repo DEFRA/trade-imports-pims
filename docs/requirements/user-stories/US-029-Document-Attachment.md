@@ -14,13 +14,13 @@ This baseline has evidence for generic attachment capability, including storing 
 
 ## Acceptance Criteria
 
-- [x] **AC-1 (Attach documents):**  
+- **AC-1 (Attach documents):**  
   An EU Imports Caseworker can attach multiple documents to an Import Record using an intuitive file attachment interface.
 
-- [x] **AC-2 (View attached documents):**  
+- **AC-2 (View attached documents):**  
   An EU Imports Caseworker can see a list of all documents attached to an Import Record within the record itself.
 
-- [x] **AC-3 (Prevent document deletion):**  
+- **AC-3 (Prevent document deletion):**  
   An EU Imports Caseworker cannot delete documents once they have been attached to an Import Record.
 
 ## Business Rules
@@ -37,37 +37,3 @@ This baseline has evidence for generic attachment capability, including storing 
 ### Source Jira Issues
 
 - IMTA-5913
-
-### Original Links
-
-- IMTA-5913
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-High Medium
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: **DEP-007:** Automated ITAHC PDF-generation workflow scope remains unconfirmed
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                  |
-| -------------------- | ------------- | ----------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | Azure Attachment Management solution deployed allows document attachment on Import Record |
-| AC-2                 | ✅ Implemented | List of attached documents visible within Import Record                                   |
-| AC-3                 | ✅ Implemented | Documents cannot be deleted after attachment (immutable document trail)                   |
