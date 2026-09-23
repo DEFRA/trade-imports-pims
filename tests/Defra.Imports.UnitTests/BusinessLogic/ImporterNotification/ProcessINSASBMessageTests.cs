@@ -1,8 +1,10 @@
 ﻿namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Defra.Imports.BusinessLogic.Extensions;
     using Defra.Imports.BusinessLogic.ImporterNotification;
-    using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.IdentificationOfAnimalsObjects;
     using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.INSObject;
     using Defra.Imports.BusinessLogic.Logging;
     using Defra.Imports.Model;
@@ -10,9 +12,6 @@
     using Microsoft.Xrm.Sdk.Messages;
     using Microsoft.Xrm.Sdk.Query;
     using Moq;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using Xunit;
 
     /// <summary>

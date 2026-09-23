@@ -287,6 +287,21 @@
                 : null;
         }
 
+        private static defraimp_commoditycomplement BuildCommodityComplement(defraimp_ImporterNotification importerNotification, IncludedTradeLineItem lineItem)
+        {
+            return new defraimp_commoditycomplement
+            {
+                defraimp_ImporterNotificationId = importerNotification.ToEntityReference(),
+                defraimp_NumberofAnimals = FormatNumberOfAnimals(GetNumberOfAnimals(lineItem)),
+                defraimp_NumberofPackages = GetNumberOfPackages(lineItem),
+                defraimp_name = lineItem.ScientificName,
+                defraimp_commodityid = GetCommodityId(lineItem),
+                defraimp_commoditydescription = GetCommodityDescription(lineItem),
+                defraimp_speciesname = lineItem.ScientificName,
+                defraimp_speciescommonname = lineItem.CommonName,
+            };
+        }
+
         private Tuple<bool, string> TryUpdateExisting(defraimp_ImporterNotification existing, INSObject insObject)
         {
             var identifier = insObject.Data.ExchangedDocument.Identifier;
@@ -794,7 +809,7 @@
                     continue;
                 }
 
-                var commodityComplement = this.BuildCommodityComplement(importerNotification, lineItem);
+                var commodityComplement = BuildCommodityComplement(importerNotification, lineItem);
                 createRequests.Add(new CreateRequest { Target = commodityComplement });
             }
 
@@ -802,21 +817,6 @@
             {
                 this.ExecuteMultiple(createRequests);
             }
-        }
-
-        private defraimp_commoditycomplement BuildCommodityComplement(defraimp_ImporterNotification importerNotification, IncludedTradeLineItem lineItem)
-        {
-            return new defraimp_commoditycomplement
-            {
-                defraimp_ImporterNotificationId = importerNotification.ToEntityReference(),
-                defraimp_NumberofAnimals = FormatNumberOfAnimals(GetNumberOfAnimals(lineItem)),
-                defraimp_NumberofPackages = GetNumberOfPackages(lineItem),
-                defraimp_name = lineItem.ScientificName,
-                defraimp_commodityid = GetCommodityId(lineItem),
-                defraimp_commoditydescription = GetCommodityDescription(lineItem),
-                defraimp_speciesname = lineItem.ScientificName,
-                defraimp_speciescommonname = lineItem.CommonName,
-            };
         }
 
         private void DeleteExistingConsignmentItems(defraimp_ImporterNotification existing)
