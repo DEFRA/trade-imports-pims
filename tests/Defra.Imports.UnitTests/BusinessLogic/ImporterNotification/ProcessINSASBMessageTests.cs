@@ -1,10 +1,8 @@
 ﻿namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using Defra.Imports.BusinessLogic.Extensions;
     using Defra.Imports.BusinessLogic.ImporterNotification;
+    using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.IdentificationOfAnimalsObjects;
     using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.INSObject;
     using Defra.Imports.BusinessLogic.Logging;
     using Defra.Imports.Model;
@@ -12,6 +10,9 @@
     using Microsoft.Xrm.Sdk.Messages;
     using Microsoft.Xrm.Sdk.Query;
     using Moq;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Xunit;
 
     /// <summary>
@@ -1735,6 +1736,246 @@
             Assert.Null(created.defraimp_PlaceofOriginCountryId);
         }
 
+        // ── ApplyTransporterDetails: defraimp_TransporterAddressCountryId ──────────
+
+        /// <summary>
+        /// Tests that ApplyTransporterDetails sets the transporter country lookup when the
+        /// carrier's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyTransporterDetails_WithMatchingCountry_SetsTransporterCountryId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithCarrier(
+                "INS-280",
+                name: "FastFreight",
+                carrierIdentifier: "FF-99",
+                line1: "6 Carrier Way",
+                city: "Dover",
+                postcode: "CT16 1AA",
+                country: "FR",
+                partyTypeCode: "CT1");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_TransporterAddressCountryid);
+            Assert.Equal(frCountry.Id, created.defraimp_TransporterAddressCountryid.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTransporterDetails does not set the transporter country lookup
+        /// when the carrier's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyTransporterDetails_WithUnknownCountry_DoesNotSetTransporterCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithCarrier(
+                "INS-280",
+                name: "FastFreight",
+                carrierIdentifier: "FF-99",
+                line1: "6 Carrier Way",
+                city: "Dover",
+                postcode: "CT16 1AA",
+                country: "ZZ",
+                partyTypeCode: "CT1");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_TransporterAddressCountryid);
+        }
+
+        // ── ApplyPlaceOfDestinationDetails: defraimp_PlaceofDestinationCountryId ──────────
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfDestination Details sets the place-of-destination country lookup when the
+        /// delivery party's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfDestinationDetails_WithMatchingCountry_SetsPlaceOfDestinationCountryId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithParty(
+                "INS-350",
+                "deliveryParty",
+                name: "Destination Farm",
+                line1: "4 Farm Ln",
+                line2: null,
+                city: "Lyon",
+                postcode: "69001",
+                country: "FR",
+                email: "farm@example.com",
+                phone: "01234 000004");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_PlaceofDestinationCountryid);
+            Assert.Equal(frCountry.Id, created.defraimp_PlaceofDestinationCountryid.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfDestinationDetails does not set the place-of-destination country lookup
+        /// when the delivery party's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfDestinationDetails_WithUnknownCountry_DoesNotSetPlaceOfDestinationCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithParty(
+                "INS-351",
+                "deliveryParty",
+                name: "Destination Farm",
+                line1: "4 Farm Ln",
+                line2: null,
+                city: "Lyon",
+                postcode: "69001",
+                country: "ZZ",
+                email: "farm@example.com",
+                phone: "01234 000004");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_PlaceofDestinationCountryid);
+        }
+
+        // ── ApplyIssuerDetails: defraimp_PersonResponsibleCountryId ──────────
+
+        /// <summary>
+        /// Tests that ApplyIssuerDetails sets the person responsible country lookup when the
+        /// issuer's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPersonResponsibleDetails_WithMatchingCountry_SetsPersonResponsibleCountryId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithIssuer(
+                "INS-350",
+                1,
+                "SUBMITTED",
+                issuerName: "Test Co",
+                line1: "1 St",
+                line2: null,
+                city: "City",
+                postcode: "AA1 1AA",
+                personName: null,
+                email: null,
+                phone: null,
+                country: "FR");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_PersonResponsibleCountryId);
+            Assert.Equal(frCountry.Id, created.defraimp_PersonResponsibleCountryId.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyIssuerDetails does not set the person responsible country lookup
+        /// when the issuer's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPersonResponsibleDetails_WithUnknownCountry_DoesNotSetPersonResponsibleCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithIssuer(
+                "INS-351",
+                1,
+                "SUBMITTED",
+                issuerName: "Test Co",
+                line1: "1 St",
+                line2: null,
+                city: "City",
+                postcode: "AA1 1AA",
+                personName: null,
+                email: null,
+                phone: null,
+                country: "ZZ");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_PersonResponsibleCountryId);
+        }
+
+        // ── ApplySubmissionDetails: defraimp_submittedbydisplayname ─────────────
+
+        /// <summary>
+        /// Tests that ApplySubmissionDetails sets the submitted-by display name on the newly
+        /// created importer notification when the SUBMITTED status change has an actor.
+        /// </summary>
+        [Fact]
+        public void ApplySubmissionDetails_WithActorPresent_SetsSubmittedByDisplayName()
+        {
+            // Arrange
+            var message = BuildMessageWithStatusChangeActor("INS-360", 1, "SUBMITTED", "2024-01-01T09:00:00Z", "Jane Submitter");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("Jane Submitter", created.defraimp_submittedbydisplayname);
+        }
+
+        // ── ApplyLastUpdatedDetails: defraimp_lastupdatedbydisplayname ──────────
+
+        /// <summary>
+        /// Tests that ApplyLastUpdatedDetails sets the last-updated-by display name on the
+        /// existing importer notification when the most recent status change has an actor.
+        /// </summary>
+        [Fact]
+        public void ApplyLastUpdatedDetails_WithActorPresent_SetsLastUpdatedByDisplayName()
+        {
+            // Arrange
+            var existingNotification = new defraimp_ImporterNotification
+            {
+                Id = Guid.NewGuid(),
+                defraimp_Name = "INS-361",
+                defraimp_AggregateVersion = 1,
+            };
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { existingNotification }));
+
+            defraimp_ImporterNotification updated = null;
+            this.orgSvcMock
+                .Setup(o => o.Update(It.IsAny<Entity>()))
+                .Callback<Entity>(e => updated = (defraimp_ImporterNotification)e);
+
+            var message = BuildMessageWithStatusChangeActor("INS-361", 2, "SUBMITTED", "2024-02-02T10:00:00Z", "John Updater");
+
+            // Act
+            this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.NotNull(updated);
+            Assert.Equal("John Updater", updated.defraimp_lastupdatedbydisplayname);
+        }
+
         // ── Private helpers ───────────────────────────────────────────────────
         private static INSObject BuildInsObject(string identifier, int aggregateVersion, string statusCode)
         {
@@ -1996,6 +2237,29 @@
                 {{
                   ""status"": ""{notificationStatusCode}"",
                   ""dateChanged"": ""{statusChangeDateChanged}""
+                }}
+              ] 
+            }}";
+        }
+
+        private static string BuildMessageWithStatusChangeActor(string identifier, int aggregateVersion, string notificationStatusCode, string statusChangeDateChanged, string actorDisplayName)
+        {
+            return $@"{{
+              ""aggregateVersion"": {aggregateVersion},
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""{identifier}"",
+                  ""notificationStatusCode"": ""{notificationStatusCode}"",
+                  ""versionId"": 1
+                }}
+              }},
+              ""statusChanges"": [
+                {{
+                  ""status"": ""{notificationStatusCode}"",
+                  ""dateChanged"": ""{statusChangeDateChanged}"",
+                  ""actor"": {{
+                    ""displayName"": {ToJsonValue(actorDisplayName)}
+                  }}
                 }}
               ]
             }}";
