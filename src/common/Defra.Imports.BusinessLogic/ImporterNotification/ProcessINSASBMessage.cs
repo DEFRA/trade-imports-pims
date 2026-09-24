@@ -46,7 +46,7 @@
 
             if (!this.TryDeserializeMessage(message, out var insObject, out var deserializeError))
             {
-                return Tuple.Create(false, deserializeError);
+                return Tuple.Create(false, "error", deserializeError);
             }
 
             if (string.IsNullOrWhiteSpace(insObject?.Data?.ExchangedDocument?.Identifier))
