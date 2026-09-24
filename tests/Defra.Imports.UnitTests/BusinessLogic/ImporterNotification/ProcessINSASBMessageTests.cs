@@ -2,12 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Defra.Imports.BusinessLogic.Extensions;
     using Defra.Imports.BusinessLogic.ImporterNotification;
     using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.INSObject;
     using Defra.Imports.BusinessLogic.Logging;
     using Defra.Imports.Model;
     using Microsoft.Xrm.Sdk;
+    using Microsoft.Xrm.Sdk.Messages;
     using Microsoft.Xrm.Sdk.Query;
     using Moq;
     using Xunit;
@@ -33,6 +35,11 @@
             // Default: country lookups return empty collection
             this.orgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            // Default: commodity complement lookups return empty collection (no existing complements to delete)
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_commoditycomplement.EntityLogicalName)))
                 .Returns(new EntityCollection());
         }
 
@@ -1230,6 +1237,1064 @@
             Assert.Null(created.defraimp_ArrivalDate);
         }
 
+        /// <summary>
+        /// Tests that one commodity complement is created per included trade line item
+        /// and that mapped fields are populated correctly.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignmentItemDetails_WhenTradeLineItemsExist_CreatesCommodityComplementsWithMappedFields()
+        {
+            // Arrange
+            var importerNotificationId = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(importerNotificationId);
+
+            OrganizationRequestCollection capturedRequests = null;
+            this.orgSvcMock
+                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
+                .Callback<OrganizationRequest>(r => capturedRequests = ((ExecuteMultipleRequest)r).Requests)
+                .Returns(new ExecuteMultipleResponse());
+
+            var message = this.BuildMessageWithIncludedTradeLineItems("INS-CC-001", 1, "SUBMITTED");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.NotNull(capturedRequests);
+
+            var complements = new List<defraimp_commoditycomplement>();
+            foreach (var request in capturedRequests)
+            {
+                if (request is CreateRequest createRequest && createRequest.Target.LogicalName == defraimp_commoditycomplement.EntityLogicalName)
+                {
+                    complements.Add((defraimp_commoditycomplement)createRequest.Target);
+                }
+            }
+
+            Assert.Equal(2, complements.Count);
+
+            var first = complements[0];
+            Assert.NotNull(first.defraimp_ImporterNotificationId);
+            Assert.Equal(importerNotificationId, first.defraimp_ImporterNotificationId.Id);
+            Assert.Equal("12", first.defraimp_NumberofAnimals);
+            Assert.Equal(3, first.defraimp_NumberofPackages);
+            Assert.Equal("Canis lupus", first.defraimp_name);
+            Assert.Equal("01012100", first.defraimp_commodityid);
+            Assert.Equal("Dog, Mammal", first.defraimp_commoditydescription);
+            Assert.Equal("Canis lupus", first.defraimp_speciesname);
+            Assert.Equal("Dog", first.defraimp_speciescommonname);
+
+            var second = complements[1];
+            Assert.Equal("5", second.defraimp_NumberofAnimals);
+            Assert.Equal(1, second.defraimp_NumberofPackages);
+            Assert.Equal("Felis catus", second.defraimp_name);
+            Assert.Equal("01061900", second.defraimp_commodityid);
+            Assert.Equal("Cat", second.defraimp_commoditydescription);
+            Assert.Equal("Felis catus", second.defraimp_speciesname);
+            Assert.Equal("Cat", second.defraimp_speciescommonname);
+        }
+
+        /// <summary>
+        /// Tests that existing commodity complements are deleted when an importer notification is updated.
+        /// </summary>
+        [Fact]
+        public void DeleteExistingConsignmentItems_WhenUpdatingExistingNotification_DeletesExistingCommodityComplements()
+        {
+            // Arrange
+            var existingId = Guid.NewGuid();
+            var commodityId1 = Guid.NewGuid();
+            var commodityId2 = Guid.NewGuid();
+
+            var existingRecord = new defraimp_ImporterNotification
+            {
+                Id = existingId,
+                defraimp_ImporterNotificationId = existingId,
+                defraimp_Name = "INS-DEL-001",
+                defraimp_AggregateVersion = 1,
+            };
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { existingRecord }));
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_commoditycomplement.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity>
+                {
+                    new defraimp_commoditycomplement { Id = commodityId1 },
+                    new defraimp_commoditycomplement { Id = commodityId2 },
+                }));
+
+            OrganizationRequestCollection capturedRequests = null;
+            this.orgSvcMock
+                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
+                .Callback<OrganizationRequest>(r => capturedRequests = ((ExecuteMultipleRequest)r).Requests)
+                .Returns(new ExecuteMultipleResponse());
+
+            var message = BuildMessage("INS-DEL-001", 2, "SUBMITTED");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.NotNull(capturedRequests);
+
+            this.orgSvcMock.Verify(o => o.Update(It.Is<Entity>(e => e.LogicalName == defraimp_ImporterNotification.EntityLogicalName)), Times.Once);
+
+            var deletedIds = new List<Guid>();
+            foreach (var request in capturedRequests)
+            {
+                if (request is DeleteRequest deleteRequest && deleteRequest.Target.LogicalName == defraimp_commoditycomplement.EntityLogicalName)
+                {
+                    deletedIds.Add(deleteRequest.Target.Id);
+                }
+            }
+
+            Assert.Contains(commodityId1, deletedIds);
+            Assert.Contains(commodityId2, deletedIds);
+            Assert.Equal(2, deletedIds.Count);
+        }
+
+        // ── PopulateConsignmentDetails: FinalDestinationLocation / UnloadingBaseportLocation ──
+
+        /// <summary>
+        /// Tests that PopulateConsignmentDetails sets the CPH number and port of entry from
+        /// the final destination location and unloading baseport location.
+        /// </summary>
+        [Fact]
+        public void PopulateConsignmentDetails_WithFinalDestinationAndUnloadingBaseport_SetsCphNumberAndPortOfEntry()
+        {
+            // Arrange
+            var message = BuildMessageWithLocations("INS-300", finalDestinationIdentifier: "CPH-123", unloadingBaseportIdentifier: "PORT-456");
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("CPH-123", created.defraimp_cphnumber);
+            Assert.Equal("PORT-456", created.defraimp_portofentry);
+        }
+
+        /// <summary>
+        /// Tests that a commodity complement's number-of-animals, number-of-packages, commodity ID,
+        /// and commodity description fields are all null when the trade line item has no
+        /// specifiedLineTradeDelivery, physicalReferencedLogisticsPackage, applicableClassification,
+        /// or description data (exercises the null-returning branches of GetNumberOfAnimals,
+        /// GetNumberOfPackages, GetCommodityId, and GetCommodityDescription).
+        /// </summary>
+        [Fact]
+        public void ApplyConsignmentItemDetails_WhenTradeLineItemHasNoOptionalData_CreatesCommodityComplementWithNullFields()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+
+            OrganizationRequestCollection capturedRequests = null;
+            this.orgSvcMock
+                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
+                .Callback<OrganizationRequest>(r => capturedRequests = ((ExecuteMultipleRequest)r).Requests)
+                .Returns(new ExecuteMultipleResponse());
+
+            var message = this.BuildMessageWithMinimalTradeLineItem("INS-CC-002", "Loris tardigradus", "Slow Loris");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.NotNull(capturedRequests);
+
+            var complement = capturedRequests
+                .OfType<CreateRequest>()
+                .Select(r => r.Target)
+                .OfType<defraimp_commoditycomplement>()
+                .Single();
+
+            Assert.Null(complement.defraimp_NumberofAnimals);
+            Assert.Null(complement.defraimp_NumberofPackages);
+            Assert.Null(complement.defraimp_commodityid);
+            Assert.Null(complement.defraimp_commoditydescription);
+            Assert.Equal("Loris tardigradus", complement.defraimp_name);
+            Assert.Equal("Loris tardigradus", complement.defraimp_speciesname);
+            Assert.Equal("Slow Loris", complement.defraimp_speciescommonname);
+        }
+
+        /// <summary>
+        /// Tests that PopulateConsignmentDetails does not set the CPH number or port of entry
+        /// when the final destination location and unloading baseport location are absent.
+        /// </summary>
+        [Fact]
+        public void PopulateConsignmentDetails_WithNoLocations_DoesNotSetCphNumberOrPortOfEntry()
+        {
+            // Arrange
+            var message = BuildMessageWithEmptyConsignment("INS-301", 1, "SUBMITTED");
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_cphnumber);
+            Assert.Null(created.defraimp_portofentry);
+        }
+
+        /// <summary>
+        /// Tests that ApplyConsignmentItemDetails does not attempt to create any commodity
+        /// complements when the newly created importer notification's Id is Guid.Empty.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignmentItemDetails_WhenImporterNotificationIdIsEmpty_DoesNotCreateComplements()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.Empty);
+
+            var message = this.BuildMessageWithIncludedTradeLineItems("INS-CC-003", 1, "SUBMITTED");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Never);
+        }
+
+        /// <summary>
+        /// Tests that ApplyConsignmentItemDetails does not create any commodity complements
+        /// when there are no included consignment items on the specified consignment.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignmentItemDetails_WithNoIncludedConsignmentItems_DoesNotCreateAnyComplements()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+
+            var message = BuildMessageWithEmptyConsignment("INS-CC-004", 1, "SUBMITTED");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Never);
+        }
+
+        /// <summary>
+        /// Tests that ApplyConsignmentItemDetails processes each included consignment item in turn,
+        /// creating commodity complements for every consignment item's trade line items.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignmentItemDetails_WithMultipleConsignmentItems_CreatesComplementsForEachConsignmentItem()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+
+            var capturedBatches = new List<OrganizationRequestCollection>();
+            this.orgSvcMock
+                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
+                .Callback<OrganizationRequest>(r => capturedBatches.Add(((ExecuteMultipleRequest)r).Requests))
+                .Returns(new ExecuteMultipleResponse());
+
+            var message = $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""INS-CC-005"",
+                  ""notificationStatusCode"": ""SUBMITTED"",
+                  ""versionId"": 1
+                }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    {{
+                      ""includedTradeLineItem"": [
+                        {{ ""scientificName"": ""Canis lupus"", ""commonName"": ""Dog"" }}
+                      ]
+                    }},
+                    {{
+                      ""includedTradeLineItem"": [
+                        {{ ""scientificName"": ""Felis catus"", ""commonName"": ""Cat"" }}
+                      ]
+                    }}
+                  ]
+                }}
+              }}
+            }}";
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.Equal(2, capturedBatches.Count);
+
+            var complements = capturedBatches
+                .SelectMany(b => b.OfType<CreateRequest>())
+                .Select(r => r.Target)
+                .OfType<defraimp_commoditycomplement>()
+                .ToList();
+
+            Assert.Equal(2, complements.Count);
+            Assert.Contains(complements, c => c.defraimp_name == "Canis lupus");
+            Assert.Contains(complements, c => c.defraimp_name == "Felis catus");
+        }
+
+        /// <summary>
+        /// Tests that ApplyConsignmentItemDetails safely skips a null entry within the
+        /// included consignment item array, still processing the remaining valid entries.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignmentItemDetails_WithNullConsignmentItemInArray_SkipsNullEntry()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+
+            var capturedBatches = new List<OrganizationRequestCollection>();
+            this.orgSvcMock
+                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
+                .Callback<OrganizationRequest>(r => capturedBatches.Add(((ExecuteMultipleRequest)r).Requests))
+                .Returns(new ExecuteMultipleResponse());
+
+            var message = $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""INS-CC-006"",
+                  ""notificationStatusCode"": ""SUBMITTED"",
+                  ""versionId"": 1
+                }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    null,
+                    {{
+                      ""includedTradeLineItem"": [
+                        {{ ""scientificName"": ""Canis lupus"", ""commonName"": ""Dog"" }}
+                      ]
+                    }}
+                  ]
+                }}
+              }}
+            }}";
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+
+            var complements = capturedBatches
+                .SelectMany(b => b.OfType<CreateRequest>())
+                .Select(r => r.Target)
+                .OfType<defraimp_commoditycomplement>()
+                .ToList();
+
+            var complement = Assert.Single(complements);
+            Assert.Equal("Canis lupus", complement.defraimp_name);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTradeLineItemDetails does not call ExecuteMultiple when the
+        /// included trade line item array is empty.
+        /// </summary>
+        [Fact]
+        public void ApplyTradeLineItemDetails_WithNoTradeLineItems_DoesNotCallExecuteMultiple()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+
+            var message = $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""INS-CC-007"",
+                  ""notificationStatusCode"": ""SUBMITTED"",
+                  ""versionId"": 1
+                }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    {{ ""includedTradeLineItem"": [] }}
+                  ]
+                }}
+              }}
+            }}";
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Never);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTradeLineItemDetails skips null entries within the included trade
+        /// line item array, creating a commodity complement only for the non-null entry.
+        /// </summary>
+        [Fact]
+        public void ApplyTradeLineItemDetails_WithNullTradeLineItemInArray_SkipsNullEntries()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+
+            OrganizationRequestCollection capturedRequests = null;
+            this.orgSvcMock
+                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
+                .Callback<OrganizationRequest>(r => capturedRequests = ((ExecuteMultipleRequest)r).Requests)
+                .Returns(new ExecuteMultipleResponse());
+
+            var message = $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""INS-CC-008"",
+                  ""notificationStatusCode"": ""SUBMITTED"",
+                  ""versionId"": 1
+                }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    {{
+                      ""includedTradeLineItem"": [
+                        null,
+                        {{ ""scientificName"": ""Loris tardigradus"", ""commonName"": ""Slow Loris"" }}
+                      ]
+                    }}
+                  ]
+                }}
+              }}
+            }}";
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.NotNull(capturedRequests);
+
+            var complement = capturedRequests
+                .OfType<CreateRequest>()
+                .Select(r => r.Target)
+                .OfType<defraimp_commoditycomplement>()
+                .Single();
+
+            Assert.Equal("Loris tardigradus", complement.defraimp_name);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTradeLineItemDetails does not call ExecuteMultiple when every
+        /// entry in the included trade line item array is null.
+        /// </summary>
+        [Fact]
+        public void ApplyTradeLineItemDetails_WithOnlyNullTradeLineItems_DoesNotCallExecuteMultiple()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+
+            var message = $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""INS-CC-009"",
+                  ""notificationStatusCode"": ""SUBMITTED"",
+                  ""versionId"": 1
+                }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    {{
+                      ""includedTradeLineItem"": [
+                        null,
+                        null
+                      ]
+                    }}
+                  ]
+                }}
+              }}
+            }}";
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Never);
+        }
+
+        // ── ApplyOriginDetails: defraimp_CountryofOriginId ──────────────────────
+
+        /// <summary>
+        /// Tests that ApplyOriginDetails sets the country of origin lookup when the origin
+        /// country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyOriginDetails_WithMatchingOriginCountry_SetsCountryOfOriginId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithOriginCountry("INS-310", 1, "SUBMITTED", countryCode: "FR", regionIdentifier: null);
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_CountryofOriginId);
+            Assert.Equal(frCountry.Id, created.defraimp_CountryofOriginId.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyOriginDetails does not set the country of origin lookup when the
+        /// origin country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyOriginDetails_WithUnknownOriginCountry_DoesNotSetCountryOfOriginId()
+        {
+            // Arrange — country lookup returns nothing for "ZZ" (default constructor mock)
+            var message = BuildMessageWithOriginCountry("INS-311", 1, "SUBMITTED", countryCode: "ZZ", regionIdentifier: null);
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_CountryofOriginId);
+        }
+
+        // ── ApplyConsigneeDetails: defraimp_ConsigneeAddressCountryId ───────────
+
+        /// <summary>
+        /// Tests that ApplyConsigneeDetails sets the consignee address country lookup when the
+        /// consignee's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyConsigneeDetails_WithMatchingCountry_SetsConsigneeAddressCountryId()
+        {
+            // Arrange
+            var gbCountry = new defra_country { defra_isocodealpha2 = "GB" };
+            gbCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { gbCountry }));
+
+            var message = BuildMessageWithParty(
+                "INS-320",
+                "consigneeParty",
+                name: "Buyer Co",
+                line1: "1 Buy St",
+                line2: null,
+                city: "Bristol",
+                postcode: "BS1 1AA",
+                country: "GB",
+                email: "buyer@example.com",
+                phone: "01234 000001");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_ConsigneeAddressCountryId);
+            Assert.Equal(gbCountry.Id, created.defraimp_ConsigneeAddressCountryId.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyConsigneeDetails does not set the consignee address country lookup
+        /// when the consignee's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyConsigneeDetails_WithUnknownCountry_DoesNotSetConsigneeAddressCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithParty(
+                "INS-321",
+                "consigneeParty",
+                name: "Buyer Co",
+                line1: "1 Buy St",
+                line2: null,
+                city: "Bristol",
+                postcode: "BS1 1AA",
+                country: "ZZ",
+                email: "buyer@example.com",
+                phone: "01234 000001");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_ConsigneeAddressCountryId);
+        }
+
+        // ── ApplyImporterDetails: defraimp_ImporterAddressCountryid ─────────────
+
+        /// <summary>
+        /// Tests that ApplyImporterDetails sets the importer address country lookup when the
+        /// importer's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyImporterDetails_WithMatchingCountry_SetsImporterAddressCountryId()
+        {
+            // Arrange
+            var gbCountry = new defra_country { defra_isocodealpha2 = "GB" };
+            gbCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { gbCountry }));
+
+            var message = BuildMessageWithParty(
+                "INS-330",
+                "importer",
+                name: "Importer Co",
+                line1: "2 Import Rd",
+                line2: null,
+                city: "Leeds",
+                postcode: "LS1 1BB",
+                country: "GB",
+                email: "imp@example.com",
+                phone: "01234 000002");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_ImporterAddressCountryid);
+            Assert.Equal(gbCountry.Id, created.defraimp_ImporterAddressCountryid.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyImporterDetails does not set the importer address country lookup
+        /// when the importer's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyImporterDetails_WithUnknownCountry_DoesNotSetImporterAddressCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithParty(
+                "INS-331",
+                "importer",
+                name: "Importer Co",
+                line1: "2 Import Rd",
+                line2: null,
+                city: "Leeds",
+                postcode: "LS1 1BB",
+                country: "ZZ",
+                email: "imp@example.com",
+                phone: "01234 000002");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_ImporterAddressCountryid);
+        }
+
+        // ── ApplyConsignorDetails: defraimp_ConsignorAddressCountryid ───────────
+
+        /// <summary>
+        /// Tests that ApplyConsignorDetails sets the consignor address country lookup when the
+        /// consignor's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignorDetails_WithMatchingCountry_SetsConsignorAddressCountryId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithParty(
+                "INS-340",
+                "consignorParty",
+                name: "Seller Co",
+                line1: "3 Sell Ave",
+                line2: null,
+                city: "Paris",
+                postcode: "75001",
+                country: "FR",
+                email: "seller@example.com",
+                phone: "01234 000003");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_ConsignorAddressCountryid);
+            Assert.Equal(frCountry.Id, created.defraimp_ConsignorAddressCountryid.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyConsignorDetails does not set the consignor address country lookup
+        /// when the consignor's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignorDetails_WithUnknownCountry_DoesNotSetConsignorAddressCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithParty(
+                "INS-341",
+                "consignorParty",
+                name: "Seller Co",
+                line1: "3 Sell Ave",
+                line2: null,
+                city: "Paris",
+                postcode: "75001",
+                country: "ZZ",
+                email: "seller@example.com",
+                phone: "01234 000003");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_ConsignorAddressCountryid);
+        }
+
+        // ── ApplyPlaceOfOriginDetails: defraimp_PlaceofOriginCountryId ──────────
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfOriginDetails sets the place-of-origin country lookup when the
+        /// despatch party's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfOriginDetails_WithMatchingCountry_SetsPlaceOfOriginCountryId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithParty(
+                "INS-350",
+                "despatchParty",
+                name: "Origin Farm",
+                line1: "4 Farm Ln",
+                line2: null,
+                city: "Lyon",
+                postcode: "69001",
+                country: "FR",
+                email: "farm@example.com",
+                phone: "01234 000004");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_PlaceofOriginCountryId);
+            Assert.Equal(frCountry.Id, created.defraimp_PlaceofOriginCountryId.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfOriginDetails does not set the place-of-origin country lookup
+        /// when the despatch party's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfOriginDetails_WithUnknownCountry_DoesNotSetPlaceOfOriginCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithParty(
+                "INS-351",
+                "despatchParty",
+                name: "Origin Farm",
+                line1: "4 Farm Ln",
+                line2: null,
+                city: "Lyon",
+                postcode: "69001",
+                country: "ZZ",
+                email: "farm@example.com",
+                phone: "01234 000004");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_PlaceofOriginCountryId);
+        }
+
+        // ── ApplyTransporterDetails: defraimp_TransporterAddressCountryId ──────────
+
+        /// <summary>
+        /// Tests that ApplyTransporterDetails sets the transporter country lookup when the
+        /// carrier's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyTransporterDetails_WithMatchingCountry_SetsTransporterCountryId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithCarrier(
+                "INS-280",
+                name: "FastFreight",
+                carrierIdentifier: "FF-99",
+                line1: "6 Carrier Way",
+                city: "Dover",
+                postcode: "CT16 1AA",
+                country: "FR",
+                partyTypeCode: "CT1");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_TransporterAddressCountryid);
+            Assert.Equal(frCountry.Id, created.defraimp_TransporterAddressCountryid.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTransporterDetails does not set the transporter country lookup
+        /// when the carrier's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyTransporterDetails_WithUnknownCountry_DoesNotSetTransporterCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithCarrier(
+                "INS-280",
+                name: "FastFreight",
+                carrierIdentifier: "FF-99",
+                line1: "6 Carrier Way",
+                city: "Dover",
+                postcode: "CT16 1AA",
+                country: "ZZ",
+                partyTypeCode: "CT1");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_TransporterAddressCountryid);
+        }
+
+        // ── ApplyPlaceOfDestinationDetails: defraimp_PlaceofDestinationCountryId ──────────
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfDestination Details sets the place-of-destination country lookup when the
+        /// delivery party's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfDestinationDetails_WithMatchingCountry_SetsPlaceOfDestinationCountryId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithParty(
+                "INS-350",
+                "deliveryParty",
+                name: "Destination Farm",
+                line1: "4 Farm Ln",
+                line2: null,
+                city: "Lyon",
+                postcode: "69001",
+                country: "FR",
+                email: "farm@example.com",
+                phone: "01234 000004");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_PlaceofDestinationCountryid);
+            Assert.Equal(frCountry.Id, created.defraimp_PlaceofDestinationCountryid.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyPlaceOfDestinationDetails does not set the place-of-destination country lookup
+        /// when the delivery party's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPlaceOfDestinationDetails_WithUnknownCountry_DoesNotSetPlaceOfDestinationCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithParty(
+                "INS-351",
+                "deliveryParty",
+                name: "Destination Farm",
+                line1: "4 Farm Ln",
+                line2: null,
+                city: "Lyon",
+                postcode: "69001",
+                country: "ZZ",
+                email: "farm@example.com",
+                phone: "01234 000004");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_PlaceofDestinationCountryid);
+        }
+
+        // ── ApplyIssuerDetails: defraimp_PersonResponsibleCountryId ──────────
+
+        /// <summary>
+        /// Tests that ApplyIssuerDetails sets the person responsible country lookup when the
+        /// issuer's postal address country code matches a known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPersonResponsibleDetails_WithMatchingCountry_SetsPersonResponsibleCountryId()
+        {
+            // Arrange
+            var frCountry = new defra_country { defra_isocodealpha2 = "FR" };
+            frCountry.Id = Guid.NewGuid();
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defra_country.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { frCountry }));
+
+            var message = BuildMessageWithIssuer(
+                "INS-350",
+                1,
+                "SUBMITTED",
+                issuerName: "Test Co",
+                line1: "1 St",
+                line2: null,
+                city: "City",
+                postcode: "AA1 1AA",
+                personName: null,
+                email: null,
+                phone: null,
+                country: "FR");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.NotNull(created.defraimp_PersonResponsibleCountryId);
+            Assert.Equal(frCountry.Id, created.defraimp_PersonResponsibleCountryId.Id);
+        }
+
+        /// <summary>
+        /// Tests that ApplyIssuerDetails does not set the person responsible country lookup
+        /// when the issuer's postal address country code does not match any known Dataverse country.
+        /// </summary>
+        [Fact]
+        public void ApplyPersonResponsibleDetails_WithUnknownCountry_DoesNotSetPersonResponsibleCountryId()
+        {
+            // Arrange
+            var message = BuildMessageWithIssuer(
+                "INS-351",
+                1,
+                "SUBMITTED",
+                issuerName: "Test Co",
+                line1: "1 St",
+                line2: null,
+                city: "City",
+                postcode: "AA1 1AA",
+                personName: null,
+                email: null,
+                phone: null,
+                country: "ZZ");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_PersonResponsibleCountryId);
+        }
+
+        // ── ApplySubmissionDetails: defraimp_submittedbydisplayname ─────────────
+
+        /// <summary>
+        /// Tests that ApplySubmissionDetails sets the submitted-by display name on the newly
+        /// created importer notification when the SUBMITTED status change has an actor.
+        /// </summary>
+        [Fact]
+        public void ApplySubmissionDetails_WithActorPresent_SetsSubmittedByDisplayName()
+        {
+            // Arrange
+            var message = BuildMessageWithStatusChangeActor("INS-360", 1, "SUBMITTED", "2024-01-01T09:00:00Z", "Jane Submitter");
+
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("Jane Submitter", created.defraimp_submittedbydisplayname);
+        }
+
+        // ── ApplyLastUpdatedDetails: defraimp_lastupdatedbydisplayname ──────────
+
+        /// <summary>
+        /// Tests that ApplyLastUpdatedDetails sets the last-updated-by display name on the
+        /// existing importer notification when the most recent status change has an actor.
+        /// </summary>
+        [Fact]
+        public void ApplyLastUpdatedDetails_WithActorPresent_SetsLastUpdatedByDisplayName()
+        {
+            // Arrange
+            var existingNotification = new defraimp_ImporterNotification
+            {
+                Id = Guid.NewGuid(),
+                defraimp_Name = "INS-361",
+                defraimp_AggregateVersion = 1,
+            };
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { existingNotification }));
+
+            defraimp_ImporterNotification updated = null;
+            this.orgSvcMock
+                .Setup(o => o.Update(It.IsAny<Entity>()))
+                .Callback<Entity>(e => updated = (defraimp_ImporterNotification)e);
+
+            var message = BuildMessageWithStatusChangeActor("INS-361", 2, "SUBMITTED", "2024-02-02T10:00:00Z", "John Updater");
+
+            // Act
+            this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.NotNull(updated);
+            Assert.Equal("John Updater", updated.defraimp_lastupdatedbydisplayname);
+        }
+
         // ── Private helpers ───────────────────────────────────────────────────
         private static INSObject BuildInsObject(string identifier, int aggregateVersion, string statusCode)
         {
@@ -1288,6 +2353,20 @@
                       ""countryId"": {ToJsonValue(country)}
                     }}{contact}
                   }}
+                }}
+              }}
+            }}";
+        }
+
+        private static string BuildMessageWithLocations(string identifier, string finalDestinationIdentifier, string unloadingBaseportIdentifier)
+        {
+            return $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
+                ""specifiedConsignment"": {{
+                  ""finalDestinationLocation"": {{ ""identifier"": {ToJsonValue(finalDestinationIdentifier)} }},
+                  ""unloadingBaseportLocation"": {{ ""identifier"": {ToJsonValue(unloadingBaseportIdentifier)} }}
                 }}
               }}
             }}";
@@ -1478,6 +2557,29 @@
                   ""status"": ""{notificationStatusCode}"",
                   ""dateChanged"": ""{statusChangeDateChanged}""
                 }}
+              ] 
+            }}";
+        }
+
+        private static string BuildMessageWithStatusChangeActor(string identifier, int aggregateVersion, string notificationStatusCode, string statusChangeDateChanged, string actorDisplayName)
+        {
+            return $@"{{
+              ""aggregateVersion"": {aggregateVersion},
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""{identifier}"",
+                  ""notificationStatusCode"": ""{notificationStatusCode}"",
+                  ""versionId"": 1
+                }}
+              }},
+              ""statusChanges"": [
+                {{
+                  ""status"": ""{notificationStatusCode}"",
+                  ""dateChanged"": ""{statusChangeDateChanged}"",
+                  ""actor"": {{
+                    ""displayName"": {ToJsonValue(actorDisplayName)}
+                  }}
+                }}
               ]
             }}";
         }
@@ -1497,6 +2599,94 @@
         private static string ToJsonValue(string value)
         {
             return value == null ? "null" : $"\"{value}\"";
+        }
+
+        private string BuildMessageWithMinimalTradeLineItem(string identifier, string scientificName, string commonName)
+        {
+            return $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""{identifier}"",
+                  ""notificationStatusCode"": ""SUBMITTED"",
+                  ""versionId"": 1
+                }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    {{
+                      ""includedTradeLineItem"": [
+                        {{
+                          ""scientificName"": ""{scientificName}"",
+                          ""commonName"": ""{commonName}""
+                        }}
+                      ]
+                    }}
+                  ]
+                }}
+              }}
+            }}";
+        }
+
+        private string BuildMessageWithIncludedTradeLineItems(string identifier, int aggregateVersion, string statusCode)
+        {
+            return $@"{{
+              ""aggregateVersion"": {aggregateVersion},
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""{identifier}"",
+                  ""notificationStatusCode"": ""{statusCode}"",
+                  ""versionId"": 1
+                }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    {{
+                      ""includedTradeLineItem"": [
+                        {{
+                          ""applicableClassification"": [
+                            {{
+                              ""classCode"": {{ ""value"": ""01012100"" }}
+                            }}
+                          ],
+                          ""description"": [""Dog"", ""Mammal""],
+                          ""scientificName"": ""Canis lupus"",
+                          ""commonName"": ""Dog"",
+                          ""physicalReferencedLogisticsPackage"": [
+                            {{ ""itemQuantity"": 3 }}
+                          ],
+                          ""specifiedLineTradeDelivery"": [
+                            {{
+                              ""productUnitQuantity"": {{
+                                ""content"": 12
+                              }}
+                            }}
+                          ]
+                        }},
+                        {{
+                          ""applicableClassification"": [
+                            {{
+                              ""classCode"": {{ ""value"": ""01061900"" }}
+                            }}
+                          ],
+                          ""description"": [""Cat""],
+                          ""scientificName"": ""Felis catus"",
+                          ""commonName"": ""Cat"",
+                          ""physicalReferencedLogisticsPackage"": [
+                            {{ ""itemQuantity"": 1 }}
+                          ],
+                          ""specifiedLineTradeDelivery"": [
+                            {{
+                              ""productUnitQuantity"": {{
+                                ""content"": 5
+                              }}
+                            }}
+                          ]
+                        }}
+                      ]
+                    }}
+                  ]
+                }}
+              }}
+            }}";
         }
 
         private defraimp_ImporterNotification CaptureCreatedEntity(string message)
