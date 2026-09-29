@@ -1,0 +1,43 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Generate model",
+            "type": "shell",
+            "command": "pac",
+            "args": [
+                "modelbuilder",
+                "build",
+                "-o",
+                "src/common/Defra.Imports.Model",
+                "-stf",
+                "src/common/Defra.Imports.Model/builderSettings.json",
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile",
+            "dependsOn": ["Connect to Dataverse"]
+        },
+        {
+            "label": "Connect to Dataverse",
+            "type": "shell",
+            "command": "pac",
+            "args": [
+                "auth",
+                "create",
+                "-env",
+                "${input:environmentURL}"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile",
+        }
+    ],
+    "inputs": [
+        {
+            "id": "environmentURL",
+            "description": "Dataverse environment url",
+            "type": "promptString"
+        }
+    ]
+}

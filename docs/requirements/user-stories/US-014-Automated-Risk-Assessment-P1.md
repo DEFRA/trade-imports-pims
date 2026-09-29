@@ -18,33 +18,33 @@ Where a Gold inspection is triggered but the caseworker subsequently overrides i
 
 ## Acceptance Criteria
 
-- [x] **AC-1 (P1, Gold/Bronze commodity, Bronze Place of Origin → Post Import Check required):**  
+- **AC-1 (P1, Gold/Bronze commodity, Bronze Place of Origin → Post Import Check required):**  
   When an Import Record has Risk Level = P1 AND matches a Gold/Bronze Commodity rule AND the linked Place of Origin Trust Level = Bronze:
   - Post Import Checks Required? = **Yes**
   - Post Import Checks Required Reason = **Bronze Place of Origin**
 
-- [x] **AC-2 (P1, Gold/Bronze commodity, Gold Place of Origin, counter ≥ 10 → Post Import Check required):**  
+- **AC-2 (P1, Gold/Bronze commodity, Gold Place of Origin, counter ≥ 10 → Post Import Check required):**  
   When an Import Record has Risk Level = P1 AND matches a Gold/Bronze Commodity rule AND the linked Place of Origin Trust Level = Gold AND Number of Import Records Since Last Post Import Check ≥ 10:
   - Post Import Checks Required? = **Yes**
   - Post Import Checks Required Reason = **Gold Place of Origin — Inspection Coverage**
   - Number of Import Records Since Last Post Import Check on the Place of Origin is reset to 0
 
-- [x] **AC-3 (P1, Gold/Bronze commodity, Gold Place of Origin, counter < 10 → No inspection required):**  
+- **AC-3 (P1, Gold/Bronze commodity, Gold Place of Origin, counter < 10 → No inspection required):**  
   When an Import Record has Risk Level = P1 AND matches a Gold/Bronze Commodity rule AND the linked Place of Origin Trust Level = Gold AND the counter is < 10:
   - Post Import Checks Required? = **No**
   - Post Import Checks Required Reason = **No Inspection Required — Gold Place of Origin**
 
-- [x] **AC-4 (P1, Gold/Bronze commodity, no Place of Origin → Undetermined):**  
+- **AC-4 (P1, Gold/Bronze commodity, no Place of Origin → Undetermined):**  
   When an Import Record has Risk Level = P1 AND matches a Gold/Bronze Commodity rule AND no Place of Origin is linked:
   - Post Import Checks Required? = **Undetermined**
   - Post Import Checks Required Reason = **Verified Place of Origin Missing**
 
-- [x] **AC-5 (P1, no Gold/Bronze rule applies → Discretionary):**  
+- **AC-5 (P1, no Gold/Bronze rule applies → Discretionary):**  
   When Risk Level = P1 AND no Gold/Bronze Commodity rule applies:
   - Post Import Checks Required? = **Discretionary**
   - Post Import Checks Required Reason = **Decision to inspect is discretionary**
 
-- [x] **AC-6 (Manual override of Gold inspection reallocates to next Import Record):**  
+- **AC-6 (Manual override of Gold inspection reallocates to next Import Record):**  
   When an Import Record was flagged under AC-2 and the user subsequently sets Post Import Checks Required? = No:
   - Number of Import Records Since Last Post Import Check on the Place of Origin is incremented by 1
 
@@ -68,41 +68,3 @@ Where a Gold inspection is triggered but the caseworker subsequently overrides i
 
 - IMTA-5866
 - IMTA-5894
-
-### Original Links
-
-- IMTA-5866
-- IMTA-5894
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- src/solutions/defra_Imports/src/Workflows/ImportApplication-ManualPostImportCheckDecision-7436FAAE-9A22-4821-9A1B-2AA5A22BE272.xaml
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                                                                                                                                                                                     |
-| -------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | Workflow src/solutions/defra_Imports/src/Workflows/ImportApplication-ManualPostImportCheckDecision-7436FAAE-9A22-4821-9A1B-2AA5A22BE272.xaml evaluates: P1 + Gold/Bronze Commodity + Bronze Place of Origin → sets Post Import Checks Required? = Yes with Reason = "Bronze Place of Origin" |
-| AC-2                 | ✅ Implemented | P1 + Gold/Bronze + Gold Place of Origin + counter ≥ 10 → Post Import Checks Required? = Yes, Reason = "Gold Place of Origin — Inspection Coverage", counter reset to 0                                                                                                                       |
-| AC-3                 | ✅ Implemented | P1 + Gold/Bronze + Gold Place of Origin + counter < 10 → Post Import Checks Required? = No, Reason = "No Inspection Required — Gold Place of Origin"                                                                                                                                         |
-| AC-4                 | ✅ Implemented | P1 + Gold/Bronze + no Place of Origin → Post Import Checks Required? = Undetermined, Reason = "Verified Place of Origin Missing"                                                                                                                                                             |
-| AC-5                 | ✅ Implemented | P1 + no Gold/Bronze rule → Post Import Checks Required? = Discretionary, Reason = "Decision to inspect is discretionary"                                                                                                                                                                     |
-| AC-6                 | ✅ Implemented | Manual override (AC-2 to No) → Inspection Quota Counter incremented by 1 on Place of Origin                                                                                                                                                                                                  |

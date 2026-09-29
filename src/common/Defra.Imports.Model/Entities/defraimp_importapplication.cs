@@ -925,11 +925,11 @@ namespace Defra.Imports.Model
 		}
 		
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_commoditiesanimalscertifiedas")]
-		public virtual defraimp_certifiedfor? defraimp_commoditiesanimalscertifiedas
+		public virtual defraimp_animalcertifiedas? defraimp_commoditiesanimalscertifiedas
 		{
 			get
 			{
-				return ((defraimp_certifiedfor?)(EntityOptionSetEnum.GetEnum(this, "defraimp_commoditiesanimalscertifiedas")));
+				return ((defraimp_animalcertifiedas?)(EntityOptionSetEnum.GetEnum(this, "defraimp_commoditiesanimalscertifiedas")));
 			}
 			set
 			{

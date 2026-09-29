@@ -104,3 +104,4 @@ extends:
           keyVaultName: $(KeyVault.TestUsers.Name)
           dependsOn: RunDotNetIntegrationTests
     githubToken: $(GitHub.Token)
+    config: PkgAssets/ImportConfig.Standalone.xml

@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Defra.Imports.Scenarios;
+    using Defra.Imports.Scenarios.Logging;
     using Defra.Imports.Specs;
     using Defra.Imports.Specs.Services;
     using Microsoft.Extensions.Logging;
@@ -88,16 +89,12 @@
         public static void RegisterUserPoolService(ObjectContainer testThreadContainer)
         {
             var testConfiguration = testThreadContainer.Resolve<TestConfiguration>();
-            var credentials = testConfiguration.Credentials.ToList();
-            var personas = testConfiguration.Personas.ToList();
+            var serviceClient = testThreadContainer.Resolve<ServiceClient>();
 
-            testThreadContainer.RegisterInstanceAs(new UserPoolService(credentials.Select(c =>
-            {
-                var matchingPersonas = personas.Where(p => p.Value.Users != null && p.Value.Users.Contains(c.Username)).Select(p => p.Key).ToList();
-                var matchingAliases = matchingPersonas.SelectMany(p => testConfiguration.Personas[p].Aliases).ToList();
-
-                return (c, matchingPersonas.AsEnumerable(), matchingAliases.AsEnumerable());
-            })));
+            testThreadContainer.RegisterInstanceAs(new UserPoolService(
+                testConfiguration.Credentials,
+                testConfiguration.Personas,
+                new PersonaConfigurationApplier(serviceClient)));
         }
 
         /// <summary>
@@ -107,7 +104,10 @@
         [AfterTestRun(Order = 1000000)]
         public static void DisposeAssemblyHookClient(ObjectContainer testThreadContainer)
         {
-            testThreadContainer.Resolve<ServiceClient>().Dispose();
+            if (testThreadContainer.IsRegistered<ServiceClient>())
+            {
+                testThreadContainer.Resolve<ServiceClient>().Dispose();
+            }
         }
 
         /// <summary>
@@ -139,7 +139,10 @@
         [BeforeScenario(Order = 0)]
         public void RegisterLogger()
         {
-            this.objectContainer.RegisterInstanceAs<ILogger>(new MsTestLogger(this.objectContainer.Resolve<TestContext>()));
+            var testContext = this.objectContainer.Resolve<TestContext>();
+
+            this.objectContainer.RegisterInstanceAs<ILogger>(new MsTestLogger(testContext));
+            this.objectContainer.RegisterInstanceAs<ILoggerProvider>(new MsTestLoggerProvider(testContext));
         }
 
         /// <summary>

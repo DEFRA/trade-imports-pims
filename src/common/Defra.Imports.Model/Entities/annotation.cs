@@ -43,6 +43,7 @@ namespace Defra.Imports.Model
 			public const string ModifiedBy = "modifiedby";
 			public const string ModifiedOn = "modifiedon";
 			public const string ModifiedOnBehalfBy = "modifiedonbehalfby";
+			public const string msft_DataState = "msft_datastate";
 			public const string NoteText = "notetext";
 			public const string ObjectId = "objectid";
 			public const string ObjectTypeCode = "objecttypecode";
@@ -350,6 +351,15 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedonbehalfby");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("msft_datastate")]
+		public virtual msft_datastate? msft_DataState
+		{
+			get
+			{
+				return ((msft_datastate?)(EntityOptionSetEnum.GetEnum(this, "msft_datastate")));
 			}
 		}
 		

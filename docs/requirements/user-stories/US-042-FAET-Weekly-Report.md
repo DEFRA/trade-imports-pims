@@ -12,7 +12,7 @@ A report exportable by users with the Excel Export security role, covering Impor
 
 ## Acceptance Criteria
 
-- [x] **AC-1 (FAET Weekly Report):**  
+- **AC-1 (FAET Weekly Report):**  
   A user with the Excel Export security role can run a report for a given date range that outputs Import Records with the following fields:
 
   - Devolved Office
@@ -58,35 +58,3 @@ None additional.
 ### Source Jira Issues
 
 - IMTA-6354
-
-### Original Links
-
-- IMTA-6354
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-Medium
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified (user role "Excel Export" must be defined)
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                                                                                                                                                          |
-| -------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | Excel report available for date range with 24 specified fields (Devolved Office, Importer Name/Address/Postcode/CPH, Countries, Date of Import, Destination, Premises of Origin, Transporter, Commodity, Purpose, Port, Place of Origin History, LVU, LVU Number) |

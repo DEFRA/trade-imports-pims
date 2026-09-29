@@ -74,7 +74,7 @@
           <order attribute="createdon" descending="false" />
           <filter type="and">
             <condition attribute="defraimp_status" operator="eq" value="714100005" />
-            <condition attribute="ownerid" operator="eq" uiname="EU Imports Dynamics Application User" uitype="systemuser" value="{CA80C879-8351-EA11-A812-000D3AB5D511}" />
+            <condition attribute="ownerid" operator="eq" uiname="EU Imports Dynamics Application User" uitype="systemuser" value="{c98c9bac-2670-ea11-a812-000d3a2c32cb}" />
             <condition attribute="defraimp_healthcertificateattached" operator="eq" value="1" />
           </filter>
           <attribute name="defraimp_importernotificationid" />

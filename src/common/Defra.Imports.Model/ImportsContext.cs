@@ -86,6 +86,17 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_commoditycomplement"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_commoditycomplement> defraimp_commoditycomplementSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_commoditycomplement>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_Consignee"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_Consignee> defraimp_ConsigneeSet

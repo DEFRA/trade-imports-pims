@@ -12,7 +12,7 @@ D365 organisation-level auditing must be enabled on the Import Record entity, ca
 
 ## Acceptance Criteria
 
-- [x] **AC-1 (Field-level audit on Import Records):**  
+- **AC-1 (Field-level audit on Import Records):**  
   Dynamics 365 must capture changes to all updatable fields on an Import Record, including the user identity, date, time and old/new values. This must be visible in the record's audit history.
 
 ## Business Rules
@@ -29,35 +29,3 @@ None additional.
 ### Source Jira Issues
 
 - IMTA-5986
-
-### Original Links
-
-- IMTA-5986
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                      |
-| -------------------- | ------------- | ----------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | D365 auditing enabled on Import Record entity for field-level change tracking |

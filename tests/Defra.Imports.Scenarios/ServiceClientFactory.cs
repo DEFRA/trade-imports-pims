@@ -168,31 +168,36 @@ namespace Defra.Imports.Scenarios
 
             var usernames = personaIdentifiers
                 .SelectMany(p => p.Value)
+                .Where(v => !string.IsNullOrEmpty(v))
                 .Except(applicationIds)
                 .Distinct()
                 .ToArray();
 
-            var users = this.baseClient
-                .RetrieveMultiple(
-                    new QueryExpression(SystemUser.EntityLogicalName)
-                    {
-                        ColumnSet = new ColumnSet(SystemUser.Fields.DomainName, SystemUser.Fields.ApplicationId),
-                        Criteria = new FilterExpression(LogicalOperator.Or)
-                        {
-                            Conditions =
+            var query = new QueryExpression(SystemUser.EntityLogicalName)
+            {
+                ColumnSet = new ColumnSet(SystemUser.Fields.DomainName, SystemUser.Fields.ApplicationId),
+                Criteria = new FilterExpression(LogicalOperator.Or)
+                {
+                    Conditions =
                             {
                                 new ConditionExpression(
                                     SystemUser.Fields.DomainName,
                                     ConditionOperator.In,
                                     usernames),
-                                new ConditionExpression(
-                                    SystemUser.Fields.ApplicationId,
-                                    ConditionOperator.In,
-                                    applicationIds),
                             },
-                        },
-                    })
-                    .Entities;
+                },
+            };
+
+            if (applicationIds.Length != 0)
+            {
+                query.Criteria.AddCondition(
+                    new ConditionExpression(
+                        SystemUser.Fields.ApplicationId,
+                        ConditionOperator.In,
+                        applicationIds));
+            }
+
+            var users = this.baseClient.RetrieveMultiple(query).Entities;
 
             var userIdsByIdentifier = users.ToDictionary(
                  e => e.Contains(SystemUser.Fields.ApplicationId) ? e[SystemUser.Fields.ApplicationId].ToString() : e[SystemUser.Fields.DomainName].ToString(),
@@ -200,8 +205,7 @@ namespace Defra.Imports.Scenarios
 
             return personaIdentifiers.ToDictionary(
                 kvp => kvp.Key,
-                kvp => kvp.Value.Select(
-                    identifier => userIdsByIdentifier[identifier]).ToList().AsEnumerable().GetEnumerator());
+                kvp => kvp.Value.Where(i => !string.IsNullOrEmpty(i)).Select(i => userIdsByIdentifier[i]).ToList().AsEnumerable().GetEnumerator());
         }
     }
 }

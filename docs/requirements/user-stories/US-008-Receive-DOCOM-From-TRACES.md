@@ -14,9 +14,9 @@ DOCOMs created in TRACES Classic are received and automatically created in PIMS 
 
 ## Acceptance Criteria
 
-- [x] **AC-1:** DOCOMs created in TRACES Classic are received and automatically created in PIMS within 30 minutes of the time that creation notification emails would have been received by the CIT team.
+- **AC-1:** DOCOMs created in TRACES Classic are received and automatically created in PIMS within 30 minutes of the time that creation notification emails would have been received by the CIT team.
 
-- [x] **AC-2:** DOCOMs are automatically created in PIMS with the fields specified in the agreed field mapping schema. The attribute-level field list is not specified in this baseline — see [assumptions-and-constraints.md](../assumptions-and-constraints.md) DEP-001.
+- **AC-2:** DOCOMs are automatically created in PIMS with the fields specified in the agreed field mapping schema. The attribute-level field list is not specified in this baseline — see [assumptions-and-constraints.md](../assumptions-and-constraints.md) DEP-001.
 
 ## Business Rules
 
@@ -34,36 +34,3 @@ None additional to the DOCOM entity rules.
 ### Source Jira Issues
 
 - IMTA-6599
-
-### Original Links
-
-- IMTA-6599
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-Medium
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: Field mapping schema is not specified in this baseline.
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                             |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------ |
-| AC-1                 | ✅ Implemented | Azure Service Bus Queue routes DOCOM messages; Logic App processes within 30 minutes |
-| AC-2                 | ✅ Implemented | DOCOM field mapping workflow exists                                                  |

@@ -24,6 +24,7 @@
     <AppModuleComponent type="1" schemaName="defraimp_importcountrycommodityrisklevel" />
     <AppModuleComponent type="1" schemaName="defraimp_importernotification" />
     <AppModuleComponent type="1" schemaName="defraimp_importinspection" />
+    <AppModuleComponent type="1" schemaName="defraimp_importnotificationerror" />
     <AppModuleComponent type="1" schemaName="defraimp_importquery" />
     <AppModuleComponent type="1" schemaName="defraimp_importrisklevel" />
     <AppModuleComponent type="1" schemaName="defraimp_imptype" />

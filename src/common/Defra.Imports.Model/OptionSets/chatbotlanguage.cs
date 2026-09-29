@@ -164,6 +164,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Malaysian = 1086,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		English_NewZealand = 5129,
 	}
 }
 #pragma warning restore CS1591

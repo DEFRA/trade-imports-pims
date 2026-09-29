@@ -22,9 +22,6 @@ namespace Defra.Imports.Model
 		CustomOOBAccountResearch = 100000013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SummerizedAccountResearch = 100000015,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DealOverview = 100000000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -68,6 +65,15 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CustomResearchInsight = 100000014,
+		
+		/// <summary>
+		/// Research-to-research delta (what changed since the previous research run).
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ResearchUpdates = 100001000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		HistoricalPatterns = 100000015,
 	}
 }
 #pragma warning restore CS1591

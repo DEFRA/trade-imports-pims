@@ -332,3 +332,88 @@ If an inbound ITAHC or DOCOM receipt from TRACES Classic cannot be processed int
 
 - **Source:** [US-047](user-stories/US-047-Manage-Failed-TRACES-Receipts.md)
 - **Jira:** IMTA-6626
+
+---
+
+## Reference Data, Notification and Triage Rules
+
+The following rules were added after PLNT-4535 to PLNT-4542 were identified as Jira issues missing from the original corpus compilation. They have not yet been re-verified against implementation evidence.
+
+### BR-036 — Certificate and Notification Reference Fields Are Optional and Manually Entered { #br-036 }
+
+The GB Import Health Certificate, Traces Export Health Certificate, ITAHC Reference and DOCOM Reference fields on an Import Record must remain optional single-line text fields. PIMS must not auto-populate any of these fields; they are populated manually by the caseworker only.
+
+- **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md)
+- **Jira:** PLNT-4535 AC-1
+
+---
+
+### BR-037 — Triage Step Must Not Clear or Update Commodity Code When Primary ITAHC Is Populated { #br-037 }
+
+When a user enters a value in the Primary ITAHC field during the Triage stage of the Import Record business process flow, PIMS must not remove or update the Commodity Code value on the Import Record on save. The Primary ITAHC field carries no business process logic. This rule corrects the defect reported as DEFRA incident INC0838632 ("IPAFFS - PIMS For EU Exports - Commodity Code"), under which populating Primary ITAHC previously cleared the Commodity Code value.
+
+- **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md)
+- **Jira:** PLNT-4535 AC-2
+
+---
+
+### BR-038 — Import Record Type Value List { #br-038 }
+
+The Import Record Type field **on the Import Record entity** (`defraimp_importapplication`) must offer exactly the following values, with no default value pre-selected: Importer Notification, Health Certificate, ITAHC - Landbridge, CHEDA, CHEDP, DOCOM, ITAHC. The legacy values CED, CVEDA and CVEDP must be removed from this value list. The option label previously shown as "IMP" must display as "Importer Notification" wherever that shared option label is used, including on the Importer Notification Details form. This label rename is the only confirmed cross-entity effect of this rule — it does not remove CED, CVEDA or CVEDP from the Importer Notification entity's own notification type classification (see [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md)).
+
+- **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md), [US-044](user-stories/US-044-View-Importer-Notification.md)
+- **Jira:** PLNT-4536 AC-1, AC-3
+
+---
+
+### BR-039 — Import Record Type Set to Importer Notification When Created from an Importer Notification { #br-039 }
+
+When a user selects "Create Import Record" on an Importer Notification, PIMS must set the Import Record Type of the newly created Import Record to Importer Notification.
+
+- **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md)
+- **Jira:** PLNT-4536 AC-2
+
+---
+
+### BR-040 — Date Importer Notification Received Auto-Populated from Submission Date { #br-040 }
+
+When an Import Record is created from an Importer Notification via the "Create Import Record" button, PIMS must auto-populate the Import Record's Date Importer Notification Received field with the value held in the Submission Date field on the associated Importer Notification.
+
+- **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md)
+- **Jira:** PLNT-4540 AC-1
+
+---
+
+### BR-041 — Health Certificate Attached Auto-Flag on Importer Notification { #br-041 }
+
+When a document with Document Type = Health Certificate and a populated URL is attached to an Importer Notification, PIMS must set the Health Certificate Attached field to Y; otherwise the field must be N. The field remains editable by an EU Imports Caseworker after being auto-populated.
+
+- **Source:** [US-044](user-stories/US-044-View-Importer-Notification.md)
+- **Jira:** PLNT-4542 AC-1
+
+---
+
+### BR-042 — Health Certificate Attached After Completion Triggers Amendment and Reassignment { #br-042 }
+
+When a Health Certificate is attached to an Importer Notification that has already been completed, PIMS must set the Health Certificate Attached field to Y, change the Owner of the Importer Notification to the EU Imports Dynamics Application User, and change the Status to Amend.
+
+- **Source:** [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md), [US-044](user-stories/US-044-View-Importer-Notification.md)
+- **Jira:** PLNT-4542 AC-2
+
+---
+
+### BR-043 — Non-Compliance Fields Default State { #br-043 }
+
+When the Non-Compliance tab fields are first added to an Importer Notification or Import Record, PIMS must default Contacted Due to Non-Compliance to N and Non-Compliance Status to In Progress once a Type of Non-Compliance is selected, leaving PIMS Status and Date Completed unset until a caseworker updates them.
+
+- **Source:** [US-049](user-stories/US-049-Non-Compliance-Management.md)
+- **Jira:** PLNT-4537 AC-1, AC-2
+
+---
+
+### BR-044 — Non-Compliance Details Mirrored onto Import Record via Quick View { #br-044 }
+
+When an Importer Notification with a populated Type of Non-Compliance is linked to an Import Record, PIMS must display the Importer Notification's Non-Compliance tab fields as a read-only quick view on the Import Record's Non-Compliance tab, positioned below the Import Record's own Non-Compliance fields.
+
+- **Source:** [US-049](user-stories/US-049-Non-Compliance-Management.md)
+- **Jira:** PLNT-4537 AC-3

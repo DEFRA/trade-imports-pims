@@ -3,9 +3,9 @@ name: Publish docs
 on:
   push:
     branches: [main]
-    paths: ['docs/**', 'mkdocs.yml', 'docs-requirements.txt', '.github/workflows/publish-docs.yml']
+    paths: ['docs/index.md', 'docs/requirements/**', 'docs/scripts/**', 'docs/stylesheets/**', 'mkdocs.yml', 'docs-requirements.txt', '.github/workflows/publish-docs.yml']
   pull_request:
-    paths: ['docs/**', 'mkdocs.yml', 'docs-requirements.txt', '.github/workflows/publish-docs.yml']
+    paths: ['docs/index.md', 'docs/requirements/**', 'docs/scripts/**', 'docs/stylesheets/**', 'mkdocs.yml', 'docs-requirements.txt', '.github/workflows/publish-docs.yml']
   workflow_dispatch:
 
 permissions:

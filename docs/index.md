@@ -8,7 +8,7 @@ PIMS is a Dynamics 365 Model-Driven App used by EU Imports caseworkers to receiv
 
 ## About this baseline
 
-This site is the consolidated, deduplicated and traceable requirements baseline for PIMS. It was reconstructed from the original requirement records (referenced throughout as `IMTA-nnnn`) and from the current implementation, and consolidates 65 source records into 47 user stories.
+This site is the consolidated, deduplicated and traceable requirements baseline for PIMS. It was reconstructed from the original requirement records (referenced throughout as `IMTA-nnnn`) and from the current implementation, and consolidates 65 source records plus 9 PLNT issues into 48 user stories.
 
 Where the source records and the implementation disagreed, **the implementation was taken as the source of truth**. Statements that could not be evidenced in either are marked explicitly as not specified.
 
@@ -20,9 +20,8 @@ A reasonable reading order for someone new to PIMS:
 
 1. **[Glossary](requirements/glossary.md)** — settle the terminology first; several terms have legacy synonyms still visible in the application.
 2. **[User Stories](requirements/user-stories/index.md)** — the detailed specification, one story per capability, each with acceptance criteria.
-3. **[Business Rules](requirements/business-rules.md)** — the numbered decision logic (BR-001 to BR-035) that the stories depend on.
+3. **[Business Rules](requirements/business-rules.md)** — the numbered decision logic (BR-001 to BR-044) that the stories depend on.
 4. **[Process Flows](requirements/diagrams/process-flows.md)** and **[Sequence Diagrams](requirements/diagrams/sequence-diagrams.md)** — how the capabilities fit together, including failure paths.
-5. **[Implementation Conformance Matrix](requirements/implementation-conformance-matrix.md)** — which requirements are evidenced in the current implementation, and which are only partially evidenced.
 
 ---
 
@@ -32,13 +31,12 @@ A reasonable reading order for someone new to PIMS:
 | ---------------------------------------------------------------- | ------------------------------------------------------------ |
 | [Vision & Scope](requirements/vision-and-scope.md)               | Business objectives, scope, stakeholders, success criteria   |
 | [Glossary](requirements/glossary.md)                             | Canonical terminology and legacy synonyms                    |
-| [Business Rules](requirements/business-rules.md)                 | Numbered business rules BR-001 to BR-035                     |
+| [Business Rules](requirements/business-rules.md)                 | Numbered business rules BR-001 to BR-044                     |
 | [Non-Functional Requirements](requirements/non-functional-requirements.md) | Security, audit, performance and compliance requirements |
 | [Assumptions & Constraints](requirements/assumptions-and-constraints.md) | Assumptions, dependencies and open confirmations      |
 | [Models & Flows](requirements/diagrams/domain-model.md)          | Domain model, process flows, sequence and context diagrams   |
-| [Epics](requirements/epics/index.md)                             | 9 epics grouping all 47 user stories                         |
-| [User Stories](requirements/user-stories/index.md)               | 47 consolidated user stories                                 |
-| [Conformance Matrix](requirements/implementation-conformance-matrix.md) | Implementation evidence for every story                |
+| [Epics](requirements/epics/index.md)                             | 9 epics grouping all 48 user stories                         |
+| [User Stories](requirements/user-stories/index.md)               | 48 consolidated user stories                                 |
 
 ---
 
@@ -46,7 +44,7 @@ A reasonable reading order for someone new to PIMS:
 
 | Epic                                                                                              | Stories |
 | ------------------------------------------------------------------------------------------------- | ------- |
-| [Consignment Record Management](requirements/epics/EPIC-Consignment-Record-Management.md)         | 12      |
+| [Consignment Record Management](requirements/epics/EPIC-Consignment-Record-Management.md)         | 13      |
 | [Reporting & Analytics](requirements/epics/EPIC-Reporting-and-Analytics.md)                       | 7       |
 | [External System Integration](requirements/epics/EPIC-External-System-Integration.md)             | 6       |
 | [Risk Assessment & Business Rules](requirements/epics/EPIC-Risk-Assessment-and-Business-Rules.md) | 6       |
@@ -56,7 +54,7 @@ A reasonable reading order for someone new to PIMS:
 | [Post Import Check Management](requirements/epics/EPIC-Post-Import-Check-Management.md)           | 3       |
 | [Import Query Management](requirements/epics/EPIC-Import-Query-Management.md)                     | 1       |
 
-[US-021](requirements/user-stories/US-021-Revoke-Gold-Trust-Level.md) appears in two epics, so the column above totals 48 against 47 distinct stories.
+[US-021](requirements/user-stories/US-021-Revoke-Gold-Trust-Level.md) appears in two epics, so the column above totals 49 against 48 distinct stories.
 
 ---
 

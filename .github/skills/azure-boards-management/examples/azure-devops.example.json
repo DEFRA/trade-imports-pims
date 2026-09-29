@@ -1,0 +1,14 @@
+{
+  "$schema": "../config.schema.json",
+  "schemaVersion": "1.0",
+  "organization": "https://dev.azure.com/contoso",
+  "project": "TradeImportsPims",
+  "workItemTypes": {
+    "epic": "Epic",
+    "feature": "Feature",
+    "story": "User Story",
+    "task": "Task"
+  },
+  "defaultAreaPath": "TradeImportsPims\\Delivery Team",
+  "defaultIterationPath": "TradeImportsPims\\Sprint 1"
+}

@@ -12,10 +12,10 @@ The Warble Fly Treatment Declaration Received Date field on an Import Record mus
 
 ## Acceptance Criteria
 
-- [x] **AC-1 (Field only enabled when required):**  
+- **AC-1 (Field only enabled when required):**  
   The Warble Fly Treatment Declaration Received Date field is only enabled when Warble Fly Treatment Declaration Required? = Yes. The field is disabled (and not editable) in all other states.
 
-- [x] **AC-2 (Clear date when no longer required):**  
+- **AC-2 (Clear date when no longer required):**  
   If a user changes Warble Fly Treatment Declaration Required? from Yes to No, PIMS clears the Warble Fly Treatment Declaration Received Date field and disables it.
 
 ## Business Rules
@@ -31,36 +31,3 @@ The Warble Fly Treatment Declaration Received Date field on an Import Record mus
 ### Source Jira Issues
 
 - IMTA-6158
-
-### Original Links
-
-- IMTA-6158
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- src/solutions/defra_Imports/src/Workflows/ShowHideWarbleFlyTreatmentReceivedDate-144314D6-3905-EA11-A811-000D3AB5D511.xaml
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                                                                                                                                                    |
-| -------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AC-1                 | ✅ Implemented | Workflow src/solutions/defra_Imports/src/Workflows/ShowHideWarbleFlyTreatmentReceivedDate-144314D6-3905-EA11-A811-000D3AB5D511.xaml enables Warble Fly Treatment Declaration Received Date field only when Warble Fly Treatment Declaration Required? = Yes |
-| AC-2                 | ✅ Implemented | Warble Fly Treatment Declaration Received Date cleared and field disabled when Required? set to No                                                                                                                                                          |

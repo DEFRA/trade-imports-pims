@@ -1,0 +1,152 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_servicebus": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "defraimp_sharedservicebus_dde88"
+        },
+        "api": {
+          "name": "shared_servicebus"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "defraimp_sharedcommondataserviceforapps_8795b"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_message_is_received_in_a_queue_(peek-lock)": {
+          "recurrence": {
+            "interval": 1,
+            "frequency": "Minute"
+          },
+          "metadata": {
+            "operationMetadataId": "c71c2f7e-aa9f-40b8-ac25-a2fb0a61c286"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_servicebus",
+              "operationId": "GetNewMessageFromQueueWithPeekLock",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_servicebus"
+            },
+            "parameters": {
+              "queueName": "defra.trade.imp.notification.upsert",
+              "queueType": "Main",
+              "sessionId": "Next Available"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "If_unbound_action_returns_true": {
+          "actions": {
+            "Complete_the_message_in_a_queue": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "1597bca2-c309-43e6-8355-52ef45f3faa8"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_servicebus",
+                  "operationId": "CompleteMessageInQueue",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_servicebus"
+                },
+                "parameters": {
+                  "queueName": "defra.trade.imp.notification.upsert",
+                  "lockToken": "@triggerOutputs()?['body/LockToken']",
+                  "queueType": "Main",
+                  "sessionId": "@triggerOutputs()?['body/SessionId']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Perform_an_unbound_action": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Dead-letter_the_message_in_a_queue": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "00ec2c9f-d48f-455c-ae69-463ef1dd900c"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_servicebus",
+                    "operationId": "DeadLetterMessageInQueue",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_servicebus"
+                  },
+                  "parameters": {
+                    "queueName": "defra.trade.imp.notification.upsert",
+                    "lockToken": "@triggerOutputs()?['body/LockToken']",
+                    "deadLetterReason": "Failed to upsert importer notification",
+                    "deadLetterErrorDescription": "@outputs('Perform_an_unbound_action')?['body/ResponseDetail']",
+                    "sessionId": "@triggerOutputs()?['body/SessionId']"
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@outputs('Perform_an_unbound_action')?['body/Response']",
+              "@true"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "32ce53f9-f498-4b49-8461-a3962738725c"
+          },
+          "type": "If"
+        },
+        "Perform_an_unbound_action": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "9268dccf-41b8-457b-b81d-d0fd6af16e70"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "PerformUnboundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "actionName": "defraimp_UpsertImporterNotification",
+              "item/ASBMessage": "@json(decodeBase64(triggerOutputs()?['body/ContentData']))"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

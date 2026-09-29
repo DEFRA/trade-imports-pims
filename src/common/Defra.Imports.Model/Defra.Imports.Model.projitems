@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entities\contact.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraexp_configurationparameter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_autonumber.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_commoditycomplement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_consignee.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_counterhistory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_docom.cs" />

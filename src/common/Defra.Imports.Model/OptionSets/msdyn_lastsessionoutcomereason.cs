@@ -22,6 +22,12 @@ namespace Defra.Imports.Model
 	{
 		
 		/// <summary>
+		/// Indicates that an entity could not be resolved after maximum attempts and the Bot proposes to transfer to an agent.
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AgentTransferMaxNoEntityFound = 419580010,
+		
+		/// <summary>
 		/// Indicates a no error found.
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -74,6 +80,12 @@ namespace Defra.Imports.Model
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AgentTransferFromQuestionMaxAttempts = 419580008,
+		
+		/// <summary>
+		/// Indicates that the user became non-responsive, the silence detection threshold was exceeded, and the Bot proposes to transfer to an agent.
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AgentTransferMaxSilenceDetected = 419580009,
 	}
 }
 #pragma warning restore CS1591

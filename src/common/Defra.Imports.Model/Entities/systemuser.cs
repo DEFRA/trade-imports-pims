@@ -599,6 +599,10 @@ namespace Defra.Imports.Model
 			public const string lk_defraimp_autonumber_createdonbehalfby = "lk_defraimp_autonumber_createdonbehalfby";
 			public const string lk_defraimp_autonumber_modifiedby = "lk_defraimp_autonumber_modifiedby";
 			public const string lk_defraimp_autonumber_modifiedonbehalfby = "lk_defraimp_autonumber_modifiedonbehalfby";
+			public const string lk_defraimp_commoditycomplement_createdby = "lk_defraimp_commoditycomplement_createdby";
+			public const string lk_defraimp_commoditycomplement_createdonbehalfby = "lk_defraimp_commoditycomplement_createdonbehalfby";
+			public const string lk_defraimp_commoditycomplement_modifiedby = "lk_defraimp_commoditycomplement_modifiedby";
+			public const string lk_defraimp_commoditycomplement_modifiedonbehalfby = "lk_defraimp_commoditycomplement_modifiedonbehalfby";
 			public const string lk_defraimp_consignee_createdby = "lk_defraimp_consignee_createdby";
 			public const string lk_defraimp_consignee_createdonbehalfby = "lk_defraimp_consignee_createdonbehalfby";
 			public const string lk_defraimp_consignee_modifiedby = "lk_defraimp_consignee_modifiedby";
@@ -686,6 +690,7 @@ namespace Defra.Imports.Model
 			public const string system_user_contacts = "system_user_contacts";
 			public const string user_defra_country = "user_defra_country";
 			public const string user_defraexp_configurationparameter = "user_defraexp_configurationparameter";
+			public const string user_defraimp_commoditycomplement = "user_defraimp_commoditycomplement";
 			public const string user_defraimp_consignee = "user_defraimp_consignee";
 			public const string user_defraimp_counterhistory = "user_defraimp_counterhistory";
 			public const string user_defraimp_docom = "user_defraimp_docom";
@@ -3969,6 +3974,78 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N lk_defraimp_commoditycomplement_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_commoditycomplement_createdby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_commoditycomplement> lk_defraimp_commoditycomplement_createdby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplement>("lk_defraimp_commoditycomplement_createdby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_commoditycomplement_createdby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplement>("lk_defraimp_commoditycomplement_createdby", null, value);
+				this.OnPropertyChanged("lk_defraimp_commoditycomplement_createdby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_defraimp_commoditycomplement_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_commoditycomplement_createdonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_commoditycomplement> lk_defraimp_commoditycomplement_createdonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplement>("lk_defraimp_commoditycomplement_createdonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_commoditycomplement_createdonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplement>("lk_defraimp_commoditycomplement_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_defraimp_commoditycomplement_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_defraimp_commoditycomplement_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_commoditycomplement_modifiedby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_commoditycomplement> lk_defraimp_commoditycomplement_modifiedby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplement>("lk_defraimp_commoditycomplement_modifiedby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_commoditycomplement_modifiedby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplement>("lk_defraimp_commoditycomplement_modifiedby", null, value);
+				this.OnPropertyChanged("lk_defraimp_commoditycomplement_modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_defraimp_commoditycomplement_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_commoditycomplement_modifiedonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_commoditycomplement> lk_defraimp_commoditycomplement_modifiedonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplement>("lk_defraimp_commoditycomplement_modifiedonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_commoditycomplement_modifiedonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplement>("lk_defraimp_commoditycomplement_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_defraimp_commoditycomplement_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N lk_defraimp_consignee_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_consignee_createdby")]
@@ -5531,6 +5608,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("user_defraexp_configurationparameter");
 				this.SetRelatedEntities<Defra.Imports.Model.defraexp_configurationparameter>("user_defraexp_configurationparameter", null, value);
 				this.OnPropertyChanged("user_defraexp_configurationparameter");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N user_defraimp_commoditycomplement
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_defraimp_commoditycomplement")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_commoditycomplement> user_defraimp_commoditycomplement
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplement>("user_defraimp_commoditycomplement", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("user_defraimp_commoditycomplement");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplement>("user_defraimp_commoditycomplement", null, value);
+				this.OnPropertyChanged("user_defraimp_commoditycomplement");
 			}
 		}
 		

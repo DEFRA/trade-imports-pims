@@ -1,12 +1,29 @@
 {
-  "url": "",
-  "clientId": "",
-  "tenantId": "",
-  "personas": {},
+  "url": null,
+  "clientId": null,
+  "tenantId": null,
+  "personas": {
+    "caseworker": {
+      "roles": [ "EU Imports Caseworker" ],
+      "aliases": [ "a caseworker" ]
+    },
+    "businessRulesAdmin": {
+      "roles": [ "EU Imports Caseworker", "EU Imports Business Rules Admin" ],
+      "aliases": [ "a business rules admin" ]
+    },
+    "teamLeader": {
+      "roles": [ "EU Imports Caseworker", "EU Imports Team Leader" ],
+      "aliases": [ "a team leader" ]
+    },
+    "excelExporter": {
+      "roles": [ "EU Imports Caseworker", "EU Imports Export to Excel" ],
+      "aliases": [ "a caseworker with export to Excel permissions" ]
+    }
+  },
   "credentials": [],
   "keyVault": {
-    "tenantId": "",
-    "clientId": "",
-    "name": ""
+    "tenantId": null,
+    "clientId": null,
+    "name": null
   }
 }

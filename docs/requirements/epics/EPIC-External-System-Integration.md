@@ -30,6 +30,7 @@ PIMS integrates with two external systems:
 - Preserve related records on PIMS even when the IPAFFS update removes them (see BR-029)
 - Route failed IPAFFS messages to the Dead Letter Queue (BR-033)
 - Capture, expose and support controlled reprocessing of failed TRACES receipts (BR-035)
+- Re-open (Amend) and reassign an Importer Notification to the EU Imports Dynamics Application User when a Health Certificate is attached after completion (BR-042)
 
 ## Associated User Stories
 
@@ -44,4 +45,4 @@ PIMS integrates with two external systems:
 
 ## Source Jira Issues
 
-IMTA-5862, IMTA-5864, IMTA-6598, IMTA-6599, IMTA-6600, IMTA-6601, IMTA-6626, IMTA-7201, IMTA-7222, IMTA-7240
+IMTA-5862, IMTA-5864, IMTA-6598, IMTA-6599, IMTA-6600, IMTA-6601, IMTA-6626, IMTA-7201, IMTA-7222, IMTA-7240, PLNT-4542

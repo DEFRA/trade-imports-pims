@@ -14,21 +14,21 @@ The counter increment happens **before** automated risk assessment rules are eva
 
 ## Acceptance Criteria
 
-- [x] **AC-1 (Counter incremented on qualifying Import Record creation):**  
+- **AC-1 (Counter incremented on qualifying Import Record creation):**  
   When an Import Record of type ITAHC with a linked Primary ITAHC is **created** (not updated), PIMS increments the **Import Application Priority 3 Counter** (Auto Number) by 1. This increment occurs before other risk assessment rules are evaluated.
 
-- [x] **AC-2 (Counter below threshold — no inspection flagged):**  
+- **AC-2 (Counter below threshold — no inspection flagged):**  
   If Risk Level = P3 AND the counter is less than the configured limit:
   - Post Import Checks Required? = **No**
   - Post Import Checks Required Reason = **No inspection required**
 
-- [x] **AC-3 (Counter reaches or exceeds threshold — inspection flagged, counter reset):**  
+- **AC-3 (Counter reaches or exceeds threshold — inspection flagged, counter reset):**  
   If Risk Level = P3 AND the counter equals or exceeds the configured limit:
   - Post Import Checks Required? = **Yes**
   - Post Import Checks Required Reason = **Random P3 Inspection**
   - Counter is reset to 0
 
-- [x] **AC-4 (Rule only applies to P3):**  
+- **AC-4 (Rule only applies to P3):**  
   If Risk Level is not P3, the 2% rule does not apply and no Post Import Check is flagged under this rule.
 
 ## Business Rules
@@ -49,41 +49,3 @@ The counter increment happens **before** automated risk assessment rules are eva
 - IMTA-5872
 - IMTA-5892
 - IMTA-5933
-
-### Original Links
-
-- IMTA-5867
-- IMTA-5872
-- IMTA-5892
-- IMTA-5933
-## Implementation Traceability
-
-### Plugins
-- None evidenced in this review.
-
-### Web Resources
-- None evidenced in this review.
-
-### Shared Libraries
-- None evidenced in this review.
-
-### Solution Components
-- None evidenced in this review.
-
-## Implementation Confidence
-
-High
-
-## Conformance Snapshot (2026-07-22)
-
-- Status: ✅ Fully Implemented
-- Conflicts/Gaps: None identified
-
-## Acceptance Criteria Conformance
-
-| Acceptance Criterion | Status        | Evidence                                                                                                                 |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| AC-1                 | ✅ Implemented | 2% Random counter incremented on P3 ITAHC Import Record **creation** (not update) before risk assessment rules evaluated |
-| AC-2                 | ✅ Implemented | P3, counter < threshold → Post Import Checks Required? = No, Reason = "No inspection required"                           |
-| AC-3                 | ✅ Implemented | P3, counter ≥ threshold → Post Import Checks Required? = Yes, Reason = "Random P3 Inspection", counter reset to 0        |
-| AC-4                 | ✅ Implemented | Risk Level ≠ P3 → 2% rule does not apply                                                                                 |

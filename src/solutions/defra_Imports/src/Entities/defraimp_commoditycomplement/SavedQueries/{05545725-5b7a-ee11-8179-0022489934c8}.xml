@@ -11,9 +11,11 @@
       <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
         <row name="result" id="defraimp_commoditycomplementid">
           <cell name="defraimp_importernotificationid" width="161" />
-          <cell name="defraimp_speciesid" width="100" />
-          <cell name="defraimp_speciesname" width="120" />
-          <cell name="createdon" width="105" />
+          <cell name="defraimp_speciesid" width="112" />
+          <cell name="defraimp_speciesname" width="177" />
+          <cell name="defraimp_numberofanimals" width="152" />
+          <cell name="defraimp_numberofpackages" width="157" />
+          <cell name="createdon" width="124" />
         </row>
       </grid>
     </layoutxml>
@@ -30,6 +32,8 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <attribute name="defraimp_numberofanimals" />
+          <attribute name="defraimp_numberofpackages" />
         </entity>
       </fetch>
     </fetchxml>

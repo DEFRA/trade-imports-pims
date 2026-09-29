@@ -15,7 +15,7 @@
         public Guid? AppId { get; set; }
 
         /// <summary>
-        /// Gets or sets the interactive users to be used for this persona.
+        /// Gets or sets the interactive users to be used for this persona. If supplied, only these users will be used for authenticating as this persona during tests.
         /// </summary>
         public IEnumerable<string> Users { get; set; }
 
@@ -25,9 +25,19 @@
         public IEnumerable<string> Roles { get; set; }
 
         /// <summary>
-        /// Gets or sets the business unit that describes the perosna.
+        /// Gets or sets the business unit that describes the persona. If not specified, the persona is assumed to be mapped to the root business unit.
         /// </summary>
         public string BusinessUnit { get; set; }
+
+        /// <summary>
+        /// Gets or sets the teams that the persona is a member of.
+        /// </summary>
+        public IEnumerable<string> Teams { get; set; }
+
+        /// <summary>
+        /// Gets or sets the column security profiles that are assigned to the persona.
+        /// </summary>
+        public IEnumerable<string> ColumnSecurityProfiles { get; set; }
 
         /// <summary>
         /// Gets or sets aliases that describe the persona.
@@ -35,29 +45,14 @@
         public IEnumerable<string> Aliases { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether to apply the persona configuration to users at test runtime. Defaults to false.
-        /// </summary>
-        public bool ApplyToUsers { get; set; }
-
-        /// <summary>
         /// Validates the persona configuration.
         /// </summary>
-        /// <exception cref="Exception">Thrown if the business unit, roles, and app ID or users are not set.</exception>
+        /// <exception cref="Exception">Thrown if the roles are not set.</exception>
         public void Validate()
         {
-            if (string.IsNullOrEmpty(this.BusinessUnit))
-            {
-                throw new Exception("The business unit has not been set for the persona configuration.");
-            }
-
             if (this.Roles is null || !this.Roles.Any())
             {
                 throw new Exception("The roles have not been set for the persona configuration.");
-            }
-
-            if (!this.AppId.HasValue && (this.Users is null || !this.Users.Any()))
-            {
-                throw new Exception("Either an app ID or users must be configured for the persona.");
             }
         }
     }
