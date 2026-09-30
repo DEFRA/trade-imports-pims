@@ -2,6 +2,15 @@
   <x:Members>
     <x:Property Name="InputEntities" Type="InArgument(scg:IDictionary(x:String, mxs:Entity))" />
     <x:Property Name="CreatedEntities" Type="InArgument(scg:IDictionary(x:String, mxs:Entity))" />
+    <x:Property Name="Category" Type="OutArgument(x:String)">
+      <x:Property.Attributes>
+        <mxsw:ArgumentRequiredAttribute Value="True" />
+        <mxsw:ArgumentTargetAttribute Value="False" />
+        <mxsw:ArgumentDescriptionAttribute Value="Category" />
+        <mxsw:ArgumentDirectionAttribute Value="Output" />
+        <mxsw:ArgumentEntityAttribute Value="" />
+      </x:Property.Attributes>
+    </x:Property>
     <x:Property Name="ResponseDetail" Type="OutArgument(x:String)">
       <x:Property.Attributes>
         <mxsw:ArgumentRequiredAttribute Value="True" />
@@ -53,6 +62,7 @@
     <mxswa:Workflow.Variables>
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="CustomActivityStep1Response_localParameter" />
       <Variable x:TypeArguments="x:String" Default="[Nothing]" Name="CustomActivityStep1Message_localParameter" />
+      <Variable x:TypeArguments="x:String" Default="[Nothing]" Name="CustomActivityStep1Category_localParameter" />
     </mxswa:Workflow.Variables>
     <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="CustomActivityStep1: Run CWA to upsert the importer notification">
       <mxswa:ActivityReference.Properties>
@@ -96,6 +106,7 @@
               <InArgument x:TypeArguments="x:String" x:Key="ASBMessage">[DirectCast(CustomActivityStep1_1_converted, System.String)]</InArgument>
               <OutArgument x:TypeArguments="x:Boolean" x:Key="Response">[CustomActivityStep1Response_localParameter]</OutArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="Message">[CustomActivityStep1Message_localParameter]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Category">[CustomActivityStep1Category_localParameter]</OutArgument>
             </mxswa:ActivityReference.Arguments>
           </mxswa:ActivityReference>
         </sco:Collection>
@@ -134,6 +145,23 @@
         </mxswa:ActivityReference.Arguments>
       </mxswa:ActivityReference>
       <Assign x:TypeArguments="x:String" To="[ResponseDetail]" Value="[AssignOutputArgumentStep3_1.ToString()]" />
+    </Sequence>
+    <Sequence DisplayName="AssignOutputArgumentStep4: Send category detail back to power automate">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Object" Name="AssignOutputArgumentStep4_1" />
+        <Variable x:TypeArguments="x:String" Default="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="TypeName" />
+      </Sequence.Variables>
+      <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+        <mxswa:ActivityReference.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">SelectFirstNonNull</InArgument>
+          <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { CustomActivityStep1Category_localParameter }]</InArgument>
+          <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+            <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:String" />
+          </InArgument>
+          <OutArgument x:TypeArguments="x:Object" x:Key="Result">[AssignOutputArgumentStep4_1]</OutArgument>
+        </mxswa:ActivityReference.Arguments>
+      </mxswa:ActivityReference>
+      <Assign x:TypeArguments="x:String" To="[Category]" Value="[AssignOutputArgumentStep4_1.ToString()]" />
     </Sequence>
   </mxswa:Workflow>
 </Activity>
