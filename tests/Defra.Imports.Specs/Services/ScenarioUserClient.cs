@@ -15,6 +15,7 @@ namespace Defra.Imports.Specs.Services
         private readonly UserPoolService userPoolService;
         private readonly IDictionary<string, CredentialConfiguration> credentialsByUsername;
         private readonly Dictionary<string, UserLease> leasesByKey = new Dictionary<string, UserLease>();
+        private readonly object leasesByKeyLock = new object();
         private bool disposed;
 
         /// <summary>
@@ -58,25 +59,44 @@ namespace Defra.Imports.Specs.Services
 
             var key = PersonaSetKey.Create(personas);
 
-            if (this.leasesByKey.TryGetValue(key, out var cachedLease))
+            lock (this.leasesByKeyLock)
             {
-                return this.GetCredentials(cachedLease);
+                if (this.leasesByKey.TryGetValue(key, out var cachedLease))
+                {
+                    return this.GetCredentials(cachedLease);
+                }
             }
 
             this.Logged?.Invoke("Waiting for user with personas: " + string.Join(", ", personas));
             var lease = await this.userPoolService.GetAsync(personas).ConfigureAwait(false);
             this.Logged?.Invoke($"Running as user with username: {lease.Username}. Lease will expire in {UserPoolService.LeaseTimeout.TotalMinutes} minutes.");
 
-            this.leasesByKey[key] = lease;
+            lock (this.leasesByKeyLock)
+            {
+                this.leasesByKey[key] = lease;
+            }
 
             // The registration fires on a threadpool thread, so revocation is signalled via the
             // Revoked event rather than thrown directly.
             lease.RevocationToken.Register(() =>
             {
-                if (lease.IsExpired)
+                if (!lease.IsExpired)
                 {
-                    this.leasesByKey.Remove(key);
+                    return;
+                }
 
+                UserLease removedLease;
+                lock (this.leasesByKeyLock)
+                {
+                    removedLease = this.leasesByKey.TryGetValue(key, out var value) ? value : null;
+                    if (removedLease == lease)
+                    {
+                        this.leasesByKey.Remove(key);
+                    }
+                }
+
+                if (removedLease == lease)
+                {
                     var ex = new LeaseRevokedException(lease.Username, UserPoolService.LeaseTimeout);
                     this.Revoked?.Invoke(ex);
                     this.Logged?.Invoke(ex.Message);
@@ -92,8 +112,12 @@ namespace Defra.Imports.Specs.Services
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         public async Task ReleaseAsync()
         {
-            var leases = this.leasesByKey.Values.ToList();
-            this.leasesByKey.Clear();
+            List<UserLease> leases;
+            lock (this.leasesByKeyLock)
+            {
+                leases = this.leasesByKey.Values.ToList();
+                this.leasesByKey.Clear();
+            }
 
             foreach (var lease in leases)
             {
@@ -112,13 +136,18 @@ namespace Defra.Imports.Specs.Services
 
             this.disposed = true;
 
-            foreach (var lease in this.leasesByKey.Values.ToList())
+            List<UserLease> leases;
+            lock (this.leasesByKeyLock)
+            {
+                leases = this.leasesByKey.Values.ToList();
+                this.leasesByKey.Clear();
+            }
+
+            foreach (var lease in leases)
             {
                 this.Logged?.Invoke($"Releasing user '{lease.Username}' during disposal — was the release step skipped?");
                 this.userPoolService.ReleaseAsync(lease).GetAwaiter().GetResult();
             }
-
-            this.leasesByKey.Clear();
         }
 
         private CredentialConfiguration GetCredentials(UserLease lease)
