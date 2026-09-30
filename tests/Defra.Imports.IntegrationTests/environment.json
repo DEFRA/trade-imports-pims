@@ -2,6 +2,7 @@
   "url": "",
   "clientId": "",
   "personas": {},
+  "credentials": [],
   "keyVault": {
     "tenantId": "",
     "clientId": "",

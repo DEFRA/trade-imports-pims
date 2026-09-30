@@ -1,7 +1,6 @@
-namespace Defra.Imports.Specs.Services
+namespace Defra.Imports.Scenarios
 {
     using System.Threading;
-    using Defra.Imports.Specs.Config;
 
     /// <summary>
     /// Represents a time-limited lease on a user from the <see cref="UserPoolService"/>.
@@ -14,18 +13,18 @@ namespace Defra.Imports.Specs.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="UserLease"/> class.
         /// </summary>
-        /// <param name="credentials">The acquired user credentials.</param>
+        /// <param name="username">The username of the acquired user.</param>
         /// <param name="leaseCts">The <see cref="CancellationTokenSource"/> that will be cancelled when the lease expires or is released.</param>
-        internal UserLease(CredentialConfiguration credentials, CancellationTokenSource leaseCts)
+        internal UserLease(string username, CancellationTokenSource leaseCts)
         {
-            this.Credentials = credentials;
+            this.Username = username;
             this.leaseCts = leaseCts;
         }
 
         /// <summary>
-        /// Gets the credentials for the leased user.
+        /// Gets the username of the leased user. Callers needing full credentials (e.g. a password for interactive login) must resolve them separately.
         /// </summary>
-        internal CredentialConfiguration Credentials { get; }
+        internal string Username { get; }
 
         /// <summary>
         /// Gets a <see cref="CancellationToken"/> that is cancelled when the lease expires or is explicitly released.

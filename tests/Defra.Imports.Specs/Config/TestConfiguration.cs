@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Defra.Imports.Scenarios;
+    using Defra.Imports.Scenarios.Config;
 
     /// <summary>
     /// Configuration for acceptance tests.

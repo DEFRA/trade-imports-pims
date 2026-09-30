@@ -1,4 +1,4 @@
-namespace Defra.Imports.Specs.Services
+namespace Defra.Imports.Scenarios
 {
     using System;
 

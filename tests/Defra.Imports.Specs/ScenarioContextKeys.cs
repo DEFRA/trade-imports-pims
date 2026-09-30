@@ -39,5 +39,10 @@
         /// A key for the active business process flow.
         /// </summary>
         public const string ActiveBusinessProcessFlow = nameof(ActiveBusinessProcessFlow);
+
+        /// <summary>
+        /// A key for a <see cref="Defra.Imports.Scenarios.LeaseRevokedException"/> stored when a user pool lease is automatically revoked, so it can be re-thrown on the scenario thread by <see cref="Hooks.UserHooks"/>.
+        /// </summary>
+        public const string LeaseRevokedErrorKey = nameof(LeaseRevokedErrorKey);
     }
 }

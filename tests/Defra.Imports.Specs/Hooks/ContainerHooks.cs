@@ -6,7 +6,6 @@
     using Defra.Imports.Scenarios;
     using Defra.Imports.Scenarios.Logging;
     using Defra.Imports.Specs;
-    using Defra.Imports.Specs.Services;
     using Microsoft.Extensions.Logging;
     using Microsoft.Playwright;
     using Microsoft.PowerPlatform.Dataverse.Client;
@@ -38,20 +37,28 @@
         }
 
         /// <summary>
-        /// Initialises a static client factory.
+        /// Initialises a static client factory and the user pool it uses to resolve persona-based clients.
         /// </summary>
         /// <param name="testThreadContainer">The test thread container.</param>
         /// <param name="testConfiguration">The test configuration.</param>
         [BeforeTestRun(Order = -19999)]
         public static void RegisterClientFactory(ObjectContainer testThreadContainer, TestConfiguration testConfiguration)
         {
+            // A separate connection to build the user pool - the factory's own base client can't be
+            // used here as it doesn't exist yet (it's what we're about to construct below). Ownership
+            // is passed to the applier, which disposes it, cascading from UserPoolService.Dispose().
+            var poolServiceClient = new ServiceClient(testConfiguration.Url, testConfiguration.ClientId.ToString(), testConfiguration.ClientSecret, true);
+            var applier = new PersonaConfigurationApplier(poolServiceClient);
+            var userPoolService = new UserPoolService(testConfiguration.Credentials.Select(c => c.Username), testConfiguration.Personas, applier);
+
             var clientFactory = new ServiceClientFactory(
                 testConfiguration.Url,
                 testConfiguration.ClientId,
                 testConfiguration.ClientSecret,
-                testConfiguration.Personas.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Users != null && kvp.Value.Users.Any() ? kvp.Value.Users : new string[] { kvp.Value.AppId.ToString() }));
+                userPoolService);
 
             testThreadContainer.RegisterInstanceAs(clientFactory);
+            testThreadContainer.RegisterInstanceAs(userPoolService);
         }
 
         /// <summary>
@@ -82,22 +89,6 @@
         }
 
         /// <summary>
-        /// Registers the <see cref="UserPoolService"/> object.
-        /// </summary>
-        /// <param name="testThreadContainer">The container.</param>
-        [BeforeTestRun]
-        public static void RegisterUserPoolService(ObjectContainer testThreadContainer)
-        {
-            var testConfiguration = testThreadContainer.Resolve<TestConfiguration>();
-            var serviceClient = testThreadContainer.Resolve<ServiceClient>();
-
-            testThreadContainer.RegisterInstanceAs(new UserPoolService(
-                testConfiguration.Credentials,
-                testConfiguration.Personas,
-                new PersonaConfigurationApplier(serviceClient)));
-        }
-
-        /// <summary>
         /// Disposes the assembly hook client.
         /// </summary>
         /// <param name="testThreadContainer">The test thread container.</param>
@@ -107,6 +98,19 @@
             if (testThreadContainer.IsRegistered<ServiceClient>())
             {
                 testThreadContainer.Resolve<ServiceClient>().Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Disposes the client factory, which cascades to any held persona leases and clients and the configured user pool service.
+        /// </summary>
+        /// <param name="testThreadContainer">The test thread container.</param>
+        [AfterTestRun(Order = 1000000)]
+        public static void DisposeClientFactory(ObjectContainer testThreadContainer)
+        {
+            if (testThreadContainer.IsRegistered<ServiceClientFactory>())
+            {
+                testThreadContainer.Resolve<ServiceClientFactory>().Dispose();
             }
         }
 
@@ -122,15 +126,19 @@
         }
 
         /// <summary>
-        /// Registers the <see cref="UserPoolClient"/> object.
+        /// Registers a fresh <see cref="ScenarioUserClient"/> for the scenario, wired to this scenario's output helper and context.
         /// </summary>
-        [BeforeScenario]
-        public void RegisterUserPoolClient()
+        [BeforeScenario(Order = -9999)]
+        public void RegisterScenarioUserClient()
         {
-            this.objectContainer.RegisterInstanceAs(new UserPoolClient(
-                this.objectContainer.Resolve<UserPoolService>(),
-                this.objectContainer.Resolve<IReqnrollOutputHelper>(),
-                this.objectContainer.Resolve<ScenarioContext>()));
+            var scenarioContext = this.objectContainer.Resolve<ScenarioContext>();
+            var testConfiguration = this.objectContainer.Resolve<TestConfiguration>();
+            var scenarioUserClient = new ScenarioUserClient(this.objectContainer.Resolve<UserPoolService>(), testConfiguration.Credentials);
+
+            scenarioUserClient.Logged += this.outputHelper.WriteLine;
+            scenarioUserClient.Revoked += ex => scenarioContext[ScenarioContextKeys.LeaseRevokedErrorKey] = ex;
+
+            this.objectContainer.RegisterInstanceAs(scenarioUserClient);
         }
 
         /// <summary>

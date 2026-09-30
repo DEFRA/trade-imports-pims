@@ -3,6 +3,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse
     using System;
     using System.Configuration;
     using System.Linq;
+    using System.Threading.Tasks;
     using Defra.Imports.Model;
     using Defra.Imports.Scenarios;
     using Microsoft.PowerPlatform.Dataverse.Client;
@@ -39,11 +40,18 @@ namespace Defra.Imports.IntegrationTests.Dataverse
                 throw new ConfigurationErrorsException("You must configure a client secret.");
             }
 
-            ClientFactory = new ServiceClientFactory(
-                config.Url,
-                config.ClientId,
-                config.ClientSecret,
-                config.Personas?.ToDictionary(kvp => (Persona)Enum.Parse(typeof(Persona), kvp.Key, true), kvp => kvp.Value.AppId.HasValue ? new[] { kvp.Value.AppId.Value.ToString() } : kvp.Value.Users));
+            UserPoolService userPoolService = null;
+            if (config.Personas != null && config.Personas.Any())
+            {
+                // A separate connection to build the user pool - the factory's own base client can't be
+                // used here as it doesn't exist yet (it's what we're about to construct below). Ownership
+                // is passed to the applier, which disposes it, cascading from UserPoolService.Dispose().
+                var poolServiceClient = new ServiceClient(config.Url, config.ClientId.ToString(), config.ClientSecret, true);
+                var applier = new PersonaConfigurationApplier(poolServiceClient);
+                userPoolService = new UserPoolService(config.Credentials ?? Enumerable.Empty<string>(), config.Personas, applier);
+            }
+
+            ClientFactory = new ServiceClientFactory(config.Url, config.ClientId, config.ClientSecret, userPoolService);
         }
 
         /// <summary>
@@ -66,12 +74,23 @@ namespace Defra.Imports.IntegrationTests.Dataverse
 
         /// <summary>
         /// Gets a <see cref="ServiceClient"/> instance authenticated as the given persona.
+        /// <summary>
+        /// Gets a <see cref="ServiceClient"/> instance authenticated as a user with exactly the given personas.
         /// </summary>
-        /// <param name="persona">The user persona to authenticate.</param>
-        /// <returns>A <see cref="ServiceClient"/> instance authenticated as the given persona.</returns>
-        public static ServiceClient GetClient(Persona persona)
+        /// <param name="personas">The personas the leased user must have.</param>
+        /// <returns>A <see cref="ServiceClient"/> instance authenticated as a user with the given personas.</returns>
+        public static Task<ServiceClient> GetClientAsync(params Persona[] personas)
         {
-            return ClientFactory.GetClient(persona);
+            return ClientFactory.GetClientAsync(personas);
+        }
+
+        /// <summary>
+        /// Releases any persona client currently held by <see cref="ClientFactory"/>, returning its leased user to the pool.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        public static Task ReleaseClientAsync()
+        {
+            return ClientFactory.ReleaseClientAsync();
         }
     }
 }

@@ -1,20 +1,19 @@
-﻿namespace Defra.Imports.Specs.Services
+namespace Defra.Imports.Scenarios
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
-    using Defra.Imports.Scenarios;
-    using Defra.Imports.Specs.Config;
+    using Defra.Imports.Scenarios.Config;
 
     /// <summary>
     /// Manages the user pool.
     /// </summary>
-    public sealed class UserPoolService
+    public sealed class UserPoolService : IDisposable
     {
         /// <summary>The maximum time a caller may hold a user before it is automatically returned to the pool.</summary>
-        internal static readonly TimeSpan LeaseTimeout = TimeSpan.FromMinutes(5);
+        public static readonly TimeSpan LeaseTimeout = TimeSpan.FromMinutes(5);
 
         private readonly List<Entry> users;
         private readonly IDictionary<Persona, PersonaConfiguration> personaConfigurations;
@@ -23,24 +22,24 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="UserPoolService"/> class with the specified users.
         /// </summary>
-        /// <param name="credentials">The credentials of every user in the pool.</param>
-        /// <param name="personaConfigurations">The configuration for every known persona. A credential is treated as explicitly assigned to a persona if its username appears in that persona's <see cref="PersonaConfiguration.Users"/>.</param>
+        /// <param name="usernames">The username of every user in the pool. Full credentials (e.g. passwords) are not required here since the pool only ever needs to identify and impersonate users, not log in as them.</param>
+        /// <param name="personaConfigurations">The configuration for every known persona. A user is treated as explicitly assigned to a persona if its username appears in that persona's <see cref="PersonaConfiguration.Users"/>.</param>
         /// <param name="personaApplicator">The applicator used to dynamically configure users for personas that have no explicitly assigned users.</param>
-        internal UserPoolService(
-            IEnumerable<CredentialConfiguration> credentials,
+        public UserPoolService(
+            IEnumerable<string> usernames,
             IDictionary<Persona, PersonaConfiguration> personaConfigurations,
             IPersonaConfigurationApplier personaApplicator)
         {
-            if (credentials is null)
+            if (usernames is null)
             {
-                throw new ArgumentNullException(nameof(credentials));
+                throw new ArgumentNullException(nameof(usernames));
             }
 
             this.personaConfigurations = personaConfigurations ?? throw new ArgumentNullException(nameof(personaConfigurations));
             this.personaApplicator = personaApplicator ?? throw new ArgumentNullException(nameof(personaApplicator));
 
-            this.users = credentials
-                .Select(c => new Entry(c, this.GetAssignedPersonas(c.Username)))
+            this.users = usernames
+                .Select(u => new Entry(u, this.GetAssignedPersonas(u)))
                 .ToList();
         }
 
@@ -52,7 +51,7 @@
         /// <exception cref="ArgumentException">Thrown if no personas are specified.</exception>
         /// <exception cref="InvalidOperationException">Thrown if no matching users exist.</exception>
         /// <exception cref="TimeoutException">Thrown if waiting for longer than 30 minutes.</exception>
-        internal async Task<UserLease> GetAsync(IEnumerable<Persona> personas)
+        internal async Task<UserLease> GetAsync(params Persona[] personas)
         {
             if (personas is null)
             {
@@ -143,11 +142,11 @@
                     // exited early, so it must be removed defensively regardless of the tracked personas.
                     if (!winnerEntry.PersonaStateVerified || winnerEntry.Personas.Count > 0)
                     {
-                        await this.personaApplicator.RemoveAsync(winnerEntry.Value.Username).ConfigureAwait(false);
+                        await this.personaApplicator.RemoveAsync(winnerEntry.Value).ConfigureAwait(false);
                     }
 
                     var configurations = requested.Select(p => this.personaConfigurations[p]).ToList();
-                    await this.personaApplicator.ApplyAsync(winnerEntry.Value.Username, configurations).ConfigureAwait(false);
+                    await this.personaApplicator.ApplyAsync(winnerEntry.Value, configurations).ConfigureAwait(false);
                     winnerEntry.Personas = requested;
                     winnerEntry.PersonaStateVerified = true;
                 }
@@ -175,7 +174,7 @@
         /// </summary>
         /// <param name="lease">The lease.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        /// <exception cref="InvalidOperationException">Thrown if the lease is for credentials not found in the pool.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if the lease is for a user not found in the pool.</exception>
         internal Task ReleaseAsync(UserLease lease)
         {
             if (lease is null)
@@ -183,8 +182,8 @@
                 return Task.CompletedTask;
             }
 
-            var entry = this.users.FirstOrDefault(e => e.Value == lease.Credentials)
-                ?? throw new InvalidOperationException("The provided credentials do not belong to the pool.");
+            var entry = this.users.FirstOrDefault(e => e.Value == lease.Username)
+                ?? throw new InvalidOperationException("The provided user does not belong to the pool.");
 
             return this.ReleaseEntryAsync(entry, lease);
         }
@@ -216,6 +215,12 @@
                 .Select(p => p.Key);
         }
 
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            this.personaApplicator.Dispose();
+        }
+
         private sealed class Entry
         {
             private int acquireCount;
@@ -223,16 +228,16 @@
             /// <summary>
             /// Initializes a new instance of the <see cref="Entry"/> class with the specified value and personas.
             /// </summary>
-            /// <param name="value">The credentials.</param>
+            /// <param name="value">The username.</param>
             /// <param name="personas">The personas explicitly configured for this user.</param>
-            public Entry(CredentialConfiguration value, IEnumerable<Persona> personas)
+            public Entry(string value, IEnumerable<Persona> personas)
             {
                 this.Value = value;
                 this.Personas = new HashSet<Persona>(personas ?? Array.Empty<Persona>());
                 this.IsStatic = this.Personas.Count > 0;
             }
 
-            public CredentialConfiguration Value { get; }
+            public string Value { get; }
 
             /// <summary>
             /// Gets a value indicating whether this user was explicitly configured for its personas, as opposed to being an unassigned user available for dynamic configuration.

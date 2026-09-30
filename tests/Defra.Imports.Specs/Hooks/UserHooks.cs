@@ -2,28 +2,28 @@
 {
     using System;
     using System.Threading.Tasks;
-    using Defra.Imports.Specs.Services;
+    using Defra.Imports.Scenarios;
     using Reqnroll;
 
     /// <summary>
-    /// After scenario hooks.
+    /// Hooks relating to the user pool.
     /// </summary>
     [Binding]
     public class UserHooks
     {
-        private readonly UserPoolClient userPoolClient;
+        private readonly ScenarioUserClient scenarioUserClient;
         private readonly IReqnrollOutputHelper outputHelper;
         private readonly ScenarioContext scenarioContext;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserHooks"/> class.
         /// </summary>
-        /// <param name="userPoolClient">The user pool.</param>
+        /// <param name="scenarioUserClient">The scenario's user pool client.</param>
         /// <param name="outputHelper">The output helper.</param>
         /// <param name="scenarioContext">The scenario context.</param>
-        public UserHooks(UserPoolClient userPoolClient, IReqnrollOutputHelper outputHelper, ScenarioContext scenarioContext)
+        public UserHooks(ScenarioUserClient scenarioUserClient, IReqnrollOutputHelper outputHelper, ScenarioContext scenarioContext)
         {
-            this.userPoolClient = userPoolClient;
+            this.scenarioUserClient = scenarioUserClient;
             this.outputHelper = outputHelper;
             this.scenarioContext = scenarioContext;
         }
@@ -38,15 +38,19 @@
         {
             // Check for a stored lease revocation error before releasing, so the scenario is
             // failed with the original revocation message rather than a generic cleanup error.
-            this.scenarioContext.TryGetValue(UserPoolClient.LeaseRevokedErrorKey, out LeaseRevokedException leaseError);
+            this.scenarioContext.TryGetValue(ScenarioContextKeys.LeaseRevokedErrorKey, out LeaseRevokedException leaseError);
 
             try
             {
-                await this.userPoolClient.ReleaseAsync();
+                await this.scenarioUserClient.ReleaseAsync();
             }
             catch (Exception ex)
             {
                 this.outputHelper.WriteLine($"An error occurred while releasing the user: {ex.Message}.");
+            }
+            finally
+            {
+                this.scenarioUserClient.Dispose();
             }
 
             if (leaseError != null)

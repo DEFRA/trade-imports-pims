@@ -1,4 +1,4 @@
-﻿namespace Defra.Imports.Specs.Config
+namespace Defra.Imports.Scenarios.Config
 {
     using System;
 
@@ -25,12 +25,12 @@
         {
             if (string.IsNullOrEmpty(this.Username))
             {
-                throw new System.Exception("A username has not been configured for a credential.");
+                throw new Exception("A username has not been configured for a credential.");
             }
 
             if (string.IsNullOrEmpty(this.Password))
             {
-                throw new System.Exception($"A password has not been configured for the {this.Username} credential.");
+                throw new Exception($"A password has not been configured for the {this.Username} credential.");
             }
         }
     }

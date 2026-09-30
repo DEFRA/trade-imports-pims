@@ -1,11 +1,11 @@
-namespace Defra.Imports.Specs.Services
+namespace Defra.Imports.Scenarios
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Defra.Imports.Model;
-    using Defra.Imports.Specs.Config;
+    using Defra.Imports.Scenarios.Config;
     using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Messages;
@@ -14,7 +14,7 @@ namespace Defra.Imports.Specs.Services
     /// <summary>
     /// Applies and removes persona configuration on Dataverse users by updating their business unit and associating/disassociating security roles, teams and column security profiles.
     /// </summary>
-    internal sealed class PersonaConfigurationApplier : IPersonaConfigurationApplier
+    public sealed class PersonaConfigurationApplier : IPersonaConfigurationApplier
     {
         private readonly ServiceClient serviceClient;
 
@@ -79,7 +79,19 @@ namespace Defra.Imports.Specs.Services
             }).ConfigureAwait(false);
         }
 
-        private static async Task<Guid> RetrieveUserIdAsync(ServiceClient serviceClient, string username)
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            this.serviceClient.Dispose();
+        }
+
+        /// <summary>
+        /// Retrieves the Dataverse system user ID for the given username, for use by callers (such as <see cref="ServiceClientFactory"/>) that need to impersonate a leased user.
+        /// </summary>
+        /// <param name="serviceClient">The service client used to query Dataverse.</param>
+        /// <param name="username">The domain name of the user.</param>
+        /// <returns>The system user ID.</returns>
+        internal static Task<Guid> RetrieveUserIdAsync(ServiceClient serviceClient, string username)
         {
             var query = new QueryExpression(SystemUser.EntityLogicalName)
             {
@@ -90,6 +102,11 @@ namespace Defra.Imports.Specs.Services
                 },
             };
 
+            return RetrieveUserIdAsync(serviceClient, query, username);
+        }
+
+        private static async Task<Guid> RetrieveUserIdAsync(ServiceClient serviceClient, QueryExpression query, string username)
+        {
             var result = await serviceClient.RetrieveMultipleAsync(query).ConfigureAwait(false);
             var user = result.Entities.FirstOrDefault()
                 ?? throw new InvalidOperationException($"No user exists in Dataverse with username '{username}'.");
