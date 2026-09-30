@@ -32,6 +32,9 @@ namespace Defra.Imports.IntegrationTests
         /// </summary>
         internal static readonly TestConfiguration TestConfig;
 
+        // A new instance is constructed per test (MSTest constructs a new test class instance per test method),
+        // since persona clients/leases are tracked on the factory's own instance fields.
+        private readonly ServiceClientFactory clientFactory = new ServiceClientFactory(DataverseFixture.BaseClient, DataverseFixture.UserPoolService);
         private ILogger logger;
 
         /// <summary>
@@ -70,7 +73,7 @@ namespace Defra.Imports.IntegrationTests
         [TestCleanup]
         public async Task ReleasePersonaClientAsync()
         {
-            await DataverseFixture.ReleaseClientAsync();
+            await this.clientFactory.ReleaseClientAsync();
         }
 
         /// <summary>
@@ -98,7 +101,7 @@ namespace Defra.Imports.IntegrationTests
         /// <returns>A <see cref="ServiceClient"/> instance authenticated as a user with the given personas.</returns>
         protected Task<ServiceClient> GetClientAsync(params Persona[] personas)
         {
-            return DataverseFixture.GetClientAsync(personas);
+            return this.clientFactory.GetClientAsync(personas);
         }
 
         /// <summary>

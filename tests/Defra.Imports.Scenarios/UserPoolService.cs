@@ -44,7 +44,7 @@ namespace Defra.Imports.Scenarios
         }
 
         /// <summary>
-        /// Gets a user from the pool with exactly the specified personas, waiting if necessary until one becomes available. If no user has been explicitly configured (via <see cref="PersonaConfiguration.Users"/>) for every one of the requested personas, an unassigned user is instead borrowed from the pool and dynamically configured to match, for the duration of the lease. The returned user is leased to the caller for a maximum of <see cref="LeaseTimeout"/>, after which it is automatically returned to the pool and any code holding the lease is signalled that it has been revoked. Dynamically applied configuration remains in place until the user is next leased, at which point it is removed immediately before the next configuration is applied. Callers should call <see cref="ReleaseAsync"/> to return the user to the pool as soon as they are finished with it, which will also signal any holders that the lease has been revoked; if they do not do so within the lease timeout, the user will be returned to the pool automatically when the timeout is exceeded.
+        /// Gets a user from the pool with exactly the specified personas, waiting if necessary until one becomes available. A statically assigned user matching the exact persona set is used immediately if one is idle; if no such user exists, or every one of them is already leased, an unassigned user is instead borrowed from the pool and dynamically configured to match, for the duration of the lease. If a statically assigned match exists but all are currently leased, waiting for one of them to free up is raced against waiting for an unassigned user to become free for dynamic configuration, and whichever becomes available first is used. The returned user is leased to the caller for a maximum of <see cref="LeaseTimeout"/>, after which it is automatically returned to the pool and any code holding the lease is signalled that it has been revoked. Dynamically applied configuration remains in place until the user is next leased, at which point it is removed immediately before the next configuration is applied. Callers should call <see cref="ReleaseAsync"/> to return the user to the pool as soon as they are finished with it, which will also signal any holders that the lease has been revoked; if they do not do so within the lease timeout, the user will be returned to the pool automatically when the timeout is exceeded.
         /// </summary>
         /// <param name="personas">The personas the returned user must have.</param>
         /// <returns>A lease on the acquired user.</returns>
@@ -71,25 +71,29 @@ namespace Defra.Imports.Scenarios
                 throw new InvalidOperationException($"No configuration exists for the following personas: {string.Join(", ", unknownPersonas)}.");
             }
 
-            var candidates = this.users.Where(e => e.IsStatic && e.Personas.SetEquals(requested)).ToList();
-            var isDynamic = false;
+            var staticCandidates = this.users.Where(e => e.IsStatic && e.Personas.SetEquals(requested)).ToList();
+            var unassigned = this.users.Where(e => !e.IsStatic).ToList();
 
-            if (candidates.Count == 0)
+            List<Entry> candidates;
+
+            if (staticCandidates.Count == 0)
             {
-                // Only personas with no explicitly configured users are eligible to be dynamically applied to an unassigned user.
-                var canApplyDynamically = requested.All(p => this.personaConfigurations[p].Users == null || !this.personaConfigurations[p].Users.Any());
-
-                if (!canApplyDynamically)
-                {
-                    throw new InvalidOperationException($"No user exists for the requested personas '{string.Join(", ", requested)}'.");
-                }
-
-                candidates = this.users.Where(e => !e.IsStatic).ToList();
-                isDynamic = true;
-
-                if (candidates.Count == 0)
+                if (unassigned.Count == 0)
                 {
                     throw new InvalidOperationException($"No unassigned user is available to dynamically configure for the requested personas '{string.Join(", ", requested)}'.");
+                }
+
+                candidates = unassigned;
+            }
+            else
+            {
+                candidates = staticCandidates;
+
+                if (unassigned.Count > 0 && staticCandidates.All(e => e.Gate.CurrentCount == 0))
+                {
+                    // Every statically assigned user is currently leased; race waiting for one of them to be
+                    // released against waiting for an unassigned user to become free for dynamic configuration.
+                    candidates = staticCandidates.Concat(unassigned).ToList();
                 }
             }
 
@@ -132,7 +136,7 @@ namespace Defra.Imports.Scenarios
                 TaskContinuationOptions.None,
                 TaskScheduler.Default);
 
-            if (isDynamic && !(winnerEntry.PersonaStateVerified && winnerEntry.Personas.SetEquals(requested)))
+            if (!winnerEntry.IsStatic && !(winnerEntry.PersonaStateVerified && winnerEntry.Personas.SetEquals(requested)))
             {
                 try
                 {
