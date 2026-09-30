@@ -73,8 +73,6 @@ namespace Defra.Imports.IntegrationTests.Dataverse
         }
 
         /// <summary>
-        /// Gets a <see cref="ServiceClient"/> instance authenticated as the given persona.
-        /// <summary>
         /// Gets a <see cref="ServiceClient"/> instance authenticated as a user with exactly the given personas.
         /// </summary>
         /// <param name="personas">The personas the leased user must have.</param>
