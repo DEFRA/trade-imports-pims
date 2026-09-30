@@ -3,6 +3,7 @@
     using System;
     using System.Threading.Tasks;
     using Defra.Imports.Scenarios;
+    using Defra.Imports.Specs.Services;
     using Reqnroll;
 
     /// <summary>

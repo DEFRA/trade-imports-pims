@@ -1,9 +1,10 @@
-namespace Defra.Imports.Scenarios
+namespace Defra.Imports.Specs.Services
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Defra.Imports.Scenarios;
     using Defra.Imports.Scenarios.Config;
 
     /// <summary>

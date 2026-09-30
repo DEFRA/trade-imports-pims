@@ -51,7 +51,7 @@ namespace Defra.Imports.Scenarios
         /// <exception cref="ArgumentException">Thrown if no personas are specified.</exception>
         /// <exception cref="InvalidOperationException">Thrown if no matching users exist.</exception>
         /// <exception cref="TimeoutException">Thrown if waiting for longer than 30 minutes.</exception>
-        internal async Task<UserLease> GetAsync(params Persona[] personas)
+        public async Task<UserLease> GetAsync(params Persona[] personas)
         {
             if (personas is null)
             {
@@ -175,7 +175,7 @@ namespace Defra.Imports.Scenarios
         /// <param name="lease">The lease.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         /// <exception cref="InvalidOperationException">Thrown if the lease is for a user not found in the pool.</exception>
-        internal Task ReleaseAsync(UserLease lease)
+        public Task ReleaseAsync(UserLease lease)
         {
             if (lease is null)
             {

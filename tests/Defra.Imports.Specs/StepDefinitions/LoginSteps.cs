@@ -7,6 +7,7 @@
     using System.Threading.Tasks;
     using Defra.Imports.Scenarios;
     using Defra.Imports.Specs.Extensions;
+    using Defra.Imports.Specs.Services;
     using Microsoft.Playwright;
     using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

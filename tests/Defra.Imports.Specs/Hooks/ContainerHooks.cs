@@ -6,6 +6,7 @@
     using Defra.Imports.Scenarios;
     using Defra.Imports.Scenarios.Logging;
     using Defra.Imports.Specs;
+    using Defra.Imports.Specs.Services;
     using Microsoft.Extensions.Logging;
     using Microsoft.Playwright;
     using Microsoft.PowerPlatform.Dataverse.Client;
