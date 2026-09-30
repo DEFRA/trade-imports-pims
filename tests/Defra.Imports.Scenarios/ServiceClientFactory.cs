@@ -117,17 +117,43 @@ namespace Defra.Imports.Scenarios
             this.logger?.LogInformation($"Getting client for personas: {string.Join(", ", personas)}.");
 
             var lease = await this.userPoolService.GetAsync(personas).ConfigureAwait(false);
-            var systemUserId = await PersonaConfigurationApplier.RetrieveUserIdAsync(this.baseClient, lease.Username).ConfigureAwait(false);
+            ServiceClient impersonatedClient = null;
 
-            var impersonatedClient = this.baseClient.Clone();
-            impersonatedClient.CallerId = systemUserId;
+            try
+            {
+                var systemUserId = await PersonaConfigurationApplier.RetrieveUserIdAsync(this.baseClient, lease.Username).ConfigureAwait(false);
 
-            this.personaClients[key] = impersonatedClient;
-            this.personaLeases[key] = lease;
+                impersonatedClient = this.baseClient.Clone();
+                impersonatedClient.CallerId = systemUserId;
 
-            this.logger?.LogInformation($"Authenticated as caller ID: {systemUserId}.");
+                this.personaClients[key] = impersonatedClient;
+                this.personaLeases[key] = lease;
 
-            return impersonatedClient;
+                this.logger?.LogInformation($"Authenticated as caller ID: {systemUserId}.");
+
+                return impersonatedClient;
+            }
+            catch
+            {
+                this.personaClients.Remove(key);
+                this.personaLeases.Remove(key);
+
+                if (impersonatedClient != null)
+                {
+                    impersonatedClient.Dispose();
+                }
+
+                try
+                {
+                    await this.userPoolService.ReleaseAsync(lease).ConfigureAwait(false);
+                }
+                catch
+                {
+                    // Preserve the original creation failure while still releasing any leased user if possible.
+                }
+
+                throw;
+            }
         }
 
         /// <summary>
