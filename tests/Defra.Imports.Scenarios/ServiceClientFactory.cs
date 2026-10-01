@@ -111,7 +111,14 @@ namespace Defra.Imports.Scenarios
 
             if (this.personaClients.TryGetValue(key, out var existingClient))
             {
-                return existingClient;
+                if (this.personaLeases.TryGetValue(key, out var existingLease) && !existingLease.RevocationToken.IsCancellationRequested)
+                {
+                    return existingClient;
+                }
+
+                existingClient.Dispose();
+                this.personaClients.Remove(key);
+                this.personaLeases.Remove(key);
             }
 
             this.logger?.LogInformation($"Getting client for personas: {string.Join(", ", personas)}.");
