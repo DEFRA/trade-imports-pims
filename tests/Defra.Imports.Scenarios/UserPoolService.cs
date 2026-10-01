@@ -181,11 +181,51 @@ namespace Defra.Imports.Scenarios
             return Task.CompletedTask;
         }
 
+        /// <summary>
+        /// Resolves the app registration ID for the requested personas when they are represented by an application user, returning <c>null</c> when the request is entirely for pooled users.
+        /// </summary>
+        /// <param name="personas">The requested personas.</param>
+        /// <returns>The shared application ID for the requested personas, or <c>null</c> if none of them are represented by an application user.</returns>
+        public Guid? TryGetAppId(IEnumerable<Persona> personas)
+        {
+            if (personas is null)
+            {
+                throw new ArgumentNullException(nameof(personas));
+            }
+
+            var requested = personas.ToList();
+            var appIdMatches = requested
+                .Select(p => this.personaConfigurations.TryGetValue(p, out var config) ? config.AppId : null)
+                .ToList();
+
+            var appIds = appIdMatches
+                .Where(appId => appId.HasValue)
+                .Select(appId => appId.Value)
+                .Distinct()
+                .ToList();
+
+            if (appIds.Count == 0)
+            {
+                return null;
+            }
+
+            if (appIdMatches.Count != requested.Count)
+            {
+                throw new InvalidOperationException("Application-user personas cannot be combined with pooled personas in the same request.");
+            }
+
+            if (appIds.Count > 1)
+            {
+                throw new InvalidOperationException($"The requested personas resolve to multiple application IDs: {string.Join(", ", appIds)}.");
+            }
+
+            return appIds[0];
+        }
+
         private IEnumerable<Persona> GetAssignedPersonas(string username)
         {
             return this.personaConfigurations
-                .Where(p => (p.Value.Users != null && p.Value.Users.Contains(username))
-                    || (p.Value.AppId.HasValue && p.Value.AppId.Value.ToString().Equals(username, StringComparison.OrdinalIgnoreCase)))
+                .Where(p => p.Value.Users != null && p.Value.Users.Contains(username))
                 .Select(p => p.Key);
         }
 

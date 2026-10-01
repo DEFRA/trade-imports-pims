@@ -20,6 +20,7 @@ namespace Defra.Imports.Scenarios
         // CreateBaseClient), so this cache is never shared between tests and needs no ambient-context isolation.
         private readonly Dictionary<string, ServiceClient> personaClients = new Dictionary<string, ServiceClient>();
         private readonly Dictionary<string, string> personaUsernames = new Dictionary<string, string>();
+        private readonly HashSet<string> appUserPersonaKeys = new HashSet<string>();
 
         private bool disposedValue;
 
@@ -116,13 +117,16 @@ namespace Defra.Imports.Scenarios
 
             this.logger?.LogInformation($"Getting client for personas: {string.Join(", ", personas)}.");
 
-            var appId = GetAppIdForPersonas(personas);
+            var appId = this.userPoolService?.TryGetAppId(personas);
             if (appId.HasValue)
             {
+                var systemUserId = await PersonaConfigurationApplier.RetrieveUserIdAsync(this.baseClient, appId.Value.ToString()).ConfigureAwait(false);
                 var client = this.baseClient.Clone();
-                client.CallerId = GetApplicationUserId(appId.Value);
+                client.CallerId = systemUserId;
                 this.personaClients[key] = client;
                 this.personaUsernames[key] = appId.Value.ToString();
+                this.appUserPersonaKeys.Add(key);
+                this.logger?.LogInformation($"Authenticated as application user ID: {systemUserId}.");
                 return client;
             }
 
@@ -182,12 +186,13 @@ namespace Defra.Imports.Scenarios
                 return;
             }
 
-            foreach (var username in this.personaUsernames.Values)
+            foreach (var kvp in this.personaUsernames.Where(kvp => !this.appUserPersonaKeys.Contains(kvp.Key)))
             {
-                await this.userPoolService.ReleaseAsync(username).ConfigureAwait(false);
+                await this.userPoolService.ReleaseAsync(kvp.Value).ConfigureAwait(false);
             }
 
             this.personaUsernames.Clear();
+            this.appUserPersonaKeys.Clear();
 
             foreach (var client in this.personaClients.Values)
             {
@@ -216,12 +221,13 @@ namespace Defra.Imports.Scenarios
             {
                 if (disposing)
                 {
-                    foreach (var username in this.personaUsernames.Values)
+                    foreach (var kvp in this.personaUsernames.Where(kvp => !this.appUserPersonaKeys.Contains(kvp.Key)))
                     {
-                        this.userPoolService.ReleaseAsync(username).GetAwaiter().GetResult();
+                        this.userPoolService.ReleaseAsync(kvp.Value).GetAwaiter().GetResult();
                     }
 
                     this.personaUsernames.Clear();
+                    this.appUserPersonaKeys.Clear();
 
                     foreach (var client in this.personaClients.Values)
                     {
