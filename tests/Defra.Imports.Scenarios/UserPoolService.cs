@@ -35,7 +35,16 @@ namespace Defra.Imports.Scenarios
             this.personaConfigurations = personaConfigurations ?? throw new ArgumentNullException(nameof(personaConfigurations));
             this.personaApplicator = personaApplicator ?? throw new ArgumentNullException(nameof(personaApplicator));
 
+            var appIds = this.personaConfigurations
+                .Values
+                .Where(p => p.AppId.HasValue)
+                .Select(p => p.AppId.Value.ToString())
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
             this.users = usernames
+                .Concat(appIds)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
                 .Select(u => new Entry(u, this.GetAssignedPersonas(u)))
                 .ToList();
         }
@@ -184,7 +193,8 @@ namespace Defra.Imports.Scenarios
         private IEnumerable<Persona> GetAssignedPersonas(string username)
         {
             return this.personaConfigurations
-                .Where(p => p.Value.Users != null && p.Value.Users.Contains(username))
+                .Where(p => (p.Value.Users != null && p.Value.Users.Contains(username))
+                    || (p.Value.AppId.HasValue && p.Value.AppId.Value.ToString().Equals(username, StringComparison.OrdinalIgnoreCase)))
                 .Select(p => p.Key);
         }
 
