@@ -6,6 +6,7 @@ namespace Defra.Imports.Scenarios
     using System.Threading.Tasks;
     using Defra.Imports.Model;
     using Defra.Imports.Scenarios.Config;
+    using Defra.Imports.Scenarios.Extensions;
     using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Messages;
@@ -42,7 +43,7 @@ namespace Defra.Imports.Scenarios
             var teamNames = personaList.SelectMany(p => p.Teams ?? Enumerable.Empty<string>()).Distinct().ToList();
             var columnSecurityProfileNames = personaList.SelectMany(p => p.ColumnSecurityProfiles ?? Enumerable.Empty<string>()).Distinct().ToList();
 
-            var userId = await RetrieveUserIdAsync(this.serviceClient, username).ConfigureAwait(false);
+            var userId = await this.serviceClient.RetrieveUserIdAsync(username).ConfigureAwait(false);
 
             var businessUnitName = businessUnitNames.SingleOrDefault();
             if (!string.IsNullOrEmpty(businessUnitName))
@@ -64,7 +65,7 @@ namespace Defra.Imports.Scenarios
         /// <inheritdoc/>
         public async Task RemoveAsync(string username)
         {
-            var userId = await RetrieveUserIdAsync(this.serviceClient, username).ConfigureAwait(false);
+            var userId = await this.serviceClient.RetrieveUserIdAsync(username).ConfigureAwait(false);
 
             await DisassociateAllAsync(this.serviceClient, userId, "systemuserroles", "role", "roleid", "systemuserroles_association").ConfigureAwait(false);
             await DisassociateAllAsync(this.serviceClient, userId, "teammembership", "team", "teamid", "teammembership_association").ConfigureAwait(false);
@@ -83,42 +84,6 @@ namespace Defra.Imports.Scenarios
         public void Dispose()
         {
             this.serviceClient.Dispose();
-        }
-
-        /// <summary>
-        /// Retrieves the Dataverse system user ID for the given identifier, for use by callers (such as <see cref="ServiceClientFactory"/>) that need to impersonate a borrowed user. The identifier is treated as an application ID if it parses as a <see cref="Guid"/> (the identifier used for application personas configured via <see cref="PersonaConfiguration.AppId"/>), and as a domain name otherwise.
-        /// </summary>
-        /// <param name="serviceClient">The service client used to query Dataverse.</param>
-        /// <param name="username">The domain name of the user, or the application ID of an application user.</param>
-        /// <returns>The system user ID.</returns>
-        internal static Task<Guid> RetrieveUserIdAsync(ServiceClient serviceClient, string username)
-        {
-            var isApplicationId = Guid.TryParse(username, out var applicationId);
-
-            var query = new QueryExpression(SystemUser.EntityLogicalName)
-            {
-                ColumnSet = new ColumnSet(false),
-                Criteria = new FilterExpression
-                {
-                    Conditions =
-                    {
-                        isApplicationId
-                            ? new ConditionExpression(SystemUser.Fields.ApplicationId, ConditionOperator.Equal, applicationId)
-                            : new ConditionExpression(SystemUser.Fields.DomainName, ConditionOperator.Equal, username),
-                    },
-                },
-            };
-
-            return RetrieveUserIdAsync(serviceClient, query, username);
-        }
-
-        private static async Task<Guid> RetrieveUserIdAsync(ServiceClient serviceClient, QueryExpression query, string username)
-        {
-            var result = await serviceClient.RetrieveMultipleAsync(query).ConfigureAwait(false);
-            var user = result.Entities.FirstOrDefault()
-                ?? throw new InvalidOperationException($"No user exists in Dataverse with username '{username}'.");
-
-            return user.Id;
         }
 
         private static async Task<EntityReference> RetrieveBusinessUnitReferenceAsync(ServiceClient serviceClient, string businessUnitName)

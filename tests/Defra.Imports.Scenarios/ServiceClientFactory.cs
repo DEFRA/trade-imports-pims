@@ -2,8 +2,10 @@ namespace Defra.Imports.Scenarios
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using Defra.Imports.Scenarios.Extensions;
     using Microsoft.Extensions.Logging;
     using Microsoft.PowerPlatform.Dataverse.Client;
 
@@ -120,7 +122,7 @@ namespace Defra.Imports.Scenarios
             var appId = this.userPoolService?.TryGetAppId(personas);
             if (appId.HasValue)
             {
-                var systemUserId = await PersonaConfigurationApplier.RetrieveUserIdAsync(this.baseClient, appId.Value.ToString()).ConfigureAwait(false);
+                var systemUserId = await this.baseClient.RetrieveUserIdAsync(appId.Value.ToString()).ConfigureAwait(false);
                 var client = this.baseClient.Clone();
                 client.CallerId = systemUserId;
                 this.personaClients[key] = client;
@@ -140,7 +142,7 @@ namespace Defra.Imports.Scenarios
 
             try
             {
-                var systemUserId = await PersonaConfigurationApplier.RetrieveUserIdAsync(this.baseClient, username).ConfigureAwait(false);
+                var systemUserId = await this.baseClient.RetrieveUserIdAsync(username).ConfigureAwait(false);
 
                 impersonatedClient = this.baseClient.Clone();
                 impersonatedClient.CallerId = systemUserId;
