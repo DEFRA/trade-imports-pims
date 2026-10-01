@@ -86,7 +86,7 @@ namespace Defra.Imports.Scenarios
         }
 
         /// <summary>
-        /// Retrieves the Dataverse system user ID for the given username, for use by callers (such as <see cref="ServiceClientFactory"/>) that need to impersonate a leased user.
+        /// Retrieves the Dataverse system user ID for the given username, for use by callers (such as <see cref="ServiceClientFactory"/>) that need to impersonate a borrowed user.
         /// </summary>
         /// <param name="serviceClient">The service client used to query Dataverse.</param>
         /// <param name="username">The domain name of the user.</param>

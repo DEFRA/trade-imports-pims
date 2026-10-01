@@ -19,7 +19,7 @@ namespace Defra.Imports.Scenarios
         // Plain fields, not AsyncLocal: a new factory instance must be constructed per test (see
         // CreateBaseClient), so this cache is never shared between tests and needs no ambient-context isolation.
         private readonly Dictionary<string, ServiceClient> personaClients = new Dictionary<string, ServiceClient>();
-        private readonly Dictionary<string, UserLease> personaLeases = new Dictionary<string, UserLease>();
+        private readonly Dictionary<string, string> personaUsernames = new Dictionary<string, string>();
 
         private bool disposedValue;
 
@@ -90,9 +90,9 @@ namespace Defra.Imports.Scenarios
         }
 
         /// <summary>
-        /// Gets a <see cref="ServiceClient"/> instance authenticated as a user with exactly the given personas, leasing a user from the configured <see cref="UserPoolService"/>. Distinct persona combinations are leased and cached independently on this instance, so this method may be called for several different combinations without releasing in between - the caller is responsible for retaining each client for the duration it is needed and eventually calling <see cref="ReleaseClientAsync"/>, rather than the factory disposing them early.
+        /// Gets a <see cref="ServiceClient"/> instance authenticated as a user with exactly the given personas, borrowing a user from the configured <see cref="UserPoolService"/>. Distinct persona combinations are acquired and cached independently on this instance, so this method may be called for several different combinations without releasing in between - the caller is responsible for retaining each client for the duration it is needed and eventually calling <see cref="ReleaseClientAsync"/>, rather than the factory disposing them early.
         /// </summary>
-        /// <param name="personas">The personas the leased user must have.</param>
+        /// <param name="personas">The personas the returned user must have.</param>
         /// <returns>A <see cref="ServiceClient"/> instance authenticated as a user with the given personas.</returns>
         /// <exception cref="InvalidOperationException">Thrown if no user pool service has been configured.</exception>
         public async Task<ServiceClient> GetClientAsync(params Persona[] personas)
@@ -116,18 +116,18 @@ namespace Defra.Imports.Scenarios
 
             this.logger?.LogInformation($"Getting client for personas: {string.Join(", ", personas)}.");
 
-            var lease = await this.userPoolService.GetAsync(personas).ConfigureAwait(false);
+            var username = await this.userPoolService.GetAsync(personas).ConfigureAwait(false);
             ServiceClient impersonatedClient = null;
 
             try
             {
-                var systemUserId = await PersonaConfigurationApplier.RetrieveUserIdAsync(this.baseClient, lease.Username).ConfigureAwait(false);
+                var systemUserId = await PersonaConfigurationApplier.RetrieveUserIdAsync(this.baseClient, username).ConfigureAwait(false);
 
                 impersonatedClient = this.baseClient.Clone();
                 impersonatedClient.CallerId = systemUserId;
 
                 this.personaClients[key] = impersonatedClient;
-                this.personaLeases[key] = lease;
+                this.personaUsernames[key] = username;
 
                 this.logger?.LogInformation($"Authenticated as caller ID: {systemUserId}.");
 
@@ -136,7 +136,7 @@ namespace Defra.Imports.Scenarios
             catch
             {
                 this.personaClients.Remove(key);
-                this.personaLeases.Remove(key);
+                this.personaUsernames.Remove(key);
 
                 if (impersonatedClient != null)
                 {
@@ -145,11 +145,11 @@ namespace Defra.Imports.Scenarios
 
                 try
                 {
-                    await this.userPoolService.ReleaseAsync(lease).ConfigureAwait(false);
+                    await this.userPoolService.ReleaseAsync(username).ConfigureAwait(false);
                 }
                 catch
                 {
-                    // Preserve the original creation failure while still releasing any leased user if possible.
+                    // Preserve the original creation failure while still releasing any acquired user if possible.
                 }
 
                 throw;
@@ -157,22 +157,22 @@ namespace Defra.Imports.Scenarios
         }
 
         /// <summary>
-        /// Releases every persona client currently held by this instance (via <see cref="GetClientAsync(Persona[])"/>), returning their leased users to the pool and disposing the clients. Factory instances used by other tests are unaffected.
+        /// Releases every persona client currently held by this instance (via <see cref="GetClientAsync(Persona[])"/>), returning their users to the pool and disposing the clients. Factory instances used by other tests are unaffected.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         public async Task ReleaseClientAsync()
         {
-            if (this.personaLeases.Count == 0)
+            if (this.personaUsernames.Count == 0)
             {
                 return;
             }
 
-            foreach (var lease in this.personaLeases.Values)
+            foreach (var username in this.personaUsernames.Values)
             {
-                await this.userPoolService.ReleaseAsync(lease).ConfigureAwait(false);
+                await this.userPoolService.ReleaseAsync(username).ConfigureAwait(false);
             }
 
-            this.personaLeases.Clear();
+            this.personaUsernames.Clear();
 
             foreach (var client in this.personaClients.Values)
             {
@@ -192,7 +192,7 @@ namespace Defra.Imports.Scenarios
         }
 
         /// <summary>
-        /// Performs test clean-up, releasing any persona leases/clients held by this instance. The shared base client and user pool service passed to the constructor are not owned by the factory and must be disposed separately once, after every factory instance sharing them has been disposed.
+        /// Performs test clean-up, releasing any persona users/clients held by this instance. The shared base client and user pool service passed to the constructor are not owned by the factory and must be disposed separately once, after every factory instance sharing them has been disposed.
         /// </summary>
         /// <param name="disposing">Disposing.</param>
         protected virtual void Dispose(bool disposing)
@@ -201,12 +201,12 @@ namespace Defra.Imports.Scenarios
             {
                 if (disposing)
                 {
-                    foreach (var lease in this.personaLeases.Values)
+                    foreach (var username in this.personaUsernames.Values)
                     {
-                        this.userPoolService.ReleaseAsync(lease).GetAwaiter().GetResult();
+                        this.userPoolService.ReleaseAsync(username).GetAwaiter().GetResult();
                     }
 
-                    this.personaLeases.Clear();
+                    this.personaUsernames.Clear();
 
                     foreach (var client in this.personaClients.Values)
                     {

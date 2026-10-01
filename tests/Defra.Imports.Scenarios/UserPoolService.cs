@@ -12,9 +12,6 @@ namespace Defra.Imports.Scenarios
     /// </summary>
     public sealed class UserPoolService : IDisposable
     {
-        /// <summary>The maximum time a caller may hold a user before it is automatically returned to the pool.</summary>
-        public static readonly TimeSpan LeaseTimeout = TimeSpan.FromMinutes(5);
-
         private readonly List<Entry> users;
         private readonly IDictionary<Persona, PersonaConfiguration> personaConfigurations;
         private readonly IPersonaConfigurationApplier personaApplicator;
@@ -44,14 +41,14 @@ namespace Defra.Imports.Scenarios
         }
 
         /// <summary>
-        /// Gets a user from the pool with exactly the specified personas, waiting if necessary until one becomes available. A statically assigned user matching the exact persona set is used immediately if one is idle; if no such user exists, or every one of them is already leased, an unassigned user is instead borrowed from the pool and dynamically configured to match, for the duration of the lease. If a statically assigned match exists but all are currently leased, waiting for one of them to free up is raced against waiting for an unassigned user to become free for dynamic configuration, and whichever becomes available first is used. The returned user is leased to the caller for a maximum of <see cref="LeaseTimeout"/>, after which it is automatically returned to the pool and any code holding the lease is signalled that it has been revoked. Dynamically applied configuration remains in place until the user is next leased, at which point it is removed immediately before the next configuration is applied. Callers should call <see cref="ReleaseAsync"/> to return the user to the pool as soon as they are finished with it, which will also signal any holders that the lease has been revoked; if they do not do so within the lease timeout, the user will be returned to the pool automatically when the timeout is exceeded.
+        /// Gets a user from the pool with exactly the specified personas, waiting if necessary until one becomes available. A statically assigned user matching the exact persona set is used immediately if one is idle; if no such user exists, or every one of them is already in use, an unassigned user is instead borrowed from the pool and dynamically configured to match, for the duration the caller holds it. If a statically assigned match exists but all are currently in use, waiting for one of them to free up is raced against waiting for an unassigned user to become free for dynamic configuration, and whichever becomes available first is used. Dynamically applied configuration remains in place until the user is next acquired, at which point it is removed immediately before the next configuration is applied. Callers must call <see cref="ReleaseAsync"/> to return the user to the pool as soon as they are finished with it; there is no automatic reclaim, so a caller that never releases will permanently remove the user from the pool for the remainder of the run.
         /// </summary>
         /// <param name="personas">The personas the returned user must have.</param>
-        /// <returns>A lease on the acquired user.</returns>
+        /// <returns>The username of the acquired user.</returns>
         /// <exception cref="ArgumentException">Thrown if no personas are specified.</exception>
         /// <exception cref="InvalidOperationException">Thrown if no matching users exist.</exception>
         /// <exception cref="TimeoutException">Thrown if waiting for longer than 30 minutes.</exception>
-        public async Task<UserLease> GetAsync(params Persona[] personas)
+        public async Task<string> GetAsync(params Persona[] personas)
         {
             if (personas is null)
             {
@@ -91,7 +88,7 @@ namespace Defra.Imports.Scenarios
 
                 if (unassigned.Count > 0 && staticCandidates.All(e => e.Gate.CurrentCount == 0))
                 {
-                    // Every statically assigned user is currently leased; race waiting for one of them to be
+                    // Every statically assigned user is currently in use; race waiting for one of them to be
                     // released against waiting for an unassigned user to become free for dynamic configuration.
                     candidates = staticCandidates.Concat(unassigned).ToList();
                 }
@@ -119,7 +116,6 @@ namespace Defra.Imports.Scenarios
             cts.Cancel();
 
             var winnerEntry = await winnerTask.ConfigureAwait(false);
-            winnerEntry.MarkAcquired();
 
             foreach (var kvp in tasks.Where(kvp => kvp.Key != winnerEntry))
             {
@@ -140,7 +136,7 @@ namespace Defra.Imports.Scenarios
             {
                 try
                 {
-                    // Strip any leftover configuration from the previous dynamic lease here, right
+                    // Strip any leftover configuration from the previous acquisition here, right
                     // before applying the new one, rather than at release time (which is unreliable).
                     // An unverified entry may carry stale remote configuration from a process that
                     // exited early, so it must be removed defensively regardless of the tracked personas.
@@ -156,58 +152,31 @@ namespace Defra.Imports.Scenarios
                 }
                 catch (Exception)
                 {
-                    winnerEntry.TryClaimRelease();
-                    winnerEntry.OpenGate();
+                    winnerEntry.Gate.Release();
                     throw;
                 }
             }
 
-            // Create a lease CTS with the maximum hold time. If it fires before Release() is called
-            // the gate is returned to the pool automatically and the revocation token is signalled
-            // so any code holding the lease can detect it.
-            var leaseCts = new CancellationTokenSource(LeaseTimeout);
-            var lease = new UserLease(winnerEntry.Value, leaseCts);
-
-            leaseCts.Token.Register(() => _ = this.ReleaseEntryAsync(winnerEntry, lease));
-
-            return lease;
+            return winnerEntry.Value;
         }
 
         /// <summary>
-        /// Releases a previously acquired user lease, returning it to the pool and signalling any code holding the lease that it has been revoked. Any dynamically applied persona configuration is left in place until the entry is next leased, at which point it is removed just before the new configuration is applied. If the lease has already expired by the time this method is called, it will have no effect since the user will already have been returned to the pool and any holders will have already been signalled.
+        /// Releases a previously acquired user, returning it to the pool. Any dynamically applied persona configuration is left in place until the entry is next acquired, at which point it is removed just before the new configuration is applied.
         /// </summary>
-        /// <param name="lease">The lease.</param>
+        /// <param name="username">The username of the user to release.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        /// <exception cref="InvalidOperationException">Thrown if the lease is for a user not found in the pool.</exception>
-        public Task ReleaseAsync(UserLease lease)
+        /// <exception cref="InvalidOperationException">Thrown if the username is not found in the pool.</exception>
+        public Task ReleaseAsync(string username)
         {
-            if (lease is null)
+            if (username is null)
             {
                 return Task.CompletedTask;
             }
 
-            var entry = this.users.FirstOrDefault(e => e.Value == lease.Username)
+            var entry = this.users.FirstOrDefault(e => e.Value == username)
                 ?? throw new InvalidOperationException("The provided user does not belong to the pool.");
 
-            return this.ReleaseEntryAsync(entry, lease);
-        }
-
-        private Task ReleaseEntryAsync(Entry entry, UserLease lease)
-        {
-            // Signal first so the revocation token fires before the gate opens, preventing any
-            // new acquirer from seeing a non-revoked token on the old lease object. If this is
-            // being called from the lease timeout callback then the token has already been cancelled,
-            // so the lease must remain marked as expired rather than explicitly released.
-            if (!lease.RevocationToken.IsCancellationRequested)
-            {
-                lease.SignalRevoked();
-            }
-
-            // Only proceed if the lease timer has not already done so.
-            if (entry.TryClaimRelease())
-            {
-                entry.OpenGate();
-            }
+            entry.Gate.Release();
 
             return Task.CompletedTask;
         }
@@ -227,8 +196,6 @@ namespace Defra.Imports.Scenarios
 
         private sealed class Entry
         {
-            private int acquireCount;
-
             /// <summary>
             /// Initializes a new instance of the <see cref="Entry"/> class with the specified value and personas.
             /// </summary>
@@ -256,37 +223,6 @@ namespace Defra.Imports.Scenarios
             public bool PersonaStateVerified { get; set; }
 
             public SemaphoreSlim Gate { get; } = new SemaphoreSlim(1, 1);
-
-            public void MarkAcquired()
-            {
-                Interlocked.Increment(ref this.acquireCount);
-            }
-
-            /// <summary>
-            /// Attempts to claim responsibility for releasing this entry. Returns <c>true</c> if this call claimed it (and the caller must eventually call <see cref="OpenGate"/>);
-            /// <c>false</c> if it was already claimed by a concurrent caller (e.g. a concurrent lease expiry).
-            /// </summary>
-            public bool TryClaimRelease()
-            {
-                var remaining = Interlocked.Decrement(ref this.acquireCount);
-
-                if (remaining < 0)
-                {
-                    // Already claimed — restore the counter and report back without throwing.
-                    Interlocked.Increment(ref this.acquireCount);
-                    return false;
-                }
-
-                return true;
-            }
-
-            /// <summary>
-            /// Opens the gate, making this entry available to the next caller. Must only be called after a successful <see cref="TryClaimRelease"/>.
-            /// </summary>
-            public void OpenGate()
-            {
-                this.Gate.Release();
-            }
         }
     }
 }

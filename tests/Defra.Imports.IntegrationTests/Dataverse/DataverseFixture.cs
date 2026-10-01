@@ -8,7 +8,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse
     using Microsoft.PowerPlatform.Dataverse.Client;
 
     /// <summary>
-    /// Provides the shared Dataverse connection and user pool used by integration tests. A new <see cref="ServiceClientFactory"/> must be constructed per test from <see cref="BaseClient"/> and <see cref="UserPoolService"/> (see <see cref="IntegrationTests"/>) so persona leases are tracked and released independently per test.
+    /// Provides the shared Dataverse connection and user pool used by integration tests. A new <see cref="ServiceClientFactory"/> must be constructed per test from <see cref="BaseClient"/> and <see cref="UserPoolService"/> (see <see cref="IntegrationTests"/>) so persona clients are tracked and released independently per test.
     /// </summary>
     public static class DataverseFixture
     {

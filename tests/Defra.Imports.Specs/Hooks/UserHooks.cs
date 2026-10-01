@@ -14,33 +14,25 @@
     {
         private readonly ScenarioUserClient scenarioUserClient;
         private readonly IReqnrollOutputHelper outputHelper;
-        private readonly ScenarioContext scenarioContext;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserHooks"/> class.
         /// </summary>
         /// <param name="scenarioUserClient">The scenario's user pool client.</param>
         /// <param name="outputHelper">The output helper.</param>
-        /// <param name="scenarioContext">The scenario context.</param>
-        public UserHooks(ScenarioUserClient scenarioUserClient, IReqnrollOutputHelper outputHelper, ScenarioContext scenarioContext)
+        public UserHooks(ScenarioUserClient scenarioUserClient, IReqnrollOutputHelper outputHelper)
         {
             this.scenarioUserClient = scenarioUserClient;
             this.outputHelper = outputHelper;
-            this.scenarioContext = scenarioContext;
         }
 
         /// <summary>
-        /// Removes the user from the users in use list and fails the scenario if the lease was
-        /// automatically revoked due to the lease timeout being exceeded.
+        /// Removes the user from the users in use list, returning it to the pool.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [AfterScenario(Order = -100000)]
         public async Task RemoveUserFromUsersInUse()
         {
-            // Check for a stored lease revocation error before releasing, so the scenario is
-            // failed with the original revocation message rather than a generic cleanup error.
-            this.scenarioContext.TryGetValue(ScenarioContextKeys.LeaseRevokedErrorKey, out LeaseRevokedException leaseError);
-
             try
             {
                 await this.scenarioUserClient.ReleaseAsync();
@@ -52,11 +44,6 @@
             finally
             {
                 this.scenarioUserClient.Dispose();
-            }
-
-            if (leaseError != null)
-            {
-                this.outputHelper.WriteLine(leaseError.Message);
             }
         }
     }

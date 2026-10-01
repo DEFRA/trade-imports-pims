@@ -34,6 +34,7 @@
         private readonly ServiceClient serviceClient;
         private readonly TestContext testContext;
         private readonly IReqnrollOutputHelper outputHelper;
+        private readonly ServiceClientFactory clientFactory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginSteps"/> class.
@@ -48,7 +49,7 @@
         /// <param name="serviceClient">The service client.</param>
         /// <param name="testContext">The test context.</param>
         /// <param name="outputHelper">The output helper.</param>
-        public LoginSteps(IPowerPlaywright powerPlaywright, IPlaywright playwright, IObjectContainer objectContainer, Config.TestConfiguration testConfig, ScenarioUserClient userPool, PowerPlaywrightContext powerPlaywrightCtx, ScenarioContext ctx, ServiceClient serviceClient, TestContext testContext, IReqnrollOutputHelper outputHelper)
+        public LoginSteps(IPowerPlaywright powerPlaywright, IPlaywright playwright, IObjectContainer objectContainer, Config.TestConfiguration testConfig, ScenarioUserClient userPool, PowerPlaywrightContext powerPlaywrightCtx, ScenarioContext ctx, ServiceClient serviceClient, TestContext testContext, IReqnrollOutputHelper outputHelper, ServiceClientFactory clientFactory)
         {
             this.powerPlaywright = powerPlaywright;
             this.playwright = playwright;
@@ -60,6 +61,7 @@
             this.serviceClient = serviceClient;
             this.testContext = testContext;
             this.outputHelper = outputHelper;
+            this.clientFactory = clientFactory;
         }
 
         /// <summary>
@@ -70,7 +72,9 @@
         [Given(@"I am logged in to the 'EU Imports' app as {string}")]
         public async Task GivenIAmLoggedInToTheEuImportsAppAs(string userAlias)
         {
-            var credentials = await this.userPool.GetAsync(this.ResolvePersonas(userAlias).ToArray());
+            var personas = this.ResolvePersonas(userAlias).ToArray();
+            var credentials = await this.userPool.GetAsync(personas);
+            var client = await this.clientFactory.GetClientAsync(personas);
 
             await this.LoginAndSetContextAsync(credentials.Username, credentials.Password);
         }

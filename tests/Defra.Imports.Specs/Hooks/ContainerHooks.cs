@@ -116,7 +116,7 @@
         }
 
         /// <summary>
-        /// Registers a fresh <see cref="ServiceClientFactory"/> for the scenario, so persona clients/leases it obtains are tracked and released independently of other scenarios sharing the same underlying connection.
+        /// Registers a fresh <see cref="ServiceClientFactory"/> for the scenario, so persona clients it obtains are tracked and released independently of other scenarios sharing the same underlying connection.
         /// </summary>
         [BeforeScenario(Order = -19999)]
         public void RegisterScenarioClientFactory()
@@ -138,17 +138,15 @@
         }
 
         /// <summary>
-        /// Registers a fresh <see cref="ScenarioUserClient"/> for the scenario, wired to this scenario's output helper and context.
+        /// Registers a fresh <see cref="ScenarioUserClient"/> for the scenario, wired to this scenario's output helper.
         /// </summary>
         [BeforeScenario(Order = -9999)]
         public void RegisterScenarioUserClient()
         {
-            var scenarioContext = this.objectContainer.Resolve<ScenarioContext>();
             var testConfiguration = this.objectContainer.Resolve<TestConfiguration>();
             var scenarioUserClient = new ScenarioUserClient(this.objectContainer.Resolve<UserPoolService>(), testConfiguration.Credentials);
 
             scenarioUserClient.Logged += this.outputHelper.WriteLine;
-            scenarioUserClient.Revoked += ex => scenarioContext[ScenarioContextKeys.LeaseRevokedErrorKey] = ex;
 
             this.objectContainer.RegisterInstanceAs(scenarioUserClient);
         }
