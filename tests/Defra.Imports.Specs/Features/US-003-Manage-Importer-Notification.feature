@@ -30,7 +30,7 @@ Feature: US-003 Manage Import Notification
 # AC-1: Importer Name, Address, Postcode, Telephone, Email.
 Scenario: A Caseworker can update the Importer details
 	Given a precondition Importer Notification exists
-	And I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	And I am logged in to the 'EU Imports' app as "a caseworker"
 	When I have opened "created-importer-notification"
 	And I select the "Importer" tab by its exact name
 	And I enter "Updated Importer Company" in the "Name" field
@@ -45,7 +45,7 @@ Scenario: A Caseworker can update the Importer details
 # AC-1: CPH Number.
 Scenario: A Caseworker can update the CPH Number
 	Given a precondition Importer Notification exists
-	And I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	And I am logged in to the 'EU Imports' app as "a caseworker"
 	When I have opened "created-importer-notification"
 	And I select the "Importer Notification Details" tab by its exact name
 	And I enter "98/765/4321" in the "CPH Number" field
@@ -59,7 +59,7 @@ Scenario: A Caseworker can update the CPH Number
 @us-003-ac1
 Scenario: A Caseworker can update the Charity details
 	Given a precondition Importer Notification exists
-	And I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	And I am logged in to the 'EU Imports' app as "a caseworker"
 	When I have opened "created-importer-notification"
 	And I select the "Importer Notification Details" tab by its exact name
 	And I toggle the "Importing From Charity" field to "True"
@@ -76,7 +76,7 @@ Scenario: A Caseworker can update the Charity details
 # Countries of Transit is realised as Route Transiting States on the Transporter tab.
 Scenario: A Caseworker can update the Consignment Country of Origin and Countries of Transit
 	Given a precondition Importer Notification exists
-	And I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	And I am logged in to the 'EU Imports' app as "a caseworker"
 	When I have opened "created-importer-notification"
 	And I select the "Transporter" tab by its exact name
 	And I enter "France, Belgium" in the "Route Transiting States" field
@@ -89,7 +89,7 @@ Scenario: A Caseworker can update the Consignment Country of Origin and Countrie
 # AC-1: Place of Destination (Contact Name, Address, Postcode, Telephone, Email).
 Scenario: A Caseworker can update the Place of Destination details
 	Given a precondition Importer Notification exists
-	And I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	And I am logged in to the 'EU Imports' app as "a caseworker"
 	When I have opened "created-importer-notification"
 	And I select the "Place of Destination" tab by its exact name
 	And I enter "Updated Destination Contact" in the "Name" field
@@ -107,7 +107,7 @@ Scenario: A Caseworker can update the Place of Destination details
 # Premises of Origin is realised as the Place of Origin tab.
 Scenario: A Caseworker can update the Premises of Origin details
 	Given a precondition Importer Notification exists
-	And I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	And I am logged in to the 'EU Imports' app as "a caseworker"
 	When I have opened "created-importer-notification"
 	And I select the "Place of Origin" tab by its exact name
 	And I enter "Updated Premises of Origin" in the "Name" field
@@ -119,7 +119,7 @@ Scenario: A Caseworker can update the Premises of Origin details
 # AC-1: Transporter (Name, Address, Postcode, Telephone, Email).
 Scenario: A Caseworker can update the Transporter details
 	Given a precondition Importer Notification exists
-	And I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	And I am logged in to the 'EU Imports' app as "a caseworker"
 	When I have opened "created-importer-notification"
 	And I select the "Transporter" tab by its exact name
 	And I enter "Updated Transporter" in the "Name" field
@@ -136,7 +136,7 @@ Scenario: A Caseworker can update the Transporter details
 @ac-coverage @us-003-ac1
 Scenario: AC-1 field coverage for an Import Notification
 	Given a precondition Importer Notification exists
-	And I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	And I am logged in to the 'EU Imports' app as "a caseworker"
 	When I have opened "created-importer-notification"
 	And I attempt to populate the fields required by "AC-1"
 		| Tab                          | Field                           | Value                       |
@@ -157,7 +157,7 @@ Scenario: AC-1 field coverage for an Import Notification
 # defraimp_importernotification, so creation is reported as a known defect.
 @ac-coverage @us-003-ac1
 Scenario: AC-1 create coverage for an Import Notification
-	Given I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	Given I am logged in to the 'EU Imports' app as "a caseworker"
 	And I navigate to "Case Management" -> "Case Management" -> "Importer Notifications"
 	Then I verify a Caseworker can create a new record from the view for "AC-1"
 
@@ -166,7 +166,7 @@ Scenario: AC-1 create coverage for an Import Notification
 #       ordered by creation date (newest first), showing the listed columns.
 # ---------------------------------------------------------------------------
 Scenario: The Import Notifications list is ordered by creation date newest first
-	Given I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	Given I am logged in to the 'EU Imports' app as "a caseworker"
 	And I navigate to "Case Management" -> "Case Management" -> "Importer Notifications"
 	Then the view is sorted by the "Created On" column in descending order
 
@@ -175,7 +175,7 @@ Scenario: The Import Notifications list is ordered by creation date newest first
 # checked, so the report lists all of the columns the view does not provide.
 @ac-coverage @us-003-ac2
 Scenario: AC-2 list coverage for Import Notifications
-	Given I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	Given I am logged in to the 'EU Imports' app as "a caseworker"
 	And I navigate to "Case Management" -> "Case Management" -> "Importer Notifications"
 	Then I verify the sort order required by "AC-2" is the "Created On" column in descending order
 	And I verify the columns required by "AC-2" in the "Active Importer Notifications" view
@@ -193,7 +193,7 @@ Scenario: AC-2 list coverage for Import Notifications
 @ac-coverage @us-003-ac3
 Scenario: AC-3 free text search coverage for Import Notifications
 	Given a precondition Importer Notification exists
-	And I am logged in to the 'EU Imports' app as "EU Imports Caseworker"
+	And I am logged in to the 'EU Imports' app as "a caseworker"
 	And I navigate to "Case Management" -> "Case Management" -> "Importer Notifications"
 	When I search the current view using each criterion required by "AC-3"
 		| Search criterion           |
