@@ -97,14 +97,14 @@ namespace Defra.Imports.Scenarios
         /// <exception cref="InvalidOperationException">Thrown if no user pool service has been configured.</exception>
         public async Task<ServiceClient> GetClientAsync(params Persona[] personas)
         {
-            if (this.userPoolService is null)
-            {
-                throw new InvalidOperationException("No user pool service has been configured for this factory.");
-            }
-
             if (personas is null)
             {
                 throw new ArgumentNullException(nameof(personas));
+            }
+
+            if (personas.Length == 0)
+            {
+                throw new ArgumentException("At least one persona must be specified.", nameof(personas));
             }
 
             var key = PersonaSetKey.Create(personas);
@@ -115,6 +115,21 @@ namespace Defra.Imports.Scenarios
             }
 
             this.logger?.LogInformation($"Getting client for personas: {string.Join(", ", personas)}.");
+
+            var appId = GetAppIdForPersonas(personas);
+            if (appId.HasValue)
+            {
+                var client = this.baseClient.Clone();
+                client.CallerId = GetApplicationUserId(appId.Value);
+                this.personaClients[key] = client;
+                this.personaUsernames[key] = appId.Value.ToString();
+                return client;
+            }
+
+            if (this.userPoolService is null)
+            {
+                throw new InvalidOperationException("No user pool service has been configured for this factory.");
+            }
 
             var username = await this.userPoolService.GetAsync(personas).ConfigureAwait(false);
             ServiceClient impersonatedClient = null;

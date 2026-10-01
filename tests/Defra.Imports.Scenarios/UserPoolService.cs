@@ -35,16 +35,7 @@ namespace Defra.Imports.Scenarios
             this.personaConfigurations = personaConfigurations ?? throw new ArgumentNullException(nameof(personaConfigurations));
             this.personaApplicator = personaApplicator ?? throw new ArgumentNullException(nameof(personaApplicator));
 
-            var appIds = this.personaConfigurations
-                .Values
-                .Where(p => p.AppId.HasValue)
-                .Select(p => p.AppId.Value.ToString())
-                .Distinct(StringComparer.OrdinalIgnoreCase)
-                .ToList();
-
             this.users = usernames
-                .Concat(appIds)
-                .Distinct(StringComparer.OrdinalIgnoreCase)
                 .Select(u => new Entry(u, this.GetAssignedPersonas(u)))
                 .ToList();
         }
