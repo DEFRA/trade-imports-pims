@@ -99,6 +99,7 @@ namespace Defra.Imports.Specs.Services
                     }
                 }
             }
+        }
 
         /// <inheritdoc/>
         public void Dispose()
