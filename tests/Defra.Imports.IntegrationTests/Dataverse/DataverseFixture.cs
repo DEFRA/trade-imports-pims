@@ -52,7 +52,9 @@ namespace Defra.Imports.IntegrationTests.Dataverse
                 // ownership is passed to the applier, which disposes it, cascading from UserPoolService.Dispose().
                 var poolServiceClient = new ServiceClient(config.Url, config.ClientId.ToString(), config.ClientSecret, true);
                 var applier = new PersonaConfigurationApplier(poolServiceClient);
-                UserPoolService = new UserPoolService(config.Credentials ?? Enumerable.Empty<string>(), config.Personas, applier);
+                var staticUsers = config.Personas.Values.Where(p => p.Users != null).SelectMany(p => p.Users);
+                var usernames = staticUsers.Concat(config.Credentials ?? Enumerable.Empty<string>()).Distinct();
+                UserPoolService = new UserPoolService(usernames, config.Personas, applier);
             }
         }
 

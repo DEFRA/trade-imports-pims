@@ -16,7 +16,7 @@ namespace Defra.Imports.Scenarios
         /// <returns>The key.</returns>
         public static string Create(IEnumerable<Persona> personas)
         {
-            return string.Join(",", personas.Select(p => p.ToString()).OrderBy(p => p, StringComparer.Ordinal));
+            return string.Join(",", personas.Select(p => p.ToString()).Distinct().OrderBy(p => p, StringComparer.Ordinal));
         }
     }
 }
