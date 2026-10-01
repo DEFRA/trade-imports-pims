@@ -3,6 +3,7 @@ namespace Defra.Imports.Scenarios.Extensions
     using System;
     using System.Collections.Concurrent;
     using System.Linq;
+    using System.Threading;
     using System.Threading.Tasks;
     using Defra.Imports.Model;
     using Microsoft.PowerPlatform.Dataverse.Client;
@@ -36,7 +37,27 @@ namespace Defra.Imports.Scenarios.Extensions
                 throw new ArgumentException($"'{nameof(username)}' cannot be null or empty.", nameof(username));
             }
 
-            return UserIdCache.GetOrAdd(username, key => RetrieveUserIdCoreAsync(serviceClient, key));
+            return UserIdCache.GetOrAdd(username, key =>
+            {
+                var lookupTask = RetrieveUserIdCoreAsync(serviceClient, key);
+                EvictOnFailure(key, lookupTask);
+                return lookupTask;
+            });
+        }
+
+        private static void EvictOnFailure(string username, Task<Guid> lookupTask)
+        {
+            lookupTask.ContinueWith(
+                completed =>
+                {
+                    if (completed.IsFaulted || completed.IsCanceled)
+                    {
+                        UserIdCache.TryRemove(new KeyValuePair<string, Task<Guid>>(username, completed));
+                    }
+                },
+                CancellationToken.None,
+                TaskContinuationOptions.ExecuteSynchronously,
+                TaskScheduler.Default);
         }
 
         private static async Task<Guid> RetrieveUserIdCoreAsync(ServiceClient serviceClient, string username)
