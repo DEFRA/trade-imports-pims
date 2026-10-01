@@ -5,7 +5,6 @@
     using System.Threading.Tasks;
     using Defra.Imports.Scenarios;
     using Defra.Imports.Scenarios.Logging;
-    using Defra.Imports.Specs;
     using Defra.Imports.Specs.Services;
     using Microsoft.Extensions.Logging;
     using Microsoft.Playwright;

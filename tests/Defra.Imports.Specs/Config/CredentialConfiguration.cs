@@ -1,4 +1,4 @@
-namespace Defra.Imports.Scenarios.Config
+namespace Defra.Imports.Specs.Config
 {
     using System;
 

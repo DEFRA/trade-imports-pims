@@ -5,7 +5,7 @@ namespace Defra.Imports.Specs.Services
     using System.Linq;
     using System.Threading.Tasks;
     using Defra.Imports.Scenarios;
-    using Defra.Imports.Scenarios.Config;
+    using Defra.Imports.Specs.Config;
 
     /// <summary>
     /// A client for acquiring users from the user pool within a scenario, which manages the acquired user(s) and ensures they are released back to the pool when the scenario is finished. Callers should acquire users through this class rather than directly through <see cref="UserPoolService"/> to ensure proper cleanup. Distinct persona (or persona-set) requests are acquired and cached independently, so multiple different personas can be held concurrently. Instances are intended to be created once per scenario.
