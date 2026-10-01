@@ -80,19 +80,25 @@ namespace Defra.Imports.Specs.Services
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         public async Task ReleaseAsync()
         {
-            List<string> usernames;
+            List<KeyValuePair<string, string>> users;
             lock (this.usernamesByKeyLock)
             {
-                usernames = this.usernamesByKey.Values.ToList();
-                this.usernamesByKey.Clear();
+                users = this.usernamesByKey.ToList();
             }
 
-            foreach (var username in usernames)
+            foreach (var user in users)
             {
-                this.Logged?.Invoke("Releasing user with username: " + username);
-                await this.userPoolService.ReleaseAsync(username).ConfigureAwait(false);
+                this.Logged?.Invoke("Releasing user with username: " + user.Value);
+                await this.userPoolService.ReleaseAsync(user.Value).ConfigureAwait(false);
+
+                lock (this.usernamesByKeyLock)
+                {
+                    if (this.usernamesByKey.TryGetValue(user.Key, out var currentUsername) && currentUsername == user.Value)
+                    {
+                        this.usernamesByKey.Remove(user.Key);
+                    }
+                }
             }
-        }
 
         /// <inheritdoc/>
         public void Dispose()
