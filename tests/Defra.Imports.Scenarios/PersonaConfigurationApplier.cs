@@ -86,19 +86,26 @@ namespace Defra.Imports.Scenarios
         }
 
         /// <summary>
-        /// Retrieves the Dataverse system user ID for the given username, for use by callers (such as <see cref="ServiceClientFactory"/>) that need to impersonate a leased user.
+        /// Retrieves the Dataverse system user ID for the given identifier, for use by callers (such as <see cref="ServiceClientFactory"/>) that need to impersonate a leased user. The identifier is treated as an application ID if it parses as a <see cref="Guid"/> (the identifier used for application personas configured via <see cref="PersonaConfiguration.AppId"/>), and as a domain name otherwise.
         /// </summary>
         /// <param name="serviceClient">The service client used to query Dataverse.</param>
-        /// <param name="username">The domain name of the user.</param>
+        /// <param name="username">The domain name of the user, or the application ID of an application user.</param>
         /// <returns>The system user ID.</returns>
         internal static Task<Guid> RetrieveUserIdAsync(ServiceClient serviceClient, string username)
         {
+            var isApplicationId = Guid.TryParse(username, out var applicationId);
+
             var query = new QueryExpression(SystemUser.EntityLogicalName)
             {
                 ColumnSet = new ColumnSet(false),
                 Criteria = new FilterExpression
                 {
-                    Conditions = { new ConditionExpression(SystemUser.Fields.DomainName, ConditionOperator.Equal, username) },
+                    Conditions =
+                    {
+                        isApplicationId
+                            ? new ConditionExpression(SystemUser.Fields.ApplicationId, ConditionOperator.Equal, applicationId)
+                            : new ConditionExpression(SystemUser.Fields.DomainName, ConditionOperator.Equal, username),
+                    },
                 },
             };
 
