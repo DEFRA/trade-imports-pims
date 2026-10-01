@@ -2,6 +2,7 @@ namespace Defra.Imports.Scenarios.Extensions
 {
     using System;
     using System.Collections.Concurrent;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
@@ -37,12 +38,18 @@ namespace Defra.Imports.Scenarios.Extensions
                 throw new ArgumentException($"'{nameof(username)}' cannot be null or empty.", nameof(username));
             }
 
-            return UserIdCache.GetOrAdd(username, key =>
+            Task<Guid> lookupTask = null;
+            var resultTask = UserIdCache.GetOrAdd(username, key => lookupTask = RetrieveUserIdCoreAsync(serviceClient, key));
+
+            // Only register eviction if our task actually won insertion into the dictionary; otherwise
+            // there is nothing to evict, and the task may already be completed (even synchronously
+            // faulted), which would cause the continuation below to run before the entry exists.
+            if (ReferenceEquals(resultTask, lookupTask))
             {
-                var lookupTask = RetrieveUserIdCoreAsync(serviceClient, key);
-                EvictOnFailure(key, lookupTask);
-                return lookupTask;
-            });
+                EvictOnFailure(username, lookupTask);
+            }
+
+            return resultTask;
         }
 
         private static void EvictOnFailure(string username, Task<Guid> lookupTask)
@@ -52,7 +59,8 @@ namespace Defra.Imports.Scenarios.Extensions
                 {
                     if (completed.IsFaulted || completed.IsCanceled)
                     {
-                        UserIdCache.TryRemove(new KeyValuePair<string, Task<Guid>>(username, completed));
+                        ((ICollection<KeyValuePair<string, Task<Guid>>>)UserIdCache).Remove(
+                            new KeyValuePair<string, Task<Guid>>(username, completed));
                     }
                 },
                 CancellationToken.None,
