@@ -23,13 +23,13 @@
     [Binding]
     public sealed class ContainerHooks
     {
-        private readonly IObjectContainer objectContainer;
-        private readonly IReqnrollOutputHelper outputHelper;
-
         // Not registered in the container: the container already holds a per-scenario ServiceClient (the
         // app user client registered by RegisterAppUserClient), so registering this shared connection under
         // the same type would clash with it.
         private static ServiceClient sharedBaseClient;
+
+        private readonly IObjectContainer objectContainer;
+        private readonly IReqnrollOutputHelper outputHelper;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ContainerHooks"/> class.
@@ -48,7 +48,7 @@
         /// <param name="testThreadContainer">The test thread container.</param>
         /// <param name="testConfiguration">The test configuration.</param>
         [BeforeTestRun(Order = -19999)]
-        public static void RegisterClientFactory(ObjectContainer testThreadContainer, TestConfiguration testConfiguration)
+        public static void RegisterUserPoolService(ObjectContainer testThreadContainer, TestConfiguration testConfiguration)
         {
             sharedBaseClient = ServiceClientFactory.CreateBaseClient(testConfiguration.Url, testConfiguration.ClientId, testConfiguration.ClientSecret);
 
