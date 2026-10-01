@@ -93,7 +93,6 @@
         [When("I navigate to {string} -> {string} -> {string}")]
         public async Task WhenIOpenTheSubAreaUnderTheArea(string area, string group, string page)
         {
-            await clientFactory.ReleaseClientAsync();
             this.powerPlaywrightCtx.Validate();
 
             this.powerPlaywrightCtx.ActivePage = await this.powerPlaywrightCtx.ActivePage.SiteMap
