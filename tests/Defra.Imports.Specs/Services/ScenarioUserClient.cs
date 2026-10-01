@@ -61,10 +61,15 @@ namespace Defra.Imports.Specs.Services
 
             lock (this.leasesByKeyLock)
             {
-                if (this.leasesByKey.TryGetValue(key, out var cachedLease))
-                {
-                    return this.GetCredentials(cachedLease);
-                }
+if (this.leasesByKey.TryGetValue(key, out var cachedLease))
+{
+    if (!cachedLease.RevocationToken.IsCancellationRequested)
+    {
+        return this.GetCredentials(cachedLease);
+    }
+
+    this.leasesByKey.Remove(key);
+}
             }
 
             this.Logged?.Invoke("Waiting for user with personas: " + string.Join(", ", personas));
