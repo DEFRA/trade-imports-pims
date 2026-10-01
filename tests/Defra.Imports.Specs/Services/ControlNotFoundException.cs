@@ -6,13 +6,14 @@ namespace Defra.Imports.Specs.Services
     /// The exception that is thrown when a form does not contain a control that a test expected.
     /// </summary>
     /// <remarks>
-    /// This is deliberately distinct from a general <see cref="InvalidOperationException"/> so that
-    /// tests can tell the difference between a control that the solution does not implement, which
-    /// is reportable as a known defect, and a genuine failure to interact with a control that does
-    /// exist.
+    /// This is deliberately a distinct type so that tests can tell the difference between a control
+    /// that the solution does not implement, which is reportable as a known defect, and a genuine
+    /// failure to interact with a control that does exist. It derives from
+    /// <see cref="InvalidOperationException"/> so that existing callers which fall back to quick
+    /// view forms on that type continue to do so.
     /// </remarks>
     [Serializable]
-    public class ControlNotFoundException : Exception
+    public class ControlNotFoundException : InvalidOperationException
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ControlNotFoundException"/> class.

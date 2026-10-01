@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Defra.Imports.Scenarios.Extensions;
     using Defra.Imports.Specs.Extensions;
     using Defra.Imports.Specs.Services;
     using FluentAssertions;
@@ -209,16 +210,10 @@
             (await this.EntityListPage.DataSet.IsVisibleAsync())
                 .Should().BeTrue("the list view should be displayed.");
 
-            List<string> actualColumns;
-
             try
             {
                 await this.EntityListPage.DataSet.SwitchViewAsync(viewName);
                 await this.EntityListPage.DataSet.Container.GetByText(viewName).WaitForAsync();
-
-                actualColumns = (await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetColumnNamesAsync())
-                    .Select(c => c.Trim())
-                    .ToList();
             }
             catch (Exception ex)
             {
@@ -233,6 +228,12 @@
 
                 return;
             }
+
+            // A failure to read the grid is a genuine test failure, not a missing column, so it is
+            // deliberately left to propagate.
+            var actualColumns = (await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetColumnNamesAsync())
+                .Select(c => c.Trim())
+                .ToList();
 
             foreach (var column in requiredColumns)
             {
@@ -263,13 +264,13 @@
         public async Task ThenIVerifyTheSortOrderRequiredBy(string acceptanceCriterion, string columnName, ColumnSortOrder order)
         {
             var requirement = $"Sorted by '{columnName}' ({order})";
-            var expected = $"The view is sorted by '{columnName}' in {order} order.";
+            var expected = $"The view is sorted primarily by '{columnName}' in {order} order.";
 
             try
             {
                 var sortOrders = await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetSortOrdersAsync();
 
-                if (sortOrders.Contains(new ColumnSortSpec(columnName, order)))
+                if (sortOrders.FirstOrDefault().Equals(new ColumnSortSpec(columnName, order)))
                 {
                     this.defectRecorder.RecordVerified(acceptanceCriterion, requirement);
                 }
@@ -425,20 +426,7 @@
                 throw new InvalidOperationException($"Unable to find {ScenarioContextKeys.CreatedImporterNotificationSearchToken} or {ScenarioContextKeys.CreatedImporterNotificationReferenceNumber} in scenario context.");
             }
 
-            var foundMatch = false;
-            for (var attempt = 0; attempt < 10 && !foundMatch; attempt++)
-            {
-                var rows = await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetRowDataAsync();
-                foundMatch = rows.Any(r => r.Values.Any(v =>
-                    !string.IsNullOrWhiteSpace(v) &&
-                    v.IndexOf(searchToken, StringComparison.OrdinalIgnoreCase) >= 0));
-
-                if (!foundMatch)
-                {
-                    await Task.Delay(2000);
-                    await this.EntityListPage.DataSet.Container.Page.WaitForAppIdleAsync();
-                }
-            }
+            var foundMatch = await this.CurrentViewContainsAsync(searchToken, retryCount: 10);
 
             foundMatch.Should().BeTrue($"Expected to find search token '{searchToken}' in current view results.");
         }
@@ -462,13 +450,25 @@
                 throw new InvalidOperationException($"Unable to find {ScenarioContextKeys.CreatedImporterNotificationSearchValues} in scenario context.");
             }
 
+            if (!this.scenarioContext.TryGetValue<string>(ScenarioContextKeys.CreatedImporterNotificationReferenceNumber, out var referenceNumber))
+            {
+                throw new InvalidOperationException($"Unable to find {ScenarioContextKeys.CreatedImporterNotificationReferenceNumber} in scenario context.");
+            }
+
             foreach (var row in criteria.Rows)
             {
                 var criterion = row["Search criterion"];
                 var requirement = $"Free text search by {criterion}";
                 var expected = $"Searching by {criterion} returns the matching Importer Notification.";
 
-                if (!searchValues.TryGetValue(criterion, out var searchToken) || string.IsNullOrWhiteSpace(searchToken))
+                if (!searchValues.TryGetValue(criterion, out var searchToken))
+                {
+                    throw new InvalidOperationException($"Unable to find a seeded search value for '{criterion}' in scenario context.");
+                }
+
+                // An empty seeded value means the solution has no attribute able to hold the value,
+                // so the criterion cannot be searched at all.
+                if (string.IsNullOrWhiteSpace(searchToken))
                 {
                     this.defectRecorder.RecordDefect(
                         acceptanceCriterion,
@@ -479,26 +479,23 @@
                     continue;
                 }
 
-                try
-                {
-                    await this.SearchCurrentViewAsync(searchToken);
+                // Failures interacting with the search box or the grid are genuine test failures
+                // rather than unimplemented requirements, so they are left to propagate.
+                await this.SearchCurrentViewAsync(searchToken);
 
-                    if (await this.CurrentViewContainsAsync(searchToken))
-                    {
-                        this.defectRecorder.RecordVerified(acceptanceCriterion, requirement);
-                    }
-                    else
-                    {
-                        this.defectRecorder.RecordDefect(
-                            acceptanceCriterion,
-                            requirement,
-                            expected,
-                            $"Searching for '{searchToken}' returned no matching record. The quick find view does not search this field.");
-                    }
-                }
-                catch (Exception ex)
+                // The record is identified by its unique reference number rather than the search
+                // token, so an unrelated record that happens to contain the token cannot pass.
+                if (await this.CurrentViewContainsAsync(referenceNumber))
                 {
-                    this.defectRecorder.RecordDefect(acceptanceCriterion, requirement, expected, ex.Message.Split('\r', '\n').FirstOrDefault());
+                    this.defectRecorder.RecordVerified(acceptanceCriterion, requirement);
+                }
+                else
+                {
+                    this.defectRecorder.RecordDefect(
+                        acceptanceCriterion,
+                        requirement,
+                        expected,
+                        $"Searching for '{searchToken}' did not return the record '{referenceNumber}'. The quick find view does not search this field.");
                 }
             }
         }
@@ -507,25 +504,21 @@
         /// Determines whether the current view contains a row matching the search token.
         /// </summary>
         /// <param name="searchToken">The search token.</param>
+        /// <param name="retryCount">The maximum number of attempts before giving up.</param>
         /// <returns>A <see cref="Task"/> that resolves to true when a matching row is found.</returns>
-        private async Task<bool> CurrentViewContainsAsync(string searchToken)
+        private async Task<bool> CurrentViewContainsAsync(string searchToken, int retryCount = 5)
         {
-            for (var attempt = 0; attempt < 5; attempt++)
-            {
-                var rows = await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetRowDataAsync();
-
-                if (rows.Any(r => r.Values.Any(v =>
-                    !string.IsNullOrWhiteSpace(v) &&
-                    v.IndexOf(searchToken, StringComparison.OrdinalIgnoreCase) >= 0)))
+            return await RetryExtensions.WaitUntilAsync(
+                async () =>
                 {
-                    return true;
-                }
+                    var rows = await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetRowDataAsync();
 
-                await Task.Delay(2000);
-                await this.EntityListPage.DataSet.Container.Page.WaitForAppIdleAsync();
-            }
-
-            return false;
+                    return rows.Any(r => r.Values.Any(v =>
+                        !string.IsNullOrWhiteSpace(v) &&
+                        v.IndexOf(searchToken, StringComparison.OrdinalIgnoreCase) >= 0));
+                },
+                betweenAttempts: () => this.EntityListPage.DataSet.Container.Page.WaitForAppIdleAsync(),
+                retryCount: retryCount);
         }
 
         private async Task SearchCurrentViewAsync(string searchToken)

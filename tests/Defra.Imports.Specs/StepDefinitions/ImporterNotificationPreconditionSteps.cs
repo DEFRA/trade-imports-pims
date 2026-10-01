@@ -52,9 +52,9 @@ namespace Defra.Imports.Specs.StepDefinitions
             var animalProductId = $"AUTO-ANIMAL-{uniqueSuffix}";
 
             // US-003 AC-3 names a Permanent Destination Name as a searchable field. There is no
-            // permanent destination name attribute on defraimp_importernotification, so the value
-            // below cannot be seeded against the record and no search can match it.
-            var permanentDestinationName = $"Auto Permanent Destination {uniqueSuffix}";
+            // permanent destination name attribute on defraimp_importernotification, so no value
+            // can be seeded. An empty value marks the criterion as unsupportable by test data.
+            var permanentDestinationName = string.Empty;
 
             var importerNotification = new Entity(defraimp_ImporterNotification.EntityLogicalName)
             {

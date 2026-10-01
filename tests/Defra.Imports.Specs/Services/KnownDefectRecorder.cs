@@ -7,7 +7,6 @@ namespace Defra.Imports.Specs.Services
     using System.Text;
     using System.Threading.Tasks;
     using Defra.Imports.Specs.Model;
-    using Microsoft.Playwright;
     using PowerPlaywright.Framework;
     using Reqnroll;
 
@@ -171,13 +170,6 @@ namespace Defra.Imports.Specs.Services
                 // The form XML contains no control with the requested label.
                 case ControlNotFoundException _:
                     return true;
-
-                // The control is bound but never renders, so it cannot be interacted with.
-                case TimeoutException _:
-                    return true;
-                case PlaywrightException playwrightEx:
-                    return playwrightEx.Message.IndexOf("Timeout", StringComparison.OrdinalIgnoreCase) >= 0
-                        || playwrightEx.Message.IndexOf("strict mode violation", StringComparison.OrdinalIgnoreCase) >= 0;
 
                 // A command or tab named by the acceptance criteria is not present on the page.
                 // Matched narrowly so that other Power Playwright faults still fail the test.

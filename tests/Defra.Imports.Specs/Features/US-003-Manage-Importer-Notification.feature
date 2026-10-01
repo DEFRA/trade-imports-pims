@@ -1,3 +1,4 @@
+@issue:IMTA-5869
 Feature: US-003 Manage Import Notification
 	As an EU Imports Caseworker
 	I want to create, update, list and search Import Notifications
@@ -132,7 +133,8 @@ Scenario: A Caseworker can update the Transporter details
 
 # AC-1 coverage. Every field named by AC-1 that is not proven by the scenarios above
 # is attempted here. Fields the solution does not provide are reported as known
-# defects and the remaining fields are still verified.
+# defects and the remaining fields are still verified. The record is saved so that the
+# fields that were populated are proven to persist.
 @ac-coverage @us-003-ac1
 Scenario: AC-1 field coverage for an Import Notification
 	Given a precondition Importer Notification exists
@@ -152,6 +154,9 @@ Scenario: AC-1 field coverage for an Import Notification
 		| Commodity                    | Intended Use of Commodity       | Breeding                    |
 		| Transporter                  | Port / Airport of Entry         | Dover                       |
 		| Importer Notification Details | Animal / Product IDs           | UK123456789012              |
+		| Place of Origin              | Country                         | France                      |
+	And I save the record
+	Then the record is saved successfully
 
 # AC-1 create half. The EU Imports Caseworker role has no prvCreate privilege on
 # defraimp_importernotification, so creation is reported as a known defect.
@@ -168,6 +173,7 @@ Scenario: AC-1 create coverage for an Import Notification
 Scenario: The Import Notifications list is ordered by creation date newest first
 	Given I am logged in to the 'EU Imports' app as "a caseworker"
 	And I navigate to "Case Management" -> "Case Management" -> "Importer Notifications"
+	When I switch to the "Active Importer Notifications" view
 	Then the view is sorted by the "Created On" column in descending order
 
 # AC-2 coverage. The AC names the columns that must be visible. It does not constrain
@@ -177,6 +183,7 @@ Scenario: The Import Notifications list is ordered by creation date newest first
 Scenario: AC-2 list coverage for Import Notifications
 	Given I am logged in to the 'EU Imports' app as "a caseworker"
 	And I navigate to "Case Management" -> "Case Management" -> "Importer Notifications"
+	When I switch to the "Active Importer Notifications" view
 	Then I verify the sort order required by "AC-2" is the "Created On" column in descending order
 	And I verify the columns required by "AC-2" in the "Active Importer Notifications" view
 		| Date of Import | Premises of Origin Country | Species / Product (Common Name) | Reference Number | Importer Name | Importer Telephone | Importer Email | Port / Airport of Entry |
@@ -195,7 +202,8 @@ Scenario: AC-3 free text search coverage for Import Notifications
 	Given a precondition Importer Notification exists
 	And I am logged in to the 'EU Imports' app as "a caseworker"
 	And I navigate to "Case Management" -> "Case Management" -> "Importer Notifications"
-	When I search the current view using each criterion required by "AC-3"
+	When I switch to the "Active Importer Notifications" view
+	And I search the current view using each criterion required by "AC-3"
 		| Search criterion           |
 		| Importer Name              |
 		| Charity Name               |

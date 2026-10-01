@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
+    using Defra.Imports.Specs.Services;
     using Microsoft.Playwright;
     using PowerPlaywright.Framework.Controls.Pcf.Classes;
     using PowerPlaywright.Framework.Controls.Platform;
@@ -85,7 +86,7 @@
                     await mainForm.Container.Page.WaitForAppIdleAsync();
 
                     var flyoutItem = mainForm.Container.Page
-                        .GetByRole(AriaRole.Menuitem, new PageGetByRoleOptions { Name = tabName })
+                        .GetByRole(AriaRole.Menuitem, new PageGetByRoleOptions { Name = tabName, Exact = true })
                         .First;
 
                     if (await flyoutItem.IsVisibleAsync())
@@ -105,7 +106,7 @@
 
             var available = await mainForm.Container.GetByRole(AriaRole.Tab).AllTextContentsAsync();
 
-            throw new InvalidOperationException(
+            throw new ControlNotFoundException(
                 $"Unable to find a tab named '{tabName}' on the form. Tabs actually rendered: [{string.Join(" | ", available)}].");
         }
 

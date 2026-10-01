@@ -362,7 +362,7 @@
 
                 return true;
             }
-            catch (Exception ex)
+            catch (ControlNotFoundException ex)
             {
                 foreach (var fieldName in fieldNames)
                 {
