@@ -209,7 +209,7 @@ namespace Defra.Imports.Scenarios
                 return null;
             }
 
-            if (appIdMatches.Count != requested.Count)
+            if (appIdMatches.Any(appId => !appId.HasValue))
             {
                 throw new InvalidOperationException("Application-user personas cannot be combined with pooled personas in the same request.");
             }
