@@ -73,6 +73,7 @@
         /// <param name="alias">The alias of the record in the test data service.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Given("I have opened {string}")]
+        [When("I have opened {string}")]
         public async Task GivenIHaveOpened(string alias)
         {
             this.powerPlaywrightCtx.Validate();
@@ -90,6 +91,7 @@
         /// <param name="page">The page within the group to navigate to.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Given("I have navigated to {string} -> {string} -> {string}")]
+        [Given("I navigate to {string} -> {string} -> {string}")]
         [When("I navigate to {string} -> {string} -> {string}")]
         public async Task WhenIOpenTheSubAreaUnderTheArea(string area, string group, string page)
         {
