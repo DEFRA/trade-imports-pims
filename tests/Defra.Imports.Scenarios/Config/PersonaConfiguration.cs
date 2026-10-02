@@ -1,4 +1,4 @@
-﻿namespace Defra.Imports.Specs.Config
+namespace Defra.Imports.Scenarios.Config
 {
     using System;
     using System.Collections.Generic;

@@ -5,7 +5,6 @@
     using System.Threading.Tasks;
     using Defra.Imports.Scenarios;
     using Defra.Imports.Scenarios.Logging;
-    using Defra.Imports.Specs;
     using Defra.Imports.Specs.Services;
     using Microsoft.Extensions.Logging;
     using Microsoft.Playwright;
@@ -23,6 +22,11 @@
     [Binding]
     public sealed class ContainerHooks
     {
+        // Not registered in the container: the container already holds a per-scenario ServiceClient (the
+        // app user client registered by RegisterAppUserClient), so registering this shared connection under
+        // the same type would clash with it.
+        private static ServiceClient sharedBaseClient;
+
         private readonly IObjectContainer objectContainer;
         private readonly IReqnrollOutputHelper outputHelper;
 
@@ -38,20 +42,22 @@
         }
 
         /// <summary>
-        /// Initialises a static client factory.
+        /// Initialises the shared base client and the user pool it uses to resolve persona-based clients, for the whole test run.
         /// </summary>
         /// <param name="testThreadContainer">The test thread container.</param>
         /// <param name="testConfiguration">The test configuration.</param>
         [BeforeTestRun(Order = -19999)]
-        public static void RegisterClientFactory(ObjectContainer testThreadContainer, TestConfiguration testConfiguration)
+        public static void RegisterUserPoolService(ObjectContainer testThreadContainer, TestConfiguration testConfiguration)
         {
-            var clientFactory = new ServiceClientFactory(
-                testConfiguration.Url,
-                testConfiguration.ClientId,
-                testConfiguration.ClientSecret,
-                testConfiguration.Personas.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Users != null && kvp.Value.Users.Any() ? kvp.Value.Users : new string[] { kvp.Value.AppId.ToString() }));
+            sharedBaseClient = ServiceClientFactory.CreateBaseClient(testConfiguration.Url, testConfiguration.ClientId, testConfiguration.ClientSecret);
 
-            testThreadContainer.RegisterInstanceAs(clientFactory);
+            // A separate connection to build the user pool rather than the shared base client, since
+            // ownership is passed to the applier, which disposes it, cascading from UserPoolService.Dispose().
+            var poolServiceClient = new ServiceClient(testConfiguration.Url, testConfiguration.ClientId.ToString(), testConfiguration.ClientSecret, true);
+            var applier = new PersonaConfigurationApplier(poolServiceClient);
+            var userPoolService = new UserPoolService(testConfiguration.Credentials.Select(c => c.Username), testConfiguration.Personas, applier);
+
+            testThreadContainer.RegisterInstanceAs(userPoolService);
         }
 
         /// <summary>
@@ -61,8 +67,7 @@
         [BeforeTestRun(Order = -19998)]
         public static void RegisterAssemblyHookClient(ObjectContainer testThreadContainer)
         {
-            testThreadContainer.RegisterInstanceAs(
-                testThreadContainer.Resolve<ServiceClientFactory>().GetAppUserClient());
+            testThreadContainer.RegisterInstanceAs(sharedBaseClient.Clone());
         }
 
         /// <summary>
@@ -82,22 +87,6 @@
         }
 
         /// <summary>
-        /// Registers the <see cref="UserPoolService"/> object.
-        /// </summary>
-        /// <param name="testThreadContainer">The container.</param>
-        [BeforeTestRun]
-        public static void RegisterUserPoolService(ObjectContainer testThreadContainer)
-        {
-            var testConfiguration = testThreadContainer.Resolve<TestConfiguration>();
-            var serviceClient = testThreadContainer.Resolve<ServiceClient>();
-
-            testThreadContainer.RegisterInstanceAs(new UserPoolService(
-                testConfiguration.Credentials,
-                testConfiguration.Personas,
-                new PersonaConfigurationApplier(serviceClient)));
-        }
-
-        /// <summary>
         /// Disposes the assembly hook client.
         /// </summary>
         /// <param name="testThreadContainer">The test thread container.</param>
@@ -108,6 +97,32 @@
             {
                 testThreadContainer.Resolve<ServiceClient>().Dispose();
             }
+        }
+
+        /// <summary>
+        /// Disposes the shared user pool service and base client, once every scenario on this thread has finished.
+        /// </summary>
+        /// <param name="testThreadContainer">The test thread container.</param>
+        [AfterTestRun(Order = 1000000)]
+        public static void DisposeSharedConnection(ObjectContainer testThreadContainer)
+        {
+            if (testThreadContainer.IsRegistered<UserPoolService>())
+            {
+                testThreadContainer.Resolve<UserPoolService>().Dispose();
+            }
+
+            sharedBaseClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Registers a fresh <see cref="ServiceClientFactory"/> for the scenario, so persona clients it obtains are tracked and released independently of other scenarios sharing the same underlying connection.
+        /// </summary>
+        [BeforeScenario(Order = -19999)]
+        public void RegisterScenarioClientFactory()
+        {
+            var userPoolService = this.objectContainer.Resolve<UserPoolService>();
+
+            this.objectContainer.RegisterInstanceAs(new ServiceClientFactory(sharedBaseClient, userPoolService));
         }
 
         /// <summary>
@@ -122,15 +137,17 @@
         }
 
         /// <summary>
-        /// Registers the <see cref="UserPoolClient"/> object.
+        /// Registers a fresh <see cref="ScenarioUserClient"/> for the scenario, wired to this scenario's output helper.
         /// </summary>
-        [BeforeScenario]
-        public void RegisterUserPoolClient()
+        [BeforeScenario(Order = -9999)]
+        public void RegisterScenarioUserClient()
         {
-            this.objectContainer.RegisterInstanceAs(new UserPoolClient(
-                this.objectContainer.Resolve<UserPoolService>(),
-                this.objectContainer.Resolve<IReqnrollOutputHelper>(),
-                this.objectContainer.Resolve<ScenarioContext>()));
+            var testConfiguration = this.objectContainer.Resolve<TestConfiguration>();
+            var scenarioUserClient = new ScenarioUserClient(this.objectContainer.Resolve<UserPoolService>(), testConfiguration.Credentials);
+
+            scenarioUserClient.Logged += this.outputHelper.WriteLine;
+
+            this.objectContainer.RegisterInstanceAs(scenarioUserClient);
         }
 
         /// <summary>
@@ -192,6 +209,22 @@
             catch (Exception ex)
             {
                 this.outputHelper.WriteLine($"An error occurred while disposing the app user client: {ex.Message}.");
+            }
+        }
+
+        /// <summary>
+        /// Disposes the scenario's <see cref="ServiceClientFactory"/>, releasing any persona leases/clients it obtained. The shared base client and user pool service are unaffected.
+        /// </summary>
+        [AfterScenario(Order = 20000)]
+        public void DisposeClientFactory()
+        {
+            try
+            {
+                this.objectContainer.Resolve<ServiceClientFactory>().Dispose();
+            }
+            catch (Exception ex)
+            {
+                this.outputHelper.WriteLine($"An error occurred while disposing the client factory: {ex.Message}.");
             }
         }
     }

@@ -95,7 +95,7 @@ actually being verified.
 - Each scenario builds only the data it needs, scoped to newly-created
   records (via faked IDs/GUIDs) - never depends on another scenario's leftover
   state.
-- Persona/user assignment goes through a **user pool** (`UserPoolClient`) so
+- Persona/user assignment goes through a **user pool** (`ScenarioUserClient`) so
   scenarios can run in parallel without colliding on the same Dataverse user.
 - Read-only reference/master data (e.g. currencies, categories, locations) is seeded
   once as part of the seed data import during deployment, not per test run or per scenario,

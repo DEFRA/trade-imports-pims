@@ -5,5 +5,6 @@
       <Workers>8</Workers>
       <Scope>MethodLevel</Scope>
     </Parallelize>
+    <TestTimeout>300000</TestTimeout>
   </MSTest>
 </RunSettings>

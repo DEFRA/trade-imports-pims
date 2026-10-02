@@ -3,6 +3,7 @@ namespace Defra.Imports.IntegrationTests
     using System;
     using System.Configuration;
     using System.IO;
+    using System.Threading.Tasks;
     using Azure.Extensions.AspNetCore.Configuration.Secrets;
     using Azure.Identity;
     using Azure.Security.KeyVault.Secrets;
@@ -31,6 +32,9 @@ namespace Defra.Imports.IntegrationTests
         /// </summary>
         internal static readonly TestConfiguration TestConfig;
 
+        // A new instance is constructed per test (MSTest constructs a new test class instance per test method),
+        // since persona clients are tracked on the factory's own instance fields.
+        private readonly ServiceClientFactory clientFactory = new ServiceClientFactory(DataverseFixture.BaseClient, DataverseFixture.UserPoolService);
         private ILogger logger;
 
         /// <summary>
@@ -63,6 +67,16 @@ namespace Defra.Imports.IntegrationTests
         }
 
         /// <summary>
+        /// Releases any persona client acquired via <see cref="GetClientAsync(Persona[])"/> during the test, returning its borrowed user to the pool.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [TestCleanup]
+        public async Task ReleasePersonaClientAsync()
+        {
+            await this.clientFactory.ReleaseClientAsync();
+        }
+
+        /// <summary>
         /// Gets a <see cref="ServiceClient"/> instance authenticated with the configured application user.
         /// </summary>
         /// <returns>A <see cref="ServiceClient"/> instance authenticated as the configured application user.</returns>
@@ -81,13 +95,13 @@ namespace Defra.Imports.IntegrationTests
         }
 
         /// <summary>
-        /// Gets a <see cref="ServiceClient"/> instance authenticated as the given persona.
+        /// Gets a <see cref="ServiceClient"/> instance authenticated as a user with exactly the given personas.
         /// </summary>
-        /// <param name="persona">The user persona to authenticate.</param>
-        /// <returns>A <see cref="ServiceClient"/> instance authenticated as the given persona.</returns>
-        protected ServiceClient GetClient(Persona persona)
+        /// <param name="personas">The personas the leased user must have.</param>
+        /// <returns>A <see cref="ServiceClient"/> instance authenticated as a user with the given personas.</returns>
+        protected Task<ServiceClient> GetClientAsync(params Persona[] personas)
         {
-            return DataverseFixture.GetClient(persona);
+            return this.clientFactory.GetClientAsync(personas);
         }
 
         /// <summary>

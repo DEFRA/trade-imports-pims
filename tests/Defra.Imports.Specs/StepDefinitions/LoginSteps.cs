@@ -28,7 +28,7 @@
         private readonly IPlaywright playwright;
         private readonly IObjectContainer objectContainer;
         private readonly Config.TestConfiguration testConfig;
-        private readonly UserPoolClient userPool;
+        private readonly ScenarioUserClient userPool;
         private readonly PowerPlaywrightContext powerPlaywrightCtx;
         private readonly ScenarioContext ctx;
         private readonly ServiceClient serviceClient;
@@ -48,7 +48,7 @@
         /// <param name="serviceClient">The service client.</param>
         /// <param name="testContext">The test context.</param>
         /// <param name="outputHelper">The output helper.</param>
-        public LoginSteps(IPowerPlaywright powerPlaywright, IPlaywright playwright, IObjectContainer objectContainer, Config.TestConfiguration testConfig, UserPoolClient userPool, PowerPlaywrightContext powerPlaywrightCtx, ScenarioContext ctx, ServiceClient serviceClient, TestContext testContext, IReqnrollOutputHelper outputHelper)
+        public LoginSteps(IPowerPlaywright powerPlaywright, IPlaywright playwright, IObjectContainer objectContainer, Config.TestConfiguration testConfig, ScenarioUserClient userPool, PowerPlaywrightContext powerPlaywrightCtx, ScenarioContext ctx, ServiceClient serviceClient, TestContext testContext, IReqnrollOutputHelper outputHelper)
         {
             this.powerPlaywright = powerPlaywright;
             this.playwright = playwright;
@@ -70,7 +70,7 @@
         [Given(@"I am logged in to the 'EU Imports' app as {string}")]
         public async Task GivenIAmLoggedInToTheEuImportsAppAs(string userAlias)
         {
-            var credentials = await this.userPool.GetAsync(this.ResolvePersonas(userAlias));
+            var credentials = await this.userPool.GetAsync(this.ResolvePersonas(userAlias).ToArray());
 
             await this.LoginAndSetContextAsync(credentials.Username, credentials.Password);
         }
@@ -84,7 +84,7 @@
         public async Task GivenIAmLoggedInToTheEuImportsAppAsWithNoOtherRoles(string userAlias)
         {
             var persona = this.ResolveSinglePersona(userAlias);
-            var credentials = await this.userPool.GetAsync(new[] { persona });
+            var credentials = await this.userPool.GetAsync(persona);
 
             await this.LoginAndSetContextAsync(credentials.Username, credentials.Password);
         }

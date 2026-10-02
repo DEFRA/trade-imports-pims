@@ -2,14 +2,12 @@ namespace Defra.Imports.Scenarios
 {
     using System;
     using System.Collections.Generic;
-    using System.Configuration;
     using System.Linq;
     using System.Threading;
-    using Defra.Imports.Model;
-    using Microsoft.Extensions.Configuration;
+    using System.Threading.Tasks;
+    using Defra.Imports.Scenarios.Extensions;
     using Microsoft.Extensions.Logging;
     using Microsoft.PowerPlatform.Dataverse.Client;
-    using Microsoft.Xrm.Sdk.Query;
 
     /// <summary>
     /// Base integration test class.
@@ -18,20 +16,38 @@ namespace Defra.Imports.Scenarios
     {
         private readonly ServiceClient baseClient;
         private readonly ILogger logger;
-        private readonly IDictionary<Persona, IEnumerator<Guid>> personaUserEnumerators;
-        private readonly IDictionary<Persona, IEnumerable<string>> personaMappings;
+        private readonly UserPoolService userPoolService;
+
+        // Plain fields, not AsyncLocal: a new factory instance must be constructed per test (see
+        // CreateBaseClient), so this cache is never shared between tests and needs no ambient-context isolation.
+        private readonly Dictionary<string, ServiceClient> personaClients = new Dictionary<string, ServiceClient>();
+        private readonly Dictionary<string, string> personaUsernames = new Dictionary<string, string>();
+        private readonly HashSet<string> appUserPersonaKeys = new HashSet<string>();
 
         private bool disposedValue;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ServiceClientFactory"/> class.
+        /// Initializes a new instance of the <see cref="ServiceClientFactory"/> class. Construct a new instance for every test; <paramref name="baseClient"/> and <paramref name="userPoolService"/> should instead be created once (see <see cref="CreateBaseClient"/>) and shared across every instance, since they are not owned or disposed by the factory.
+        /// </summary>
+        /// <param name="baseClient">The shared base <see cref="ServiceClient"/> connection that persona and app user clients are cloned from. Not owned by the factory - the caller remains responsible for disposing it once, after every factory instance sharing it has been disposed.</param>
+        /// <param name="userPoolService">The shared user pool service used to resolve persona-based clients via <see cref="GetClientAsync(Persona[])"/>. May be <c>null</c> if persona-based clients are not required. Not owned by the factory - the caller remains responsible for disposing it once, after every factory instance sharing it has been disposed.</param>
+        /// <param name="logger">The logger.</param>
+        public ServiceClientFactory(ServiceClient baseClient, UserPoolService userPoolService = null, ILogger logger = null)
+        {
+            this.baseClient = baseClient ?? throw new ArgumentNullException(nameof(baseClient));
+            this.userPoolService = userPoolService;
+            this.logger = logger;
+        }
+
+        /// <summary>
+        /// Creates the shared base <see cref="ServiceClient"/> connection that every <see cref="ServiceClientFactory"/> instance for a test run is constructed from, applying the recommended connection tuning once.
         /// </summary>
         /// <param name="url">The environment URL.</param>
         /// <param name="clientId">The client ID of the application user.</param>
         /// <param name="clientSecret">The client secret of the application user.</param>
-        /// <param name="personaMappings">Mappings from personas to user emails or application IDs.</param>
         /// <param name="logger">The logger.</param>
-        public ServiceClientFactory(Uri url, Guid clientId, string clientSecret, IDictionary<Persona, IEnumerable<string>> personaMappings = null, ILogger logger = null)
+        /// <returns>The base <see cref="ServiceClient"/>, to be shared across every <see cref="ServiceClientFactory"/> instance for the test run and disposed once, after every instance has been disposed.</returns>
+        public static ServiceClient CreateBaseClient(Uri url, Guid clientId, string clientSecret, ILogger logger = null)
         {
             if (url is null)
             {
@@ -47,10 +63,7 @@ namespace Defra.Imports.Scenarios
             OptimiseThreads();
             OptimiseConnections();
 
-            this.logger = logger;
-            this.baseClient = new ServiceClient(url, clientId.ToString(), clientSecret, true, logger);
-            this.personaMappings = personaMappings;
-            this.personaUserEnumerators = this.GetPersonaUserEnumerators(this.personaMappings);
+            return new ServiceClient(url, clientId.ToString(), clientSecret, true, logger);
         }
 
         /// <summary>
@@ -60,40 +73,6 @@ namespace Defra.Imports.Scenarios
         public ServiceClient GetAppUserClient()
         {
             return this.baseClient.Clone();
-        }
-
-        /// <summary>
-        /// Gets a <see cref="ServiceClient"/> instance authenticated as the given persona.
-        /// </summary>
-        /// <param name="persona">The user persona to authenticate.</param>
-        /// <returns>A <see cref="ServiceClient"/> instance authenticated as the given persona.</returns>
-        public ServiceClient GetClient(Persona persona)
-        {
-            this.logger?.LogInformation($"Getting client for persona: {persona}.");
-
-            if (!this.personaUserEnumerators.TryGetValue(persona, out var enumerator))
-            {
-                throw new ConfigurationErrorsException($"No users have been configured for the {persona} persona.");
-            }
-
-            Guid nextCallerId;
-            lock (enumerator)
-            {
-                if (!enumerator.MoveNext())
-                {
-                    enumerator.Reset();
-                    enumerator.MoveNext();
-                }
-
-                nextCallerId = enumerator.Current;
-            }
-
-            var impersonatedClient = this.baseClient.Clone();
-            impersonatedClient.CallerId = nextCallerId;
-
-            this.logger?.LogInformation($"Authenticated as caller ID: {nextCallerId}.");
-
-            return impersonatedClient;
         }
 
         /// <summary>
@@ -114,6 +93,118 @@ namespace Defra.Imports.Scenarios
         }
 
         /// <summary>
+        /// Gets a <see cref="ServiceClient"/> instance authenticated as a user with exactly the given personas, borrowing a user from the configured <see cref="UserPoolService"/>. Distinct persona combinations are acquired and cached independently on this instance, so this method may be called for several different combinations without releasing in between - the caller is responsible for retaining each client for the duration it is needed and eventually calling <see cref="ReleaseClientAsync"/>, rather than the factory disposing them early.
+        /// </summary>
+        /// <param name="personas">The personas the returned user must have.</param>
+        /// <returns>A <see cref="ServiceClient"/> instance authenticated as a user with the given personas.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if no user pool service has been configured.</exception>
+        public async Task<ServiceClient> GetClientAsync(params Persona[] personas)
+        {
+            if (personas is null)
+            {
+                throw new ArgumentNullException(nameof(personas));
+            }
+
+            if (personas.Length == 0)
+            {
+                throw new ArgumentException("At least one persona must be specified.", nameof(personas));
+            }
+
+            var key = PersonaSetKey.Create(personas);
+
+            if (this.personaClients.TryGetValue(key, out var existingClient))
+            {
+                return existingClient;
+            }
+
+            this.logger?.LogInformation($"Getting client for personas: {string.Join(", ", personas)}.");
+
+            var appId = this.userPoolService?.TryGetAppId(personas);
+            if (appId.HasValue)
+            {
+                var systemUserId = await this.baseClient.RetrieveUserIdAsync(appId.Value.ToString()).ConfigureAwait(false);
+                var client = this.baseClient.Clone();
+                client.CallerId = systemUserId;
+                this.personaClients[key] = client;
+                this.personaUsernames[key] = appId.Value.ToString();
+                this.appUserPersonaKeys.Add(key);
+                this.logger?.LogInformation($"Authenticated as application user ID: {systemUserId}.");
+                return client;
+            }
+
+            if (this.userPoolService is null)
+            {
+                throw new InvalidOperationException("No user pool service has been configured for this factory.");
+            }
+
+            var username = await this.userPoolService.GetAsync(personas).ConfigureAwait(false);
+            ServiceClient impersonatedClient = null;
+
+            try
+            {
+                var systemUserId = await this.baseClient.RetrieveUserIdAsync(username).ConfigureAwait(false);
+
+                impersonatedClient = this.baseClient.Clone();
+                impersonatedClient.CallerId = systemUserId;
+
+                this.personaClients[key] = impersonatedClient;
+                this.personaUsernames[key] = username;
+
+                this.logger?.LogInformation($"Authenticated as caller ID: {systemUserId}.");
+
+                return impersonatedClient;
+            }
+            catch
+            {
+                this.personaClients.Remove(key);
+                this.personaUsernames.Remove(key);
+
+                if (impersonatedClient != null)
+                {
+                    impersonatedClient.Dispose();
+                }
+
+                try
+                {
+                    await this.userPoolService.ReleaseAsync(username).ConfigureAwait(false);
+                }
+                catch
+                {
+                    // Preserve the original creation failure while still releasing any acquired user if possible.
+                }
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Releases every persona client currently held by this instance (via <see cref="GetClientAsync(Persona[])"/>), returning their users to the pool and disposing the clients. Factory instances used by other tests are unaffected.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        public async Task ReleaseClientAsync()
+        {
+            if (this.personaUsernames.Count == 0)
+            {
+                return;
+            }
+
+            foreach (var kvp in this.personaUsernames.Where(kvp => !this.appUserPersonaKeys.Contains(kvp.Key)))
+            {
+                await this.userPoolService.ReleaseAsync(kvp.Value).ConfigureAwait(false);
+            }
+
+            this.personaUsernames.Clear();
+            this.appUserPersonaKeys.Clear();
+
+            foreach (var client in this.personaClients.Values)
+            {
+                client.Dispose();
+            }
+
+            this.personaClients.Clear();
+        }
+
+        /// <summary>
         /// Disposes the test class.
         /// </summary>
         public void Dispose()
@@ -123,7 +214,7 @@ namespace Defra.Imports.Scenarios
         }
 
         /// <summary>
-        /// Performs test clean-up.
+        /// Performs test clean-up, releasing any persona users/clients held by this instance. The shared base client and user pool service passed to the constructor are not owned by the factory and must be disposed separately once, after every factory instance sharing them has been disposed.
         /// </summary>
         /// <param name="disposing">Disposing.</param>
         protected virtual void Dispose(bool disposing)
@@ -132,7 +223,20 @@ namespace Defra.Imports.Scenarios
             {
                 if (disposing)
                 {
-                    this.baseClient.Dispose();
+                    foreach (var kvp in this.personaUsernames.Where(kvp => !this.appUserPersonaKeys.Contains(kvp.Key)))
+                    {
+                        this.userPoolService.ReleaseAsync(kvp.Value).GetAwaiter().GetResult();
+                    }
+
+                    this.personaUsernames.Clear();
+                    this.appUserPersonaKeys.Clear();
+
+                    foreach (var client in this.personaClients.Values)
+                    {
+                        client.Dispose();
+                    }
+
+                    this.personaClients.Clear();
                 }
 
                 this.disposedValue = true;
@@ -149,63 +253,6 @@ namespace Defra.Imports.Scenarios
             System.Net.ServicePointManager.DefaultConnectionLimit = 65000;
             System.Net.ServicePointManager.Expect100Continue = false;
             System.Net.ServicePointManager.UseNagleAlgorithm = false;
-        }
-
-        private IDictionary<Persona, IEnumerator<Guid>> GetPersonaUserEnumerators(IDictionary<Persona, IEnumerable<string>> personaIdentifiers)
-        {
-            this.logger?.LogInformation("Retrieving persona users.");
-
-            if (personaIdentifiers == null)
-            {
-                return new Dictionary<Persona, IEnumerator<Guid>>();
-            }
-
-            var applicationIds = personaIdentifiers
-                .SelectMany(p => p.Value)
-                .Where(p => Guid.TryParse(p, out _))
-                .Distinct()
-                .ToArray<object>();
-
-            var usernames = personaIdentifiers
-                .SelectMany(p => p.Value)
-                .Where(v => !string.IsNullOrEmpty(v))
-                .Except(applicationIds)
-                .Distinct()
-                .ToArray();
-
-            var query = new QueryExpression(SystemUser.EntityLogicalName)
-            {
-                ColumnSet = new ColumnSet(SystemUser.Fields.DomainName, SystemUser.Fields.ApplicationId),
-                Criteria = new FilterExpression(LogicalOperator.Or)
-                {
-                    Conditions =
-                            {
-                                new ConditionExpression(
-                                    SystemUser.Fields.DomainName,
-                                    ConditionOperator.In,
-                                    usernames),
-                            },
-                },
-            };
-
-            if (applicationIds.Length != 0)
-            {
-                query.Criteria.AddCondition(
-                    new ConditionExpression(
-                        SystemUser.Fields.ApplicationId,
-                        ConditionOperator.In,
-                        applicationIds));
-            }
-
-            var users = this.baseClient.RetrieveMultiple(query).Entities;
-
-            var userIdsByIdentifier = users.ToDictionary(
-                 e => e.Contains(SystemUser.Fields.ApplicationId) ? e[SystemUser.Fields.ApplicationId].ToString() : e[SystemUser.Fields.DomainName].ToString(),
-                 e => e.GetAttributeValue<Guid>(SystemUser.Fields.SystemUserId));
-
-            return personaIdentifiers.ToDictionary(
-                kvp => kvp.Key,
-                kvp => kvp.Value.Where(i => !string.IsNullOrEmpty(i)).Select(i => userIdsByIdentifier[i]).ToList().AsEnumerable().GetEnumerator());
         }
     }
 }

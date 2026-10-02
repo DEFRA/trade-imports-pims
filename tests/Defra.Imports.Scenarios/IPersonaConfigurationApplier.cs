@@ -1,13 +1,14 @@
-namespace Defra.Imports.Specs.Services
+namespace Defra.Imports.Scenarios
 {
+    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Defra.Imports.Specs.Config;
+    using Defra.Imports.Scenarios.Config;
 
     /// <summary>
     /// Applies and removes persona configuration (business unit, security roles, teams and column security profiles) on Dataverse users.
     /// </summary>
-    internal interface IPersonaConfigurationApplier
+    public interface IPersonaConfigurationApplier : IDisposable
     {
         /// <summary>
         /// Applies the combined configuration of the given personas to the specified user.
