@@ -90,27 +90,839 @@
           },
           "else": {
             "actions": {
-              "Dead-letter_the_message_in_a_queue": {
+              "Parse_JSON": {
                 "runAfter": {},
                 "metadata": {
-                  "operationMetadataId": "00ec2c9f-d48f-455c-ae69-463ef1dd900c"
+                  "operationMetadataId": "4f2b14a4-0e25-49bb-b540-31c45dcac2e6"
                 },
-                "type": "OpenApiConnection",
+                "type": "ParseJson",
                 "inputs": {
-                  "host": {
-                    "connectionName": "shared_servicebus",
-                    "operationId": "DeadLetterMessageInQueue",
-                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_servicebus"
-                  },
-                  "parameters": {
-                    "queueName": "defra.trade.imp.notification.upsert",
-                    "lockToken": "@triggerOutputs()?['body/LockToken']",
-                    "deadLetterReason": "Failed to upsert importer notification",
-                    "deadLetterErrorDescription": "@outputs('Perform_an_unbound_action')?['body/ResponseDetail']",
-                    "sessionId": "@triggerOutputs()?['body/SessionId']"
-                  },
-                  "authentication": "@parameters('$authentication')"
+                  "content": "@json(decodeBase64(triggerOutputs()?['body/ContentData']))",
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "eventId": {
+                        "type": "string"
+                      },
+                      "aggregateType": {
+                        "type": "string"
+                      },
+                      "subType": {
+                        "type": "string"
+                      },
+                      "aggregateId": {
+                        "type": "string"
+                      },
+                      "aggregateVersion": {
+                        "type": "integer"
+                      },
+                      "eventType": {
+                        "type": "string"
+                      },
+                      "timestamp": {
+                        "type": "string"
+                      },
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "$model": {
+                            "type": "string"
+                          },
+                          "$type": {
+                            "type": "string"
+                          },
+                          "exchangedDocument": {
+                            "type": "object",
+                            "properties": {
+                              "identifier": {
+                                "type": "string"
+                              },
+                              "traderAssignedId": {
+                                "type": "string"
+                              },
+                              "notificationStatusCode": {
+                                "type": "string"
+                              },
+                              "versionId": {
+                                "type": "integer"
+                              },
+                              "issueDateTime": {
+                                "type": "string"
+                              },
+                              "firstSignatoryAuthentication": {
+                                "type": "object",
+                                "properties": {
+                                  "includedClause": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "identifier": {
+                                          "type": "string"
+                                        },
+                                        "content": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "referenceDocument": {
+                                "type": "array"
+                              }
+                            }
+                          },
+                          "specifiedConsignment": {
+                            "type": "object",
+                            "properties": {
+                              "consignorParty": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "partyTypeCode": {
+                                    "type": "array"
+                                  },
+                                  "postalAddress": {
+                                    "type": "object",
+                                    "properties": {
+                                      "lineOne": {
+                                        "type": "string"
+                                      },
+                                      "cityName": {
+                                        "type": "string"
+                                      },
+                                      "countryId": {
+                                        "type": "string"
+                                      },
+                                      "postcodeCode": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "definedContact": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "telephoneUniversalCommunication": {
+                                          "type": "string"
+                                        },
+                                        "emailURIUniversalCommunication": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "consigneeParty": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "partyTypeCode": {
+                                    "type": "array"
+                                  },
+                                  "postalAddress": {
+                                    "type": "object",
+                                    "properties": {
+                                      "lineOne": {
+                                        "type": "string"
+                                      },
+                                      "cityName": {
+                                        "type": "string"
+                                      },
+                                      "countryId": {
+                                        "type": "string"
+                                      },
+                                      "postcodeCode": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "definedContact": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "telephoneUniversalCommunication": {
+                                          "type": "string"
+                                        },
+                                        "emailURIUniversalCommunication": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "despatchParty": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "partyTypeCode": {
+                                    "type": "array"
+                                  },
+                                  "postalAddress": {
+                                    "type": "object",
+                                    "properties": {
+                                      "lineOne": {
+                                        "type": "string"
+                                      },
+                                      "cityName": {
+                                        "type": "string"
+                                      },
+                                      "countryId": {
+                                        "type": "string"
+                                      },
+                                      "postcodeCode": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "definedContact": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "telephoneUniversalCommunication": {
+                                          "type": "string"
+                                        },
+                                        "emailURIUniversalCommunication": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "deliveryParty": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "partyTypeCode": {
+                                    "type": "array"
+                                  },
+                                  "postalAddress": {
+                                    "type": "object",
+                                    "properties": {
+                                      "lineOne": {
+                                        "type": "string"
+                                      },
+                                      "cityName": {
+                                        "type": "string"
+                                      },
+                                      "countryId": {
+                                        "type": "string"
+                                      },
+                                      "postcodeCode": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "definedContact": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "telephoneUniversalCommunication": {
+                                          "type": "string"
+                                        },
+                                        "emailURIUniversalCommunication": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "importer": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "partyTypeCode": {
+                                    "type": "array"
+                                  },
+                                  "postalAddress": {
+                                    "type": "object",
+                                    "properties": {
+                                      "lineOne": {
+                                        "type": "string"
+                                      },
+                                      "cityName": {
+                                        "type": "string"
+                                      },
+                                      "countryId": {
+                                        "type": "string"
+                                      },
+                                      "postcodeCode": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "definedContact": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "telephoneUniversalCommunication": {
+                                          "type": "string"
+                                        },
+                                        "emailURIUniversalCommunication": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "carrier": {
+                                "type": "object",
+                                "properties": {
+                                  "identifier": {
+                                    "type": "string"
+                                  },
+                                  "urlId": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "partyTypeCode": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "string"
+                                        },
+                                        "urlId": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "postalAddress": {
+                                    "type": "object",
+                                    "properties": {
+                                      "lineOne": {
+                                        "type": "string"
+                                      },
+                                      "lineTwo": {
+                                        "type": "string"
+                                      },
+                                      "countryId": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "definedContact": {
+                                    "type": "array"
+                                  }
+                                }
+                              },
+                              "originCountry": {
+                                "type": "object",
+                                "properties": {
+                                  "code": {
+                                    "type": "object",
+                                    "properties": {
+                                      "value": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "subordinateTradeCountrySubDivision": {
+                                    "type": "object",
+                                    "properties": {
+                                      "identifier": {
+                                        "type": "string"
+                                      },
+                                      "functionTypeCode": {
+                                        "type": "object",
+                                        "properties": {
+                                          "content": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "unloadingBaseportLocation": {
+                                "type": "object",
+                                "properties": {
+                                  "identifier": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "finalDestinationLocation": {
+                                "type": "object",
+                                "properties": {
+                                  "identifier": {
+                                    "type": "string"
+                                  },
+                                  "urlId": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "mainCarriageLogisticsTransportMovement": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "modeCode": {
+                                      "type": "integer"
+                                    },
+                                    "usedLogisticsTransportMeans": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "transportContractRelatedReferencedDocument": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "typeCode": {
+                                            "type": "string"
+                                          },
+                                          "identifier": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "arrivalEvent": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "scheduledOccurrenceDateTime": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "transitTradeCountry": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "code": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "isOrHasUnweanedAnimals": {
+                                "type": "boolean"
+                              },
+                              "includedConsignmentItem": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "includedTradeLineItem": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "applicableClassification": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "systemId": {
+                                                  "type": "string"
+                                                },
+                                                "classCode": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "value": {
+                                                      "type": "string"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "description": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "scientificName": {
+                                            "type": "string"
+                                          },
+                                          "commonName": {
+                                            "type": "string"
+                                          },
+                                          "specifiedLineTradeDelivery": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "productUnitQuantity": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "content": {
+                                                      "type": "integer"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "physicalReferencedLogisticsPackage": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "itemQuantity": {
+                                                  "type": "integer"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "individualTradeProductInstance": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "identifier": {
+                                                  "type": "array",
+                                                  "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "typeCode": {
+                                                        "type": "string"
+                                                      },
+                                                      "content": {
+                                                        "type": "string"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "properties": {
+                          "correlationId": {
+                            "type": "string"
+                          },
+                          "schemaVersion": {
+                            "type": "string"
+                          },
+                          "schemaUri": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "actor": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "userType": {
+                            "type": "string"
+                          },
+                          "displayName": {
+                            "type": "string"
+                          },
+                          "organisationId": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "statusChanges": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "status": {
+                              "type": "string"
+                            },
+                            "dateChanged": {
+                              "type": "string"
+                            },
+                            "actor": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "source": {
+                                  "type": "string"
+                                },
+                                "userType": {
+                                  "type": "string"
+                                },
+                                "displayName": {
+                                  "type": "string"
+                                },
+                                "organisationId": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
+              },
+              "Switch_on_unbound_category": {
+                "runAfter": {
+                  "Parse_JSON": [
+                    "Succeeded"
+                  ]
+                },
+                "cases": {
+                  "Case_-_error": {
+                    "case": "error",
+                    "actions": {
+                      "Dead-letter_the_message_in_a_queue_-_error": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "00ec2c9f-d48f-455c-ae69-463ef1dd900c"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_servicebus",
+                            "operationId": "DeadLetterMessageInQueue",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_servicebus"
+                          },
+                          "parameters": {
+                            "queueName": "defra.trade.imp.notification.upsert",
+                            "lockToken": "@triggerOutputs()?['body/LockToken']",
+                            "deadLetterReason": "Failed to upsert importer notification",
+                            "deadLetterErrorDescription": "@outputs('Perform_an_unbound_action')?['body/ResponseDetail']",
+                            "sessionId": "@triggerOutputs()?['body/SessionId']"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      },
+                      "Add_a_new_row_-_Error_Notification_-_error": {
+                        "runAfter": {
+                          "Dead-letter_the_message_in_a_queue_-_error": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "43364f1b-a656-4137-8f79-a4a4bdde5910"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps",
+                            "operationId": "CreateRecord",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "entityName": "defraimp_importnotificationerrors",
+                            "x-ms-odata-metadata-full": false,
+                            "item/defraimp_aggregateversion": "@body('Parse_JSON')?['aggregateVersion']",
+                            "item/defraimp_errordetails": "@{outputs('Perform_an_unbound_action')?['body/Category']} - @{outputs('Perform_an_unbound_action')?['body/ResponseDetail']}",
+                            "item/defraimp_errortype": 714100000,
+                            "item/defraimp_fullmessagepayload": "@replace(replace(replace(string(body('Parse_JSON')), '{', '{\r\n'), ',\"', ',\r\n\"'), '}', '\r\n}')",
+                            "item/defraimp_messagesentdate": "@triggerOutputs()?['body']?['Properties']?['EnqueuedTimeUtc']",
+                            "item/defraimp_name": "@body('Parse_JSON')?['data']?['exchangedDocument']?['identifier']",
+                            "item/defraimp_notificationreference": "@body('Parse_JSON')?['data']?['exchangedDocument']?['identifier']"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      }
+                    }
+                  },
+                  "Case_-_noUpdate": {
+                    "case": "noUpdate",
+                    "actions": {
+                      "Dead-letter_the_message_in_a_queue_-_noUpdate": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "00ec2c9f-d48f-455c-ae69-463ef1dd900c"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_servicebus",
+                            "operationId": "DeadLetterMessageInQueue",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_servicebus"
+                          },
+                          "parameters": {
+                            "queueName": "defra.trade.imp.notification.upsert",
+                            "lockToken": "@triggerOutputs()?['body/LockToken']",
+                            "deadLetterReason": "noUpdate importer notification",
+                            "deadLetterErrorDescription": "@outputs('Perform_an_unbound_action')?['body/ResponseDetail']",
+                            "sessionId": "@triggerOutputs()?['body/SessionId']"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      },
+                      "Add_a_new_row_-_Error_Notification_-_noUpdate": {
+                        "runAfter": {
+                          "Dead-letter_the_message_in_a_queue_-_noUpdate": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "71aa5858-2d6d-4a6d-a27d-0c6e45160a42"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps",
+                            "operationId": "CreateRecord",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "entityName": "defraimp_importnotificationerrors",
+                            "x-ms-odata-metadata-full": false,
+                            "item/defraimp_aggregateversion": "@body('Parse_JSON')?['aggregateVersion']",
+                            "item/defraimp_errordetails": "@{outputs('Perform_an_unbound_action')?['body/Category']} - @{outputs('Perform_an_unbound_action')?['body/ResponseDetail']}",
+                            "item/defraimp_errortype": 714100001,
+                            "item/defraimp_fullmessagepayload": "@replace(replace(replace(string(body('Parse_JSON')), '{', '{\r\n'), ',\"', ',\r\n\"'), '}', '\r\n}')",
+                            "item/defraimp_messagesentdate": "@triggerOutputs()?['body']?['Properties']?['EnqueuedTimeUtc']",
+                            "item/defraimp_name": "@body('Parse_JSON')?['data']?['exchangedDocument']?['identifier']",
+                            "item/defraimp_notificationreference": "@body('Parse_JSON')?['data']?['exchangedDocument']?['identifier']"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      }
+                    }
+                  },
+                  "Case_-_draft": {
+                    "case": "draft",
+                    "actions": {
+                      "Complete_the_message_in_a_queue_-_draft": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "1597bca2-c309-43e6-8355-52ef45f3faa8"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_servicebus",
+                            "operationId": "CompleteMessageInQueue",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_servicebus"
+                          },
+                          "parameters": {
+                            "queueName": "defra.trade.imp.notification.upsert",
+                            "lockToken": "@triggerOutputs()?['body/LockToken']",
+                            "queueType": "Main",
+                            "sessionId": "@triggerOutputs()?['body/SessionId']"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      }
+                    }
+                  }
+                },
+                "default": {
+                  "actions": {
+                    "Dead-letter_the_message_in_a_queue_-_other": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "00ec2c9f-d48f-455c-ae69-463ef1dd900c"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_servicebus",
+                          "operationId": "DeadLetterMessageInQueue",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_servicebus"
+                        },
+                        "parameters": {
+                          "queueName": "defra.trade.imp.notification.upsert",
+                          "lockToken": "@triggerOutputs()?['body/LockToken']",
+                          "deadLetterReason": "other error",
+                          "deadLetterErrorDescription": "@outputs('Perform_an_unbound_action')?['body/ResponseDetail']",
+                          "sessionId": "@triggerOutputs()?['body/SessionId']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Add_a_new_row_-_Error_Notification_-_other_error": {
+                      "runAfter": {
+                        "Dead-letter_the_message_in_a_queue_-_other": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "71aa5858-2d6d-4a6d-a27d-0c6e45160a42"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "defraimp_importnotificationerrors",
+                          "x-ms-odata-metadata-full": false,
+                          "item/defraimp_aggregateversion": "@body('Parse_JSON')?['aggregateVersion']",
+                          "item/defraimp_errordetails": "@{outputs('Perform_an_unbound_action')?['body/Category']} - @{outputs('Perform_an_unbound_action')?['body/ResponseDetail']}",
+                          "item/defraimp_errortype": 714100002,
+                          "item/defraimp_fullmessagepayload": "@replace(replace(replace(string(body('Parse_JSON')), '{', '{\r\n'), ',\"', ',\r\n\"'), '}', '\r\n}')",
+                          "item/defraimp_messagesentdate": "@triggerOutputs()?['body']?['Properties']?['EnqueuedTimeUtc']",
+                          "item/defraimp_name": "@body('Parse_JSON')?['data']?['exchangedDocument']?['identifier']",
+                          "item/defraimp_notificationreference": "@body('Parse_JSON')?['data']?['exchangedDocument']?['identifier']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  }
+                },
+                "expression": "@outputs('Perform_an_unbound_action')?['body/Category']",
+                "metadata": {
+                  "operationMetadataId": "4868cb1e-a255-4bb1-b7ff-775e7f7700cc"
+                },
+                "type": "Switch"
               }
             }
           },
@@ -123,7 +935,8 @@
           "metadata": {
             "operationMetadataId": "32ce53f9-f498-4b49-8461-a3962738725c"
           },
-          "type": "If"
+          "type": "If",
+          "description": "Update/create succeeded"
         },
         "Perform_an_unbound_action": {
           "runAfter": {},

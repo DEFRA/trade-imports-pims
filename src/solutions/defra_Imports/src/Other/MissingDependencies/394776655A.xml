@@ -1,4 +1,0 @@
-<MissingDependency>
-  <Required type="61" schemaName="Service/_imgs/ribbon/NewRecord_16.png" displayName="Service/_imgs/ribbon/NewRecord_16.png" solution="msdynce_Service (9.0.5.56)" />
-  <Dependent type="50" schemaName="defraimp_itahc:RibbonDiffXml" displayName="defraimp_itahc:RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
-</MissingDependency>
