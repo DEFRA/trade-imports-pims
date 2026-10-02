@@ -39,8 +39,8 @@ namespace Defra.Imports.Specs.Hooks
         /// </para>
         /// <list type="bullet">
         /// <item><description>Passed - the acceptance criterion is fully implemented.</description></item>
-        /// <item><description>Not executed (inconclusive) - the implemented behaviour is correct, but part of the acceptance criterion is not yet implemented.</description></item>
-        /// <item><description>Failed - implemented behaviour is broken, which is a genuine defect.</description></item>
+        /// <item><description>Not executed (inconclusive) - the implemented behaviour is correct, but part of the acceptance criterion is not yet implemented, and every gap is on the expected defect list.</description></item>
+        /// <item><description>Failed - implemented behaviour is broken, or a gap was recorded that is not on the expected defect list and therefore represents a regression.</description></item>
         /// </list>
         /// </remarks>
         [AfterScenario(Order = 10000)]
@@ -53,7 +53,24 @@ namespace Defra.Imports.Specs.Hooks
 
             this.outputHelper.WriteLine(this.defectRecorder.BuildReport());
 
-            if (this.defectRecorder.HasDefects && this.ctx.ScenarioExecutionStatus != ScenarioExecutionStatus.TestError)
+            if (this.ctx.ScenarioExecutionStatus == ScenarioExecutionStatus.TestError)
+            {
+                return;
+            }
+
+            if (this.defectRecorder.HasUnexpectedDefects)
+            {
+                var summary = string.Join(
+                    "; ",
+                    this.defectRecorder.UnexpectedDefects.Select(d => $"[{d.AcceptanceCriterion}] {d.Requirement}"));
+
+                Assert.Fail(
+                    $"{this.defectRecorder.UnexpectedDefects.Count} unexpected gap(s) recorded that are not on the expected defect list: {summary}. " +
+                    "Either this is a regression in behaviour that previously worked, or the expected defect list needs updating. " +
+                    "See the acceptance criteria report in the test output for details.");
+            }
+
+            if (this.defectRecorder.HasDefects)
             {
                 Assert.Inconclusive(
                     $"{this.defectRecorder.Defects.Count} known defect(s) recorded. The behaviour that is implemented behaved as expected. See the acceptance criteria report in the test output for details.");

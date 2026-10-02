@@ -16,6 +16,8 @@ namespace Defra.Imports.Specs.StepDefinitions
     public class ImporterNotificationPreconditionSteps
     {
         private const string DefaultRecordAlias = "created-importer-notification";
+        private const string PermanentAddressAlias = "created-permanent-address";
+        private const string PermanentAddressLogicalName = "defraimp_notificationpermanentaddress";
 
         private readonly ServiceClient serviceClient;
         private readonly TestDataService testDataService;
@@ -51,10 +53,11 @@ namespace Defra.Imports.Specs.StepDefinitions
             var premisesOfOriginName = $"Auto Premises of Origin {uniqueSuffix}";
             var animalProductId = $"AUTO-ANIMAL-{uniqueSuffix}";
 
-            // US-003 AC-3 names a Permanent Destination Name as a searchable field. There is no
-            // permanent destination name attribute on defraimp_importernotification, so no value
-            // can be seeded. An empty value marks the criterion as unsupportable by test data.
-            var permanentDestinationName = string.Empty;
+            // US-003 AC-3 names a Permanent Destination Name as a searchable field. This is held on
+            // the related defraimp_notificationpermanentaddress table rather than on the
+            // notification itself, so a linked record is seeded below and the value is searched for
+            // in the same way as every other criterion.
+            var permanentDestinationName = $"Auto Permanent Destination {uniqueSuffix}";
 
             var importerNotification = new Entity(defraimp_ImporterNotification.EntityLogicalName)
             {
@@ -69,6 +72,23 @@ namespace Defra.Imports.Specs.StepDefinitions
             var recordId = this.serviceClient.Create(importerNotification);
             var recordRef = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, recordId);
 
+            // The Permanent Destination details named by AC-1 and AC-3 are held on a related record
+            // rather than on the notification, so one is seeded and linked to the notification.
+            var permanentAddress = new Entity(PermanentAddressLogicalName)
+            {
+                ["defraimp_name"] = permanentDestinationName,
+                ["defraimp_individualname"] = permanentDestinationName,
+                ["defraimp_addressline1"] = "6 Permanent Close",
+                ["defraimp_addresscity"] = "Permanent City",
+                ["defraimp_addresspostalzipcode"] = "PE1 8RM",
+                ["defraimp_addresstelephone"] = "01615550505",
+                ["defraimp_addressemail"] = "updated.permanent@email.com",
+                ["defraimp_importernotificationid"] = recordRef,
+            };
+
+            var permanentAddressId = this.serviceClient.Create(permanentAddress);
+
+            this.testDataService.AddRecord(new EntityReference(PermanentAddressLogicalName, permanentAddressId), PermanentAddressAlias);
             this.testDataService.AddRecord(recordRef, DefaultRecordAlias);
             this.scenarioContext.AddOrUpdate(ScenarioContextKeys.CreatedImporterNotificationId, recordId);
             this.scenarioContext.AddOrUpdate(ScenarioContextKeys.CreatedImporterNotificationReferenceNumber, referenceNumber);
@@ -85,6 +105,7 @@ namespace Defra.Imports.Specs.StepDefinitions
                 });
 
             this.outputHelper.WriteLine($"Created precondition Importer Notification {recordId} with reference '{referenceNumber}' and commodity token '{commodityId}'.");
+            this.outputHelper.WriteLine($"Created linked permanent address {permanentAddressId} named '{permanentDestinationName}'.");
         }
     }
 }

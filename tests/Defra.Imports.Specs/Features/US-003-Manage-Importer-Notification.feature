@@ -102,7 +102,20 @@ Scenario: A Caseworker can update the Place of Destination details
 	Then the record is saved successfully
 
 # AC-1: Permanent Destination (Contact Name, Address, Postcode, Telephone, Email).
-# Covered by the AC-1 coverage scenario at the end of this section.
+# Permanent Destination is realised as the related Notification Permanent Address
+# table, so the fields are maintained on that record's own form rather than on the
+# Importer Notification form.
+Scenario: A Caseworker can update the Permanent Destination details
+	Given a precondition Importer Notification exists
+	And I am logged in to the 'EU Imports' app as "a caseworker"
+	When I have opened "created-permanent-address"
+	And I enter "Updated Permanent Contact" in the "Individual Name" field
+	And I enter "6 Permanent Close" in the "Address Line 1" field
+	And I enter "PE1 8RM" in the "Address Post" field
+	And I enter "01615550505" in the "Telephone" field
+	And I enter "updated.permanent@email.com" in the "Email" field
+	And I save the record
+	Then the record is saved successfully
 
 # AC-1: Premises of Origin (Name, Address, Postcode, Country).
 # Premises of Origin is realised as the Place of Origin tab.
@@ -133,8 +146,9 @@ Scenario: A Caseworker can update the Transporter details
 
 # AC-1 coverage. Every field named by AC-1 that is not proven by the scenarios above
 # is attempted here. Fields the solution does not provide are reported as known
-# defects and the remaining fields are still verified. The record is saved so that the
-# fields that were populated are proven to persist.
+# defects and the remaining fields are still verified. The record is saved and then
+# reloaded so that the fields that were populated are proven to persist their values
+# rather than merely to have accepted them.
 @ac-coverage @us-003-ac1
 Scenario: AC-1 field coverage for an Import Notification
 	Given a precondition Importer Notification exists
@@ -143,11 +157,6 @@ Scenario: AC-1 field coverage for an Import Notification
 	And I attempt to populate the fields required by "AC-1"
 		| Tab                          | Field                           | Value                       |
 		| Transporter                  | Date of Import                  | 01/01/2026                  |
-		| Permanent Addresses          | Name                            | Updated Permanent Contact   |
-		| Permanent Addresses          | Address Line 1                  | 6 Permanent Close           |
-		| Permanent Addresses          | Postcode                        | PE1 8RM                     |
-		| Permanent Addresses          | Telephone                       | 01615550505                 |
-		| Permanent Addresses          | Email                           | updated.permanent@email.com |
 		| Commodity                    | Species / Product (Common Name) | Bovine                      |
 		| Commodity                    | Quantity                        | 12                          |
 		| Commodity                    | Units                           | Kilograms                   |
@@ -155,8 +164,10 @@ Scenario: AC-1 field coverage for an Import Notification
 		| Transporter                  | Port / Airport of Entry         | Dover                       |
 		| Importer Notification Details | Animal / Product IDs           | UK123456789012              |
 		| Place of Origin              | Country                         | France                      |
+		| Importer Notification Details | Country of Origin              | France                      |
 	And I save the record
 	Then the record is saved successfully
+	And I verify the fields populated for "AC-1" persisted after reloading the record
 
 # AC-1 create half. The EU Imports Caseworker role has no prvCreate privilege on
 # defraimp_importernotification, so creation is reported as a known defect.

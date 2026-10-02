@@ -266,26 +266,19 @@
             var requirement = $"Sorted by '{columnName}' ({order})";
             var expected = $"The view is sorted primarily by '{columnName}' in {order} order.";
 
-            try
-            {
-                var sortOrders = await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetSortOrdersAsync();
+            var sortOrders = await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetSortOrdersAsync();
 
-                if (sortOrders.FirstOrDefault().Equals(new ColumnSortSpec(columnName, order)))
-                {
-                    this.defectRecorder.RecordVerified(acceptanceCriterion, requirement);
-                }
-                else
-                {
-                    this.defectRecorder.RecordDefect(
-                        acceptanceCriterion,
-                        requirement,
-                        expected,
-                        $"The view is sorted by: {string.Join(", ", sortOrders.Select(s => $"{s.ColumnName} ({s.Order})"))}.");
-                }
-            }
-            catch (Exception ex)
+            if (sortOrders.FirstOrDefault().Equals(new ColumnSortSpec(columnName, order)))
             {
-                this.defectRecorder.RecordDefect(acceptanceCriterion, requirement, expected, ex.Message.Split('\r', '\n').FirstOrDefault());
+                this.defectRecorder.RecordVerified(acceptanceCriterion, requirement);
+            }
+            else
+            {
+                this.defectRecorder.RecordDefect(
+                    acceptanceCriterion,
+                    requirement,
+                    expected,
+                    $"The view is sorted by: {string.Join(", ", sortOrders.Select(s => $"{s.ColumnName} ({s.Order})"))}.");
             }
         }
 

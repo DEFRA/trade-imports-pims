@@ -64,5 +64,11 @@
         /// A key for a precondition APHA Region record name.
         /// </summary>
         public const string CreatedAphaRegionName = nameof(CreatedAphaRegionName);
+
+        /// <summary>
+        /// A key for the field values successfully populated during an acceptance criteria coverage
+        /// scenario, keyed by tab and field display name.
+        /// </summary>
+        public const string PopulatedFieldValues = nameof(PopulatedFieldValues);
     }
 }

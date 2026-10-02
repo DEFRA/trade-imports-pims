@@ -314,6 +314,8 @@
         [When("I attempt to populate the fields required by {string}")]
         public async Task WhenIAttemptToPopulateTheFieldsRequiredBy(string acceptanceCriterion, DataTable fields)
         {
+            var populated = new List<PopulatedField>();
+
             foreach (var tabGroup in fields.Rows.GroupBy(r => r.ContainsKey("Tab") ? r["Tab"] : string.Empty))
             {
                 var tabName = tabGroup.Key;
@@ -328,7 +330,7 @@
                     var fieldName = row["Field"];
                     var requirement = string.IsNullOrWhiteSpace(tabName) ? fieldName : $"{tabName} > {fieldName}";
 
-                    await this.defectRecorder.TryVerifyAsync(
+                    var wasSet = await this.defectRecorder.TryVerifyAsync(
                         acceptanceCriterion,
                         requirement,
                         $"A '{fieldName}' field is available and can be maintained.",
@@ -342,8 +344,15 @@
                                 },
                                 tab: await this.RecordPage.Form.GetActiveTabAsync());
                         });
+
+                    if (wasSet)
+                    {
+                        populated.Add(new PopulatedField(tabName, fieldName, row["Value"]));
+                    }
                 }
             }
+
+            this.ctx.AddOrUpdate(ScenarioContextKeys.PopulatedFieldValues, populated);
         }
 
         /// <summary>
@@ -417,6 +426,90 @@
             }
 
             await this.RecordPage.Form.CommandBar.ClickCommandAsync("Save");
+        }
+
+        /// <summary>
+        /// Reloads the record and verifies that every field successfully populated earlier in the
+        /// scenario still holds the value that was entered.
+        /// </summary>
+        /// <remarks>
+        /// Setting a value on a control proves only that the control accepted it. A field that
+        /// silently discards its value on save would otherwise be reported as verified, so the
+        /// record is reloaded from the server and the values are read back.
+        /// </remarks>
+        /// <param name="acceptanceCriterion">The acceptance criterion being verified.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("I verify the fields populated for {string} persisted after reloading the record")]
+        public async Task ThenIVerifyThePopulatedFieldsPersisted(string acceptanceCriterion)
+        {
+            if (!this.ctx.TryGetValue<List<PopulatedField>>(ScenarioContextKeys.PopulatedFieldValues, out var populated))
+            {
+                throw new InvalidOperationException($"Unable to find {ScenarioContextKeys.PopulatedFieldValues} in scenario context.");
+            }
+
+            await this.RecordPage.Page.ReloadAndWaitForAppIdleAsync();
+
+            foreach (var tabGroup in populated.GroupBy(p => p.TabName))
+            {
+                if (!string.IsNullOrWhiteSpace(tabGroup.Key))
+                {
+                    await this.RecordPage.Form.OpenTabByExactNameAsync(tabGroup.Key);
+                }
+
+                foreach (var field in tabGroup)
+                {
+                    var requirement = string.IsNullOrWhiteSpace(field.TabName)
+                        ? $"{field.FieldName} (persisted)"
+                        : $"{field.TabName} > {field.FieldName} (persisted)";
+
+                    string actualValue = null;
+
+                    await this.ExecuteGenericFieldActionAsync(
+                        field.FieldName,
+                        async (control, fieldContext) =>
+                        {
+                            actualValue = (await control.GetValueAsync(fieldContext.ControlType))?.ToString();
+                        },
+                        tab: await this.RecordPage.Form.GetActiveTabAsync());
+
+                    if (ValuesMatch(field.Value, actualValue))
+                    {
+                        this.defectRecorder.RecordVerified(acceptanceCriterion, requirement);
+                    }
+                    else
+                    {
+                        this.defectRecorder.RecordDefect(
+                            acceptanceCriterion,
+                            requirement,
+                            $"The '{field.FieldName}' field still holds '{field.Value}' after the record is reloaded.",
+                            $"The field holds '{actualValue}' after the record is reloaded.");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Compares an entered value with the value read back from the form.
+        /// </summary>
+        /// <remarks>
+        /// Lookups, option sets and dates are reformatted for display, so a containment comparison
+        /// is used rather than strict equality.
+        /// </remarks>
+        /// <param name="expected">The value that was entered.</param>
+        /// <param name="actual">The value read back from the form.</param>
+        /// <returns>Whether the values match.</returns>
+        private static bool ValuesMatch(string expected, string actual)
+        {
+            if (string.IsNullOrWhiteSpace(actual))
+            {
+                return false;
+            }
+
+            var normalisedExpected = expected.Trim();
+            var normalisedActual = actual.Trim();
+
+            return normalisedActual.Equals(normalisedExpected, StringComparison.OrdinalIgnoreCase)
+                || normalisedActual.IndexOf(normalisedExpected, StringComparison.OrdinalIgnoreCase) >= 0;
         }
 
         /// <summary>

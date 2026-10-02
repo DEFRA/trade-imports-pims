@@ -31,6 +31,7 @@ namespace Defra.Imports.Specs.Services
     public class KnownDefectRecorder
     {
         private readonly List<KnownDefect> defects = new List<KnownDefect>();
+        private readonly List<KnownDefect> unexpectedDefects = new List<KnownDefect>();
         private readonly List<string> verified = new List<string>();
         private readonly IReqnrollOutputHelper outputHelper;
 
@@ -59,6 +60,20 @@ namespace Defra.Imports.Specs.Services
         public bool HasDefects => this.defects.Count > 0;
 
         /// <summary>
+        /// Gets the gaps that are not on the expected defect list.
+        /// </summary>
+        /// <remarks>
+        /// A gap that is not expected represents a requirement that has regressed from working to
+        /// missing, so it is reported as a test failure rather than absorbed as a known defect.
+        /// </remarks>
+        public ReadOnlyCollection<KnownDefect> UnexpectedDefects => this.unexpectedDefects.AsReadOnly();
+
+        /// <summary>
+        /// Gets a value indicating whether any gap was recorded that is not expected.
+        /// </summary>
+        public bool HasUnexpectedDefects => this.unexpectedDefects.Count > 0;
+
+        /// <summary>
         /// Records a known defect.
         /// </summary>
         /// <param name="acceptanceCriterion">The acceptance criterion that is not met.</param>
@@ -70,6 +85,15 @@ namespace Defra.Imports.Specs.Services
             var defect = new KnownDefect(acceptanceCriterion, requirement, expected, actual);
 
             this.defects.Add(defect);
+
+            if (!ExpectedDefects.Keys.Contains(ExpectedDefects.Key(acceptanceCriterion, requirement)))
+            {
+                this.unexpectedDefects.Add(defect);
+                this.outputHelper.WriteLine($"UNEXPECTED GAP | {defect}");
+
+                return;
+            }
+
             this.outputHelper.WriteLine($"KNOWN DEFECT | {defect}");
         }
 
@@ -124,7 +148,7 @@ namespace Defra.Imports.Specs.Services
             var report = new StringBuilder();
 
             report.AppendLine("================ ACCEPTANCE CRITERIA REPORT ================");
-            report.AppendLine($"Verified: {this.verified.Count}    Known defects: {this.defects.Count}");
+            report.AppendLine($"Verified: {this.verified.Count}    Known defects: {this.defects.Count}    Unexpected gaps: {this.unexpectedDefects.Count}");
 
             if (this.verified.Any())
             {
@@ -149,6 +173,18 @@ namespace Defra.Imports.Specs.Services
                         report.AppendLine($"        Expected: {defect.Expected}");
                         report.AppendLine($"        Actual  : {defect.Actual}");
                     }
+                }
+            }
+
+            if (this.unexpectedDefects.Any())
+            {
+                report.AppendLine();
+                report.AppendLine("UNEXPECTED GAPS (not on the expected defect list - treat as regressions):");
+                foreach (var defect in this.unexpectedDefects)
+                {
+                    report.AppendLine($"    [UNEXPECTED GAP] [{defect.AcceptanceCriterion}] {defect.Requirement}");
+                    report.AppendLine($"        Expected: {defect.Expected}");
+                    report.AppendLine($"        Actual  : {defect.Actual}");
                 }
             }
 
