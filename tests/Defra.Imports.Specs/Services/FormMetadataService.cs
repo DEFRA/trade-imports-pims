@@ -78,7 +78,7 @@
                 }
             }
 
-            return columnName ?? throw new InvalidOperationException($"Unable to find a control on the form with the specified display name: {displayName}.");
+            return columnName ?? throw new ControlNotFoundException($"Unable to find a control on the form with the specified display name: {displayName}.");
         }
 
         /// <summary>
@@ -125,7 +125,7 @@
                 }
             }
 
-            return logicalName ?? throw new InvalidOperationException($"Unable to find a control on the form with the specified display name: {displayName}.");
+            return logicalName ?? throw new ControlNotFoundException($"Unable to find a control on the form with the specified display name: {displayName}.");
         }
 
         /// <summary>
@@ -206,7 +206,10 @@
 
         private static XmlNodeList GetControlNodesByDisplayName(string displayName, string tab, XmlDocument formXml)
         {
-            var tabSegment = !string.IsNullOrEmpty(tab) ? $"//tab[./labels/label[@description='{tab}']]" : string.Empty;
+            // Tab labels in the form XML can carry leading/trailing whitespace (for example
+            // "Place of Origin ") whereas the tab name resolved at runtime is trimmed, so the
+            // label is normalised before comparison.
+            var tabSegment = !string.IsNullOrEmpty(tab) ? $"//tab[./labels/label[normalize-space(@description)='{tab.Trim()}']]" : string.Empty;
             var controlsWithDisplayName = formXml.SelectNodes($"{tabSegment}//control[../labels/label[@description='{displayName}'] and not(@classid='{QuickViewClassId}')]");
 
             if (controlsWithDisplayName == null || controlsWithDisplayName.Count == 0)
@@ -216,7 +219,7 @@
 
             return controlsWithDisplayName != null && controlsWithDisplayName.Count > 0
                 ? controlsWithDisplayName
-                : throw new InvalidOperationException($"Unable to find a control on the form with the specified display name: {displayName}.");
+                : throw new ControlNotFoundException($"Unable to find a control on the form with the specified display name: {displayName}.");
         }
 
         /// <summary>

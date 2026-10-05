@@ -4,6 +4,7 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Data;
+    using System.Globalization;
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
@@ -11,6 +12,7 @@
     using Defra.Imports.Specs.Model;
     using Defra.Imports.Specs.Services;
     using FluentAssertions;
+    using Microsoft.Playwright;
     using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Microsoft.Xrm.Sdk;
@@ -38,6 +40,7 @@
         private readonly EntityMetadataService entityMetadataSvc;
         private readonly ServiceClient serviceClient;
         private readonly RecordNavigatorService recordNavigator;
+        private readonly KnownDefectRecorder defectRecorder;
         private Bogus.Faker faker;
 
         /// <summary>
@@ -50,7 +53,8 @@
         /// <param name="entityMetadataSvc">The entity metadata service.</param>
         /// <param name="serviceClient">The service client.</param>
         /// <param name="recordNavigator">The record navigator.</param>
-        public EntityRecordPageSteps(ScenarioContext ctx, PowerPlaywrightContext powerPlaywrightCtx, FormMetadataService formMetadataSvc, PowerPlaywrightMetadataService powerPlaywrightMetadataSvc, EntityMetadataService entityMetadataSvc, ServiceClient serviceClient, RecordNavigatorService recordNavigator)
+        /// <param name="defectRecorder">The known defect recorder.</param>
+        public EntityRecordPageSteps(ScenarioContext ctx, PowerPlaywrightContext powerPlaywrightCtx, FormMetadataService formMetadataSvc, PowerPlaywrightMetadataService powerPlaywrightMetadataSvc, EntityMetadataService entityMetadataSvc, ServiceClient serviceClient, RecordNavigatorService recordNavigator, KnownDefectRecorder defectRecorder)
         {
             this.ctx = ctx;
             this.powerPlaywrightCtx = powerPlaywrightCtx;
@@ -59,6 +63,7 @@
             this.entityMetadataSvc = entityMetadataSvc;
             this.serviceClient = serviceClient;
             this.recordNavigator = recordNavigator;
+            this.defectRecorder = defectRecorder;
             this.faker = new Bogus.Faker("en_GB");
         }
 
@@ -82,6 +87,18 @@
         public async Task WhenISelectTheTab(string relatedTab)
         {
             await this.RecordPage.Form.OpenTabAsync(relatedTab);
+        }
+
+        /// <summary>
+        /// Selects a tab on a form, matching the tab name exactly.
+        /// </summary>
+        /// <param name="tab">The tab.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [When("I select the {string} tab by its exact name")]
+        [Given("I have selected the {string} tab by its exact name")]
+        public async Task WhenISelectTheTabByItsExactName(string tab)
+        {
+            await this.RecordPage.Form.OpenTabByExactNameAsync(tab);
         }
 
         /// <summary>
@@ -219,19 +236,157 @@
         /// <summary>
         /// Interaction with toogle controls.
         /// </summary>
+        /// <remarks>
+        /// Boolean columns are rendered by the platform as a switch rather than an option set, and
+        /// the generic control resolution does not expose a page object for it. The underlying
+        /// checkbox is therefore driven directly, which also keeps the step idempotent because the
+        /// control is only clicked when it is not already in the requested state.
+        /// </remarks>
         /// <param name="displayName">The field display name.</param>
         /// <param name="value">The field value.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [When("I toggle the {string} field to {string}")]
+        [Given("I have toggled the {string} field to {string}")]
         public async Task WhenIToggleTheFieldTo(string displayName, string value)
         {
-            await this.ExecuteControlActionAsync<IToggleControl>(
+            var expected = ParseToggleValue(value);
+            await this.ExecuteGenericFieldActionAsync(
                 displayName,
-                async (control, fieldContext) =>
+                async (field, _) =>
                 {
-                    await control.SetValueAsync(bool.Parse(value));
+                    var toggle = field.Container
+                        .GetByRole(AriaRole.Switch)
+                        .Or(field.Container.GetByRole(AriaRole.Checkbox))
+                        .First;
+
+                    await toggle.WaitForAsync();
+
+                    if (await toggle.IsCheckedAsync() != expected)
+                    {
+                        await toggle.ClickAsync();
+                    }
+
+                    (await toggle.IsCheckedAsync()).Should().Be(
+                        expected,
+                        $"the '{displayName}' toggle should have been set to '{value}'.");
                 },
                 tab: await this.RecordPage.Form.GetActiveTabAsync());
+        }
+
+        private static bool ParseToggleValue(string value)
+        {
+            if (bool.TryParse(value, out var parsed))
+            {
+                return parsed;
+            }
+
+            switch (value?.Trim().ToUpperInvariant())
+            {
+                case "YES":
+                case "ON":
+                case "1":
+                    return true;
+                case "NO":
+                case "OFF":
+                case "0":
+                    return false;
+                default:
+                    throw new ArgumentException($"'{value}' is not a recognised toggle value.", nameof(value));
+            }
+        }
+
+        /// <summary>
+        /// Attempts to populate each of the fields named by an acceptance criterion, recording any
+        /// that the solution does not provide as known defects.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The table describes the fields exactly as the acceptance criterion names them. Each row
+        /// is attempted independently so that a field the solution has not implemented does not
+        /// prevent the remaining fields from being verified.
+        /// </para>
+        /// <para>
+        /// The table takes a Tab, Field and Value column. Tab may be left empty for fields on the
+        /// currently active tab. Where a tab itself is missing, every field on that tab is recorded
+        /// as a known defect.
+        /// </para>
+        /// </remarks>
+        /// <param name="acceptanceCriterion">The acceptance criterion being verified.</param>
+        /// <param name="fields">The fields required by the acceptance criterion.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [When("I attempt to populate the fields required by {string}")]
+        public async Task WhenIAttemptToPopulateTheFieldsRequiredBy(string acceptanceCriterion, DataTable fields)
+        {
+            var populated = new List<PopulatedField>();
+
+            foreach (var tabGroup in fields.Rows.GroupBy(r => r.ContainsKey("Tab") ? r["Tab"] : string.Empty))
+            {
+                var tabName = tabGroup.Key;
+
+                if (!string.IsNullOrWhiteSpace(tabName) && !await this.TryOpenTabAsync(acceptanceCriterion, tabName, tabGroup.Select(r => r["Field"])))
+                {
+                    continue;
+                }
+
+                foreach (var row in tabGroup)
+                {
+                    var fieldName = row["Field"];
+                    var requirement = string.IsNullOrWhiteSpace(tabName) ? fieldName : $"{tabName} > {fieldName}";
+
+                    var wasSet = await this.defectRecorder.TryVerifyAsync(
+                        acceptanceCriterion,
+                        requirement,
+                        $"A '{fieldName}' field is available and can be maintained.",
+                        async () =>
+                        {
+                            await this.ExecuteGenericFieldActionAsync(
+                                fieldName,
+                                async (field, fieldContext) =>
+                                {
+                                    await field.SetValueAsync(fieldContext.ControlType, row["Value"]);
+                                },
+                                tab: await this.RecordPage.Form.GetActiveTabAsync());
+                        });
+
+                    if (wasSet)
+                    {
+                        populated.Add(new PopulatedField(tabName, fieldName, row["Value"]));
+                    }
+                }
+            }
+
+            this.ctx.AddOrUpdate(ScenarioContextKeys.PopulatedFieldValues, populated);
+        }
+
+        /// <summary>
+        /// Attempts to open a tab, recording every field expected on it as a known defect when the
+        /// tab is not available.
+        /// </summary>
+        /// <param name="acceptanceCriterion">The acceptance criterion being verified.</param>
+        /// <param name="tabName">The tab name.</param>
+        /// <param name="fieldNames">The fields expected on the tab.</param>
+        /// <returns>A <see cref="Task"/> that resolves to true when the tab was opened.</returns>
+        private async Task<bool> TryOpenTabAsync(string acceptanceCriterion, string tabName, IEnumerable<string> fieldNames)
+        {
+            try
+            {
+                await this.RecordPage.Form.OpenTabByExactNameAsync(tabName);
+
+                return true;
+            }
+            catch (ControlNotFoundException ex)
+            {
+                foreach (var fieldName in fieldNames)
+                {
+                    this.defectRecorder.RecordDefect(
+                        acceptanceCriterion,
+                        $"{tabName} > {fieldName}",
+                        $"A '{fieldName}' field is available and can be maintained.",
+                        $"The '{tabName}' tab is not available. {ex.Message.Split('\r', '\n').FirstOrDefault()}");
+                }
+
+                return false;
+            }
         }
 
         /// <summary>
@@ -274,6 +429,119 @@
             }
 
             await this.RecordPage.Form.CommandBar.ClickCommandAsync("Save");
+        }
+
+        /// <summary>
+        /// Reloads the record and verifies that every field successfully populated earlier in the
+        /// scenario still holds the value that was entered.
+        /// </summary>
+        /// <remarks>
+        /// Setting a value on a control proves only that the control accepted it. A field that
+        /// silently discards its value on save would otherwise be reported as verified, so the
+        /// record is reloaded from the server and the values are read back.
+        /// </remarks>
+        /// <param name="acceptanceCriterion">The acceptance criterion being verified.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("I verify the fields populated for {string} persisted after reloading the record")]
+        public async Task ThenIVerifyThePopulatedFieldsPersisted(string acceptanceCriterion)
+        {
+            if (!this.ctx.TryGetValue<List<PopulatedField>>(ScenarioContextKeys.PopulatedFieldValues, out var populated))
+            {
+                throw new InvalidOperationException($"Unable to find {ScenarioContextKeys.PopulatedFieldValues} in scenario context.");
+            }
+
+            await this.RecordPage.Page.ReloadAndWaitForAppIdleAsync();
+
+            foreach (var tabGroup in populated.GroupBy(p => p.TabName))
+            {
+                if (!string.IsNullOrWhiteSpace(tabGroup.Key))
+                {
+                    await this.RecordPage.Form.OpenTabByExactNameAsync(tabGroup.Key);
+                }
+
+                foreach (var field in tabGroup)
+                {
+                    var requirement = string.IsNullOrWhiteSpace(field.TabName)
+                        ? $"{field.FieldName} (persisted)"
+                        : $"{field.TabName} > {field.FieldName} (persisted)";
+
+                    string actualValue = null;
+
+                    await this.ExecuteGenericFieldActionAsync(
+                        field.FieldName,
+                        async (control, fieldContext) =>
+                        {
+                            actualValue = (await control.GetValueAsync(fieldContext.ControlType))?.ToString();
+                        },
+                        tab: await this.RecordPage.Form.GetActiveTabAsync());
+
+                    if (ValuesMatch(field.Value, actualValue))
+                    {
+                        this.defectRecorder.RecordVerified(acceptanceCriterion, requirement);
+                    }
+                    else
+                    {
+                        this.defectRecorder.RecordDefect(
+                            acceptanceCriterion,
+                            requirement,
+                            $"The '{field.FieldName}' field still holds '{field.Value}' after the record is reloaded.",
+                            $"The field holds '{actualValue}' after the record is reloaded.");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Compares an entered value with the value read back from the form.
+        /// </summary>
+        /// <remarks>
+        /// Numeric and date values are compared semantically so display formatting differences do not
+        /// mask true mismatches; text values must match once trimmed.
+        /// </remarks>
+        /// <param name="expected">The value that was entered.</param>
+        /// <param name="actual">The value read back from the form.</param>
+        /// <returns>Whether the values match.</returns>
+        private static bool ValuesMatch(string expected, string actual)
+        {
+            if (string.IsNullOrWhiteSpace(expected) || string.IsNullOrWhiteSpace(actual))
+            {
+                return false;
+            }
+
+            var normalisedExpected = expected.Trim();
+            var normalisedActual = actual.Trim();
+
+            if (normalisedActual.Equals(normalisedExpected, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            if (TryParseDecimal(normalisedExpected, out var expectedNumber))
+            {
+                return TryParseDecimal(normalisedActual, out var actualNumber)
+                    && expectedNumber == actualNumber;
+            }
+
+            if (DateTime.TryParse(normalisedExpected, CultureInfo.CurrentCulture, DateTimeStyles.AllowWhiteSpaces, out var expectedDate))
+            {
+                if (!DateTime.TryParse(normalisedActual, CultureInfo.CurrentCulture, DateTimeStyles.AllowWhiteSpaces, out var actualDate))
+                {
+                    return false;
+                }
+
+                return expectedDate.TimeOfDay == TimeSpan.Zero
+                    ? actualDate.Date == expectedDate.Date
+                    : actualDate == expectedDate;
+            }
+
+            return normalisedActual.Equals(normalisedExpected, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static bool TryParseDecimal(string input, out decimal value)
+        {
+            var styles = NumberStyles.Number;
+            return decimal.TryParse(input, styles, CultureInfo.CurrentCulture, out value)
+                || decimal.TryParse(input, styles, CultureInfo.InvariantCulture, out value);
         }
 
         /// <summary>
@@ -2303,7 +2571,49 @@
                 return header.GetField(fieldLogicalName.Replace("header_", string.Empty));
             }
 
-            return this.RecordPage.Form.GetField(fieldLogicalName);
+            var field = this.RecordPage.Form.GetField(fieldLogicalName);
+
+            return await this.ResolveRenderedFieldPlacementAsync(fieldLogicalName, field) ?? field;
+        }
+
+        /// <summary>
+        /// Resolves a column that is placed on the form more than once.
+        /// </summary>
+        /// <remarks>
+        /// A column can be placed on more than one tab of the same form. Each placement shares the
+        /// same control ID in the form XML, so the app appends an index to all but the first
+        /// occurrence when it renders them (for example "defraimp_consignorcompanyname1"). Power
+        /// Playwright resolves a field using the unsuffixed logical name, which binds to the first
+        /// placement even when that placement sits on a hidden tab and never renders. Each suffixed
+        /// variant is therefore tried in turn and the rendered one is used.
+        /// </remarks>
+        /// <param name="fieldLogicalName">The field logical name.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        private async Task<IField> ResolveRenderedFieldPlacementAsync(string fieldLogicalName, IField primaryField)
+        {
+            const int MaxDuplicates = 5;
+            const int MaxAttempts = 5;
+
+            for (var attempt = 0; attempt < MaxAttempts; attempt++)
+            {
+                if (await primaryField.Container.First.IsVisibleAsync())
+                {
+                    return primaryField;
+                }
+
+                for (var suffix = 1; suffix <= MaxDuplicates; suffix++)
+                {
+                    var duplicate = this.RecordPage.Form.GetField($"{fieldLogicalName}{suffix}");
+                    if (await duplicate.Container.First.IsVisibleAsync())
+                    {
+                        return duplicate;
+                    }
+                }
+
+                await primaryField.Container.Page.WaitForTimeoutAsync(500);
+            }
+
+            return null;
         }
 
         private async Task ExecuteDataSetActionAsync<TControl>(string subgridDisplayName, Func<IDataSet<TControl>, Task> action)
