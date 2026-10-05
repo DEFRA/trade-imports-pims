@@ -22,6 +22,18 @@
     public class EntityListPageSteps
     {
         private const string CommandButtonNew = "New";
+        private const string ActiveImporterNotificationsView = "Active Importer Notifications";
+        private static readonly IReadOnlyList<string> Ac2RequiredColumns = new[]
+        {
+            "Date of Import",
+            "Premises of Origin Country",
+            "Species / Product (Common Name)",
+            "Reference Number",
+            "Importer Name",
+            "Importer Telephone",
+            "Importer Email",
+            "Port / Airport of Entry",
+        };
 
         private readonly PowerPlaywrightContext powerPlaywrightCtx;
         private readonly ScenarioContext scenarioContext;
@@ -107,8 +119,25 @@
             await this.defectRecorder.TryVerifyAsync(
                 acceptanceCriterion,
                 "Create a new Import Notification",
-                $"The '{CommandButtonNew}' command is available on the Importer Notifications view.",
-                async () => await this.WhenIClickToCreateANewRecordFromTheView());
+                "A Caseworker can create and save an Import Notification with optional fields left blank.",
+                async () =>
+                {
+                    await this.WhenIClickToCreateANewRecordFromTheView();
+
+                    if (this.powerPlaywrightCtx.ActivePage is not IEntityRecordPage recordPage)
+                    {
+                        throw new InvalidOperationException("The New command did not open an entity record page.");
+                    }
+
+                    await recordPage.Form.CommandBar.ClickCommandAsync("Save");
+                    await recordPage.Page.WaitForAppIdleAsync();
+
+                    var notifications = await recordPage.Form.GetFormNotificationsAsync();
+                    var errorNotifications = notifications
+                        .Where(n => string.Equals(n.Level.ToString(), "Error", StringComparison.OrdinalIgnoreCase));
+
+                    errorNotifications.Should().BeEmpty("a successfully saved record is required to prove optional fields are accepted");
+                });
         }
 
         /// <summary>
@@ -457,6 +486,8 @@
                     $"Unable to establish AC-3 search precondition: searching by seeded reference number '{referenceNumber}' did not return the created record.");
             }
 
+            await this.VerifyAc2ColumnsOnSearchResultsAsync();
+
             foreach (var row in criteria.Rows)
             {
                 var criterion = row["Search criterion"];
@@ -521,6 +552,29 @@
                 },
                 betweenAttempts: () => this.EntityListPage.DataSet.Container.Page.WaitForAppIdleAsync(),
                 retryCount: retryCount);
+        }
+
+        private async Task VerifyAc2ColumnsOnSearchResultsAsync()
+        {
+            var actualColumns = (await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetColumnNamesAsync())
+                .Select(c => c.Trim())
+                .ToList();
+
+            foreach (var column in Ac2RequiredColumns)
+            {
+                if (actualColumns.Contains(column, StringComparer.OrdinalIgnoreCase))
+                {
+                    this.defectRecorder.RecordVerified("AC-2", $"{ActiveImporterNotificationsView} > {column}");
+                }
+                else
+                {
+                    this.defectRecorder.RecordDefect(
+                        "AC-2",
+                        $"{ActiveImporterNotificationsView} > {column}",
+                        $"The '{ActiveImporterNotificationsView}' view shows a '{column}' column.",
+                        $"The column is not present in search results. Columns actually shown: {string.Join(", ", actualColumns)}.");
+                }
+            }
         }
 
         private async Task SearchCurrentViewAsync(string searchToken)

@@ -250,25 +250,27 @@
         public async Task WhenIToggleTheFieldTo(string displayName, string value)
         {
             var expected = ParseToggleValue(value);
-            var (formId, _) = await this.ResolveFormAsync();
-            var fieldContext = this.ResolveFieldContext(displayName, await this.RecordPage.Form.GetActiveTabAsync(), formId);
-            var field = await this.ResolveFieldAsync(fieldContext.LogicalName, fieldContext.Location);
+            await this.ExecuteGenericFieldActionAsync(
+                displayName,
+                async (field, _) =>
+                {
+                    var toggle = field.Container
+                        .GetByRole(AriaRole.Switch)
+                        .Or(field.Container.GetByRole(AriaRole.Checkbox))
+                        .First;
 
-            var toggle = field.Container
-                .GetByRole(AriaRole.Switch)
-                .Or(field.Container.GetByRole(AriaRole.Checkbox))
-                .First;
+                    await toggle.WaitForAsync();
 
-            await toggle.WaitForAsync();
+                    if (await toggle.IsCheckedAsync() != expected)
+                    {
+                        await toggle.ClickAsync();
+                    }
 
-            if (await toggle.IsCheckedAsync() != expected)
-            {
-                await toggle.ClickAsync();
-            }
-
-            (await toggle.IsCheckedAsync()).Should().Be(
-                expected,
-                $"the '{displayName}' toggle should have been set to '{value}'.");
+                    (await toggle.IsCheckedAsync()).Should().Be(
+                        expected,
+                        $"the '{displayName}' toggle should have been set to '{value}'.");
+                },
+                tab: await this.RecordPage.Form.GetActiveTabAsync());
         }
 
         private static bool ParseToggleValue(string value)
@@ -493,8 +495,8 @@
         /// Compares an entered value with the value read back from the form.
         /// </summary>
         /// <remarks>
-        /// Lookups, option sets and dates are reformatted for display, so a containment comparison
-        /// is used rather than strict equality.
+        /// Numeric and date values are compared semantically so display formatting differences do not
+        /// mask true mismatches; text values must match once trimmed.
         /// </remarks>
         /// <param name="expected">The value that was entered.</param>
         /// <param name="actual">The value read back from the form.</param>
@@ -532,7 +534,7 @@
                     : actualDate == expectedDate;
             }
 
-            return normalisedActual.IndexOf(normalisedExpected, StringComparison.OrdinalIgnoreCase) >= 0;
+            return normalisedActual.Equals(normalisedExpected, StringComparison.OrdinalIgnoreCase);
         }
 
         private static bool TryParseDecimal(string input, out decimal value)
