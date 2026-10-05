@@ -448,6 +448,15 @@
                 throw new InvalidOperationException($"Unable to find {ScenarioContextKeys.CreatedImporterNotificationReferenceNumber} in scenario context.");
             }
 
+            // Establish the search precondition explicitly so infrastructure/search failures are not
+            // reported as requirement defects for every criterion.
+            await this.SearchCurrentViewAsync(referenceNumber);
+            if (!await this.CurrentViewContainsAsync(referenceNumber))
+            {
+                throw new InvalidOperationException(
+                    $"Unable to establish AC-3 search precondition: searching by seeded reference number '{referenceNumber}' did not return the created record.");
+            }
+
             foreach (var row in criteria.Rows)
             {
                 var criterion = row["Search criterion"];

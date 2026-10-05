@@ -4,6 +4,7 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Data;
+    using System.Globalization;
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
@@ -500,7 +501,7 @@
         /// <returns>Whether the values match.</returns>
         private static bool ValuesMatch(string expected, string actual)
         {
-            if (string.IsNullOrWhiteSpace(actual))
+            if (string.IsNullOrWhiteSpace(expected) || string.IsNullOrWhiteSpace(actual))
             {
                 return false;
             }
@@ -508,8 +509,37 @@
             var normalisedExpected = expected.Trim();
             var normalisedActual = actual.Trim();
 
-            return normalisedActual.Equals(normalisedExpected, StringComparison.OrdinalIgnoreCase)
-                || normalisedActual.IndexOf(normalisedExpected, StringComparison.OrdinalIgnoreCase) >= 0;
+            if (normalisedActual.Equals(normalisedExpected, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            if (TryParseDecimal(normalisedExpected, out var expectedNumber))
+            {
+                return TryParseDecimal(normalisedActual, out var actualNumber)
+                    && expectedNumber == actualNumber;
+            }
+
+            if (DateTime.TryParse(normalisedExpected, CultureInfo.CurrentCulture, DateTimeStyles.AllowWhiteSpaces, out var expectedDate))
+            {
+                if (!DateTime.TryParse(normalisedActual, CultureInfo.CurrentCulture, DateTimeStyles.AllowWhiteSpaces, out var actualDate))
+                {
+                    return false;
+                }
+
+                return expectedDate.TimeOfDay == TimeSpan.Zero
+                    ? actualDate.Date == expectedDate.Date
+                    : actualDate == expectedDate;
+            }
+
+            return normalisedActual.IndexOf(normalisedExpected, StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private static bool TryParseDecimal(string input, out decimal value)
+        {
+            var styles = NumberStyles.Number;
+            return decimal.TryParse(input, styles, CultureInfo.CurrentCulture, out value)
+                || decimal.TryParse(input, styles, CultureInfo.InvariantCulture, out value);
         }
 
         /// <summary>
@@ -2541,12 +2571,7 @@
 
             var field = this.RecordPage.Form.GetField(fieldLogicalName);
 
-            if (await IsFieldRenderedAsync(field))
-            {
-                return field;
-            }
-
-            return await this.ResolveDuplicatedFieldAsync(fieldLogicalName) ?? field;
+            return await this.ResolveRenderedFieldPlacementAsync(fieldLogicalName, field) ?? field;
         }
 
         /// <summary>
@@ -2562,43 +2587,31 @@
         /// </remarks>
         /// <param name="fieldLogicalName">The field logical name.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        private async Task<IField> ResolveDuplicatedFieldAsync(string fieldLogicalName)
+        private async Task<IField> ResolveRenderedFieldPlacementAsync(string fieldLogicalName, IField primaryField)
         {
             const int MaxDuplicates = 5;
-
-            for (var suffix = 1; suffix <= MaxDuplicates; suffix++)
-            {
-                var duplicate = this.RecordPage.Form.GetField($"{fieldLogicalName}{suffix}");
-
-                if (await IsFieldRenderedAsync(duplicate))
-                {
-                    return duplicate;
-                }
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Gets whether a field has rendered, allowing time for the active tab to load.
-        /// </summary>
-        /// <param name="field">The field.</param>
-        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        private static async Task<bool> IsFieldRenderedAsync(IField field)
-        {
             const int MaxAttempts = 5;
 
             for (var attempt = 0; attempt < MaxAttempts; attempt++)
             {
-                if (await field.Container.First.IsVisibleAsync())
+                if (await primaryField.Container.First.IsVisibleAsync())
                 {
-                    return true;
+                    return primaryField;
                 }
 
-                await field.Container.Page.WaitForTimeoutAsync(500);
+                for (var suffix = 1; suffix <= MaxDuplicates; suffix++)
+                {
+                    var duplicate = this.RecordPage.Form.GetField($"{fieldLogicalName}{suffix}");
+                    if (await duplicate.Container.First.IsVisibleAsync())
+                    {
+                        return duplicate;
+                    }
+                }
+
+                await primaryField.Container.Page.WaitForTimeoutAsync(500);
             }
 
-            return false;
+            return null;
         }
 
         private async Task ExecuteDataSetActionAsync<TControl>(string subgridDisplayName, Func<IDataSet<TControl>, Task> action)
