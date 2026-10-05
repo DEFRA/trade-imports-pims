@@ -116,28 +116,50 @@
         [Then("I verify a Caseworker can create a new record from the view for {string}")]
         public async Task ThenIVerifyACaseworkerCanCreateANewRecordFromTheView(string acceptanceCriterion)
         {
-            await this.defectRecorder.TryVerifyAsync(
+            var newCommandIsAvailable = await this.defectRecorder.TryVerifyAsync(
                 acceptanceCriterion,
                 "Create a new Import Notification",
                 "A Caseworker can create and save an Import Notification with optional fields left blank.",
-                async () =>
-                {
-                    await this.WhenIClickToCreateANewRecordFromTheView();
+                async () => await this.WhenIClickToCreateANewRecordFromTheView());
 
-                    if (this.powerPlaywrightCtx.ActivePage is not IEntityRecordPage recordPage)
-                    {
-                        throw new InvalidOperationException("The New command did not open an entity record page.");
-                    }
+            if (!newCommandIsAvailable)
+            {
+                return;
+            }
 
-                    await recordPage.Form.CommandBar.ClickCommandAsync("Save");
-                    await recordPage.Page.WaitForAppIdleAsync();
+            if (this.powerPlaywrightCtx.ActivePage is not IEntityRecordPage recordPage)
+            {
+                throw new InvalidOperationException("The New command did not open an entity record page.");
+            }
 
-                    var notifications = await recordPage.Form.GetFormNotificationsAsync();
-                    var errorNotifications = notifications
-                        .Where(n => string.Equals(n.Level.ToString(), "Error", StringComparison.OrdinalIgnoreCase));
+            await this.SetRequiredReferenceNumberAsync(recordPage);
 
-                    errorNotifications.Should().BeEmpty("a successfully saved record is required to prove optional fields are accepted");
-                });
+            await recordPage.Form.CommandBar.ClickCommandAsync("Save");
+            await recordPage.Page.WaitForAppIdleAsync();
+
+            var notifications = await recordPage.Form.GetFormNotificationsAsync();
+            var errorNotifications = notifications
+                .Where(n => string.Equals(n.Level.ToString(), "Error", StringComparison.OrdinalIgnoreCase));
+
+            errorNotifications.Should().BeEmpty("a successfully saved record is required to prove optional fields are accepted");
+
+            recordPage.GetRecordId().Should().NotBe(Guid.Empty, "the record must have a valid ID after a successful save");
+        }
+
+        private async Task SetRequiredReferenceNumberAsync(IEntityRecordPage recordPage)
+        {
+            var referenceNumber = $"CHEDA.GB.{DateTime.UtcNow:yyyy}.{DateTime.UtcNow:HHmmssfff}";
+            var referenceNumberField = recordPage.Page
+                .Locator("input[aria-label='Reference Number'],textarea[aria-label='Reference Number']")
+                .First;
+
+            if (!await referenceNumberField.IsVisibleAsync())
+            {
+                throw new InvalidOperationException("Unable to find the required 'Reference Number' field on the create form.");
+            }
+
+            await referenceNumberField.FillAsync(referenceNumber);
+            await referenceNumberField.PressAsync("Tab");
         }
 
         /// <summary>
