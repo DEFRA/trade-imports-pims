@@ -23,7 +23,7 @@ Supporting case management capabilities include document attachment, IV65 respon
 
 ## Functional Scope
 
-- Create, update, view, list and search for Import Records, ITAHCs, DOCOMs and CVEDs
+- Create, update, view, list and search for Import Records, ITAHCs, DOCOMs and CVEDs; view, list, search and perform limited updates on Importer Notifications
 - Link health certificates to Import Records
 - Attach documents to Import Records
 - Calculate IV65 response due dates
