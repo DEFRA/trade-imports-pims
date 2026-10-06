@@ -9,36 +9,36 @@ So that I can schedule a Post Import Check if required.
 ## Description
 
 PIMS applies the 10% P2 inspection coverage rule using two counters (Auto Numbers in the Reference Data area):
-- **P2 Inspection Counter** — counts Import Records since the last P2 inspection.
-- **P2 Inspection Quota Counter** — tracks inspections owed due to cases that were previously flagged for inspection but subsequently had their Risk Level changed away from P2.
+- **Import Application Priority 2 Counter** — counts Import Records since the last P2 inspection.
+- **Import Application Priority 2 Quota Counter** — tracks inspections owed due to cases that were previously flagged for inspection but subsequently had their Risk Level changed away from P2.
 
 The rule runs whenever an Import Record's Risk Level is set to or changed from P2. If a case moves from P2 before being inspected, the inspection obligation is preserved for a future case.
 
 ## Acceptance Criteria
 
-- **AC-1 (On deployment):** Two counters are initialised: P2 Inspection Counter = 0 and P2 Inspection Quota Counter = 0.
+- **AC-1 (On deployment):** Two counters are initialised: Import Application Priority 2 Counter = 0 and Import Application Priority 2 Quota Counter = 0.
 
 - **AC-2 (Risk Level changed to P2 — Quota Counter > 0):**  
-  Decrement the P2 Inspection Quota Counter by 1. Flag the Import Record for Post Import Check:
+  Decrement the Quota Counter by 1. Flag the Import Record for Post Import Check:
   - Post Import Checks Required? = **Yes**
   - Post Import Checks Required Reason = **10% P2-Case Rule**
 
 - **AC-3 (Risk Level changed to P2 — Quota Counter = 0, counter below limit):**  
-  Increment the P2 Inspection Counter by 1. Do not flag for inspection.
+  Increment the Import Application Priority 2 Counter by 1. Do not flag for inspection.
 
 - **AC-4 (Risk Level changed to P2 — Quota Counter = 0, counter reaches limit of 10):**  
-  Reset the P2 Inspection Counter to 0. Flag the Import Record for Post Import Check:
+  Reset the Import Application Priority 2 Counter to 0. Flag the Import Record for Post Import Check:
   - Post Import Checks Required? = **Yes**
   - Post Import Checks Required Reason = **10% P2-Case Rule**
 
 - **AC-5 (Risk Level changed away from P2 — record was flagged for inspection):**  
-  Increment the P2 Inspection Quota Counter by 1 (to ensure a future case covers this inspection).
+  Increment the Quota Counter by 1 (to ensure a future case covers this inspection).
 
 - **AC-6 (Risk Level changed away from P2 — record was not flagged for inspection):**  
-  Decrement the P2 Inspection Counter by 1 (to maintain the inspection ratio; counter can go negative).
+  Decrement the Priority 2 Counter by 1 (to maintain the inspection ratio; counter can go negative).
 
 - **AC-7 (Bulk rebalancing):**  
-  If the P2 Inspection Quota Counter > 0 AND the P2 Inspection Counter ≤ -10: decrement the P2 Inspection Quota Counter by 1 and add 10 to the P2 Inspection Counter.
+  If the Quota Counter > 0 AND the Priority 2 Counter ≤ -10: decrement the Quota Counter by 1 and add 10 to the Priority 2 Counter.
 
 ## Business Rules
 
