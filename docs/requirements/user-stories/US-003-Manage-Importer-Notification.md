@@ -28,7 +28,7 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
   - Intended Use of Commodity
   - Purpose of Consignment, Internal Market Purpose, Certified For, Purpose for Movement, Number of Packages (journey-conditional visibility — [BR-045](../business-rules.md#br-045))
   - Port / Airport of Entry
-  - Animal / Product IDs, Commodity Code, Horse Name (shown only where the commodity is Horse), Commodity Permanent Address Information (CHEDA only)
+  - Animal / Product IDs, Commodity Code, Horse Name (shown only where the commodity is Horse) — see AC-6 for the related Commodity Permanent Address Information subgrid
   - MRN Number (sourced from IPAFFS)
   - Cloned (Yes/No — identifies a notification created via IPAFFS Clone Journey)
   - Imp Type (Live Animals / POAO / HFRNAO; hidden for the CHED journey)
@@ -57,7 +57,7 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
 
 - **AC-5 (All POAO/HRFNAO view):** An EU Imports Caseworker can select an "All POAO/HRFNAO Importer Notifications" view, equivalent to the Active Importer Notifications view with Status (Active/Inactive), Imp Type, Owner, Commodity Description and Commodity Code columns added.
 
-- **AC-6 (Multiple commodities flagged):** An Importer Notification received with more than one commodity code is flagged for caseworker review (see [US-055](US-055-Flag-Multiple-Commodity-Certificates.md)).
+- **AC-6 (Commodity Permanent Address Information subgrid):** For an Importer Notification that is a CHEDA journey with a Type of 'CVEDA', a "Commodity Permanent Address Information" subgrid is shown on the Commodity tab, underneath the Commodity section, with the following columns: Animal ID, Microchip, Passport, Tattoo, Address Type, Address Line 1, Address Line 2, Address Line 3, City, Postcode, Telephone, Email.
 
 ## Business Rules
 
