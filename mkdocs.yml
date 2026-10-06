@@ -11,6 +11,9 @@ docs_dir: docs
 # Only the requirements baseline (plus the homepage and site assets) is published.
 # Other documentation (e.g. docs/testing) can live under docs/ without being built or
 # tripping the --strict nav-orphan check.
+# `exclude_docs` is re-applied after theme/plugin static files (e.g. mkdocs-material's
+# assets/stylesheets/*.css, assets/javascripts/*.js) are added to the build, so they must
+# also be allow-listed here or the site renders unstyled.
 exclude_docs: |
   /*
   !/index.md
@@ -20,6 +23,8 @@ exclude_docs: |
   !/scripts/**
   !/stylesheets/
   !/stylesheets/**
+  !/assets/
+  !/assets/**
 
 theme:
   name: material
