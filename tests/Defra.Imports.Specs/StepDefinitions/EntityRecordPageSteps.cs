@@ -956,19 +956,6 @@
         }
 
         /// <summary>
-        /// Verifies the fields visible scoped a tab.
-        /// </summary>
-        /// <param name="tab">The tab.</param>
-        /// <param name="dataTable">The fields.</param>
-        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        [Then("I see the following fields in the {string} tab")]
-        public async Task ThenISeeTheFollowingFieldsInTheTab(string tab, DataTable dataTable)
-        {
-            await this.RecordPage.Form.OpenTabAsync(tab);
-            await this.ISeeTheFollowingFields(dataTable);
-        }
-
-        /// <summary>
         /// Asserts that the record is saved successfully.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
