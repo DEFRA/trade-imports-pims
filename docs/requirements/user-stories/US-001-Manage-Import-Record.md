@@ -8,7 +8,7 @@ So that I can collate and record all information relating to the risk assessment
 
 ## Description
 
-The Import Record is the primary case record in PIMS. It consolidates information from health certificates (ITAHC, DOCOM, CVED), import notifications and place of origin data into a single record that supports the full case lifecycle: Triage → Risk Assessment → Post Import Check → Completion.
+The Import Record is the primary case record in PIMS. It consolidates information from health certificates (ITAHC, DOCOM, CVED), Importer Notifications and place of origin data into a single record that supports the full case lifecycle: Triage → Risk Assessment → Post Import Check → Completion.
 
 A user can either manually create an Import Record or one may be auto-created by the TRACES integration ([US-009](US-009-Auto-Create-Import-Record-From-ITAHC.md), [US-010](US-010-Auto-Create-Import-Record-From-DOCOM.md)). A quick-create form is also available for rapid triage ([US-033](US-033-Quick-Create-Import-Record.md)).
 
@@ -20,7 +20,7 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 
     - Import Record Type (see AC-7 for the value list — PLNT-4536)
     - Primary ITAHC (Lookup; includes "No ITAHC Received" option)
-    - Primary Import Notification (Lookup)
+    - Primary Importer Notification (Lookup)
     - GB Import Health Certificate, Traces Export Health Certificate, ITAHC Reference, DOCOM Reference (single line of text; non-mandatory; manually populated — PLNT-4535, see AC-5)
     - Devolved Office
     - Importer Name, Address (Line 1-3, City, Postcode), Telephone, Email
@@ -41,11 +41,11 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 
 - **AC-2:** An EU Imports Caseworker can view a list of all Import Records ordered by creation date (newest first), showing: Primary ITAHC, Commodity Type, Country of Origin, Import Risk Level, Place of Origin Organisation, Place of Destination, Created On Date.
 
-- **AC-3:** An EU Imports Caseworker can perform a free text search for an Import Record using: Importer Name, Date of Import, Premises of Origin Name (Place of Origin Organisation), ITAHC Certificate Reference Number, Import Notification Local Reference Number.
+- **AC-3:** An EU Imports Caseworker can perform a free text search for an Import Record using: Importer Name, Date of Import, Premises of Origin Name (Place of Origin Organisation), ITAHC Certificate Reference Number, Importer Notification Local Reference Number.
 
 - **AC-4:** The user can select "No ITAHC Received" in the Primary ITAHC field and save the Import Record without a linked ITAHC.
 
-- **AC-5 (Reference number fields):** GB Import Health Certificate, Traces Export Health Certificate, ITAHC Reference and DOCOM Reference are displayed as single-line text fields immediately below the Primary Import Notification field, in the Commodity section of the Summary tab. All four fields are non-mandatory and are populated manually; none are auto-populated by PIMS.
+- **AC-5 (Reference number fields):** GB Import Health Certificate, Traces Export Health Certificate, ITAHC Reference and DOCOM Reference are displayed as single-line text fields immediately below the Primary Importer Notification field, in the Commodity section of the Summary tab. All four fields are non-mandatory and are populated manually; none are auto-populated by PIMS.
 
 - **AC-6 (Triage step no longer clears Commodity Code):** Entering a value in the Primary ITAHC field during the Triage stage of the Import Record business process flow no longer removes or updates the Commodity Code value on the Import Record on save. Primary ITAHC carries no business process logic. This resolves the defect reported as DEFRA incident INC0838632.
 
@@ -77,7 +77,7 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 
 ## Dependencies
 
-- [US-002](US-002-Manage-ITAHC.md) (ITAHC lookup), [US-003](US-003-Manage-Import-Notification.md) (Import Notification lookup), [US-017](US-017-Manage-Place-of-Origin.md) (Place of Origin lookup)
+- [US-002](US-002-Manage-ITAHC.md) (ITAHC lookup), [US-003](US-003-Manage-Importer-Notification.md) (Importer Notification lookup), [US-017](US-017-Manage-Place-of-Origin.md) (Place of Origin lookup)
 - [US-011](US-011-Manage-Commodity-Risk-Levels.md) (Commodity Risk Level rules applied on create/update)
 - [US-028](US-028-Generate-Unique-Reference-Number.md) (Unique reference number)
 - [US-004](US-004-Manage-DOCOM.md) (DOCOM record — the DOCOM tab on the Import Record is additional triage context, not a replacement for the DOCOM entity)

@@ -72,13 +72,13 @@ When the Risk Level is set to P1 **AND** the Gold/Bronze rating cannot be determ
 ### BR-007 — P2 Random 10% Inspection Coverage { #br-007 }
 When an Import Record Risk Level is set or changed to P2:
 
-1. If the Import Record Priority 2 Quota Counter > 0: decrement the counter by 1 and flag the record for Post Import Check.
-2. Otherwise: increment the Import Record Priority 2 Counter. If the counter reaches the configured limit (10): reset the counter to 0 and flag the record for Post Import Check.
+1. If the Import Application Priority 2 Quota Counter > 0: decrement the counter by 1 and flag the record for Post Import Check.
+2. Otherwise: increment the Import Application Priority 2 Counter. If the counter reaches the configured limit (10): reset the counter to 0 and flag the record for Post Import Check.
 
 When an Import Record Risk Level is changed away from P2:
 
-- If the record was flagged for inspection: increment the Quota Counter by 1 (to schedule a replacement).
-- If the record was not flagged for inspection: decrement the Priority 2 Counter by 1 (to maintain the ratio).
+- If the record was flagged for inspection: increment the P2 Inspection Quota Counter by 1 (to schedule a replacement).
+- If the record was not flagged for inspection: decrement the P2 Inspection Counter by 1 (to maintain the ratio).
 
 - **Source:** [US-015](user-stories/US-015-Automated-Risk-Assessment-P2.md)
 - **Jira:** IMTA-5895
@@ -280,7 +280,7 @@ A user must be able to select "No ITAHC Received" in the Primary ITAHC lookup on
 ### BR-029 — Deleted Importer Notification Attachments Remain Active { #br-029 }
 When an Importer Notification update from IPAFFS removes a related record (e.g. an Additional Permanent Address), the equivalent record in PIMS must remain active and not be deleted, as Import Records may already reference that data.
 
-This rule applies to the implemented **Importer Notification** entity used for IPAFFS data. Legacy wording may still refer to some of these records or views as "Import Notification".
+This rule applies to the implemented **Importer Notification** entity used for IPAFFS data.
 
 - **Source:** [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md)
 - **Jira:** IMTA-5864 AC-2

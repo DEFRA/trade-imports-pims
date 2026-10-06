@@ -7,7 +7,7 @@
 3. Reduce the administrative burden on EU Imports Caseworkers by automating risk assessment, inspection flagging and counter management.
 4. Provide real-time operational visibility for team leaders and managers through dashboards and reports.
 5. Maintain full auditability of all case decisions for regulatory compliance purposes.
-6. Integrate with external veterinary and import notification systems (TRACES Classic, IPAFFS) to eliminate duplicate data entry.
+6. Integrate with external veterinary and Importer Notification systems (TRACES Classic, IPAFFS) to eliminate duplicate data entry.
 
 ---
 
@@ -29,7 +29,7 @@
 | --- | ------------------------------------------------------------------------------------------------------------------------------- |
 | 1   | Import Record creation, management and lifecycle                                                                                |
 | 2   | ITAHC, DOCOM and CVED record management                                                                                         |
-| 3   | Import Notification legacy terminology handling and Importer Notification management                                            |
+| 3   | Importer Notification management                                                                                              |
 | 4   | Automated inbound integration with TRACES Classic (ITAHC, DOCOM)                                                                |
 | 5   | Automated inbound integration with IPAFFS (Importer Notifications)                                                              |
 | 6   | Automated Import Record creation from TRACES-sourced health certificates and implemented IPAFFS Importer Notification workflows |

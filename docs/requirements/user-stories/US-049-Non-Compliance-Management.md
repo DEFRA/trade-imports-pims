@@ -4,11 +4,11 @@
 
 As a CIT Case Worker,  
 I want to see non-compliance fields displayed on the Importer Notification and Import Record in Dynamics, pre-defined system views to find them, and a chronological comments timeline on the Importer Notification,  
-So that I can save time on the number of notifications allocated to me, easily navigate to non-compliant records, and keep a record of all comments relating to import notifications with no associated health certificate.
+So that I can save time on the number of notifications allocated to me, easily navigate to non-compliant records, and keep a record of all comments relating to Importer Notifications with no associated health certificate.
 
 ## Description
 
-CIT currently manage a manual off-system process for recording non-compliance queries against an import notification or Import Record. Capturing non-compliance directly in PIMS saves caseworkers time, increases the number of notifications that can be handled, and improves reporting visibility.
+CIT currently manage a manual off-system process for recording non-compliance queries against an Importer Notification or Import Record. Capturing non-compliance directly in PIMS saves caseworkers time, increases the number of notifications that can be handled, and improves reporting visibility.
 
 Non-compliance fields are new to both the Importer Notification and Import Record entities — they are not currently surfaced from one entity to the other via a sub-grid. The relationship between an Importer Notification and its Import Records is 1:N, implemented as a lookup from Import Record to Importer Notification.
 

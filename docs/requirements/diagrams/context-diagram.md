@@ -20,7 +20,6 @@ flowchart LR
         IMPORT_REC["Import Records"]
         ITAHC_ENT["ITAHC Records"]
         DOCOM_ENT["DOCOM Records"]
-        IMP_NOT["Import Notifications <br/> (legacy)"]
         IMPR_NOT["Importer Notifications <br/> (IPAFFS)"]
         POO_ENT["Places of Origin"]
         PIC_ENT["Post Import Checks"]
@@ -49,7 +48,6 @@ flowchart LR
     CW --> IMPORT_REC
     CW --> ITAHC_ENT
     CW --> DOCOM_ENT
-    CW --> IMP_NOT
     CW --> IMPR_NOT
     CW --> POO_ENT
     CW --> PIC_ENT

@@ -30,7 +30,7 @@ This page lists all 9 epics in the PIMS requirements baseline. Each epic groups 
 | --------------------------------------------------------------------------- | --------------------------------------- |
 | [US-001](../user-stories/US-001-Manage-Import-Record.md)                    | Manage Import Record                    |
 | [US-002](../user-stories/US-002-Manage-ITAHC.md)                            | Manage ITAHC                            |
-| [US-003](../user-stories/US-003-Manage-Import-Notification.md)              | Manage Import Notification              |
+| [US-003](../user-stories/US-003-Manage-Importer-Notification.md)              | Manage Importer Notification            |
 | [US-004](../user-stories/US-004-Manage-DOCOM.md)                            | Manage DOCOM                            |
 | [US-005](../user-stories/US-005-Manage-CVED.md)                             | Manage CVED                             |
 | [US-029](../user-stories/US-029-Document-Attachment.md)                     | Document Attachment                     |

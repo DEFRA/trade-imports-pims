@@ -16,7 +16,6 @@ PIMS provides caseworkers with the ability to create and manage the following re
 - **ITAHC** — International Transport of Animals Health Certificate
 - **DOCOM** — Document of Commercial Movement
 - **CVED** — Common Veterinary Entry Document
-- **Import Notification** — legacy pre-notification wording retained in some labels, views and dashboard text
 - **Importer Notification** — the implemented IPAFFS-sourced notification entity (auto-received)
 - **Match Record** — matching support artefact used to identify candidate related Import Records
 
@@ -24,14 +23,14 @@ Supporting case management capabilities include document attachment, IV65 respon
 
 ## Functional Scope
 
-- Create, update, view, list and search for Import Records, ITAHCs, DOCOMs, CVEDs and Import Notifications
+- Create, update, view, list and search for Import Records, ITAHCs, DOCOMs and CVEDs; view, list, search and perform limited updates on Importer Notifications
 - Link health certificates to Import Records
 - Attach documents to Import Records
 - Calculate IV65 response due dates
 - Record warble fly treatment declaration dates
 - Record Import Record completion dates
 - Quick-create Import Records for the unassigned work queue
-- View Importer Notifications received from IPAFFS
+- View and search Importer Notifications received from IPAFFS
 - Select "No ITAHC Received" on an Import Record where applicable
 - Review Match View candidates and Work Schedule Number context when matching inbound records
 - Record DOCOM-specific triage details (category, Proof of Delivery request/reply) on the Import Record
@@ -44,7 +43,7 @@ Supporting case management capabilities include document attachment, IV65 respon
 | --------------------------------------------------------------------------- | --------------------------------------- |
 | [US-001](../user-stories/US-001-Manage-Import-Record.md)                    | Manage Import Record                    |
 | [US-002](../user-stories/US-002-Manage-ITAHC.md)                            | Manage ITAHC                            |
-| [US-003](../user-stories/US-003-Manage-Import-Notification.md)              | Manage Import Notification              |
+| [US-003](../user-stories/US-003-Manage-Importer-Notification.md)              | Manage Importer Notification            |
 | [US-004](../user-stories/US-004-Manage-DOCOM.md)                            | Manage DOCOM                            |
 | [US-005](../user-stories/US-005-Manage-CVED.md)                             | Manage CVED                             |
 | [US-029](../user-stories/US-029-Document-Attachment.md)                     | Document Attachment                     |

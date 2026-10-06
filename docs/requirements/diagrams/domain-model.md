@@ -41,15 +41,12 @@ classDiagram
         +String certificateReferenceNumber
     }
 
-    class ImportNotification {
+    class ImporterNotification {
         +String importerName
         +Date dateOfImport
         +String premisesOfOriginCountry
         +String speciesProduct
         +String portAirportOfEntry
-    }
-
-    class ImporterNotification {
         +String type
         +String status
         +Date receivedDate
