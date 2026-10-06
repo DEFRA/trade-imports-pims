@@ -18,7 +18,7 @@ The Watchlist entity covers five watch types: Place of Origin, Place of Destinat
 
 - **AC-3 (Amend a Watchlist record):** An EU Imports Caseworker can amend an existing Watchlist record's End Date (cannot be before the Start Date) and add a new comment.
 
-- **AC-4 (Audit on save):** When a Watchlist record is created or amended, PIMS records who created it and the date and time of creation.
+- **AC-4 (Audit on save):** When a Watchlist record is created, PIMS records who created it and the date and time of creation; when an existing Watchlist record is amended, PIMS additionally records who amended it and the date and time of that amendment.
 
 - **AC-5 (Comments):** An EU Imports Caseworker can add a comment to a Watchlist record; the comment is stored related to the Watchlist record, with the author and date/time recorded.
 

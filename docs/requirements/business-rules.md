@@ -86,7 +86,7 @@ When an Import Record Risk Level is changed away from P2:
 ---
 
 ### BR-008 — P3 Random 2% Inspection Coverage (ITAHC and CHEDA Records) { #br-008 }
-When an Import Record of type ITAHC with a linked Primary ITAHC is created or of type CHEDA which is manually assessed as as Risk Level P3:
+When an Import Record of type ITAHC with a linked Primary HC is created or of type CHEDA which is manually assessed as as Risk Level P3:
 
 1. Increment the "2% All Import Records — Random" Inspection Coverage Count value.
 2. If the count value equals or exceeds the configured limit: flag the Import Record for Post Import Check with reason "Random P3 Inspection" and reset the counter to 0.
@@ -176,7 +176,7 @@ When the Lock to Bronze field is changed from Yes to No, the user must provide a
 ---
 
 ### BR-018 — Number of Import Records Counter on Place of Origin Incremented on Link { #br-018 }
-The Number of Import Records counter on a Place of Origin must be incremented by 1 when an Import Record is linked to the Place of Origin **and** the Import Record has a Primary ITAHC. It must be decremented by 1 when the link is removed or the Primary ITAHC is cleared.
+The Number of Import Records counter on a Place of Origin must be incremented by 1 when an Import Record is linked to the Place of Origin **and** the Import Record has a Primary HC. It must be decremented by 1 when the link is removed or the Primary HC is cleared.
 
 - **Source:** [US-018](user-stories/US-018-Place-of-Origin-Trust-Level-Maintenance.md)
 - **Jira:** IMTA-5886 AC-5
@@ -270,7 +270,7 @@ The Replaced By and Replaces fields on ITAHC and DOCOM records must reflect the 
 ---
 
 ### BR-028 — "No ITAHC Received" Option on Import Record { #br-028 }
-A user must be able to select "No ITAHC Received" in the Primary ITAHC lookup on an Import Record to allow the record to be saved without a linked ITAHC. Source stories may refer to this option as "No ITAHC Provided".
+A user must be able to select "No ITAHC Received" in the Primary HC lookup on an Import Record to allow the record to be saved without a linked ITAHC. Source stories may refer to this option as "No ITAHC Provided".
 
 - **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md)
 - **Jira:** IMTA-5985
@@ -348,9 +348,9 @@ The GB Import Health Certificate, Traces Export Health Certificate, ITAHC Refere
 
 ---
 
-### BR-037 — Triage Step Must Not Clear or Update Commodity Code When Primary ITAHC Is Populated { #br-037 }
+### BR-037 — Triage Step Must Not Clear or Update Commodity Code When Primary HC Is Populated { #br-037 }
 
-When a user enters a value in the Primary ITAHC field during the Triage stage of the Import Record business process flow, PIMS must not remove or update the Commodity Code value on the Import Record on save. The Primary ITAHC field carries no business process logic. This rule corrects the defect reported as DEFRA incident INC0838632 ("IPAFFS - PIMS For EU Exports - Commodity Code"), under which populating Primary ITAHC previously cleared the Commodity Code value.
+When a user enters a value in the Primary HC field during the Triage stage of the Import Record business process flow, PIMS must not remove or update the Commodity Code value on the Import Record on save. The Primary HC field carries no business process logic. This rule corrects the defect reported as DEFRA incident INC0838632 ("IPAFFS - PIMS For EU Exports - Commodity Code"), under which populating Primary HC previously cleared the Commodity Code value.
 
 - **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md)
 - **Jira:** PLNT-4535 AC-2
@@ -462,7 +462,7 @@ A Post Import Check's Outcome field must offer exactly: Satisfactory, Unsatisfac
 
 ### BR-049 — Open Post Import Checks Cancelled on Case Closure { #br-049 }
 
-When an Import Record is closed, PIMS must set any linked Post Import Check with Outcome = Awaiting Outcome (not yet started) to Cancelled, recording the current date and user. Where a linked Post Import Check is mid-flight (Outcome not yet recorded but work has started), PIMS must prompt the caseworker to confirm before cancelling it on closure.
+When an Import Record is closed, PIMS must set any linked Post Import Check with Outcome = Awaiting Outcome (not yet started) to Outcome = Not Visited with Reason for Not Visiting = Cancelled, recording the current date and user. Where a linked Post Import Check is mid-flight (Outcome not yet recorded but work has started), PIMS must prompt the caseworker to confirm before cancelling it on closure.
 
 - **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
 - **Jira:** IMTA-6034

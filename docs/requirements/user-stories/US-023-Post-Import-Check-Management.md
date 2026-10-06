@@ -32,7 +32,7 @@ One Import Record may be linked to multiple Post Import Check records over time,
 
 - **AC-7 (TB default):** When an Import Record's Risk Level is set to TB, Post Import Checks Required? defaults to No (Reason: "No Inspection Required"), except where the Import Record's Devolved Office is IRMS - Scotland, in which case it defaults to Yes (Reason: "TB"). The caseworker may still override the default ([US-024](US-024-Manual-Post-Import-Check-Override.md)).
 
-- **AC-8 (Cancellation on case closure):** When an Import Record is closed, any linked Post Import Check with Outcome = Awaiting Outcome and no work started is set to Cancelled automatically; where work has started but no outcome is recorded, the caseworker is prompted to confirm before it is cancelled.
+- **AC-8 (Cancellation on case closure):** When an Import Record is closed, any linked Post Import Check with Outcome = Awaiting Outcome and no work started is set to Outcome = Not Visited with Reason for Not Visiting = Cancelled automatically; where work has started but no outcome is recorded, the caseworker is prompted to confirm before it is cancelled.
 
 ## Business Rules
 

@@ -12,7 +12,7 @@ So that match accuracy can be tuned without a code change.
 
 ## Acceptance Criteria
 
-- **AC-1 (Configuration entity):** PIMS holds matching-field configuration as a set of records, each with a Field Name and a Weighting.
+- **AC-1 (Configuration entity):** PIMS holds matching-field configuration as a set of records, each with a Field Name and a Weighting. Weighting is a positive decimal greater than zero; PIMS normalises the configured weightings (dividing each by the sum of all active weightings) before applying them in the weighted mean calculation ([BR-053](../business-rules.md#br-053)), so weightings need not sum to any fixed total.
 
 - **AC-2 (Add a field):** An EU Imports Administrator with PIMS Administrator permissions can add a new field to the matching algorithm from the supported field list and assign it a weighting. The maximum number of fields that can be configured is subject to confirmation.
 

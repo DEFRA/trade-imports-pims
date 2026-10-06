@@ -210,9 +210,10 @@ classDiagram
     ImporterNotification "0..1" --> "0..1" ImporterNotification : replacedBy
     ImporterNotification "0..1" --> "0..1" ImporterNotification : replaces
 
-    MatchRecord "1" --> "0..1" ITAHC : candidateITAHC
-    MatchRecord "1" --> "0..1" ImporterNotification : candidateImporterNotification
-    MatchRecord "1" --> "0..1" ImportRecord : resultingImportRecord
+    MatchRecord "*" --> "0..1" ITAHC : candidateITAHC
+    MatchRecord "*" --> "0..1" DOCOM : candidateDOCOM
+    MatchRecord "*" --> "0..1" ImporterNotification : candidateImporterNotification
+    MatchRecord "*" --> "0..1" ImportRecord : resultingImportRecord
     Watchlist "1" --> "*" WatchlistComment : hasComments
     Watchlist "1" --> "*" ITAHC : flags
     Watchlist "1" --> "*" ImportRecord : flags

@@ -18,7 +18,7 @@ Importer Notifications that have not been confirmed as matched to an ITAHC withi
 
 ## Business Rules
 
-- None additional; the 30-day threshold is a candidate non-functional requirement (see [non-functional-requirements.md](../non-functional-requirements.md)).
+- None additional; the 30-day threshold is defined as [NFR-SCA-003](../non-functional-requirements.md).
 
 ## Dependencies
 

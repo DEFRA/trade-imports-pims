@@ -72,7 +72,7 @@ flowchart TD
     O --> Q[Import Record created: <br/> ITAHC/DOCOM data + <br/> copied Importer Notification fields]
     Q --> R[Watchlist check <br/> applied — see Process 7]
     M --> S[Pair excluded from <br/> future candidate searches]
-    I -.->|older than 30 days <br/> configurable, still unmatched| T[Importer Notification <br/> archived - Inactive]
+    B -.->|older than 30 days <br/> configurable, still unmatched| T[Importer Notification <br/> archived - Inactive]
 ```
 
 ---

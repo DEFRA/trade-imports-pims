@@ -18,7 +18,7 @@ Devolved Office identifies the *responsible regional office* for a certificate o
 
 - **AC-1 (Devolved Office field on Importer Notification):** An EU Imports Caseworker can view and select a Devolved Office field on the Importer Notification, with no default value, from: IRMS - CIT, IRMS - Scotland, IRMS - Wales.
 
-- **AC-2 (Devolved Office field on ITAHC):** An EU Imports Caseworker can view and select a Devolved Office field on the ITAHC, with no default value, from: IRMS - CIT, IRMS - Scotland, IRMS - Wales, Unknown, or amend the value set automatically per AC-6.
+- **AC-2 (Devolved Office field on ITAHC):** An EU Imports Caseworker can view and select a Devolved Office field on the ITAHC, with no default value, from: IRMS - CIT, IRMS - Scotland, IRMS - Wales, Non-GB, Unknown, or amend the value set automatically per AC-6.
 
 - **AC-3 (Devolved Office field on DOCOM):** An EU Imports Caseworker can view and select a Devolved Office field on the DOCOM from: IRMS - CIT, IRMS - Scotland, IRMS - Wales, Non-GB, Unknown, or amend the value set automatically per AC-6.
 
