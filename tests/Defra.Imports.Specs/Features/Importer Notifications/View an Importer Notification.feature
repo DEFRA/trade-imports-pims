@@ -1,7 +1,8 @@
+@issue:US-003
 Feature: View an Importer Notification
 
 # Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
-@possible-defect
+@acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's Importer Notification Details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -24,7 +25,7 @@ Scenario: A caseworker views an Importer Notification's Importer Notification De
 		| Weight (KG)             |
 
 # Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
-@possible-defect
+@acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's commodity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -35,7 +36,7 @@ Scenario: A caseworker views an Importer Notification's commodity details
 		| Commodity Code     |
 
 # Possible defect: subgrid is visible for all types.
-@possible-defect
+@acceptance-criteria:us-003-6 @possible-defect
 Scenario: A caseworker views an Importer Notification's commodity permanent address information (CVEDA)
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification of type 'CVEDA'
@@ -45,7 +46,7 @@ Scenario: A caseworker views an Importer Notification's commodity permanent addr
 
 # Possible defect: deployed Charity tab labels the email field 'Consignor Email' (not 'Email') and the postcode field 'Address Postcode' (not 'Postcode') as required.
 # Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
-@possible-defect
+@acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's charity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification which is importing from a charity
@@ -59,6 +60,7 @@ Scenario: A caseworker views an Importer Notification's charity details
 		| Address Line 1  |
 		| Postcode        |
 
+@acceptance-criteria:us-003-1
 Scenario: A caseworker views an Importer Notification's person responsible details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -72,7 +74,7 @@ Scenario: A caseworker views an Importer Notification's person responsible detai
 		| Country |
 
 # Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
-@possible-defect
+@acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's importer details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -87,7 +89,7 @@ Scenario: A caseworker views an Importer Notification's importer details
 		| Country        |
 
 # Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
-@possible-defect
+@acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's place of origin details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	When I select the 'Place of Origin' tab
@@ -101,7 +103,7 @@ Scenario: A caseworker views an Importer Notification's place of origin details
 		| Country        |
 
 # Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
-@possible-defect
+@acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's place of destination details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	When I select the 'Place of Destination' tab
@@ -114,6 +116,7 @@ Scenario: A caseworker views an Importer Notification's place of destination det
 		| Postcode       |
 		| Country        |
 
+@acceptance-criteria:us-003-1
 Scenario: A caseworker views an Importer Notification's permanent address details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	When I select the 'Permanent Addresses' tab
@@ -122,7 +125,7 @@ Scenario: A caseworker views an Importer Notification's permanent address detail
 		| Permanent Addresses <Subgrid_3> |
 
 # Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
-@possible-defect
+@acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's transporter details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	When I select the 'Transporter' tab

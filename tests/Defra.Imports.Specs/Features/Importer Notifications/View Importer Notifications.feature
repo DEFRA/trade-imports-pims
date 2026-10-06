@@ -1,7 +1,7 @@
 Feature: View Importer Notifications
 
 # Possible defect: Deployed 'Active Importer Notifications' view differs from the requirement: it additionally shows Cloned and Imp Type columns, and labels columns 'Created On'/'Person Responsible Company Name' rather than 'Created on'/'Person Responsible Company'.
-@possible-defect
+@issue:US-003 @acceptance-criteria:us-003-2 @possible-defect
 Scenario: A caseworker views active Importer Notifications
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
@@ -9,8 +9,8 @@ Scenario: A caseworker views active Importer Notifications
 		| Reference Number | Version | Submission Date | Created on | Status | Type | Person Responsible Name | Person Responsible Company | Person Responsible Email | Person Responsible Phone | Country of Origin | Region of Origin | Place of Destination Address City | Place of Destination Address Postcode | Owner |
 	And the view is sorted by the 'Created On' column in descending order
 
-# Possible defect: Deployed 'All POAO/HRFNAO Importer Notifications' view differs from the requirement: it has no separate 'Status (Active/Inactive)' column, omits 'Cloned', labels columns 'Created On'/'Person Responsible Company Name', and sorts ascending by Reference Number rather than by creation date.
-@possible-defect
+# Possible defect: Deployed 'All POAO/HRFNAO Importer Notifications' view differs from the requirement: it has no separate 'Status (Active/Inactive)' column, labels columns 'Created On'/'Person Responsible Company Name', and sorts ascending by Reference Number rather than by creation date.
+@issue:US-003 @acceptance-criteria:us-003-5 @possible-defect
 Scenario: A caseworker views all POAO/HRFNAO Importer Notifications
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
@@ -18,6 +18,7 @@ Scenario: A caseworker views all POAO/HRFNAO Importer Notifications
 		| Reference Number | Version | Submission Date | Created on | Status | Type | Person Responsible Name | Person Responsible Company | Person Responsible Email | Person Responsible Phone | Country of Origin | Region of Origin | Place of Destination Address City | Place of Destination Address Postcode | Owner | Status (Active/Inactive) | Imp Type | Commodity Description | Commodity Code |
 	And the view is sorted by the 'Created On' column in descending order
 
+@issue:US-055 @acceptance-criteria:us-055-1
 Scenario: A caseworker views Importer Notifications flagged for multiple commodity codes
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
@@ -26,7 +27,7 @@ Scenario: A caseworker views Importer Notifications flagged for multiple commodi
 	And the view is sorted by the 'Created On' column in descending order
 
 # Possible defect: Deployed quick find configuration only searches Reference Number; it does not search Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name or Animal / Product ID as required.
-@possible-defect
+@issue:US-003 @acceptance-criteria:us-003-3 @possible-defect
 Scenario: A caseworker searches for an Importer Notification by related party or commodity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
