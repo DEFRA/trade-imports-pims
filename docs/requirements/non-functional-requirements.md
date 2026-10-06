@@ -32,6 +32,7 @@ Each NFR is labelled as **Explicit** (directly stated in a source story) or **In
 | NFR-AUT-001 | PIMS must enforce business-unit-level record ownership, with each Security Role granting access only to records owned by the user's business unit unless explicitly permitted otherwise. | Explicit | IMTA-5868, IMTA-5869, IMTA-5870, IMTA-5885, IMTA-5886 |
 | NFR-AUT-002 | In the event of a regional disaster, all geographic teams must be able to view (but not necessarily own) Import Records from other teams.                                                | Explicit | IMTA-5863 AC-2                                                                                                                                                                                                                                                |
 | NFR-AUT-003 | The EU Imports Caseworker role must be able to append notes to Import Queries it does not own.                                                                                           | Explicit | IMTA-6185 AC-7                                                                                                                                                                                                                                                |
+| NFR-AUT-004 | The EU Imports Caseworker role must have WRITE (Update) privilege at organisation level on the Importer Notification entity in every environment, so that all fields are technically unlocked. In practice, caseworker-editable fields remain limited to the Non-Compliance tab, Health Certificate Attached (see [US-044](user-stories/US-044-View-Importer-Notification.md) AC-2) and Devolved Office (see [US-059](user-stories/US-059-Devolved-Office-Assignment.md) AC-1) — this requirement is a security-role grant, not a statement that all fields are intended for manual edit. | Explicit | PLNT-5545, EDA-249 |
 
 ---
 
@@ -64,6 +65,7 @@ Each NFR is labelled as **Explicit** (directly stated in a source story) or **In
 | NFR-PER-002 | ITAHC records from TRACES Classic must be received and created in PIMS within **30 minutes** of the time that creation notification emails would have been sent. | Explicit | IMTA-6598 AC-1                                                                                                                      |
 | NFR-PER-003 | DOCOM records from TRACES Classic must be received and created in PIMS within **30 minutes** of the time that creation notification emails would have been sent. | Explicit | IMTA-6599 AC-1                                                                                                                      |
 | NFR-PER-004 | Risk assessment rules (BR-001 to BR-009) must be evaluated synchronously on save of an Import Record, with no noticeable delay to caseworker operations.         | Inferred | IMTA-5866, IMTA-5892, IMTA-5895 |
+| NFR-PER-005 | The automated matching process must search for candidate matches at least every **30 minutes** (configurable), considering certificates/notifications created within a **14 day** (configurable) window. | Explicit | IMTA-7394 |
 
 ---
 
@@ -73,6 +75,7 @@ Each NFR is labelled as **Explicit** (directly stated in a source story) or **In
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | NFR-SCA-001 | The Azure Service Bus integration must be able to handle batch receipt of TRACES and IPAFFS messages without message loss.     | Inferred | IMTA-5864, IMTA-6598, IMTA-6599                                                                                                                           |
 | NFR-SCA-002 | Reporting dashboards must be capable of displaying accurate metrics as Import Record volumes grow without manual intervention. | Inferred | IMTA-6340, IMTA-6341, IMTA-6343, IMTA-6344, IMTA-6372 |
+| NFR-SCA-003 | Unmatched Importer Notifications must be automatically archived (set Inactive) after **30 days** (configurable) to keep active matching views and search performance manageable as volumes grow. | Explicit | IMTA-7589 |
 
 ---
 
@@ -108,6 +111,7 @@ Each NFR is labelled as **Explicit** (directly stated in a source story) or **In
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | NFR-MNT-001 | All configurable business rules (Commodity Risk Levels, Inspection Coverage Rules, Gold/Bronze Commodities, unique reference prefix) must be manageable by authorised business users without code changes. | Explicit | IMTA-5865, IMTA-5888, IMTA-5891, IMTA-6132 |
 | NFR-MNT-002 | Teams and team members must replicate successfully into upstream (pre-production and production) environments as part of deployment.                                                                       | Explicit | IMTA-5863 Solution notes                                                                                                                                                                         |
+| NFR-MNT-003 | The fields and weightings used by the automated matching algorithm must be configurable by an EU Imports Administrator without a code change. | Explicit | IMTA-7595 |
 
 ---
 

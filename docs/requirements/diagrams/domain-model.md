@@ -26,6 +26,10 @@ classDiagram
         +String officialVeterinarianOrInspector
         +String localVeterinaryUnit
         +String localReference
+        +String devolvedOffice
+        +Boolean relatedImportRecord
+        +String tracesSpeciesId
+        +String tracesCommodityCode
     }
 
     class DOCOM {
@@ -35,6 +39,9 @@ classDiagram
         +String purpose
         +String sealNumber
         +String containerNumber
+        +String devolvedOffice
+        +String aphaAbpApprovalNumber
+        +Date dateOfDecision
     }
 
     class CVED {
@@ -52,6 +59,14 @@ classDiagram
         +Date receivedDate
         +String replaces
         +String replacedBy
+        +String devolvedOffice
+        +String impType
+        +String inspectionRequired
+        +String mrnNumber
+        +Boolean cloned
+        +String commodityCode
+        +String ipaffsSpeciesId
+        +String ipaffsCommodityCode
     }
 
     class PlaceOfOrigin {
@@ -111,6 +126,66 @@ classDiagram
         +String name
     }
 
+    class MatchRecord {
+        +String statusReason
+        +Decimal probabilityOfMatch
+        +String isValidMatch
+        +String rejectedReason
+    }
+
+    class Watchlist {
+        +String name
+        +String watchType
+        +Date startDate
+        +Date endDate
+        +String comments
+    }
+
+    class PlaceOfDestination {
+        +String name
+        +String address
+        +String city
+        +String postcode
+        +String country
+    }
+
+    class Consignee {
+        +String name
+        +String address
+        +String city
+        +String postcode
+        +String country
+    }
+
+    class Transporter {
+        +String name
+        +String address
+        +String city
+        +String postcode
+        +String country
+    }
+
+    class Veterinarian {
+        +String name
+        +String address
+        +String city
+        +String postcode
+        +String country
+    }
+
+    class WatchlistComment {
+        +String comment
+        +Date createdOn
+    }
+
+    class CommodityTypeMapping {
+        +Lookup commodityType
+        +String tracesSpeciesId
+        +String tracesCommodityCode
+        +String ipaffsSpeciesId
+        +String ipaffsCommodityCode
+    }
+
     ImportRecord "1" --> "0..1" ITAHC : primaryITAHC
     ImportRecord "1" --> "0..1" DOCOM : primaryDOCOM
     ImportRecord "1" --> "0..1" ImporterNotification : primaryImporterNotification
@@ -134,4 +209,18 @@ classDiagram
     ImporterNotification "0..1" --> "0..1" ImportRecord : matchedTo
     ImporterNotification "0..1" --> "0..1" ImporterNotification : replacedBy
     ImporterNotification "0..1" --> "0..1" ImporterNotification : replaces
+
+    MatchRecord "*" --> "0..1" ITAHC : candidateITAHC
+    MatchRecord "*" --> "0..1" DOCOM : candidateDOCOM
+    MatchRecord "*" --> "0..1" ImporterNotification : candidateImporterNotification
+    MatchRecord "*" --> "0..1" ImportRecord : resultingImportRecord
+    Watchlist "1" --> "*" WatchlistComment : hasComments
+    Watchlist "1" --> "*" ITAHC : flags
+    Watchlist "1" --> "*" ImportRecord : flags
+    Watchlist "*" --> "0..1" PlaceOfOrigin : watchedPlaceOfOrigin
+    Watchlist "*" --> "0..1" PlaceOfDestination : watchedPlaceOfDestination
+    Watchlist "*" --> "0..1" Consignee : watchedConsignee
+    Watchlist "*" --> "0..1" Transporter : watchedTransporter
+    Watchlist "*" --> "0..1" Veterinarian : watchedVeterinarian
+    CommodityTypeMapping "0..1" --> "*" ImportRecord : determinesCommodityTypeOf
 ```

@@ -29,6 +29,7 @@ Commodity Risk Level records define the mapping of Country + Commodity Type → 
 
 - [US-014](US-014-Automated-Risk-Assessment-P1.md), [US-015](US-015-Automated-Risk-Assessment-P2.md), [US-016](US-016-Automated-Risk-Assessment-P3-Random.md) (Risk assessment rules consume commodity risk levels)
 - [US-034](US-034-Manage-APHA-Region.md) (Country reference data from Exports solution — ASM-004)
+- [US-061](US-061-Automatically-Determine-Commodity-Type.md) (Commodity Type is auto-set rather than manually selected; this rule matches on the resulting value)
 - Commodity Type reference data from Exports solution (ASM-005)
 
 ## Traceability

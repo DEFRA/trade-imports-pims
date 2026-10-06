@@ -24,6 +24,8 @@ flowchart LR
         POO_ENT["Places of Origin"]
         PIC_ENT["Post Import Checks"]
         QRY_ENT["Import Queries"]
+        MATCH_ENT["Match Records"]
+        WATCH_ENT["Watchlist"]
         RULES["Business Rules <br/> (Commodity Risk, Gold/Bronze, <br/> Inspection Coverage)"]
         DASH["Dashboards & Reports"]
     end
@@ -52,6 +54,8 @@ flowchart LR
     CW --> POO_ENT
     CW --> PIC_ENT
     CW --> QRY_ENT
+    CW --> MATCH_ENT
+    CW --> WATCH_ENT
     CW --> DASH
 
     CWA --> PIMS_D365

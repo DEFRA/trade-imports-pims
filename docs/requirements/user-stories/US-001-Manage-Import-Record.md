@@ -12,42 +12,47 @@ The Import Record is the primary case record in PIMS. It consolidates informatio
 
 A user can either manually create an Import Record or one may be auto-created by the TRACES integration ([US-009](US-009-Auto-Create-Import-Record-From-ITAHC.md), [US-010](US-010-Auto-Create-Import-Record-From-DOCOM.md)). A quick-create form is also available for rapid triage ([US-033](US-033-Quick-Create-Import-Record.md)).
 
-The record supports "No ITAHC Received" as a valid option in the Primary ITAHC field, allowing the record to be saved without a linked certificate where one has not been presented. Source stories may refer to this option as "No ITAHC Provided".
+The record supports "No ITAHC Received" as a valid option in the Primary HC field, allowing the record to be saved without a linked certificate where one has not been presented. Source stories may refer to this option as "No ITAHC Provided".
 
 ## Acceptance Criteria
 
 - **AC-1:** An EU Imports Caseworker can create or update an Import Record with the following fields (all optional unless stated):
 
     - Import Record Type (see AC-7 for the value list — PLNT-4536)
-    - Primary ITAHC (Lookup; includes "No ITAHC Received" option)
+    - Primary HC (Lookup; includes "No ITAHC Received" option; field label renamed from "Primary ITAHC" — carries no business process logic, see AC-6)
     - Primary Importer Notification (Lookup)
     - GB Import Health Certificate, Traces Export Health Certificate, ITAHC Reference, DOCOM Reference (single line of text; non-mandatory; manually populated — PLNT-4535, see AC-5)
-    - Devolved Office
+    - Devolved Office (see [US-059](US-059-Devolved-Office-Assignment.md) — inherited from the source ITAHC at creation)
+    - Region / Area Allocated to (includes Transit and North 6 options)
     - Importer Name, Address (Line 1-3, City, Postcode), Telephone, Email
     - Country of Origin, Countries of Transit, Date of Import
     - Place of Destination (Contact Name, Address, Telephone, Email)
-    - Permanent Destination (Contact Name, Address, City, Postcode, Telephone, Email)
+    - Permanent Destination / Final Destination (Contact Name, Address, City, Postcode, Telephone, Email); supports zero or more additional Final Destination entries where the place of destination is not the final destination (e.g. a charity distributing animals onward to individual owners)
     - Place of Origin (Contact Name, Address, Country)
     - Transporter (Organisation, Address, Telephone, Email)
-    - Commodity Type, Commodity Notes, Quantity, Unit, Intended Use of Commodity
-    - Port of Entry, Commodity Identifiers
-    - Import Risk Level, Consignment Risk / Impact
+    - Transport to PoE (Means of Transport, ID of Transport, Document, Estimated Arrival Date, Estimated Arrival Time)
+    - Transport after PoE (Means of Transport, ID of Transport, Document, Departure Date, Departure Time, Estimated Journey Time (mins)) — the Person Responsible for Transport field remains on the entity for historic/backdated records but is not shown on the form
+    - Commodity Type (auto-set — see [US-061](US-061-Automatically-Determine-Commodity-Type.md)), Commodity Code, Commodity Notes, Quantity, Unit, Intended Use of Commodity, Weight (KG) (hidden for CHEDA — see [BR-046](../business-rules.md#br-046))
+    - Purpose of Consignment, Internal Market Purpose, Certified For, Purpose for Movement, Number of Packages (journey-conditional visibility — see [BR-045](../business-rules.md#br-045))
+    - Port of Entry, Commodity Identifiers (including Horse Name, shown only where the commodity is Horse), Commodity Permanent Address Information (CHEDA only — per-animal permanent address subgrid)
+    - MRN Number (sourced from IPAFFS)
+    - Cloned (Yes/No — identifies an Import Notification created via IPAFFS Clone Journey)
+    - Import Risk Level, Consignment Risk / Impact, Inspection Required (Required / Not Required)
     - Warble Fly Treatment Declaration Required, Received Date
     - General Comments
     - IV65 Sent, IV65 Sent Date, IV65 Response Received Date, IV65 Response Due Date
-    - Date Importer Notification Received, Importer Notification Received within Timescales (previously labelled "Date IV66 Received" and "IV66 received in required timescales" — PLNT-4541; see AC-10)
-    - Region / Area Allocated to
+    - Date Importer Notification Received, Importer Notification Received within Timescales (previously labelled "Date IV66 Received" and "IV66 received in required timescales" — PLNT-4541; see AC-9, AC-10)
     - Moved to Completion?, Moved to Completion Date (read-only)
 
-- **AC-2:** An EU Imports Caseworker can view a list of all Import Records ordered by creation date (newest first), showing: Primary ITAHC, Commodity Type, Country of Origin, Import Risk Level, Place of Origin Organisation, Place of Destination, Created On Date.
+- **AC-2:** An EU Imports Caseworker can view a list of all Import Records ordered by creation date (newest first), showing: Primary HC, Commodity Type, Country of Origin, Import Risk Level, Place of Origin Organisation, Place of Destination, Created On Date.
 
 - **AC-3:** An EU Imports Caseworker can perform a free text search for an Import Record using: Importer Name, Date of Import, Premises of Origin Name (Place of Origin Organisation), ITAHC Certificate Reference Number, Importer Notification Local Reference Number.
 
-- **AC-4:** The user can select "No ITAHC Received" in the Primary ITAHC field and save the Import Record without a linked ITAHC.
+- **AC-4:** The user can select "No ITAHC Received" in the Primary HC field and save the Import Record without a linked ITAHC.
 
 - **AC-5 (Reference number fields):** GB Import Health Certificate, Traces Export Health Certificate, ITAHC Reference and DOCOM Reference are displayed as single-line text fields immediately below the Primary Importer Notification field, in the Commodity section of the Summary tab. All four fields are non-mandatory and are populated manually; none are auto-populated by PIMS.
 
-- **AC-6 (Triage step no longer clears Commodity Code):** Entering a value in the Primary ITAHC field during the Triage stage of the Import Record business process flow no longer removes or updates the Commodity Code value on the Import Record on save. Primary ITAHC carries no business process logic. This resolves the defect reported as DEFRA incident INC0838632.
+- **AC-6 (Triage step no longer clears Commodity Code):** Entering a value in the Primary HC field during the Triage stage of the Import Record business process flow no longer removes or updates the Commodity Code value on the Import Record on save. Primary HC carries no business process logic. This resolves the defect reported as DEFRA incident INC0838632.
 
 - **AC-7 (Import Record Type value list):** The Import Record Type field offers exactly the following values, with no default selected: Importer Notification, Health Certificate, ITAHC - Landbridge, CHEDA, CHEDP, DOCOM, ITAHC. The legacy values CED, CVEDA and CVEDP are removed. Selecting "Create Import Record" on an Importer Notification sets the new Import Record's Import Record Type to Importer Notification.
 
@@ -57,9 +62,13 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
     - Date POD Requested (Date/Time)
     - Reply Received (Option Set — Blank, Y, N)
 
-- **AC-9 (Auto-populate Date Importer Notification Received):** When an EU Imports Caseworker selects "Create Import Record" on an Importer Notification, PIMS auto-populates the new Import Record's Date Importer Notification Received field with the value of the associated Importer Notification's Submission Date field.
+- **AC-9 (Auto-populate Date Importer Notification Received with the first-version submission date):** When an EU Imports Caseworker selects "Create Import Record" on an Importer Notification, PIMS auto-populates the new Import Record's Date Importer Notification Received field with the Submission Date of the Importer Notification's **first version (version 1)**, not the submission date of its latest version. This holds even where the Importer Notification has since been amended one or more times.
 
 - **AC-10 (IV66 section relabelled to Importer Notification):** For records with Import Record Type = Importer Notification, the Import Record form's "IV66" section is labelled "Importer Notification", the "Date IV66 Received" field is labelled "Date Importer Notification Received", and the "IV66 received in required timescales" field is labelled "Importer Notification Received within Timescales".
+
+- **AC-11 (Notes retain the original creator after reassignment):** Where a caseworker adds a note to an Import Record, the note displays the name of the user who created it (Created By), not the current Owner of the Import Record. If the Import Record is subsequently reassigned to another user, previously-created notes continue to display their original creator.
+
+- **AC-12 (Manual Import Record Type picklist excludes DOCOM):** When manually creating an Import Record, the Import Record Type picklist offers ITAHC, CHEDA and CHEDP only. DOCOM is not offered as a manually-selectable type, as a DOCOM-linked Import Record is always created automatically — on receipt ([US-010](US-010-Auto-Create-Import-Record-From-DOCOM.md)) or via the matching process ([US-053](US-053-Create-Import-Record-at-Matching.md)).
 
 ## Business Rules
 
@@ -68,12 +77,17 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 - [BR-024](../business-rules.md#br-024) — IV65 Response Due Date calculated when IV65 Sent Date is set
 - [BR-025](../business-rules.md#br-025) — Warble Fly Treatment Declaration Received Date only enabled when Required = Yes
 - [BR-026](../business-rules.md#br-026) — Moved to Completion Date journalled automatically
-- [BR-028](../business-rules.md#br-028) — "No ITAHC Received" option available on Primary ITAHC field
+- [BR-028](../business-rules.md#br-028) — "No ITAHC Received" option available on Primary HC field
 - [BR-036](../business-rules.md#br-036) — Certificate/notification reference fields are optional and manually entered
 - [BR-037](../business-rules.md#br-037) — Triage step must not clear or update Commodity Code
 - [BR-038](../business-rules.md#br-038) — Import Record Type value list
 - [BR-039](../business-rules.md#br-039) — Import Record Type set to Importer Notification when created from an Importer Notification
 - [BR-040](../business-rules.md#br-040) — Date Importer Notification Received auto-populated from Submission Date
+- [BR-045](../business-rules.md#br-045) — Commodity field visibility depends on journey type
+- [BR-046](../business-rules.md#br-046) — Weight (KG) hidden for CHEDA
+- [BR-050](../business-rules.md#br-050) — Country code mapping for devolved nations
+- [BR-051](../business-rules.md#br-051) — Commodity Type auto-set from Commodity Type Mapping
+- [BR-052](../business-rules.md#br-052) — Devolved Office auto-set and inheritance
 
 ## Dependencies
 
@@ -82,6 +96,7 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 - [US-028](US-028-Generate-Unique-Reference-Number.md) (Unique reference number)
 - [US-004](US-004-Manage-DOCOM.md) (DOCOM record — the DOCOM tab on the Import Record is additional triage context, not a replacement for the DOCOM entity)
 - [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md), [US-044](US-044-View-Importer-Notification.md) (Importer Notification — source of the "Create Import Record" button and Submission Date)
+- [US-059](US-059-Devolved-Office-Assignment.md) (Devolved Office inheritance), [US-061](US-061-Automatically-Determine-Commodity-Type.md) (Commodity Type auto-set), [US-053](US-053-Create-Import-Record-at-Matching.md) (Import Record creation at matching time), [US-056](US-056-Compare-Commodity-Details.md) (Commodity Identifiers)
 
 ## Traceability
 
@@ -89,8 +104,36 @@ The record supports "No ITAHC Received" as a valid option in the Primary ITAHC f
 
 - IMTA-5870
 - IMTA-5985
+- IMTA-6120
+- IMTA-7466
+- IMTA-7468
+- IMTA-7469
+- IMTA-10482
 - PLNT-4535
 - PLNT-4536
 - PLNT-4539
 - PLNT-4540
 - PLNT-4541
+- EDA-235
+- EDA-303
+- EDA-304
+- EDA-307
+- EDA-322
+- EDA-337
+- EDA-338
+- EDA-353
+- EDA-399
+- EDA-400
+- EDA-432
+- EDA-620
+- EDA-621
+- EDA-642
+- EDA-644
+- EDA-680
+- EDA-696
+- EDA-705
+- EDA-708
+- EDA-725
+- EDA-737
+- EDA-794
+- EDA-798
