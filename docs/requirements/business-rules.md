@@ -72,8 +72,8 @@ When the Risk Level is set to P1 **AND** the Gold/Bronze rating cannot be determ
 ### BR-007 — P2 Random 10% Inspection Coverage { #br-007 }
 When an Import Record Risk Level is set or changed to P2:
 
-1. If the P2 Inspection Quota Counter > 0: decrement the counter by 1 and flag the record for Post Import Check.
-2. Otherwise: increment the P2 Inspection Counter. If the counter reaches the configured limit (10): reset the counter to 0 and flag the record for Post Import Check.
+1. If the Import Application Priority 2 Quota Counter > 0: decrement the counter by 1 and flag the record for Post Import Check.
+2. Otherwise: increment the Import Application Priority 2 Counter. If the counter reaches the configured limit (10): reset the counter to 0 and flag the record for Post Import Check.
 
 When an Import Record Risk Level is changed away from P2:
 
