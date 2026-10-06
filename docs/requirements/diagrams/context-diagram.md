@@ -48,7 +48,7 @@ flowchart LR
     CW --> IMPORT_REC
     CW --> ITAHC_ENT
     CW --> DOCOM_ENT
-    CW -->|"View / search only"| IMPR_NOT
+    CW --> IMPR_NOT
     CW --> POO_ENT
     CW --> PIC_ENT
     CW --> QRY_ENT
