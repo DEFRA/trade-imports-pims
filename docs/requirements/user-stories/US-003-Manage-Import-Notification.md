@@ -12,9 +12,24 @@ So that I can use information relating to a pre-notification of an import consig
 
 ## Acceptance Criteria
 
-- **AC-1:** An EU Imports Caseworker can view a list of all Import Notifications ordered by creation date (newest first), showing: Date of Import, Premises of Origin Country, Species / Product (Common Name), Reference Number, Importer Name, Importer Telephone, Importer Email, Port / Airport of Entry.
+- **AC-1:** An EU Imports Caseworker can view an Import Notification record with the following fields (all optional):
+  - Importer Name, Address, Postcode, Telephone, Email
+  - CPH Number
+  - Charity Name, Address, Postcode, Telephone, Email
+  - Consignment Country of Origin, Countries of Transit
+  - Date of Import
+  - Place of Destination (Contact Name, Address, Postcode, Telephone, Email)
+  - Permanent Destination (Contact Name, Address, Postcode, Telephone, Email)
+  - Premises of Origin (Name, Address, Postcode, Country)
+  - Transporter (Name, Address, Postcode, Telephone, Email)
+  - Species / Product (Common Name), Quantity, Units
+  - Intended Use of Commodity
+  - Port / Airport of Entry
+  - Animal / Product IDs
 
-- **AC-2:** An EU Imports Caseworker can perform a free text search for an Import Notification by: Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name, Animal / Product ID. Results show the list view fields from AC-1.
+- **AC-2:** An EU Imports Caseworker can view a list of all Import Notifications ordered by creation date (newest first), showing: Date of Import, Premises of Origin Country, Species / Product (Common Name), Reference Number, Importer Name, Importer Telephone, Importer Email, Port / Airport of Entry.
+
+- **AC-3:** An EU Imports Caseworker can perform a free text search for an Import Notification by: Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name, Animal / Product ID. Results show the list view fields from AC-2.
 
 ## Business Rules
 
