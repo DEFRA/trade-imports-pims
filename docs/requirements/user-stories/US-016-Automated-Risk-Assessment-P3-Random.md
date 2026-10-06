@@ -31,9 +31,12 @@ The counter increment happens **before** automated risk assessment rules are eva
 - **AC-4 (Rule only applies to P3):**  
   If Risk Level is not P3, the 2% rule does not apply and no Post Import Check is flagged under this rule.
 
+- **AC-5 (CHEDA included in the P3 count):**  
+  A CHEDA consignment manually assessed as Risk Level P3 is included in the same Import Application Priority 3 Counter as ITAHC-type Import Records, and is flagged for a Post Import Check on the same basis as AC-3 when selected.
+
 ## Business Rules
 
-- [BR-008](../business-rules.md#br-008) — P3 random 2% inspection coverage (ITAHC records only)
+- [BR-008](../business-rules.md#br-008) — P3 random 2% inspection coverage (ITAHC and CHEDA records)
 - [BR-009](../business-rules.md#br-009) — Counter incremented before risk assessment evaluation
 
 ## Dependencies
@@ -49,3 +52,4 @@ The counter increment happens **before** automated risk assessment rules are eva
 - IMTA-5872
 - IMTA-5892
 - IMTA-5933
+- IMTA-7469

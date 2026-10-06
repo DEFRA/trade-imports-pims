@@ -169,3 +169,60 @@ sequenceDiagram
         AZ->>PIMS: Create/update target records directly
     end
 ```
+
+## Process 7 - Matching Process (ITAHC/DOCOM to Importer Notification)
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant PIMS as PIMS D365
+    participant MATCH as Matching Engine
+    participant CFG as Matching Algorithm Configuration
+    participant WL as Watchlist Check
+    actor CW as Caseworker
+
+    PIMS->>MATCH: Trigger periodic candidate search (default 30 min)
+    MATCH->>CFG: Load configured fields and weightings
+    CFG-->>MATCH: Return configuration
+    MATCH->>MATCH: Score candidate pairs (exact certificate match, or weighted mean)
+    alt Score at or above threshold
+        MATCH->>PIMS: Create Match Record (status Unmatched)
+        PIMS-->>CW: Show candidate in Unmatched view
+        CW->>PIMS: Open side-by-side comparison
+        alt Valid match
+            CW->>PIMS: Complete Match step
+            PIMS->>WL: Check watched parties on resulting Import Record
+            WL-->>PIMS: Apply flag(s) if any party is actively watched
+            PIMS-->>CW: Match Record status Matched, Import Record created/linked
+        else Not a valid match
+            CW->>PIMS: Reject Match step (mandatory reason)
+            PIMS->>PIMS: Exclude pair from future candidate searches
+        end
+    else Score below threshold
+        MATCH->>PIMS: No Match Record created
+    end
+    PIMS->>PIMS: Archive unmatched Importer Notifications older than 30 days (configurable)
+```
+
+## Process 8 - Watchlist Flagging
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor CW as Caseworker
+    participant WL as Watchlist
+    participant ITAHC as ITAHC
+    participant IR as Import Record
+
+    CW->>WL: Add place of origin/destination, consignee, transporter or veterinarian
+    WL->>WL: Record Start Date, End Date, mandatory reason
+    ITAHC->>WL: On creation, check involved parties
+    alt Party is active on Watchlist
+        WL-->>ITAHC: Apply flag (one per matching entry)
+        ITAHC->>IR: On Import Record creation/match, propagate flag
+        IR-->>CW: Flag visible on Import Record
+        CW->>WL: Open flag to view Watchlist details/comments
+    else No active Watchlist match
+        WL-->>ITAHC: No flag applied
+    end
+```

@@ -417,3 +417,121 @@ When an Importer Notification with a populated Type of Non-Compliance is linked 
 
 - **Source:** [US-049](user-stories/US-049-Non-Compliance-Management.md)
 - **Jira:** PLNT-4537 AC-3
+
+---
+
+## CHED Journey Rules
+
+### BR-045 — Commodity Field Visibility Depends on Import Record Type Journey { #br-045 }
+
+On both the Importer Notification and Import Record forms, PIMS must hide the following fields when the record's Type/Import Record Type indicates the IMP (Importer Notification) journey: Certified For, Purpose of Consignment, Internal Market Purpose, Commodities Number of Packages. PIMS must hide Purpose of Movement when the Type/Import Record Type indicates the CHEDA journey.
+
+- **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md), [US-003](user-stories/US-003-Manage-Importer-Notification.md)
+- **Jira:** EDA-432 (final state; supersedes EDA-303, EDA-322, EDA-337, EDA-399, EDA-400.
+
+---
+
+### BR-046 — Weight (KG) Hidden for CHEDA { #br-046 }
+
+On both the Importer Notification and Import Record forms, PIMS must hide the Weight (KG) field when the record's Type/Import Record Type is CHEDA. The field remains visible for IMP.
+
+- **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md), [US-003](user-stories/US-003-Manage-Importer-Notification.md)
+- **Jira:** EDA-644
+
+---
+
+## Post Import Check Rules
+
+### BR-047 — TB Risk Level Default Post Import Check Decision { #br-047 }
+
+When an Import Record's Risk Level is set to TB, PIMS must default Post Import Checks Required? to No and Post Import Checks Required Reason to "No Inspection Required", unless the Import Record's Devolved Office is IRMS - Scotland, in which case PIMS must default Post Import Checks Required? to Yes and Post Import Checks Required Reason to "TB". In both cases a caseworker may still override the automated decision ([US-024](user-stories/US-024-Manual-Post-Import-Check-Override.md)).
+
+- **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
+- **Jira:** EDA-231 (general default), EDA-750 (Scotland exception)
+
+---
+
+### BR-048 — Post Import Check Outcome Values and Consecutive Count Impact { #br-048 }
+
+A Post Import Check's Outcome field must offer exactly: Satisfactory, Unsatisfactory, Not Visited (defaulting to Awaiting Outcome until set). Where Outcome = Unsatisfactory, a Reason for Unsatisfactory Visit field must be completed from: Non-Compliant welfare, Non-Compliant documentary check, Quarantined. Where Outcome = Not Visited, a Reason for Not Visiting field must be completed from: Additional Inspection Required, Cancelled, Resolved Not Required, Lack of field resource. For Place of Origin Trust Level purposes: Satisfactory increments the consecutive satisfactory count; Unsatisfactory resets it to zero; Not Visited does not change it.
+
+- **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
+- **Jira:** IMTA-7467 (supersedes IMTA-6031)
+
+---
+
+### BR-049 — Open Post Import Checks Cancelled on Case Closure { #br-049 }
+
+When an Import Record is closed, PIMS must set any linked Post Import Check with Outcome = Awaiting Outcome (not yet started) to Cancelled, recording the current date and user. Where a linked Post Import Check is mid-flight (Outcome not yet recorded but work has started), PIMS must prompt the caseworker to confirm before cancelling it on closure.
+
+- **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
+- **Jira:** IMTA-6034
+
+---
+
+## Reference Data Rules
+
+### BR-050 — Country Code Mapping for Devolved Nations { #br-050 }
+
+The Country reference entity must hold a 6-character region code (GB-ENG, GB-SCT, GB-WLS, GB-NIR) for England, Scotland, Wales and Northern Ireland in addition to its existing Alpha-2/3 codes, and all country lookups driven by an inbound 6-character code (Consignor, Consignee, Packer, Exporter, Importer, Place of Destination, Transporter addresses) must resolve to the correct Country record using this field.
+
+- **Source:** [assumptions-and-constraints.md](assumptions-and-constraints.md)
+- **Jira:** EDA-280 (supersedes the interim Logic App patches in EDA-194, EDA-234)
+
+---
+
+### BR-051 — Commodity Type Auto-Set from Commodity Type Mapping { #br-051 }
+
+Whenever an Import Record's Species ID or Commodity Code fields change, PIMS must look up the Commodity Type Mapping records matching the Commodity Code (narrowed by Species ID where more than one mapping matches) and set the Import Record's Commodity Type to the single matching value, or to "Other" if no mapping matches. The Commodity Type field must not be manually editable.
+
+- **Source:** [US-061](user-stories/US-061-Automatically-Determine-Commodity-Type.md)
+- **Jira:** IMTA-7785, IMTA-8483
+
+---
+
+### BR-052 — Devolved Office Auto-Set and Inheritance { #br-052 }
+
+When PIMS receives an ITAHC or DOCOM, it must automatically set the Devolved Office field using the first part of the Place of Destination postcode against a maintained reference list, defaulting to Unknown where the postcode is not recognised; the value remains manually editable. When an Import Record is created from an ITAHC, PIMS must copy the ITAHC's Devolved Office onto the Import Record, and must block Import Record creation until the source ITAHC's Devolved Office is set.
+
+- **Source:** [US-059](user-stories/US-059-Devolved-Office-Assignment.md)
+- **Jira:** IMTA-7475, IMTA-7780, IMTA-7784, IMTA-8103, IMTA-8108 (supersedes the per-country-views approach in IMTA-7473)
+
+---
+
+## Matching and Watchlist Rules
+
+### BR-053 — Matching Algorithm Weighted Mean Calculation { #br-053 }
+
+For a candidate match pair, where the ITAHC/DOCOM certificate number does not match the Importer Notification exactly and the first part of the Destination Postcode does match, PIMS must calculate the overall match percentage as the weighted mean of the scores for each field configured in [US-050](user-stories/US-050-Configure-Matching-Algorithm.md), using each field's configured weighting.
+
+- **Source:** [US-050](user-stories/US-050-Configure-Matching-Algorithm.md), [US-051](user-stories/US-051-Automated-Matching.md)
+- **Jira:** IMTA-7394, IMTA-7595
+
+---
+
+### BR-054 — Watchlist "Active" Definition and Flagging Trigger Points { #br-054 }
+
+A Watchlist entry is active when the current date is on or after its Start Date and, if an End Date is set, on or before that End Date. PIMS must evaluate active Watchlist entries against the place of origin, place of destination, consignee, transporter and veterinarian on: ITAHC creation; Import Record creation from a flagged ITAHC; and Import Record creation from a confirmed match involving a flagged ITAHC. Each matching active entry produces one flag.
+
+- **Source:** [US-057](user-stories/US-057-Manage-Watchlist-Records.md), [US-058](user-stories/US-058-Flag-Watched-Parties.md)
+- **Jira:** IMTA-7479, IMTA-7482, IMTA-8012, IMTA-8015
+
+---
+
+## Integration Workflow Rules
+
+### BR-055 — Owner-Change Workflow Excludes In-Flight IPAFFS Statuses { #br-055 }
+
+When an IPAFFS update is received for an Importer Notification that already has a Health Certificate attached, PIMS must change the Owner to the EU Imports Dynamics Application User only where the new status is not one of: In-Progress, Validated, Rejected, Cancelled. For these excluded statuses, the Owner must not be changed. PIMS must also apply the following status-transition rules regardless of owner change: a Cancelled status following a previous Valid status sets the Importer Notification to Cancelled; an In-Progress status following a previous Modify status sets it to In-Progress; a Replaced status following a previous Rejected status sets it to Replaced; a Modify status following a previous Submitted status sets it to Modify.
+
+- **Source:** [US-003](user-stories/US-003-Manage-Importer-Notification.md)
+- **Jira:** EDA-739
+
+---
+
+### BR-056 — Latest Health Certificate Document Type Mirrors Health Certificate Behaviour { #br-056 }
+
+When a document with Document Type = Latest Health Certificate and a populated URL is attached to an Importer Notification, PIMS must apply the same behaviour as for Document Type = Health Certificate (BR-041, BR-042): set Health Certificate Attached to Y and, where the Importer Notification has already been completed, change the Owner to the EU Imports Dynamics Application User and the Status to Amend. Where a Latest Health Certificate document is superseded by a newer one, PIMS must re-classify the superseded document's Document Type to Health Certificate.
+
+- **Source:** [US-003](user-stories/US-003-Manage-Importer-Notification.md), [US-029](user-stories/US-029-Document-Attachment.md)
+- **Jira:** EDA-648, EDA-681

@@ -17,7 +17,7 @@ PIMS provides caseworkers with the ability to create and manage the following re
 - **DOCOM** — Document of Commercial Movement
 - **CVED** — Common Veterinary Entry Document
 - **Importer Notification** — the implemented IPAFFS-sourced notification entity (auto-received)
-- **Match Record** — matching support artefact used to identify candidate related Import Records
+- **Match Record** — matching support artefact used to identify candidate related Import Records (summarised here via [US-046](../user-stories/US-046-Match-Inbound-Records-to-Import-Records.md); the detailed matching algorithm, review process and related capabilities are specified in [EPIC-Matching-Process](./EPIC-Matching-Process.md))
 
 Supporting case management capabilities include document attachment, IV65 response tracking, warble fly declaration tracking, completion date recording, matching support and quick-create for triage. Business-facing requirements use **Import Record** as the canonical term, while some technical artefacts still use `importapplication` / "Import Application".
 
@@ -57,4 +57,4 @@ Supporting case management capabilities include document attachment, IV65 respon
 
 ## Source Jira Issues
 
-IMTA-5868, IMTA-5869, IMTA-5870, IMTA-5913, IMTA-5984, IMTA-5985, IMTA-6132, IMTA-6158, IMTA-6166, IMTA-6180, IMTA-6252, IMTA-6357, IMTA-6411, IMTA-7201, IMTA-7240, PLNT-4535, PLNT-4536, PLNT-4537, PLNT-4538, PLNT-4539, PLNT-4540, PLNT-4541, PLNT-4542, PLNT-4543
+IMTA-5868, IMTA-5869, IMTA-5870, IMTA-5913, IMTA-5984, IMTA-5985, IMTA-6120, IMTA-6132, IMTA-6158, IMTA-6166, IMTA-6180, IMTA-6252, IMTA-6357, IMTA-6411, IMTA-7201, IMTA-7240, IMTA-7466, IMTA-7468, IMTA-7469, IMTA-7779, IMTA-7782, IMTA-9144, IMTA-10482, PLNT-4535, PLNT-4536, PLNT-4537, PLNT-4538, PLNT-4539, PLNT-4540, PLNT-4541, PLNT-4542, PLNT-4543, EDA-194, EDA-234, EDA-235, EDA-280, EDA-303, EDA-304, EDA-307, EDA-322, EDA-337, EDA-338, EDA-353, EDA-399, EDA-400, EDA-432, EDA-620, EDA-621, EDA-642, EDA-643, EDA-644, EDA-648, EDA-649, EDA-656, EDA-680, EDA-681, EDA-696, EDA-705, EDA-708, EDA-725, EDA-728, EDA-737, EDA-739, EDA-794, EDA-798

@@ -30,16 +30,21 @@ Caseworkers can view Importer Notification records in PIMS (auto-received from I
 - **AC-6 (System view — Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics):**  
   An EU Imports Caseworker can select a system view named "Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics" on the Importer Notification entity, filtered by Status = Amend, Owner = EU Imports Dynamics Application User, Health Certificate Attached = Yes. Column widths are adjusted so the whole column title is visible.
 
+- **AC-7 (IMP Type hidden for CHED journey):**  
+  The IMP Type field is hidden on the Importer Notification form (and the corresponding Import Record form, see [US-001](US-001-Manage-Import-Record.md)) when the record's journey is CHED, since the field does not apply to that journey.
+
 ## Business Rules
 
 - [BR-038](../business-rules.md#br-038) — Import Record Type value list ("IMP" displays as "Importer Notification")
 - [BR-041](../business-rules.md#br-041) — Health Certificate Attached auto-flag
 - [BR-042](../business-rules.md#br-042) — Health Certificate Attached after completion triggers amendment and reassignment
+- [BR-045](../business-rules.md#br-045) — Commodity field visibility depends on journey type
 
 ## Dependencies
 
 - [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md) (Importer Notifications auto-received from IPAFFS; Health Certificate Attached-triggered amendment)
 - Importer Notification schema agreed (DEP-002)
+- [US-003](US-003-Manage-Importer-Notification.md) (Imp Type view column, expanded views)
 
 ## Traceability
 
@@ -47,6 +52,10 @@ Caseworkers can view Importer Notification records in PIMS (auto-received from I
 
 - IMTA-7201
 - IMTA-7240
+- IMTA-9144
 - PLNT-4536
 - PLNT-4538
 - PLNT-4542
+- EDA-705
+- EDA-794
+- EDA-798

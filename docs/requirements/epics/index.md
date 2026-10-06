@@ -1,8 +1,8 @@
 # Epic Catalogue
 
-This page lists all 9 epics in the PIMS requirements baseline. Each epic groups related user stories around a coherent area of system functionality.
+This page lists all 11 epics in the PIMS requirements baseline. Each epic groups related user stories around a coherent area of system functionality.
 
-**Total:** 9 epics · 48 user stories ([US-021](../user-stories/US-021-Revoke-Gold-Trust-Level.md) appears in two epics)
+**Total:** 11 epics · 60 user stories ([US-021](../user-stories/US-021-Revoke-Gold-Trust-Level.md) appears in two epics)
 
 ---
 
@@ -10,13 +10,15 @@ This page lists all 9 epics in the PIMS requirements baseline. Each epic groups 
 | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | [Consignment Record Management](./EPIC-Consignment-Record-Management.md)         | Enable EU Imports Caseworkers to create, manage and complete all types of consignment health certificate records and the Import Record that links them, throughout the full case lifecycle.                | 13      |
 | [External System Integration](./EPIC-External-System-Integration.md)             | Automate the receipt of health certificate data from TRACES Classic (ITAHC, DOCOM) and importer notification data from IPAFFS into PIMS, eliminating manual re-keying and enabling timely risk assessment. | 6       |
-| [Risk Assessment & Business Rules](./EPIC-Risk-Assessment-and-Business-Rules.md) | Enable EU Imports Business Rules Admins to configure and maintain the rules that PIMS uses to automatically classify Import Records by risk level and determine whether a post-import check is required.   | 6       |
+| [Risk Assessment & Business Rules](./EPIC-Risk-Assessment-and-Business-Rules.md) | Enable EU Imports Business Rules Admins to configure and maintain the rules that PIMS uses to automatically classify Import Records by risk level and determine whether a post-import check is required.   | 7       |
 | [Place of Origin Trust Level](./EPIC-Place-of-Origin-Trust-Level.md)             | Enable caseworkers to manage Places of Origin and allow PIMS to automatically maintain Trust Levels (Gold/Bronze) based on post-import check outcomes, to support risk-based inspection decisions.         | 6       |
 | [Post Import Check Management](./EPIC-Post-Import-Check-Management.md)           | Enable caseworkers to manage the lifecycle of Post Import Checks from flagging through to outcome recording, including manual override capabilities.                                                       | 3       |
 | [Import Query Management](./EPIC-Import-Query-Management.md)                     | Enable caseworkers to raise, track, assign and resolve formal queries against Import Records, supporting communication with importers and third parties.                                                   | 1       |
-| [Team & Geographic Assignment](./EPIC-Team-and-Geographic-Assignment.md)         | Enable Import Records, ITAHCs and DOCOMs to be assigned to the correct geographic regional team for processing and risk assessment.                                                                        | 3       |
+| [Team & Geographic Assignment](./EPIC-Team-and-Geographic-Assignment.md)         | Enable Import Records, ITAHCs and DOCOMs to be assigned to the correct geographic regional team or Devolved Office for processing and risk assessment.                                                     | 5       |
 | [Reporting & Analytics](./EPIC-Reporting-and-Analytics.md)                       | Provide caseworkers, team leaders and data analysts with operational dashboards and exportable reports to monitor EU imports activity and demonstrate Defra policy compliance.                             | 7       |
 | [Audit & Compliance](./EPIC-Audit-and-Compliance.md)                             | Ensure that all case decisions, field changes, inspection decisions and counter changes in PIMS are fully audited and traceable to demonstrate regulatory compliance.                                      | 4       |
+| [Matching Process](./EPIC-Matching-Process.md)                                   | Enable caseworkers to automatically identify, review and confirm candidate matches between inbound health certificates and Importer Notifications, and create the resulting Import Record.                 | 7       |
+| [Watchlist and Flagging](./EPIC-Watchlist-and-Flagging.md)                       | Enable caseworkers to place parties onto a watchlist and have PIMS automatically flag any ITAHC or Import Record involving a watched party.                                                                 | 2       |
 
 ---
 
@@ -71,6 +73,7 @@ This page lists all 9 epics in the PIMS requirements baseline. Each epic groups 
 | [US-014](../user-stories/US-014-Automated-Risk-Assessment-P1.md)        | Automated Risk Assessment — P1 Consignments |
 | [US-015](../user-stories/US-015-Automated-Risk-Assessment-P2.md)        | Automated Risk Assessment — P2 Random 10%   |
 | [US-016](../user-stories/US-016-Automated-Risk-Assessment-P3-Random.md) | Automated Risk Assessment — P3 Random 2%    |
+| [US-061](../user-stories/US-061-Automatically-Determine-Commodity-Type.md) | Automatically Determine Commodity Type   |
 
 ---
 
@@ -120,6 +123,8 @@ This page lists all 9 epics in the PIMS requirements baseline. Each epic groups 
 | [US-026](../user-stories/US-026-Geographic-Team-Assignment.md)        | Geographic Team Assignment        |
 | [US-027](../user-stories/US-027-Auto-Assign-ITAHC-DOCOM-to-Region.md) | Auto-Assign ITAHC/DOCOM to Region |
 | [US-034](../user-stories/US-034-Manage-APHA-Region.md)                | Manage APHA Region                |
+| [US-059](../user-stories/US-059-Devolved-Office-Assignment.md)        | Devolved Office Assignment        |
+| [US-060](../user-stories/US-060-APHA-Owner-Team-Assignment.md)        | APHA Owner Team Assignment        |
 
 ---
 
@@ -152,17 +157,44 @@ This page lists all 9 epics in the PIMS requirements baseline. Each epic groups 
 
 ---
 
+### Matching Process
+
+> [EPIC-Matching-Process](./EPIC-Matching-Process.md)
+
+| Story                                                                          | Title                                                           |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| [US-050](../user-stories/US-050-Configure-Matching-Algorithm.md)               | Configure the Matching Algorithm                                |
+| [US-051](../user-stories/US-051-Automated-Matching.md)                        | Automated Matching of Certificates to Importer Notifications    |
+| [US-052](../user-stories/US-052-Review-Resolve-Candidate-Matches.md)          | Review and Resolve Candidate Matches                            |
+| [US-053](../user-stories/US-053-Create-Import-Record-at-Matching.md)          | Create Import Record at Point of Matching                      |
+| [US-054](../user-stories/US-054-Archive-Stale-Unmatched-Notifications.md)     | Archive Stale Unmatched Importer Notifications                  |
+| [US-055](../user-stories/US-055-Flag-Multiple-Commodity-Certificates.md)      | Flag Multiple-Commodity Certificates for Caseworker Review      |
+| [US-056](../user-stories/US-056-Compare-Commodity-Details.md)                 | Compare Commodity Details Across Certificates and Import Records |
+
+---
+
+### Watchlist and Flagging
+
+> [EPIC-Watchlist-and-Flagging](./EPIC-Watchlist-and-Flagging.md)
+
+| Story                                                                  | Title                                          |
+| ------------------------------------------------------------------------- | ------------------------------------------------- |
+| [US-057](../user-stories/US-057-Manage-Watchlist-Records.md)           | Manage Watchlist Records                       |
+| [US-058](../user-stories/US-058-Flag-Watched-Parties.md)               | Flag Watched Parties on ITAHC and Import Record |
+
+---
+
 ## Roll-up Statistics
 
 | Metric                      | Value                                                           |
 | --------------------------- | --------------------------------------------------------------- |
-| Total epics                 | 9                                                               |
-| Total user stories          | 48                                                               |
+| Total epics                 | 11                                                              |
+| Total user stories          | 60                                                               |
 | Largest epic                | Consignment Record Management (13 stories)                      |
-| Smallest epic               | Import Query Management (1 story)                               |
-| Average stories per epic    | 5.3                                                              |
+| Smallest epic                | Import Query Management (1 story)                               |
+| Average stories per epic    | 5.5                                                              |
 | Stories shared across epics | 1 ([US-021](../user-stories/US-021-Revoke-Gold-Trust-Level.md)) |
-| Source records consolidated | 65 + 9 PLNT issues → 48 stories                                 |
+| Source records consolidated | 65 + 9 PLNT issues → 48 stories, plus a further 91-issue Jira delta assessment → 12 new stories and amendments to 11 existing stories |
 
 ---
 

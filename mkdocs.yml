@@ -103,6 +103,8 @@ nav:
     - Team & Geographic Assignment: requirements/epics/EPIC-Team-and-Geographic-Assignment.md
     - Reporting & Analytics: requirements/epics/EPIC-Reporting-and-Analytics.md
     - Audit & Compliance: requirements/epics/EPIC-Audit-and-Compliance.md
+    - Matching Process: requirements/epics/EPIC-Matching-Process.md
+    - Watchlist and Flagging: requirements/epics/EPIC-Watchlist-and-Flagging.md
   - User Stories:
     - Story Catalogue: requirements/user-stories/index.md
     - Consignment Record Management:
@@ -119,6 +121,17 @@ nav:
       - US-044 View Importer Notification: requirements/user-stories/US-044-View-Importer-Notification.md
       - US-046 Match Inbound Records to Import Records: requirements/user-stories/US-046-Match-Inbound-Records-to-Import-Records.md
       - US-049 Non-Compliance Management: requirements/user-stories/US-049-Non-Compliance-Management.md
+    - Matching Process:
+      - US-050 Configure the Matching Algorithm: requirements/user-stories/US-050-Configure-Matching-Algorithm.md
+      - US-051 Automated Matching: requirements/user-stories/US-051-Automated-Matching.md
+      - US-052 Review and Resolve Candidate Matches: requirements/user-stories/US-052-Review-Resolve-Candidate-Matches.md
+      - US-053 Create Import Record at Point of Matching: requirements/user-stories/US-053-Create-Import-Record-at-Matching.md
+      - US-054 Archive Stale Unmatched Notifications: requirements/user-stories/US-054-Archive-Stale-Unmatched-Notifications.md
+      - US-055 Flag Multiple-Commodity Certificates: requirements/user-stories/US-055-Flag-Multiple-Commodity-Certificates.md
+      - US-056 Compare Commodity Details: requirements/user-stories/US-056-Compare-Commodity-Details.md
+    - Watchlist and Flagging:
+      - US-057 Manage Watchlist Records: requirements/user-stories/US-057-Manage-Watchlist-Records.md
+      - US-058 Flag Watched Parties: requirements/user-stories/US-058-Flag-Watched-Parties.md
     - External System Integration:
       - US-006 Receive Importer Notification from IPAFFS: requirements/user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md
       - US-007 Receive ITAHC from TRACES: requirements/user-stories/US-007-Receive-ITAHC-From-TRACES.md
@@ -133,6 +146,7 @@ nav:
       - US-014 Automated Risk Assessment P1: requirements/user-stories/US-014-Automated-Risk-Assessment-P1.md
       - US-015 Automated Risk Assessment P2: requirements/user-stories/US-015-Automated-Risk-Assessment-P2.md
       - US-016 Automated Risk Assessment P3 Random: requirements/user-stories/US-016-Automated-Risk-Assessment-P3-Random.md
+      - US-061 Automatically Determine Commodity Type: requirements/user-stories/US-061-Automatically-Determine-Commodity-Type.md
     - Place of Origin Trust Level:
       - US-017 Manage Place of Origin: requirements/user-stories/US-017-Manage-Place-of-Origin.md
       - US-018 Place of Origin Trust Level Maintenance: requirements/user-stories/US-018-Place-of-Origin-Trust-Level-Maintenance.md
@@ -149,6 +163,8 @@ nav:
       - US-026 Geographic Team Assignment: requirements/user-stories/US-026-Geographic-Team-Assignment.md
       - US-027 Auto-Assign ITAHC/DOCOM to Region: requirements/user-stories/US-027-Auto-Assign-ITAHC-DOCOM-to-Region.md
       - US-034 Manage APHA Region: requirements/user-stories/US-034-Manage-APHA-Region.md
+      - US-059 Devolved Office Assignment: requirements/user-stories/US-059-Devolved-Office-Assignment.md
+      - US-060 APHA Owner Team Assignment: requirements/user-stories/US-060-APHA-Owner-Team-Assignment.md
     - Reporting & Analytics:
       - US-037 Daily Huddle Dashboard: requirements/user-stories/US-037-Daily-Huddle-Dashboard.md
       - US-038 Daily Stats Dashboard: requirements/user-stories/US-038-Daily-Stats-Dashboard.md
