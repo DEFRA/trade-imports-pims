@@ -85,8 +85,8 @@ When an Import Record Risk Level is changed away from P2:
 
 ---
 
-### BR-008 — P3 Random 2% Inspection Coverage (ITAHC Records Only) { #br-008 }
-When an Import Record of type ITAHC with a linked Primary ITAHC is created:
+### BR-008 — P3 Random 2% Inspection Coverage (ITAHC and CHEDA Records) { #br-008 }
+When an Import Record of type ITAHC with a linked Primary ITAHC is created or of type CHEDA which is manually assessed as as Risk Level P3:
 
 1. Increment the "2% All Import Records — Random" Inspection Coverage Count value.
 2. If the count value equals or exceeds the configured limit: flag the Import Record for Post Import Check with reason "Random P3 Inspection" and reset the counter to 0.
@@ -511,7 +511,7 @@ For a candidate match pair, where the ITAHC/DOCOM certificate number does not ma
 
 ### BR-054 — Watchlist "Active" Definition and Flagging Trigger Points { #br-054 }
 
-A Watchlist entry is active when the current date is on or after its Start Date and, if an End Date is set, on or before that End Date. PIMS must evaluate active Watchlist entries against the place of origin, place of destination, consignee, transporter and veterinarian on: ITAHC creation; Import Record creation from a flagged ITAHC; and Import Record creation from a confirmed match involving a flagged ITAHC. Each matching active entry produces one flag.
+A Watchlist entry is active when the current date is on or after its Start Date and, if an End Date is set, on or before that End Date. PIMS must evaluate the Watchlist entries that are active at the time of the trigger against the place of origin, place of destination, consignee, transporter and veterinarian on: ITAHC creation; Import Record creation from an ITAHC; and Import Record creation from a confirmed match. Each trigger point is an independent evaluation — flags raised at an earlier trigger point must not be carried forward — and each matching active entry produces one flag.
 
 - **Source:** [US-057](user-stories/US-057-Manage-Watchlist-Records.md), [US-058](user-stories/US-058-Flag-Watched-Parties.md)
 - **Jira:** IMTA-7479, IMTA-7482, IMTA-8012, IMTA-8015

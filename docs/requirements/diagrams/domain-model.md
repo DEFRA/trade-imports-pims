@@ -134,10 +134,43 @@ classDiagram
     }
 
     class Watchlist {
+        +String name
         +String watchType
         +Date startDate
         +Date endDate
         +String comments
+    }
+
+    class PlaceOfDestination {
+        +String name
+        +String address
+        +String city
+        +String postcode
+        +String country
+    }
+
+    class Consignee {
+        +String name
+        +String address
+        +String city
+        +String postcode
+        +String country
+    }
+
+    class Transporter {
+        +String name
+        +String address
+        +String city
+        +String postcode
+        +String country
+    }
+
+    class Veterinarian {
+        +String name
+        +String address
+        +String city
+        +String postcode
+        +String country
     }
 
     class WatchlistComment {
@@ -183,5 +216,10 @@ classDiagram
     Watchlist "1" --> "*" WatchlistComment : hasComments
     Watchlist "1" --> "*" ITAHC : flags
     Watchlist "1" --> "*" ImportRecord : flags
-    CommodityTypeMapping "*" --> "1" ImportRecord : determinesCommodityTypeOf
+    Watchlist "*" --> "0..1" PlaceOfOrigin : watchedPlaceOfOrigin
+    Watchlist "*" --> "0..1" PlaceOfDestination : watchedPlaceOfDestination
+    Watchlist "*" --> "0..1" Consignee : watchedConsignee
+    Watchlist "*" --> "0..1" Transporter : watchedTransporter
+    Watchlist "*" --> "0..1" Veterinarian : watchedVeterinarian
+    CommodityTypeMapping "0..1" --> "*" ImportRecord : determinesCommodityTypeOf
 ```
