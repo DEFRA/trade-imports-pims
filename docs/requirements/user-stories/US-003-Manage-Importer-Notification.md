@@ -34,7 +34,22 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
   - Imp Type (Live Animals / POAO / HFRNAO; hidden for the CHED journey)
   - Inspection Required (Required / Not Required, sourced from IPAFFS risk decision)
 
-- **AC-2:** An EU Imports Caseworker can view a list of all Importer Notification records ordered by creation date (newest first), showing: Date of Import, Premises of Origin Country, Species / Product (Common Name), Reference Number, Importer Name, Importer Telephone, Importer Email, Port / Airport of Entry, Imp Type.
+- **AC-2:** An EU Imports Caseworker can view a list of active Importer Notification records ordered by creation date (newest first), showing: 
+  - Reference Number
+  - Version
+  - Submission Date
+  - Created on
+  - Status
+  - Type
+  - Person Responsible Name
+  - Person Responsible Company
+  - Person Responsible Email
+  - Person Responsible Phone
+  - Country of Origin
+  - Region of Origin
+  - Place of Destination Address City
+  - Place of Destination Address Postcode
+  - Owner
 
 - **AC-3:** An EU Imports Caseworker can perform a free text search for an Importer Notification by: Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name, Animal / Product ID. Results show the list view fields from AC-2.
 
