@@ -219,7 +219,7 @@ sequenceDiagram
     ITAHC->>WL: On creation, check involved parties
     alt Party is active on Watchlist
         WL-->>ITAHC: Apply flag (one per matching entry)
-        ITAHC->>IR: On Import Record creation/match, propagate flag
+        ITAHC->>IR: On Import Record creation/match, re-evaluate active Watchlist entries
         IR-->>CW: Flag visible on Import Record
         CW->>WL: Open flag to view Watchlist details/comments
     else No active Watchlist match

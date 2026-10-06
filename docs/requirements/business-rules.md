@@ -86,7 +86,7 @@ When an Import Record Risk Level is changed away from P2:
 ---
 
 ### BR-008 — P3 Random 2% Inspection Coverage (ITAHC and CHEDA Records) { #br-008 }
-When an Import Record of type ITAHC with a linked Primary HC is created or of type CHEDA which is manually assessed as as Risk Level P3:
+When an Import Record of type ITAHC with a linked Primary HC is created or of type CHEDA which is manually assessed as Risk Level P3:
 
 1. Increment the "2% All Import Records — Random" Inspection Coverage Count value.
 2. If the count value equals or exceeds the configured limit: flag the Import Record for Post Import Check with reason "Random P3 Inspection" and reset the counter to 0.
