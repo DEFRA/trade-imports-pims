@@ -59,7 +59,7 @@
 | 30  | Non-compliance query recording and tracking on Importer Notifications and Import Records                                        |
 | 31  | Health Certificate Attached flagging and automated re-amendment of Importer Notifications                                       |
 
-Business-facing requirements use **Import Record** as the canonical term. Technical schema names and some workflow artefacts may still use `importapplication` / "Import Application". The canonical requirement vocabulary and traceability mapping are maintained in [traceability-matrix.md](traceability-matrix.md).
+Business-facing requirements use **Import Record** as the canonical term. Technical schema names and some workflow artefacts may still use `importapplication` / "Import Application".
 
 ---
 
