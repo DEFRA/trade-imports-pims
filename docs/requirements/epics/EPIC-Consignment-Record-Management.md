@@ -16,22 +16,21 @@ PIMS provides caseworkers with the ability to create and manage the following re
 - **ITAHC** — International Transport of Animals Health Certificate
 - **DOCOM** — Document of Commercial Movement
 - **CVED** — Common Veterinary Entry Document
-- **Import Notification** — legacy pre-notification wording retained in some labels, views and dashboard text
-- **Importer Notification** — the implemented IPAFFS-sourced notification entity (auto-received)
+- **Importer Notification** — the implemented IPAFFS-sourced notification entity (auto-received); "Import Notification" is legacy wording for the same entity, retained in some labels, views and dashboard text
 - **Match Record** — matching support artefact used to identify candidate related Import Records
 
 Supporting case management capabilities include document attachment, IV65 response tracking, warble fly declaration tracking, completion date recording, matching support and quick-create for triage. Business-facing requirements use **Import Record** as the canonical term, while some technical artefacts still use `importapplication` / "Import Application".
 
 ## Functional Scope
 
-- Create, update, view, list and search for Import Records, ITAHCs, DOCOMs, CVEDs and Import Notifications
+- Create, update, view, list and search for Import Records, ITAHCs, DOCOMs and CVEDs
 - Link health certificates to Import Records
 - Attach documents to Import Records
 - Calculate IV65 response due dates
 - Record warble fly treatment declaration dates
 - Record Import Record completion dates
 - Quick-create Import Records for the unassigned work queue
-- View Importer Notifications received from IPAFFS
+- View and search Importer Notifications received from IPAFFS
 - Select "No ITAHC Received" on an Import Record where applicable
 - Review Match View candidates and Work Schedule Number context when matching inbound records
 - Record DOCOM-specific triage details (category, Proof of Delivery request/reply) on the Import Record

@@ -8,7 +8,7 @@ So that I can use the information contained within an Importer Notification to s
 
 ## Description
 
-Caseworkers can view Importer Notification records in PIMS (auto-received from IPAFFS via [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md)). Caseworkers have global Read, Append, Append To, Assign, Share and Write (Update) permissions on these records, but cannot create them manually. The Importer Notification entity is the current record type, although some legacy labels and views may still use the term Import Notification.
+Caseworkers can view Importer Notification records in PIMS (auto-received from IPAFFS via [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md)). Caseworkers have global Read, Append, Append To, Assign, Share and Write (Update) security-role permissions on these records, but cannot create them manually. The Write permission is a Dataverse security-role grant, not a statement that all fields are intended to be manually edited — in practice, caseworker-editable fields are limited to the Non-Compliance tab ([US-049](US-049-Non-Compliance-Management.md)) and Health Certificate Attached (AC-4); all other fields are populated by the IPAFFS integration. The Importer Notification entity is the current record type, although some legacy labels and views may still use the term Import Notification.
 
 ## Acceptance Criteria
 
@@ -16,7 +16,7 @@ Caseworkers can view Importer Notification records in PIMS (auto-received from I
   An EU Imports Caseworker can view the Importer Notification fields on the PIMS system form as specified in the agreed D365 Importer Notification schema (reference: EU Imports — CIT 3.0 — Importer Notification Schemas.xlsx, worksheet "3-I.N. D365 Schema IMTA-7201").
 
 - **AC-2 (Security role permissions):**  
-  The EU Imports Caseworker security role has Read, Append, Append To, Assign, Share and **Write (Update)** permissions on the Importer Notification entity, all at Global level. The role does **not** have Create permission — an Importer Notification can only be received from IPAFFS ([US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md)), not manually created by a caseworker.
+  The EU Imports Caseworker security role has Read, Append, Append To, Assign, Share and **Write (Update)** permissions on the Importer Notification entity, all at Global level. The role does **not** have Create permission — an Importer Notification can only be received from IPAFFS ([US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md)), not manually created by a caseworker. This Write permission is a Dataverse security-role grant rather than a statement that all fields are caseworker-editable: in practice, caseworker-editable fields are limited to the Non-Compliance tab fields ([US-049](US-049-Non-Compliance-Management.md)) and Health Certificate Attached (AC-4) — other fields are IPAFFS-sourced and not intended for manual caseworker edits.
 
 - **AC-3 (System views):**  
   System view names, fields and sort orders for Importer Notifications align to the implemented views.

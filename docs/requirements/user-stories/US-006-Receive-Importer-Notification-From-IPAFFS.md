@@ -12,7 +12,7 @@ PIMS receives Importer Notifications from IPAFFS via an Azure Service Bus Queue.
 
 IPAFFS notification types received by PIMS: **CVEDA**, **CVEDP**, **CED**, **IMP**. The full set of IPAFFS notification statuses is: DRAFT, SUBMITTED, VALIDATED, REJECTED, IN_PROGRESS, AMEND, MODIFY, REPLACED, CANCELLED, DELETED. PIMS processes messages for the statuses relevant to caseworker activity (Submitted, AMEND/MODIFY, Cancelled). Importer Notifications also carry `replaces` and `replacedBy` reference fields supporting amendment chain tracking, parallel to the TRACES ITAHC replacement model.
 
-The Importer Notification entity is distinct from the legacy Import Notification concept ([US-003](US-003-Manage-Import-Notification.md)). For the PIMS form and security role configuration related to viewing these records, see [US-044](US-044-View-Importer-Notification.md).
+"Import Notification" is legacy wording for this same entity ([US-003](US-003-Manage-Import-Notification.md) covers caseworker viewing and searching of these records). For the PIMS form and security role configuration related to viewing these records, see [US-044](US-044-View-Importer-Notification.md).
 
 The IPAFFS flow uses the Importer Notification as the inbound entity and supports downstream Import Record creation or update from that data. Earlier spike wording that described IPAFFS as creating ITAHC records is treated as legacy wording.
 
