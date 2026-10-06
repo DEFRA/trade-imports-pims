@@ -21,7 +21,7 @@ This story elaborates the high-level matching capability summarised in [US-046](
   - Otherwise, if the first part of the Destination Postcode matches, PIMS calculates a weighted mean score across the configured fields (per [US-050](US-050-Configure-Matching-Algorithm.md)), which may include: second part of postcode, Destination Name, Commodity Code, Quantity, Country of Origin, Place of Origin Name and Place of Origin Postcode.
   - Otherwise, the pair is not a candidate match.
 
-- **AC-4 (Candidate Match Record created above threshold):** Where the calculated score meets or exceeds a configurable confidence threshold (default 70%), PIMS creates a Match Record linking the candidate pair with a status of Unmatched and the calculated probability of match, for review under [US-052](US-052-Review-Resolve-Candidate-Matches.md).
+- **AC-4 (Candidate Match Record created above threshold):** Where the calculated score meets or exceeds a configurable confidence threshold (default 70%), PIMS creates a Match Record linking the candidate pair with a status of Unmatched and the calculated probability of match, for review under [US-052](US-052-Review-Resolve-Candidate-Matches.md). If a Match Record already exists for the same candidate pair (from a previous run), PIMS updates its calculated probability of match rather than creating a duplicate.
 
 ## Business Rules
 

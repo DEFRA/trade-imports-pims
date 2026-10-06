@@ -37,7 +37,6 @@ This baseline has evidence for generic attachment capability, including storing 
 
 ## Business Rules
 
-- [BR-029](../business-rules.md#br-029) — Deleted Importer Notification attachments remain active
 - [BR-031](../business-rules.md#br-031) — Documents attached to Import Records cannot be deleted
 - [BR-056](../business-rules.md#br-056) — Latest Health Certificate document type mirrors Health Certificate behaviour
 

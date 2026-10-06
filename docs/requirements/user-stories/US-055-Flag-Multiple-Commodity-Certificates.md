@@ -12,7 +12,7 @@ Both IPAFFS-sourced Importer Notifications and TRACES-sourced ITAHCs can arrive 
 
 ## Acceptance Criteria
 
-- **AC-1 (Flag Importer Notification with multiple commodity codes):** When PIMS receives an Importer Notification with more than one commodity code, it is flagged with a banner "More than 1 Commodity Code - No caseworker intervention", appears in a dedicated view, and its Caseworker Intervention field is set to No.
+- **AC-1 (Flag Importer Notification with multiple commodity codes):** When PIMS receives an Importer Notification with more than one commodity code, it is flagged with a banner "More than 1 Commodity Code - No caseworker intervention", appears in a dedicated view, and its Caseworker Intervention field is set to No. While Caseworker Intervention is No, the Importer Notification is excluded from the automated matching search ([US-051](US-051-Automated-Matching.md)) and from risk assessment, and only becomes eligible for those processes once Caseworker Intervention is set to Yes (AC-2).
 
 - **AC-2 (Caseworker intervenes):** When a caseworker has reviewed a flagged Importer Notification and declares that they have intervened, the banner changes to "More than 1 Commodity Code - caseworker has intervened", the Importer Notification no longer appears in the no-intervention view, and the Caseworker Intervention field is set to Yes.
 
