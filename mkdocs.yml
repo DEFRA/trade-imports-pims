@@ -108,7 +108,7 @@ nav:
     - Consignment Record Management:
       - US-001 Manage Import Record: requirements/user-stories/US-001-Manage-Import-Record.md
       - US-002 Manage ITAHC: requirements/user-stories/US-002-Manage-ITAHC.md
-      - US-003 Manage Import Notification: requirements/user-stories/US-003-Manage-Import-Notification.md
+      - US-003 Manage Importer Notification: requirements/user-stories/US-003-Manage-Importer-Notification.md
       - US-004 Manage DOCOM: requirements/user-stories/US-004-Manage-DOCOM.md
       - US-005 Manage CVED: requirements/user-stories/US-005-Manage-CVED.md
       - US-029 Document Attachment: requirements/user-stories/US-029-Document-Attachment.md
