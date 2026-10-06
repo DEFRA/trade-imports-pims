@@ -20,7 +20,7 @@ flowchart LR
         IMPORT_REC["Import Records"]
         ITAHC_ENT["ITAHC Records"]
         DOCOM_ENT["DOCOM Records"]
-        IMPR_NOT["Importer Notifications <br/> (IPAFFS; 'Import Notifications' is the same entity in legacy labels)"]
+        IMPR_NOT["Importer Notifications <br/> (IPAFFS)"]
         POO_ENT["Places of Origin"]
         PIC_ENT["Post Import Checks"]
         QRY_ENT["Import Queries"]

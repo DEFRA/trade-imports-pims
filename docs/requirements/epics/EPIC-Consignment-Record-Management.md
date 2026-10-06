@@ -16,7 +16,7 @@ PIMS provides caseworkers with the ability to create and manage the following re
 - **ITAHC** — International Transport of Animals Health Certificate
 - **DOCOM** — Document of Commercial Movement
 - **CVED** — Common Veterinary Entry Document
-- **Importer Notification** — the implemented IPAFFS-sourced notification entity (auto-received); "Import Notification" is legacy wording for the same entity, retained in some labels, views and dashboard text
+- **Importer Notification** — the implemented IPAFFS-sourced notification entity (auto-received)
 - **Match Record** — matching support artefact used to identify candidate related Import Records
 
 Supporting case management capabilities include document attachment, IV65 response tracking, warble fly declaration tracking, completion date recording, matching support and quick-create for triage. Business-facing requirements use **Import Record** as the canonical term, while some technical artefacts still use `importapplication` / "Import Application".
@@ -43,7 +43,7 @@ Supporting case management capabilities include document attachment, IV65 respon
 | --------------------------------------------------------------------------- | --------------------------------------- |
 | [US-001](../user-stories/US-001-Manage-Import-Record.md)                    | Manage Import Record                    |
 | [US-002](../user-stories/US-002-Manage-ITAHC.md)                            | Manage ITAHC                            |
-| [US-003](../user-stories/US-003-Manage-Import-Notification.md)              | Manage Import Notification              |
+| [US-003](../user-stories/US-003-Manage-Importer-Notification.md)              | Manage Importer Notification            |
 | [US-004](../user-stories/US-004-Manage-DOCOM.md)                            | Manage DOCOM                            |
 | [US-005](../user-stories/US-005-Manage-CVED.md)                             | Manage CVED                             |
 | [US-029](../user-stories/US-029-Document-Attachment.md)                     | Document Attachment                     |

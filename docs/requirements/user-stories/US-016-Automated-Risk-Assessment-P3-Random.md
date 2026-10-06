@@ -8,14 +8,14 @@ So that we consistently inspect a random proportion of imported commodities alig
 
 ## Description
 
-PIMS applies the 2% random inspection coverage rule to all P3 Import Records of type ITAHC with a Primary ITAHC linked. A single Auto Number counter (**Import Application Priority 3 Counter**, visible under Reference Data > Auto Numbers) is maintained, incremented on creation (not update) of qualifying Import Records. When the counter reaches the configured threshold (defined by the "2% All-Case-Random" Inspection Coverage Rule), the record is flagged for inspection and the counter resets to 0.
+PIMS applies the 2% random inspection coverage rule to all P3 Import Records of type ITAHC with a Primary ITAHC linked. A single Auto Number counter (**P3 Inspection Counter**, visible under Reference Data > Auto Numbers) is maintained, incremented on creation (not update) of qualifying Import Records. When the counter reaches the configured threshold (defined by the "2% All-Case-Random" Inspection Coverage Rule), the record is flagged for inspection and the counter resets to 0.
 
 The counter increment happens **before** automated risk assessment rules are evaluated (BR-009).
 
 ## Acceptance Criteria
 
 - **AC-1 (Counter incremented on qualifying Import Record creation):**  
-  When an Import Record of type ITAHC with a linked Primary ITAHC is **created** (not updated), PIMS increments the **Import Application Priority 3 Counter** (Auto Number) by 1. This increment occurs before other risk assessment rules are evaluated.
+  When an Import Record of type ITAHC with a linked Primary ITAHC is **created** (not updated), PIMS increments the **P3 Inspection Counter** (Auto Number) by 1. This increment occurs before other risk assessment rules are evaluated.
 
 - **AC-2 (Counter below threshold — no inspection flagged):**  
   If Risk Level = P3 AND the counter is less than the configured limit:
