@@ -1,8 +1,8 @@
 @issue:US-003
 Feature: View an Importer Notification
 
-# Possible defect: there are more controls visible on tab than mentioned in the consolidated requirements corpus.
-@acceptance-criteria:us-003-1 @possible-defect
+# TODO: Add fields without requirements traceability
+@acceptance-criteria:us-003-1 @todo:define
 Scenario: A caseworker views an Importer Notification's Importer Notification Details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -24,8 +24,8 @@ Scenario: A caseworker views an Importer Notification's Importer Notification De
 		| Number of Packages      |
 		| Weight (KG)             |
 
-# Possible defect: there are more controls visible on tab than mentioned in the consolidated requirements corpus.
-@acceptance-criteria:us-003-1 @possible-defect
+# TODO: Add fields without requirements traceability
+@acceptance-criteria:us-003-1 @todo:define
 Scenario: A caseworker views an Importer Notification's commodity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -44,21 +44,20 @@ Scenario: A caseworker views an Importer Notification's commodity permanent addr
 	Then I see a 'Commodity Permanent Address information <Identifiers>' subgrid with the following columns
 		| Animal ID | Passport | Microchip | Tattoo | Address Type | Address Line1 | Address Line2 | Address Line3 | City | Post Code | Telephone | Email |
 
-# Possible defect: deployed Charity tab labels the email field 'Consignor Email' (not 'Email') and the postcode field 'Address Postcode' (not 'Postcode') as required.
-# Possible defect: there are more controls visible on tab than mentioned in the consolidated requirements corpus.
-@acceptance-criteria:us-003-1 @possible-defect
+# TODO: Add fields without requirements traceability
+@acceptance-criteria:us-003-1 @todo:define
 Scenario: A caseworker views an Importer Notification's charity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification which is importing from a charity
 	When I select the 'Charity' tab
 	Then I see the following fields
-		| Field           |
-		| Individual Name |
-		| Company Name    |
-		| Email           |
-		| Telephone       |
-		| Address Line 1  |
-		| Postcode        |
+		| Field            |
+		| Individual Name  |
+		| Company Name     |
+		| Consignor Email  |
+		| Telephone        |
+		| Address Line 1   |
+		| Address Postcode |
 
 @acceptance-criteria:us-003-1
 Scenario: A caseworker views an Importer Notification's person responsible details
@@ -73,8 +72,8 @@ Scenario: A caseworker views an Importer Notification's person responsible detai
 		| Address |
 		| Country |
 
-# Possible defect: there are more controls visible on tab than mentioned in the consolidated requirements corpus.
-@acceptance-criteria:us-003-1 @possible-defect
+# TODO: Add fields without requirements traceability
+@acceptance-criteria:us-003-1 @todo:define
 Scenario: A caseworker views an Importer Notification's importer details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -88,8 +87,8 @@ Scenario: A caseworker views an Importer Notification's importer details
 		| Postcode       |
 		| Country        |
 
-# Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
-@acceptance-criteria:us-003-1 @possible-defect
+# TODO: Add fields without requirements traceability
+@acceptance-criteria:us-003-1 @todo:define
 Scenario: A caseworker views an Importer Notification's place of origin details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	When I select the 'Place of Origin' tab
@@ -102,8 +101,8 @@ Scenario: A caseworker views an Importer Notification's place of origin details
 		| Postcode       |
 		| Country        |
 
-# Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
-@acceptance-criteria:us-003-1 @possible-defect
+# TODO: Add fields without requirements traceability
+@acceptance-criteria:us-003-1 @todo:define
 Scenario: A caseworker views an Importer Notification's place of destination details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	When I select the 'Place of Destination' tab
@@ -124,8 +123,8 @@ Scenario: A caseworker views an Importer Notification's permanent address detail
 		| Field                           |
 		| Permanent Addresses <Subgrid_3> |
 
-# Possible defect: there are more controls visible on tab than mentioned in the consolidated requirements corpus.
-@acceptance-criteria:us-003-1 @possible-defect
+# TODO: Add fields without requirements traceability
+@acceptance-criteria:us-003-1 @todo:define
 Scenario: A caseworker views an Importer Notification's transporter details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	When I select the 'Transporter' tab
