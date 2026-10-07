@@ -53,6 +53,7 @@ namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
 
             // Assert
             Assert.True((bool)outputs["Response"]);
+            Assert.Equal("success", (string)outputs["Category"]);
             Assert.Contains("created successfully", (string)outputs["Message"]);
 
             this.OrgSvcMock.Verify(
@@ -74,6 +75,7 @@ namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
 
             // Assert
             Assert.False((bool)outputs["Response"]);
+            Assert.Equal("draft", (string)outputs["Category"]);
             Assert.Contains("Draft status", (string)outputs["Message"]);
 
             this.OrgSvcMock.Verify(o => o.Create(It.IsAny<Entity>()), Times.Never);
@@ -93,6 +95,7 @@ namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
 
             // Assert
             Assert.False((bool)outputs["Response"]);
+            Assert.Equal("error", (string)outputs["Category"]);
             Assert.Contains("service bus message is null or empty", (string)outputs["Message"]);
         }
 
@@ -110,6 +113,7 @@ namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
 
             // Assert
             Assert.False((bool)outputs["Response"]);
+            Assert.Equal("error", (string)outputs["Category"]);
             Assert.Contains("Error deserializing message", (string)outputs["Message"]);
         }
 
@@ -127,6 +131,7 @@ namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
 
             // Assert
             Assert.False((bool)outputs["Response"]);
+            Assert.Equal("error", (string)outputs["Category"]);
             Assert.Contains("data.exchangedDocument.identifier", (string)outputs["Message"]);
         }
 
@@ -155,6 +160,7 @@ namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
 
             // Assert
             Assert.True((bool)outputs["Response"]);
+            Assert.Equal("success", (string)outputs["Category"]);
             Assert.Contains("updated successfully", (string)outputs["Message"]);
 
             this.OrgSvcMock.Verify(
@@ -187,6 +193,7 @@ namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
 
             // Assert
             Assert.False((bool)outputs["Response"]);
+            Assert.Equal("noUpdate", (string)outputs["Category"]);
             Assert.Contains("No update needed", (string)outputs["Message"]);
 
             this.OrgSvcMock.Verify(o => o.Update(It.IsAny<Entity>()), Times.Never);
@@ -210,6 +217,7 @@ namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
 
             // Assert
             Assert.False((bool)outputs["Response"]);
+            Assert.Equal("error", (string)outputs["Category"]);
             Assert.Contains("Error processing", (string)outputs["Message"]);
         }
 

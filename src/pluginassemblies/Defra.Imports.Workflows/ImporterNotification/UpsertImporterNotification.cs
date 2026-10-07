@@ -34,11 +34,18 @@
         public OutArgument<bool> Response { get; set; }
 
         /// <summary>
-        /// Gets or sets the response.
+        /// Gets or sets the response message.
         /// </summary>
         [Output("Message")]
         [RequiredArgument]
         public OutArgument<string> Message { get; set; }
+
+        /// <summary>
+        /// Gets or sets the category of the response.
+        /// </summary>
+        [Output("Category")]
+        [RequiredArgument]
+        public OutArgument<string> Category { get; set; }
 
         /// <inheritdoc />
         internal override void ExecuteWorkflowActivity(CodeActivityContext context, IWorkflowContext workflowContext, IOrganizationService orgSvc, ILogWriter logWriter)
@@ -47,15 +54,17 @@
             try
             {
                 var response = processMessage.UpsertImporterNotification(this.ASBMessage.Get(context));
-                logWriter.Log(Severity.Info, "UpsertImporterNotification", $"Response: {response.Item1}, Message: {response.Item2}");
+                logWriter.Log(Severity.Info, "UpsertImporterNotification", $"Response: {response.Item1}, Category: {response.Item2}, Message: {response.Item3}");
                 this.Response.Set(context, response.Item1);
-                this.Message.Set(context, response.Item2);
+                this.Category.Set(context, response.Item2);
+                this.Message.Set(context, response.Item3);
             }
             catch (Exception ex)
             {
                 var error = $"Error processing ASB message: {ex.Message}";
                 logWriter.Log(Severity.Error, "UpsertImporterNotification", error);
                 this.Response.Set(context, false);
+                this.Category.Set(context, "error");
                 this.Message.Set(context, error);
             }
         }
