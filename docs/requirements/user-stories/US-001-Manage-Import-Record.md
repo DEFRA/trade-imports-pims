@@ -124,6 +124,7 @@ The record supports "No ITAHC Received" as a valid option in the Primary HC fiel
 - EDA-303
 - EDA-304
 - EDA-307
+- EDA-308
 - EDA-322
 - EDA-337
 - EDA-338

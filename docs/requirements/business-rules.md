@@ -427,7 +427,7 @@ When an Importer Notification with a populated Type of Non-Compliance is linked 
 On both the Importer Notification and Import Record forms, PIMS must hide the following fields when the record's Type/Import Record Type indicates the IMP (Importer Notification) journey: Certified For, Purpose of Consignment, Internal Market Purpose, Commodities Number of Packages. PIMS must hide Purpose of Movement when the Type/Import Record Type indicates the CHEDA journey.
 
 - **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md), [US-003](user-stories/US-003-Manage-Importer-Notification.md)
-- **Jira:** EDA-432 (final state; supersedes EDA-303, EDA-322, EDA-337, EDA-399, EDA-400.
+- **Jira:** EDA-432 (final state; supersedes EDA-303, EDA-308, EDA-322, EDA-337, EDA-399, EDA-400)
 
 ---
 
@@ -564,3 +564,12 @@ PIMS must maintain a read-only Inspection Status field on the Import Record, aut
 
 - **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
 - **Jira:** IMTA-6028
+
+---
+
+### BR-060 — Importer Notification Status Must Only Change to Amend on Actual IPAFFS Re-Submission { #br-060 }
+
+PIMS must only reflect an Importer Notification's Status as Amend once the corresponding amendment has been submitted in IPAFFS. An importer beginning an amendment in IPAFFS without submitting it (e.g. navigating away from the review screen) must not cause PIMS to change the Status to Amend or apply any of the amended field values, since IPAFFS has not yet sent a status-change message in that case ([BR-033](#br-033), [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md) AC-1). This clarifies a defect where PIMS incorrectly showed Amend status, with stale field values, ahead of actual submission.
+
+- **Source:** [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md)
+- **Jira:** IMTA-7423
