@@ -18,7 +18,7 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
   - Charity Name, Address, Postcode, Telephone, Email
   - Devolved Office (manual, no default — see [US-059](US-059-Devolved-Office-Assignment.md))
   - Consignment Country of Origin, Countries of Transit
-  - Date of Import
+  - Date of Import, Arrival Time (source: EDA-400 — "Unhide Arrival Time field" on the Importer Notification Details main section)
   - Place of Destination (Contact Name, Address, Postcode, Telephone, Email)
   - Permanent Destination (Contact Name, Address, Postcode, Telephone, Email)
   - Premises of Origin (Name, Address, Postcode, Country)
@@ -99,3 +99,4 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
 - EDA-739
 - EDA-794
 - EDA-798
+- EDA-400
