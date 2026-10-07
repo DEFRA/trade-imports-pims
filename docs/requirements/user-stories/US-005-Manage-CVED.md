@@ -17,8 +17,6 @@ A CVED (Common Veterinary Entry Document) is a certificate used for goods import
 
 - **AC-2:** An EU Imports Caseworker can view a list of all CVED records ordered by creation date (newest first), showing: Certificate Reference Number, Created On.
 
-  *Note: no sort order is specified for this view in the available source Jira text (source issue IMTA-6357 has no visible description). The order above (Created On, newest first) reflects the deployed PIMS sort order, used here as a fallback rather than a sourced requirement.*
-
 - **AC-3:** An EU Imports Caseworker can perform a free text search for a CVED by Certificate Reference Number.
 
 ## Business Rules

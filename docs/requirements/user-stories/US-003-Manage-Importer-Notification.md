@@ -53,8 +53,6 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
   - Cloned
   - Imp Type
 
-  *Note: no sort order is specified for this view in the available source Jira text (IMTA-7240 marks "how the view will be sorted" as TBC). The order above (Created On, newest first) reflects the deployed PIMS sort order, used here as a fallback rather than a sourced requirement.*
-
 - **AC-3:** An EU Imports Caseworker can perform a free text search for an Importer Notification by: Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name, Animal / Product ID. Results show the list view fields from AC-2.
 
 - **AC-4 (Process Status removed):** The Process Status field is not shown on the Importer Notification form; it is unused and holds no historical data.

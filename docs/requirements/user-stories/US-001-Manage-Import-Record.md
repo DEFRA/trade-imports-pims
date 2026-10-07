@@ -46,8 +46,6 @@ The record supports "No ITAHC Received" as a valid option in the Primary HC fiel
 
 - **AC-2:** An EU Imports Caseworker can view a list of all Import Records ordered by creation date (newest first), showing: Primary HC, Commodity Type, Country of Origin, Import Risk Level, Place of Origin Organisation, Place of Destination, Created On Date.
 
-  *Note: no sort order is specified for this view in the available source Jira text. The order above (Created On, newest first) reflects the deployed PIMS sort order, used here as a fallback rather than a sourced requirement.*
-
 - **AC-3:** An EU Imports Caseworker can perform a free text search for an Import Record using: Importer Name, Date of Import, Premises of Origin Name (Place of Origin Organisation), ITAHC Certificate Reference Number, Importer Notification Local Reference Number.
 
 - **AC-4:** The user can select "No ITAHC Received" in the Primary HC field and save the Import Record without a linked ITAHC.
@@ -99,6 +97,12 @@ The record supports "No ITAHC Received" as a valid option in the Primary HC fiel
 - [US-004](US-004-Manage-DOCOM.md) (DOCOM record — the DOCOM tab on the Import Record is additional triage context, not a replacement for the DOCOM entity)
 - [US-006](US-006-Receive-Importer-Notification-From-IPAFFS.md), [US-044](US-044-View-Importer-Notification.md) (Importer Notification — source of the "Create Import Record" button and Submission Date)
 - [US-059](US-059-Devolved-Office-Assignment.md) (Devolved Office inheritance), [US-061](US-061-Automatically-Determine-Commodity-Type.md) (Commodity Type auto-set), [US-053](US-053-Create-Import-Record-at-Matching.md) (Import Record creation at matching time), [US-056](US-056-Compare-Commodity-Details.md) (Commodity Identifiers)
+
+## Traceability
+
+### Source Jira Issues
+
+- IMTA-5870
 
 ## Traceability
 
