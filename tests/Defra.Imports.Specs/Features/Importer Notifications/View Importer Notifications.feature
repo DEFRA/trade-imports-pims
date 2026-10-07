@@ -21,7 +21,7 @@ Scenario: A caseworker views all POAO/HRFNAO Importer Notifications
 Scenario: A caseworker views Importer Notifications flagged for multiple commodity codes
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
-	And I see a 'Importer Notifications with >1 Commodity Codes - No Caseworker intervention' view with the following columns
+	Then I see a 'Importer Notifications with >1 Commodity Codes - No Caseworker intervention' view with the following columns
 		| Reference Number | Version | Submission Date | Created On | Status | Type | Person Responsible Name | Person Responsible Company Name | Person Responsible Email | Person Responsible Phone | Country of Origin | Region of Origin |
 	And the view is sorted by the 'Created On' column in descending order
 
@@ -29,8 +29,10 @@ Scenario: A caseworker views Importer Notifications flagged for multiple commodi
 @issue:US-003 @acceptance-criteria:us-003-3 @possible-defect @todo:implement
 Scenario: A caseworker searches for an Importer Notification by related party or commodity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	# TODO: Implement non-parameterised binding that handles Importer Notification only. Use ImporterNotificationScenario.Builder to create an import notification with no specific configuration and adds it to the context with a given key.
 	And an Importer Notification has been created
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	# TODO: Implement binding that gets entity list page data set to perform search for created binding by selecting one of those field values at random from the Importer Notification in the context.
 	When I search for the Importer Notification using one the following fields
 		| Field                      |
 		| Importer Name              |
@@ -38,4 +40,5 @@ Scenario: A caseworker searches for an Importer Notification by related party or
 		| Premises of Origin Name    |
 		| Permanent Destination Name |
 		| Animal / Product ID        |
+	# TODO: Implement binding that uses the data set control to assert visibility of the Importer Notification in the context by using the reference number.
 	Then I see the matching Importer Notification in the search results

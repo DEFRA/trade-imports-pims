@@ -4,6 +4,7 @@ Feature: View an Importer Notification
 @acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-4 @acceptance-criteria:us-044-5 @acceptance-criteria:us-044-6 @issue:US-053 @acceptance-criteria:us-053-3 @issue:US-029 @acceptance-criteria:us-029-7
 Scenario: A caseworker views an Importer Notification's Importer Notification Details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	# TODO: Implement non-parameterised binding that handles Importer Notification only. Use ImporterNotificationScenario.Builder to create an import notification with no specific configuration and navigate to form with `ActivePage.ClientApi`.
 	And I have opened an Importer Notification
 	When I select the 'Importer Notification Details' tab
 	# 'Submitted By Display Name', 'Last Updated', 'Last Updated By Display Name', 'Submitted By Is Control User?' and 'Veterinary Document' were not traced back to requirements but inferred from the implementation
@@ -59,6 +60,7 @@ Scenario: A caseworker views an Importer Notification's commodity details
 @acceptance-criteria:us-003-6 @possible-defect
 Scenario: A caseworker views an Importer Notification's commodity permanent address information (CVEDA)
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	# TODO: Implement non-parameterised binding that handles Importer Notification of a given type only. Parameter should be early-bound model enum. Use ImporterNotificationScenario.Builder to create an import notification with a builder method added for type and navigate to form with `ActivePage.ClientApi`.
 	And I have opened an Importer Notification of type 'CVEDA'
 	When I select the 'Commodity ' tab
 	Then I see a 'Commodity Permanent Address information <Identifiers>' subgrid with the following columns
@@ -67,6 +69,7 @@ Scenario: A caseworker views an Importer Notification's commodity permanent addr
 @acceptance-criteria:us-003-1
 Scenario: A caseworker views an Importer Notification's charity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	# TODO: Implement non-parameterised binding that handles Importer Notification importing from a charity only. Use ImporterNotificationScenario.Builder to create an import notification with a builder method added for importing from charity which causes the builder to set additional expected fields for charity and navigate to form with `ActivePage.ClientApi`.
 	And I have opened an Importer Notification which is importing from a charity
 	When I select the 'Charity' tab
 	# 'UK Telephone', 'International Telephone' and 'Other Identifier' were not traced back to requirements but inferred from the implementation
