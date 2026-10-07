@@ -50,12 +50,18 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
   - Place of Destination Address City
   - Place of Destination Address Postcode
   - Owner
+  - Cloned
+  - Imp Type
+
+  *Note: no sort order is specified for this view in the available source Jira text (IMTA-7240 marks "how the view will be sorted" as TBC). The order above (Created On, newest first) reflects the deployed PIMS sort order, used here as a fallback rather than a sourced requirement.*
 
 - **AC-3:** An EU Imports Caseworker can perform a free text search for an Importer Notification by: Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name, Animal / Product ID. Results show the list view fields from AC-2.
 
 - **AC-4 (Process Status removed):** The Process Status field is not shown on the Importer Notification form; it is unused and holds no historical data.
 
 - **AC-5 (All POAO/HRFNAO view):** An EU Imports Caseworker can select an "All POAO/HRFNAO Importer Notifications" view, equivalent to the Active Importer Notifications view with Status (Active/Inactive), Imp Type, Owner, Commodity Description and Commodity Code columns added.
+
+  *Note: no sort order is specified for this view in the available source Jira text (IMTA-9144 lists only columns). The deployed PIMS view sorts by Reference Number (ascending), not Created On (newest first) as implied by "equivalent to" AC-2 — this is recorded here as the deployed fallback, not a sourced requirement.*
 
 - **AC-6 (Commodity Permanent Address Information subgrid):** For an Importer Notification that is a CHEDA journey with a Type of 'CVEDA', a "Commodity Permanent Address Information" subgrid is shown on the Commodity tab, underneath the Commodity section, with the following columns: Animal ID, Microchip, Passport, Tattoo, Address Type, Address Line 1, Address Line 2, Address Line 3, City, Postcode, Telephone, Email.
 

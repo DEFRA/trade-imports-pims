@@ -14,7 +14,7 @@ Non-compliance fields are new to both the Importer Notification and Import Recor
 
 Where an Importer Notification is being chased with the importer (for example, no health certificate attached) or a caseworker needs to record contact with International Trade Vets (ITV), a chronological comments timeline on the Importer Notification lets caseworkers keep a record of that contact.
 
-This story was identified from Jira issues PLNT-4537, PLNT-4538 and PLNT-4543, which were missing from the original corpus compilation.
+This story was identified from Jira issues PLNT-4537, PLNT-4538, PLNT-4543 and IMTA-4538, which were missing from the original corpus compilation. The IMTA-4538 export provides the concrete system-view definitions for the non-compliance views that were referenced in the legacy PIMS Enhancements System Views workbook.
 
 ## Acceptance Criteria
 
@@ -52,10 +52,28 @@ This story was identified from Jira issues PLNT-4537, PLNT-4538 and PLNT-4543, w
   Where an Importer Notification with non-compliance fields populated (per AC-1) has an associated Import Record, the Import Record's Non-Compliance tab displays a read-only quick view form below its own Non-Compliance fields (per AC-2), showing the Importer Notification's Non-Compliance tab fields (per AC-1).
 
 - **AC-4 (System views — Importer Notifications with active/closed non-compliance queries):**  
-  An EU Imports Caseworker can select system views on the Importer Notification entity filtered by Non-Compliance Status = In Progress ("active") and Non-Compliance Status = Completed ("closed"). Column widths are adjusted so the whole column title is visible.
+  An EU Imports Caseworker can select the following system views on the Importer Notification entity, using the column layouts and filters defined in the legacy "PIMS Enhancements System Views.xlsm" export for IMTA-4538:
+  - "Import Notifications with Active Non-Compliance Queries"
+    - Columns: Reference Number, Submission Date, PIMS Status, Type of Non-Compliance, IRMS Person Responsible, Country of Origin, Place of Destination Address Postcode, Contacted Due to Non-Compliance, Date Email Sent, Date Telephone Call Made, Status
+    - Sort: Reference Number
+    - Filter: Non-Compliance Status = In Progress
+  - "Import Notifications with Closed Non-Compliance Queries"
+    - Columns: Reference Number, Submission Date, PIMS Status, Date Completed, Type of Non-Compliance, IRMS Person Responsible, Country of Origin, Place of Destination Address Postcode, Contacted Due to Non-Compliance, Date Email Sent, Date Telephone Call Made, Status
+    - Sort: Reference Number
+    - Filter: Non-Compliance Status = Completed
+  Column widths are adjusted so the whole column title is visible.
 
 - **AC-5 (System views — Import Records with active/closed non-compliance queries):**  
-  An EU Imports Caseworker can select system views on the Import Record entity filtered by Non-Compliance Status = In Progress ("active") and Non-Compliance Status = Completed ("closed"). Column widths are adjusted so the whole column title is visible.
+  An EU Imports Caseworker can select the following system views on the Import Record entity, using the column layouts and filters defined in the legacy "PIMS Enhancements System Views.xlsm" export for IMTA-4538:
+  - "Import Records with Active Non-Compliance Queries"
+    - Columns: Name, Country of Origin, PIMS Status, Type of Non-Compliance, IRMS Person Responsible, Place of Origin, Place of Destination, Created On, Contacted Due to Non-Compliance, Date Email Sent, Date Telephone Call Made, Status
+    - Sort: Created On
+    - Filter: Non-Compliance Status = In Progress
+  - "Import Records with Closed Non-Compliance Queries"
+    - Columns: Name, Country of Origin, PIMS Status, Date Completed, Type of Non-Compliance, IRMS Person Responsible, Place of Origin, Place of Destination, Created On, Contacted Due to Non-Compliance, Date Email Sent, Date Telephone Call Made, Status
+    - Sort: Created On
+    - Filter: Non-Compliance Status = Completed
+  Column widths are adjusted so the whole column title is visible.
 
 - **AC-6 (Add chronological comments to Importer Notification):**  
   The Importer Notification form displays a timeline beneath the Document section, where a CIT Case Worker can add free-text, chronological notes (for example, recording contact made with the importer, or with International Trade Vets (ITV)) for notifications that do not have a health certificate attached and are being chased.
@@ -78,3 +96,4 @@ This story was identified from Jira issues PLNT-4537, PLNT-4538 and PLNT-4543, w
 - PLNT-4537
 - PLNT-4538
 - PLNT-4543
+- IMTA-4538

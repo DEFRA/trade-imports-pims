@@ -25,6 +25,8 @@ A DOCOM (Document of Commercial Movement) is a health certificate used for comme
 
 - **AC-2:** An EU Imports Caseworker can view a list of all DOCOM records ordered by creation date (newest first), showing: Certificate Reference Number, Local Reference Number, Receiving Category, Purpose, Seal Number, Container Number, Created On.
 
+  *Note: no sort order is specified for this view in the available source Jira text. The order above (Created On, newest first) reflects the deployed PIMS sort order, used here as a fallback rather than a sourced requirement.*
+
 - **AC-3:** An EU Imports Caseworker can perform a free text search for a DOCOM using: Certificate Reference Number, Local Reference Number, Receiving Category, Purpose, Seal Number, Container Number.
 
 - **AC-4 (DOCOM Controls):** An EU Imports Caseworker can record the following dates under a "DOCOM Controls" heading on the Summary tab: Date Importer Contacted, Date Consignment Received, Date Control Added to TRACES.

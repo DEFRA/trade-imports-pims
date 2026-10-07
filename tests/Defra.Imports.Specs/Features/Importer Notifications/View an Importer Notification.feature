@@ -1,7 +1,7 @@
 @issue:US-003
 Feature: View an Importer Notification
 
-# Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
+# Possible defect: there are more controls visible on tab than mentioned in the consolidated requirements corpus.
 @acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's Importer Notification Details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
@@ -24,7 +24,7 @@ Scenario: A caseworker views an Importer Notification's Importer Notification De
 		| Number of Packages      |
 		| Weight (KG)             |
 
-# Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
+# Possible defect: there are more controls visible on tab than mentioned in the consolidated requirements corpus.
 @acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's commodity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
@@ -45,7 +45,7 @@ Scenario: A caseworker views an Importer Notification's commodity permanent addr
 		| Animal ID | Passport | Microchip | Tattoo | Address Type | Address Line1 | Address Line2 | Address Line3 | City | Post Code | Telephone | Email |
 
 # Possible defect: deployed Charity tab labels the email field 'Consignor Email' (not 'Email') and the postcode field 'Address Postcode' (not 'Postcode') as required.
-# Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
+# Possible defect: there are more controls visible on tab than mentioned in the consolidated requirements corpus.
 @acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's charity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
@@ -73,7 +73,7 @@ Scenario: A caseworker views an Importer Notification's person responsible detai
 		| Address |
 		| Country |
 
-# Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
+# Possible defect: there are more controls visible on tab than mentioned in the consolidated requirements corpus.
 @acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's importer details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
@@ -124,7 +124,7 @@ Scenario: A caseworker views an Importer Notification's permanent address detail
 		| Field                           |
 		| Permanent Addresses <Subgrid_3> |
 
-# Possible defect: there are more controls visible on tab than mentioned in requirements (assumed defect in requirements).
+# Possible defect: there are more controls visible on tab than mentioned in the consolidated requirements corpus.
 @acceptance-criteria:us-003-1 @possible-defect
 Scenario: A caseworker views an Importer Notification's transporter details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'

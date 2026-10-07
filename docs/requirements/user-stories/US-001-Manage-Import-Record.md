@@ -46,6 +46,8 @@ The record supports "No ITAHC Received" as a valid option in the Primary HC fiel
 
 - **AC-2:** An EU Imports Caseworker can view a list of all Import Records ordered by creation date (newest first), showing: Primary HC, Commodity Type, Country of Origin, Import Risk Level, Place of Origin Organisation, Place of Destination, Created On Date.
 
+  *Note: no sort order is specified for this view in the available source Jira text. The order above (Created On, newest first) reflects the deployed PIMS sort order, used here as a fallback rather than a sourced requirement.*
+
 - **AC-3:** An EU Imports Caseworker can perform a free text search for an Import Record using: Importer Name, Date of Import, Premises of Origin Name (Place of Origin Organisation), ITAHC Certificate Reference Number, Importer Notification Local Reference Number.
 
 - **AC-4:** The user can select "No ITAHC Received" in the Primary HC field and save the Import Record without a linked ITAHC.

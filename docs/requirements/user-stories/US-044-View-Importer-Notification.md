@@ -28,7 +28,11 @@ Caseworkers can view Importer Notification records in PIMS (auto-received from I
   The Importer Notification Details form displays the option label previously shown as "IMP" as "Importer Notification" (see [BR-038](../business-rules.md#br-038)). This is the same option label used by the Import Record Type field on the Import Record entity — a different entity from Importer Notification. Only the "IMP" label rename is shared between the two entities; the removal of CED, CVEDA and CVEDP is scoped to Import Record Type only and does not apply to the Importer Notification's own notification type classification.
 
 - **AC-6 (System view — Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics):**  
-  An EU Imports Caseworker can select a system view named "Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics" on the Importer Notification entity, filtered by Status = Amend, Owner = EU Imports Dynamics Application User, Health Certificate Attached = Yes. Column widths are adjusted so the whole column title is visible.
+  An EU Imports Caseworker can select a system view named "Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics" on the Importer Notification entity, using the metadata defined in the legacy "PIMS Enhancements System Views.xlsm" attachment associated with PLNT-4538.
+  - Columns: Reference Number, Version, PIMS Status, Type of Non-Compliance, IRMS Person Responsible, Devolved Office, Arrival Date, Submission Date, Created On, Status, Type, Country of Origin, Commodity Code, Commodity Species Name, Commodities Number of Animals, Commodity ID Types, Purpose of Movement, Place of Original Harvest Company Name, Place of Original Harvest Individual Name, Place of Destination Address Postcode, Place of Destination Company Name, Place of Destination Address City, Person Responsible Name, Person Responsible Company Name, Transporter Company Name, Port of Entry, Owner
+  - Sort: Created On
+  - Filters: PIMS Status = Amended; Owner = EU Imports Dynamics Application User; Health Certificate Attached = Yes
+  Column widths are adjusted so the whole column title is visible.
 
 - **AC-7 (IMP Type hidden for CHED journey):**  
   The IMP Type field is hidden on the Importer Notification form (and the corresponding Import Record form, see [US-001](US-001-Manage-Import-Record.md)) when the record's journey is CHED, since the field does not apply to that journey.

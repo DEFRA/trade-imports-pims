@@ -47,6 +47,8 @@ An ITAHC has a replacement chain (Replaced By / Replaces) mirroring the TRACES c
 
 - **AC-2:** An EU Imports Caseworker can view a list of all ITAHC records ("Active ITAHCs" view) sorted by Created On (newest first). The list view columns are **Local Reference Number** and **Created On**. Full record details are accessible by opening an individual record.
 
+  *Note: no sort order is specified for this view in the available source Jira text. The order above (Created On, newest first) reflects the deployed PIMS sort order, used here as a fallback rather than a sourced requirement.*
+
 - **AC-3:** An EU Imports Caseworker can perform a free text search for an ITAHC by Local Reference or Certificate Reference Number.
 
 - **AC-4:** The replacement chain (Replaced By / Replaces) is maintained on ITAHC records and replaced certificates are identifiable to caseworkers during Import Record processing.
