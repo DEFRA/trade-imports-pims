@@ -535,3 +535,32 @@ When a document with Document Type = Latest Health Certificate and a populated U
 
 - **Source:** [US-003](user-stories/US-003-Manage-Importer-Notification.md), [US-029](user-stories/US-029-Document-Attachment.md)
 - **Jira:** EDA-648, EDA-681
+
+---
+
+## Post Import Check Rules (Addendum)
+
+### BR-057 — Post Import Check Auto-Created on First Flagging { #br-057 }
+
+When an Import Record is flagged as requiring a Post Import Check for the first time and no Post Import Check record yet exists against it, PIMS must automatically create one with Outcome = Awaiting Outcome and all other fields unset, so the caseworker does not need to create it manually. Any subsequent or follow-up Post Import Checks against the same Import Record ([US-023](user-stories/US-023-Post-Import-Check-Management.md) AC-1a) continue to be created manually.
+
+- **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
+- **Jira:** IMTA-6033
+
+---
+
+### BR-058 — Documents Attached to Post Import Checks { #br-058 }
+
+An EU Imports Caseworker must be able to attach multiple documents (for example IV17 forms and other check-related correspondence) to a Post Import Check record, each with an optional title and note, and view or download previously attached documents. Once attached, a document must not be deletable, consistent with the Import Record attachment rule ([BR-031](#br-031)).
+
+- **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md), [US-029](user-stories/US-029-Document-Attachment.md)
+- **Jira:** IMTA-6029
+
+---
+
+### BR-059 — Import Record Inspection Status Rolls Up from Post Import Check Outcomes { #br-059 }
+
+PIMS must maintain a read-only Inspection Status field on the Import Record, automatically set from the Outcome of its linked Post Import Check(s) using the same value set as [BR-048](#br-048), and must display this field as a column in Import Record list views so caseworkers can triage without opening each record. Where an Import Record has multiple linked Post Import Checks, the Inspection Status reflects the most recently recorded outcome. This rollup behaviour is inferred from the source story and remains subject to business confirmation.
+
+- **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
+- **Jira:** IMTA-6028

@@ -82,7 +82,7 @@ td
     </tr>
     <tr>
                 <td colspan="6">
-            Displaying <strong>119</strong> issues at <strong>06/Oct/26 5:51 PM</strong>.
+            Displaying <strong>149</strong> issues at <strong>07/Oct/26 12:27 PM</strong>.
         </td>
     </tr>
 </table>
@@ -5744,6 +5744,49 @@ ITAHCs should be automatically created in PIMS with the following fields being s
                     </tr>
 
 
+                <tr id="issuerow105734" rel="105734" data-issuekey="IMTA-6411" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6411" href="https://eaflood.atlassian.net/browse/IMTA-6411">IMTA-6411</a>
+</td>
+                                            <td class="summary"><p>
+                Quick Create Import Applications
+    </p>
+</td>
+                                            <td class="created"> 04/Dec/19 4:49 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker<br/>
+*I WANT* TO be Able to quickly create bare bone Import records<br/>
+*SO THAT* they can be placed in an unassigned work queue.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+*AC-1: Import Applications Quick Form*<br/>
+An EU Imports Caseworker should be able to use a Quick Create form to create an Import Record with the following attributes:<br/>
+<br/>
+Import Record Type<br/>
+Devolved Office<br/>
+Primary ITAHC<br/>
+Commodity Type<br/>
+Country of Origin<br/>
+Region / Area Allocated to<br/>
+Owner<br/>
+<br/>
+*AC-2: Clear Owner Field on Quick Form Load*<br/>
+The system should clear the Owner field on load of the Quick Create form under AC-1 so that the EU Imports Caseworker must select and Owning Team or User.<br/>
+<br/>
+Solution:<br/>
+<br/>
+* Create a quick form called Import Record - Quick Create<br/>
+* Add JavaScript to clear the Owner field via the form onLoad event.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
                 <tr id="issuerow104901" rel="104901" data-issuekey="IMTA-6354" class="issuerow">
                                             <td class="issuetype">    Story
 </td>
@@ -5793,6 +5836,683 @@ Port of entry<br/>
 Place of Origin History<br/>
 Local Veterinary Unit<br/>
 LVU No.
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow104629" rel="104629" data-issuekey="IMTA-6344" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6344" href="https://eaflood.atlassian.net/browse/IMTA-6344">IMTA-6344</a>
+</td>
+                                            <td class="summary"><p>
+                View a &quot;EU Imports - Border Control Metrics&quot; dashboard
+    </p>
+</td>
+                                            <td class="created"> 27/Nov/19 10:32 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS A* Caseworker <br/>
+<br/>
+*I WANT* to be able to view a dashboard called “EU Imports - Border Control Metrics”<br/>
+<br/>
+*SO THAT* I can view the border control analytics from the system<br/>
+<br/>
+<br/>
+<br/>
+*Acceptance Criteria*<br/>
+<br/>
+*AC-1 - View the number of Imports arriving in England during the month*<br/>
+<br/>
+As an EU Imports Caseworker I want to be able to view a chart that has a count by month of Import Records where the import date has been set to the current month.<br/>
+<br/>
+This chart should filter records by:<br/>
+<br/>
+* Date of import equals this month<br/>
+<br/>
+<br/>
+<br/>
+*AC-2 - View the number of scanning checks (2%) required within the month (excluding cats and dogs)*<br/>
+<br/>
+As an EU Imports Caseworker I want to be able to view a chart that has a count by month of Import Records created in the past month where Post Import Checks are required to meet the 2% scanning check policy.<br/>
+<br/>
+This chart should filter records by:<br/>
+<br/>
+* Created on is within the last 1 month<br/>
+* Import Risk Level equals P3<br/>
+* Commodity type does not equal Cat or Dog<br/>
+* Post Import Checks Required? is set to “Yes”.<br/>
+<br/>
+<br/>
+<br/>
+*AC-3 - View the number of scanning checks (2%) post import checks created in the past month (excluding cats and dogs)*<br/>
+<br/>
+As an EU Imports Caseworker I want to be able to view a chart that has a count by month of Post Import Checks created in the past month where the import record 2% scanning check rule applies.<br/>
+<br/>
+This chart should filter records by:<br/>
+<br/>
+* Related Import Application Import Risk Level is P3<br/>
+* Related Import Application Commodity Type is not equal to Cat or Dog<br/>
+* Related Import Application was created in the last month<br/>
+* Related Import Application Post Import Checks Required is set to “Yes”<br/>
+<br/>
+*AC-4 View a list of Post Import Checks due Today, This week and This Month*<br/>
+<br/>
+As an EU Imports Caseworker I want to be able to view a list of Post Import Checks due today, Post Import Checks due this week and a list of Post Import Checks due this month on the EU Imports - Border Control Metrics dashboard.<br/>
+<br/>
+*Solution*<br/>
+<br/>
+Create a dashboard called “EU Imports - Border Control Metrics”<br/>
+<br/>
+Create a view for Import Applications called “Import Records Arriving in England this month” with the filter described in AC-1.<br/>
+<br/>
+Create a view for Import Applications called “2% Scanning Checks Required” with the filter described in AC-2.<br/>
+<br/>
+Create a view for Post Import Checks called “2% Scanning Checks Created” with the filter described in AC-3.<br/>
+<br/>
+Create a chart for each of the created views.<br/>
+<br/>
+Add the charts to the dashboard.<br/>
+<br/>
+Create a view for Post Import Checks showing Post Import Checks due Today<br/>
+<br/>
+Create a view for Post Import Checks showing Post Import Checks due This Week<br/>
+<br/>
+Create a view for Post Import Checks showing Post Import Checks due in the next 30 days<br/>
+<br/>
+Add the views to the dashboard as a list<br/>
+<br/>
+Add the dashboard to the EU Imports application.
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow104628" rel="104628" data-issuekey="IMTA-6343" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6343" href="https://eaflood.atlassian.net/browse/IMTA-6343">IMTA-6343</a>
+</td>
+                                            <td class="summary"><p>
+                View a &quot;EU Imports - Daily IRMS Stats&quot; dashboard
+    </p>
+</td>
+                                            <td class="created"> 27/Nov/19 10:31 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS A* Caseworker <br/>
+<br/>
+*I WANT* to be able to view a dashboard called “EU Imports - Daily IRMS Stats”<br/>
+<br/>
+*SO THAT* I can view analytics of the system<br/>
+<br/>
+<br/>
+<br/>
+*AC-1 - View the number of ITAHCs Received Today*<br/>
+<br/>
+View a count of the number of ITAHCs received today.<br/>
+<br/>
+ITAHC Data filter: <br/>
+<br/>
+Traces Notification Received Date Equals Today<br/>
+<br/>
+<br/>
+<br/>
+*AC-2 - View the number of Import Notifications Received Today*<br/>
+<br/>
+View a count of the number of Import Notifications received today.<br/>
+<br/>
+Import Notification Data filter: <br/>
+<br/>
+Date Notification Received Equals Today<br/>
+<br/>
+<br/>
+<br/>
+*AC-3 - View the number of Live ITAHC’s by status*<br/>
+<br/>
+View a count of the number of Import Records with an ITAHC by Status Reason.<br/>
+<br/>
+Import Record Data filter: <br/>
+<br/>
+Primary ITAHC Contains Data AND<br/>
+<br/>
+Status Reason Equals \[Triage, Risk Assessment, Post Import Check]<br/>
+<br/>
+<br/>
+<br/>
+*AC-4 - View the number of Live Import Notifications by status*<br/>
+<br/>
+View a count of the number of Import Records with a Import Notification by Status Reason.<br/>
+<br/>
+Import Record Data filter: <br/>
+<br/>
+Primary Import Notification Contains Data AND<br/>
+<br/>
+Status Reason Equals \[Triage, Risk Assessment, Post Import Check]
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow104626" rel="104626" data-issuekey="IMTA-6341" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6341" href="https://eaflood.atlassian.net/browse/IMTA-6341">IMTA-6341</a>
+</td>
+                                            <td class="summary"><p>
+                View a &quot;EU Imports - Daily Stats&quot; dashboard
+    </p>
+</td>
+                                            <td class="created"> 27/Nov/19 10:30 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS A* EU Imports Caseworker <br/>
+<br/>
+*I WANT* to be able to view a dashboard called “EU Imports - Daily Stats”<br/>
+<br/>
+*SO THAT* I can view analytics of the system relating to records received today<br/>
+<br/>
+<br/>
+<br/>
+*Acceptance Criteria*<br/>
+<br/>
+*AC-1 - View the number of ITAHCs Received Today*<br/>
+<br/>
+View a count of the number of ITAHCs received today.<br/>
+<br/>
+ITAHC Data filter: <br/>
+<br/>
+Traces Notification Received Date Equals Today<br/>
+<br/>
+<br/>
+<br/>
+*AC-2 - View the number of Import Notifications Received Today*<br/>
+<br/>
+View a count of the number of Import Notifications received today.<br/>
+<br/>
+Import Notification Data filter: <br/>
+<br/>
+Date Notification Received Equals Today<br/>
+<br/>
+<br/>
+<br/>
+*AC-3 - View the number of IV17s Received Today*<br/>
+<br/>
+View a count of the number of Post Import Checks with a IV17 received today.<br/>
+<br/>
+Post Import Check Data filter: <br/>
+<br/>
+IV17 Received Date Equals Today<br/>
+<br/>
+<br/>
+<br/>
+*AC-4 - View the number of Queries Received Today*<br/>
+<br/>
+View a count of the number of Import Queries received today.<br/>
+<br/>
+Import Query Data filter: <br/>
+<br/>
+Date Raised Equals Today
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow104625" rel="104625" data-issuekey="IMTA-6340" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6340" href="https://eaflood.atlassian.net/browse/IMTA-6340">IMTA-6340</a>
+</td>
+                                            <td class="summary"><p>
+                View a &quot;EU Imports - Daily Huddle Stats&quot; dashboard
+    </p>
+</td>
+                                            <td class="created"> 27/Nov/19 10:30 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS A* EU Imports Caseworker <br/>
+<br/>
+*I WANT* to be able to view a dashboard called “EU Imports - Daily Huddle Stats”<br/>
+<br/>
+*SO THAT* I can view analytics of the system<br/>
+<br/>
+<br/>
+<br/>
+*Acceptance Criteria*<br/>
+<br/>
+*AC-1 - View Live Northern Import Records*<br/>
+<br/>
+View a chart displaying the number of live import records by Risk Level for the Northern Region.<br/>
+<br/>
+Import Record Data filter: <br/>
+<br/>
+Import Record Type Equals ITAHC AND<br/>
+<br/>
+Region / Area Allocated to Equals North AND<br/>
+<br/>
+Status Reason Equals \[Triage, Risk Assessment, Post Import Check]<br/>
+<br/>
+<br/>
+<br/>
+*AC-2 - View Live Southern Import Records*<br/>
+<br/>
+View a chart displaying the number of live import records by Risk Level for the Southern Region.<br/>
+<br/>
+Import Record Data filter: <br/>
+<br/>
+Import Record Type Equals ITAHC AND<br/>
+<br/>
+Region / Area Allocated to Equals South AND<br/>
+<br/>
+Status Reason Equals \[Triage, Risk Assessment, Post Import Check]<br/>
+<br/>
+<br/>
+<br/>
+*AC-3 - View Live Western Import Records*<br/>
+<br/>
+View a chart displaying the number of live import records by Risk Level for the Western Region.<br/>
+<br/>
+Import Record Data filter: <br/>
+<br/>
+Import Record Type Equals ITAHC AND<br/>
+<br/>
+Region / Area Allocated to Equals West AND<br/>
+<br/>
+Status Reason Equals \[Triage, Risk Assessment, Post Import Check]<br/>
+<br/>
+<br/>
+<br/>
+*AC-4 - View the number of Import Records by risk level*<br/>
+<br/>
+View a chart displaying a count of the number of live import records for each risk level.<br/>
+<br/>
+Import Record Data filter: <br/>
+<br/>
+Status Reason Equals \[Triage, Risk Assessment, Post Import Check]<br/>
+<br/>
+<br/>
+<br/>
+*AC-5 - View a count of the number of ITAHCs Completed Yesterday*<br/>
+<br/>
+View a chart displaying the count of the number Import Records that were completed yesterday.<br/>
+<br/>
+Import Record Data filter: <br/>
+<br/>
+Import Record Type Equals ITAHC AND<br/>
+<br/>
+Moved to Completion Date Equals Yesterday AND<br/>
+<br/>
+Move to Completion? Equals Yes<br/>
+<br/>
+<br/>
+<br/>
+*AC-6 - View a count of the number of Live Import Notifications by their status*<br/>
+<br/>
+View a chart displaying the count of the number Import records with a primary notification set by status reason.<br/>
+<br/>
+Import Record Data filter: <br/>
+<br/>
+Status Reason Equals \[Triage, Risk Assessment, Post Import Check] AND <br/>
+<br/>
+Primary Import Notification Contains Data<br/>
+<br/>
+<br/>
+<br/>
+*AC-7 - View a count of the number of Post Import Import Checks that have and haven’t been started*<br/>
+<br/>
+View a chart displaying how many live Post Import Checks have been started and how many have not been started.<br/>
+<br/>
+Post Import Check Data filter: <br/>
+<br/>
+Post Import Check Outcome Does Not Equal \[Satisfactory, Resolved Not Required, Non-Compliant, Cancelled, Quarantined, Additional Inspection Required]<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow103407" rel="103407" data-issuekey="IMTA-6253" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6253" href="https://eaflood.atlassian.net/browse/IMTA-6253">IMTA-6253</a>
+</td>
+                                            <td class="summary"><p>
+                Create, Update &amp; View Post Import Checks
+    </p>
+</td>
+                                            <td class="created"> 18/Nov/19 12:21 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker<br/>
+*I WANT* to be able to create and update an “Post Import Check” record<br/>
+*SO THAT* I can record information that relates to an Inspection that is required for a give consignment.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+<br/>
+<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow103399" rel="103399" data-issuekey="IMTA-6252" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6252" href="https://eaflood.atlassian.net/browse/IMTA-6252">IMTA-6252</a>
+</td>
+                                            <td class="summary"><p>
+                Create, Update &amp; View DOCOMs
+    </p>
+</td>
+                                            <td class="created"> 18/Nov/19 11:35 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker<br/>
+*I WANT* to be able to create and update an “DOCOM” record<br/>
+*SO THAT* I record the information relating to a DOCOM consignment.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+<br/>
+*AC-1: Create or Update a “DOCOM”*<br/>
+<br/>
+An EU Imports Caseworker must be able to create or update a “DOCOM” record with the following fields:<br/>
+<br/>
+Receiving Category (Option Set)<br/>
+<br/>
+Purpose (Option Set)<br/>
+<br/>
+Certificate Reference Number (Text) (Mandatory)<br/>
+<br/>
+Local Reference Number (Text)<br/>
+<br/>
+Seal Number (Text)<br/>
+<br/>
+Container Number (Text)<br/>
+<br/>
+*AC-2: View a List of “DOCOM’s”*<br/>
+<br/>
+An EU Import Caseworker must be able to view a list of all DOCOM records that exist ordered by the date the date they were created on, newest being first. The following fields should be visible in the list:<br/>
+<br/>
+Certificate Reference Number<br/>
+<br/>
+Local Reference Number<br/>
+<br/>
+Receiving Category<br/>
+<br/>
+Purpose<br/>
+<br/>
+Seal Number<br/>
+<br/>
+Container Number<br/>
+<br/>
+Created On<br/>
+<br/>
+*AC-3: Search for a “DOCOM” record*<br/>
+<br/>
+An EU Imports Caseworker must be able to perform a free text search for a DOCOM using the following fields.<br/>
+<br/>
+Certificate Reference Number<br/>
+<br/>
+Local Reference Number<br/>
+<br/>
+Receiving Category<br/>
+<br/>
+Purpose<br/>
+<br/>
+Seal Number<br/>
+<br/>
+Container Number<br/>
+<br/>
+*Solution:*<br/>
+Create a User owned custom entity call “DOCOM” with schema names and relationships as specified in [Defra - EU Imports - D365 - Logical ERD|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Logical%20ERD.vsdx?api=v2].<br/>
+<br/>
+* Create fields as specified in [Defra - EU Imports - D365 - Entity Schemas|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Entity%20Schemas.xlsx?api=v2].<br/>
+* Create a custom system form that shows fields within multiple sections in the order specified within AC-1.<br/>
+* Amend the EU Imports - Caseworker &amp; EU Imports Caseworker Admin security roles to includes Create/Update/Assign/Append/Append to privileges to the DOCOM entity set to Business Unit level.<br/>
+* Adjust default system views to show fields in the order as specified within AC-2.<br/>
+* Add DOCOM entity to the EU Imports Model App.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow103005" rel="103005" data-issuekey="IMTA-6180" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6180" href="https://eaflood.atlassian.net/browse/IMTA-6180">IMTA-6180</a>
+</td>
+                                            <td class="summary"><p>
+                Record the Date an Import Record is Moved to Completion
+    </p>
+</td>
+                                            <td class="created"> 13/Nov/19 2:40 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Caseworker<br/>
+*I WANT* Dynamics 365 to record the date a User moves an Import Record to “Completion”<br/>
+*SO THAT* Defra knows how long each Import Record takes from the point of receipt through to the scheduling of a Post Import Check (if applicable).<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+<br/>
+*AC-1: Journal Date of Moved to Completion*<br/>
+Dynamics 365 must log the date to the “Moved to Completion Date” when a User sets the Moved to Completion field to “Yes”. Moved to Completion Date should also be read only.<br/>
+<br/>
+*AC-2: Clear Journaled Date*<br/>
+Dynamics 365 must clear the journaled date field when a User sets the Moved to Completion field to “No”. <br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Create a Date/Time field.<br/>
+* Create a Business rule to journal the date.<br/>
+* Clear the field if a User unsets the Moved to Completion field.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow102833" rel="102833" data-issuekey="IMTA-6166" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6166" href="https://eaflood.atlassian.net/browse/IMTA-6166">IMTA-6166</a>
+</td>
+                                            <td class="summary"><p>
+                Calculate IV65 Response Due Date
+    </p>
+</td>
+                                            <td class="created"> 12/Nov/19 3:14 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker<br/>
+*I WANT* Dynamics 365 to calculate the date a response to a IV65 is due<br/>
+*SO THAT* I can follow up on overdue responses.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+<br/>
+*AC-1: Calculate IV65 Response Due Date*<br/>
+When a User changes the IV65 Sent Date field, Dynamics 365 should calculate the IV65 Response Due Date by adding 14 calendar days to the IV65 Sent Date value.<br/>
+<br/>
+*AC-2: IV65 Response Due Date Should be Editable by Users*<br/>
+Notwithstanding AC-1, the IV65 Response Due Date field should still be editable by all EU Imports Users.<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Build a synchronous workflow to calculate the IV65 Response Due Date on the change of the IV65 Sent Date field.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow102794" rel="102794" data-issuekey="IMTA-6165" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6165" href="https://eaflood.atlassian.net/browse/IMTA-6165">IMTA-6165</a>
+</td>
+                                            <td class="summary"><p>
+                Create, Update &amp; View APHA Region
+    </p>
+</td>
+                                            <td class="created"> 12/Nov/19 1:00 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker Admin<br/>
+*I WANT* to be able to create or update an “APHA Region”<br/>
+*SO THAT* I can later link an “Import Record” to a pre-defined “APHA Region” to identify whether APHA Region shoud be responsible for a Post Import Check if one is needed.<br/>
+<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+*AC-1: Create OR Update Place of Origin*<br/>
+An EU Imports Caseworker Admin must be able to create *OR* update an APHA Region record with the following fields:<br/>
+<br/>
+Name - (Free text - Mandatory field)<br/>
+<br/>
+<br/>
+*AC-2: Search for a Place of Origin*<br/>
+A EU Imports Caseworker Admin should be able to navigate to APHA Regions from the EU Imports Application and search for a Place of Origin by the following fields:<br/>
+<br/>
+Name<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Create a User owned Custom entity called APHA Region with schema name and relationships as specified in [Defra - EU Imports - D365 - Logical ERD|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Logical%20ERD.vsdx?api=v2].<br/>
+* Create fields as specified in [Defra - EU Imports - D365 - Entity Schemas|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Entity%20Schemas.xlsx?api=v2].<br/>
+* Amend the EU Imports Caseworker Admin security role to includes Create/Update/Assign/Append/Append to privileges to the Place of Origin entity set to Business Unit level.<br/>
+* Amend the EU Imports Caseworker security role to includes Read/Append/Append to privileges to the APHA Region entity set to Business Unit level.<br/>
+* Amend the default system form that shows fields within multiple sections in the order specified within AC-1<br/>
+* Add all fields to all system views in the order specified within AC1.<br/>
+* Adjust default system views to show fields in the order as specified within AC-1.<br/>
+* Add the APHA Region entity to the EU Imports Model App.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow102516" rel="102516" data-issuekey="IMTA-6158" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6158" href="https://eaflood.atlassian.net/browse/IMTA-6158">IMTA-6158</a>
+</td>
+                                            <td class="summary"><p>
+                Record Warble Fly Treatment Declaration Received Date
+    </p>
+</td>
+                                            <td class="created"> 11/Nov/19 11:31 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker<br/>
+*I WANT* the Dynamics 365 to only allow the entry of “Warble Fly Treatment Declaration Received Date” if a Warble Fly Treatment Declaration is Required.<br/>
+*SO THAT* I can ensure that I record the date that DEFRA receives confirmation from the Place of Destination.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+<br/>
+*AC-1: Set Warble Fly Treatment Declaration Received Date to Enabled*<br/>
+An EU Imports Caseworker should only be able to complete the field Warble Fly Treatment Declaration Received Date WHEN Warble Fly Treatment Declaration Required is set to “Yes”.<br/>
+<br/>
+If an EU Imports Caseworker set Warble Fly Treatment Declaration Received Date but later changes the selection from Yes to No on Warble Fly Treatment Declaration Required then the system should clear Treatment Declaration Received Date and disabled the field.<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Create a Business Rule that fulfils AC-1.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow101687" rel="101687" data-issuekey="IMTA-6132" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6132" href="https://eaflood.atlassian.net/browse/IMTA-6132">IMTA-6132</a>
+</td>
+                                            <td class="summary"><p>
+                Generate Unique Identifier for Import Records When Created
+    </p>
+</td>
+                                            <td class="created"> 04/Nov/19 4:48 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker<br/>
+*I WANT* Dynamics 365 to generate a unique reference number for each Import Record I create<br/>
+*SO THAT* the unique reference number can be used on a UK Health Certificate in the event of no access to TRACES.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+<br/>
+*AC-1: Generate Specific Format of Unique ID on Creation of an Import Record*<br/>
+The unique ID generated by Dynamics 365 should follow the format below:<br/>
+<br/>
+* 1.1: Pre-fixed with “GB.” and have this configurable to be able to be changed by an EU Imports Business Rules Admin.<br/>
+* 1.2: Append the current year after AC 1.1 “GB.2019”<br/>
+* 1.3 Append then a globally unique ID based on a 9 digit number.<br/>
+<br/>
+Example: GB.2019.000000009<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Build a synchronous workflow that generates the unique ID on the save of the Import Record.<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+*Process Notes:*<br/>
+In a future state (Day one of Brexit) the registrant will complete and send in an IV66 which then gets added to D365 as a Notification, a Case is then created which generates a unique case reference, which is sent back to the registrant. This number is then communicated by the registrant to the Official Vet who then (when they complete a certificate in TRACES) add the unique case reference to the ITAHC which is referred to as “Local Reference Number” on an ITAHC.
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow101651" rel="101651" data-issuekey="IMTA-6128" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6128" href="https://eaflood.atlassian.net/browse/IMTA-6128">IMTA-6128</a>
+</td>
+                                            <td class="summary"><p>
+                Audit All Field Changes to Post Import Checks
+    </p>
+</td>
+                                            <td class="created"> 04/Nov/19 1:18 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Team Leader<br/>
+*I WANT* to ensure that all changes to “Post Import Checks” are audited<br/>
+*SO THAT* all historic changes can be tracked along with the identity of the User that made the change.<br/>
+<br/>
+*AC-1: Audit Changes to Fields on Import Inspections*<br/>
+D365 must audit changes to all fields that are updatable on a Post Import Check record via the user interface.<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Enable D365 Organisational Auditing.<br/>
+* Enable Auditing on the Import Record entity.<br/>
+* Enable auditing on all custom fields added to the Import Record entity.<br/>
+<br/>
+
     </td>
                     </tr>
 
@@ -5883,6 +6603,44 @@ Is &quot;Cancelled&quot; enough? Should we introduce a status of &quot;Cancelled
 <br/>
 *Technical Notes*<br/>
 
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow99814" rel="99814" data-issuekey="IMTA-6033" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6033" href="https://eaflood.atlassian.net/browse/IMTA-6033">IMTA-6033</a>
+</td>
+                                            <td class="summary"><p>
+                Add First Inspection for Import Record
+    </p>
+</td>
+                                            <td class="created"> 15/Oct/19 5:12 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Closed&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.&lt;/span&gt;">Closed</span>    </td>
+                                            <td class="description">            *As a* Case Worker<br/>
+*I want* the first inspection to be added to the case<br/>
+*so that* I do not have to do it manually each time I flag that inspection is required<br/>
+<br/>
+*Acceptance Criteria*<br/>
+<br/>
+*AC-1 When to create an Post Import Check entry*<br/>
+<br/>
+If no inspection has been added to the Case, when user moves from step 2, &quot;(TBC)&quot; to step 3 &quot;(TBC)&quot;, Dynamics will check if &quot;Post Import Check required&quot; option was selected.<br/>
+If yes, an Inspection entity will be added to the case.<br/>
+<br/>
+*AC-2 Details of the new Post Import Check*<br/>
+<br/>
+Inspection created by AC-1 has:<br/>
+<br/>
+* the status set to &quot;Not started&quot;<br/>
+* other properties will be empty<br/>
+* ({color:#ff0000}TBC{color})<br/>
+<br/>
+*Technical Notes*
     </td>
                     </tr>
 
@@ -5985,6 +6743,166 @@ Case Worker can clear the &quot;New info&quot; date entry once the Inspection re
                     </tr>
 
 
+                <tr id="issuerow99801" rel="99801" data-issuekey="IMTA-6029" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6029" href="https://eaflood.atlassian.net/browse/IMTA-6029">IMTA-6029</a>
+</td>
+                                            <td class="summary"><p>
+                Attachment of Documents to Post Import Checks
+    </p>
+</td>
+                                            <td class="created"> 15/Oct/19 4:57 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS A* EU Imports Case Worker<br/>
+*I WANT* to be able to attach a file to an Inspection<br/>
+*SO THAT* IV16, IV17 and other forms are accessible from within Dynamics 365 by me and other members of my team.<br/>
+<br/>
+*Acceptance Criteria*<br/>
+<br/>
+*AC-1: Uploading files*<br/>
+<br/>
+An EU Imports Case Worker can choose an Inspection and upload one or more files, that will be attached to the Inspection entity.<br/>
+An EU Imports Case Worker can attach at least 10 files to each inspection, each of at least 5MB.<br/>
+An EU Imports Case Worker can set a title (label) and a note (comment) when uploading files. Both are optional.<br/>
+<br/>
+Note: Max number and size of files is constrained by technical limitation and it it impractical to declare them explicitly.<br/>
+<br/>
+*AC-2: Accessing Uploaded Files*<br/>
+<br/>
+An EU Imports Case Worker can choose an Inspection and see what files have been uploaded, what label and comment was set, when the file was uploaded and by whom.<br/>
+An EU Imports Case Worker can download an individual file to a folder on their computer.<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Use Azure based attachments by enabling and linked Azure Blob Storage to D365.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow99800" rel="99800" data-issuekey="IMTA-6028" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6028" href="https://eaflood.atlassian.net/browse/IMTA-6028">IMTA-6028</a>
+</td>
+                                            <td class="summary"><p>
+                Maintain Post Import Check Status at Import Record Level
+    </p>
+</td>
+                                            <td class="created"> 15/Oct/19 4:53 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *As a* Case Worker<br/>
+*I want* to record inspection status on Case level<br/>
+*so that* I know the overall outcome of all inspections within the case<br/>
+<br/>
+*Acceptance Criteria*<br/>
+<br/>
+*AC-1 Case status property*<br/>
+Case status property is present on a &quot;Case&quot; entity, a drop-down, shown under &quot;Inspection Required?&quot;, &quot;Inspection Required Reason&quot; and &quot;Inspection Declined Reason&quot; fields.<br/>
+After a case is created, status is not set (shows empty value) by default.<br/>
+Case Worker can select the status from a list of:<br/>
+<br/>
+* Awaiting outcome<br/>
+* Additional Inspection required<br/>
+* Cancelled<br/>
+* Satisfactory<br/>
+* Resolved Not required<br/>
+* Non-compliant<br/>
+* Quarantined<br/>
+<br/>
+*AC-2 Listing Cases*<br/>
+<br/>
+When listing cases on &quot;Import Records&quot; view (&quot;Active Import Applications&quot; and others), the inspection status of the case is shown between &quot;Import Risk Level&quot; and &quot;Created On&quot; columns.<br/>
+<br/>
+*AC-3 System maintenance of Import Record Status based on Post Import Check Outcomes*<br/>
+<br/>
+The system should automatically manage the status for the Import Record based on the status of its related Post Import Checks.<br/>
+<br/>
+*Solution*
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow99509" rel="99509" data-issuekey="IMTA-6015" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-6015" href="https://eaflood.atlassian.net/browse/IMTA-6015">IMTA-6015</a>
+</td>
+                                            <td class="summary"><p>
+                Multiple Inspections for an Import Record
+    </p>
+</td>
+                                            <td class="created"> 14/Oct/19 1:32 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow98968" rel="98968" data-issuekey="IMTA-5986" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5986" href="https://eaflood.atlassian.net/browse/IMTA-5986">IMTA-5986</a>
+</td>
+                                            <td class="summary"><p>
+                Audit All Field Changes to Import Records
+    </p>
+</td>
+                                            <td class="created"> 08/Oct/19 1:41 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Team Leader<br/>
+*I WANT* to ensure that all changes to “Import Records” are audited<br/>
+*SO THAT* all historic changes can be tracked along with the identity of the User that made the change.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+*AC-1: Audit Changes to Fields on Import Records*<br/>
+D365 must audit changes to all fields that are updatable on an Import Record via the user interface.<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Enable D365 Organisational Auditing.<br/>
+* Enable Auditing on the Import Record entity.<br/>
+* Enable auditing on all custom fields added to the Import Record entity.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow98966" rel="98966" data-issuekey="IMTA-5985" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5985" href="https://eaflood.atlassian.net/browse/IMTA-5985">IMTA-5985</a>
+</td>
+                                            <td class="summary"><p>
+                Allow No ITAHC Provided for Primary ITAHC on Import Application
+    </p>
+</td>
+                                            <td class="created"> 08/Oct/19 1:31 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Closed&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.&lt;/span&gt;">Closed</span>    </td>
+                                            <td class="description">            AS A EU Imports Caseworker<br/>
+I WANT to be able to select the option of “No ITHAC Provided” in the Primary ITAHC field on an Import Application<br/>
+SO THAT I am able to save the record for Import Applications where an ITHAC has not been provided.
+    </td>
+                    </tr>
+
+
                 <tr id="issuerow98963" rel="98963" data-issuekey="IMTA-5984" class="issuerow">
                                             <td class="issuetype">    Story
 </td>
@@ -6051,6 +6969,117 @@ Exotic Ruminants (Cervidae, Giraffidae, Antilocapridae, Bovidae, Camelidae, )|<b
 * Leverage the reference data entity for Commodity Type that the Exports team have already built and bring in the appropriate Exports Solution.<br/>
 * Validate that the list of Commodity Types listed in [EU Imports - AS-IS - Commodity Risk Ratings|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/EU%20Imports%20-%20AS-IS%20-%20Commodity%20Risk%20Ratings.xlsx?api=v2]<br/>
 * Create entity relationships as specified within [Defra - EU Imports - D365 - Logical ERD.|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Logical%20ERD.vsdx?api=v2]<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow98042" rel="98042" data-issuekey="IMTA-5915" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5915" href="https://eaflood.atlassian.net/browse/IMTA-5915">IMTA-5915</a>
+</td>
+                                            <td class="summary"><p>
+                View Countries
+    </p>
+</td>
+                                            <td class="created"> 30/Sep/19 10:00 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Closed&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.&lt;/span&gt;">Closed</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Business Rules Admin<br/>
+*I WANT* to be able to view a list of EU “Countries”<br/>
+*SO THAT* these can be used within “Import Country Commodity Risk Level” rules.<br/>
+<br/>
+*AC-1: View AND Select Country*<br/>
+An EU Imports Business Rules Admin must be able to view a list of EU “Countries” within an “Import Country Commodity Risk Level” record *AND* allow the Caseworker to select and save a value.<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Leverage the Country entity from Customer and bring in the relevant Customer solution.<br/>
+* Create entity relationships as specified within [Defra - EU Imports - D365 - Logical ERD.|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Logical%20ERD.vsdx?api=v2]<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow98039" rel="98039" data-issuekey="IMTA-5914" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5914" href="https://eaflood.atlassian.net/browse/IMTA-5914">IMTA-5914</a>
+</td>
+                                            <td class="summary"><p>
+                Create, Update &amp; View Commodity Risk Levels
+    </p>
+</td>
+                                            <td class="created"> 30/Sep/19 9:48 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Business Rules Admin<br/>
+*I WANT* to be to create or update a &quot;Commodity Risk Level&quot;<br/>
+*SO THAT* these can be used within &quot;Import Country Commodity Risk Level&quot; rules.<br/>
+<br/>
+*AC-1: Create OR Update Risk Level*<br/>
+An EU Imports Business Rules Admin must be able to create *OR* update a &quot;Commodity Risk Level&quot; record with the following fields:<br/>
+<br/>
+Commodity Type (Lookup - Mandatory)<br/>
+Country (Lookup - Mandatory)<br/>
+Risk Level (Lookup - Mandatory)<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Create a User owned Custom entity called &quot;Commodity Risk Level&quot; with schema name and relationships as specified in [Defra - EU Imports - D365 - Logical ERD|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Logical%20ERD.vsdx?api=v2].<br/>
+* Create fields as specified in [Defra - EU Imports - D365 - Entity Schemas|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Entity%20Schemas.xlsx?api=v2].<br/>
+* Create a  &quot;EU Imports Business Rules Admin&quot; Security Role.<br/>
+* Customise UI form.<br/>
+* Add all fields to all system views in the order specified within AC1.<br/>
+* Add &quot;Risk Levels&quot; to the EU Imports Model App under a section titled &quot;Business Rules&quot;.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow98032" rel="98032" data-issuekey="IMTA-5913" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5913" href="https://eaflood.atlassian.net/browse/IMTA-5913">IMTA-5913</a>
+</td>
+                                            <td class="summary"><p>
+                Attachment of Documents to Import Records
+    </p>
+</td>
+                                            <td class="created"> 30/Sep/19 9:14 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS A* EU Imports Caseworker<br/>
+*I WANT* to be able to attach multiple documents to an “Import Record”<br/>
+*SO THAT* I can track important communications such as PDF versions of ITAHCS and other documented communications between Defra and third parties associated with the “Import Record”.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+*AC-1: Attach Documents*<br/>
+AN EU Imports Caseworker must be able to attach multiple documents to an Import Record via an intuitive method.<br/>
+<br/>
+*AC-2: View Attached Documents*<br/>
+A EU Imports Caseworker must be able to see a list of attached documents associated with an Import Record within the record itself.<br/>
+<br/>
+<br/>
+<br/>
+*AC-3: Prevent Deletion of Attached Documents*<br/>
+An EU Imports Caseworker should not be able to delete documents from an Import Record <br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Use the Azure Attachment management solution provided by Microsoft to link Dynamics to Azure blob storage: [https://appsource.microsoft.com/en-us/product/dynamics-365/microsoft_labs.96257e65-dbbe-43db-b775-77cf1609530c?tab=overview|https://appsource.microsoft.com/en-us/product/dynamics-365/microsoft_labs.96257e65-dbbe-43db-b775-77cf1609530c?tab=overview]<br/>
+* Add the Attachment web resources to the Import Record form under a tab called “Files/Attachments”<br/>
+* Configure the security roles to give users the appropriate permissions<br/>
 <br/>
 
     </td>
@@ -6223,6 +7252,124 @@ Business Users of all security roles other than the default Dynamics System Admi
                     </tr>
 
 
+                <tr id="issuerow97850" rel="97850" data-issuekey="IMTA-5885" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5885" href="https://eaflood.atlassian.net/browse/IMTA-5885">IMTA-5885</a>
+</td>
+                                            <td class="summary"><p>
+                Create, Update &amp; View Place of Origin
+    </p>
+</td>
+                                            <td class="created"> 26/Sep/19 1:05 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker<br/>
+*I WANT* to be able to create or update a “Place of Origin”<br/>
+*SO THAT* I can later link an “Import Record” to a pre-defined “Place of Origin” and have the system automatically determine the Gold/Bronze Trust Level of an “Import Record” if appropriate.<br/>
+<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+*AC-1: Create OR Update Place of Origin*<br/>
+An EU Imports Caseworker must be able to create *OR* update a Place of Origin record with the following fields:<br/>
+<br/>
+Organisation Name - (Free text - Mandatory field)<br/>
+*Address:*<br/>
+Line 1 (Free text - Optional field)<br/>
+Line 2 (Free text - Optional field)<br/>
+Line 3 (Free text - Optional field)<br/>
+City (Free text - Optional field)<br/>
+County (Free text - Optional field)<br/>
+Post Code (Free text - Optional field)<br/>
+Country (Lookup to Country reference data list - Optional field)<br/>
+<br/>
+*AC-2: Search for a Place of Origin*<br/>
+A EU Imports Caseworker should be able to navigate to Places of Origin from the EU Imports Application and search for a Place of Origin by the following fields:<br/>
+<br/>
+Organisation Name<br/>
+Post Code<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Create a User owned Custom entity called Place of Origin with schema name and relationships as specified in [Defra - EU Imports - D365 - Logical ERD|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Logical%20ERD.vsdx?api=v2].<br/>
+* Create fields as specified in [Defra - EU Imports - D365 - Entity Schemas|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Entity%20Schemas.xlsx?api=v2].<br/>
+* Amend the EU Imports - Caseworker &amp; EU Imports Caseworker Admin security roles to includes Create/Update/Assign/Append/Append to privileges to the Place of Origin entity set to Business Unit level.<br/>
+* Amend the default system form that shows fields within multiple sections in the order specified within AC-1<br/>
+* Add all fields to all system views in the order specified within AC1.<br/>
+* Adjust default system views to show fields in the order as specified within AC-1.<br/>
+* Add Place of Origin entity to the EU Imports Model App.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow96983" rel="96983" data-issuekey="IMTA-5866" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5866" href="https://eaflood.atlassian.net/browse/IMTA-5866">IMTA-5866</a>
+</td>
+                                            <td class="summary"><p>
+                Apply Gold &amp; Bronze Commodity Rules to Import Records
+    </p>
+</td>
+                                            <td class="created"> 17/Sep/19 1:26 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker.<br/>
+*I WANT* PIMS to automatically determine whether a “Post Import Check” is required for an “Import Record” that have a Gold/Bronze Commodity and “Place of Origin” Present<br/>
+*SO THAT* Post Import Checks can be scheduled based on Gold/Bronze Risk Commodity Assessment Rules.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+<br/>
+*AC-1: Flag an Import Record for a Post Import Check when a Gold/Bronze Commodity AND Place of Origin with a Bronze Trust Level is Present on an Import Record*<br/>
+*WHEN* an “Import Record” is created *OR* updated *WHERE* the “Import Record” is associated to a “Commodity Type” *AND* “Country of Origin” that is linked to a “Gold/Bronze Commodity” rule *AND WHERE* the “Import Record” has been associated to a “Place of Origin” that has its “Trust Level” set to “Bronze”, PIMS should set the following field values on the “Import Record”:<br/>
+<br/>
+“Post Import Checks Required?” must be set to “Yes”<br/>
+”Post Import Checks Required Reason” must be set to “Bronze Place of Origin”<br/>
+<br/>
+*AC-2: Flag an Import Record for a Post Import Check when a Gold/Bronze Commodity AND Place of Origin with a Gold Trust Level is Present on an Import Record*<br/>
+*WHEN* an “Import Record” is created *OR* updated *WHERE* the “Import Record” is associated to a “Commodity Type” *AND* “Country of Origin” that is linked to a “Gold/Bronze Commodity” rule *AND WHERE* the “Import Record” has been associated to a “Place of Origin” that has its “Trust Level” set to “Gold”, *AND WHERE* the “Number of Imports Since Last Post Import Check” is greater than or equal to 10, PIMS should set the following field values on the “Import Record”.<br/>
+<br/>
+“Post Import Checks Required?” must be set to “Yes”<br/>
+”Post Import Checks Required Reason” must be set to “Gold Place of Origin - Inspection Coverage”<br/>
+<br/>
+In addition PIMS should set the “Number of Import Records Since Last Post Import Check Required” on the “Place of Origin” to 0<br/>
+<br/>
+*AC-3: Flag an Import Record for a Post Import Check when a Gold/Bronze Commodity AND Place of Origin with a Gold Trust Level is Present on an Import Record*<br/>
+*WHEN* an “Import Record” is created *OR* updated *WHERE* the “Import Record” is associated to a “Commodity Type” that is linked to a “Gold/Bronze Commodity” rule *AND WHERE* the “Import Record” has been associated to a “Place of Origin” that has its “Trust Level” set to “Gold”, *AND WHERE* the “Number of Imports Since Last Post Import Check” is greater than or equal to 10, PIMS should set the following field values on the “Import Record”:<br/>
+<br/>
+“Post Import Checks Required?” must be set to “Yes”<br/>
+”Post Import Checks Required Reason” must be set to “Gold Place of Origin - Inspection Coverage”<br/>
+<br/>
+Otherwise PIMS should set the following field values on the “Import Record”:<br/>
+<br/>
+“Post Import Checks Required?” must be set to “No”<br/>
+”Post Import Checks Required Reason” must be set to “No Inspection Required - Gold Place of Origin ”<br/>
+<br/>
+*AC-4: Flag an Import Record for Further Investigation when a Gold/Bronze Commodity but no Place of Origin is Present on an Import Record*<br/>
+*WHEN* an “Import Record” is created *OR* updated *WHERE* the “Import Record” is associated to a “Commodity Type” *AND* “Country of Origin” that is linked to a “Gold/Bronze Commodity” rule *AND WHERE* the “Import Record” has NOT been associated to a “Place of Origin” PIMS should set the following field values on the “Import Record”:<br/>
+<br/>
+“Post Import Checks Required?” must be set to “Undetermined”<br/>
+”Post Import Checks Required Reason” must be set to “Verified Place of Origin Missing”<br/>
+<br/>
+*AC-5: Reallocate 10th Gold Post Import Check Required in the Event of Manual Override*<br/>
+*WHEN* an “Import Record” has been flagged for a “Post Import Check” as a result of AC-3 being triggered *AND* the User has subsequently set the “Post Import Checks Required?” field to “No”, PIMS should reallocate the missed inspection to the next “Import Record” associated to the “Place of Origin”.<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Extend D365 schema and configure system forms / views.<br/>
+* Build either a CWA or Plugin to affect business logic.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
                 <tr id="issuerow96970" rel="96970" data-issuekey="IMTA-5872" class="issuerow">
                                             <td class="issuetype">    Story
 </td>
@@ -6244,6 +7391,253 @@ Plugin that invokes on the create or update of an ITAHC OR IV66.<br/>
 * Matching rules held within custom entity that are user configurable.<br/>
 * Runs on Post Create.<br/>
 * Matching dashboard provided to assist use with manual intervention as needed.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow96887" rel="96887" data-issuekey="IMTA-5867" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5867" href="https://eaflood.atlassian.net/browse/IMTA-5867">IMTA-5867</a>
+</td>
+                                            <td class="summary"><p>
+                TO BE DEPRECATED: Apply Inspection Coverage Rules to Import Applications
+    </p>
+</td>
+                                            <td class="created"> 16/Sep/19 12:00 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Closed&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.&lt;/span&gt;">Closed</span>    </td>
+                                            <td class="description">            *AS A* Caseworker, *I WANT* the System to automatically flag a proportion of all Import Applications created for random Inspection, *SO THAT* we can ensure we consistently inspect a random proportion of Imported Commodities aligned to current policy.<br/>
+<br/>
+*AC-1:*<br/>
+*WHEN* an “Import Application” is created, a record counter named “Import Application Record Counter” should be incremented by 1. This value should be incremented before Automated Risk Assessment Rules ([EICM-34)|https://eaflood.atlassian.net/browse/EICM-34] *OR* Inspection Coverage Rules ([EICM-37|https://eaflood.atlassian.net/browse/EICM-37] AC-2) are evaluated.<br/>
+<br/>
+*AC-2:*<br/>
+*WHEN* an “Import Application” is created *AND* after Automated Risks Assessment Rules have been applied ([EICM34|https://eaflood.atlassian.net/browse/EICM-34]) *AND* *IF* the “Import Risk Level” of the “Import Application” is *NOT* “P1”<br/>
+<br/>
+*THEN* the “Import Application Record Counter” value associated with the the number of “Import Applications” that have been created since the last random Inspection assignment should be obtained. In addition, the “Inspection Coverage Count” value should be obtained.<br/>
+<br/>
+*IF* the “Import Application Record Counter”  value is greater than or equal to the “Inspection Coverage Count” value, *THEN* the “Import Application”-”Import Risk Level” should be set to “P1” *AND* the “Import Risk Level Status” Set to “Random Inspection”.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow95640" rel="95640" data-issuekey="IMTA-5870" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5870" href="https://eaflood.atlassian.net/browse/IMTA-5870">IMTA-5870</a>
+</td>
+                                            <td class="summary"><p>
+                Create, Update &amp; View Import Records
+    </p>
+</td>
+                                            <td class="created"> 03/Sep/19 3:47 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker<br/>
+*I WANT* to be able to create and update an “Import Application” record<br/>
+*SO THAT* I can collate and record key information relating to the Risk Assessment of a particular Consignment.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+*AC-1: Create or Update an Import Record*<br/>
+An EU Imports Caseworker must be able to create *OR* update a &quot;Import Record&quot; record with the following fields (all of which should be optional):<br/>
+<br/>
+Primary ITAHC (Lookup)<br/>
+Primary Import Notification (Lookup)<br/>
+Importer Name<br/>
+Importer - Address - Line 1<br/>
+Importer - Address - Line 2<br/>
+Importer - Address - Line 3<br/>
+Importer - Address - City<br/>
+Importer - Address - Postcode<br/>
+Importer Telephone<br/>
+Importer Email<br/>
+Country of Origin<br/>
+Countries of Transit<br/>
+Date of Import<br/>
+Place of Destination - Contact Name<br/>
+Place of Destination - Address - Line 1<br/>
+Place of Destination - Address - Line 2<br/>
+Place of Destination - Address - Line 3<br/>
+Place of Destination - Address - City<br/>
+Permanent Destination - Postcode<br/>
+Place of Destination Telephone<br/>
+Place of Destination Email<br/>
+Permanent Destination - Contact Name<br/>
+Permanent Destination - Address - Line 1<br/>
+Permanent Destination - Address - Line 2<br/>
+Permanent Destination - Address - Line 3<br/>
+Permanent Destination - City<br/>
+Permanent Destination - Postcode<br/>
+Permanent Destination Telephone<br/>
+Permanent Destination Email<br/>
+Place of Origin Contact Name<br/>
+Place of Origin - Address - Line 1<br/>
+Place of Origin - Address - Line 2<br/>
+Place of Origin - Address - Line 3<br/>
+Place of Origin - Address - City<br/>
+Place of Origin - Address - Postcode<br/>
+Place of Origin - Country<br/>
+Transporter Organisation<br/>
+Transporter - Address - Line 1<br/>
+Transporter - Address - Line 2<br/>
+Transporter - Address - Line 3<br/>
+Transporter - Address - City<br/>
+Transporter - Address - Postcode<br/>
+Transporter Telephone<br/>
+Transporter Email<br/>
+Commodity Type<br/>
+Commodity Notes<br/>
+Quantity<br/>
+Unit<br/>
+Intended Use of Commodity<br/>
+Port of Entry<br/>
+Commodity Identifiers<br/>
+Devolved Office<br/>
+Import Risk Level<br/>
+Consignment Risk / Impact<br/>
+Warble Fly Treatment Declaration Required<br/>
+Warble Fly Treatment Declaration Received Date<br/>
+General Comments<br/>
+IV65 Sent<br/>
+IV65 Sent Date<br/>
+IV65 Response Received Date<br/>
+IV65 Response Due Date<br/>
+Region / Area Allocated to<br/>
+<br/>
+*AC-2: View a List of Import Records*<br/>
+An EU Imports Caseworker must be able to view a list of all “Import Record” records that exist ordered by the date they were created on, newest being first. The following fields should be visible in the list:<br/>
+<br/>
+Primary ITAHC<br/>
+Commodity Type<br/>
+Country of Origin<br/>
+Import Risk Level<br/>
+Place of Origin Organisation<br/>
+Place of Destination<br/>
+Created on Date<br/>
+<br/>
+*AC-3: Search for an Import Record*<br/>
+An EU Imports Caseworker must be able to perform a free text search for an Import Record using the following fields:<br/>
+<br/>
+Importer Name<br/>
+Date of Import<br/>
+Premises of Origin Name (Place of Origin Organisation)<br/>
+ITAHC Certificate Reference Number (Primary ITAHC)<br/>
+Import Notification Local Reference Number (Primary Import Notification)<br/>
+<br/>
+The search result displayed must show all fields specified within AC-2.<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Create a User owned custom entity call “Import Record ” with schema names and relationships as specified in [Defra - EU Imports - D365 - Logical ERD|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Logical%20ERD.vsdx?api=v2].<br/>
+* Create fields as specified in [Defra - EU Imports - D365 - Entity Schemas|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Entity%20Schemas.xlsx?api=v2].<br/>
+* Create a custom system form that shows fields within multiple sections in the order specified within AC-1.<br/>
+* Amend the EU Imports - Caseworker &amp; EU Imports Caseworker Admin security roles to includes Create/Update/Assign/Append/Append to privileges to the Import Application entity set to Business Unit level.<br/>
+* Adjust default system views to show fields in the order as specified within AC-2.<br/>
+* Add Import Application entity to the EU Imports Model App.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow95262" rel="95262" data-issuekey="IMTA-5863" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5863" href="https://eaflood.atlassian.net/browse/IMTA-5863">IMTA-5863</a>
+</td>
+                                            <td class="summary"><p>
+                Assign Import Record to Appropriate Geographic Team
+    </p>
+</td>
+                                            <td class="created"> 29/Aug/19 11:23 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS A* EU Imports Caseworker<br/>
+*I WANT* to be able to assign an Import Record to a specific geographic team<br/>
+*SO THAT* risk assessment of Consignments can be carried out by the appropriate local team.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+*AC - 1: Assign Import Record to Geographic Team*<br/>
+An EU Imports Caseworker must be able to assign an Import Record to the following Teams:<br/>
+<br/>
+IRMS - Scotland<br/>
+IRMS - Wales<br/>
+IRMS - England<br/>
+<br/>
+*AC - 2: View List of Other Team’s Import Records*<br/>
+In the event of a regional disaster, all geographical Teams should be able to view a list of another Team’s Import Records.<br/>
+<br/>
+Solution:<br/>
+<br/>
+* Add OOB Team entity instances for each unique Team name provided.<br/>
+* Determine method of ensuring Teams and their members replicate successfully into upstream environment.<br/>
+* Use OOB Assign functionality.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow95176" rel="95176" data-issuekey="IMTA-5868" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5868" href="https://eaflood.atlassian.net/browse/IMTA-5868">IMTA-5868</a>
+</td>
+                                            <td class="summary"><p>
+                Create, Update  &amp; View Unique Information Relating to Intra Trade Animal Health Certificates (ITAHC)
+    </p>
+</td>
+                                            <td class="created"> 28/Aug/19 2:21 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker<br/>
+*I WANT* to be able to create and update unique information relating to an “ITAHC” record that is not held on an IV66 Import Notification<br/>
+*SO THAT* I can record key information relating to Risk Assessment of Consignments and have information that linked to an Import Record.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+*AC-1: Create or Update ITAHC*<br/>
+An EU Imports Caseworker must be able to create *OR* update a &quot;ITAHC&quot; record with the following fields:<br/>
+<br/>
+Certificate Reference Number<br/>
+TRACES Notification Received Date<br/>
+Official Veterinarian or Official Inspector<br/>
+Local Veterinary Unit<br/>
+Local Reference<br/>
+Replaced By<br/>
+Replaces<br/>
+<br/>
+*AC-2: View a List of ITAHCS*<br/>
+An EU Imports Caseworker must be able to view a list of all ITAHC records that exist ordered by the date they were created on, newest being first. All fields specified within AC-1 must be visible within the list.<br/>
+<br/>
+*AC-3: Search for an ITAHC*<br/>
+An EU Imports Caseworker must be able to perform a free text search for an ITAHC using the following fields:<br/>
+<br/>
+Local Reference<br/>
+Certificate Reference Number<br/>
+<br/>
+The search result displayed must show all fields specified within AC-1.<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Create a User owned custom entity call “ITAHC” with schema names and relationships as specified in [Defra - EU Imports - D365 - Logical ERD|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Logical%20ERD.vsdx?api=v2].<br/>
+* Create fields as specified in [Defra - EU Imports - D365 - Entity Schemas|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Entity%20Schemas.xlsx?api=v2].<br/>
+* Create a custom system form that shows fields within a single section in the order specified within AC-1.<br/>
+* Amend the EU Imports - Caseworker &amp; EU Imports Caseworker Admin security roles to includes Create/Update/Assign/Append/Append to privileges to the ITAHC entity set to Business Unit level.<br/>
+* Adjust default system views to show fields in the order as specified within AC-1.<br/>
+* Add ITAHC entity to the EU Imports Model App.<br/>
 <br/>
 
     </td>
@@ -6294,13 +7688,138 @@ Receive inbound JSON message from IPAFFS and create D365 Importer Notification r
 * Build Azure Logic App
     </td>
                     </tr>
+
+
+                <tr id="issuerow95156" rel="95156" data-issuekey="IMTA-5869" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5869" href="https://eaflood.atlassian.net/browse/IMTA-5869">IMTA-5869</a>
+</td>
+                                            <td class="summary"><p>
+                Create, Update &amp; View Import Notifications
+    </p>
+</td>
+                                            <td class="created"> 28/Aug/19 1:17 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Closed&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.&lt;/span&gt;">Closed</span>    </td>
+                                            <td class="description">            *AS AN* EU Imports Caseworker<br/>
+*I WANT* to be able to create and update an “Import Notification” record<br/>
+*SO THAT* I can record key information relating to Risk Assessment of Consignments and have that information linked to an Import Application.<br/>
+<br/>
+*Acceptance Criteria:*<br/>
+*AC-1: Create or Update an Import Notification*<br/>
+An EU Imports Caseworker must be able to create *OR* update a &quot;Import Notification&quot; record with the following fields (all of which should be optional):<br/>
+<br/>
+Importer Name<br/>
+Importer Address<br/>
+Importer Postcode<br/>
+Importer Telephone Number<br/>
+Importer Email Address<br/>
+CPH Number<br/>
+Charity Name<br/>
+Charity Address<br/>
+Charity Postcode<br/>
+Charity Telephone Number<br/>
+Charity Email Address<br/>
+Consignment Country of Origin<br/>
+Countries of Transit<br/>
+Date of Import<br/>
+Place of Destination Contact Name<br/>
+Place of Destination Address<br/>
+Place of Destination Postcode<br/>
+Place of Destination Telephone Number<br/>
+Place of Destination Email Address<br/>
+Permanent Destination Contact Name<br/>
+Permanent Destination Address<br/>
+Permanent Destination Postcode<br/>
+Permanent Destination Telephone Number<br/>
+Permanent Destination Email Address<br/>
+Premises of Origin Name<br/>
+Premises of Origin Address<br/>
+Premises of Origin Postcode<br/>
+Premises of Origin Country<br/>
+Transporter Name<br/>
+Transporter Address<br/>
+Transporter Postcode<br/>
+Transporter Telephone Number<br/>
+Transporter Email Address<br/>
+Species/Product (Common Name)<br/>
+Quantity<br/>
+Units<br/>
+Intended Use of Commodity<br/>
+Port / Airport of Entry<br/>
+Animal / Product ID(s)<br/>
+<br/>
+<br/>
+*AC-2: View a List of Import Notifications*<br/>
+An EU Imports Caseworker must be able to view a list of all Import Notification records that exist ordered by the date they were created on, newest being first. The following fields must be visible in the list.<br/>
+<br/>
+Date of Import<br/>
+Premises of Origin Country<br/>
+Species / Product (Common Name)<br/>
+Reference Number<br/>
+Importer Name<br/>
+Importer Telephone Number<br/>
+Importer Email Address<br/>
+Port / Airport of Entry<br/>
+<br/>
+<br/>
+*AC-3: Search for an Import Notification*<br/>
+An EU Imports Caseworker must be able to perform a free text search for an Import Notification using the following fields:<br/>
+<br/>
+Importer Name<br/>
+Charity Name<br/>
+Premises of Origin Name<br/>
+Permanent Destination Name<br/>
+Animal / Product ID<br/>
+<br/>
+The search result displayed must show all fields specified within AC-2.<br/>
+<br/>
+*Solution:*<br/>
+<br/>
+* Create a User owned custom entity call “Import Notification” with schema names and relationships as specified in [Defra - EU Imports - D365 - Logical ERD|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Logical%20ERD.vsdx?api=v2].<br/>
+* Create fields as specified in [Defra - EU Imports - D365 - Entity Schemas|https://eaflood.atlassian.net/wiki/download/attachments/1351483578/Defra%20-%20EU%20Imports%20-%20D365%20-%20Entity%20Schemas.xlsx?api=v2].<br/>
+* Create a custom system form that shows fields within multiple sections in the order specified within AC-1.<br/>
+* Amend the EU Imports - Caseworker &amp; EU Imports Caseworker Admin security roles to includes Create/Update/Assign/Append/Append to privileges to the Import Notification entity set to Business Unit level.<br/>
+* Adjust default system views to show fields in the order as specified within AC-2.<br/>
+* Add Import Notification entity to the EU Imports Model App.<br/>
+<br/>
+
+    </td>
+                    </tr>
+
+
+                <tr id="issuerow94402" rel="94402" data-issuekey="IMTA-5865" class="issuerow">
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IMTA-5865" href="https://eaflood.atlassian.net/browse/IMTA-5865">IMTA-5865</a>
+</td>
+                                            <td class="summary"><p>
+                Create, Update &amp; View Import Country Commodity Risk Level Rules
+    </p>
+</td>
+                                            <td class="created"> 21/Aug/19 12:09 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="description">            *AS A* Caseworker Admin, *I WANT* to be able to create and update &quot;Import Country Commodity Risk Levels&quot; within Dynamics 365 *SO THAT* these rules can be subsequently applied to &quot;Import Records&quot; as they are created.<br/>
+<br/>
+*AC-1: Create OR Update Import Country Commodity Risk Level*<br/>
+A Caseworker Admin must be able to create *OR* update an &quot;Import Country Commodity Risk Level&quot; record, which allows the Caseworker Admin to select a &quot;Country&quot;, a &quot;Commodity Type&quot;, *AND* a &quot;Risk Level. All 3 fields must be mandatory.<br/>
+<br/>
+
+    </td>
+                    </tr>
         </tbody>
     </table>
     <div class="end-of-stable-message"></div>
             <table border="1" >
 <tr>
     <td bgcolor="#dddddd" colspan="6"><font size="1">
-        Generated at Tue Oct 06 16:51:27 UTC 2026 by Max Ewing using Jira 1001.0.0-SNAPSHOT#100294-rev:3d4a1b865cb047362aac40693402c0e91f357c9e.
+        Generated at Wed Oct 07 11:27:45 UTC 2026 by Max Ewing using Jira 1001.0.0-SNAPSHOT#100294-rev:3d4a1b865cb047362aac40693402c0e91f357c9e.
     </font></td>
 </tr>
 </table>

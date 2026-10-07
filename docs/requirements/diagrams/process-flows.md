@@ -18,11 +18,12 @@ flowchart TD
     H --> I[Caseworker Reviews <br/> Import Record]
     I --> J[Risk Assessment Applied <br/> Automatically]
     J --> K{Post Import Check <br/> Required?}
-    K -->|Yes| L[Post Import Check <br/> Scheduled]
+    K -->|Yes| L[Post Import Check <br/> auto-created <br/> Outcome = Awaiting Outcome]
     K -->|No| M[Import Record <br/> Completed]
     L --> N[Post Import Check <br/> Outcome Recorded]
     N --> O[Trust Level <br/> Updated on <br/> Place of Origin]
-    N --> M
+    N --> P[Import Record <br/> Inspection Status <br/> Rolled Up]
+    P --> M
 ```
 
 ---

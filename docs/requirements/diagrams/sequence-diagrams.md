@@ -99,6 +99,7 @@ sequenceDiagram
 
     CW->>PIC: Record Post Import Check outcome
     PIC->>PIMS: Persist outcome against Import Record
+    PIMS->>PIMS: Roll up Inspection Status onto Import Record
     PIMS->>PO: Evaluate trust level impact
     alt Outcome is Satisfactory or Not Visited
         PO->>COUNTER: Increment consecutive satisfactory counter

@@ -15,6 +15,7 @@ classDiagram
         +String importRiskLevel
         +Boolean postImportChecksRequired
         +String postImportChecksRequiredReason
+        +String inspectionStatus
         +Boolean movedToCompletion
         +Date movedToCompletionDate
         +String regionAreaAllocatedTo
