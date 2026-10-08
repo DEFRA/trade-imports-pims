@@ -451,9 +451,9 @@ When an Import Record's Risk Level is set to TB, PIMS must default Post Import C
 
 ---
 
-### BR-048 — Post Import Check Outcome Values and Consecutive Count Impact { #br-048 }
+### BR-048 — Post Import Check Outcome Values { #br-048 }
 
-A Post Import Check's Outcome field must offer exactly: Satisfactory, Unsatisfactory, Not Visited (defaulting to Awaiting Outcome until set). Where Outcome = Unsatisfactory, a Reason for Unsatisfactory Visit field must be completed from: Non-Compliant welfare, Non-Compliant documentary check, Quarantined. Where Outcome = Not Visited, a Reason for Not Visiting field must be completed from: Additional Inspection Required, Cancelled, Resolved Not Required, Lack of field resource. For Place of Origin Trust Level purposes: Satisfactory increments the consecutive satisfactory count; Unsatisfactory resets it to zero; Not Visited does not change it.
+A Post Import Check's Outcome field must offer exactly: Satisfactory, Unsatisfactory, Not Visited, Satisfactory Following Official Intervention (defaulting to Awaiting Outcome until set). Where Outcome = Unsatisfactory, a Reason for Unsatisfactory Visit field must be completed from: Non-Compliant welfare, Non-Compliant documentary check, Quarantined. Where Outcome = Not Visited, a Reason for Not Visiting field must be completed from: Additional Inspection Required, Cancelled, Resolved Not Required, Lack of field resource.
 
 - **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
 - **Jira:** IMTA-7467 (supersedes IMTA-6031)
@@ -560,10 +560,15 @@ An EU Imports Caseworker must be able to attach multiple documents (for example 
 
 ### BR-059 — Import Record Inspection Status Rolls Up from Post Import Check Outcomes { #br-059 }
 
-PIMS must maintain a read-only Inspection Status field on the Import Record, automatically set from the Outcome of its linked Post Import Check(s) using the same value set as [BR-048](#br-048), and must display this field as a column in Import Record list views so caseworkers can triage without opening each record. Where an Import Record has multiple linked Post Import Checks, the Inspection Status is set using the following priority order (highest first), not the most recently recorded outcome: Quarantined, Non-compliant, Satisfactory, Resolved Not Required, Cancelled, Awaiting Outcome, Additional Inspection Required. The date an outcome was recorded has no bearing on the priority order. An unset Outcome is treated as the least important.
+PIMS must maintain a read-only Inspection Status field on the Import Record, automatically set from the Outcome of its linked Post Import Check(s), and must display this field as a column in Import Record list views so caseworkers can triage without opening each record. Where an Import Record has multiple linked Post Import Checks, the Inspection Status is set using the following priority order (highest first), not the most recently recorded outcome:
+
+1. **Unsatisfactory** — if any Post Import Check has Outcome = Unsatisfactory, the Inspection Status is Unsatisfactory
+2. **Satisfactory** — if all Post Import Checks are Satisfactory, Not Visited, or Satisfactory Following Official Intervention, and none are Unsatisfactory, the Inspection Status is Satisfactory
+3. **Awaiting Outcome** — if any Post Import Check has Outcome = Awaiting Outcome, and none are Unsatisfactory or in a satisfactory status, the Inspection Status is Awaiting Outcome
 
 - **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
 - **Jira:** IMTA-6028, IMTA-6032
+- **Note:** The roll-up logic could not be sourced from the original Jira requirements and has been inferred from the implementation. Satisfactory Following Official Intervention is included as a satisfactory outcome, reflecting its semantic meaning as a successful check completion (with official intervention applied). The requirement to treat this outcome as satisfactory could not be located in the Jira requirements corpus and has been inferred from the outcome value name and intended use.
 
 ---
 

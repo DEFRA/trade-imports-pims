@@ -20,7 +20,7 @@ One Import Record may be linked to multiple Post Import Check records over time,
 
 - **AC-1a:** A single Import Record can be linked to multiple Post Import Check records over time, and each check remains individually viewable and auditable.
 
-- **AC-2:** An EU Imports Caseworker can update a Post Import Check record, including recording the outcome. The Outcome field offers Satisfactory, Unsatisfactory or Not Visited (defaulting to Awaiting Outcome until set). Where Outcome = Unsatisfactory, a Reason for Unsatisfactory Visit field must be completed (Non-Compliant welfare, Non-Compliant documentary check, Quarantined). Where Outcome = Not Visited, a Reason for Not Visiting field must be completed (Additional Inspection Required, Cancelled, Resolved Not Required, Lack of field resource).
+- **AC-2:** An EU Imports Caseworker can update a Post Import Check record, including recording the outcome. The Outcome field offers Satisfactory, Unsatisfactory, Not Visited, or Satisfactory Following Official Intervention (defaulting to Awaiting Outcome until set). Where Outcome = Unsatisfactory, a Reason for Unsatisfactory Visit field must be completed (Non-Compliant welfare, Non-Compliant documentary check, Quarantined). Where Outcome = Not Visited, a Reason for Not Visiting field must be completed (Additional Inspection Required, Cancelled, Resolved Not Required, Lack of field resource).
 
 - **AC-3:** An EU Imports Caseworker can view a list of Post Import Check records filtered by outcome (Not Started, In Progress, Completed).
 
@@ -38,7 +38,7 @@ One Import Record may be linked to multiple Post Import Check records over time,
 
 - **AC-10 (Document attachment):** An EU Imports Caseworker can attach multiple documents (for example IV17 forms and other check-related correspondence) to a Post Import Check record, each with an optional title and note, and can view and download previously attached documents. Once attached, documents cannot be deleted ([BR-031](../business-rules.md#br-031)).
 
-- **AC-11 (Import Record inspection status rollup):** PIMS maintains a read-only Inspection Status field on the Import Record, automatically set from the Outcome of its linked Post Import Check(s) ([BR-048](../business-rules.md#br-048) values), and displayed as a column in Import Record list views so caseworkers can triage without opening each record.
+- **AC-11 (Import Record inspection status rollup):** PIMS maintains a read-only Inspection Status field on the Import Record, automatically set from the Outcome of its linked Post Import Check(s) using priority-based rollup rules ([BR-059](../business-rules.md#br-059)), and displayed as a column in Import Record list views so caseworkers can triage without opening each record.
 
 ## Business Rules
 
