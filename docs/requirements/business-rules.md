@@ -511,10 +511,18 @@ For a candidate match pair, where the ITAHC/DOCOM certificate number does not ma
 
 ### BR-054 — Watchlist "Active" Definition and Flagging Trigger Points { #br-054 }
 
-A Watchlist entry is active when the current date is on or after its Start Date and, if an End Date is set, on or before that End Date. PIMS must evaluate the Watchlist entries that are active at the time of the trigger against the place of origin, place of destination, consignee, transporter and veterinarian on: ITAHC creation; Import Record creation from an ITAHC; and Import Record creation from a confirmed match. Each trigger point is an independent evaluation — flags raised at an earlier trigger point must not be carried forward — and each matching active entry produces one flag.
+A Watchlist entry is active when the current date is on or after its Start Date and, if an End Date is set, on or before that End Date. PIMS must evaluate the Watchlist entries that are active at the time of each trigger point against the following parties:
+
+- **ITAHC creation:** place of origin, place of destination, consignee, transporter, veterinarian
+- **Import Record creation from an ITAHC:** place of origin, place of destination, consignee, transporter, veterinarian
+- **Importer Notification creation:** place of origin, place of destination, consignee, transporter
+- **Import Record creation from an Importer Notification:** place of origin, place of destination, consignee, transporter
+- **Import Record creation from a confirmed match:** place of origin, place of destination, consignee, transporter, veterinarian
+
+Each trigger point is an independent evaluation — flags raised at an earlier trigger point must not be carried forward — and each matching active entry produces one flag.
 
 - **Source:** [US-057](user-stories/US-057-Manage-Watchlist-Records.md), [US-058](user-stories/US-058-Flag-Watched-Parties.md)
-- **Jira:** IMTA-7479, IMTA-7482, IMTA-8012, IMTA-8015
+- **Jira:** IMTA-7479, IMTA-7482, IMTA-8012, IMTA-8015, IMTA-8220
 
 ---
 
