@@ -42,10 +42,11 @@ namespace Defra.Imports.Scenarios.Events
             // scenario's lifetime, released when the factory itself is disposed at the end of the scenario.
             var client = await this.clientFactory.GetClientAsync(Persona.LogicApp);
             var importerNotificationId = await client.CreateAsync(importerNotification);
+            importerNotification.Id = importerNotificationId;
 
             this.logger.LogInformation("Created Importer Notification {ImporterNotificationId}.", importerNotificationId);
 
-            context.Set(nameof(LogicAppSubmitsImporterNotificationEvent), new Info { ImporterNotificationId = importerNotificationId });
+            context.Set(nameof(LogicAppSubmitsImporterNotificationEvent), new Info { ImporterNotificationId = importerNotificationId, ImporterNotification = importerNotification });
         }
 
         /// <summary>
@@ -57,6 +58,11 @@ namespace Defra.Imports.Scenarios.Events
             /// Gets or sets the ID of the created Importer Notification.
             /// </summary>
             public Guid ImporterNotificationId { get; set; }
+
+            /// <summary>
+            /// Gets or sets the created Importer Notification, as generated and submitted by this event (not re-retrieved from Dataverse).
+            /// </summary>
+            public defraimp_ImporterNotification ImporterNotification { get; set; }
         }
 
         /// <summary>
