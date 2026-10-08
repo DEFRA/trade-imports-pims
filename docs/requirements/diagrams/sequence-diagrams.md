@@ -219,7 +219,7 @@ sequenceDiagram
     CW->>WL: Add place of origin/destination, consignee, transporter or veterinarian
     WL->>WL: Record Start Date, End Date, mandatory reason
     ITAHC->>WL: On creation, check involved parties
-    IN->>WL: On creation, check involved parties
+    IN->>WL: On creation, check place of origin/destination, consignee and transporter
     alt Party is active on Watchlist
         WL-->>ITAHC: Apply flag (one per matching entry)
         WL-->>IN: Apply flag (one per matching entry)
