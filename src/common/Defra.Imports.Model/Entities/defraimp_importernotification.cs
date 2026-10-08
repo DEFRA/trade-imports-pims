@@ -340,9 +340,15 @@ namespace Defra.Imports.Model
 			public const string defraimp_defraimp_importernotification_defraimp_ipaffsdocument_ImporterNotificationId = "defraimp_defraimp_importernotification_defraimp_ipaffsdocument_ImporterNotificati" +
 		"onId";
 			public const string defraimp_defraimp_importernotification_defraimp_matchrecord_ImporterNotification = "defraimp_defraimp_importernotification_defraimp_matchrecord_ImporterNotification";
+			public const string defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNotificationId = "defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNo" +
+		"tificationId";
+			public const string defraimp_defraimp_importernotification_defraimp_parametersetkeydatapair_ImporterNotificationId = "defraimp_defraimp_importernotification_defraimp_parametersetkeydatapair_ImporterN" +
+		"otificationId";
 			public const string defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId = "defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId";
 			public const string defraimp_importernotification_Annotations = "defraimp_importernotification_Annotations";
 			public const string defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification = "defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification";
+			public const string defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNotification = "defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNo" +
+		"tification";
 			public const string defraimp_ImporterNotification_CountriesofTransit = "defraimp_ImporterNotification_CountriesofTransit";
 			public const string defraimp_defra_country_defraimp_importernotification_ConsignedCountryid = "defraimp_defra_country_defraimp_importernotification_ConsignedCountryid";
 			public const string defraimp_defra_country_defraimp_importernotification_ConsigneeAddressCountryId = "defraimp_defra_country_defraimp_importernotification_ConsigneeAddressCountryId";
@@ -5040,6 +5046,52 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNotificationId
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNo" +
+			"tificationId")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_parametersetidentifier> defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNotificationId
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNo" +
+						"tificationId", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNo" +
+						"tificationId");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNo" +
+						"tificationId", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNo" +
+						"tificationId");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N defraimp_defraimp_importernotification_defraimp_parametersetkeydatapair_ImporterNotificationId
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importernotification_defraimp_parametersetkeydatapair_ImporterN" +
+			"otificationId")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_parametersetkeydatapair> defraimp_defraimp_importernotification_defraimp_parametersetkeydatapair_ImporterNotificationId
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_parametersetkeydatapair>("defraimp_defraimp_importernotification_defraimp_parametersetkeydatapair_ImporterN" +
+						"otificationId", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_importernotification_defraimp_parametersetkeydatapair_ImporterN" +
+						"otificationId");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_parametersetkeydatapair>("defraimp_defraimp_importernotification_defraimp_parametersetkeydatapair_ImporterN" +
+						"otificationId", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_importernotification_defraimp_parametersetkeydatapair_ImporterN" +
+						"otificationId");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importernotification_defraimp_watchflag_ImporterNotificationId")]
@@ -5090,6 +5142,29 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification");
 				this.SetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplement>("defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification", null, value);
 				this.OnPropertyChanged("defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNotification
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNo" +
+			"tification")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_commoditycomplementparameterset> defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNotification
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplementparameterset>("defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNo" +
+						"tification", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNo" +
+						"tification");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_commoditycomplementparameterset>("defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNo" +
+						"tification", null, value);
+				this.OnPropertyChanged("defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNo" +
+						"tification");
 			}
 		}
 		

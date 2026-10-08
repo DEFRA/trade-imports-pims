@@ -697,6 +697,12 @@ namespace Defra.Imports.Model
 		Conversationreroutefailed = 192370014,
 		
 		/// <summary>
+		/// Message to be played to the customer when a duplicate callback request ends the call
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Duplicatecallbackendcall = 192370015,
+		
+		/// <summary>
 		/// Message to be played to the customer when callback scheduling fails
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -713,6 +719,174 @@ namespace Defra.Imports.Model
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		OfferCallbackAlternatenumberbottransfermessage = 192380015,
+		
+		/// <summary>
+		/// Message played when an inbound CSR connected to customer on non-bot workstream with recording and transcription enabled
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundCSRConnectedtoCustomeronNonBotWorkstreamwithRecordingandTranscriptionEnabled = 192380016,
+		
+		/// <summary>
+		/// Message played when an inbound CSR is connected to customer on non-bot workstream with transcription enabled
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundCSRConnectedtoCustomeronNonBotWorkstreamwithTranscriptionEnabled = 192380017,
+		
+		/// <summary>
+		/// Message played when recording and transcription are paused by the CSR on an inbound call
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundRecordingandTranscriptionPausedbyCSR = 192380018,
+		
+		/// <summary>
+		/// Message played when transcription is paused by the CSR on an inbound call
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundTranscriptionPausedbyCSR = 192380019,
+		
+		/// <summary>
+		/// Message played when recording and transcription are resumed by the CSR on an inbound call
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundRecordingandTranscriptionResumedbyCSR = 192380020,
+		
+		/// <summary>
+		/// Message played when transcription is resumed by the CSR on an inbound call
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundTranscriptionResumedbyCSR = 192380021,
+		
+		/// <summary>
+		/// Message played to the agent when an inbound CSR internal consult is connected to consultee with recording and transcription while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundCSRInternalConsultConnectedtoConsulteewithRecordingandTranscriptionEnabledCustomeronHold = 192380022,
+		
+		/// <summary>
+		/// Message played to the agent when an inbound CSR internal consult is connected to consultee with transcription while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundCSRInternalConsultConnectedtoConsulteewithTranscriptionEnabledCustomeronHold = 192380023,
+		
+		/// <summary>
+		/// Message played to the agent when an inbound CSR external consult is connected to consultee with recording and transcription while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundCSRExternalConsultConnectedtoConsulteewithRecordingandTranscriptionEnabledCustomeronHold = 192380024,
+		
+		/// <summary>
+		/// Message played to the agent when an inbound CSR external consult is connected to consultee with transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundCSRExternalConsultConnectedtoConsulteewithTranscriptionEnabledCustomeronHold = 192380025,
+		
+		/// <summary>
+		/// Message played when an inbound CSR transfer to queue with recording and transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundCSRTransfertoQueuewithRecordingandTranscriptionEnabledCustomeronHold = 192380026,
+		
+		/// <summary>
+		/// Message played when an inbound CSR transfer to queue with transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundCSRTransfertoQueuewithTranscriptionEnabledCustomeronHold = 192380027,
+		
+		/// <summary>
+		/// Message played when an inbound CSR bridged transfer to external number with recording and transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundCSRBridgedTransfertoExternalNumberwithRecordingandTranscriptionEnabledCustomeronHold = 192380028,
+		
+		/// <summary>
+		/// Message played when an inbound CSR bridged transfer to external number with transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InboundCSRBridgedTransfertoExternalNumberwithTranscriptionEnabledCustomeronHold = 192380029,
+		
+		/// <summary>
+		/// Message played when an outbound CSR is connected to customer with recording and transcription enabled
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundCSRConnectedtoCustomerwithRecordingandTranscriptionEnabled = 192380030,
+		
+		/// <summary>
+		/// Message played when an outbound CSR is connected to customer with transcription enabled
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundCSRConnectedtoCustomerwithTranscriptionEnabled = 192380031,
+		
+		/// <summary>
+		/// Message played when recording and transcription are paused by the CSR on an outbound call
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundRecordingandTranscriptionPausedbyCSR = 192380032,
+		
+		/// <summary>
+		/// Message played when transcription is paused by the CSR on an outbound call
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundTranscriptionPausedbyCSR = 192380033,
+		
+		/// <summary>
+		/// Message played when recording and transcription are resumed by the CSR on an outbound call
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundRecordingandTranscriptionResumedbyCSR = 192380034,
+		
+		/// <summary>
+		/// Message played when transcription is resumed by the CSR on an outbound call
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundTranscriptionResumedbyCSR = 192380035,
+		
+		/// <summary>
+		/// Message played to the agent when an outbound CSR internal consult is connected to consultee with recording and transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundCSRInternalConsultConnectedtoConsulteewithRecordingandTranscriptionEnabledCustomeronHold = 192380036,
+		
+		/// <summary>
+		/// Message played to the agent when an outbound CSR internal consult is connected to consultee with transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundCSRInternalConsultConnectedtoConsulteewithTranscriptionEnabledCustomeronHold = 192380037,
+		
+		/// <summary>
+		/// Message played to the agent when an outbound CSR external consult is connected to consultee with recording and transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundCSRExternalConsultConnectedtoConsulteewithRecordingandTranscriptionEnabledCustomeronHold = 192380038,
+		
+		/// <summary>
+		/// Message played to the agent when an outbound CSR external consult is connected to consultee with transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundCSRExternalConsultConnectedtoConsulteewithTranscriptionEnabledCustomeronHold = 192380039,
+		
+		/// <summary>
+		/// Message played when an outbound CSR transfer to queue is connected with recording and transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundCSRTransfertoQueueConnectedwithRecordingandTranscriptionEnabledCustomeronHold = 192380040,
+		
+		/// <summary>
+		/// Message played when an outbound CSR transfer to queue is connected with transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundCSRTransfertoQueueConnectedwithTranscriptionEnabledCustomeronHold = 192380041,
+		
+		/// <summary>
+		/// Message played when an outbound CSR bridged transfer to external number with recording and transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundCSRBridgedTransfertoExternalNumberwithRecordingandTranscriptionEnabledCustomeronHold = 192380042,
+		
+		/// <summary>
+		/// Message played when an outbound CSR bridged transfer to external number with transcription enabled while the customer is on hold
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OutboundCSRBridgedTransfertoExternalNumberwithTranscriptionEnabledCustomeronHold = 192380043,
 	}
 }
 #pragma warning restore CS1591

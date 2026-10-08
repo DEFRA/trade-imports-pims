@@ -167,6 +167,63 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		English_NewZealand = 5129,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Dutch_Belgium = 2067,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		German_Austria = 3079,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		German_Switzerland = 2055,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		French_Switzerland = 4108,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Spanish_Mexico = 2058,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chinese_HongKongSAR = 3076,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		English_India = 16393,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Welsh = 1106,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Icelandic = 1039,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Albanian = 1052,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Maltese = 1082,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Filipino = 1124,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Irish = 2108,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Uzbek_Latin = 1091,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Azerbaijani_Latin = 1068,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Urdu = 1056,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Armenian = 1067,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Macedonian = 1071,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Bosnian_Latin = 5146,
 	}
 }
 #pragma warning restore CS1591

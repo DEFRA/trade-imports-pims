@@ -74,6 +74,7 @@ namespace Defra.Imports.Model
 			public const string defraimp_speciesid = "defraimp_speciesid";
 			public const string defraimp_speciesname = "defraimp_speciesname";
 			public const string defraimp_speciesnomination = "defraimp_speciesnomination";
+			public const string defraimp_SpeciesQuantity = "defraimp_speciesquantity";
 			public const string defraimp_speciestype = "defraimp_speciestype";
 			public const string defraimp_speciestypename = "defraimp_speciestypename";
 			public const string ImportSequenceNumber = "importsequencenumber";
@@ -465,6 +466,21 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_speciesnomination");
 				this.SetAttributeValue("defraimp_speciesnomination", value);
 				this.OnPropertyChanged("defraimp_speciesnomination");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_speciesquantity")]
+		public string defraimp_SpeciesQuantity
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defraimp_speciesquantity");
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_SpeciesQuantity");
+				this.SetAttributeValue("defraimp_speciesquantity", value);
+				this.OnPropertyChanged("defraimp_SpeciesQuantity");
 			}
 		}
 		

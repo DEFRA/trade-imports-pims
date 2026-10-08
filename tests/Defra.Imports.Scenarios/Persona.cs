@@ -24,5 +24,10 @@
         /// A caseworker with permissions to export to Excel.
         /// </summary>
         ExcelExporter,
+
+        /// <summary>
+        /// The application user that the EU Imports Notifications Logic App authenticates as (the "EU Imports Dynamics Application User") when it submits Importer Notifications received from IPAFFS.
+        /// </summary>
+        LogicApp,
     }
 }

@@ -26,6 +26,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InProgress = 100000002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NotStarted = 100000003,
 	}
 }
 #pragma warning restore CS1591

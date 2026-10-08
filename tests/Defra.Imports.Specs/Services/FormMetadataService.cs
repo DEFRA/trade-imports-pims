@@ -206,12 +206,12 @@
 
         private static XmlNodeList GetControlNodesByDisplayName(string displayName, string tab, XmlDocument formXml)
         {
-            var tabSegment = !string.IsNullOrEmpty(tab) ? $"//tab[./labels/label[@description='{tab}']]" : string.Empty;
-            var controlsWithDisplayName = formXml.SelectNodes($"{tabSegment}//control[../labels/label[@description='{displayName}'] and not(@classid='{QuickViewClassId}')]");
+            var tabSegment = !string.IsNullOrEmpty(tab) ? $"//tab[./labels/label[normalize-space(@description)='{tab}']]" : string.Empty;
+            var controlsWithDisplayName = formXml.SelectNodes($"{tabSegment}//control[../labels/label[normalize-space(@description)='{displayName}'] and not(@classid='{QuickViewClassId}')]");
 
             if (controlsWithDisplayName == null || controlsWithDisplayName.Count == 0)
             {
-                controlsWithDisplayName = formXml.SelectNodes($"//header//control[../labels/label[@description='{displayName}'] and not(@classid='{QuickViewClassId}')]");
+                controlsWithDisplayName = formXml.SelectNodes($"//header//control[../labels/label[normalize-space(@description)='{displayName}'] and not(@classid='{QuickViewClassId}')]");
             }
 
             return controlsWithDisplayName != null && controlsWithDisplayName.Count > 0

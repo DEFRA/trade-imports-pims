@@ -75,13 +75,29 @@
         /// <summary>
         /// Selects a tab on a form.
         /// </summary>
-        /// <param name="relatedTab">The tab.</param>
+        /// <param name="tab">The tab.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [When("I select the {string} tab")]
         [Given("I have selected the {string} tab")]
-        public async Task WhenISelectTheTab(string relatedTab)
+        public async Task WhenISelectTheTab(string tab)
         {
-            await this.RecordPage.Form.OpenTabAsync(relatedTab);
+            var allTabs = await this.RecordPage.Form.GetAllTabsAsync();
+
+            if (allTabs.Contains(tab))
+            {
+                await this.RecordPage.Form.OpenTabByExactNameAsync(tab);
+            }
+            else
+            {
+                try
+                {
+                    await this.RecordPage.Form.OpenRelatedTabAsync(tab);
+                }
+                catch (Exception ex)
+                {
+                    throw new InvalidOperationException($"The {tab} tab is not visible on the form.", ex);
+                }
+            }
         }
 
         /// <summary>

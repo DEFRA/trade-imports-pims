@@ -23,6 +23,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		LogandBlock = 192350001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		LogandWarn = 192350002,
 	}
 }
 #pragma warning restore CS1591
