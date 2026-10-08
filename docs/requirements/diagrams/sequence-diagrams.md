@@ -223,11 +223,12 @@ sequenceDiagram
     alt Party is active on Watchlist
         WL-->>ITAHC: Apply flag (one per matching entry)
         WL-->>IN: Apply flag (one per matching entry)
-        ITAHC->>IR: On Import Record creation/match, re-evaluate active Watchlist entries
-        IN->>IR: On Import Record creation from a flagged notification, re-evaluate active Watchlist entries
-        IR-->>CW: Flag visible on Import Record
-        CW->>WL: Open flag to view Watchlist details/comments
     else No active Watchlist match
         WL-->>ITAHC: No flag applied
+        WL-->>IN: No flag applied
     end
+    ITAHC->>IR: On Import Record creation/match, apply ITAHC's existing flags
+    IN->>IR: On Import Record creation, apply Importer Notification's existing flags
+    IR-->>CW: Flag visible on Import Record (if any applied)
+    CW->>WL: Open flag to view Watchlist details/comments
 ```

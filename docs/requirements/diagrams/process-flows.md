@@ -82,13 +82,19 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A([ITAHC created, or <br/> Importer Notification created, <br/> or Import Record created <br/> or matched]) --> B[Identify applicable watched parties <br/> (veterinarian applies to ITAHCs <br/> and Import Records only)]
+    A([ITAHC created, or <br/> Importer Notification created]) --> B[Identify applicable watched parties <br/> (veterinarian applies to ITAHCs only)]
     B --> C{Any party active <br/> on the Watchlist?}
     C -->|No| D[No flag]
-    C -->|Yes| E[Flag the ITAHC/Importer <br/> Notification/Import <br/> Record — one flag per <br/> matching Watchlist entry]
-    E --> F[Caseworker opens flag]
-    F --> G[Watchlist record details <br/> and comments displayed]
-    G --> H[Caseworker may edit <br/> record or add a comment]
+    C -->|Yes| E[Flag the ITAHC/Importer <br/> Notification — one flag per <br/> matching Watchlist entry]
+
+    F([Import Record created <br/> from ITAHC, Importer Notification, <br/> or confirmed match]) --> G{Source ITAHC/DOCOM and/or <br/> Importer Notification <br/> already flagged?}
+    G -->|No| H[No flag]
+    G -->|Yes| I[Apply the existing flags from <br/> the source record(s) to the <br/> Import Record]
+
+    E --> J[Caseworker opens flag]
+    I --> J
+    J --> K[Watchlist record details <br/> and comments displayed]
+    K --> L[Caseworker may edit <br/> record or add a comment]
 ```
 
 ---
