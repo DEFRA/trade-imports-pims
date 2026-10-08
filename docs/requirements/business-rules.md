@@ -560,10 +560,10 @@ An EU Imports Caseworker must be able to attach multiple documents (for example 
 
 ### BR-059 — Import Record Inspection Status Rolls Up from Post Import Check Outcomes { #br-059 }
 
-PIMS must maintain a read-only Inspection Status field on the Import Record, automatically set from the Outcome of its linked Post Import Check(s) using the same value set as [BR-048](#br-048), and must display this field as a column in Import Record list views so caseworkers can triage without opening each record. Where an Import Record has multiple linked Post Import Checks, the Inspection Status reflects the most recently recorded outcome. This rollup behaviour is inferred from the source story and remains subject to business confirmation.
+PIMS must maintain a read-only Inspection Status field on the Import Record, automatically set from the Outcome of its linked Post Import Check(s) using the same value set as [BR-048](#br-048), and must display this field as a column in Import Record list views so caseworkers can triage without opening each record. Where an Import Record has multiple linked Post Import Checks, the Inspection Status is set using the following priority order (highest first), not the most recently recorded outcome: Quarantined, Non-compliant, Satisfactory, Resolved Not Required, Cancelled, Awaiting Outcome, Additional Inspection Required. The date an outcome was recorded has no bearing on the priority order. An unset Outcome is treated as the least important.
 
 - **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
-- **Jira:** IMTA-6028
+- **Jira:** IMTA-6028, IMTA-6032
 
 ---
 

@@ -20,6 +20,10 @@ When an ITAHC is created, or an Import Record is created or matched, PIMS checks
 
 - **AC-4 (Viewing flag details):** An EU Imports Caseworker viewing a flagged ITAHC or Import Record can select a flag to open the related Watchlist record, view all its details and comments, edit the record and add a new comment.
 
+- **AC-5 (Flag on Importer Notification creation):** When an Importer Notification is created and one or more of its place of destination, consignee, transporter or place of origin is active on the watchlist, PIMS flags the Importer Notification with a flag for each matching watchlist entry, on the same basis as AC-1.
+
+- **AC-6 (Flag on Import Record creation from an Importer Notification):** When an Import Record is created from a flagged Importer Notification, PIMS re-evaluates the Import Record's parties against the watchlist entries that are active at that point in time and flags the Import Record accordingly, on the same basis as AC-2.
+
 ## Business Rules
 
 - [BR-054](../business-rules.md#br-054) — Watchlist "active" definition and flagging trigger points
@@ -35,3 +39,4 @@ When an ITAHC is created, or an Import Record is created or matched, PIMS checks
 
 - IMTA-7482
 - IMTA-8015
+- IMTA-8220

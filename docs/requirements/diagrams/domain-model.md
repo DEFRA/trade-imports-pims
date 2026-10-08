@@ -7,6 +7,7 @@ classDiagram
     class ImportRecord {
         +String uniqueReferenceNumber
         +String importRecordType
+        +String impType
         +String devolvedOffice
         +String importerName
         +String countryOfOrigin
@@ -19,6 +20,8 @@ classDiagram
         +Boolean movedToCompletion
         +Date movedToCompletionDate
         +String regionAreaAllocatedTo
+        +String portOfExit
+        +Date portOfExitDate
     }
 
     class ITAHC {
@@ -68,6 +71,8 @@ classDiagram
         +String commodityCode
         +String ipaffsSpeciesId
         +String ipaffsCommodityCode
+        +String portOfExit
+        +Date portOfExitDate
     }
 
     class PlaceOfOrigin {
@@ -160,6 +165,7 @@ classDiagram
 
     class Transporter {
         +String name
+        +String type
         +String address
         +String city
         +String postcode
@@ -218,6 +224,7 @@ classDiagram
     Watchlist "1" --> "*" WatchlistComment : hasComments
     Watchlist "1" --> "*" ITAHC : flags
     Watchlist "1" --> "*" ImportRecord : flags
+    Watchlist "1" --> "*" ImporterNotification : flags
     Watchlist "*" --> "0..1" PlaceOfOrigin : watchedPlaceOfOrigin
     Watchlist "*" --> "0..1" PlaceOfDestination : watchedPlaceOfDestination
     Watchlist "*" --> "0..1" Consignee : watchedConsignee

@@ -28,6 +28,10 @@ Candidate matches produced by [US-051](US-051-Automated-Matching.md) are reviewe
 
 - **AC-6 (Unverified matches and reactivation):** An EU Imports Caseworker can view Importer Notifications that have never had a verified matched ITAHC, and can reactivate a previously-resolved Match Record to Unmatched status so it re-appears in the Unmatched view.
 
+- **AC-7 (Match Rating colour coding):** On the side-by-side comparison screen (AC-2), any field in the Match Rating section scoring below 100% is highlighted in red.
+
+- **AC-8 (Matching error log):** Errors occurring during the automated matching process ([US-051](US-051-Automated-Matching.md)) are recorded in an error log with Date and Time, Process, Error Code and Error Description. An EU Imports Caseworker can view the error log.
+
 ## Business Rules
 
 - [BR-053](../business-rules.md#br-053) — Matching algorithm weighted mean calculation
@@ -43,9 +47,12 @@ Candidate matches produced by [US-051](US-051-Automated-Matching.md) are reviewe
 ### Source Jira Issues
 
 - IMTA-7341
+- IMTA-7368
 - IMTA-7377
 - IMTA-7386
 - IMTA-7587
+- IMTA-7588
 - IMTA-7596
 - IMTA-7649
+- IMTA-7721
 - IMTA-7975

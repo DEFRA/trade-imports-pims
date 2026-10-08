@@ -70,6 +70,18 @@ The record supports "No ITAHC Received" as a valid option in the Primary HC fiel
 
 - **AC-12 (Manual Import Record Type picklist excludes DOCOM):** When manually creating an Import Record, the Import Record Type picklist offers ITAHC, CHEDA and CHEDP only. DOCOM is not offered as a manually-selectable type, as a DOCOM-linked Import Record is always created automatically — on receipt ([US-010](US-010-Auto-Create-Import-Record-From-DOCOM.md)) or via the matching process ([US-053](US-053-Create-Import-Record-at-Matching.md)).
 
+- **AC-13 (Imp Type field):** The Import Record form displays an Imp Type field positioned between Import Record Type and Commodity Type, offering Live Animals, POAO or HRFNAO, populated from a reference Imp Type lookup table (Imp Type Code, Imp Type Name). When the Import Record is created, Imp Type is set from the Imp Type value on the source Importer Notification or ITAHC. The field is hidden for the CHED journey (see [US-044](US-044-View-Importer-Notification.md) AC-7).
+
+- **AC-14 (Transporter Type and extended Purpose options):** The Transporter section includes a Type field (Commercial Transporter, Private Transporter, Commercial Transporter – User Added) positioned after the Transporter Email field, set from the Type value on the source Importer Notification when the Import Record is created. For POAO and HRFNAO Imp Types, the Purpose field additionally accepts For Internal Market, For Transhipment, For Re-entry and Personally Owned Pets Not for Rehoming.
+
+- **AC-15 (Transit and rejected consignments):** The Purpose / Certified For option set additionally includes Rejected or Returned Consignment and Transit. Port of Exit (text) and Port of Exit Date (date) fields are shown on the Import Record; both are optional and are only populated where Purpose is set to Transit.
+
+- **AC-16 (Importer Notification Received within Timescales defaults to No):** The Importer Notification Received within Timescales field (see AC-10) defaults to No and remains visible on the Import Record form at all times; it is not conditionally hidden.
+
+- **AC-17 (Field mapping when creating an Import Record from an Importer Notification):** In addition to the Date Importer Notification Received mapping in AC-9, creating an Import Record from an Importer Notification also copies: Devolved Office, Import Record Type, Commodity Type, Commodity Code, Species ID, Purpose, Quantity, Country of Origin, a link back to the source Importer Notification, Arrival Date, Port of Entry, Countries of Transit (from the Transit Details section), IV65 Sent, Warble Fly Treatment Declaration Required, Commodity Identifiers (Species Name and Identifiers), and any Watch Flags present on the Importer Notification.
+
+- **AC-18 (Manual importer contact details and structured transporter address):** Where Importer contact details are not present or are incorrect on the source certificate or notification, an EU Imports Caseworker can manually record CPH (optional), Phone (mandatory) and Email (mandatory) against the Importer's Contact Name. The Transporter's Address field (see AC-1) is recorded as structured properties (Line 1, Line 2, Line 3, City, Postcode, Country) rather than free text.
+
 ## Business Rules
 
 - [BR-002](../business-rules.md#br-002), [BR-003](../business-rules.md#br-003), [BR-004](../business-rules.md#br-004), [BR-005](../business-rules.md#br-005), [BR-006](../business-rules.md#br-006) — Post Import Check flagging rules applied on create/update
@@ -103,18 +115,20 @@ The record supports "No ITAHC Received" as a valid option in the Primary HC fiel
 ### Source Jira Issues
 
 - IMTA-5870
-
-## Traceability
-
-### Source Jira Issues
-
-- IMTA-5870
 - IMTA-5985
+- IMTA-6119
 - IMTA-6120
+- IMTA-6121
+- IMTA-7379
 - IMTA-7466
 - IMTA-7468
 - IMTA-7469
+- IMTA-8219
+- IMTA-8589
+- IMTA-8738
+- IMTA-9134
 - IMTA-10482
+- IMTA-10483
 - PLNT-4535
 - PLNT-4536
 - PLNT-4539

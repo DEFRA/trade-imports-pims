@@ -82,10 +82,10 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A([ITAHC created, or <br/> Import Record created <br/> or matched]) --> B[Identify place of origin, <br/> place of destination, <br/> consignee, transporter, <br/> veterinarian involved]
+    A([ITAHC created, or <br/> Importer Notification created, <br/> or Import Record created <br/> or matched]) --> B[Identify place of origin, <br/> place of destination, <br/> consignee, transporter, <br/> veterinarian involved]
     B --> C{Any party active <br/> on the Watchlist?}
     C -->|No| D[No flag]
-    C -->|Yes| E[Flag the ITAHC/Import <br/> Record — one flag per <br/> matching Watchlist entry]
+    C -->|Yes| E[Flag the ITAHC/Importer <br/> Notification/Import <br/> Record — one flag per <br/> matching Watchlist entry]
     E --> F[Caseworker opens flag]
     F --> G[Watchlist record details <br/> and comments displayed]
     G --> H[Caseworker may edit <br/> record or add a comment]

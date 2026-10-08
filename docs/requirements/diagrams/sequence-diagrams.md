@@ -213,14 +213,18 @@ sequenceDiagram
     actor CW as Caseworker
     participant WL as Watchlist
     participant ITAHC as ITAHC
+    participant IN as Importer Notification
     participant IR as Import Record
 
     CW->>WL: Add place of origin/destination, consignee, transporter or veterinarian
     WL->>WL: Record Start Date, End Date, mandatory reason
     ITAHC->>WL: On creation, check involved parties
+    IN->>WL: On creation, check involved parties
     alt Party is active on Watchlist
         WL-->>ITAHC: Apply flag (one per matching entry)
+        WL-->>IN: Apply flag (one per matching entry)
         ITAHC->>IR: On Import Record creation/match, re-evaluate active Watchlist entries
+        IN->>IR: On Import Record creation from a flagged notification, re-evaluate active Watchlist entries
         IR-->>CW: Flag visible on Import Record
         CW->>WL: Open flag to view Watchlist details/comments
     else No active Watchlist match

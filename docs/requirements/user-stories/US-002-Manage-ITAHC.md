@@ -32,6 +32,7 @@ An ITAHC has a replacement chain (Replaced By / Replaces) mirroring the TRACES c
   - Country of Origin (Lookup)
   - Commodity Type
   - Animal Species / Product (Commodity Complements Text)
+  - Species ID, Species Nomination, Species Type, Species Class (extracted onto dedicated fields from the raw TRACES JSON at receipt, rather than left embedded in it)
   - Quantity / Weight
   - Unit
   - Number of Packages
@@ -53,6 +54,8 @@ An ITAHC has a replacement chain (Replaced By / Replaces) mirroring the TRACES c
 
 - **AC-5 (Multiple commodities flagged):** An ITAHC received with more than one commodity code is flagged for caseworker review (see [US-055](US-055-Flag-Multiple-Commodity-Certificates.md)).
 
+- **AC-6 (View of ITAHCs without an associated Import Record):** An EU Imports Caseworker can select a view of all ITAHCs where Related Import Record is not true, sorted by Created On with the oldest record first, so that outstanding ITAHCs can be worked through and used to create an Import Record.
+
 ## Business Rules
 
 - [BR-027](../business-rules.md#br-027) — ITAHC replacement chain must be tracked; full primary-selection prevention remains subject to confirmation
@@ -70,5 +73,7 @@ An ITAHC has a replacement chain (Replaced By / Replaces) mirroring the TRACES c
 
 - IMTA-5868
 - IMTA-5984
+- IMTA-7556
+- IMTA-7566
 - IMTA-7648
 - EDA-620

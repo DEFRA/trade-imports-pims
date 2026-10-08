@@ -63,6 +63,12 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
 
 - **AC-6 (Commodity Permanent Address Information subgrid):** For an Importer Notification that is a CHEDA journey with a Type of 'CVEDA', a "Commodity Permanent Address Information" subgrid is shown on the Commodity tab, underneath the Commodity section, with the following columns: Animal ID, Microchip, Passport, Tattoo, Address Type, Address Line 1, Address Line 2, Address Line 3, City, Postcode, Telephone, Email.
 
+- **AC-7 (Transporter Type field):** The Transporter section includes a Type field (Commercial Transporter, Private Transporter, Commercial Transporter – User Added), sourced from the same field in the IPAFFS payload.
+
+- **AC-8 (Extended Purpose of Movement options for POAO/HRFNAO):** For POAO and HRFNAO Imp Types, the Purpose of Movement field additionally accepts For Internal Market, For Transhipment, For Re-entry and Personally Owned Pets Not for Rehoming, sourced from the same IPAFFS payload field as the existing values. *Note: an earlier source ticket (IMTA-9133 AC-6) specified that all Importer Notification fields should be locked when these values were introduced; this is superseded by the subsequent organisation-wide WRITE privilege grant (EDA-249, see NFR-AUT-004) and is not implemented.*
+
+- **AC-9 (Transit and rejected consignments):** The Purpose of Movement / Certified For option set additionally includes Rejected or Returned Consignment and Transit. Port of Exit (text) and Port of Exit Date (date) fields are shown on the Importer Notification; both are optional and are only populated where Purpose of Movement is set to Transit.
+
 ## Business Rules
 
 - [BR-045](../business-rules.md#br-045) — Commodity field visibility depends on journey type
@@ -83,6 +89,8 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
 ### Source Jira Issues
 
 - IMTA-5869
+- IMTA-8589
+- IMTA-9133
 - IMTA-9144
 - EDA-236
 - EDA-249

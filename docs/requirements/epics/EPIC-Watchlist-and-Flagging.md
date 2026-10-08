@@ -30,4 +30,4 @@ PIMS maintains a Watchlist entity covering five watch types: Place of Origin, Pl
 
 ## Source Jira Issues
 
-IMTA-7479, IMTA-7482, IMTA-8012, IMTA-8015
+IMTA-7479, IMTA-7482, IMTA-8012, IMTA-8015, IMTA-8220
