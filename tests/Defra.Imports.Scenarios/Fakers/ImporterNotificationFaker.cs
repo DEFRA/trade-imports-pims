@@ -232,7 +232,8 @@ namespace Defra.Imports.Scenarios.Fakers
 
             // Person Responsible fields - back the "Person Responsible" tab (a narrower field set than the other
             // parties - no Approval Number/Status/Type, and Address is a single free-text field, not split into lines).
-            this.RuleFor(n => n.defraimp_personresponsiblecompanyname, f => f.Name.FullName());
+            this.RuleFor(n => n.defraimp_personresponsiblename, f => f.Name.FullName());
+            this.RuleFor(n => n.defraimp_personresponsiblecompanyname, f => f.Company.CompanyName());
             this.RuleFor(n => n.defraimp_personresponsibleemail, f => f.Internet.Email());
             this.RuleFor(n => n.defraimp_personresponsiblephone, f => f.Phone.PhoneNumber());
             this.RuleFor(n => n.defraimp_personresponsibleaddress, f => $"{f.Address.StreetAddress()}, {f.Address.City()}, {f.Address.ZipCode()}");
