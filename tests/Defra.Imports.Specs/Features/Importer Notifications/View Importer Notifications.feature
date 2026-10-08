@@ -29,7 +29,7 @@ Scenario: A caseworker views Importer Notifications flagged for multiple commodi
 @issue:US-003 @acceptance-criteria:us-003-3 @ignore @defect
 Scenario: A caseworker searches for an Importer Notification by related party or commodity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And an Importer Notification has been created
+	And an Importer Notification has been created with searchable fields populated
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
 	When I search for the Importer Notification using one the following fields
 		| Field                      |

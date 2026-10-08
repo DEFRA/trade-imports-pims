@@ -138,6 +138,21 @@ namespace Defra.Imports.Specs.StepDefinitions
         }
 
         /// <summary>
+        /// Submits an Importer Notification with searchable field values.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("an Importer Notification has been created with searchable fields populated")]
+        public async Task GivenAnImporterNotificationHasBeenCreatedWithSearchableFieldsPopulated()
+        {
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a => a
+                    .WithImportingFromCharity())
+                .BuildAsync();
+
+            this.ctx.Set(scenario);
+        }
+
+        /// <summary>
         /// Searches the active entity list page's data set for the Importer Notification stored in the scenario context, using a value selected at random from one of the given fields.
         /// </summary>
         /// <param name="fields">The candidate fields to search by.</param>
