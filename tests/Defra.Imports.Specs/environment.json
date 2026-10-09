@@ -20,7 +20,7 @@
       "aliases": [ "a caseworker with export to Excel permissions" ]
     },
     "logicApp": {
-      "appId": null,
+      "appId": "00000000-0000-0000-0000-000000000000",
       "roles": [ "System Administrator" ]
     }
   },
