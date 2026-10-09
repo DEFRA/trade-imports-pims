@@ -549,12 +549,13 @@ An EU Imports Caseworker must be able to attach multiple documents (for example 
 PIMS must maintain a read-only Inspection Status field on the Import Record, automatically set from the Outcome of its linked Post Import Check(s), and must display this field as a column in Import Record list views so caseworkers can triage without opening each record. Where an Import Record has multiple linked Post Import Checks, the Inspection Status is set using the following priority order (highest first), not the most recently recorded outcome:
 
 1. **Unsatisfactory** — if any Post Import Check has Outcome = Unsatisfactory, the Inspection Status is Unsatisfactory
-2. **Satisfactory** — if all Post Import Checks are Satisfactory, Not Visited, or Satisfactory Following Official Intervention, and none are Unsatisfactory, the Inspection Status is Satisfactory
-3. **Awaiting Outcome** — if any Post Import Check has Outcome = Awaiting Outcome, and none are Unsatisfactory or in a satisfactory status, the Inspection Status is Awaiting Outcome
+2. **Awaiting Outcome** — if any Post Import Check has Outcome = Awaiting Outcome, and none are Unsatisfactory, the Inspection Status is Awaiting Outcome
+3. **Satisfactory** — if any Post Import Check has Outcome = Satisfactory or Satisfactory Following Official Intervention, and none are Unsatisfactory or Awaiting Outcome, the Inspection Status is Satisfactory
+4. **Not Visited** — if all Post Import Checks have Outcome = Not Visited, the Inspection Status is Not Visited
 
 - **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
 - **Jira:** IMTA-6028
-- **Note:** The roll-up logic could not be sourced from the original Jira requirements and has been inferred from the implementation. Satisfactory Following Official Intervention is included as a satisfactory outcome, reflecting its semantic meaning as a successful check completion (with official intervention applied). The requirement to treat this outcome as satisfactory could not be located in the Jira requirements corpus and has been inferred from the outcome value name and intended use.
+- **Note:** The roll-up logic could not be sourced from the original Jira requirements and has been inferred from the implementation. Satisfactory Following Official Intervention is included as a satisfactory outcome, reflecting its semantic meaning as a successful check completion (with official intervention applied). The requirement to treat this outcome as satisfactory could not be located in the Jira requirements corpus and has been inferred from the outcome value name and intended use. A Post Import Check with Outcome = Not Visited does not by itself make the Import Record Satisfactory; it only contributes to a Satisfactory result when at least one other linked check is Satisfactory or Satisfactory Following Official Intervention, and the Import Record is Not Visited only when every linked check is Not Visited.
 
 ---
 
