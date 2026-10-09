@@ -33,22 +33,39 @@ Scenario: A caseworker views an Importer Notification's importer notification de
 		| Region of Origin              |
 		| Arrival Time                  |
 		| Commodities Number of Animals |
+	And I do not see the following fields
+		| Field                  |
+		| Purpose of Consignment |
+		| Certified For          |
+		| Number of Packages     |
 	And I see a 'Watch Flags <Subgrid_WatchFlags>' subgrid with the following columns
 		| Name | Watch List | Created On |
 	And I see an 'IPAFFS Documents (Importer Notification) <documents_Subgrid>' subgrid with the following columns
 		| Document Type | Document Reference | Document Issue Date | Document URL |
 
 @acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2
-Scenario: A caseworker views an Importer Notification's importer notification details (Non-IMP)
+Scenario: A caseworker views an Importer Notification's importer notification details (CHEDA/CVEDA)
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification not of type 'IMP'
+	And I have opened an Importer Notification of type CHEDA or CVEDA
+	When I select the 'Importer Notification Details' tab
+	Then I see the following fields
+		| Field                  |
+		| Purpose of Consignment |
+		| Certified For          |
+		| Number of Packages     |
+	And I do not see the following fields
+		| Field               |
+		| Purpose of Movement |
+		| Weight (KG)         |
+
+@acceptance-criteria:us-003-1
+Scenario: A caseworker views an Importer Notification's internal market purpose (CVED/CHEDA)
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification with a Purpose of Consignment of 'Internal Market'
 	When I select the 'Importer Notification Details' tab
 	Then I see the following fields
 		| Field                   |
-		| Purpose of Consignment  |
 		| Internal Market Purpose |
-		| Certified For           |
-		| Number of Packages      |
 
 @acceptance-criteria:us-003-1 @issue:US-056 @acceptance-criteria:us-056-3
 Scenario: A caseworker views an Importer Notification's commodity details
@@ -64,9 +81,9 @@ Scenario: A caseworker views an Importer Notification's commodity details
 
 # Possible defect: subgrid is visible for all types.
 @acceptance-criteria:us-003-6 @possible-defect
-Scenario: A caseworker views an Importer Notification's commodity permanent address information (CVEDA)
+Scenario: A caseworker views an Importer Notification's commodity permanent address information (CHEDA/CVEDA)
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification of type 'CVEDA'
+	And I have opened an Importer Notification of type CHEDA or CVEDA
 	When I select the 'Commodity' tab
 	Then I see a 'Commodity Permanent Address information <Identifiers>' subgrid with the following columns
 		| Animal ID | Passport | Microchip | Tattoo | Address Type | Address Line1 | Address Line2 | Address Line3 | City | Post Code | Telephone | Email |

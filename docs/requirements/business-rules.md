@@ -419,16 +419,20 @@ When an Importer Notification with a populated Type of Non-Compliance is linked 
 
 ### BR-045 — Commodity Field Visibility Depends on Import Record Type Journey { #br-045 }
 
-On both the Importer Notification and Import Record forms, PIMS must hide the following fields when the record's Type/Import Record Type indicates the IMP (Importer Notification) journey: Certified For, Purpose of Consignment, Internal Market Purpose, Commodities Number of Packages. PIMS must hide Purpose of Movement when the Type/Import Record Type indicates the CHEDA journey.
+On both the Importer Notification and Import Record forms, PIMS must hide the following fields when the record's Type/Import Record Type indicates the IMP (Importer Notification) journey: Certified For, Purpose of Consignment, Commodities Number of Packages. PIMS must hide Purpose of Movement when the Type/Import Record Type is CVEDA or CHEDA.
+
+CVEDA and CHEDA are both live, distinct option values on the Importer Notification's own Type field, not a "legacy vs current" pairing — per EDA-649, new live-animal CHED-A notifications are mapped to the CHEDA option, while CVEDA remains the value on notifications created before that mapping was introduced. Neither value is removed or deprecated on this field ([BR-038](#br-038) only removes CVEDA/CVEDP/CED from the separate Import Record entity's Import Record Type field, not from this one). The implemented visibility rule (`ShowHidefieldswhenTypeisCVEDA` business rule) treats both values identically because both represent the same CHED-A journey from a field-visibility standpoint.
+
+Internal Market Purpose visibility is governed separately by [BR-061](#br-061), not directly by Type — see that rule for why the two are complementary rather than contradictory.
 
 - **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md), [US-003](user-stories/US-003-Manage-Importer-Notification.md)
-- **Jira:** EDA-432 (final state; supersedes EDA-303, EDA-308, EDA-322, EDA-337, EDA-399, EDA-400)
+- **Jira:** EDA-432 (final state; supersedes EDA-303, EDA-308, EDA-322, EDA-399, EDA-400 for these fields), EDA-649 (establishes CVEDA and CHEDA as the two values representing the CHED-A journey on the Importer Notification's Type field)
 
 ---
 
-### BR-046 — Weight (KG) Hidden for CHEDA { #br-046 }
+### BR-046 — Weight (KG) Hidden for CVEDA/CHEDA { #br-046 }
 
-On both the Importer Notification and Import Record forms, PIMS must hide the Weight (KG) field when the record's Type/Import Record Type is CHEDA. The field remains visible for IMP.
+On both the Importer Notification and Import Record forms, PIMS must hide the Weight (KG) field when the record's Type/Import Record Type is CVEDA or CHEDA. The field remains visible for IMP.
 
 - **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md), [US-003](user-stories/US-003-Manage-Importer-Notification.md)
 - **Jira:** EDA-644
@@ -565,3 +569,33 @@ PIMS must only reflect an Importer Notification's Status as Amend once the corre
 - **Source:** [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md)
 - **Jira:** _IMTA-7423 removed from the source export; no longer Jira-traceable._
 - **Note:** Retained based on implementation evidence — `ProcessINSASBMessage.TryUpdateExisting` only applies an update (including any Amend status) when the inbound `AggregateVersion` has incremented past the existing record's version.
+
+---
+
+### BR-061 — Internal Market Purpose Visibility Driven by Purpose of Consignment { #br-061 }
+
+On both the Importer Notification and Import Record forms, PIMS must hide the Internal Market Purpose field unless Purpose of Consignment = "Internal Market".
+
+This rule is complementary to, not superseded by, [BR-045](#br-045)'s Type-based field visibility: Purpose of Consignment is itself only ever shown and populated for the CVEDA/CHEDA journey (it is hidden, and not populated by the IPAFFS integration, for the IMP journey — see [BR-045](#br-045)). Consequently this rule alone already produces the correct outcome for every journey — Internal Market Purpose is hidden for all IMP records (because Purpose of Consignment is blank) and shown only for CVEDA/CHEDA records where Purpose of Consignment is specifically "Internal Market" (as opposed to, for example, Transit, Re-entry or Transhipment). No separate Type check is required or implemented for this field.
+
+- **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md), [US-003](user-stories/US-003-Manage-Importer-Notification.md)
+- **Jira:** EDA-337
+
+---
+
+### BR-062 — Non-Compliance "Other" Comments Field Visibility { #br-062 }
+
+On the Importer Notification form, PIMS must show the Non-Compliance Other Comments field only when Type of Non-Compliance = "Other"; the field must be hidden for all other Type of Non-Compliance values.
+
+- **Source:** [US-049](user-stories/US-049-Non-Compliance-Management.md)
+- **Jira:** PLNT-4537 (AC-1 specifies this field is "Only displayed when Type of Non-Compliance = Other")
+
+---
+
+### BR-063 — Charity Tab Visibility Tied to Importing From Charity Flag { #br-063 }
+
+On the Importer Notification form, PIMS must show the Charity tab only when the Importing From Charity field is Yes; the tab must be hidden (including when the field is unset) in all other cases.
+
+- **Source:** [US-003](user-stories/US-003-Manage-Importer-Notification.md)
+- **Jira:** _Could not be traced to a source Jira requirement._
+- **Note:** This requirement could not be sourced from Jira and has been inferred from the implementation

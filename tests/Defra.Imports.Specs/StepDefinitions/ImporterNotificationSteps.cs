@@ -4,6 +4,7 @@ namespace Defra.Imports.Specs.StepDefinitions
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Bogus;
     using Defra.Imports.Model;
     using Defra.Imports.Scenarios;
     using Defra.Imports.Specs.Services;
@@ -104,6 +105,26 @@ namespace Defra.Imports.Specs.StepDefinitions
         }
 
         /// <summary>
+        /// Submits an Importer Notification, as the EU Imports Notifications Logic App would from an IPAFFS message, with the given type, and navigates to it.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("^I have opened an Importer Notification of type CHEDA or CVEDA")]
+        public async Task GivenIHaveOpenedAnImporterNotificationOfTypeChedAOrCvedA()
+        {
+            this.powerPlaywrightCtx.Validate();
+
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a => a
+                    .WithType(new Faker().PickRandom(defraimp_importernotificationtype.CVEDA, defraimp_importernotificationtype.CHEDA)))
+                .BuildAsync();
+
+            var importerNotificationId = scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;
+
+            this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
+                new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId));
+        }
+
+        /// <summary>
         /// Submits an Importer Notification, as the EU Imports Notifications Logic App would from an IPAFFS message, with a randomly selected type that is not the given type, and navigates to it.
         /// </summary>
         /// <param name="excludedType">The type of Importer Notification to exclude.</param>
@@ -113,8 +134,7 @@ namespace Defra.Imports.Specs.StepDefinitions
         {
             this.powerPlaywrightCtx.Validate();
 
-            var type = new Bogus.Faker().PickRandom(
-                Enum.GetValues<defraimp_importernotificationtype>().Where(t => t != excludedType).ToArray());
+            var type = new Faker().PickRandomWithout(excludedType);
 
             var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
                 .SubmittedByLogicApp(a => a
@@ -139,6 +159,28 @@ namespace Defra.Imports.Specs.StepDefinitions
             var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
                 .SubmittedByLogicApp(a => a
                     .WithImportingFromCharity())
+                .BuildAsync();
+
+            var importerNotificationId = scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;
+
+            this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
+                new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId));
+        }
+
+        /// <summary>
+        /// Submits an Importer Notification with a given purpose of consignment and navigates to it.
+        /// </summary>
+        /// <param name="purposeOfConsignment">The purpose of consignment.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("^I have opened an Importer Notification with a Purpose of Consignment of '(.*)'$")]
+        public async Task GivenIHaveOpenedAnImporterNotificationWithPurposeOfConsignmentOf(defraimp_purposeofconsignment purposeOfConsignment)
+        {
+            this.powerPlaywrightCtx.Validate();
+
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a => a
+                    .WithType(new Faker().PickRandom(defraimp_importernotificationtype.CVEDA, defraimp_importernotificationtype.CHEDA))
+                    .WithPurposeOfConsignment(purposeOfConsignment))
                 .BuildAsync();
 
             var importerNotificationId = scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;

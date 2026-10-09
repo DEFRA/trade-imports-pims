@@ -1099,7 +1099,7 @@
                         {
                             var isVisible = await field.IsVisibleAsync();
 
-                            isVisible.Should().BeFalse();
+                            isVisible.Should().BeFalse(because: $"Field '{row["Field"]}' should not be visible");
                         },
                         tab: tab);
                 }
@@ -2264,9 +2264,6 @@
             }
         }
 
-        private static bool IsHeaderField(string logicalName) =>
-            logicalName?.StartsWith("header_", StringComparison.OrdinalIgnoreCase) == true;
-
         private static string ReplaceTemplatedValue(string template, Entity record, string field, string placeholder)
         {
             var replacement = string.Empty;
@@ -2362,9 +2359,7 @@
         {
             if (!string.IsNullOrEmpty(fieldLogicalName))
             {
-                return IsHeaderField(fieldLogicalName)
-                    ? FieldLocation.Header
-                    : FieldLocation.Body;
+                return this.formMetadataSvc.GetControlLocationByLogicalName(fieldFormId, fieldLogicalName);
             }
 
             return this.formMetadataSvc.GetControlLocation(fieldFormId, fieldName);

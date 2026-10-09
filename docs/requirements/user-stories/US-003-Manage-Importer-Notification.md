@@ -26,7 +26,8 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
   - Transport to PoE / Transport after PoE sections (mirrors the Import Record — see [US-001](US-001-Manage-Import-Record.md))
   - Species / Product (Common Name), Quantity, Units, Weight (KG) (hidden for CHEDA — [BR-046](../business-rules.md#br-046))
   - Intended Use of Commodity
-  - Purpose of Consignment, Internal Market Purpose, Certified For, Purpose for Movement, Number of Packages (journey-conditional visibility — [BR-045](../business-rules.md#br-045))
+  - Purpose of Consignment, Certified For, Purpose for Movement, Number of Packages (journey-conditional visibility — [BR-045](../business-rules.md#br-045))
+  - Internal Market Purpose (visible only when Purpose of Consignment = Internal Market — [BR-061](../business-rules.md#br-061))
   - Port / Airport of Entry
   - Animal / Product IDs, Commodity Code, Horse Name (shown only where the commodity is Horse) — see AC-6 for the related Commodity Permanent Address Information subgrid
   - MRN Number (sourced from IPAFFS)
@@ -69,13 +70,18 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
 
 - **AC-9 (Transit and rejected consignments):** The Purpose of Movement / Certified For option set additionally includes Rejected or Returned Consignment and Transit. Port of Exit (text) and Port of Exit Date (date) fields are shown on the Importer Notification; both are optional and are only populated where Purpose of Movement is set to Transit.
 
+- **AC-10 (Charity tab visibility):** The Charity tab is shown only when Importing From Charity = Yes; it is hidden in all other cases, including where the field is unset. *Note: could not be traced to a source Jira requirement — see [BR-063](../business-rules.md#br-063).*
+
 ## Business Rules
 
 - [BR-045](../business-rules.md#br-045) — Commodity field visibility depends on journey type
-- [BR-046](../business-rules.md#br-046) — Weight (KG) hidden for CHEDA
+- [BR-046](../business-rules.md#br-046) — Weight (KG) hidden for CVEDA/CHEDA
 - [BR-052](../business-rules.md#br-052) — Devolved Office auto-set and inheritance
 - [BR-055](../business-rules.md#br-055) — Owner-change workflow excludes in-flight IPAFFS statuses
 - [BR-056](../business-rules.md#br-056) — Latest Health Certificate document type mirrors Health Certificate behaviour
+- [BR-061](../business-rules.md#br-061) — Internal Market Purpose visibility driven by Purpose of Consignment
+- [BR-062](../business-rules.md#br-062) — Non-Compliance "Other" comments field visibility
+- [BR-063](../business-rules.md#br-063) — Charity tab visibility tied to Importing From Charity flag
 
 ## Dependencies
 
@@ -108,3 +114,6 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
 - EDA-794
 - EDA-798
 - EDA-400
+- EDA-337
+- EDA-432
+- PLNT-4537

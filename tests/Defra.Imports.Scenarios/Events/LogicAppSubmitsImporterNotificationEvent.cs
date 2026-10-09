@@ -1,6 +1,7 @@
 namespace Defra.Imports.Scenarios.Events
 {
     using System;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Defra.Imports.Model;
     using Defra.Imports.Scenarios.Fakers;
@@ -101,6 +102,20 @@ namespace Defra.Imports.Scenarios.Events
             {
                 this.importerNotificationFaker ??= new ImporterNotificationFaker();
                 this.importerNotificationFaker.RuleFor(n => n.defraimp_type, f => type);
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures the Importer Notification to have the given purpose of consignment.
+            /// </summary>
+            /// <param name="purposeOfConsignment">The display value of the purpose of consignment.</param>
+            /// <returns>The builder.</returns>
+            public Builder WithPurposeOfConsignment(defraimp_purposeofconsignment purposeOfConsignment)
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_PurposeofConsignment, f => purposeOfConsignment);
 
                 return this;
             }
