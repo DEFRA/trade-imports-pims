@@ -961,6 +961,13 @@
                                 exceptions.Add(new AssertFailedException($"Expected {fieldDisplayName} Populated: {expectedPopulated} but found Populated: {actualPopulated}."));
                             }
                         }
+
+                        var isVisible = await field.IsVisibleAsync();
+
+                        if (!isVisible)
+                        {
+                            exceptions.Add(new AssertFailedException($"Expected {fieldDisplayName} Visible: true but found Visible: false."));
+                        }
                     },
                     tab: currentTab);
             }
