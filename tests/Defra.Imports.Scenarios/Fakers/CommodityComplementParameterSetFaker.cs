@@ -9,8 +9,9 @@ namespace Defra.Imports.Scenarios.Fakers
     /// Also creates the <see cref="defraimp_parametersetidentifier"/> and <see cref="defraimp_parametersetkeydatapair"/>
     /// child records nested under it, via the early-bound deep-insert relationship properties - one key/data pair and one
     /// identifier by default, matching most reviewed payloads (a couple had two identifiers for a multi-animal consignment).
-    /// Note: the complement/species IDs generated here are not cross-correlated with a sibling <see cref="CommodityComplementFaker"/>-
-    /// generated record - the reviewed payloads match them by value, but each faker generates its own independently.
+    /// Note: the species ID/name generated here default to independently random values - <see cref="ImporterNotificationFaker"/>
+    /// overrides them to match the sibling <see cref="CommodityComplementFaker"/>-generated record's values, as the
+    /// reviewed payloads match them by value.
     /// </summary>
     public class CommodityComplementParameterSetFaker : RecordFaker<defraimp_commoditycomplementparameterset>
     {
