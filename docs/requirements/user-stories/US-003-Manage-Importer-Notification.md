@@ -18,7 +18,7 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
   - Charity Name, Address, Postcode, Telephone, Email
   - Devolved Office (manual, no default — see [US-059](US-059-Devolved-Office-Assignment.md))
   - Consignment Country of Origin, Countries of Transit
-  - Date of Import
+  - Date of Import, Arrival Time (source: EDA-400 — "Unhide Arrival Time field" on the Importer Notification Details main section)
   - Place of Destination (Contact Name, Address, Postcode, Telephone, Email)
   - Permanent Destination (Contact Name, Address, Postcode, Telephone, Email)
   - Premises of Origin (Name, Address, Postcode, Country)
@@ -26,9 +26,10 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
   - Transport to PoE / Transport after PoE sections (mirrors the Import Record — see [US-001](US-001-Manage-Import-Record.md))
   - Species / Product (Common Name), Quantity, Units, Weight (KG) (hidden for CHEDA — [BR-046](../business-rules.md#br-046))
   - Intended Use of Commodity
-  - Purpose of Consignment, Internal Market Purpose, Certified For, Purpose for Movement, Number of Packages (journey-conditional visibility — [BR-045](../business-rules.md#br-045))
+  - Purpose of Consignment, Certified For, Purpose for Movement, Number of Packages (journey-conditional visibility — [BR-045](../business-rules.md#br-045))
+  - Internal Market Purpose (visible only when Purpose of Consignment = Internal Market — [BR-061](../business-rules.md#br-061))
   - Port / Airport of Entry
-  - Animal / Product IDs, Commodity Code, Horse Name (shown only where the commodity is Horse), Commodity Permanent Address Information (CHEDA only)
+  - Animal / Product IDs, Commodity Code, Horse Name (shown only where the commodity is Horse) — see AC-6 for the related Commodity Permanent Address Information subgrid
   - MRN Number (sourced from IPAFFS)
   - Cloned (Yes/No — identifies a notification created via IPAFFS Clone Journey)
   - Imp Type (Live Animals / POAO / HFRNAO; hidden for the CHED journey)
@@ -50,6 +51,8 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
   - Place of Destination Address City
   - Place of Destination Address Postcode
   - Owner
+  - Cloned
+  - Imp Type
 
 - **AC-3:** An EU Imports Caseworker can perform a free text search for an Importer Notification by: Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name, Animal / Product ID. Results show the list view fields from AC-2.
 
@@ -57,15 +60,28 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
 
 - **AC-5 (All POAO/HRFNAO view):** An EU Imports Caseworker can select an "All POAO/HRFNAO Importer Notifications" view, equivalent to the Active Importer Notifications view with Status (Active/Inactive), Imp Type, Owner, Commodity Description and Commodity Code columns added.
 
-- **AC-6 (Multiple commodities flagged):** An Importer Notification received with more than one commodity code is flagged for caseworker review (see [US-055](US-055-Flag-Multiple-Commodity-Certificates.md)).
+  *Note: no sort order is specified for this view in the available source Jira text (IMTA-9144 lists only columns). The deployed PIMS view sorts by Reference Number (ascending), not Created On (newest first) as implied by "equivalent to" AC-2 — this is recorded here as the deployed fallback, not a sourced requirement.*
+
+- **AC-6 (Commodity Permanent Address Information subgrid):** For an Importer Notification that is a CHEDA journey with a Type of 'CVEDA', a "Commodity Permanent Address Information" subgrid is shown on the Commodity tab, underneath the Commodity section, with the following columns: Animal ID, Microchip, Passport, Tattoo, Address Type, Address Line 1, Address Line 2, Address Line 3, City, Postcode, Telephone, Email.
+
+- **AC-7 (Transporter Type field):** The Transporter section includes a Type field (Commercial Transporter, Private Transporter, Commercial Transporter – User Added), sourced from the same field in the IPAFFS payload.
+
+- **AC-8 (Extended Purpose of Movement options for POAO/HRFNAO):** For POAO and HRFNAO Imp Types, the Purpose of Movement field additionally accepts For Internal Market, For Transhipment, For Re-entry and Personally Owned Pets Not for Rehoming, sourced from the same IPAFFS payload field as the existing values. *Note: an earlier source ticket (IMTA-9133 AC-6) specified that all Importer Notification fields should be locked when these values were introduced; this is superseded by the subsequent organisation-wide WRITE privilege grant (EDA-249, see NFR-AUT-004) and is not implemented.*
+
+- **AC-9 (Transit and rejected consignments):** The Purpose of Movement / Certified For option set additionally includes Rejected or Returned Consignment and Transit. Port of Exit (text) and Port of Exit Date (date) fields are shown on the Importer Notification; both are optional and are only populated where Purpose of Movement is set to Transit.
+
+- **AC-10 (Charity tab visibility):** The Charity tab is shown only when Importing From Charity = Yes; it is hidden in all other cases, including where the field is unset. *Note: could not be traced to a source Jira requirement — see [BR-063](../business-rules.md#br-063).*
 
 ## Business Rules
 
 - [BR-045](../business-rules.md#br-045) — Commodity field visibility depends on journey type
-- [BR-046](../business-rules.md#br-046) — Weight (KG) hidden for CHEDA
+- [BR-046](../business-rules.md#br-046) — Weight (KG) hidden for CVEDA/CHEDA
 - [BR-052](../business-rules.md#br-052) — Devolved Office auto-set and inheritance
 - [BR-055](../business-rules.md#br-055) — Owner-change workflow excludes in-flight IPAFFS statuses
 - [BR-056](../business-rules.md#br-056) — Latest Health Certificate document type mirrors Health Certificate behaviour
+- [BR-061](../business-rules.md#br-061) — Internal Market Purpose visibility driven by Purpose of Consignment
+- [BR-062](../business-rules.md#br-062) — Non-Compliance "Other" comments field visibility
+- [BR-063](../business-rules.md#br-063) — Charity tab visibility tied to Importing From Charity flag
 
 ## Dependencies
 
@@ -79,6 +95,8 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
 ### Source Jira Issues
 
 - IMTA-5869
+- IMTA-8589
+- IMTA-9133
 - IMTA-9144
 - EDA-236
 - EDA-249
@@ -95,3 +113,7 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
 - EDA-739
 - EDA-794
 - EDA-798
+- EDA-400
+- EDA-337
+- EDA-432
+- PLNT-4537

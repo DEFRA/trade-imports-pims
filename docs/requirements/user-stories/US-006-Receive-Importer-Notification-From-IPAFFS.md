@@ -34,6 +34,8 @@ Related records (e.g. Additional Permanent Addresses) that are removed in an IPA
 
 - **AC-8 (Health Certificate attached after completion re-opens the Importer Notification):** When a Health Certificate is attached to an Importer Notification that has already been completed, PIMS sets the Health Certificate Attached field to Y, changes the Owner of the Importer Notification to the EU Imports Dynamics Application User, and changes the Status to Amend, so the notification is surfaced back to the caseworker team for processing. See [US-044](US-044-View-Importer-Notification.md) for the Health Certificate Attached field definition.
 
+- **AC-9 (Amend status reflects only an actual re-submission):** PIMS only changes an Importer Notification's Status to Amend, and applies the amended field values, once IPAFFS has sent the corresponding status-change message following an actual re-submission. Where an importer begins amending a notification in IPAFFS but does not submit the amendment (e.g. navigates away from the review screen), IPAFFS does not send a message, and PIMS must not reflect an Amend status or any unsubmitted field values. This clarifies a defect seen in test where PIMS showed Amend status ahead of actual submission. *No longer Jira-traceable (source ticket IMTA-7423 removed); retained based on implementation evidence — see [BR-060](../business-rules.md#br-060).*
+
 **Clarification (2026-09-22):** PLNT-4536 changes the **Import Record Type** field on the **Import Record** entity — replacing CED, CVEDA and CVEDP with CHEDA, CHEDP and Health Certificate ([BR-038](../business-rules.md#br-038)). This is a different entity from **Importer Notification** referenced in this story, and this AC-1's IPAFFS notification type list (CVEDA, CVEDP, CED, IMP) is not affected by that change. The only cross-entity effect confirmed by PLNT-4536 (AC-3) is that the shared "IMP" option label displays as "Importer Notification" wherever it is used, including on the Importer Notification Details form (see [US-044](US-044-View-Importer-Notification.md) AC-5) — the removal of CED, CVEDA and CVEDP is scoped to Import Record Type only.
 
 ## Business Rules
@@ -42,6 +44,7 @@ Related records (e.g. Additional Permanent Addresses) that are removed in an IPA
 - [BR-033](../business-rules.md#br-033) — Failed IPAFFS messages go to Dead Letter Queue
 - [BR-034](../business-rules.md#br-034) — IPAFFS commodity identifiers translated to D365 commodity classification
 - [BR-042](../business-rules.md#br-042) — Health Certificate attached after completion triggers amendment and reassignment
+- [BR-060](../business-rules.md#br-060) — Importer Notification status must only change to Amend on actual IPAFFS re-submission
 
 ## Dependencies
 

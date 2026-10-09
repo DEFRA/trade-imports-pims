@@ -36,5 +36,4 @@ This story captures the matching behaviour supported by Match Record processing 
 
 ### Source Jira Issues
 
-- IMTA-5872
 - IMTA-6720

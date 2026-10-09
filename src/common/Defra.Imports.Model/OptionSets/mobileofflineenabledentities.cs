@@ -28,31 +28,16 @@ namespace Defra.Imports.Model
 		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Note = 5,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		User = 8,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Team = 9,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Attachment = 1001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Queue = 2020,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		QueueItem = 2029,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Email = 4202,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SLAKPIInstance = 9752,
@@ -163,16 +148,22 @@ namespace Defra.Imports.Model
 		OrderProduct = 1089,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ImportApplicationBusinessProcessFlow = 10083,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Quote = 1084,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Order = 1088,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTAlerttoCaseProcess = 10145,
+		IoTAlerttoCaseProcess = 10148,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTSettings = 10140,
+		MatchRecordBusinessProcessFlow = 10154,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IoTSettings = 10143,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Connection = 3234,
@@ -181,154 +172,235 @@ namespace Defra.Imports.Model
 		ConnectionRole = 3231,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTDevice = 10130,
+		IoTDevice = 10133,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTDeviceCategory = 10131,
+		IoTDeviceCategory = 10134,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTDeviceCommandDefinition = 10133,
+		IoTDeviceCommandDefinition = 10136,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTDeviceDataHistory = 10134,
+		IoTDeviceDataHistory = 10137,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTDeviceProperty = 10135,
+		IoTDeviceProperty = 10138,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTDeviceRegistrationHistory = 10136,
+		IoTDeviceRegistrationHistory = 10139,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTPropertyDefinition = 10137,
+		IoTPropertyDefinition = 10140,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTProvider = 10138,
+		IoTProvider = 10141,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImageDescriptor = 1007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTAlert = 10129,
+		IoTAlert = 10132,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleImage = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTDeviceCommand = 10132,
+		IoTDeviceCommand = 10135,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Copilotknowledgeinteraction = 11380,
+		Copilotknowledgeinteraction = 11327,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IoTProviderInstance = 10139,
+		IoTProviderInstance = 10142,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_historicalcaseharvestbatch = 11383,
+		msdyn_historicalcaseharvestbatch = 11330,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ActivityFileAttachment = 10310,
+		ActivityFileAttachment = 10309,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleAttachment = 10371,
+		KnowledgeArticleAttachment = 10376,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_historicalcaseharvestrun = 11384,
+		msdyn_historicalcaseharvestrun = 11331,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationDataSyncState = 10553,
+		KnowledgeHarvestJobRecord = 11332,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeHarvestJobRecord = 11385,
+		OrganizationDataSyncState = 10552,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationDataSyncFnoState = 11001,
+		OrganizationDataSyncFnoState = 10950,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApprovalStageApproval = 11450,
+		ProductMap = 11406,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApprovalStageCondition = 11451,
+		AccountResearchAgentTrigger = 11427,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityAttachment = 11025,
+		EntityAttachment = 10974,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApprovalStageOrder = 11452,
+		AccountResearchResult = 11428,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProductMap = 11454,
+		LeadAgentResult = 11429,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionCodeCategory = 11479,
+		LeadDelinkResult = 11430,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AccountResearchAgentTrigger = 11485,
+		OutreachAgentResult = 11432,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AccountResearchResult = 11486,
+		OutreachTriggerAgent = 11433,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LeadAgentResult = 11487,
+		QualificationAgentTrigger = 11434,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LeadDelinkResult = 11488,
+		SalesAgentUsage = 11436,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OutreachAgentResult = 11490,
+		DispositionCodeCategory = 11443,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OutreachTriggerAgent = 11491,
+		StakeholderResearchOutput = 11450,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QualificationAgentTrigger = 11492,
+		PowerPagesDDOSAlert = 11455,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SalesAgentUsage = 11494,
+		CompetitorResearchAgentTrigger = 11460,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StakeholderResearchOutput = 11495,
+		TargetCustomerProfilePrefillAgentResult = 11461,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PowerPagesDDOSAlert = 11499,
+		TargetCustomerProfilePrefillAgentTrigger = 11475,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFAQ = 11501,
+		Reserveentity0c5f7794dc = 11476,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CompetitorResearchAgentTrigger = 11507,
+		Reserveentitybaaa246365 = 11477,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TargetCustomerProfilePrefillAgentResult = 11508,
+		Reserveentity462a913406 = 11478,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TargetCustomerProfilePrefillAgentTrigger = 11518,
+		Reserveentity047fdea724 = 11479,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentityd6a42c393d = 11527,
+		Reserveentity9b6aa0edc0 = 11480,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentityfbb2838899 = 11528,
+		Reserveentity8f51bfdb04 = 11481,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity722fea4418 = 11529,
+		Reserveentity6ba7d2661d = 11482,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity60dea57208 = 11530,
+		EvaluationGlobalConfig = 11494,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity225df22aac = 11531,
+		PAFlowRunTracker = 11502,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentitycc4952865a = 11532,
+		Reserveentityd685f8f3a1 = 11503,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity314a25ac1a = 11533,
+		Reserveentityed64436c98 = 11504,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EvaluationGlobalConfig = 11538,
+		Reserveentity4d73ae36d9 = 11505,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PAFlowRunTracker = 11546,
+		Reserveentity4969f8ce46 = 11506,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity06789891c6 = 11507,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity318e2a8f9f = 11508,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity755c571271 = 11509,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity955eb1d201 = 11510,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SummarySynthesizerAgentTrigger = 11512,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OpportunityRankerMapping = 11513,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OpportunityResearchIndicator = 11515,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OpportunityResearchUserInteractions = 11517,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RCSWatermark = 11518,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity540a4366de = 11522,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity064fb0dcea = 11523,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentityc28d4349ab = 11524,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentityd77a007cc1 = 11525,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity40609e0c5a = 11526,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity59387e110e = 11527,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentitydc3c903d4e = 11528,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Shorturl = 11533,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity02c2f9b560 = 11536,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentitydca475dbb3 = 11537,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity3465944e71 = 11538,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity672fcb7203 = 11539,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentitybb9e390b78 = 11540,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentityfd218d23b0 = 11541,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentity47c0763b2e = 11542,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reserveentityebf8fafc10 = 11543,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		msdyn_globalrulesetconfiguration = 11544,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChannelProfile = 11546,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		msdyn_broadcastmessagebulkactionapiprivilege = 11549,
@@ -340,307 +412,232 @@ namespace Defra.Imports.Model
 		msdyn_bulkforcecloseapiprivilege = 11551,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity0599938253 = 11553,
+		msdyn_notifyagentbulkactionapiprivilege = 11559,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity9d0390f59f = 11554,
+		CRMActivityMapping = 11575,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentityb716babd0a = 11555,
+		InterimUpdateKnowledgeArticle = 11579,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentitya813b600fc = 11556,
+		KnowledgeArticleCustomEntity = 11610,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity460c320dbf = 11557,
+		ProactiveEngagementConfigurationStatus = 11618,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity211a0f691a = 11558,
+		BotVariable = 11643,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity91a1b8981c = 11559,
+		AccountResearchSummaryTrigger = 11645,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity90a5b11201 = 11560,
+		CustomAccountInsightsResult = 11646,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SummarySynthesizerAgentTrigger = 11562,
+		CustomizationAgentTrigger = 11647,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OpportunityRankerMapping = 11563,
+		CustomOOBResearchResult = 11648,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OpportunityResearchIndicator = 11565,
+		DefaultOOBAccountResearchResult = 11649,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OpportunityResearchUserInteractions = 11567,
+		SalesCompanyResolverLeadTrigger = 11650,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RCSWatermark = 11568,
+		RelatedConversationTriggerTable = 11651,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentitya57921abd0 = 11573,
+		EvaluationNotificationConfiguration = 11653,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentitye1994741ff = 11574,
+		OpportunityAccountResearchResult = 11676,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity0b8422817b = 11575,
+		Dataqualitylog = 11677,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentityf1b1ab7851 = 11576,
+		Dataqualitysource = 11679,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentityf87e1dec0f = 11577,
+		Dataqualitysuggestion = 11680,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity455bec8673 = 11578,
+		DQARankerTrigger = 11681,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity972cfab781 = 11579,
+		PowerAppsWrapBuild = 11689,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_globalrulesetconfiguration = 11582,
+		msdyn_aiconnectormapping = 11697,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelProfile = 11584,
+		CopilotOrganizationWorkload = 11712,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity71efd427ac = 11587,
+		CopilotUserWorkload = 11713,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentityd56350a277 = 11588,
+		AlwaysRunSQASegment = 11715,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity81f8a2b694 = 11589,
+		ScreenRecordingLink = 11718,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentitya8b47dcb6b = 11590,
+		BulkHarvestRunLog = 11719,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentityb7f2330f76 = 11591,
+		HarvestWorkItem = 11720,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity4925700b67 = 11592,
+		msdyn_governanceagent_status = 11727,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity681dc95b38 = 11593,
+		msdyn_guardrail_consumer_mapping = 11728,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserveentity282184886e = 11594,
+		msdyn_guardrail_execution_info = 11729,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_notifyagentbulkactionapiprivilege = 11597,
+		msdyn_guardrail_rule = 11730,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CRMActivityMapping = 11619,
+		msdyn_guardrail_rule_version = 11731,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InterimUpdateKnowledgeArticle = 11620,
+		msdyn_guardrail_scenariotype = 11732,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Shorturl = 11625,
+		OpportunityCompetitorResearchResultCache = 11743,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleCustomEntity = 11657,
+		PrioritizedActionCatalogue = 11744,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProactiveEngagementConfigurationStatus = 11665,
+		msdyn_recommendedactionsourceagentconfig = 11748,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BotVariable = 11686,
+		Action = 11755,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AccountResearchSummaryTrigger = 11688,
+		Guardrail = 11756,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAccountInsightsResult = 11689,
+		GuardrailVersion = 11757,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomizationAgentTrigger = 11690,
+		IndicatorQuestion = 11758,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomOOBResearchResult = 11691,
+		Monitor = 11759,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DefaultOOBAccountResearchResult = 11692,
+		MonitorAction = 11760,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SalesCompanyResolverLeadTrigger = 11693,
+		MonitorNotificationConfig = 11761,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RelatedConversationTriggerTable = 11694,
+		QINotificationConfig = 11762,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EvaluationNotificationConfiguration = 11696,
+		QINotificationConfigItem = 11763,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OpportunityAccountResearchResult = 11737,
+		QualityIndicator = 11764,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Dataqualitylog = 11738,
+		QualityIndicatorVersion = 11765,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Dataqualitysource = 11740,
+		contactprofilerdetail = 11768,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Dataqualitysuggestion = 11741,
+		contactprofilerresult = 11769,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DQARankerTrigger = 11742,
+		Emailthread = 11773,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PowerAppsWrapBuild = 11746,
+		AgentCoachAdminSettings = 11775,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_aiconnectormapping = 11748,
+		AgentCoachPlaybook = 11776,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CopilotOrganizationWorkload = 11754,
+		AgentCoachPlaybookInstructions = 11777,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CopilotUserWorkload = 11755,
+		AgentCoachPolicySettings = 11778,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_governanceagent_status = 11758,
+		AthenaReconciliationInfo = 11793,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_guardrail_consumer_mapping = 11759,
+		HistoricalCaseHarvestRunLog = 11800,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_guardrail_execution_info = 11760,
+		CustomNeuralVoice = 11834,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_guardrail_rule = 11761,
+		NativeExtension = 11848,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_guardrail_rule_version = 11762,
+		WebEngagementRuleset = 11862,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_guardrail_scenariotype = 11763,
+		WebEngagementRulesetConfig = 11863,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AlwaysRunSQASegment = 11767,
+		WebEngagementRulesetRevision = 11864,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ScreenRecordingLink = 11771,
+		MLDataMaskingRule = 11868,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OpportunityCompetitorResearchResultCache = 11777,
+		CancellationPolicyAttributes = 11903,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PrioritizedActionCatalogue = 11778,
+		ProactiveEngagementPlannerCallerIDPhoneNumber = 11906,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		msdyn_recommendedactionsourceagentconfig = 11782,
+		ProactiveEngagementPlannerCallerIDRule = 11907,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BulkHarvestRunLog = 11791,
+		ProactiveEngagementGlobalCommunicationConfig = 11912,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HarvestWorkItem = 11793,
+		ProactiveEngagementConfigCancellationPolicy = 11916,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Emailthread = 11795,
+		RecommendedActionPullWatermark = 11919,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		contactprofilerdetail = 11798,
+		AuthenticationActivity = 11936,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		contactprofilerresult = 11799,
+		AuthenticationProfile = 11937,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AgentCoachAdminSettings = 11800,
+		SpeakerAudioSamples = 11942,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AgentCoachPlaybook = 11801,
+		VoiceBiometricsAudioSamples = 11943,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AgentCoachPlaybookInstructions = 11802,
+		VoicePrint = 11944,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AgentCoachPolicySettings = 11803,
+		msdyn_guardrail_localized_policy = 11958,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Action = 11814,
+		ActionOwnerAssignment = 11965,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Guardrail = 11817,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GuardrailVersion = 11818,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndicatorQuestion = 11819,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Monitor = 11820,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MonitorAction = 11821,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MonitorNotificationConfig = 11822,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QINotificationConfig = 11823,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QINotificationConfigItem = 11824,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QualityIndicator = 11825,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QualityIndicatorVersion = 11826,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AthenaReconciliationInfo = 11829,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HistoricalCaseHarvestRunLog = 11832,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomNeuralVoice = 11859,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CancellationPolicyAttributes = 11877,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProactiveEngagementPlannerCallerIDPhoneNumber = 11879,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LocationRecord = 11890,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProactiveEngagementPlannerCallerIDRule = 11880,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProactiveEngagementConfigCancellationPolicy = 11888,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NativeExtension = 11891,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MLDataMaskingRule = 11896,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportApplicationBusinessProcessFlow = 11910,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MatchRecordBusinessProcessFlow = 11923,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebEngagementRuleset = 11966,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebEngagementRulesetConfig = 11967,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebEngagementRulesetRevision = 11968,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProactiveEngagementGlobalCommunicationConfig = 11997,
+		GeolocationRecord = 11962,
 	}
 }
 #pragma warning restore CS1591

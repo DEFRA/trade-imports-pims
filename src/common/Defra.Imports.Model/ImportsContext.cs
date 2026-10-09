@@ -97,6 +97,17 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_commoditycomplementparameterset"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_commoditycomplementparameterset> defraimp_commoditycomplementparametersetSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_commoditycomplementparameterset>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_Consignee"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_Consignee> defraimp_ConsigneeSet
@@ -291,6 +302,28 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.CreateQuery<Defra.Imports.Model.defraimp_matchrecord>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_parametersetidentifier"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_parametersetidentifier> defraimp_parametersetidentifierSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_parametersetidentifier>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_parametersetkeydatapair"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_parametersetkeydatapair> defraimp_parametersetkeydatapairSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_parametersetkeydatapair>();
 			}
 		}
 		

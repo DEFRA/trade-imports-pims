@@ -68,6 +68,12 @@ namespace Defra.Imports.Model
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Recommendedactionsscoringagent = 11,
+		
+		/// <summary>
+		/// Sales Profiler Agent - suggested contact profiling and ranking.
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SalesProfilerAgent = 12,
 	}
 }
 #pragma warning restore CS1591

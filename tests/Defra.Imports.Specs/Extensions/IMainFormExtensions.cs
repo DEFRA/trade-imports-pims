@@ -36,7 +36,7 @@
             // TODO: Move to Power Playwright library.
             await mainForm.Container.Page.WaitForAppIdleAsync();
 
-            await mainForm.Container.GetByRole(AriaRole.Tab, new LocatorGetByRoleOptions { Name = "Related" }).ClickAsync();
+            await mainForm.Container.GetByRole(AriaRole.Tab, new LocatorGetByRoleOptions { Name = "More Tabs", Exact = true }).ClickAsync();
             await mainForm.Container.Page.WaitForAppIdleAsync();
             await mainForm.Container.Page
                 .GetByRole(AriaRole.Menu)
@@ -44,6 +44,32 @@
                 .Filter(new LocatorFilterOptions
                 {
                     Has = mainForm.Container.Page.GetByText(relatedTabName, new PageGetByTextOptions { Exact = true }),
+                }).ClickAsync();
+
+            await mainForm.Container.Page.WaitForAppIdleAsync();
+        }
+
+        /// <summary>
+        /// Opens a tab on the form by exact name.
+        /// </summary>
+        /// <remarks>
+        /// This is a workaround until https://github.com/ewingjm/power-playwright/issues/176 is fixed.
+        /// The standard <c>OpenTabAsync</c> method uses a locator without <c>Exact = true</c>,
+        /// which causes failures when multiple tabs start with the same string.
+        /// </remarks>
+        /// <param name="mainForm">The main form.</param>
+        /// <param name="tabName">The exact tab name.</param>
+        /// <returns>A <see cref="Task"/> representing an asynchronous operation.</returns>
+        public static async Task OpenTabByExactNameAsync(this IMainForm mainForm, string tabName)
+        {
+            // TODO: Move to Power Playwright library.
+            await mainForm.Container.Page.WaitForAppIdleAsync();
+
+            await mainForm.Container
+                .GetByRole(AriaRole.Tab)
+                .Filter(new LocatorFilterOptions
+                {
+                    Has = mainForm.Container.Page.GetByText(tabName, new PageGetByTextOptions { Exact = true }),
                 }).ClickAsync();
 
             await mainForm.Container.Page.WaitForAppIdleAsync();

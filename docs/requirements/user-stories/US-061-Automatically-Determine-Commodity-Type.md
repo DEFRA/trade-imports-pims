@@ -34,4 +34,3 @@ A Commodity Type Mapping reference entity maps a TRACES or IPAFFS Species ID and
 ### Source Jira Issues
 
 - IMTA-7785
-- IMTA-8483

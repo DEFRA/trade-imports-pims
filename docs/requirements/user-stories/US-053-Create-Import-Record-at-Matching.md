@@ -20,7 +20,7 @@ When a candidate match ([US-052](US-052-Review-Resolve-Candidate-Matches.md)) is
 
 - **AC-4 (ITAHC marked as linked):** When an Import Record is created from an ITAHC via matching, PIMS sets a "Related Import Record" flag on the ITAHC to true.
 
-- **AC-5 (Manual Import Record Type picklist):** When manually creating an Import Record outside of the matching flow, the Import Record Type picklist offers ITAHC, CHEDA and CHEDP only; DOCOM is not offered as a manually-selectable type, since DOCOM-linked Import Records are created automatically on receipt ([US-010](US-010-Auto-Create-Import-Record-From-DOCOM.md)) or via this matching flow.
+- **AC-5 (Manual Import Record Type picklist):** When manually creating an Import Record outside of the matching flow, the Import Record Type picklist offers ITAHC, CHEDA and CHEDP only; DOCOM is not offered as a manually-selectable type, since DOCOM-linked Import Records are created via this matching flow.
 
 ## Business Rules
 
