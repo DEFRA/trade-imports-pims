@@ -1,7 +1,7 @@
 @issue:US-003
 Feature: View an Importer Notification
 
-@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-4 @acceptance-criteria:us-044-5 @acceptance-criteria:us-044-6 @issue:US-053 @acceptance-criteria:us-053-3 @issue:US-029 @acceptance-criteria:us-029-7 @issue:US-006
+@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-4 @acceptance-criteria:us-044-5 @issue:US-029 @acceptance-criteria:us-029-7 @issue:US-006
 Scenario: A caseworker views an Importer Notification's importer notification details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
