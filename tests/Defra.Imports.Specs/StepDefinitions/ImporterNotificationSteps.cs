@@ -104,6 +104,30 @@ namespace Defra.Imports.Specs.StepDefinitions
         }
 
         /// <summary>
+        /// Submits an Importer Notification, as the EU Imports Notifications Logic App would from an IPAFFS message, with a randomly selected type that is not the given type, and navigates to it.
+        /// </summary>
+        /// <param name="excludedType">The type of Importer Notification to exclude.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("^I have opened an Importer Notification not of type '(CHEDA|CVEDA|CVEDP|GBNAG|IMP)'")]
+        public async Task GivenIHaveOpenedAnImporterNotificationNotOfType(defraimp_importernotificationtype excludedType)
+        {
+            this.powerPlaywrightCtx.Validate();
+
+            var type = new Bogus.Faker().PickRandom(
+                Enum.GetValues<defraimp_importernotificationtype>().Where(t => t != excludedType).ToArray());
+
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a => a
+                    .WithType(type))
+                .BuildAsync();
+
+            var importerNotificationId = scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;
+
+            this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
+                new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId));
+        }
+
+        /// <summary>
         /// Submits an Importer Notification, as the EU Imports Notifications Logic App would from an IPAFFS message, importing from a charity, and navigates to it.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
