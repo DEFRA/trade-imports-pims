@@ -12,7 +12,7 @@ DOCOMs created in TRACES Classic are received and automatically created in PIMS 
 
 **Note:** The specific DOCOM field mapping schema is not specified in this baseline. Attribute-level mapping traceability remains incomplete until that schema is confirmed.
 
-**Note (traceability):** The sole source ticket for this story, IMTA-6599, has been removed from the Jira export following an export correction (see [jira-delta-review-needs-attention.md](../export/jira-delta-review-needs-attention.md)). This story is retained because the TRACES Classic DOCOM integration is current, implemented functionality; the requirement is no longer directly Jira-traceable.
+**Note (traceability):** The sole source ticket for this story, IMTA-6599, has been removed from the Jira export following an export correction. This story is retained because the TRACES Classic DOCOM integration is current, implemented functionality; the requirement is no longer directly Jira-traceable.
 
 ## Acceptance Criteria
 
