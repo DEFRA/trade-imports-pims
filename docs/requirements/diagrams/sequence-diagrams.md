@@ -22,9 +22,10 @@ sequenceDiagram
     SB->>PIMS: Deliver ITAHC message
     PIMS->>WF: Create ITAHC record
     WF->>WF: Validate and map required fields
-    WF->>PIMS: Auto-create linked Import Record
     WF->>TEAM: Determine APHA region/team
     TEAM-->>PIMS: Return assigned team
+    PIMS-->>CW: ITAHC available for review
+    CW->>PIMS: Create Import Record from ITAHC
     PIMS-->>CW: Import Record available for review
     CW->>PIMS: Review and continue case handling
 ```
@@ -145,33 +146,7 @@ sequenceDiagram
     PIMS->>AUDIT: Write closure and timestamp history
 ```
 
-## Process 6 - Failed TRACES Receipt Handling and Reprocessing
-
-```mermaid
-sequenceDiagram
-    autonumber
-    participant TRACES as TRACES Classic
-    participant AZ as Azure Integration
-    participant DLQ as Dead Letter Queue
-    participant PIMS as PIMS Failed Receipt View
-    actor CW as Caseworker
-    participant REPROC as Reprocess Workflow
-
-    TRACES->>AZ: Send ITAHC/DOCOM payload
-    AZ->>AZ: Attempt transform and route
-    alt Processing failure
-        AZ->>DLQ: Store failed message and error details
-        DLQ->>PIMS: Expose failure in Failed TRACES Receipts
-        PIMS-->>CW: Show failure details and retry option
-        CW->>REPROC: Trigger reprocess
-        REPROC->>AZ: Re-submit corrected/original payload
-        AZ->>PIMS: Create/update target records if successful
-    else Processing success
-        AZ->>PIMS: Create/update target records directly
-    end
-```
-
-## Process 7 - Matching Process (ITAHC/DOCOM to Importer Notification)
+## Process 6 - Matching Process (ITAHC/DOCOM to Importer Notification)
 
 ```mermaid
 sequenceDiagram
@@ -205,7 +180,7 @@ sequenceDiagram
     PIMS->>PIMS: Archive unmatched Importer Notifications older than 30 days (configurable)
 ```
 
-## Process 8 - Watchlist Flagging
+## Process 7 - Watchlist Flagging
 
 ```mermaid
 sequenceDiagram

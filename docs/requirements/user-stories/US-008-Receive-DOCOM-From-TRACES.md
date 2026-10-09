@@ -12,6 +12,8 @@ DOCOMs created in TRACES Classic are received and automatically created in PIMS 
 
 **Note:** The specific DOCOM field mapping schema is not specified in this baseline. Attribute-level mapping traceability remains incomplete until that schema is confirmed.
 
+**Note (traceability):** The sole source ticket for this story, IMTA-6599, has been removed from the Jira export following an export correction (see [jira-delta-review-needs-attention.md](../export/jira-delta-review-needs-attention.md)). This story is retained because the TRACES Classic DOCOM integration is current, implemented functionality; the requirement is no longer directly Jira-traceable.
+
 ## Acceptance Criteria
 
 - **AC-1:** DOCOMs created in TRACES Classic are received and automatically created in PIMS within 30 minutes of the time that creation notification emails would have been received by the CIT team.
@@ -26,11 +28,9 @@ None additional to the DOCOM entity rules.
 
 - TRACES Classic integration API/message format agreed (DEP-001)
 - Azure Service Bus Queue and Logic App provisioned (DEP-004)
-- [US-047](US-047-Manage-Failed-TRACES-Receipts.md) (Failed TRACES receipts are captured and reprocessed when inbound DOCOM handling fails)
-- [US-010](US-010-Auto-Create-Import-Record-From-DOCOM.md) (Auto-create Import Record triggered when DOCOM received from TRACES)
 
 ## Traceability
 
 ### Source Jira Issues
 
-- IMTA-6599
+- _None — IMTA-6599 removed from the source export; see traceability note above._

@@ -21,7 +21,6 @@ PIMS automatically flags Import Records for Post Import Checks based on risk ass
 
 ## Functional Scope
 
-- Automatically create the first Post Import Check record against an Import Record when it is first flagged as requiring one (BR-057)
 - Create and update Post Import Check records, including multiple sequenced checks against the same Import Record where required
 - View and filter Post Import Check records (due today, this week, this month)
 - Record Post Import Check outcomes (Satisfactory, Unsatisfactory, Not Visited, Satisfactory Following Official Intervention, Awaiting Outcome)
@@ -41,4 +40,4 @@ PIMS automatically flags Import Records for Post Import Checks based on risk ass
 
 ## Source Jira Issues
 
-IMTA-6253, IMTA-6128, IMTA-6669, IMTA-6699, IMTA-5866, IMTA-6033, IMTA-6029, IMTA-6028
+IMTA-6253, IMTA-6128, IMTA-6669, IMTA-6699, IMTA-5866, IMTA-6029, IMTA-6028

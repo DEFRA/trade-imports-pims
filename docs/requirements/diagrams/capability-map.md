@@ -32,8 +32,6 @@ flowchart TD
     EXT --> EXT1["TRACES ITAHC Ingest"]
     EXT --> EXT2["TRACES DOCOM Ingest"]
     EXT --> EXT3["IPAFFS Importer Notification Ingest"]
-    EXT --> EXT4["Auto-Create Import Record from ITAHC"]
-    EXT --> EXT5["Auto-Create Import Record from DOCOM"]
 
     RISK --> RISK1["Commodity Risk Level Rules"]
     RISK --> RISK2["Gold/Bronze Commodity Rules"]
@@ -70,7 +68,6 @@ flowchart TD
     RPT --> RPT4["Border Control Metrics Dashboard"]
     RPT --> RPT5["APHA Border Control Metrics Dashboard"]
     RPT --> RPT6["FAET Weekly Report"]
-    RPT --> RPT7["Inspection Coverage Audit Report"]
 
     AUD --> AUD1["Field-Level Audit / (Import Records & Post Import Checks)"]
     AUD --> AUD2["Unique Reference Number Generation"]

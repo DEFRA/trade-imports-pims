@@ -12,7 +12,7 @@ Import Queries are formal queries raised by caseworkers against Import Records, 
 
 Each query receives an auto-generated sequential query number in the format `RMQ{YY}-{SEQNUM:4}`.
 
-**Note:** IMTA-6185 (using "Import Record") and IMTA-6255 (using "Import Application") are duplicate source records describing the same functionality. They are consolidated into this single story, using the canonical term "Import Record".
+**Note:** IMTA-6185 and IMTA-6255 (using "Import Application") were duplicate source records describing the same functionality; they were consolidated into this single story using the canonical term "Import Record". IMTA-6255 has since been removed from the Jira export as a confirmed duplicate of the still-present IMTA-6185.
 
 ## Acceptance Criteria
 
@@ -83,4 +83,3 @@ Each query receives an auto-generated sequential query number in the format `RMQ
 ### Source Jira Issues
 
 - IMTA-6185
-- IMTA-6255

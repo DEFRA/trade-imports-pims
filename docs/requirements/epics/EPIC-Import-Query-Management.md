@@ -32,4 +32,4 @@ PIMS provides an Import Query custom activity entity that supports the full quer
 
 ## Source Jira Issues
 
-IMTA-6185, IMTA-6255
+IMTA-6185

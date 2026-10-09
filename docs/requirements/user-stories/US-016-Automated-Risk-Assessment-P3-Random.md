@@ -48,8 +48,6 @@ The counter increment happens **before** automated risk assessment rules are eva
 
 ### Source Jira Issues
 
-- IMTA-5867
-- IMTA-5872
 - IMTA-5892
 - IMTA-5933
 - IMTA-7469

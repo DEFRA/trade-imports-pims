@@ -35,9 +35,6 @@ This baseline has evidence for generic attachment capability, including storing 
 - **AC-7 (View IPAFFS-held attachments):**  
   Where an Importer Notification or Import Record has documents held in IPAFFS, an EU Imports Caseworker can view a read-only link to each document together with its Document Type, Document Reference and Document Issue Date, opening the document in a separate window without edit access. These links and their metadata are removed if the Importer Notification is deleted.
 
-- **AC-8 (Documents attached to an Importer Notification remain editable):**  
-  Documents attached to an Importer Notification (as distinct from an Import Record) can be viewed and edited by an EU Imports Caseworker. This is an exception to the non-deletion rule in AC-3, which applies to Import Record attachments; Importer Notification attachments may still not be deleted.
-
 ## Business Rules
 
 - [BR-031](../business-rules.md#br-031) — Documents attached to Import Records cannot be deleted
@@ -56,7 +53,6 @@ This baseline has evidence for generic attachment capability, including storing 
 - IMTA-5913
 - IMTA-7779
 - IMTA-7782
-- IMTA-10471
 - EDA-648
 - EDA-681
 - EDA-728

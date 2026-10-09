@@ -31,4 +31,3 @@ Both IPAFFS-sourced Importer Notifications and TRACES-sourced ITAHCs can arrive 
 ### Source Jira Issues
 
 - IMTA-7688
-- IMTA-7783

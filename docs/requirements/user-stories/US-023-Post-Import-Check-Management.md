@@ -32,10 +32,6 @@ One Import Record may be linked to multiple Post Import Check records over time,
 
 - **AC-7 (TB default):** When an Import Record's Risk Level is set to TB, Post Import Checks Required? defaults to No (Reason: "No Inspection Required"), except where the Import Record's Devolved Office is IRMS - Scotland, in which case it defaults to Yes (Reason: "TB"). The caseworker may still override the default ([US-024](US-024-Manual-Post-Import-Check-Override.md)).
 
-- **AC-8 (Cancellation on case closure):** When an Import Record is closed, any linked Post Import Check with Outcome = Awaiting Outcome and no work started is set to Outcome = Not Visited with Reason for Not Visiting = Cancelled automatically; where work has started but no outcome is recorded, the caseworker is prompted to confirm before it is cancelled.
-
-- **AC-9 (Automatic creation on first flagging):** PIMS automatically creates the first Post Import Check record against an Import Record (Outcome = Awaiting Outcome, other fields unset) at the point the Import Record is first flagged as requiring one; the caseworker does not need to create it manually. Any subsequent follow-up checks (AC-1a) continue to be created manually by a caseworker.
-
 - **AC-10 (Document attachment):** An EU Imports Caseworker can attach multiple documents (for example IV17 forms and other check-related correspondence) to a Post Import Check record, each with an optional title and note, and can view and download previously attached documents. Once attached, documents cannot be deleted ([BR-031](../business-rules.md#br-031)).
 
 - **AC-11 (Import Record inspection status rollup):** PIMS maintains a read-only Inspection Status field on the Import Record, automatically set from the Outcome of its linked Post Import Check(s) using priority-based rollup rules ([BR-059](../business-rules.md#br-059)), and displayed as a column in Import Record list views so caseworkers can triage without opening each record.
@@ -45,8 +41,6 @@ One Import Record may be linked to multiple Post Import Check records over time,
 - [BR-011](../business-rules.md#br-011), [BR-012](../business-rules.md#br-012), [BR-013](../business-rules.md#br-013) — Trust level counters updated on outcome recording
 - [BR-047](../business-rules.md#br-047) — TB risk level default Post Import Check decision
 - [BR-048](../business-rules.md#br-048) — Post Import Check outcome values and consecutive count impact
-- [BR-049](../business-rules.md#br-049) — Open Post Import Checks cancelled on case closure
-- [BR-057](../business-rules.md#br-057) — Post Import Check auto-created on first flagging
 - [BR-058](../business-rules.md#br-058) — Documents attached to Post Import Checks
 - [BR-059](../business-rules.md#br-059) — Import Record inspection status rollup
 
@@ -67,11 +61,6 @@ One Import Record may be linked to multiple Post Import Check records over time,
 - IMTA-5866
 - IMTA-6669
 - IMTA-6015
-- IMTA-6034
-- IMTA-6031
-- IMTA-6033
-- IMTA-6029
-- IMTA-6028
 - IMTA-7467
 - EDA-231
 - EDA-682

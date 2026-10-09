@@ -10,7 +10,7 @@ All business rules are numbered sequentially. Each rule references the originati
 When an Import Record is created or updated, PIMS must evaluate the configured Commodity Risk Level rules (Country × Commodity Type → Risk Level) to determine the base risk classification (P1, P2, P3) for the Import Record.
 
 - **Source:** [US-011](user-stories/US-011-Manage-Commodity-Risk-Levels.md)
-- **Jira:** IMTA-5865, IMTA-5914, IMTA-5915, IMTA-5916
+- **Jira:** IMTA-5865, IMTA-5914, IMTA-5916
 
 ---
 
@@ -105,7 +105,8 @@ This rule only applies to Import Records with Risk Level = P3.
 The Import Record Counter must be incremented before automated risk assessment rules are evaluated, to ensure accurate sequencing.
 
 - **Source:** [US-016](user-stories/US-016-Automated-Risk-Assessment-P3-Random.md)
-- **Jira:** IMTA-5867 AC-1
+- **Jira:** _IMTA-5867 removed from the source export; no longer Jira-traceable._
+- **Note:** Retained based on implementation evidence — the counter is incremented before the threshold is evaluated in `P3DetermineInspection.DealWithNormalP3Inspection()`.
 
 ---
 
@@ -233,7 +234,7 @@ Example: `RMQ19-0024`
 The sequence number must be global across all Import Queries (not per-Import-Record).
 
 - **Source:** [US-025](user-stories/US-025-Import-Query-Management.md)
-- **Jira:** IMTA-6185, IMTA-6255
+- **Jira:** IMTA-6185
 
 ---
 
@@ -262,10 +263,11 @@ When a user sets the Moved to Completion? field to Yes, PIMS must record the cur
 ---
 
 ### BR-027 — ITAHC/DOCOM Status and Replacement Chain Must Be Tracked { #br-027 }
-The Replaced By and Replaces fields on ITAHC and DOCOM records must reflect the replacement chain from TRACES. Current implementation evidence confirms the replacement links and cross-references are maintained. Explicit prevention of primary-certificate selection in every user interaction context is not yet fully evidenced and requires confirmation.
+The Replaced By and Replaces fields on ITAHC and DOCOM records must reflect the replacement chain from TRACES.
 
 - **Source:** [US-002](user-stories/US-002-Manage-ITAHC.md)
-- **Jira:** IMTA-5984
+- **Jira:** _IMTA-5984 removed from the source export; no longer Jira-traceable._
+- **Note:** This requirement could not be sourced from Jira and has been inferred from the implementation — the `PopulateReplacesAndReplacedBy` plugin/business logic (with unit test coverage) maintains the replacement links and cross-references. An earlier draft of this rule also asserted prevention of primary-certificate selection for replaced certificates; no implementation evidence was found for that behaviour and it has been removed.
 
 ---
 
@@ -273,7 +275,8 @@ The Replaced By and Replaces fields on ITAHC and DOCOM records must reflect the 
 A user must be able to select "No ITAHC Received" in the Primary HC lookup on an Import Record to allow the record to be saved without a linked ITAHC. Source stories may refer to this option as "No ITAHC Provided".
 
 - **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md)
-- **Jira:** IMTA-5985
+- **Jira:** _IMTA-5985 removed from the source export; no longer Jira-traceable._
+- **Note:** Retained based on implementation evidence — `NoITAHCReceived` is a defined status reason handled in the inspection-requirement business logic.
 
 ---
 
@@ -324,14 +327,6 @@ When IPAFFS Importer Notification data is processed for downstream Import Record
 
 - **Source:** [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md)
 - **Jira:** IMTA-7222
-
----
-
-### BR-035 — Failed TRACES Receipts Must Be Captured, Visible and Reprocessable { #br-035 }
-If an inbound ITAHC or DOCOM receipt from TRACES Classic cannot be processed into PIMS, the failure must be captured with enough detail for investigation, exposed to authorised operational users for review, support controlled retry or reprocess actions, and maintain an auditable history of the failure and its resolution.
-
-- **Source:** [US-047](user-stories/US-047-Manage-Failed-TRACES-Receipts.md)
-- **Jira:** IMTA-6626
 
 ---
 
@@ -456,16 +451,7 @@ When an Import Record's Risk Level is set to TB, PIMS must default Post Import C
 A Post Import Check's Outcome field must offer exactly: Satisfactory, Unsatisfactory, Not Visited, Satisfactory Following Official Intervention (defaulting to Awaiting Outcome until set). Where Outcome = Unsatisfactory, a Reason for Unsatisfactory Visit field must be completed from: Non-Compliant welfare, Non-Compliant documentary check, Quarantined. Where Outcome = Not Visited, a Reason for Not Visiting field must be completed from: Additional Inspection Required, Cancelled, Resolved Not Required, Lack of field resource.
 
 - **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
-- **Jira:** IMTA-7467 (supersedes IMTA-6031)
-
----
-
-### BR-049 — Open Post Import Checks Cancelled on Case Closure { #br-049 }
-
-When an Import Record is closed, PIMS must set any linked Post Import Check with Outcome = Awaiting Outcome (not yet started) to Outcome = Not Visited with Reason for Not Visiting = Cancelled, recording the current date and user. Where a linked Post Import Check is mid-flight (Outcome not yet recorded but work has started), PIMS must prompt the caseworker to confirm before cancelling it on closure.
-
-- **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
-- **Jira:** IMTA-6034
+- **Jira:** IMTA-7467
 
 ---
 
@@ -485,7 +471,7 @@ The Country reference entity must hold a 6-character region code (GB-ENG, GB-SCT
 Whenever an Import Record's Species ID or Commodity Code fields change, PIMS must look up the Commodity Type Mapping records matching the Commodity Code (narrowed by Species ID where more than one mapping matches) and set the Import Record's Commodity Type to the single matching value, or to "Other" if no mapping matches. The Commodity Type field must not be manually editable.
 
 - **Source:** [US-061](user-stories/US-061-Automatically-Determine-Commodity-Type.md)
-- **Jira:** IMTA-7785, IMTA-8483
+- **Jira:** IMTA-7785
 
 ---
 
@@ -549,17 +535,6 @@ When a document with Document Type = Latest Health Certificate and a populated U
 
 ---
 
-## Post Import Check Rules (Addendum)
-
-### BR-057 — Post Import Check Auto-Created on First Flagging { #br-057 }
-
-When an Import Record is flagged as requiring a Post Import Check for the first time and no Post Import Check record yet exists against it, PIMS must automatically create one with Outcome = Awaiting Outcome and all other fields unset, so the caseworker does not need to create it manually. Any subsequent or follow-up Post Import Checks against the same Import Record ([US-023](user-stories/US-023-Post-Import-Check-Management.md) AC-1a) continue to be created manually.
-
-- **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
-- **Jira:** IMTA-6033
-
----
-
 ### BR-058 — Documents Attached to Post Import Checks { #br-058 }
 
 An EU Imports Caseworker must be able to attach multiple documents (for example IV17 forms and other check-related correspondence) to a Post Import Check record, each with an optional title and note, and view or download previously attached documents. Once attached, a document must not be deletable, consistent with the Import Record attachment rule ([BR-031](#br-031)).
@@ -578,7 +553,7 @@ PIMS must maintain a read-only Inspection Status field on the Import Record, aut
 3. **Awaiting Outcome** — if any Post Import Check has Outcome = Awaiting Outcome, and none are Unsatisfactory or in a satisfactory status, the Inspection Status is Awaiting Outcome
 
 - **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
-- **Jira:** IMTA-6028, IMTA-6032
+- **Jira:** IMTA-6028
 - **Note:** The roll-up logic could not be sourced from the original Jira requirements and has been inferred from the implementation. Satisfactory Following Official Intervention is included as a satisfactory outcome, reflecting its semantic meaning as a successful check completion (with official intervention applied). The requirement to treat this outcome as satisfactory could not be located in the Jira requirements corpus and has been inferred from the outcome value name and intended use.
 
 ---
@@ -588,4 +563,5 @@ PIMS must maintain a read-only Inspection Status field on the Import Record, aut
 PIMS must only reflect an Importer Notification's Status as Amend once the corresponding amendment has been submitted in IPAFFS. An importer beginning an amendment in IPAFFS without submitting it (e.g. navigating away from the review screen) must not cause PIMS to change the Status to Amend or apply any of the amended field values, since IPAFFS has not yet sent a status-change message in that case ([BR-033](#br-033), [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md) AC-1). This clarifies a defect where PIMS incorrectly showed Amend status, with stale field values, ahead of actual submission.
 
 - **Source:** [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md)
-- **Jira:** IMTA-7423
+- **Jira:** _IMTA-7423 removed from the source export; no longer Jira-traceable._
+- **Note:** Retained based on implementation evidence — `ProcessINSASBMessage.TryUpdateExisting` only applies an update (including any Amend status) when the inbound `AggregateVersion` has incremented past the existing record's version.

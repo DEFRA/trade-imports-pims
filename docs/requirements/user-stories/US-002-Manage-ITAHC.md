@@ -10,7 +10,7 @@ So that I can record key health certificate information and link it to an Import
 
 An ITAHC (International Transport of Animals Health Certificate) is the primary health certificate for live animal consignments. Caseworkers create and manage ITAHC records in PIMS. ITAHC records can also be auto-created by the TRACES Classic integration ([US-007](US-007-Receive-ITAHC-From-TRACES.md)).
 
-An ITAHC has a replacement chain (Replaced By / Replaces) mirroring the TRACES chain, and replacement links and cross-references are maintained. Explicit prevention of primary-certificate selection in every selection context remains to be confirmed.
+An ITAHC has a replacement chain (Replaced By / Replaces) mirroring the TRACES chain, and replacement links and cross-references are maintained.
 
 ## Acceptance Criteria
 
@@ -58,7 +58,7 @@ An ITAHC has a replacement chain (Replaced By / Replaces) mirroring the TRACES c
 
 ## Business Rules
 
-- [BR-027](../business-rules.md#br-027) — ITAHC replacement chain must be tracked; full primary-selection prevention remains subject to confirmation
+- [BR-027](../business-rules.md#br-027) — ITAHC replacement chain must be tracked
 - [BR-052](../business-rules.md#br-052) — Devolved Office auto-set and inheritance
 
 ## Dependencies
@@ -72,7 +72,6 @@ An ITAHC has a replacement chain (Replaced By / Replaces) mirroring the TRACES c
 ### Source Jira Issues
 
 - IMTA-5868
-- IMTA-5984
 - IMTA-7556
 - IMTA-7566
 - IMTA-7648

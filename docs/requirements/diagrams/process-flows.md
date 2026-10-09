@@ -10,15 +10,13 @@ Key process flows in PIMS, derived from the source Jira stories.
 flowchart TD
     A([TRACES Classic <br/> Creates ITAHC]) --> B[Email notification <br/> to CIT team]
     B --> C[Azure Integration <br/> Intercepts and routes to <br/> Service Bus Queue]
-    C --> D{Message <br/> Processed <br/> Successfully?}
-    D -->|No| E[Capture failed receipt <br/> Make visible for <br/> investigation and reprocess]
-    D -->|Yes| F[Create ITAHC Record <br/> in PIMS D365]
-    F --> G[Auto-create <br/> Import Record <br/> linked to ITAHC]
-    G --> H[Auto-assign to <br/> Regional Team]
-    H --> I[Caseworker Reviews <br/> Import Record]
+    C --> F[Create ITAHC Record <br/> in PIMS D365]
+    F --> H[Auto-assign to <br/> Regional Team]
+    H --> G[Caseworker creates <br/> Import Record <br/> from ITAHC]
+    G --> I[Caseworker Reviews <br/> Import Record]
     I --> J[Risk Assessment Applied <br/> Automatically]
     J --> K{Post Import Check <br/> Required?}
-    K -->|Yes| L[Post Import Check <br/> auto-created <br/> Outcome = Awaiting Outcome]
+    K -->|Yes| L[Caseworker creates <br/> Post Import Check record]
     K -->|No| M[Import Record <br/> Completed]
     L --> N[Post Import Check <br/> Outcome Recorded]
     N --> O[Trust Level <br/> Updated on <br/> Place of Origin]

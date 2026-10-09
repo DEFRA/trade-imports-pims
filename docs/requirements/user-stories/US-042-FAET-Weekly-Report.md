@@ -10,6 +10,8 @@ So that information can be shared with other departments.
 
 A report exportable by users with the Excel Export security role, covering Import Records for a given date range with the specified field set.
 
+**Note (traceability):** The sole source ticket for this story, IMTA-6354, has been removed from the Jira export following an export correction (see [jira-delta-review-needs-attention.md](../export/jira-delta-review-needs-attention.md)). This story is retained based on implementation evidence — an "EU Imports Export to Excel" security role granting `prvExportToExcel` exists, and the Import Record "6. Export to Excel View" saved query exposes almost the entire field set below.
+
 ## Acceptance Criteria
 
 - **AC-1 (FAET Weekly Report):**  
@@ -57,4 +59,4 @@ None additional.
 
 ### Source Jira Issues
 
-- IMTA-6354
+- _None — IMTA-6354 removed from the source export; see traceability note above._

@@ -10,6 +10,8 @@ So that I can save the effort of manually re-keying certificate data and redirec
 
 ITAHCs created in TRACES Classic are received and automatically created in PIMS via Azure Integration Services. The integration intercepts the notification email mechanism used by the CIT team and routes ITAHC data via an Azure Service Bus Queue into PIMS. ITAHC records created this way are distinguishable from manually created records by being associated with a TRACES service account.
 
+**Note (traceability):** The sole source ticket for this story, IMTA-6598, has been removed from the Jira export following an export correction (see [jira-delta-review-needs-attention.md](../export/jira-delta-review-needs-attention.md)). This story is retained because the TRACES Classic ITAHC integration is current, implemented functionality; the requirement is no longer directly Jira-traceable.
+
 **Note:** The ITAHC field mapping is defined in the **Defra - EU Imports - D365 - Entity Schemas** workbook, which is held outside this repository. That workbook provides the complete TRACES-to-D365 attribute-level mapping for both ITAHC and DOCOM. Key mapping details: Consignor Name is mandatory; the certificate structure maps to the Consignment Details and Place of Destination form sections; Identification of Animals and Commodity Complements are stored as JSON text fields.
 
 ## Acceptance Criteria
@@ -26,11 +28,9 @@ ITAHCs created in TRACES Classic are received and automatically created in PIMS 
 
 - TRACES Classic integration API/message format agreed (DEP-001)
 - Azure Service Bus Queue and Logic App provisioned (DEP-004)
-- [US-047](US-047-Manage-Failed-TRACES-Receipts.md) (Failed TRACES receipts are captured and reprocessed when inbound ITAHC handling fails)
-- [US-009](US-009-Auto-Create-Import-Record-From-ITAHC.md) (Auto-create Import Record triggered when ITAHC received from TRACES)
 
 ## Traceability
 
 ### Source Jira Issues
 
-- IMTA-6598
+- _None — IMTA-6598 removed from the source export; see traceability note above._

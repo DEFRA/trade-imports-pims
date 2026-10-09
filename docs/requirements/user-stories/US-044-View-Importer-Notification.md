@@ -37,11 +37,8 @@ Caseworkers can view Importer Notification records in PIMS (auto-received from I
 - **AC-7 (IMP Type hidden for CHED journey):**  
   The IMP Type field is hidden on the Importer Notification form (and the corresponding Import Record form, see [US-001](US-001-Manage-Import-Record.md)) when the record's journey is CHED, since the field does not apply to that journey.
 
-- **AC-8 (Exclude Bees/Aquatics commodities from the Active Importer Notifications view):**  
-  The Active Importer Notifications view excludes records where the Commodity Code is 0106410000 (Bees) or starts with 1601, 1602, 03, 02, 3 or 2. The view additionally shows Place of Destination Address Postcode, Place of Destination Address City, Importer Notification Owner and Document URL columns.
-
-- **AC-9 (View of Importer Notifications without a document link):**  
-  An EU Imports Caseworker can select a view of all Importer Notifications that do not have any attached documents, so these can be easily identified and followed up (complementing the Document URL column added in AC-8).
+- **AC-8 (Additional columns on the Active Importer Notifications view):**  
+  The Active Importer Notifications view shows Place of Destination Address Postcode, Place of Destination Address City and Importer Notification Owner columns.
 
 - **AC-10 (Attached document links must resolve):**  
   Where an Importer Notification has a document attached with a populated URL, selecting that document's link opens the document. A link that returns "Page Not Found" or fails to resolve is a defect, not expected behaviour.
@@ -64,9 +61,6 @@ Caseworkers can view Importer Notification records in PIMS (auto-received from I
 ### Source Jira Issues
 
 - IMTA-7201
-- IMTA-7240
-- IMTA-8546
-- IMTA-8554
 - IMTA-9144
 - IMTA-10472
 - PLNT-4536

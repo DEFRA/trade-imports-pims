@@ -136,9 +136,6 @@ nav:
       - US-006 Receive Importer Notification from IPAFFS: requirements/user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md
       - US-007 Receive ITAHC from TRACES: requirements/user-stories/US-007-Receive-ITAHC-From-TRACES.md
       - US-008 Receive DOCOM from TRACES: requirements/user-stories/US-008-Receive-DOCOM-From-TRACES.md
-      - US-009 Auto-Create Import Record from ITAHC: requirements/user-stories/US-009-Auto-Create-Import-Record-From-ITAHC.md
-      - US-010 Auto-Create Import Record from DOCOM: requirements/user-stories/US-010-Auto-Create-Import-Record-From-DOCOM.md
-      - US-047 Manage Failed TRACES Receipts: requirements/user-stories/US-047-Manage-Failed-TRACES-Receipts.md
     - Risk Assessment & Business Rules:
       - US-011 Manage Commodity Risk Levels: requirements/user-stories/US-011-Manage-Commodity-Risk-Levels.md
       - US-012 Manage Gold/Bronze Commodities: requirements/user-stories/US-012-Manage-Gold-Bronze-Commodities.md
@@ -172,7 +169,6 @@ nav:
       - US-040 Border Control Metrics Dashboard: requirements/user-stories/US-040-Border-Control-Metrics-Dashboard.md
       - US-041 APHA Border Control Metrics Dashboard: requirements/user-stories/US-041-APHA-Border-Control-Metrics-Dashboard.md
       - US-042 FAET Weekly Report: requirements/user-stories/US-042-FAET-Weekly-Report.md
-      - US-043 Inspection Coverage Report: requirements/user-stories/US-043-Inspection-Coverage-Report.md
     - Audit & Compliance:
       - US-028 Generate Unique Reference Number: requirements/user-stories/US-028-Generate-Unique-Reference-Number.md
       - US-035 Audit Import Records: requirements/user-stories/US-035-Audit-Import-Records.md
