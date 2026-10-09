@@ -9,7 +9,7 @@ steps:
       projectName: trade-imports-pims
       extraProperties: |
         sonar.sourceEncoding=UTF-8
-        sonar.exclusions=src/common/Defra.Imports.Model/**/*.*,**/node_modules/**,**/bin/**,**/obj/**,**/out/**,**/coverage/**,**/test-results/**,docs\requirements\export\PIMS Legacy Requirements (JIRA).html
+        sonar.exclusions=src/common/Defra.Imports.Model/**/*.*,**/node_modules/**,**/bin/**,**/obj/**,**/out/**,**/coverage/**,**/test-results/**,docs/requirements/export/PIMS Legacy Requirements (JIRA).html
         sonar.javascript.lcov.reportPaths=src/webresources/scripts/coverage/lcov.info
         sonar.cs.cobertura.reportsPaths=$(Agent.TempDirectory)/*/coverage.cobertura.xml
         sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/*/*.trx

@@ -92,7 +92,14 @@ namespace Defra.Imports.Scenarios.Fakers
             IpaffsDocumentFaker ipaffsDocumentFaker = null)
         {
             var commodityComplements = (commodityComplementFaker ?? new CommodityComplementFaker()).Generate(1);
-            var commodityComplementParameterSets = (commodityComplementParameterSetFaker ?? new CommodityComplementParameterSetFaker()).Generate(1);
+
+            // Correlate the parameter set's species id/name with the commodity complement's - the production payload
+            // matches these across both child records, so generating them independently would produce an impossible
+            // test-data shape.
+            var commodityComplementParameterSets = (commodityComplementParameterSetFaker ?? new CommodityComplementParameterSetFaker())
+                .RuleFor(p => p.defraimp_speciesid, f => commodityComplements[0].defraimp_speciesid)
+                .RuleFor(p => p.defraimp_SpeciesName, f => commodityComplements[0].defraimp_speciesname)
+                .Generate(1);
             var documents = (ipaffsDocumentFaker ?? new IpaffsDocumentFaker()).Generate(2);
 
             this.RuleFor(n => n.defraimp_IpaffsId, f => f.Random.Int(100000, 999999));
