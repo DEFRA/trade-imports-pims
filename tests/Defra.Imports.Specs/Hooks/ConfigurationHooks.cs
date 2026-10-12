@@ -23,9 +23,8 @@
         /// Gets the configuration for the test run.
         /// </summary>
         /// <param name="testThreadContainer">The Object container injected.</param>
-        /// <param name="outputHelper">The output helper.</param>
         [BeforeTestRun(Order = -20000)]
-        public static void GetEnvironmentConfiguration(ObjectContainer testThreadContainer, IReqnrollOutputHelper outputHelper)
+        public static void GetEnvironmentConfiguration(ObjectContainer testThreadContainer)
         {
             KeyVaultConfiguration keyVaultConfiguration = null;
 
@@ -70,7 +69,7 @@
                     ? null
                     : $"keyVaultName={keyVaultConfiguration.Name}, tenantId={keyVaultConfiguration.TenantId}, clientId={keyVaultConfiguration.ClientId}";
 
-                HookDiagnostics.LogBeforeTestRunFailure(outputHelper, nameof(GetEnvironmentConfiguration), ex, context);
+                HookDiagnostics.LogBeforeTestRunFailure(nameof(GetEnvironmentConfiguration), ex, context);
                 throw;
             }
         }

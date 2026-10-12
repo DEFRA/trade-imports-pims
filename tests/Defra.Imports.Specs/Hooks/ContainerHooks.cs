@@ -46,9 +46,8 @@
         /// </summary>
         /// <param name="testThreadContainer">The test thread container.</param>
         /// <param name="testConfiguration">The test configuration.</param>
-        /// <param name="outputHelper">The output helper.</param>
         [BeforeTestRun(Order = -19999)]
-        public static void RegisterUserPoolService(ObjectContainer testThreadContainer, TestConfiguration testConfiguration, IReqnrollOutputHelper outputHelper)
+        public static void RegisterUserPoolService(ObjectContainer testThreadContainer, TestConfiguration testConfiguration)
         {
             try
             {
@@ -68,7 +67,7 @@
                 // environment/application user was targeted without logging any credentials.
                 var context = $"url={testConfiguration.Url}, clientId={testConfiguration.ClientId}, tenantId={testConfiguration.TenantId}";
 
-                HookDiagnostics.LogBeforeTestRunFailure(outputHelper, nameof(RegisterUserPoolService), ex, context);
+                HookDiagnostics.LogBeforeTestRunFailure(nameof(RegisterUserPoolService), ex, context);
                 throw;
             }
         }
@@ -77,9 +76,8 @@
         /// Registers an app user client for assembly level hookds.
         /// </summary>
         /// <param name="testThreadContainer">The test thread container.</param>
-        /// <param name="outputHelper">The output helper.</param>
         [BeforeTestRun(Order = -19998)]
-        public static void RegisterAssemblyHookClient(ObjectContainer testThreadContainer, IReqnrollOutputHelper outputHelper)
+        public static void RegisterAssemblyHookClient(ObjectContainer testThreadContainer)
         {
             try
             {
@@ -87,7 +85,7 @@
             }
             catch (Exception ex)
             {
-                HookDiagnostics.LogBeforeTestRunFailure(outputHelper, nameof(RegisterAssemblyHookClient), ex);
+                HookDiagnostics.LogBeforeTestRunFailure(nameof(RegisterAssemblyHookClient), ex);
                 throw;
             }
         }
@@ -96,13 +94,12 @@
         /// Sets up Playwright for the test run.
         /// </summary>
         /// <param name="testThreadContainer">The Object container injected.</param>
-        /// <param name="outputHelper">The output helper.</param>
         /// <remarks>
         /// Playwright is registered as a singleton (i.e. same instance is used for all tests).
         /// </remarks>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [BeforeTestRun(Order = -19997)]
-        public static async Task SetupPlaywright(ObjectContainer testThreadContainer, IReqnrollOutputHelper outputHelper)
+        public static async Task SetupPlaywright(ObjectContainer testThreadContainer)
         {
             try
             {
@@ -112,7 +109,7 @@
             }
             catch (Exception ex)
             {
-                HookDiagnostics.LogBeforeTestRunFailure(outputHelper, nameof(SetupPlaywright), ex);
+                HookDiagnostics.LogBeforeTestRunFailure(nameof(SetupPlaywright), ex);
                 throw;
             }
         }
