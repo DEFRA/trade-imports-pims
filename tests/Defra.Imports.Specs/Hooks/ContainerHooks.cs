@@ -46,44 +46,75 @@
         /// </summary>
         /// <param name="testThreadContainer">The test thread container.</param>
         /// <param name="testConfiguration">The test configuration.</param>
+        /// <param name="outputHelper">The output helper.</param>
         [BeforeTestRun(Order = -19999)]
-        public static void RegisterUserPoolService(ObjectContainer testThreadContainer, TestConfiguration testConfiguration)
+        public static void RegisterUserPoolService(ObjectContainer testThreadContainer, TestConfiguration testConfiguration, IReqnrollOutputHelper outputHelper)
         {
-            sharedBaseClient = ServiceClientFactory.CreateBaseClient(testConfiguration.Url, testConfiguration.ClientId, testConfiguration.ClientSecret);
+            try
+            {
+                sharedBaseClient = ServiceClientFactory.CreateBaseClient(testConfiguration.Url, testConfiguration.ClientId, testConfiguration.ClientSecret);
 
-            // A separate connection to build the user pool rather than the shared base client, since
-            // ownership is passed to the applier, which disposes it, cascading from UserPoolService.Dispose().
-            var poolServiceClient = new ServiceClient(testConfiguration.Url, testConfiguration.ClientId.ToString(), testConfiguration.ClientSecret, true);
-            var applier = new PersonaConfigurationApplier(poolServiceClient);
-            var userPoolService = new UserPoolService(testConfiguration.Credentials.Select(c => c.Username), testConfiguration.Personas, applier);
+                // A separate connection to build the user pool rather than the shared base client, since
+                // ownership is passed to the applier, which disposes it, cascading from UserPoolService.Dispose().
+                var poolServiceClient = new ServiceClient(testConfiguration.Url, testConfiguration.ClientId.ToString(), testConfiguration.ClientSecret, true);
+                var applier = new PersonaConfigurationApplier(poolServiceClient);
+                var userPoolService = new UserPoolService(testConfiguration.Credentials.Select(c => c.Username), testConfiguration.Personas, applier);
 
-            testThreadContainer.RegisterInstanceAs(userPoolService);
+                testThreadContainer.RegisterInstanceAs(userPoolService);
+            }
+            catch (Exception ex)
+            {
+                // Context is limited to non-secret identifiers (URL/client/tenant ID) to help diagnose which
+                // environment/application user was targeted without logging any credentials.
+                var context = $"url={testConfiguration.Url}, clientId={testConfiguration.ClientId}, tenantId={testConfiguration.TenantId}";
+
+                HookDiagnostics.LogBeforeTestRunFailure(outputHelper, nameof(RegisterUserPoolService), ex, context);
+                throw;
+            }
         }
 
         /// <summary>
         /// Registers an app user client for assembly level hookds.
         /// </summary>
         /// <param name="testThreadContainer">The test thread container.</param>
+        /// <param name="outputHelper">The output helper.</param>
         [BeforeTestRun(Order = -19998)]
-        public static void RegisterAssemblyHookClient(ObjectContainer testThreadContainer)
+        public static void RegisterAssemblyHookClient(ObjectContainer testThreadContainer, IReqnrollOutputHelper outputHelper)
         {
-            testThreadContainer.RegisterInstanceAs(sharedBaseClient.Clone());
+            try
+            {
+                testThreadContainer.RegisterInstanceAs(sharedBaseClient.Clone());
+            }
+            catch (Exception ex)
+            {
+                HookDiagnostics.LogBeforeTestRunFailure(outputHelper, nameof(RegisterAssemblyHookClient), ex);
+                throw;
+            }
         }
 
         /// <summary>
         /// Sets up Playwright for the test run.
         /// </summary>
         /// <param name="testThreadContainer">The Object container injected.</param>
+        /// <param name="outputHelper">The output helper.</param>
         /// <remarks>
         /// Playwright is registered as a singleton (i.e. same instance is used for all tests).
         /// </remarks>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [BeforeTestRun(Order = -19997)]
-        public static async Task SetupPlaywright(ObjectContainer testThreadContainer)
+        public static async Task SetupPlaywright(ObjectContainer testThreadContainer, IReqnrollOutputHelper outputHelper)
         {
-            var playwright = await Playwright.CreateAsync();
+            try
+            {
+                var playwright = await Playwright.CreateAsync();
 
-            testThreadContainer.RegisterInstanceAs(playwright);
+                testThreadContainer.RegisterInstanceAs(playwright);
+            }
+            catch (Exception ex)
+            {
+                HookDiagnostics.LogBeforeTestRunFailure(outputHelper, nameof(SetupPlaywright), ex);
+                throw;
+            }
         }
 
         /// <summary>
