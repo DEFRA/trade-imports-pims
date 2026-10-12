@@ -41,6 +41,16 @@ jobs:
         inputs:
           version: ${{ parameters.dotNetSdkVersion }}
 
+      - task: PowerShell@2
+        displayName: Dump environment variables
+        inputs:
+          targetType: inline
+          script: |
+            Write-Host "Environment Variables:" -ForegroundColor Green
+            Get-ChildItem Env: | Sort-Object Name | ForEach-Object {
+              Write-Host "$($_.Name)=$($_.Value)"
+            }
+
       - task: DotNetCoreCLI@2
         displayName: Run acceptance tests
         inputs:
