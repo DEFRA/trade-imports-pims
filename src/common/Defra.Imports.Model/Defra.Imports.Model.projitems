@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraexp_configurationparameter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_autonumber.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_commoditycomplement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_commoditycomplementparameterset.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_consignee.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_counterhistory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_docom.cs" />
@@ -33,6 +34,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_ipaffsdocument.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_itahc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_matchrecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_parametersetkeydatapair.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_placeofdestination.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_placeoforigin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\defraimp_postcoderegion.cs" />

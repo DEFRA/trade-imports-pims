@@ -610,9 +610,6 @@ namespace Defra.Imports.Model
 		ProactiveEngagementPlannerCallerIDPhoneNumber = 11879,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LocationRecord = 11890,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ProactiveEngagementPlannerCallerIDRule = 11880,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -625,22 +622,49 @@ namespace Defra.Imports.Model
 		MLDataMaskingRule = 11896,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportApplicationBusinessProcessFlow = 11910,
+		WebEngagementRuleset = 11915,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MatchRecordBusinessProcessFlow = 11923,
+		WebEngagementRulesetConfig = 11916,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebEngagementRuleset = 11966,
+		WebEngagementRulesetRevision = 11917,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebEngagementRulesetConfig = 11967,
+		ProactiveEngagementGlobalCommunicationConfig = 11920,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebEngagementRulesetRevision = 11968,
+		RecommendedActionPullWatermark = 11950,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProactiveEngagementGlobalCommunicationConfig = 11997,
+		AuthenticationActivity = 11974,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AuthenticationProfile = 11975,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SpeakerAudioSamples = 11980,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		VoiceBiometricsAudioSamples = 11981,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		VoicePrint = 11982,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		msdyn_guardrail_localized_policy = 11987,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ImportApplicationBusinessProcessFlow = 12002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		GeolocationRecord = 11988,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MatchRecordBusinessProcessFlow = 12016,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ActionOwnerAssignment = 12034,
 	}
 }
 #pragma warning restore CS1591

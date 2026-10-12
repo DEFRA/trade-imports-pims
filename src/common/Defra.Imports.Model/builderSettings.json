@@ -42,7 +42,9 @@
     "defraimp_placeofdestination",
     "defraimp_consignee",
     "defraimp_transporter",
-    "systemuser"
+    "systemuser",
+    "defraimp_parametersetkeydatapair",
+    "defraimp_commoditycomplementparameterset"
   ],
   "messageNamesFilter": [
     "defraimp_CreateImportRecordFromNotification"

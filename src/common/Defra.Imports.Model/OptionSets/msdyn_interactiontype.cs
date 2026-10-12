@@ -110,6 +110,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SuggestionShown = 100230330,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Translate = 100230331,
 	}
 }
 #pragma warning restore CS1591
