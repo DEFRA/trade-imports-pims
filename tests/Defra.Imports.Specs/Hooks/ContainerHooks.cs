@@ -54,10 +54,10 @@
                 sharedBaseClient = ServiceClientFactory.CreateBaseClient(testConfiguration.Url, testConfiguration.ClientId, testConfiguration.ClientSecret);
 
                 // A separate connection to build the user pool rather than the shared base client, since
-                // ownership is passed to the applier, which disposes it, cascading from UserPoolService.Dispose().
+                // ownership is passed to the persona configuration service, which disposes it, cascading from UserPoolService.Dispose().
                 var poolServiceClient = new ServiceClient(testConfiguration.Url, testConfiguration.ClientId.ToString(), testConfiguration.ClientSecret, true);
-                var applier = new PersonaConfigurationApplier(poolServiceClient);
-                var userPoolService = new UserPoolService(testConfiguration.Credentials.Select(c => c.Username), testConfiguration.Personas, applier);
+                var personaConfigurationService = new PersonaConfigurationService(poolServiceClient);
+                var userPoolService = new UserPoolService(testConfiguration.Credentials.Select(c => c.Username), testConfiguration.Personas, personaConfigurationService);
 
                 testThreadContainer.RegisterInstanceAs(userPoolService);
             }

@@ -49,12 +49,12 @@ namespace Defra.Imports.IntegrationTests.Dataverse
             if (config.Personas != null && config.Personas.Any())
             {
                 // A separate connection to build the user pool rather than the shared base client, since
-                // ownership is passed to the applier, which disposes it, cascading from UserPoolService.Dispose().
+                // ownership is passed to the persona configuration service, which disposes it, cascading from UserPoolService.Dispose().
                 var poolServiceClient = new ServiceClient(config.Url, config.ClientId.ToString(), config.ClientSecret, true);
-                var applier = new PersonaConfigurationApplier(poolServiceClient);
+                var personaConfigurationService = new PersonaConfigurationService(poolServiceClient);
                 var staticUsers = config.Personas.Values.Where(p => p.Users != null).SelectMany(p => p.Users);
                 var usernames = staticUsers.Concat(config.Credentials ?? Enumerable.Empty<string>()).Distinct();
-                UserPoolService = new UserPoolService(usernames, config.Personas, applier);
+                UserPoolService = new UserPoolService(usernames, config.Personas, personaConfigurationService);
             }
         }
 
