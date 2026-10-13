@@ -19,6 +19,8 @@ resources:
     - pipeline: pims
       source: pims
       branch: main
+      tags:
+        - Deployed to TST
   repositories:
     - repository: power-pipelines
       name: ewingjm/power-pipelines
