@@ -10,7 +10,7 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
     /// <summary>
     /// Unit tests for <see cref="PopulateAnimalNumber"/>.
     /// </summary>
-    public class PopulateAnimalNumberTests
+    public sealed class PopulateAnimalNumberTests
     {
         private readonly Mock<IServiceProvider> serviceProviderMock;
         private readonly Mock<ITracingService> tracingServiceMock;

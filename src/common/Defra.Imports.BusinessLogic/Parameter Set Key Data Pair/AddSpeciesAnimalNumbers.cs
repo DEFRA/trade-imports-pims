@@ -9,7 +9,7 @@
     /// <summary>
     /// Adding the species animal numbers to the species entity.
     /// </summary>
-    public class AddSpeciesAnimalNumbers
+    public sealed class AddSpeciesAnimalNumbers
     {
         private readonly IOrganizationService orgSvc;
         private readonly ILogWriter logger;

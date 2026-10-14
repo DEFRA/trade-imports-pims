@@ -8,6 +8,7 @@
     using Defra.Imports.Model;
     using Microsoft.Xrm.Sdk;
 
+    /// <inheritdoc/>
     [CrmPluginRegistration(
      MessageNameEnum.Create,
      "defraimp_parametersetkeydatapair",
@@ -29,12 +30,15 @@
       Image1Attributes = "defraimp_commoditycomplementparameterset,defraimp_importernotificationid,defraimp_name",
       Image1Name = "PreImage",
       Image1Type = ImageTypeEnum.PreImage)]
-    /// <summary>
-    /// Plugin to populate the animal number for a ParameterSetKeyDataPair entity.
-    /// </summary>
     public class PopulateAnimalNumber : Plugin
     {
-        /// <inheritdoc/>
+        /// <summary>
+        /// Executes the plugin logic to populate animal numbers for the ParameterSetKeyDataPair entity.
+        /// </summary>
+        /// <param name="context">The plugin execution context.</param>
+        /// <param name="orgSvc">The organization service.</param>
+        /// <param name="logWriter">The tracing service log writer.</param>
+        /// <param name="repositoryFactory">The repository factory.</param>
         protected override void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)
         {
             try
@@ -58,7 +62,7 @@
                 }
 
                 // only run this plugin if the key data pair is for the number of animals
-                if (keyDataPair.defraimp_name == "number_animal")
+                if (keyDataPair != null && keyDataPair.defraimp_name == "number_animal")
                 {
                     var addSpeciesAnimalNumbers = new AddSpeciesAnimalNumbers(orgSvc, logWriter);
                     addSpeciesAnimalNumbers.AddAnimalNumbersToSpecies(keyDataPair);

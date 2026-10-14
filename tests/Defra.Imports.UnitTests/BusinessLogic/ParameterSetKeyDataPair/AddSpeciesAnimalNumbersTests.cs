@@ -13,7 +13,7 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ParameterSetKeyDataPair
     /// <summary>
     /// Unit tests for <see cref="AddSpeciesAnimalNumbers"/>.
     /// </summary>
-    public class AddSpeciesAnimalNumbersTests
+    public sealed class AddSpeciesAnimalNumbersTests
     {
         private readonly Mock<IOrganizationService> orgSvcMock;
         private readonly Mock<ILogWriter> loggerMock;
