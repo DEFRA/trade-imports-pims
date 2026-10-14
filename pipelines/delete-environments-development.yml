@@ -17,7 +17,7 @@ resources:
   repositories:
     - repository: power-pipelines
       name: ewingjm/power-pipelines
-      ref: refs/heads/main
+      ref: refs/heads/feat/delete-multiple-validation-environments-on-completion
       type: github
       endpoint: github.com_ewingjm
 
