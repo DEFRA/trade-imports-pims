@@ -1,4 +1,4 @@
-namespace Defra.Imports.UnitTests.BusinessLogic.ParameterSerKeyDataPair
+namespace Defra.Imports.UnitTests.BusinessLogic.ParameterSetKeyDataPair
 {
     using System;
     using System.Collections.Generic;
