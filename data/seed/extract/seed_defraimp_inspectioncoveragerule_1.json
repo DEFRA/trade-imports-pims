@@ -25,6 +25,11 @@
           "AttributeName": "defraimp_key",
           "AttributeValue": "p3",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_numberofrecordsuntilinspection",
+          "AttributeValue": 50,
+          "AttributeType": "System.Int32"
         }
       ]
     },
@@ -52,6 +57,11 @@
           "AttributeName": "defraimp_key",
           "AttributeValue": "p2",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_numberofrecordsuntilinspection",
+          "AttributeValue": 10,
+          "AttributeType": "System.Int32"
         }
       ]
     },
@@ -79,6 +89,11 @@
           "AttributeName": "defraimp_key",
           "AttributeValue": "p1gb",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_numberofrecordsuntilinspection",
+          "AttributeValue": 10,
+          "AttributeType": "System.Int32"
         }
       ]
     },
@@ -106,6 +121,11 @@
           "AttributeName": "defraimp_key",
           "AttributeValue": "p1",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_numberofrecordsuntilinspection",
+          "AttributeValue": 0,
+          "AttributeType": "System.Int32"
         }
       ]
     }
