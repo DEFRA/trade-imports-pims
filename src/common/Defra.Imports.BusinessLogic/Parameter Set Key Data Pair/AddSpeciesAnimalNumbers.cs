@@ -1,12 +1,10 @@
-﻿namespace Defra.Imports.BusinessLogic.ParameterSerKeyDataPair
+﻿namespace Defra.Imports.BusinessLogic.ParameterSetKeyDataPair
 {
+    using System;
     using Defra.Imports.BusinessLogic.Logging;
     using Defra.Imports.Model;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
 
     /// <summary>
     /// Adding the species animal numbers to the species entity.
