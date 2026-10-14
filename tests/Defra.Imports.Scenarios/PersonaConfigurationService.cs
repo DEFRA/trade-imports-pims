@@ -45,6 +45,8 @@ namespace Defra.Imports.Scenarios
 
             var userId = await this.serviceClient.RetrieveUserIdAsync(username).ConfigureAwait(false);
 
+            await EnsureUserEnabledAsync(this.serviceClient, userId).ConfigureAwait(false);
+
             var businessUnitName = businessUnitNames.SingleOrDefault();
             if (!string.IsNullOrEmpty(businessUnitName))
             {
@@ -132,6 +134,7 @@ namespace Defra.Imports.Scenarios
                 var actualTeams = await RetrieveAssignedNamesAsync(this.serviceClient, userId, "teammembership", "team", "teamid", "name").ConfigureAwait(false);
                 var actualColumnSecurityProfiles = await RetrieveAssignedNamesAsync(this.serviceClient, userId, "systemuserprofiles", "fieldsecurityprofile", "fieldsecurityprofileid", "name").ConfigureAwait(false);
                 var actualBusinessUnit = await RetrieveUserBusinessUnitNameAsync(this.serviceClient, userId).ConfigureAwait(false);
+                var isDisabled = await RetrieveUserIsDisabledAsync(this.serviceClient, userId).ConfigureAwait(false);
 
                 var missingRoles = expectedRoles.Where(r => !actualRoles.Contains(r)).ToList();
                 var missingTeams = expectedTeams.Where(t => !actualTeams.Contains(t)).ToList();
@@ -148,12 +151,17 @@ namespace Defra.Imports.Scenarios
 
                 var businessUnitMismatch = !string.Equals(actualBusinessUnit, expectedBusinessUnitName, StringComparison.OrdinalIgnoreCase);
 
-                if (missingRoles.Count == 0 && missingTeams.Count == 0 && missingColumnSecurityProfiles.Count == 0 && !businessUnitMismatch)
+                if (missingRoles.Count == 0 && missingTeams.Count == 0 && missingColumnSecurityProfiles.Count == 0 && !businessUnitMismatch && !isDisabled)
                 {
                     continue;
                 }
 
                 var issues = new List<string>();
+
+                if (isDisabled)
+                {
+                    issues.Add("user is disabled");
+                }
 
                 if (businessUnitMismatch)
                 {
@@ -225,6 +233,38 @@ namespace Defra.Imports.Scenarios
 
             return result.Entities.FirstOrDefault()
                 ?? throw new InvalidOperationException("No default business unit exists in Dataverse.");
+        }
+
+        private static async Task EnsureUserEnabledAsync(ServiceClient serviceClient, Guid userId)
+        {
+            if (!await RetrieveUserIsDisabledAsync(serviceClient, userId).ConfigureAwait(false))
+            {
+                return;
+            }
+
+            await serviceClient.UpdateAsync(new SystemUser
+            {
+                Id = userId,
+                IsDisabled = false,
+            }).ConfigureAwait(false);
+        }
+
+        private static async Task<bool> RetrieveUserIsDisabledAsync(ServiceClient serviceClient, Guid userId)
+        {
+            var query = new QueryExpression(SystemUser.EntityLogicalName)
+            {
+                ColumnSet = new ColumnSet(SystemUser.Fields.IsDisabled),
+                Criteria = new FilterExpression
+                {
+                    Conditions = { new ConditionExpression(SystemUser.Fields.SystemUserId, ConditionOperator.Equal, userId) },
+                },
+            };
+
+            var result = await serviceClient.RetrieveMultipleAsync(query).ConfigureAwait(false);
+            var user = result.Entities.FirstOrDefault()
+                ?? throw new InvalidOperationException($"No user exists in Dataverse with ID '{userId}'.");
+
+            return user.ToEntity<SystemUser>().IsDisabled == true;
         }
 
         private static async Task AssociateAsync(ServiceClient serviceClient, Guid userId, string entityLogicalName, string idAttribute, string nameAttribute, IReadOnlyCollection<string> names, string relationshipName)
