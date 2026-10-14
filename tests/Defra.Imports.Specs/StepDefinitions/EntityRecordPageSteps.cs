@@ -75,13 +75,29 @@
         /// <summary>
         /// Selects a tab on a form.
         /// </summary>
-        /// <param name="relatedTab">The tab.</param>
+        /// <param name="tab">The tab.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [When("I select the {string} tab")]
         [Given("I have selected the {string} tab")]
-        public async Task WhenISelectTheTab(string relatedTab)
+        public async Task WhenISelectTheTab(string tab)
         {
-            await this.RecordPage.Form.OpenTabAsync(relatedTab);
+            var allTabs = await this.RecordPage.Form.GetAllTabsAsync();
+
+            if (allTabs.Contains(tab))
+            {
+                await this.RecordPage.Form.OpenTabByExactNameAsync(tab);
+            }
+            else
+            {
+                try
+                {
+                    await this.RecordPage.Form.OpenRelatedTabAsync(tab);
+                }
+                catch (Exception ex)
+                {
+                    throw new InvalidOperationException($"The {tab} tab is not visible on the form.", ex);
+                }
+            }
         }
 
         /// <summary>
@@ -945,6 +961,13 @@
                                 exceptions.Add(new AssertFailedException($"Expected {fieldDisplayName} Populated: {expectedPopulated} but found Populated: {actualPopulated}."));
                             }
                         }
+
+                        var isVisible = await field.IsVisibleAsync();
+
+                        if (!isVisible)
+                        {
+                            exceptions.Add(new AssertFailedException($"Expected {fieldDisplayName} Visible: true but found Visible: false."));
+                        }
                     },
                     tab: currentTab);
             }
@@ -953,19 +976,6 @@
             {
                 throw new AssertFailedException(exceptions.Select(e => e.Message).Aggregate((a, b) => a + Environment.NewLine + b));
             }
-        }
-
-        /// <summary>
-        /// Verifies the fields visible scoped a tab.
-        /// </summary>
-        /// <param name="tab">The tab.</param>
-        /// <param name="dataTable">The fields.</param>
-        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        [Then("I see the following fields in the {string} tab")]
-        public async Task ThenISeeTheFollowingFieldsInTheTab(string tab, DataTable dataTable)
-        {
-            await this.RecordPage.Form.OpenTabAsync(tab);
-            await this.ISeeTheFollowingFields(dataTable);
         }
 
         /// <summary>
@@ -1089,7 +1099,7 @@
                         {
                             var isVisible = await field.IsVisibleAsync();
 
-                            isVisible.Should().BeFalse();
+                            isVisible.Should().BeFalse(because: $"Field '{row["Field"]}' should not be visible");
                         },
                         tab: tab);
                 }
@@ -2254,9 +2264,6 @@
             }
         }
 
-        private static bool IsHeaderField(string logicalName) =>
-            logicalName?.StartsWith("header_", StringComparison.OrdinalIgnoreCase) == true;
-
         private static string ReplaceTemplatedValue(string template, Entity record, string field, string placeholder)
         {
             var replacement = string.Empty;
@@ -2352,9 +2359,7 @@
         {
             if (!string.IsNullOrEmpty(fieldLogicalName))
             {
-                return IsHeaderField(fieldLogicalName)
-                    ? FieldLocation.Header
-                    : FieldLocation.Body;
+                return this.formMetadataSvc.GetControlLocationByLogicalName(fieldFormId, fieldLogicalName);
             }
 
             return this.formMetadataSvc.GetControlLocation(fieldFormId, fieldName);

@@ -12,7 +12,7 @@ Provide caseworkers, team leaders and data analysts with operational dashboards 
 
 ## Capability Description
 
-PIMS provides five operational dashboards and two reporting capabilities:
+PIMS provides five operational dashboards and one reporting capability:
 
 | Dashboard / Report                       | Audience                                        |
 | ---------------------------------------- | ----------------------------------------------- |
@@ -22,7 +22,6 @@ PIMS provides five operational dashboards and two reporting capabilities:
 | EU Imports — Border Control Metrics      | Caseworkers (monthly scanning check compliance) |
 | EU Imports — APHA Border Control Metrics | Caseworkers (dog/cat/ferret check compliance)   |
 | FAET Weekly Report                       | Data Team / FAET                                |
-| Inspection Coverage Audit Report         | Team Leaders / Data Team                        |
 
 ## Functional Scope
 
@@ -38,8 +37,7 @@ See individual user stories for chart, view and filter specifications.
 | [US-040](../user-stories/US-040-Border-Control-Metrics-Dashboard.md)      | EU Imports — Border Control Metrics Dashboard      |
 | [US-041](../user-stories/US-041-APHA-Border-Control-Metrics-Dashboard.md) | EU Imports — APHA Border Control Metrics Dashboard |
 | [US-042](../user-stories/US-042-FAET-Weekly-Report.md)                    | Farming Analysis and Evidence Team Weekly Report   |
-| [US-043](../user-stories/US-043-Inspection-Coverage-Report.md)            | Inspection Coverage Audit Report                   |
 
 ## Source Jira Issues
 
-IMTA-6340, IMTA-6341, IMTA-6343, IMTA-6344, IMTA-6354, IMTA-6372, IMTA-6658
+IMTA-6340, IMTA-6341, IMTA-6343, IMTA-6344, IMTA-6372

@@ -78,6 +78,8 @@ namespace Defra.Imports.Model
 			public const string TimeZoneRuleVersionNumber = "timezoneruleversionnumber";
 			public const string UTCConversionTimeZoneCode = "utcconversiontimezonecode";
 			public const string VersionNumber = "versionnumber";
+			public const string defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParameterSet = "defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParamete" +
+		"rSet";
 			public const string defraimp_parameterset_defraimp_parametersetkeydatapair_CommodityComplementParameterSet = "defraimp_parameterset_defraimp_parametersetkeydatapair_CommodityComplementParamet" +
 		"erSet";
 			public const string defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNotification = "defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNo" +
@@ -483,6 +485,29 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParameterSet
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParamete" +
+			"rSet")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_parametersetidentifier> defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParameterSet
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParamete" +
+						"rSet", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParamete" +
+						"rSet");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParamete" +
+						"rSet", null, value);
+				this.OnPropertyChanged("defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParamete" +
+						"rSet");
 			}
 		}
 		

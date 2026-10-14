@@ -86,15 +86,19 @@
                 credential.Validate();
             }
 
-            var usersInMultipleBusinessUnits = this.Personas.Values
-                .Where(p => p.Users != null && p.Users.Any())
-                .SelectMany(p => p.Users.Select(username => new { Username = username, p.BusinessUnit }))
-                .GroupBy(x => x.Username)
-                .Where(g => g.Count() > 1);
+            var usersInMultipleBusinessUnits = this.Personas
+                .Where(p => p.Value.Users != null && p.Value.Users.Any())
+                .SelectMany(p => p.Value.Users.Select(username => new { Username = username, Persona = p.Key, p.Value.BusinessUnit }))
+                .GroupBy(x => x.Username, StringComparer.OrdinalIgnoreCase)
+                .Where(g => g.Select(x => x.BusinessUnit).Distinct(StringComparer.OrdinalIgnoreCase).Count() > 1)
+                .ToList();
 
             if (usersInMultipleBusinessUnits.Any())
             {
-                throw new Exception($"The following users were configured for personas with different business units: {string.Join(", ", usersInMultipleBusinessUnits)}.");
+                var details = usersInMultipleBusinessUnits.Select(g =>
+                    $"'{g.Key}' ({string.Join(", ", g.Select(x => $"persona '{x.Persona}' -> business unit '{x.BusinessUnit ?? "<default>"}'"))})");
+
+                throw new Exception($"The following users were configured for personas with different business units: {string.Join("; ", details)}.");
             }
         }
     }

@@ -42,10 +42,26 @@ jobs:
           version: ${{ parameters.dotNetSdkVersion }}
 
       - task: DotNetCoreCLI@2
+        displayName: Build acceptance tests
+        inputs:
+          command: build
+          projects: ${{ parameters.project }}
+          arguments: --configuration Release
+
+      - pwsh: |
+          $script = Get-ChildItem -Path "$(Build.SourcesDirectory)" -Filter playwright.ps1 -Recurse |
+            Where-Object { $_.FullName -match 'Release' } |
+            Select-Object -First 1
+          if (-not $script) { throw 'playwright.ps1 not found in build output.' }
+          & $script.FullName install --with-deps
+        displayName: Install Playwright browsers and dependencies
+
+      - task: DotNetCoreCLI@2
         displayName: Run acceptance tests
         inputs:
           command: test
           projects: ${{ parameters.project }}
+          arguments: --configuration Release --no-build
           publishTestResults: true
           testRunTitle: Acceptance tests
         env:
