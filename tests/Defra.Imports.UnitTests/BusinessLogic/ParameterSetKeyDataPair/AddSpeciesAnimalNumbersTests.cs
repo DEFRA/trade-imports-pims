@@ -163,12 +163,21 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ParameterSetKeyDataPair
         public void AddAnimalNumbersToSpecies_WithBlankComplementSetName_DoesNotUpdateAndLogsWarning()
         {
             // Arrange
+            var parameterSetId = Guid.NewGuid();
+
             var keyDataPair = new defraimp_parametersetkeydatapair
             {
                 defraimp_ImporterNotificationId = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, Guid.NewGuid()),
-                defraimp_CommodityComplementParameterSet = new EntityReference(defraimp_commoditycomplementparameterset.EntityLogicalName, Guid.NewGuid()) { Name = "   " },
+                defraimp_CommodityComplementParameterSet = new EntityReference(defraimp_commoditycomplementparameterset.EntityLogicalName, parameterSetId) { Name = "   " },
                 defraimp_data = "12",
             };
+
+            this.orgSvcMock
+                .Setup(o => o.Retrieve(
+                    defraimp_commoditycomplementparameterset.EntityLogicalName,
+                    parameterSetId,
+                    It.IsAny<ColumnSet>()))
+                .Returns(new defraimp_commoditycomplementparameterset { Id = parameterSetId, defraimp_name = "   " });
 
             // Act
             this.sut.AddAnimalNumbersToSpecies(keyDataPair);
