@@ -49,15 +49,27 @@
         [BeforeTestRun(Order = -19999)]
         public static void RegisterUserPoolService(ObjectContainer testThreadContainer, TestConfiguration testConfiguration)
         {
-            sharedBaseClient = ServiceClientFactory.CreateBaseClient(testConfiguration.Url, testConfiguration.ClientId, testConfiguration.ClientSecret);
+            try
+            {
+                sharedBaseClient = ServiceClientFactory.CreateBaseClient(testConfiguration.Url, testConfiguration.ClientId, testConfiguration.ClientSecret);
 
-            // A separate connection to build the user pool rather than the shared base client, since
-            // ownership is passed to the applier, which disposes it, cascading from UserPoolService.Dispose().
-            var poolServiceClient = new ServiceClient(testConfiguration.Url, testConfiguration.ClientId.ToString(), testConfiguration.ClientSecret, true);
-            var applier = new PersonaConfigurationApplier(poolServiceClient);
-            var userPoolService = new UserPoolService(testConfiguration.Credentials.Select(c => c.Username), testConfiguration.Personas, applier);
+                // A separate connection to build the user pool rather than the shared base client, since
+                // ownership is passed to the persona configuration service, which disposes it, cascading from UserPoolService.Dispose().
+                var poolServiceClient = new ServiceClient(testConfiguration.Url, testConfiguration.ClientId.ToString(), testConfiguration.ClientSecret, true);
+                var personaConfigurationService = new PersonaConfigurationService(poolServiceClient);
+                var userPoolService = new UserPoolService(testConfiguration.Credentials.Select(c => c.Username), testConfiguration.Personas, personaConfigurationService);
 
-            testThreadContainer.RegisterInstanceAs(userPoolService);
+                testThreadContainer.RegisterInstanceAs(userPoolService);
+            }
+            catch (Exception ex)
+            {
+                // Context is limited to non-secret identifiers (URL/client/tenant ID) to help diagnose which
+                // environment/application user was targeted without logging any credentials.
+                var context = $"url={testConfiguration.Url}, clientId={testConfiguration.ClientId}, tenantId={testConfiguration.TenantId}";
+
+                HookDiagnostics.LogBeforeTestRunFailure(nameof(RegisterUserPoolService), ex, context);
+                throw;
+            }
         }
 
         /// <summary>
@@ -67,7 +79,15 @@
         [BeforeTestRun(Order = -19998)]
         public static void RegisterAssemblyHookClient(ObjectContainer testThreadContainer)
         {
-            testThreadContainer.RegisterInstanceAs(sharedBaseClient.Clone());
+            try
+            {
+                testThreadContainer.RegisterInstanceAs(sharedBaseClient.Clone());
+            }
+            catch (Exception ex)
+            {
+                HookDiagnostics.LogBeforeTestRunFailure(nameof(RegisterAssemblyHookClient), ex);
+                throw;
+            }
         }
 
         /// <summary>
@@ -81,9 +101,17 @@
         [BeforeTestRun(Order = -19997)]
         public static async Task SetupPlaywright(ObjectContainer testThreadContainer)
         {
-            var playwright = await Playwright.CreateAsync();
+            try
+            {
+                var playwright = await Playwright.CreateAsync();
 
-            testThreadContainer.RegisterInstanceAs(playwright);
+                testThreadContainer.RegisterInstanceAs(playwright);
+            }
+            catch (Exception ex)
+            {
+                HookDiagnostics.LogBeforeTestRunFailure(nameof(SetupPlaywright), ex);
+                throw;
+            }
         }
 
         /// <summary>

@@ -50,6 +50,12 @@ namespace Defra.Imports.Model
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Genesys = 192350005,
+		
+		/// <summary>
+		/// Universal Communication Provider
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Universal = 192350006,
 	}
 }
 #pragma warning restore CS1591

@@ -55,9 +55,6 @@ This page lists all 11 epics in the PIMS requirements baseline. Each epic groups
 | [US-006](../user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md) | Receive Importer Notification from IPAFFS |
 | [US-007](../user-stories/US-007-Receive-ITAHC-From-TRACES.md)                 | Receive ITAHC from TRACES Classic         |
 | [US-008](../user-stories/US-008-Receive-DOCOM-From-TRACES.md)                 | Receive DOCOM from TRACES Classic         |
-| [US-009](../user-stories/US-009-Auto-Create-Import-Record-From-ITAHC.md)      | Auto-Create Import Record from ITAHC      |
-| [US-010](../user-stories/US-010-Auto-Create-Import-Record-From-DOCOM.md)      | Auto-Create Import Record from DOCOM      |
-| [US-047](../user-stories/US-047-Manage-Failed-TRACES-Receipts.md)             | Manage Failed TRACES Receipts             |
 
 ---
 
@@ -140,7 +137,6 @@ This page lists all 11 epics in the PIMS requirements baseline. Each epic groups
 | [US-040](../user-stories/US-040-Border-Control-Metrics-Dashboard.md)      | EU Imports — Border Control Metrics Dashboard      |
 | [US-041](../user-stories/US-041-APHA-Border-Control-Metrics-Dashboard.md) | EU Imports — APHA Border Control Metrics Dashboard |
 | [US-042](../user-stories/US-042-FAET-Weekly-Report.md)                    | Farming Analysis and Evidence Team Weekly Report   |
-| [US-043](../user-stories/US-043-Inspection-Coverage-Report.md)            | Inspection Coverage Audit Report                   |
 
 ---
 

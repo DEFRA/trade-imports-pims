@@ -32,7 +32,7 @@
 | 3   | Importer Notification management                                                                                              |
 | 4   | Automated inbound integration with TRACES Classic (ITAHC, DOCOM)                                                                |
 | 5   | Automated inbound integration with IPAFFS (Importer Notifications)                                                              |
-| 6   | Automated Import Record creation from TRACES-sourced health certificates and implemented IPAFFS Importer Notification workflows |
+| 6   | Manual Import Record creation from TRACES-sourced health certificates and implemented IPAFFS Importer Notification workflows    |
 | 7   | Configurable commodity risk level rules (Country/Commodity/Risk Level)                                                          |
 | 8   | Gold/Bronze commodity rules maintenance                                                                                         |
 | 9   | Place of Origin management and trust level (Gold/Bronze) maintenance                                                            |
@@ -49,12 +49,10 @@
 | 20  | APHA Region management                                                                                                          |
 | 21  | Operational dashboards (Daily Huddle, Daily Stats, IRMS Stats, Border Control Metrics, APHA Border Control Metrics)             |
 | 22  | Farming Analysis and Evidence Team (FAET) weekly report                                                                         |
-| 23  | Inspection coverage audit report                                                                                                |
 | 24  | Full field-level audit of Import Records and Post Import Checks                                                                 |
 | 25  | Counter history tracking for risk assessment and trust level counters                                                           |
 | 26  | ITAHC/DOCOM status tracking (Replaced By / Replaces chain)                                                                      |
 | 27  | Matching inbound certificates and notifications to candidate Import Records                                                     |
-| 28  | TRACES failed-receipt investigation and controlled reprocessing                                                                 |
 | 29  | DOCOM Proof of Delivery (POD) request/reply tracking on the Import Record                                                       |
 | 30  | Non-compliance query recording and tracking on Importer Notifications and Import Records                                        |
 | 31  | Health Certificate Attached flagging and automated re-amendment of Importer Notifications                                       |

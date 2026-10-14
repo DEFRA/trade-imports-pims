@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Net;
     using System.Reflection;
+    using System.Text.RegularExpressions;
     using System.Xml;
     using System.Xml.Linq;
     using Defra.Imports.Specs.Model;
@@ -129,16 +130,30 @@
         }
 
         /// <summary>
-        /// Gets whether the control is a header or standard field.
+        /// Gets whether the control is a header or standard field based on its position within the form XML.
         /// </summary>
         /// <param name="formId">The form ID.</param>
         /// <param name="displayName">The control display name.</param>
+        /// <param name="tab">An optional tab to scope the search by.</param>
         /// <returns>The field location.</returns>
-        public FieldLocation GetControlLocation(Guid formId, string displayName)
+        public FieldLocation GetControlLocation(Guid formId, string displayName, string tab = null)
         {
-            var logicalName = this.GetControlLogicalName(formId, displayName);
+            var control = GetControlNodesByDisplayName(displayName, tab, this.GetFormXml(formId))[0];
 
-            return logicalName.StartsWith("header_") ? FieldLocation.Header : FieldLocation.Body;
+            return IsWithinHeader(control) ? FieldLocation.Header : FieldLocation.Body;
+        }
+
+        /// <summary>
+        /// Gets whether the control is a header or standard field based on its position within the form XML.
+        /// </summary>
+        /// <param name="formId">The form ID.</param>
+        /// <param name="logicalName">The control logical name.</param>
+        /// <returns>The field location.</returns>
+        public FieldLocation GetControlLocationByLogicalName(Guid formId, string logicalName)
+        {
+            var controls = this.GetControlNodesByLogicalName(formId, logicalName).ToList();
+
+            return controls.Count > 0 && controls.TrueForAll(IsWithinHeader) ? FieldLocation.Header : FieldLocation.Body;
         }
 
         /// <summary>
@@ -206,17 +221,30 @@
 
         private static XmlNodeList GetControlNodesByDisplayName(string displayName, string tab, XmlDocument formXml)
         {
-            var tabSegment = !string.IsNullOrEmpty(tab) ? $"//tab[./labels/label[@description='{tab}']]" : string.Empty;
-            var controlsWithDisplayName = formXml.SelectNodes($"{tabSegment}//control[../labels/label[@description='{displayName}'] and not(@classid='{QuickViewClassId}')]");
+            var tabSegment = !string.IsNullOrEmpty(tab) ? $"//tab[./labels/label[normalize-space(@description)='{tab}']]" : string.Empty;
+            var controlsWithDisplayName = formXml.SelectNodes($"{tabSegment}//control[../labels/label[normalize-space(@description)='{displayName}'] and not(@classid='{QuickViewClassId}')]");
 
             if (controlsWithDisplayName == null || controlsWithDisplayName.Count == 0)
             {
-                controlsWithDisplayName = formXml.SelectNodes($"//header//control[../labels/label[@description='{displayName}'] and not(@classid='{QuickViewClassId}')]");
+                controlsWithDisplayName = formXml.SelectNodes($"//header//control[../labels/label[normalize-space(@description)='{displayName}'] and not(@classid='{QuickViewClassId}')]");
             }
 
             return controlsWithDisplayName != null && controlsWithDisplayName.Count > 0
                 ? controlsWithDisplayName
                 : throw new InvalidOperationException($"Unable to find a control on the form with the specified display name: {displayName}.");
+        }
+
+        private static bool IsWithinHeader(XmlNode control)
+        {
+            for (var node = control.ParentNode; node != null; node = node.ParentNode)
+            {
+                if (string.Equals(node.Name, "header", StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -243,8 +271,8 @@
         {
             var formXml = this.GetFormXml(formId);
 
-            var firstControlWithDisplayName = GetControlNodesByDisplayName(displayName, tab, this.GetFormXml(formId))[0];
-            var logicalName = firstControlWithDisplayName.Attributes?["id"].Value;
+            var controlWithDisplayName = GetControlNodesByDisplayName(displayName, tab, formXml)[0];
+            var logicalName = controlWithDisplayName.Attributes?["id"].Value;
 
             var allControlsWithLogicalName = formXml.SelectNodes($"//control[@id='{logicalName}']");
             if (allControlsWithLogicalName == null || allControlsWithLogicalName.Count <= 1)
@@ -252,22 +280,48 @@
                 return logicalName;
             }
 
-            int position = -1;
-            for (int i = 0; i < allControlsWithLogicalName.Count; i++)
+            // Duplicate controls are identical in the form XML, so they can only be distinguished by node identity.
+            var position = -1;
+            for (var i = 0; i < allControlsWithLogicalName.Count; i++)
             {
-                if (ReferenceEquals(allControlsWithLogicalName[i], firstControlWithDisplayName) || allControlsWithLogicalName[i].OuterXml == firstControlWithDisplayName.OuterXml)
+                if (ReferenceEquals(allControlsWithLogicalName[i], controlWithDisplayName))
                 {
-                    position = i + 1;
+                    position = i;
                     break;
                 }
             }
 
-            if (position == -1 || position == 1)
+            if (position <= 0)
             {
                 return logicalName;
             }
 
-            return $"{logicalName}{position - 1}";
+            // The first occurrence in document order is unsuffixed; subsequent occurrences are suffixed with their index.
+            return $"{logicalName}{position}";
+        }
+
+        /// <summary>
+        /// Gets the control nodes matching a logical name from the form XML.
+        /// </summary>
+        /// <param name="formId">The form ID.</param>
+        /// <param name="logicalName">The control logical name.</param>
+        /// <returns>The matching control nodes; otherwise an empty collection.</returns>
+        private IEnumerable<XmlNode> GetControlNodesByLogicalName(Guid formId, string logicalName)
+        {
+            var formXml = this.GetFormXml(formId);
+
+            // Quick view fields are addressed as '<quick view control>.<field>' where the field is a control on the quick view form.
+            var controlId = logicalName.Substring(logicalName.LastIndexOf('.') + 1);
+
+            var controls = formXml.SelectNodes($"//control[@id='{controlId}']");
+            if (controls == null || controls.Count == 0)
+            {
+                // Controls sharing an ID are suffixed with their position (e.g. 'defraimp_name1').
+                var unsuffixedControlId = Regex.Replace(controlId, @"\d+$", string.Empty);
+                controls = unsuffixedControlId != controlId ? formXml.SelectNodes($"//control[@id='{unsuffixedControlId}']") : null;
+            }
+
+            return controls?.Cast<XmlNode>() ?? Enumerable.Empty<XmlNode>();
         }
 
         private IDictionary<string, IEnumerable<Guid>> GetQuickViewControlFormIds(Guid formId)

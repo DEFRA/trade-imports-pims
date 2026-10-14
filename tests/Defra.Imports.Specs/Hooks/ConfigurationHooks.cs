@@ -26,36 +26,52 @@
         [BeforeTestRun(Order = -20000)]
         public static void GetEnvironmentConfiguration(ObjectContainer testThreadContainer)
         {
-            var configBuilder = new ConfigurationBuilder()
-                .AddJsonFile(ConfigFile)
-                .AddEnvironmentVariables(ConfigPrefixEnvironmentVariables)
-                .AddUserSecrets<ConfigurationHooks>(true);
+            KeyVaultConfiguration keyVaultConfiguration = null;
 
-            var configRoot = configBuilder.Build();
-
-            var keyVaultConfiguration = configRoot.GetSection(ConfigSectionKeyVault).Get<KeyVaultConfiguration>();
-            if (keyVaultConfiguration != null)
+            try
             {
-                var secretClient = new SecretClient(
-                    new Uri($"https://{keyVaultConfiguration.Name}.vault.azure.net"),
-                    new ClientSecretCredential(
-                        keyVaultConfiguration.TenantId.ToString(),
-                        keyVaultConfiguration.ClientId.ToString(),
-                        keyVaultConfiguration.ClientSecret,
-                        new ClientSecretCredentialOptions
-                        {
-                            AdditionallyAllowedTenants = { "*" },
-                        }));
+                var configBuilder = new ConfigurationBuilder()
+                    .AddJsonFile(ConfigFile)
+                    .AddEnvironmentVariables(ConfigPrefixEnvironmentVariables)
+                    .AddUserSecrets<ConfigurationHooks>(true);
 
-                configBuilder.AddAzureKeyVaultTestConfigurationAdapter(secretClient, configRoot);
+                var configRoot = configBuilder.Build();
+
+                keyVaultConfiguration = configRoot.GetSection(ConfigSectionKeyVault).Get<KeyVaultConfiguration>();
+                if (keyVaultConfiguration != null)
+                {
+                    var secretClient = new SecretClient(
+                        new Uri($"https://{keyVaultConfiguration.Name}.vault.azure.net"),
+                        new ClientSecretCredential(
+                            keyVaultConfiguration.TenantId.ToString(),
+                            keyVaultConfiguration.ClientId.ToString(),
+                            keyVaultConfiguration.ClientSecret,
+                            new ClientSecretCredentialOptions
+                            {
+                                AdditionallyAllowedTenants = { "*" },
+                            }));
+
+                    configBuilder.AddAzureKeyVaultTestConfigurationAdapter(secretClient, configRoot);
+                }
+
+                var configuration = configBuilder.Build().Get<TestConfiguration>() ??
+                    throw new Exception("The test suite has missing configuration values.");
+
+                configuration.Validate();
+
+                testThreadContainer.RegisterInstanceAs(configuration);
             }
+            catch (Exception ex)
+            {
+                // Context is limited to non-secret identifiers (Key Vault name/tenant/client ID) to help diagnose
+                // which Key Vault was targeted without logging any credentials.
+                var context = keyVaultConfiguration is null
+                    ? null
+                    : $"keyVaultName={keyVaultConfiguration.Name}, tenantId={keyVaultConfiguration.TenantId}, clientId={keyVaultConfiguration.ClientId}";
 
-            var configuration = configBuilder.Build().Get<TestConfiguration>() ??
-                throw new Exception("The test suite has missing configuration values.");
-
-            configuration.Validate();
-
-            testThreadContainer.RegisterInstanceAs(configuration);
+                HookDiagnostics.LogBeforeTestRunFailure(nameof(GetEnvironmentConfiguration), ex, context);
+                throw;
+            }
         }
     }
 }

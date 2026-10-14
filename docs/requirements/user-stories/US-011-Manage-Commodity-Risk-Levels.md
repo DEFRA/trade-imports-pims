@@ -38,5 +38,4 @@ Commodity Risk Level records define the mapping of Country + Commodity Type → 
 
 - IMTA-5865
 - IMTA-5914
-- IMTA-5915
 - IMTA-5916

@@ -1,4 +1,4 @@
-﻿namespace Defra.Imports.Specs.Hooks
+namespace Defra.Imports.Specs.Hooks
 {
     using System;
     using System.Threading.Tasks;
@@ -24,6 +24,25 @@
         {
             this.scenarioUserClient = scenarioUserClient;
             this.outputHelper = outputHelper;
+        }
+
+        /// <summary>
+        /// Verifies that every statically assigned persona user (one explicitly listed under a persona's <see cref="Defra.Imports.Scenarios.Config.PersonaConfiguration.Users"/> in <c>environment.json</c>) actually has the full Dataverse security configuration (business unit, security roles, team memberships and column security profiles) described by their assigned persona(s), so misconfigured environments are caught up front rather than surfacing as confusing scenario failures.
+        /// </summary>
+        /// <param name="userPoolService">The shared user pool service.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [BeforeTestRun(Order = -19990)]
+        public static async Task VerifyStaticUserPersonaConfiguration(UserPoolService userPoolService)
+        {
+            try
+            {
+                await userPoolService.VerifyStaticUserConfigurationAsync().ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                HookDiagnostics.LogBeforeTestRunFailure(nameof(VerifyStaticUserPersonaConfiguration), ex);
+                throw;
+            }
         }
 
         /// <summary>
