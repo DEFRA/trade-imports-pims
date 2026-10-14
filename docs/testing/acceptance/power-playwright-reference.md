@@ -141,8 +141,9 @@ await RetryExtensions.RetryUntilSucceedsAsync(
 - Each test user's browser storage state is cached to disk after first login
   (`context.StorageStateAsync(...)`) and reused on subsequent scenarios for
   the same user, avoiding repeated interactive login.
-- Credentials/usernames come from the `UserPoolClient` (a leased pool per
-  persona), not hardcoded values.
+- Credentials/usernames come from the `ScenarioUserClient` (a pooled user per
+  persona, borrowed for the scenario and released afterwards), not hardcoded
+  values.
 
 ## Preferred / Acceptable / Discouraged
 

@@ -1,4 +1,11 @@
 <Project>
+    <!-- PowerVersion.MSBuild.props (restored from the PowerVersion.MSBuild NuGet package) unconditionally
+    sets MainlineBranch to "master", overriding the "main" value set in Directory.Build.props, because
+    the package's props are imported later in the evaluation order. Re-assert it here so it wins, since
+    Directory.Build.targets is imported last. -->
+    <PropertyGroup>
+        <MainlineBranch>main</MainlineBranch>
+    </PropertyGroup>
     <UsingTask
         TaskName="PackMissingDependencies"
         TaskFactory="RoslynCodeTaskFactory"
@@ -87,24 +94,6 @@
             </Code>
         </Task>
     </UsingTask>
-	<Target Name="EnsureSolutionVersionSet" Condition="'$(SolutionVersion)' == '' and '$(SolutionVersionStrategy)' == 'GitVersion' and '$(MSBuildProjectExtension)'=='.cdsproj'">
-        <PropertyGroup>
-            <PowerShellExe Condition=" '$(PowerShellExe)'=='' ">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</PowerShellExe>
-            <GetVersionScript Condition=" '$(ScriptLocation)'=='' ">$(MSBuildThisFileDirectory)..\..\scripts\Get-GitVersionSolutionVersion.ps1</GetVersionScript>
-        </PropertyGroup>
-        <Exec
-            Command="$(PowerShellExe) -NonInteractive -ExecutionPolicy Unrestricted -Command &quot;&amp; { $(GetVersionScript) -MetadataPath '$(MSBuildProjectDirectory)\$(SolutionRootPath)' -MSBuildMode } 6>$null &quot;"
-            ConsoleToMSBuild="true">
-            <Output TaskParameter="ConsoleOutput" PropertyName="SolutionVersionOutput" />
-        </Exec>
-        <Message Text="Output: $(SolutionVersionOutput)" />
-        <XmlPeek XmlContent="$(SolutionVersionOutput)" Query="/SolutionVersion/Version/text()">
-            <Output TaskParameter="Result" PropertyName="SolutionVersion" />
-        </XmlPeek>
-        <XmlPeek XmlContent="$(SolutionVersionOutput)" Query="/SolutionVersion/Part/text()">
-            <Output TaskParameter="Result" PropertyName="SolutionVersionPart" />
-        </XmlPeek>
-    </Target>
     <Target Name="PackMissingDependencies"
         Condition="Exists('$(MSBuildProjectDirectory)\$(SolutionRootPath)\Other\MissingDependencies')"
         AfterTargets="CopyCdsSolutionContent" BeforeTargets="PowerAppsPackage">

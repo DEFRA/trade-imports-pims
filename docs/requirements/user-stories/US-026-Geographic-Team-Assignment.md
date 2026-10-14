@@ -21,6 +21,9 @@ Import Records are assigned to one of three geographic teams: IRMS Scotland, IRM
 - **AC-2 (View other teams' records in a disaster scenario):**  
   In the event of a regional disaster, all geographic teams can view a list of Import Records owned by another team.
 
+- **AC-3 (Region/Area Allocated to options):**  
+  The Region / Area Allocated to field on the Import Record offers Transit and North 6 as additional selectable values, alongside the existing regional options.
+
 ## Business Rules
 
 None additional to standard D365 team ownership.
@@ -28,9 +31,11 @@ None additional to standard D365 team ownership.
 ## Dependencies
 
 - D365 Team records for each geographic team must be provisioned and replicated to all environments (ASM-008, DEP-006)
+- [US-059](US-059-Devolved-Office-Assignment.md) (related but distinct Devolved Office concept), [US-060](US-060-APHA-Owner-Team-Assignment.md) (additional APHA owner Teams)
 
 ## Traceability
 
 ### Source Jira Issues
 
 - IMTA-5863
+- EDA-619

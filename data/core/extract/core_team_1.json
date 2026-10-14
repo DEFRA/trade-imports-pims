@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 5,
+  "RecordsCount": 10,
   "ExportedEntities": [
     {
       "LogicalName": "team",
@@ -257,6 +257,37 @@
         {
           "AttributeName": "name",
           "AttributeValue": "NON-GB",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "businessunitid",
+          "AttributeValue": {
+            "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+            "LogicalName": "businessunit",
+            "Name": "defra-custmstr-eue-dev-imp",
+            "KeyAttributes": []
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.EntityReference"
+        },
+        {
+          "AttributeName": "map.businessunitid.isRootBU.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "businessunit",
+            "Value": "defra-custmstr-eue-dev-imp"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "team",
+      "Id": "9cb51eb0-f1c7-4e8a-8bb3-dc6979733c5c",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "name",
+          "AttributeValue": "EU Imports",
           "AttributeType": "System.String"
         },
         {

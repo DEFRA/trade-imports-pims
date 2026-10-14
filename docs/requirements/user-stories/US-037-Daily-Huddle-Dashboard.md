@@ -32,9 +32,9 @@ A Dynamics 365 dashboard providing regional and risk-level breakdowns of live Im
   Chart showing count of Import Records completed yesterday.  
   Filter: Import Record Type = ITAHC AND Moved to Completion Date = Yesterday AND Moved to Completion? = Yes.
 
-- **AC-6 (Count of live Import Notifications by status):**  
-  Chart showing count of live Import Records with a Primary Import Notification set, by Status Reason.  
-  Filter: Status Reason ∈ {Triage, Risk Assessment, Post Import Check} AND Primary Import Notification contains data.
+- **AC-6 (Count of live Importer Notifications by status):**
+  Chart showing count of live Import Records with a Primary Importer Notification set, by Status Reason.
+  Filter: Status Reason ∈ {Triage, Risk Assessment, Post Import Check} AND Primary Importer Notification contains data.
 
 - **AC-7 (Post Import Checks started vs not started):**  
   Chart showing count of live Post Import Checks that have been started and those that have not.  

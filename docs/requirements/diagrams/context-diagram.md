@@ -20,11 +20,12 @@ flowchart LR
         IMPORT_REC["Import Records"]
         ITAHC_ENT["ITAHC Records"]
         DOCOM_ENT["DOCOM Records"]
-        IMP_NOT["Import Notifications <br/> (legacy)"]
         IMPR_NOT["Importer Notifications <br/> (IPAFFS)"]
         POO_ENT["Places of Origin"]
         PIC_ENT["Post Import Checks"]
         QRY_ENT["Import Queries"]
+        MATCH_ENT["Match Records"]
+        WATCH_ENT["Watchlist"]
         RULES["Business Rules <br/> (Commodity Risk, Gold/Bronze, <br/> Inspection Coverage)"]
         DASH["Dashboards & Reports"]
     end
@@ -49,11 +50,12 @@ flowchart LR
     CW --> IMPORT_REC
     CW --> ITAHC_ENT
     CW --> DOCOM_ENT
-    CW --> IMP_NOT
     CW --> IMPR_NOT
     CW --> POO_ENT
     CW --> PIC_ENT
     CW --> QRY_ENT
+    CW --> MATCH_ENT
+    CW --> WATCH_ENT
     CW --> DASH
 
     CWA --> PIMS_D365

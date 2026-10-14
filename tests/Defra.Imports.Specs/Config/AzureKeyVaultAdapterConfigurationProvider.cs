@@ -5,6 +5,7 @@
     using System.Linq;
     using Azure.Extensions.AspNetCore.Configuration.Secrets;
     using Azure.Security.KeyVault.Secrets;
+    using Defra.Imports.Scenarios.Config;
     using Microsoft.Extensions.Configuration;
 
     /// <summary>

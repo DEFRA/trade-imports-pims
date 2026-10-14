@@ -25,6 +25,8 @@ An ITAHC has a replacement chain (Replaced By / Replaces) mirroring the TRACES c
   - Local Veterinary Unit (LVU No.)
   - Replaced By (Lookup to another ITAHC)
   - Replaces (Lookup to another ITAHC)
+  - Devolved Office (auto-set from Place of Destination postcode; manually editable — see [US-059](US-059-Devolved-Office-Assignment.md))
+  - Related Import Record (Boolean, read-only; set to true when an Import Record is created from this ITAHC)
 
   **Consignment Details**
   - Country of Origin (Lookup)
@@ -49,14 +51,18 @@ An ITAHC has a replacement chain (Replaced By / Replaces) mirroring the TRACES c
 
 - **AC-4:** The replacement chain (Replaced By / Replaces) is maintained on ITAHC records and replaced certificates are identifiable to caseworkers during Import Record processing.
 
+- **AC-5 (Multiple commodities flagged):** An ITAHC received with more than one commodity code is flagged for caseworker review (see [US-055](US-055-Flag-Multiple-Commodity-Certificates.md)).
+
 ## Business Rules
 
 - [BR-027](../business-rules.md#br-027) — ITAHC replacement chain must be tracked; full primary-selection prevention remains subject to confirmation
+- [BR-052](../business-rules.md#br-052) — Devolved Office auto-set and inheritance
 
 ## Dependencies
 
 - [US-007](US-007-Receive-ITAHC-From-TRACES.md) (Auto-receipt from TRACES Classic)
 - [US-001](US-001-Manage-Import-Record.md) (Import Record links to ITAHC via Primary ITAHC lookup)
+- [US-059](US-059-Devolved-Office-Assignment.md) (Devolved Office auto-set), [US-056](US-056-Compare-Commodity-Details.md) (Commodities tab), [US-058](US-058-Flag-Watched-Parties.md) (watchlist flagging)
 
 ## Traceability
 
@@ -64,3 +70,5 @@ An ITAHC has a replacement chain (Replaced By / Replaces) mirroring the TRACES c
 
 - IMTA-5868
 - IMTA-5984
+- IMTA-7648
+- EDA-620

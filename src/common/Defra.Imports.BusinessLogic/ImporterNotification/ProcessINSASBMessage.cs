@@ -36,25 +36,25 @@
         /// </summary>
         /// <param name="message">Service bus message.</param>
         /// <returns>Returns a tuple with success status (bool) and response message (string).</returns>
-        public Tuple<bool, string> UpsertImporterNotification(string message)
+        public Tuple<bool, string, string> UpsertImporterNotification(string message)
         {
             if (string.IsNullOrWhiteSpace(message))
             {
                 var errorMessage = "Error processing Importer Notification - service bus message is null or empty";
                 this.logger.Log(Severity.Error, nameof(ProcessINSASBMessage), errorMessage);
-                return Tuple.Create(false, errorMessage);
+                return Tuple.Create(false, "error", errorMessage);
             }
 
             if (!this.TryDeserializeMessage(message, out var insObject, out var deserializeError))
             {
-                return Tuple.Create(false, deserializeError);
+                return Tuple.Create(false, "error", deserializeError);
             }
 
             if (string.IsNullOrWhiteSpace(insObject?.Data?.ExchangedDocument?.Identifier))
             {
                 var errorMessage = "Error processing Importer Notification - message does not contain data.exchangedDocument.identifier";
                 this.logger.Log(Severity.Error, nameof(ProcessINSASBMessage), errorMessage);
-                return Tuple.Create(false, errorMessage);
+                return Tuple.Create(false, "error", errorMessage);
             }
 
             try
@@ -69,7 +69,7 @@
             {
                 var errorMessage = $"Error processing Importer Notification: {ex.Message}";
                 this.logger.Log(Severity.Error, nameof(ProcessINSASBMessage), errorMessage);
-                return Tuple.Create(false, errorMessage);
+                return Tuple.Create(false, "error", errorMessage);
             }
         }
 
@@ -302,7 +302,7 @@
             };
         }
 
-        private Tuple<bool, string> TryUpdateExisting(defraimp_ImporterNotification existing, INSObject insObject)
+        private Tuple<bool, string, string> TryUpdateExisting(defraimp_ImporterNotification existing, INSObject insObject)
         {
             var identifier = insObject.Data.ExchangedDocument.Identifier;
 
@@ -315,7 +315,7 @@
 
                 var successMessage = $"Importer Notification with Name: {identifier} updated successfully.";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
-                return Tuple.Create(true, successMessage);
+                return Tuple.Create(true, "success", successMessage);
             }
 
             if (!existing.defraimp_AggregateVersion.HasValue)
@@ -325,10 +325,10 @@
 
             var infoMessage = $"No update needed for Importer Notification with Name: {identifier}. Existing version: {existing.defraimp_AggregateVersion}, Incoming version: {insObject.AggregateVersion}";
             this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), infoMessage);
-            return Tuple.Create(false, infoMessage);
+            return Tuple.Create(false, "noUpdate", infoMessage);
         }
 
-        private Tuple<bool, string> TryUpdateByLastUpdatedDate(defraimp_ImporterNotification existing, INSObject insObject)
+        private Tuple<bool, string, string> TryUpdateByLastUpdatedDate(defraimp_ImporterNotification existing, INSObject insObject)
         {
             var identifier = insObject.Data.ExchangedDocument.Identifier;
             var lastStatusChange = insObject.StatusChanges != null && insObject.StatusChanges.Length > 0
@@ -339,7 +339,7 @@
             {
                 var infoMessage = $"No update needed for Importer Notification with Name: {identifier}. Existing record is up to date (no status change found).";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), infoMessage);
-                return Tuple.Create(false, infoMessage);
+                return Tuple.Create(false, "noUpdate", infoMessage);
             }
 
             var cultureInfo = new CultureInfo("en-GB");
@@ -354,15 +354,15 @@
 
                 var successMessage = $"Importer Notification with Name: {identifier} updated successfully based on last updated date.";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
-                return Tuple.Create(true, successMessage);
+                return Tuple.Create(true, "success", successMessage);
             }
 
             var noUpdateMessage = $"No update needed for Importer Notification with Name: {identifier}. Existing record is up to date based on last updated date.";
             this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), noUpdateMessage);
-            return Tuple.Create(false, noUpdateMessage);
+            return Tuple.Create(false, "noUpdate", noUpdateMessage);
         }
 
-        private Tuple<bool, string> TryCreateNew(INSObject insObject)
+        private Tuple<bool, string, string> TryCreateNew(INSObject insObject)
         {
             var identifier = insObject.Data.ExchangedDocument.Identifier;
             var newNotification = new defraimp_ImporterNotification();
@@ -377,12 +377,12 @@
 
                 var successMessage = $"Importer Notification with Name: {identifier} created successfully.";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
-                return Tuple.Create(true, successMessage);
+                return Tuple.Create(true, "success", successMessage);
             }
 
             var draftMessage = $"Importer Notification with Name: {identifier} is in Draft status. Not creating record.";
             this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), draftMessage);
-            return Tuple.Create(false, draftMessage);
+            return Tuple.Create(false, "draft", draftMessage);
         }
 
         private HashSet<string> CollectCountryCodesFromInsObject(INSObject insObject)

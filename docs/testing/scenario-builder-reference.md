@@ -187,9 +187,11 @@ parameters - they are what Gherkin table/value transformations produce.
 
 - `Persona` enum represents the actor a Dataverse operation runs as (e.g.
   `Approver`, `Submitter`, `Administrator`).
-- `ServiceClientFactory.GetClient(Persona)` returns a `ServiceClient`
-  impersonating a pooled user for that persona; `GetAppUserClient()` returns
-  the application user's own client (no impersonation).
+- `ServiceClientFactory.GetClientAsync(Persona)` returns a `Task<ServiceClient>`
+  impersonating a pooled user for that persona, leasing it via the factory's
+  constructor-injected `UserPoolService`, and maintains its own cache of
+  persona clients independently of `ScenarioUserClient`; `GetAppUserClient()`
+  returns the application user's own client (no impersonation).
 - Events and builders take an `IServiceClientFactory`/`ServiceClientFactory`
   dependency (registered in `InitializeServices`) rather than a single
   `ServiceClient`, so each event can act as the correct persona.

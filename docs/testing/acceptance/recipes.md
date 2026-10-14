@@ -70,12 +70,11 @@ credential in the pool falls into one of two categories:
   business unit/security roles/teams/column security profiles permanently
   configured; `UserPoolService` never modifies them.
 - **Dynamic (pooled) users** - any credential not listed against a
-  persona's `Users`. These are only eligible for personas that have no
-  statically assigned users. When a scenario requests such a persona,
+  persona's `Users`. When a scenario requests such a persona,
   `UserPoolService` borrows an unassigned user and uses
   `IPersonaConfigurationApplier` to apply the requested persona's
-  configuration to it for the duration of the lease, stripping any stale
-  configuration left over from a previous lease first.
+  configuration to it for as long as the scenario holds it, stripping any
+  stale configuration left over from a previous borrower first.
 
 Individual scenarios simply request a persona and never configure roles or
 business units directly:

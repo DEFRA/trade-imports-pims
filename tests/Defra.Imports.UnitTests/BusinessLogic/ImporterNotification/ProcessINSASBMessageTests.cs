@@ -55,7 +55,8 @@
 
             // Assert
             Assert.False(result.Item1);
-            Assert.Contains("Error deserializing message", result.Item2);
+            Assert.Equal("error", result.Item2);
+            Assert.Contains("Error deserializing message", result.Item3);
 
             this.loggerMock.Verify(
                 l => l.Log(
@@ -76,7 +77,8 @@
 
             // Assert
             Assert.False(result.Item1);
-            Assert.Contains("service bus message is null or empty", result.Item2);
+            Assert.Equal("error", result.Item2);
+            Assert.Contains("service bus message is null or empty", result.Item3);
 
             this.loggerMock.Verify(
                 l => l.Log(
@@ -97,7 +99,8 @@
 
             // Assert
             Assert.False(result.Item1);
-            Assert.Contains("service bus message is null or empty", result.Item2);
+            Assert.Equal("error", result.Item2);
+            Assert.Contains("service bus message is null or empty", result.Item3);
 
             this.loggerMock.Verify(
                 l => l.Log(
@@ -121,7 +124,8 @@
 
             // Assert
             Assert.False(result.Item1);
-            Assert.Contains("data.exchangedDocument.identifier", result.Item2);
+            Assert.Equal("error", result.Item2);
+            Assert.Contains("data.exchangedDocument.identifier", result.Item3);
 
             this.loggerMock.Verify(
                 l => l.Log(
@@ -153,8 +157,9 @@
 
             // Assert
             Assert.True(result.Item1);
-            Assert.Contains("INS-001", result.Item2);
-            Assert.Contains("created successfully", result.Item2);
+            Assert.Equal("success", result.Item2);
+            Assert.Contains("INS-001", result.Item3);
+            Assert.Contains("created successfully", result.Item3);
 
             this.orgSvcMock.Verify(
                 o => o.Create(It.Is<Entity>(e => e.LogicalName == defraimp_ImporterNotification.EntityLogicalName)),
@@ -185,7 +190,8 @@
 
             // Assert
             Assert.True(result.Item1);
-            Assert.Contains("created successfully", result.Item2);
+            Assert.Equal("success", result.Item2);
+            Assert.Contains("created successfully", result.Item3);
 
             this.orgSvcMock.Verify(
                 o => o.Create(It.Is<Entity>(e => e.LogicalName == defraimp_ImporterNotification.EntityLogicalName)),
@@ -210,7 +216,8 @@
 
             // Assert
             Assert.False(result.Item1);
-            Assert.Contains("Draft status", result.Item2);
+            Assert.Equal("draft", result.Item2);
+            Assert.Contains("Draft status", result.Item3);
 
             this.orgSvcMock.Verify(o => o.Create(It.IsAny<Entity>()), Times.Never);
             this.orgSvcMock.Verify(o => o.Update(It.IsAny<Entity>()), Times.Never);
@@ -238,7 +245,8 @@
 
             // Assert
             Assert.True(result.Item1);
-            Assert.Contains("created successfully", result.Item2);
+            Assert.Equal("success", result.Item2);
+            Assert.Contains("created successfully", result.Item3);
 
             this.orgSvcMock.Verify(
                 o => o.Create(It.Is<Entity>(e => e.LogicalName == defraimp_ImporterNotification.EntityLogicalName)),
@@ -263,7 +271,8 @@
 
             // Assert
             Assert.False(result.Item1);
-            Assert.Contains("Error processing Importer Notification", result.Item2);
+            Assert.Equal("error", result.Item2);
+            Assert.Contains("Error processing Importer Notification", result.Item3);
 
             this.loggerMock.Verify(
                 l => l.Log(
@@ -298,8 +307,9 @@
 
             // Assert
             Assert.True(result.Item1);
-            Assert.Contains("INS-010", result.Item2);
-            Assert.Contains("updated successfully", result.Item2);
+            Assert.Equal("success", result.Item2);
+            Assert.Contains("INS-010", result.Item3);
+            Assert.Contains("updated successfully", result.Item3);
 
             this.orgSvcMock.Verify(
                 o => o.Update(It.Is<Entity>(e => e.LogicalName == defraimp_ImporterNotification.EntityLogicalName)),
@@ -333,8 +343,9 @@
 
             // Assert
             Assert.False(result.Item1);
-            Assert.Contains("No update needed", result.Item2);
-            Assert.Contains("INS-011", result.Item2);
+            Assert.Equal("noUpdate", result.Item2);
+            Assert.Contains("No update needed", result.Item3);
+            Assert.Contains("INS-011", result.Item3);
 
             this.orgSvcMock.Verify(o => o.Update(It.IsAny<Entity>()), Times.Never);
             this.orgSvcMock.Verify(o => o.Create(It.IsAny<Entity>()), Times.Never);
@@ -365,7 +376,8 @@
 
             // Assert
             Assert.False(result.Item1);
-            Assert.Contains("No update needed", result.Item2);
+            Assert.Equal("noUpdate", result.Item2);
+            Assert.Contains("No update needed", result.Item3);
 
             this.orgSvcMock.Verify(o => o.Update(It.IsAny<Entity>()), Times.Never);
             this.orgSvcMock.Verify(o => o.Create(It.IsAny<Entity>()), Times.Never);
@@ -396,8 +408,9 @@
 
             // Assert
             Assert.True(result.Item1);
-            Assert.Contains("INS-020", result.Item2);
-            Assert.Contains("updated successfully", result.Item2);
+            Assert.Equal("success", result.Item2);
+            Assert.Contains("INS-020", result.Item3);
+            Assert.Contains("updated successfully", result.Item3);
 
             this.orgSvcMock.Verify(
                 o => o.Update(It.Is<Entity>(e => e.LogicalName == defraimp_ImporterNotification.EntityLogicalName)),
@@ -429,8 +442,9 @@
 
             // Assert
             Assert.False(result.Item1);
-            Assert.Contains("No update needed", result.Item2);
-            Assert.Contains("last updated date", result.Item2);
+            Assert.Equal("noUpdate", result.Item2);
+            Assert.Contains("No update needed", result.Item3);
+            Assert.Contains("last updated date", result.Item3);
 
             this.orgSvcMock.Verify(o => o.Update(It.IsAny<Entity>()), Times.Never);
             this.orgSvcMock.Verify(o => o.Create(It.IsAny<Entity>()), Times.Never);
@@ -461,8 +475,9 @@
 
             // Assert
             Assert.False(result.Item1);
-            Assert.Contains("No update needed", result.Item2);
-            Assert.Contains("no status change found", result.Item2);
+            Assert.Equal("noUpdate", result.Item2);
+            Assert.Contains("No update needed", result.Item3);
+            Assert.Contains("no status change found", result.Item3);
 
             this.orgSvcMock.Verify(o => o.Update(It.IsAny<Entity>()), Times.Never);
             this.orgSvcMock.Verify(o => o.Create(It.IsAny<Entity>()), Times.Never);
@@ -486,7 +501,8 @@
 
             // Assert
             Assert.False(result.Item1);
-            Assert.Contains("Error processing Importer Notification", result.Item2);
+            Assert.Equal("error", result.Item2);
+            Assert.Contains("Error processing Importer Notification", result.Item3);
 
             this.loggerMock.Verify(
                 l => l.Log(

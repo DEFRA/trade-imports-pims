@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using Defra.Imports.Scenarios;
+    using Defra.Imports.Scenarios.Config;
 
     /// <summary>
     /// Configuration for integration tests.
@@ -26,7 +28,12 @@
         /// <summary>
         /// Gets or sets persona mappings.
         /// </summary>
-        public IDictionary<string, PersonaConfiguration> Personas { get; set; }
+        public IDictionary<Persona, PersonaConfiguration> Personas { get; set; }
+
+        /// <summary>
+        /// Gets or sets the usernames of the users used for dynamic persona users. Passwords are not required here since integration tests only ever impersonate these users rather than logging in as them.
+        /// </summary>
+        public IEnumerable<string> Credentials { get; set; }
 
         /// <summary>
         /// Gets or sets configuration relating to Key Vault.

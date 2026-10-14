@@ -47,7 +47,8 @@ All rules are managed through Dynamics 365 entities with appropriate security ro
 | [US-014](../user-stories/US-014-Automated-Risk-Assessment-P1.md)        | Automated Risk Assessment — P1 Consignments |
 | [US-015](../user-stories/US-015-Automated-Risk-Assessment-P2.md)        | Automated Risk Assessment — P2 Random 10%   |
 | [US-016](../user-stories/US-016-Automated-Risk-Assessment-P3-Random.md) | Automated Risk Assessment — P3 Random 2%    |
+| [US-061](../user-stories/US-061-Automatically-Determine-Commodity-Type.md) | Automatically Determine Commodity Type   |
 
 ## Source Jira Issues
 
-IMTA-5865, IMTA-5867, IMTA-5888, IMTA-5891, IMTA-5892, IMTA-5894, IMTA-5895, IMTA-5914, IMTA-5915, IMTA-5916, IMTA-5933
+IMTA-5865, IMTA-5867, IMTA-5888, IMTA-5891, IMTA-5892, IMTA-5894, IMTA-5895, IMTA-5914, IMTA-5915, IMTA-5916, IMTA-5933, IMTA-7469, IMTA-7785, IMTA-8483

@@ -8,14 +8,19 @@ namespace Defra.Imports.IntegrationTests.Dataverse
     using Microsoft.PowerPlatform.Dataverse.Client;
 
     /// <summary>
-    /// Provides on-demand access to a Dataverse connection for integration tests.
+    /// Provides the shared Dataverse connection and user pool used by integration tests. A new <see cref="ServiceClientFactory"/> must be constructed per test from <see cref="BaseClient"/> and <see cref="UserPoolService"/> (see <see cref="IntegrationTests"/>) so persona clients are tracked and released independently per test.
     /// </summary>
     public static class DataverseFixture
     {
         /// <summary>
-        /// Client factory, public to allow for use by feature flag initialisation class.
+        /// The shared base <see cref="ServiceClient"/> connection, public to allow for use by feature flag initialisation class.
         /// </summary>
-        public static readonly ServiceClientFactory ClientFactory;
+        public static readonly ServiceClient BaseClient;
+
+        /// <summary>
+        /// The shared user pool service, or <c>null</c> if no personas are configured.
+        /// </summary>
+        public static readonly UserPoolService UserPoolService;
 
         /// <summary>
         /// Initializes static members of the <see cref="DataverseFixture"/> class.
@@ -39,11 +44,18 @@ namespace Defra.Imports.IntegrationTests.Dataverse
                 throw new ConfigurationErrorsException("You must configure a client secret.");
             }
 
-            ClientFactory = new ServiceClientFactory(
-                config.Url,
-                config.ClientId,
-                config.ClientSecret,
-                config.Personas?.ToDictionary(kvp => (Persona)Enum.Parse(typeof(Persona), kvp.Key, true), kvp => kvp.Value.AppId.HasValue ? new[] { kvp.Value.AppId.Value.ToString() } : kvp.Value.Users));
+            BaseClient = ServiceClientFactory.CreateBaseClient(config.Url, config.ClientId, config.ClientSecret);
+
+            if (config.Personas != null && config.Personas.Any())
+            {
+                // A separate connection to build the user pool rather than the shared base client, since
+                // ownership is passed to the applier, which disposes it, cascading from UserPoolService.Dispose().
+                var poolServiceClient = new ServiceClient(config.Url, config.ClientId.ToString(), config.ClientSecret, true);
+                var applier = new PersonaConfigurationApplier(poolServiceClient);
+                var staticUsers = config.Personas.Values.Where(p => p.Users != null).SelectMany(p => p.Users);
+                var usernames = staticUsers.Concat(config.Credentials ?? Enumerable.Empty<string>()).Distinct();
+                UserPoolService = new UserPoolService(usernames, config.Personas, applier);
+            }
         }
 
         /// <summary>
@@ -52,7 +64,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse
         /// <returns>A <see cref="ServiceClient"/> instance authenticated as the configured application user.</returns>
         public static ServiceClient GetAppUserClient()
         {
-            return ClientFactory.GetAppUserClient();
+            return BaseClient.Clone();
         }
 
         /// <summary>
@@ -62,16 +74,6 @@ namespace Defra.Imports.IntegrationTests.Dataverse
         public static ImportsContext GetAppUserContext()
         {
             return new ImportsContext(GetAppUserClient());
-        }
-
-        /// <summary>
-        /// Gets a <see cref="ServiceClient"/> instance authenticated as the given persona.
-        /// </summary>
-        /// <param name="persona">The user persona to authenticate.</param>
-        /// <returns>A <see cref="ServiceClient"/> instance authenticated as the given persona.</returns>
-        public static ServiceClient GetClient(Persona persona)
-        {
-            return ClientFactory.GetClient(persona);
         }
     }
 }

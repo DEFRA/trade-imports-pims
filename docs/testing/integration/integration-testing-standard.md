@@ -57,7 +57,7 @@ public async Task Deactivate_WhenAccountHasAnOpenOpportunity_DeactivatesOpportun
 
 - **Test classes** should be named `<Entity>Tests` for entity-bound behaviours, mirroring the acceptance suite. For unbound global actions with no owning entity, use `<Action>Tests` instead.
 - **Test methods** should follow `Action_Condition_Expectation` (for example, `Deactivate_WhenAccountHasAnOpenOpportunity_DeactivatesOpportunity`).
-- **Personas** - use `GetClient(Persona.X)` when the behaviour belongs to that persona. Do not default to an admin or app-user client unless the behaviour is specifically application- or service-scoped. If the behaviour depends on a specific user from the scenario, use `GetClient(Guid systemUserId)` and pass the `systemuserid` of the user.
+- **Personas** - use `await GetClientAsync(Persona.X)` when the behaviour belongs to that persona. Do not default to an admin or app-user client unless the behaviour is specifically application- or service-scoped. If the behaviour depends on a specific user from the scenario, use `GetClient(Guid systemUserId)` and pass the `systemuserid` of the user.
 - **Assertions** follow [common-testing-conventions.md](../common-testing-conventions.md): use FluentAssertions with a `because` reason, and group related assertions in an `AssertionScope` when appropriate.
 - **Data setup** always goes through `Defra.Imports.Scenarios`. See [integration-tests.instructions.md](../../../.github/instructions/integration-tests.instructions.md) for the rule and rationale, and [scenario-builder-reference.md](../scenario-builder-reference.md) for the builder mechanics (`Event`, `CompositeEvent`, `ComposeUsing`, and incremental `BuildAsync`).
 

@@ -48,15 +48,46 @@ flowchart TD
 
 ---
 
-## Process 6 — Match Inbound Records to Import Records
+## Process 6 — Matching Process (ITAHC/DOCOM to Importer Notification)
 
 ```mermaid
 flowchart TD
-    A([Inbound ITAHC <br/> Importer Notification <br/> IV66-related data created or updated]) --> B[Create or update <br/> Match Record]
-    B --> C[Run matching logic <br/> against candidate <br/> Import Records]
-    C --> D[Populate Match View <br/> with related Import <br/> Records and context]
-    D --> E[Show Work Schedule <br/> Number where available]
-    E --> F[Caseworker reviews <br/> likely matches]
+    A([Inbound ITAHC/DOCOM <br/> or Importer Notification <br/> created or updated]) --> B[Run weighted matching <br/> algorithm against <br/> unmatched candidates <br/> within configurable window]
+    B --> C{Certificate number <br/> exact match?}
+    C -->|Yes| D[Score = 100%]
+    C -->|No| E{First part of <br/> Destination Postcode <br/> matches?}
+    E -->|No| F[No candidate match]
+    E -->|Yes| G[Calculate weighted mean <br/> score across configured <br/> fields and weightings]
+    D --> H{Score at or above <br/> confidence threshold?}
+    G --> H
+    H -->|No| F
+    H -->|Yes| I[Create Match Record <br/> status Unmatched]
+    I --> J[Caseworker reviews <br/> side-by-side comparison]
+    J --> K{Valid match?}
+    K -->|Yes| L[Complete Match step <br/> status Matched]
+    K -->|No| M[Reject Match step <br/> mandatory reason <br/> status Rejected]
+    L --> N{Import Record <br/> already linked?}
+    N -->|No| O[Offer to create <br/> Import Record from <br/> confirmed match]
+    N -->|Yes| P[Associate existing <br/> Import Record]
+    O --> Q[Import Record created: <br/> ITAHC/DOCOM data + <br/> copied Importer Notification fields]
+    Q --> R[Watchlist check <br/> applied — see Process 7]
+    M --> S[Pair excluded from <br/> future candidate searches]
+    B -.->|older than 30 days <br/> configurable, still unmatched| T[Importer Notification <br/> archived - Inactive]
+```
+
+---
+
+## Process 7 — Watchlist Flagging
+
+```mermaid
+flowchart TD
+    A([ITAHC created, or <br/> Import Record created <br/> or matched]) --> B[Identify place of origin, <br/> place of destination, <br/> consignee, transporter, <br/> veterinarian involved]
+    B --> C{Any party active <br/> on the Watchlist?}
+    C -->|No| D[No flag]
+    C -->|Yes| E[Flag the ITAHC/Import <br/> Record — one flag per <br/> matching Watchlist entry]
+    E --> F[Caseworker opens flag]
+    F --> G[Watchlist record details <br/> and comments displayed]
+    G --> H[Caseworker may edit <br/> record or add a comment]
 ```
 
 ---

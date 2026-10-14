@@ -1,11 +1,12 @@
-namespace Defra.Imports.Specs.Services
+namespace Defra.Imports.Scenarios
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Defra.Imports.Model;
-    using Defra.Imports.Specs.Config;
+    using Defra.Imports.Scenarios.Config;
+    using Defra.Imports.Scenarios.Extensions;
     using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Messages;
@@ -14,7 +15,7 @@ namespace Defra.Imports.Specs.Services
     /// <summary>
     /// Applies and removes persona configuration on Dataverse users by updating their business unit and associating/disassociating security roles, teams and column security profiles.
     /// </summary>
-    internal sealed class PersonaConfigurationApplier : IPersonaConfigurationApplier
+    public sealed class PersonaConfigurationApplier : IPersonaConfigurationApplier
     {
         private readonly ServiceClient serviceClient;
 
@@ -42,7 +43,7 @@ namespace Defra.Imports.Specs.Services
             var teamNames = personaList.SelectMany(p => p.Teams ?? Enumerable.Empty<string>()).Distinct().ToList();
             var columnSecurityProfileNames = personaList.SelectMany(p => p.ColumnSecurityProfiles ?? Enumerable.Empty<string>()).Distinct().ToList();
 
-            var userId = await RetrieveUserIdAsync(this.serviceClient, username).ConfigureAwait(false);
+            var userId = await this.serviceClient.RetrieveUserIdAsync(username).ConfigureAwait(false);
 
             var businessUnitName = businessUnitNames.SingleOrDefault();
             if (!string.IsNullOrEmpty(businessUnitName))
@@ -64,7 +65,7 @@ namespace Defra.Imports.Specs.Services
         /// <inheritdoc/>
         public async Task RemoveAsync(string username)
         {
-            var userId = await RetrieveUserIdAsync(this.serviceClient, username).ConfigureAwait(false);
+            var userId = await this.serviceClient.RetrieveUserIdAsync(username).ConfigureAwait(false);
 
             await DisassociateAllAsync(this.serviceClient, userId, "systemuserroles", "role", "roleid", "systemuserroles_association").ConfigureAwait(false);
             await DisassociateAllAsync(this.serviceClient, userId, "teammembership", "team", "teamid", "teammembership_association").ConfigureAwait(false);
@@ -79,22 +80,10 @@ namespace Defra.Imports.Specs.Services
             }).ConfigureAwait(false);
         }
 
-        private static async Task<Guid> RetrieveUserIdAsync(ServiceClient serviceClient, string username)
+        /// <inheritdoc/>
+        public void Dispose()
         {
-            var query = new QueryExpression(SystemUser.EntityLogicalName)
-            {
-                ColumnSet = new ColumnSet(false),
-                Criteria = new FilterExpression
-                {
-                    Conditions = { new ConditionExpression(SystemUser.Fields.DomainName, ConditionOperator.Equal, username) },
-                },
-            };
-
-            var result = await serviceClient.RetrieveMultipleAsync(query).ConfigureAwait(false);
-            var user = result.Entities.FirstOrDefault()
-                ?? throw new InvalidOperationException($"No user exists in Dataverse with username '{username}'.");
-
-            return user.Id;
+            this.serviceClient.Dispose();
         }
 
         private static async Task<EntityReference> RetrieveBusinessUnitReferenceAsync(ServiceClient serviceClient, string businessUnitName)

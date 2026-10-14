@@ -15,13 +15,14 @@ flowchart TD
     PIMS --> GEO["Team & Geographic Assignment"]
     PIMS --> RPT["Reporting & Analytics"]
     PIMS --> AUD["Audit & Compliance"]
+    PIMS --> MATCH["Matching Process"]
+    PIMS --> WATCH["Watchlist and Flagging"]
 
     CRM --> CRM1["Import Record CRUD"]
     CRM --> CRM2["ITAHC Management"]
     CRM --> CRM3["DOCOM Management"]
     CRM --> CRM4["CVED Management"]
-    CRM --> CRM5["Import Notification Management"]
-    CRM --> CRM6["Importer Notification View"]
+    CRM --> CRM5["Importer Notification Management"]
     CRM --> CRM7["Document Attachment"]
     CRM --> CRM8["IV65 Due Date Calculation"]
     CRM --> CRM9["Completion Date Recording"]
@@ -40,6 +41,7 @@ flowchart TD
     RISK --> RISK4["P1 Post-Check Determination"]
     RISK --> RISK5["P2 10% Random Inspection"]
     RISK --> RISK6["P3 2% Random Inspection"]
+    RISK --> RISK7["Commodity Type Auto-Mapping"]
 
     POO --> POO1["Place of Origin CRUD"]
     POO --> POO2["Trust Level Maintenance / (Gold/Bronze)"]
@@ -59,6 +61,8 @@ flowchart TD
     GEO --> GEO1["Geographic Team Assignment"]
     GEO --> GEO2["Auto-Assign ITAHC/DOCOM"]
     GEO --> GEO3["APHA Region Management"]
+    GEO --> GEO4["Devolved Office Assignment"]
+    GEO --> GEO5["APHA Owner Team Assignment"]
 
     RPT --> RPT1["Daily Huddle Stats Dashboard"]
     RPT --> RPT2["Daily Stats Dashboard"]
@@ -71,6 +75,17 @@ flowchart TD
     AUD --> AUD1["Field-Level Audit / (Import Records & Post Import Checks)"]
     AUD --> AUD2["Unique Reference Number Generation"]
     AUD --> AUD3["Counter History Tracking"]
+
+    MATCH --> MATCH1["Matching Algorithm Configuration"]
+    MATCH --> MATCH2["Automated Matching"]
+    MATCH --> MATCH3["Candidate Match Review & Resolution"]
+    MATCH --> MATCH4["Import Record Creation at Matching"]
+    MATCH --> MATCH5["Stale Notification Archiving"]
+    MATCH --> MATCH6["Multiple-Commodity Flagging"]
+    MATCH --> MATCH7["Commodity Comparison"]
+
+    WATCH --> WATCH1["Watchlist Record Management"]
+    WATCH --> WATCH2["Watched-Party Flagging"]
 ```
 
 
