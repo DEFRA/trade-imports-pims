@@ -26,7 +26,7 @@
       "Update Step - Populate Animal Number",
       0,
       IsolationModeEnum.Sandbox,
-      Image1Attributes = "defraimp_commoditycomplementparameterset,defraimp_importernotificationid,defraimp_name"
+      Image1Attributes = "defraimp_commoditycomplementparameterset,defraimp_importernotificationid,defraimp_name",
       Image1Name = "PreImage",
       Image1Type = ImageTypeEnum.PreImage)]
     /// <summary>
