@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.26083.162" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26083.162" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.26083.00162">
+<ImportExportXml version="9.2.26092.157" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26092.157" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.26092.00157">
   <SolutionManifest>
     <UniqueName>defra_Imports</UniqueName>
     <LocalizedNames>
       <LocalizedName description="DEFRA - Imports" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.2.2</Version>
+    <Version>1.3.0</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -383,6 +383,7 @@
       <RootComponent type="91" id="{f3938a14-f2e8-e911-a866-000d3ab0dc71}" schemaName="Defra.Imports.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f82f6b6a704e5822" behavior="0" />
       <RootComponent type="92" id="{0e7df635-717b-eb11-a812-000d3adc8a8f}" behavior="0" />
       <RootComponent type="92" id="{0eb982f6-642a-eb11-a813-000d3ab6d757}" behavior="0" />
+      <RootComponent type="92" id="{1261ca48-99c5-f111-aaaf-70a8a581cd1b}" behavior="0" />
       <RootComponent type="92" id="{17506dd4-5bc0-ea11-a812-000d3ad82cac}" behavior="0" />
       <RootComponent type="92" id="{193e27ab-5cc0-ea11-a812-000d3ad82cac}" behavior="0" />
       <RootComponent type="92" id="{1b789195-e069-ea11-a811-000d3ab5d511}" behavior="0" />
@@ -413,6 +414,7 @@
       <RootComponent type="92" id="{efb882f6-642a-eb11-a813-000d3ab6d757}" behavior="0" />
       <RootComponent type="92" id="{f1e6e15c-046a-ea11-a811-000d3ab5d511}" behavior="0" />
       <RootComponent type="92" id="{f417a8b4-1878-ea11-a811-000d3ab5d511}" behavior="0" />
+      <RootComponent type="92" id="{f88c372e-9ac5-f111-aaaf-7ced8d41d414}" behavior="0" />
       <RootComponent type="92" id="{f9b882f6-642a-eb11-a813-000d3ab6d757}" behavior="0" />
       <RootComponent type="92" id="{fb4c78fe-7e2a-eb11-a813-000d3ab6d757}" behavior="0" />
       <RootComponent type="92" id="{fcc8d1a7-3d2f-eb11-a813-000d3ad82cac}" behavior="0" />

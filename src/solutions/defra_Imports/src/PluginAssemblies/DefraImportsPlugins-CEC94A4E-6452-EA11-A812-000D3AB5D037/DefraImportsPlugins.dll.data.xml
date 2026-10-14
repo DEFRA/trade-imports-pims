@@ -53,5 +53,8 @@
     <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="e7e6e15c-046a-ea11-a811-000d3ab5d511" Name="Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy">
       <FriendlyName>Defra.Imports.Plugins.Itahc.PopulateReplacesAndReplacedBy</FriendlyName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Defra.Imports.Plugins.ParameterSetKeyDataPair.PopulateAnimalNumber, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4" PluginTypeId="a8d95135-11e5-4832-8578-2bafbafaaa09" Name="Defra.Imports.Plugins.ParameterSetKeyDataPair.PopulateAnimalNumber">
+      <FriendlyName>7d2d4400-cc66-4afc-90a6-3abafda444e7</FriendlyName>
+    </PluginType>
   </PluginTypes>
 </PluginAssembly>
