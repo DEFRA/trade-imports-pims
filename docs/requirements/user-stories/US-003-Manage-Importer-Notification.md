@@ -24,8 +24,7 @@ The Importer Notification entity (`defraimp_importernotification`) is the IPAFFS
   - Premises of Origin (Name, Address, Postcode, Country)
   - Transporter (Name, Address, Postcode, Telephone, Email)
   - Transport to PoE / Transport after PoE sections (mirrors the Import Record — see [US-001](US-001-Manage-Import-Record.md))
-  - Species / Product (Common Name), Quantity, Units, Weight (KG) (hidden for CHEDA — [BR-046](../business-rules.md#br-046))
-  - Intended Use of Commodity
+  - Species / Product (Common Name), Number of Animals, Weight (KG) (hidden for CHEDA — [BR-046](../business-rules.md#br-046))
   - Purpose of Consignment, Certified For, Purpose for Movement, Number of Packages (journey-conditional visibility — [BR-045](../business-rules.md#br-045))
   - Internal Market Purpose (visible only when Purpose of Consignment = Internal Market — [BR-061](../business-rules.md#br-061))
   - Port / Airport of Entry

@@ -57,6 +57,7 @@ Scenario: A caseworker views an Importer Notification's importer notification de
 		| Field               |
 		| Purpose of Movement |
 		| Weight (KG)         |
+		| Imp Type            |
 
 @acceptance-criteria:us-003-1
 Scenario: A caseworker views an Importer Notification's internal market purpose (CVED/CHEDA)
