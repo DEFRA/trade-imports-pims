@@ -22,6 +22,12 @@ namespace Defra.Imports.Model
 	{
 		
 		/// <summary>
+		/// Indicates that an entity could not be resolved after maximum attempts and the Bot proposes to transfer to an agent.
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AgentTransferMaxNoEntityFound = 419580010,
+		
+		/// <summary>
 		/// Indicates a no error found.
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]

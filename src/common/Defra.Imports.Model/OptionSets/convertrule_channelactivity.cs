@@ -70,10 +70,10 @@ namespace Defra.Imports.Model
 		Outboundmessage = 11895,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportQuery = 12007,
+		Voicemail = 11868,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Voicemail = 11868,
+		ImportQuery = 11914,
 	}
 }
 #pragma warning restore CS1591

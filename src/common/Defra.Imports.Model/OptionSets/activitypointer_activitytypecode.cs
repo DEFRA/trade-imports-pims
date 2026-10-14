@@ -100,7 +100,7 @@ namespace Defra.Imports.Model
 		Outboundmessage = 11895,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportQuery = 12007,
+		ImportQuery = 11914,
 	}
 }
 #pragma warning restore CS1591

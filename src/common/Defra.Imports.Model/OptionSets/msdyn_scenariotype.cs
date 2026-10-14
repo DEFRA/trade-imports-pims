@@ -119,9 +119,6 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EmailSentiment = 100230333,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CoachingInsights = 100230334,
 	}
 }
 #pragma warning restore CS1591
