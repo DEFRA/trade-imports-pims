@@ -22,11 +22,11 @@
       "defraimp_parametersetkeydatapair",
       StageEnum.PostOperation,
       ExecutionModeEnum.Synchronous,
-      "defraimp_commoditycomplementparameterset,defraimp_importernotificationid,defraimp_data,defraimp_name",
+      "defraimp_data",
       "Update Step - Populate Animal Number",
       0,
       IsolationModeEnum.Sandbox,
-      Image1Attributes = "defraimp_data",
+      Image1Attributes = "defraimp_commoditycomplementparameterset,defraimp_importernotificationid,defraimp_name"
       Image1Name = "PreImage",
       Image1Type = ImageTypeEnum.PreImage)]
     /// <summary>
