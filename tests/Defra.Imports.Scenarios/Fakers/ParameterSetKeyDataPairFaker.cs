@@ -17,13 +17,8 @@ namespace Defra.Imports.Scenarios.Fakers
         /// </summary>
         public ParameterSetKeyDataPairFaker()
         {
-            this.RuleFor(k => k.defraimp_name, f => "imp_number_animal");
+            this.RuleFor(k => k.defraimp_name, f => "number_animal");
             this.RuleFor(k => k.defraimp_data, f => f.Random.Int(1, 25).ToString());
-
-            // Denormalised copy of the parent parameter set's species - not evidenced in the reviewed payloads/Logic App
-            // snapshot, included defensively in case it was added since.
-            this.RuleFor(k => k.defraimp_SpeciesID, f => f.Random.Int(10000, 999999).ToString());
-            this.RuleFor(k => k.defraimp_SpeciesName, f => f.PickRandom(SpeciesNames));
         }
     }
 }
