@@ -1,6 +1,7 @@
 namespace Defra.Imports.IntegrationTests.Dataverse
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using Defra.Imports.Model;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -36,13 +37,11 @@ namespace Defra.Imports.IntegrationTests.Dataverse
                     return;
                 }
 
-                var relationship = new Entity(defraimp_goldbronzecountriesnn.EntityLogicalName)
-                {
-                    ["defraimp_goldbronzecommodityid"] = DogGoldBronzeCommodityId,
-                    ["defra_countryid"] = RomaniaCountryId,
-                };
+                var relationship = new Relationship(defraimp_goldbronzecountriesnn.EntityLogicalName);
 
-                DataverseFixture.BaseClient.Create(relationship);
+                var entityRefCollection = new EntityReferenceCollection();
+                entityRefCollection.Add(new EntityReference(defraimp_goldbronzecommodity.EntityLogicalName, DogGoldBronzeCommodityId));
+                DataverseFixture.BaseClient.Associate(defra_country.EntityLogicalName, RomaniaCountryId, relationship, entityRefCollection);
             }
         }
     }

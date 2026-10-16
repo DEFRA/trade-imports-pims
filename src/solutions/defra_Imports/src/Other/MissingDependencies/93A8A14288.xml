@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="1" schemaName="msdyn_actionownerassignment" displayName="Action Owner Assignment" solution="msdyn_NextBestActionAgent (9.1.26085.10017)" />
+  <Dependent type="1" schemaName="team" displayName="Team" />
+</MissingDependency>
