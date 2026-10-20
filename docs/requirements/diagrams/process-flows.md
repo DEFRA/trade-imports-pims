@@ -10,19 +10,18 @@ Key process flows in PIMS, derived from the source Jira stories.
 flowchart TD
     A([TRACES Classic <br/> Creates ITAHC]) --> B[Email notification <br/> to CIT team]
     B --> C[Azure Integration <br/> Intercepts and routes to <br/> Service Bus Queue]
-    C --> D{Message <br/> Processed <br/> Successfully?}
-    D -->|No| E[Capture failed receipt <br/> Make visible for <br/> investigation and reprocess]
-    D -->|Yes| F[Create ITAHC Record <br/> in PIMS D365]
-    F --> G[Auto-create <br/> Import Record <br/> linked to ITAHC]
-    G --> H[Auto-assign to <br/> Regional Team]
-    H --> I[Caseworker Reviews <br/> Import Record]
+    C --> F[Create ITAHC Record <br/> in PIMS D365]
+    F --> H[Auto-assign to <br/> Regional Team]
+    H --> G[Caseworker creates <br/> Import Record <br/> from ITAHC]
+    G --> I[Caseworker Reviews <br/> Import Record]
     I --> J[Risk Assessment Applied <br/> Automatically]
     J --> K{Post Import Check <br/> Required?}
-    K -->|Yes| L[Post Import Check <br/> Scheduled]
+    K -->|Yes| L[Caseworker creates <br/> Post Import Check record]
     K -->|No| M[Import Record <br/> Completed]
     L --> N[Post Import Check <br/> Outcome Recorded]
     N --> O[Trust Level <br/> Updated on <br/> Place of Origin]
-    N --> M
+    N --> P[Import Record <br/> Inspection Status <br/> Rolled Up]
+    P --> M
 ```
 
 ---
@@ -81,13 +80,19 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A([ITAHC created, or <br/> Import Record created <br/> or matched]) --> B[Identify place of origin, <br/> place of destination, <br/> consignee, transporter, <br/> veterinarian involved]
+    A([ITAHC created, or <br/> Importer Notification created]) --> B[Identify applicable watched parties <br/> (veterinarian applies to ITAHCs only)]
     B --> C{Any party active <br/> on the Watchlist?}
     C -->|No| D[No flag]
-    C -->|Yes| E[Flag the ITAHC/Import <br/> Record — one flag per <br/> matching Watchlist entry]
-    E --> F[Caseworker opens flag]
-    F --> G[Watchlist record details <br/> and comments displayed]
-    G --> H[Caseworker may edit <br/> record or add a comment]
+    C -->|Yes| E[Flag the ITAHC/Importer <br/> Notification — one flag per <br/> matching Watchlist entry]
+
+    F([Import Record created <br/> from ITAHC, Importer Notification, <br/> or confirmed match]) --> G{Source ITAHC/DOCOM and/or <br/> Importer Notification <br/> already flagged?}
+    G -->|No| H[No flag]
+    G -->|Yes| I[Apply the existing flags from <br/> the source record(s) to the <br/> Import Record]
+
+    E --> J[Caseworker opens flag]
+    I --> J
+    J --> K[Watchlist record details <br/> and comments displayed]
+    K --> L[Caseworker may edit <br/> record or add a comment]
 ```
 
 ---

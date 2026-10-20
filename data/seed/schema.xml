@@ -100,6 +100,7 @@
       <field displayname="Risk Level" name="defraimp_risklevelid" type="entityreference" primaryKey="false" lookupType="defraimp_importrisklevel" customfield="false" />
       <field displayname="Inspection Coverage Rule" name="defraimp_inspectioncoverageruleid" type="guid" primaryKey="true" customfield="false" />
       <field displayname="Key" name="defraimp_key" type="string" primaryKey="false" customfield="false" />
+      <field displayname="Flag Records for Post Import Check every:" name="defraimp_numberofrecordsuntilinspection" type="integer" primaryKey="false" customfield="false" />
     </fields>
     <relationships />
   </entity>

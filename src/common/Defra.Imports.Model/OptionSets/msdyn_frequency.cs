@@ -23,6 +23,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Closed = 419550001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Ondemand = 419550002,
 	}
 }
 #pragma warning restore CS1591

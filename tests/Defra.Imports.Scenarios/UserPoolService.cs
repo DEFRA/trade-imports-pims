@@ -14,18 +14,18 @@ namespace Defra.Imports.Scenarios
     {
         private readonly List<Entry> users;
         private readonly IDictionary<Persona, PersonaConfiguration> personaConfigurations;
-        private readonly IPersonaConfigurationApplier personaApplicator;
+        private readonly IPersonaConfigurationService personaConfigurationService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserPoolService"/> class with the specified users.
         /// </summary>
         /// <param name="usernames">The username of every user in the pool. Full credentials (e.g. passwords) are not required here since the pool only ever needs to identify and impersonate users, not log in as them.</param>
         /// <param name="personaConfigurations">The configuration for every known persona. A user is treated as explicitly assigned to a persona if its username appears in that persona's <see cref="PersonaConfiguration.Users"/>.</param>
-        /// <param name="personaApplicator">The applicator used to dynamically configure users for personas that have no explicitly assigned users.</param>
+        /// <param name="personaConfigurationService">The service used to dynamically configure users for personas that have no explicitly assigned users, and to verify the configuration of those that do.</param>
         public UserPoolService(
             IEnumerable<string> usernames,
             IDictionary<Persona, PersonaConfiguration> personaConfigurations,
-            IPersonaConfigurationApplier personaApplicator)
+            IPersonaConfigurationService personaConfigurationService)
         {
             if (usernames is null)
             {
@@ -33,7 +33,7 @@ namespace Defra.Imports.Scenarios
             }
 
             this.personaConfigurations = personaConfigurations ?? throw new ArgumentNullException(nameof(personaConfigurations));
-            this.personaApplicator = personaApplicator ?? throw new ArgumentNullException(nameof(personaApplicator));
+            this.personaConfigurationService = personaConfigurationService ?? throw new ArgumentNullException(nameof(personaConfigurationService));
 
             this.users = usernames
                 .Select(u => new Entry(u, this.GetAssignedPersonas(u)))
@@ -142,11 +142,11 @@ namespace Defra.Imports.Scenarios
                     // exited early, so it must be removed defensively regardless of the tracked personas.
                     if (!winnerEntry.PersonaStateVerified || winnerEntry.Personas.Count > 0)
                     {
-                        await this.personaApplicator.RemoveAsync(winnerEntry.Value).ConfigureAwait(false);
+                        await this.personaConfigurationService.RemoveAsync(winnerEntry.Value).ConfigureAwait(false);
                     }
 
                     var configurations = requested.Select(p => this.personaConfigurations[p]).ToList();
-                    await this.personaApplicator.ApplyAsync(winnerEntry.Value, configurations).ConfigureAwait(false);
+                    await this.personaConfigurationService.ApplyAsync(winnerEntry.Value, configurations).ConfigureAwait(false);
                     winnerEntry.Personas = requested;
                     winnerEntry.PersonaStateVerified = true;
                 }
@@ -229,10 +229,20 @@ namespace Defra.Imports.Scenarios
                 .Select(p => p.Key);
         }
 
+        /// <summary>
+        /// Verifies that every statically assigned user in the pool (one explicitly listed under a persona's <see cref="PersonaConfiguration.Users"/>) actually has the full Dataverse security configuration described by their assigned persona(s).
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if one or more statically assigned users do not have the full configuration described by their assigned persona(s).</exception>
+        public Task VerifyStaticUserConfigurationAsync()
+        {
+            return this.personaConfigurationService.VerifyStaticAssignmentsAsync(this.personaConfigurations);
+        }
+
         /// <inheritdoc/>
         public void Dispose()
         {
-            this.personaApplicator.Dispose();
+            this.personaConfigurationService.Dispose();
         }
 
         private sealed class Entry

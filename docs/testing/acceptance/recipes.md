@@ -68,11 +68,18 @@ credential in the pool falls into one of two categories:
 - **Static users** - explicitly listed under a persona's `Users` in
   `environment.json`. These are expected to already have the correct
   business unit/security roles/teams/column security profiles permanently
-  configured; `UserPoolService` never modifies them.
+  configured; `UserPoolService` never modifies them. A `[BeforeTestRun]`
+  hook (`UserHooks.VerifyStaticUserPersonaConfiguration`, via
+  `UserPoolService.VerifyStaticUserConfigurationAsync` and
+  `IPersonaConfigurationService.VerifyStaticAssignmentsAsync`) queries
+  Dataverse at the start of every test run to confirm each static user
+  genuinely has the configuration described by their assigned persona(s),
+  failing fast with the full list of discrepancies if the environment has
+  drifted from `environment.json`.
 - **Dynamic (pooled) users** - any credential not listed against a
   persona's `Users`. When a scenario requests such a persona,
   `UserPoolService` borrows an unassigned user and uses
-  `IPersonaConfigurationApplier` to apply the requested persona's
+  `IPersonaConfigurationService` to apply the requested persona's
   configuration to it for as long as the scenario holds it, stripping any
   stale configuration left over from a previous borrower first.
 

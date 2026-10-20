@@ -10,7 +10,7 @@ All business rules are numbered sequentially. Each rule references the originati
 When an Import Record is created or updated, PIMS must evaluate the configured Commodity Risk Level rules (Country × Commodity Type → Risk Level) to determine the base risk classification (P1, P2, P3) for the Import Record.
 
 - **Source:** [US-011](user-stories/US-011-Manage-Commodity-Risk-Levels.md)
-- **Jira:** IMTA-5865, IMTA-5914, IMTA-5915, IMTA-5916
+- **Jira:** IMTA-5865, IMTA-5914, IMTA-5916
 
 ---
 
@@ -105,7 +105,8 @@ This rule only applies to Import Records with Risk Level = P3.
 The Import Record Counter must be incremented before automated risk assessment rules are evaluated, to ensure accurate sequencing.
 
 - **Source:** [US-016](user-stories/US-016-Automated-Risk-Assessment-P3-Random.md)
-- **Jira:** IMTA-5867 AC-1
+- **Jira:** _IMTA-5867 removed from the source export; no longer Jira-traceable._
+- **Note:** Retained based on implementation evidence — the counter is incremented before the threshold is evaluated in `P3DetermineInspection.DealWithNormalP3Inspection()`.
 
 ---
 
@@ -233,7 +234,7 @@ Example: `RMQ19-0024`
 The sequence number must be global across all Import Queries (not per-Import-Record).
 
 - **Source:** [US-025](user-stories/US-025-Import-Query-Management.md)
-- **Jira:** IMTA-6185, IMTA-6255
+- **Jira:** IMTA-6185
 
 ---
 
@@ -262,10 +263,11 @@ When a user sets the Moved to Completion? field to Yes, PIMS must record the cur
 ---
 
 ### BR-027 — ITAHC/DOCOM Status and Replacement Chain Must Be Tracked { #br-027 }
-The Replaced By and Replaces fields on ITAHC and DOCOM records must reflect the replacement chain from TRACES. Current implementation evidence confirms the replacement links and cross-references are maintained. Explicit prevention of primary-certificate selection in every user interaction context is not yet fully evidenced and requires confirmation.
+The Replaced By and Replaces fields on ITAHC and DOCOM records must reflect the replacement chain from TRACES.
 
 - **Source:** [US-002](user-stories/US-002-Manage-ITAHC.md)
-- **Jira:** IMTA-5984
+- **Jira:** _IMTA-5984 removed from the source export; no longer Jira-traceable._
+- **Note:** This requirement could not be sourced from Jira and has been inferred from the implementation — the `PopulateReplacesAndReplacedBy` plugin/business logic (with unit test coverage) maintains the replacement links and cross-references. An earlier draft of this rule also asserted prevention of primary-certificate selection for replaced certificates; no implementation evidence was found for that behaviour and it has been removed.
 
 ---
 
@@ -273,7 +275,8 @@ The Replaced By and Replaces fields on ITAHC and DOCOM records must reflect the 
 A user must be able to select "No ITAHC Received" in the Primary HC lookup on an Import Record to allow the record to be saved without a linked ITAHC. Source stories may refer to this option as "No ITAHC Provided".
 
 - **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md)
-- **Jira:** IMTA-5985
+- **Jira:** _IMTA-5985 removed from the source export; no longer Jira-traceable._
+- **Note:** Retained based on implementation evidence — `NoITAHCReceived` is a defined status reason handled in the inspection-requirement business logic.
 
 ---
 
@@ -324,14 +327,6 @@ When IPAFFS Importer Notification data is processed for downstream Import Record
 
 - **Source:** [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md)
 - **Jira:** IMTA-7222
-
----
-
-### BR-035 — Failed TRACES Receipts Must Be Captured, Visible and Reprocessable { #br-035 }
-If an inbound ITAHC or DOCOM receipt from TRACES Classic cannot be processed into PIMS, the failure must be captured with enough detail for investigation, exposed to authorised operational users for review, support controlled retry or reprocess actions, and maintain an auditable history of the failure and its resolution.
-
-- **Source:** [US-047](user-stories/US-047-Manage-Failed-TRACES-Receipts.md)
-- **Jira:** IMTA-6626
 
 ---
 
@@ -424,16 +419,20 @@ When an Importer Notification with a populated Type of Non-Compliance is linked 
 
 ### BR-045 — Commodity Field Visibility Depends on Import Record Type Journey { #br-045 }
 
-On both the Importer Notification and Import Record forms, PIMS must hide the following fields when the record's Type/Import Record Type indicates the IMP (Importer Notification) journey: Certified For, Purpose of Consignment, Internal Market Purpose, Commodities Number of Packages. PIMS must hide Purpose of Movement when the Type/Import Record Type indicates the CHEDA journey.
+On both the Importer Notification and Import Record forms, PIMS must hide the following fields when the record's Type/Import Record Type indicates the IMP (Importer Notification) journey: Certified For, Purpose of Consignment, Commodities Number of Packages. PIMS must hide Purpose of Movement when the Type/Import Record Type is CVEDA or CHEDA.
+
+CVEDA and CHEDA are both live, distinct option values on the Importer Notification's own Type field, not a "legacy vs current" pairing — per EDA-649, new live-animal CHED-A notifications are mapped to the CHEDA option, while CVEDA remains the value on notifications created before that mapping was introduced. Neither value is removed or deprecated on this field ([BR-038](#br-038) only removes CVEDA/CVEDP/CED from the separate Import Record entity's Import Record Type field, not from this one). The implemented visibility rule (`ShowHidefieldswhenTypeisCVEDA` business rule) treats both values identically because both represent the same CHED-A journey from a field-visibility standpoint.
+
+Internal Market Purpose visibility is governed separately by [BR-061](#br-061), not directly by Type — see that rule for why the two are complementary rather than contradictory.
 
 - **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md), [US-003](user-stories/US-003-Manage-Importer-Notification.md)
-- **Jira:** EDA-432 (final state; supersedes EDA-303, EDA-322, EDA-337, EDA-399, EDA-400.
+- **Jira:** EDA-432 (final state; supersedes EDA-303, EDA-308, EDA-322, EDA-399, EDA-400 for these fields), EDA-649 (establishes CVEDA and CHEDA as the two values representing the CHED-A journey on the Importer Notification's Type field)
 
 ---
 
-### BR-046 — Weight (KG) Hidden for CHEDA { #br-046 }
+### BR-046 — Weight (KG) Hidden for CVEDA/CHEDA { #br-046 }
 
-On both the Importer Notification and Import Record forms, PIMS must hide the Weight (KG) field when the record's Type/Import Record Type is CHEDA. The field remains visible for IMP.
+On both the Importer Notification and Import Record forms, PIMS must hide the Weight (KG) field when the record's Type/Import Record Type is CVEDA or CHEDA. The field remains visible for IMP.
 
 - **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md), [US-003](user-stories/US-003-Manage-Importer-Notification.md)
 - **Jira:** EDA-644
@@ -451,21 +450,12 @@ When an Import Record's Risk Level is set to TB, PIMS must default Post Import C
 
 ---
 
-### BR-048 — Post Import Check Outcome Values and Consecutive Count Impact { #br-048 }
+### BR-048 — Post Import Check Outcome Values { #br-048 }
 
-A Post Import Check's Outcome field must offer exactly: Satisfactory, Unsatisfactory, Not Visited (defaulting to Awaiting Outcome until set). Where Outcome = Unsatisfactory, a Reason for Unsatisfactory Visit field must be completed from: Non-Compliant welfare, Non-Compliant documentary check, Quarantined. Where Outcome = Not Visited, a Reason for Not Visiting field must be completed from: Additional Inspection Required, Cancelled, Resolved Not Required, Lack of field resource. For Place of Origin Trust Level purposes: Satisfactory increments the consecutive satisfactory count; Unsatisfactory resets it to zero; Not Visited does not change it.
-
-- **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
-- **Jira:** IMTA-7467 (supersedes IMTA-6031)
-
----
-
-### BR-049 — Open Post Import Checks Cancelled on Case Closure { #br-049 }
-
-When an Import Record is closed, PIMS must set any linked Post Import Check with Outcome = Awaiting Outcome (not yet started) to Outcome = Not Visited with Reason for Not Visiting = Cancelled, recording the current date and user. Where a linked Post Import Check is mid-flight (Outcome not yet recorded but work has started), PIMS must prompt the caseworker to confirm before cancelling it on closure.
+A Post Import Check's Outcome field must offer exactly: Satisfactory, Unsatisfactory, Not Visited, Satisfactory Following Official Intervention (defaulting to Awaiting Outcome until set). Where Outcome = Unsatisfactory, a Reason for Unsatisfactory Visit field must be completed from: Non-Compliant welfare, Non-Compliant documentary check, Quarantined. Where Outcome = Not Visited, a Reason for Not Visiting field must be completed from: Additional Inspection Required, Cancelled, Resolved Not Required, Lack of field resource.
 
 - **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
-- **Jira:** IMTA-6034
+- **Jira:** IMTA-7467
 
 ---
 
@@ -485,7 +475,7 @@ The Country reference entity must hold a 6-character region code (GB-ENG, GB-SCT
 Whenever an Import Record's Species ID or Commodity Code fields change, PIMS must look up the Commodity Type Mapping records matching the Commodity Code (narrowed by Species ID where more than one mapping matches) and set the Import Record's Commodity Type to the single matching value, or to "Other" if no mapping matches. The Commodity Type field must not be manually editable.
 
 - **Source:** [US-061](user-stories/US-061-Automatically-Determine-Commodity-Type.md)
-- **Jira:** IMTA-7785, IMTA-8483
+- **Jira:** IMTA-7785
 
 ---
 
@@ -509,12 +499,23 @@ For a candidate match pair, where the ITAHC/DOCOM certificate number does not ma
 
 ---
 
-### BR-054 — Watchlist "Active" Definition and Flagging Trigger Points { #br-054 }
+### BR-054 — Watchlist "Active" Definition, Flagging Triggers and Import Record Flag Inheritance { #br-054 }
 
-A Watchlist entry is active when the current date is on or after its Start Date and, if an End Date is set, on or before that End Date. PIMS must evaluate the Watchlist entries that are active at the time of the trigger against the place of origin, place of destination, consignee, transporter and veterinarian on: ITAHC creation; Import Record creation from an ITAHC; and Import Record creation from a confirmed match. Each trigger point is an independent evaluation — flags raised at an earlier trigger point must not be carried forward — and each matching active entry produces one flag.
+A Watchlist entry is active when the current date is on or after its Start Date and, if an End Date is set, on or before that End Date. PIMS must evaluate the Watchlist entries that are active at the time against the following parties, and only at these trigger points:
+
+- **ITAHC creation:** place of origin, place of destination, consignee, transporter, veterinarian
+- **Importer Notification creation:** place of origin, place of destination, consignee, transporter
+
+Each matching active entry produces one flag on the ITAHC or Importer Notification.
+
+PIMS must apply to the new Import Record the flags already present on its source record(s) at the point of creation:
+
+- **Import Record created from an ITAHC:** the Import Record receives the flags already applied to that ITAHC.
+- **Import Record created from an Importer Notification:** the Import Record receives the flags already applied to that Importer Notification.
+- **Import Record created from a confirmed match:** the Import Record receives the flags already applied to both the matched ITAHC/DOCOM and the matched Importer Notification.
 
 - **Source:** [US-057](user-stories/US-057-Manage-Watchlist-Records.md), [US-058](user-stories/US-058-Flag-Watched-Parties.md)
-- **Jira:** IMTA-7479, IMTA-7482, IMTA-8012, IMTA-8015
+- **Jira:** IMTA-7479, IMTA-7482, IMTA-8012, IMTA-8015, IMTA-8220
 
 ---
 
@@ -535,3 +536,67 @@ When a document with Document Type = Latest Health Certificate and a populated U
 
 - **Source:** [US-003](user-stories/US-003-Manage-Importer-Notification.md), [US-029](user-stories/US-029-Document-Attachment.md)
 - **Jira:** EDA-648, EDA-681
+
+---
+
+### BR-058 — Documents Attached to Post Import Checks { #br-058 }
+
+An EU Imports Caseworker must be able to attach multiple documents (for example IV17 forms and other check-related correspondence) to a Post Import Check record, each with an optional title and note, and view or download previously attached documents. Once attached, a document must not be deletable, consistent with the Import Record attachment rule ([BR-031](#br-031)).
+
+- **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md), [US-029](user-stories/US-029-Document-Attachment.md)
+- **Jira:** IMTA-6029
+
+---
+
+### BR-059 — Import Record Inspection Status Rolls Up from Post Import Check Outcomes { #br-059 }
+
+PIMS must maintain a read-only Inspection Status field on the Import Record, automatically set from the Outcome of its linked Post Import Check(s), and must display this field as a column in Import Record list views so caseworkers can triage without opening each record. Where an Import Record has multiple linked Post Import Checks, the Inspection Status is set using the following priority order (highest first), not the most recently recorded outcome:
+
+1. **Unsatisfactory** — if any Post Import Check has Outcome = Unsatisfactory, the Inspection Status is Unsatisfactory
+2. **Awaiting Outcome** — if any Post Import Check has Outcome = Awaiting Outcome, and none are Unsatisfactory, the Inspection Status is Awaiting Outcome
+3. **Satisfactory** — if any Post Import Check has Outcome = Satisfactory or Satisfactory Following Official Intervention, and none are Unsatisfactory or Awaiting Outcome, the Inspection Status is Satisfactory
+4. **Not Visited** — if all Post Import Checks have Outcome = Not Visited, the Inspection Status is Not Visited
+
+- **Source:** [US-023](user-stories/US-023-Post-Import-Check-Management.md)
+- **Jira:** IMTA-6028
+- **Note:** The roll-up logic could not be sourced from the original Jira requirements and has been inferred from the implementation. Satisfactory Following Official Intervention is included as a satisfactory outcome, reflecting its semantic meaning as a successful check completion (with official intervention applied). The requirement to treat this outcome as satisfactory could not be located in the Jira requirements corpus and has been inferred from the outcome value name and intended use. A Post Import Check with Outcome = Not Visited does not by itself make the Import Record Satisfactory; it only contributes to a Satisfactory result when at least one other linked check is Satisfactory or Satisfactory Following Official Intervention, and the Import Record is Not Visited only when every linked check is Not Visited.
+
+---
+
+### BR-060 — Importer Notification Status Must Only Change to Amend on Actual IPAFFS Re-Submission { #br-060 }
+
+PIMS must only reflect an Importer Notification's Status as Amend once the corresponding amendment has been submitted in IPAFFS. An importer beginning an amendment in IPAFFS without submitting it (e.g. navigating away from the review screen) must not cause PIMS to change the Status to Amend or apply any of the amended field values, since IPAFFS has not yet sent a status-change message in that case ([BR-033](#br-033), [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md) AC-1). This clarifies a defect where PIMS incorrectly showed Amend status, with stale field values, ahead of actual submission.
+
+- **Source:** [US-006](user-stories/US-006-Receive-Importer-Notification-From-IPAFFS.md)
+- **Jira:** _IMTA-7423 removed from the source export; no longer Jira-traceable._
+- **Note:** Retained based on implementation evidence — `ProcessINSASBMessage.TryUpdateExisting` only applies an update (including any Amend status) when the inbound `AggregateVersion` has incremented past the existing record's version.
+
+---
+
+### BR-061 — Internal Market Purpose Visibility Driven by Purpose of Consignment { #br-061 }
+
+On both the Importer Notification and Import Record forms, PIMS must hide the Internal Market Purpose field unless Purpose of Consignment = "Internal Market".
+
+This rule is complementary to, not superseded by, [BR-045](#br-045)'s Type-based field visibility: Purpose of Consignment is itself only ever shown and populated for the CVEDA/CHEDA journey (it is hidden, and not populated by the IPAFFS integration, for the IMP journey — see [BR-045](#br-045)). Consequently this rule alone already produces the correct outcome for every journey — Internal Market Purpose is hidden for all IMP records (because Purpose of Consignment is blank) and shown only for CVEDA/CHEDA records where Purpose of Consignment is specifically "Internal Market" (as opposed to, for example, Transit, Re-entry or Transhipment). No separate Type check is required or implemented for this field.
+
+- **Source:** [US-001](user-stories/US-001-Manage-Import-Record.md), [US-003](user-stories/US-003-Manage-Importer-Notification.md)
+- **Jira:** EDA-337
+
+---
+
+### BR-062 — Non-Compliance "Other" Comments Field Visibility { #br-062 }
+
+On the Importer Notification form, PIMS must show the Non-Compliance Other Comments field only when Type of Non-Compliance = "Other"; the field must be hidden for all other Type of Non-Compliance values.
+
+- **Source:** [US-049](user-stories/US-049-Non-Compliance-Management.md)
+- **Jira:** PLNT-4537 (AC-1 specifies this field is "Only displayed when Type of Non-Compliance = Other")
+
+---
+
+### BR-063 — Charity Tab Visibility Tied to Importing From Charity Flag { #br-063 }
+
+On the Importer Notification form, PIMS must show the Charity tab only when the Importing From Charity field is Yes; the tab must be hidden (including when the field is unset) in all other cases.
+
+- **Source:** [US-003](user-stories/US-003-Manage-Importer-Notification.md)
+- **Jira:** _Could not be traced to a source Jira requirement._
+- **Note:** This requirement could not be sourced from Jira and has been inferred from the implementation

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="Defra.Imports.Plugins.ParameterSetKeyDataPair.PopulateAnimalNumber: Update of defraimp_parametersetkeydatapair" SdkMessageProcessingStepId="{f88c372e-9ac5-f111-aaaf-7ced8d41d414}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>20bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>Defra.Imports.Plugins.ParameterSetKeyDataPair.PopulateAnimalNumber, Defra.Imports.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea2317363a0474b4</PluginTypeName>
+  <PluginTypeId>a8d95135-11e5-4832-8578-2bafbafaaa09</PluginTypeId>
+  <PrimaryEntity>defraimp_parametersetkeydatapair</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <Description>Defra.Imports.Plugins.ParameterSetKeyDataPair.PopulateAnimalNumber: Update of defraimp_parametersetkeydatapair</Description>
+  <FilteringAttributes>defraimp_data</FilteringAttributes>
+  <InvocationSource>1</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="PreImage">
+      <SdkMessageProcessingStepImageId>{6dc69e07-9bc5-f111-aaaf-7ced8d41d414}</SdkMessageProcessingStepImageId>
+      <Attributes>defraimp_commoditycomplementparameterset,defraimp_importernotificationid,defraimp_name</Attributes>
+      <EntityAlias>PreImage</EntityAlias>
+      <ImageType>0</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
+</SdkMessageProcessingStep>

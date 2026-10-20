@@ -36,7 +36,7 @@
             {
                 if (this.customControlTypes == null)
                 {
-                    this.customControlTypes = this.LoadControlTypes("PowerPlaywright.Framework.dll", "Defra.Trade.Plants.PageObjects.dll");
+                    this.customControlTypes = this.LoadControlTypes("PowerPlaywright.Framework.dll");
                 }
 
                 return this.customControlTypes;
