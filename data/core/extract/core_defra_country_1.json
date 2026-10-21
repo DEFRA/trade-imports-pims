@@ -1,5 +1,5 @@
 {
-  "RecordsCount": 277,
+  "RecordsCount": 279,
   "ExportedEntities": [
     {
       "LogicalName": "defra_country",
@@ -755,7 +755,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -766,6 +766,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:AT",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Republic of Austria",
           "AttributeType": "System.String"
         }
       ]
@@ -1098,7 +1103,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -1109,6 +1114,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:BE",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Kingdom of Belgium",
           "AttributeType": "System.String"
         }
       ]
@@ -1735,7 +1745,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -1746,6 +1756,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:BG",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Republic of Bulgaria",
           "AttributeType": "System.String"
         }
       ]
@@ -2101,7 +2116,7 @@
         {
           "AttributeName": "cr01a_countrygroup",
           "AttributeValue": {
-            "Value": 100490001
+            "Value": 100490000
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
         },
@@ -2112,7 +2127,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Exceptional reservation",
+          "AttributeValue": "autonomous community",
           "AttributeType": "System.String"
         },
         {
@@ -2964,7 +2979,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -2975,6 +2990,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:HR",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Republic of Croatia",
           "AttributeType": "System.String"
         }
       ]
@@ -3111,7 +3131,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -3122,6 +3142,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:CY",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Republic of Cyprus",
           "AttributeType": "System.String"
         }
       ]
@@ -3160,7 +3185,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -3171,6 +3196,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:CZ",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Czech Republic",
           "AttributeType": "System.String"
         }
       ]
@@ -3209,7 +3239,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -3220,6 +3250,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:DK",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Kingdom of Denmark",
           "AttributeType": "System.String"
         }
       ]
@@ -3839,7 +3874,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -3850,6 +3885,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:EE",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Republic of Estonia",
           "AttributeType": "System.String"
         }
       ]
@@ -4138,7 +4178,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -4149,6 +4189,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:FI",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Republic of Finland",
           "AttributeType": "System.String"
         }
       ]
@@ -4226,7 +4271,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -4237,6 +4282,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:FR",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the French Republic",
           "AttributeType": "System.String"
         }
       ]
@@ -4288,7 +4338,7 @@
         {
           "AttributeName": "cr01a_countrygroup",
           "AttributeValue": {
-            "Value": 100490001
+            "Value": 100490000
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
         },
@@ -4309,7 +4359,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "overseas territorial collectivity",
           "AttributeType": "System.String"
         },
         {
@@ -4320,6 +4370,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:GF",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_sixcharactercountrycode",
+          "AttributeValue": "FR-973",
           "AttributeType": "System.String"
         }
       ]
@@ -4603,7 +4658,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -4614,6 +4669,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:DE",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Federal Republic of Germany",
           "AttributeType": "System.String"
         }
       ]
@@ -4750,7 +4810,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -4761,6 +4821,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:GR",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Hellenic Republic",
           "AttributeType": "System.String"
         }
       ]
@@ -4876,7 +4941,7 @@
         {
           "AttributeName": "cr01a_countrygroup",
           "AttributeValue": {
-            "Value": 100490001
+            "Value": 100490000
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
         },
@@ -4897,7 +4962,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "overseas department",
           "AttributeType": "System.String"
         },
         {
@@ -4908,6 +4973,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:GP",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_sixcharactercountrycode",
+          "AttributeValue": "FR-971",
           "AttributeType": "System.String"
         }
       ]
@@ -5485,7 +5555,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -5496,6 +5566,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:HU",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "Hungary",
           "AttributeType": "System.String"
         }
       ]
@@ -5534,7 +5609,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -5545,6 +5620,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:IS",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "Iceland",
           "AttributeType": "System.String"
         }
       ]
@@ -5887,7 +5967,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -5898,6 +5978,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:IT",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Italian Republic",
           "AttributeType": "System.String"
         }
       ]
@@ -6558,7 +6643,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -6569,6 +6654,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:LV",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "The Republic of Latvia",
           "AttributeType": "System.String"
         }
       ]
@@ -6803,7 +6893,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -6814,6 +6904,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:LI",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Principality of Liechtenstein",
           "AttributeType": "System.String"
         }
       ]
@@ -6852,7 +6947,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -6863,6 +6958,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:LT",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Republic of Lithuania",
           "AttributeType": "System.String"
         }
       ]
@@ -6901,7 +7001,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -6912,6 +7012,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:LU",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Grand Duchy of Luxembourg",
           "AttributeType": "System.String"
         }
       ]
@@ -7303,7 +7408,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -7314,6 +7419,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:MT",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Republic of Malta",
           "AttributeType": "System.String"
         }
       ]
@@ -7380,7 +7490,7 @@
         {
           "AttributeName": "cr01a_countrygroup",
           "AttributeValue": {
-            "Value": 100490001
+            "Value": 100490000
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
         },
@@ -7401,7 +7511,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "overseas territorial collectivity",
           "AttributeType": "System.String"
         },
         {
@@ -7412,6 +7522,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:MQ",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_sixcharactercountrycode",
+          "AttributeValue": "FR-972",
           "AttributeType": "System.String"
         }
       ]
@@ -7527,7 +7642,7 @@
         {
           "AttributeName": "cr01a_countrygroup",
           "AttributeValue": {
-            "Value": 100490001
+            "Value": 100490000
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
         },
@@ -7548,7 +7663,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "overseas department",
           "AttributeType": "System.String"
         },
         {
@@ -7559,6 +7674,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:YT",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_sixcharactercountrycode",
+          "AttributeValue": "FR-976",
           "AttributeType": "System.String"
         }
       ]
@@ -8234,7 +8354,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -8245,6 +8365,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:NL",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Kingdom of the Netherlands",
           "AttributeType": "System.String"
         }
       ]
@@ -8741,6 +8866,11 @@
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:GB",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_codeassignmenttype",
+          "AttributeValue": "province",
+          "AttributeType": "System.String"
         }
       ]
     },
@@ -8827,7 +8957,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -8838,6 +8968,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:NO",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Kingdom of Norway",
           "AttributeType": "System.String"
         }
       ]
@@ -9415,7 +9550,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -9426,6 +9561,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:PL",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Republic of Poland",
           "AttributeType": "System.String"
         }
       ]
@@ -9464,7 +9604,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -9475,6 +9615,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:PT",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Portuguese Republic",
           "AttributeType": "System.String"
         }
       ]
@@ -9584,7 +9729,7 @@
       "Attributes": [
         {
           "AttributeName": "defra_name",
-          "AttributeValue": "Republic of Ireland",
+          "AttributeValue": "Ireland",
           "AttributeType": "System.String"
         },
         {
@@ -9621,7 +9766,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -9649,7 +9794,7 @@
         {
           "AttributeName": "cr01a_countrygroup",
           "AttributeValue": {
-            "Value": 100490001
+            "Value": 100490000
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
         },
@@ -9670,7 +9815,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "overseas region",
           "AttributeType": "System.String"
         },
         {
@@ -9681,6 +9826,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:RE",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_sixcharactercountrycode",
+          "AttributeValue": "FR-974",
           "AttributeType": "System.String"
         }
       ]
@@ -9719,7 +9869,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -9730,6 +9880,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:RO",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "Romania",
           "AttributeType": "System.String"
         }
       ]
@@ -10041,7 +10196,7 @@
         {
           "AttributeName": "cr01a_countrygroup",
           "AttributeValue": {
-            "Value": 100490001
+            "Value": 100490000
           },
           "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
         },
@@ -10062,7 +10217,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "overseas territorial collectivity",
           "AttributeType": "System.String"
         },
         {
@@ -10073,6 +10228,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:MF",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_sixcharactercountrycode",
+          "AttributeValue": "FR-MF",
           "AttributeType": "System.String"
         }
       ]
@@ -10751,7 +10911,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -10762,6 +10922,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:SK",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Slovak Republic",
           "AttributeType": "System.String"
         }
       ]
@@ -10800,7 +10965,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -10811,6 +10976,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:SI",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Republic of Slovenia",
           "AttributeType": "System.String"
         }
       ]
@@ -11094,7 +11264,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -11105,6 +11275,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:ES",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Kingdom of Spain",
           "AttributeType": "System.String"
         }
       ]
@@ -11388,7 +11563,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -11399,6 +11574,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:SE",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Kingdom of Sweden",
           "AttributeType": "System.String"
         }
       ]
@@ -11437,7 +11617,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -11448,6 +11628,11 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:CH",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the Swiss Confederation",
           "AttributeType": "System.String"
         }
       ]
@@ -12422,7 +12607,7 @@
         },
         {
           "AttributeName": "defra_codeassignmenttype",
-          "AttributeValue": "Official",
+          "AttributeValue": "officially-assigned",
           "AttributeType": "System.String"
         },
         {
@@ -12434,6 +12619,18 @@
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:GB",
           "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_aka",
+          "AttributeValue": "the United Kingdom of Great Britain and Northern Ireland",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "cr01a_countrygroup",
+          "AttributeValue": {
+            "Value": 100490000
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
         }
       ]
     },
@@ -13384,6 +13581,84 @@
         {
           "AttributeName": "defra_iso31662subdivisioncodes",
           "AttributeValue": "ISO 3166-2:ZW",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defra_country",
+      "Id": "d06c7758-1e9a-4b3b-920c-701f3968ca35",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defra_name",
+          "AttributeValue": "Madeira",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "cr01a_countrygroup",
+          "AttributeValue": {
+            "Value": 100490000
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defra_codeassignmenttype",
+          "AttributeValue": "autonomous region",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_sixcharactercountrycode",
+          "AttributeValue": "PT-30",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_independent",
+          "AttributeValue": false,
+          "AttributeType": "System.Boolean"
+        },
+        {
+          "AttributeName": "defra_iso31662subdivisioncodes",
+          "AttributeValue": "ISO-3166-2:PT",
+          "AttributeType": "System.String"
+        }
+      ]
+    },
+    {
+      "LogicalName": "defra_country",
+      "Id": "ac70ffce-4cf5-43b7-9849-f2fa2b3818a7",
+      "IsManyToMany": false,
+      "Attributes": [
+        {
+          "AttributeName": "defra_name",
+          "AttributeValue": "Azores",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "cr01a_countrygroup",
+          "AttributeValue": {
+            "Value": 100490000
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.OptionSetValue"
+        },
+        {
+          "AttributeName": "defra_codeassignmenttype",
+          "AttributeValue": "autonomous region",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defraimp_sixcharactercountrycode",
+          "AttributeValue": "PT-20",
+          "AttributeType": "System.String"
+        },
+        {
+          "AttributeName": "defra_independent",
+          "AttributeValue": false,
+          "AttributeType": "System.Boolean"
+        },
+        {
+          "AttributeName": "defra_iso31662subdivisioncodes",
+          "AttributeValue": "ISO-3166-2:PT",
           "AttributeType": "System.String"
         }
       ]
