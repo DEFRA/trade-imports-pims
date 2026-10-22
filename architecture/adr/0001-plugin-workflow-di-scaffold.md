@@ -1,14 +1,15 @@
 # 0001. Lightweight DI Scaffold for Dataverse Plug-ins and Custom Workflow Activities (Application / Dataverse / Infrastructure Shared Projects)
 
-- **Status**: Proposed. The composition/scoping scaffold, `PluginBase<THandler>`, `WorkflowActivityBase<THandler>` and the identity-aware service provider are implemented and unit-tested, but no real plug-in or custom workflow activity (CWA) has adopted the pattern, nothing is registered with Dataverse or included in a solution, and deployed-host and effective-identity behaviour have not been validated in an isolated environment. Seek normal review approval before any production adoption.
+- **Status**: Proposed. The composition/scoping scaffold, `PluginBase<THandler>`, `WorkflowActivityBase<THandler>`, the identity-aware service provider and the watch list illustrative example are implemented and unit-tested, but no real plug-in or custom workflow activity (CWA) has adopted the pattern, nothing is registered with Dataverse, and deployed-host and effective-identity behaviour have not been validated in a live Dataverse environment. The example is compiled into both deployment heads (and therefore into the assemblies the `defra_Imports` solution builds), but no plug-in step, activity registration or other solution metadata refers to it: it is not registered, not included in the solution's registered components, and not a template. Seek normal review approval before any production adoption.
 - **Date**: 2026-10-22
 - **Related requirement(s)**: Explicit user requests to scaffold separated application, Dataverse and infrastructure Shared Projects with execution-scoped dependency injection (DI), retain the non-deployed `Container`, add a handler-first `WorkflowActivityBase<THandler>`, and define the migration rules for analyser warnings, model ownership, handler placement and application-service responsibilities. The scaffold migrates no existing business logic; the migration rules govern later capability migrations. No Epic/Feature/User Story or `AB#` was supplied, so no work-item traceability is recorded.
 - **Related ADR(s)**: None. This is the first substantive ADR; `0000-template.md` is the template only.
 - **Decision confidence**:
-  - **High** for the synchronous `void Execute()` handler contract (Dataverse invokes plug-ins and CWAs synchronously and no asynchronous requirement exists) and for the composition/scoping mechanics (both deployment heads build in Release without errors; the `Defra.Imports.UnitTests.Infrastructure` suite passes 41/41).
+  - **High** for the synchronous `void Execute()` handler contract (Dataverse invokes plug-ins and CWAs synchronously and no asynchronous requirement exists) and for the composition/scoping mechanics (both deployment heads build in Release without errors;   the `Defra.Imports.UnitTests.Infrastructure` suite passes 80/80 and the full unit suite passes with no failures).
   - **Medium** for `WorkflowActivityBase<THandler>` (unit-tested through a real `System.Activities.WorkflowInvoker`, but no registered activity has validated host behaviour).
   - **Medium** for the identity-aware provider and context factory (unit-tested against requested factory arguments only, not effective Dataverse impersonation).
-  - **Medium** for the layer boundaries and warning clean-up until a representative vertical migration confirms behaviour preservation.
+    - **Medium** for the layer boundaries and the watch list example: both heads compile the example and unit tests exercise it end to end through `Container.dll`, but nothing is verified in a live Dataverse host (sandbox type resolution, `ownerid` on a stage 20 `Create`, effective identity, write timing) and warning clean-up awaits a representative vertical migration.
+    - **High** for the amended `EntityExtensions.Clone<T>` and the `GetChanges` value-equality behaviour for the types tested, because tests pin both. **Medium** for the LINQ provider notes, because only the client-side provider behaviour is tested.
 
 ## Context
 
@@ -125,7 +126,9 @@ For plug-ins the aggregate surfaces as `InvalidPluginExecutionException.InnerExc
 
 ### Illustrative example
 
-The example is a watch list initialisation use case shown through two hosts sharing one business method. It uses types already in the generated model (`defraimp_WatchList`, `SystemUser`, `defraimp_Transporter`). It is **documentation-by-example**, not a reusable capability or real business rule: it must not be registered, extended or treated as a template, and its types must carry XML documentation stating they are examples.
+The example is a watch list initialisation use case shown through two hosts sharing one business method. It uses types already in the generated model (`defraimp_WatchList`, `SystemUser`, `defraimp_Transporter`). It is **documentation-by-example**, not a reusable capability or real business rule: it **must not be registered with Dataverse, included in the solution as a registered component or step, extended or treated as a template**. Every example type carries an `ILLUSTRATIVE EXAMPLE` XML summary referencing this ADR. `EntityExtensions` is a generic, reusable helper and is deliberately not labelled as an example.
+
+The example is implemented and unit-tested in `Defra.Imports.Application`, `Defra.Imports.Dataverse`, `Defra.Imports.Plugins` and `Defra.Imports.Workflows`, and is compiled into both Release heads. Unit tests exercise it through `Container.dll` under the `UnitTest` configuration. Nothing was validated in a live Dataverse environment. Implementation exposed two defects in the original snippet's `Clone<T>` (see the lessons learnt below); the snippets that follow match the verified source.
 
 - `IWatchListInitialiser` (Application) has two methods.
   - `GetInitialisedWatchList(defraimp_WatchList)` returns a **new** watch list with a default `defraimp_Name` and `defraimp_Comments` where blank. It never mutates its input and persists nothing.
@@ -217,6 +220,7 @@ namespace Defra.Imports.Application.WatchLists
 // Defra.Imports.Dataverse\EntityExtensions.cs (hand-written, outside the generated Model namespace)
 namespace Defra.Imports.Dataverse
 {
+    using System;
     using Microsoft.Xrm.Sdk;
 
     public static class EntityExtensions
@@ -225,19 +229,41 @@ namespace Defra.Imports.Dataverse
         public static T Clone<T>(this T entity)
             where T : Entity, new()
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+
             var clone = new T();
             foreach (var attribute in entity.Attributes)
             {
                 clone[attribute.Key] = attribute.Value;
             }
 
-            clone.Id = entity.Id;
+            // A parameterless Entity has no logical name, and setting an empty identifier on an early-bound
+            // type would add a primary key attribute that the source does not have.
+            clone.LogicalName = entity.LogicalName;
+            if (clone.Id != entity.Id)
+            {
+                clone.Id = entity.Id;
+            }
+
             return clone;
         }
 
         // An entity holding only the values that are new or different, suitable for Update.
         public static Entity GetChanges(this Entity updated, Entity original)
         {
+            if (updated == null)
+            {
+                throw new ArgumentNullException(nameof(updated));
+            }
+
+            if (original == null)
+            {
+                throw new ArgumentNullException(nameof(original));
+            }
+
             var changes = new Entity(updated.LogicalName, updated.Id);
             foreach (var attribute in updated.Attributes)
             {
@@ -350,11 +376,20 @@ namespace Defra.Imports.Dataverse.Queries
 }
 ```
 
-Snippets omit most XML documentation for brevity; real source carries it, with constructor summaries using the analyser-required wording. Notes on the example:
+Snippets abridge the XML documentation. The real source carries full documentation, with constructor summaries using the analyser-required wording and an `ILLUSTRATIVE EXAMPLE` summary on every example type. Notes on the example:
 
 - Queries use the container-owned, executing-user `ImportsContext` (transient, so `NoTracking` does not leak to other consumers) and must be resolved from the invocation scope.
 - The LINQ provider joins only related tables and its outer-join support is unclear, so the example uses two independent queries (the tables are unrelated and the transporter is optional) and keeps string composition in the initialiser. Where related tables are mandatory, prefer a single `join` in query syntax.
 - The owner is assumed to be a user; a team owner needs a second query path.
+- **LINQ provider behaviour** (verified by unit tests against the SDK's client-side provider; **unverified in a live environment**; confidence **Medium**):
+  - Member-initialiser projections into the early-bound type and anonymous-type projections both work.
+  - The provider sends `Execute(RetrieveMultipleRequest)`, not `RetrieveMultiple`, so test doubles must set up `Execute`.
+  - `FirstOrDefault()` is evaluated client-side and does not set `TopCount`. That is acceptable for primary-key lookups, as here. If a non-unique filter is ever used, add `.Take(1)` explicitly.
+  - Anonymous projections need typed entities from the service. This should hold in the sandbox because the shared Model carries `[assembly: ProxyTypesAssemblyAttribute]` (in `ImportsContext.cs`), which is compiled into each head, but it has not been confirmed in a deployed host.
+- **`GetChanges` equality** (pinned by tests; confidence **High** for the types listed): `Money`, `OptionSetValue`, `EntityReference` (different instances for the same record), `DateTime` and `string` compare by value. Strings compare case-sensitively, so a case-only change is reported. Reference-typed values such as `EntityCollection` were not tested and should be assumed to compare by reference.
+- **Lessons learnt from implementation** (the original snippet's `Clone<T>` failed two tests; later migrations must not copy it):
+  - `new T()` on a plain `Entity` has no `LogicalName`, so `Clone<Entity>` lost it. `Clone` now copies `LogicalName`.
+  - On an early-bound entity with `Id == Guid.Empty`, `clone.Id = entity.Id` calls the generated setter, which adds a `defraimp_watchlistid = Guid.Empty` attribute. `GetChanges` then reported it and the plug-in handler copied it onto the `Target`. `Id` is now set only when it differs.
 
 **Plug-in host.** The handler is intended for a **pre-operation (stage 20), synchronous `Create`** step. `ToEntity<T>()` gives a typed view of the `Target`; the initialiser clones again, so the `Target` is changed only by the handler's explicit copy of the changed values.
 
@@ -362,6 +397,7 @@ Snippets omit most XML documentation for brevity; real source carries it, with c
 // Defra.Imports.Plugins\PluginCompositionRoot.cs
 using System;
 using Defra.Imports.Application.WatchLists;
+using Defra.Imports.Dataverse.Contexts;
 using Defra.Imports.Dataverse.Model;
 using Defra.Imports.Dataverse.Queries;
 using Defra.Imports.Infrastructure.DependencyInjection;
@@ -377,10 +413,15 @@ internal static class PluginCompositionRoot
     private static PluginContainer BuildRoot()
     {
         var root = new PluginContainer();
+
+        // ILLUSTRATIVE EXAMPLE registrations: not a real business process; do not register with
+        // Dataverse or copy as a template (comment abridged; see the ADR).
         root.Register<IWatchListInitialiser, WatchListInitialiser>();
         root.Register<WatchListQueries>();
-        root.Register<ImportsContext>();
         root.Register<WatchListInitialisationHandler>();
+
+        root.Register<IImportsContextFactory, ImportsContextFactory>();
+        root.Register<ImportsContext>();
         return root;
     }
 }
@@ -412,6 +453,8 @@ namespace Defra.Imports.Plugins.WatchLists
 
     public sealed class WatchListInitialisationHandler : IPluginHandler
     {
+        private const string CreateMessage = "Create";
+        private const string TargetParameter = "Target";
         private const int PreOperationStage = 20;
         private const int SynchronousMode = 0;
 
@@ -427,11 +470,11 @@ namespace Defra.Imports.Plugins.WatchLists
         public void Execute()
         {
             var context = this.execution.Context;
-            if (context.MessageName != "Create"
+            if (context.MessageName != CreateMessage
                 || context.PrimaryEntityName != defraimp_WatchList.EntityLogicalName
                 || context.Stage != PreOperationStage
                 || context.Mode != SynchronousMode
-                || !context.InputParameters.TryGetValue("Target", out var value)
+                || !context.InputParameters.TryGetValue(TargetParameter, out var value)
                 || !(value is Entity target))
             {
                 throw new InvalidOperationException(
@@ -460,6 +503,7 @@ namespace Defra.Imports.Plugins.WatchLists
 // Defra.Imports.Workflows\WorkflowCompositionRoot.cs
 using System;
 using Defra.Imports.Application.WatchLists;
+using Defra.Imports.Dataverse.Contexts;
 using Defra.Imports.Dataverse.Model;
 using Defra.Imports.Dataverse.Queries;
 using Defra.Imports.Infrastructure.DependencyInjection;
@@ -475,10 +519,16 @@ internal static class WorkflowCompositionRoot
     private static PluginContainer BuildRoot()
     {
         var root = new PluginContainer();
+
+        // ILLUSTRATIVE EXAMPLE registrations: not a real business process; do not register with
+        // Dataverse or copy as a template (comment abridged; see the ADR).
+        // The activity is host-created, so only its handler is registered here.
         root.Register<IWatchListInitialiser, WatchListInitialiser>();
         root.Register<WatchListQueries>();
-        root.Register<ImportsContext>();
         root.Register<InitialiseWatchListHandler>();
+
+        root.Register<IImportsContextFactory, ImportsContextFactory>();
+        root.Register<ImportsContext>();
         return root;
     }
 }
@@ -561,6 +611,20 @@ namespace Defra.Imports.Workflows.WatchLists
 
 Only the boundary adapters differ: which application method they call and how the result is persisted. Each head compiles the shared source into its own assembly with its own root, scope and service instances. Unit tests should assert that the input entity is never mutated, for both hosts. Neither workflow nor plug-in handler reuses the other's host-specific types; neither `IPluginExecutionContext` nor `IPluginExecution` exists in a workflow scope.
 
+### Testing the pattern
+
+Reusable test support lives in `tests\Defra.Imports.UnitTests\Support` (confidence **High**: used by the example's passing tests):
+
+- `PluginTestBase<TPlugin>` and `WorkflowActivityTestBase<TActivity>` supply a simulated host invocation and the common assertions (a failure that must not touch the strict `IOrganizationService` mock), so derived tests describe only the step or activity contract.
+- `PluginRuntime` simulates the services Dataverse supplies to one plug-in invocation. `ForStep(message, entity, stage, mode)`, `ForPreOperationCreate(target)` and `WithTarget(target)` describe the registration the handler validates.
+
+Constraints discovered while testing:
+
+- Test a CWA handler through its activity and `WorkflowInvoker`, because `CodeActivityContext` cannot be constructed. `WorkflowInvoker` wraps failures, so search the inner exceptions for the expected type.
+- LINQ queries execute `Execute(RetrieveMultipleRequest)`, so set up `Execute` on the service double rather than `RetrieveMultiple`.
+- Mocks must return typed (early-bound) entities, as the sandbox does, or anonymous projections fail.
+- A strict `IOrganizationService` mock is the simplest proof that an invalid invocation read and wrote nothing.
+
 ## Alternatives Considered
 
 | Option | Why rejected |
@@ -623,6 +687,7 @@ The target layout is a proportionate structural improvement, not a rewrite of un
 | A handler uses `async void` or starts background/parallel work, letting work or exceptions escape the invocation. | Technical / Architecture debt | Low | High | Synchronous `void` contract, explicit prohibition and review; assess an analyser only if adoption shows the need. | Unassigned |
 | Unit tests exercise `Container.dll`'s copy of the shared code, not the IL in Release `Plugins.dll`/`Workflows.dll`. | Technical debt | Low | Medium | Integration/E2E suites (`Defra.Imports.IntegrationTests`, `Specs`, `Scenarios`) exercise the deployed solution; reflection checks confirmed Release assemblies carry no `Container` reference. | Unassigned |
 | No real plug-in or CWA uses the pattern, so it is unproven against a real message, entity, composition root and registered activity. | Architecture debt | Medium | Medium | Treat the first real adoption as the validation activity; raise confidence to High for that scenario only after it lands, is registered and reviewed. | Unassigned |
+| The illustrative example is compiled into the shipped assemblies and is mistaken for a real capability, registered, or copied as a template. | Architecture debt / Operational | Low | Medium | Every example type carries an `ILLUSTRATIVE EXAMPLE` summary referencing this ADR; no step, activity registration or solution metadata refers to it; review any registration or extension of it as a new adoption. Consider removing or replacing it when the first real adoption lands. | Unassigned |
 | `ILogger`-dependent handlers silently become plug-in-only. | Supportability | Low | Low | Documented convention; consider naming/interface conventions for CWA-portable handlers. | Unassigned |
 | A cached activity retains a resolved service or invocation values, leaking state across executions. | Technical / Security | Low | High | Scope, services and values are local to the sealed execution path; tests cover a reused activity invoked concurrently, validation, output mapping and disposal. Unverified under real workflow-host concurrency. | Unassigned |
 | An identity provider returns the wrong user, or a context is reused across identities. | Security / Technical | Medium | High | Executing-user defaults, separate plug-in/workflow implementations, `NotSupportedException` for unsupported identities, invocation-local contexts with caller-owned disposal. Mocks verify factory arguments only; validate effective identity and access-denied behaviour in Dataverse. | Unassigned |
@@ -648,10 +713,12 @@ The target layout is a proportionate structural improvement, not a rewrite of un
 - **Classification:** Review Level **3 (new pattern)**, Complexity **Medium**: a new cross-cutting composition pattern for every future plug-in step, within one solution and without cross-solution or licensing impact. This ADR is the only artefact, with adoption guidance folded in. No separate SAD, Reusable Capability Assessment or Operational Support Model is proportionate, because nothing is registered or deployed differently. Revisit at Level 2 depth (a targeted update, not a new ADR) when a real step first adopts the pattern. The workflow adapter and migration-boundary rules are Level 2 / Medium extensions.
 - **Traceability:** no originating work item exists. **ADR alignment:** no prior ADR exists.
 - **Verification performed:**
-  - Both heads build in Release without errors: `dotnet build src\pluginassemblies\Defra.Imports.Plugins\Defra.Imports.Plugins.csproj --configuration Release --no-restore --verbosity quiet` and the `Defra.Imports.Workflows` equivalent. The `UnitTest` configuration reports analyser/XML-documentation warnings (no baseline comparison performed), none failing the build or tests.
-  - `dotnet test tests\Defra.Imports.UnitTests\Defra.Imports.UnitTests.csproj --no-restore -p:Configuration=UnitTest --filter FullyQualifiedName~Defra.Imports.UnitTests.Infrastructure --verbosity quiet` passed 41/41, including a case asserting the plug-in provider passes `Guid.Empty` through to `CreateOrganizationService` when the context `UserId` is `Guid.Empty`. This is a filtered subset, not a full-suite count.
+  - Both heads build in Release without errors: `dotnet build src\pluginassemblies\Defra.Imports.Plugins\Defra.Imports.Plugins.csproj --configuration Release` and the `Defra.Imports.Workflows` equivalent. The illustrative example is compiled into both heads. The `UnitTest` configuration reports analyser/XML-documentation warnings (no baseline comparison performed), none failing the build or tests.
+  - `dotnet test tests\Defra.Imports.UnitTests\Defra.Imports.UnitTests.csproj -p:Configuration=UnitTest` passed in full: 418 passed, 8 skipped (existing `DetermineInspection` tests), 0 failed. The example is exercised through `Container.dll` under `UnitTest`.
+  - The `Defra.Imports.UnitTests.Infrastructure` filter (`--filter FullyQualifiedName~Defra.Imports.UnitTests.Infrastructure`) passed 80/80, including a case asserting the plug-in provider passes `Guid.Empty` through to `CreateOrganizationService` when the context `UserId` is `Guid.Empty`.
+  - Tests pin the `Clone<T>` fixes, `GetChanges` value equality, the `Execute(RetrieveMultipleRequest)` query path, the absent-`ownerid` `InvalidOperationException` (surfaced as `InvalidPluginExecutionException`) and the shared initialiser's never-mutate-the-input rule.
   - Reflection over both Release DLLs found no `Defra.Imports.Container` reference (9 references for `Plugins.dll`, 10 for `Workflows.dll`).
-- **Not performed:** a Debug build, a full-solution build, a full unit-test-suite run, a build/test of the illustrative example, any analyser baseline, performance measurement, or any live Dataverse validation of effective identity, workflow registration, transactions or deployed behaviour.
+- **Not performed:** a Debug build, a full-solution build, any analyser baseline, performance measurement, and any live Dataverse validation: sandbox type resolution for anonymous LINQ projections, `ownerid` on a stage 20 `Create` `Target`, effective identity, `InitialiseWatchList` write timing and error contract, workflow registration, transactions and deployed behaviour. Nothing was registered or run in a Dataverse environment.
 
 ## Adoption Guidance
 
@@ -664,20 +731,20 @@ To adopt the pattern for a **real** plug-in step or CWA (none exist yet):
 5. A new CWA uses `WorkflowActivityBase<THandler>`, not `PluginBase<THandler>`. Its parameterless constructor passes `WorkflowCompositionRoot.Root`, `RegisterActivity(scope)` binds `this` under its concrete type, and its handler validates inputs, calls the application method and persists the result or sets outputs. Preserve existing activity contracts on migration. SDK argument attributes define workflow inputs and outputs, not deployment registrations.
 6. Keep the roots in their own heads; the workflow head must not reference the plug-in head or reuse its static container.
 7. Start with one small use case. Characterise success and failure behaviour, target mutations, outputs and persistence timing before replacing composition. Apply the confirmed migration constraints, move handlers, query construction and rules into their owning layers (preferring business-oriented query methods to a generic repository), and update `.projitems` inclusions and namespaces atomically so UnitTest still compiles shared types once through `Container`.
-8. Test the first adoption in an isolated Dataverse environment (transactions, exceptions, tracing, CWA reuse). Local tests and self-contained builds do not replace this.
-9. For changes outside solution metadata, include `+solutionVer(<solutionName>): patch` (or higher) in the commit body, and link the Azure Boards item with `AB#` in the PR title and body (none was supplied here).
+8. Test the first adoption in an isolated Dataverse environment (transactions, exceptions, tracing, CWA reuse). Local tests and self-contained builds do not replace this. Write the unit tests first with the support described in "Testing the pattern".
+9. Changes to shared source or the plug-in assemblies need a manual version increment, because they sit outside the solution metadata folder. The shipped solution is `defra_Imports` (`src\solutions\defra_Imports\defra_Imports.cdsproj` references both assemblies), so include `+solutionVer(defra_Imports): patch` (or higher) in the commit body, as the example's own commit does. Link the Azure Boards item with `AB#` in the PR title and body (none was supplied here).
 
 ## Open Questions / Assumptions
 
 - **Approval pending:** obtain normal review approval before migrating production behaviour or registering any component.
-- **First adoption is the validation:** only the unregistered example and the unit suite exist; update this ADR (not a new one) when the first real adoption lands.
+- **First adoption is the validation:** only the unregistered example and the unit suite exist; update this ADR (not a new one) when the first real adoption lands, and consider removing or replacing the example at that point.
 - **Registered-environment validation:** `WorkflowActivityBase<THandler>` has not been verified in a live, registered activity (host injection, lifecycle, argument mapping, concurrency), and effective identity, impersonation and least-privilege access are unverified.
 - **Migration conformance:** the confirmed constraints and layer boundaries must be verified in the first representative migration of an existing plug-in or activity, raising any bugs or questionable practices for approval. The analyser baseline per migrated file is captured at that point.
 - **Performance** of root initialisation, scope creation/disposal and reflective resolution is unmeasured; measure before any performance-sensitive adoption.
-- **Illustrative example** (design only, uncompiled and untested):
-  - Property and set names were taken from the generated model; confirm the LINQ provider supports the object-initialiser and anonymous-type projections and `FirstOrDefault` used.
-  - A `Create` `Target` may omit `ownerid` in stage 20 (verify in an isolated environment); a real initialiser needs an explicit rule, such as defaulting to the initiating user, rather than the example's exception.
-  - `Clone` is shallow: logic must replace mutable attribute values (`EntityReference`, `OptionSetValue`, `EntityCollection`) rather than mutate them. Cloning and diffing add per-execution allocation; measure if hot.
-  - `GetChanges` relies on `Equals`; confirm behaviour for `Money`, `OptionSetValue`, `EntityReference` and `DateTime`. Sending only changed values avoids needless downstream plug-in, flow and audit triggers.
-  - `InitialiseWatchList` issues `IOrganizationService.Update` directly (executing user, no new transaction or retry); characterise its write timing and error contract in an isolated environment.
-  - The projection costs up to two requests; measure before optimising. Mandatory related tables can use a single `join`; unrelated tables could use `ExecuteMultiple` (sequential). Parallel calls are not permitted.
+- **Illustrative example** (implemented and unit-tested; not validated in a live Dataverse environment):
+  - **Resolved:** the LINQ provider, `Clone<T>` and `GetChanges` equality questions are answered in the "Illustrative example" notes. Only live-sandbox confirmation of anonymous projections (typed entities via `ProxyTypesAssemblyAttribute`) remains.
+  - **Open:** `ownerid` on a stage 20 `Create` `Target` is unverified; it needs an isolated environment. The example throws an explicit `InvalidOperationException` (surfaced as `InvalidPluginExecutionException`) when it is absent, and a unit test covers that case. A real initialiser needs an explicit rule, such as defaulting to the initiating user.
+  - **Open:** effective-identity behaviour (see registered-environment validation above), including that the executing-user `IOrganizationService` the example's `Update` uses behaves as documented.
+  - **Open:** write timing and error contract of `InitialiseWatchList`, which issues `IOrganizationService.Update` directly (executing user, no new transaction or retry); characterise both in an isolated environment.
+  - **Open:** performance. Cloning and diffing add per-execution allocation, and the projection costs up to two requests; measure before optimising. Mandatory related tables can use a single `join`; unrelated tables could use `ExecuteMultiple` (sequential). Parallel calls are not permitted.
+  - `Clone` is shallow: logic must replace mutable attribute values (`EntityReference`, `OptionSetValue`, `EntityCollection`) rather than mutate them. Sending only changed values avoids needless downstream plug-in, flow and audit triggers.
