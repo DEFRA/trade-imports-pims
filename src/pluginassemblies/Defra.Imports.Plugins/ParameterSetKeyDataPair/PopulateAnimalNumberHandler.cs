@@ -4,6 +4,7 @@ namespace Defra.Imports.Plugins.ParameterSetKeyDataPair
     using System.Linq;
     using Defra.Imports.Application.CommodityComplements;
     using Defra.Imports.Dataverse;
+    using Defra.Imports.Dataverse.Extensions;
     using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Infrastructure.Logging;
     using Defra.Imports.Infrastructure.Plugins;
@@ -51,7 +52,7 @@ namespace Defra.Imports.Plugins.ParameterSetKeyDataPair
 
                 if (keyDataPair != null)
                 {
-                    this.applier.Apply(keyDataPair);
+                    this.applier.Apply(keyDataPair.ToApplyCommodityComplementKeyDataContext());
                 }
             }
             catch (Exception exception)

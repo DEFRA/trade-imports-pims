@@ -4,6 +4,7 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
     using Defra.Imports.Application.CommodityComplements;
     using Defra.Imports.Application.Constants;
     using Defra.Imports.Dataverse.Model;
+    using Defra.Imports.Dataverse.Projections;
     using Defra.Imports.Infrastructure.Logging;
     using Defra.Imports.Infrastructure.Plugins;
     using Defra.Imports.Plugins.ParameterSetKeyDataPair;
@@ -25,14 +26,14 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
         private readonly Mock<ICommodityComplementKeyDataApplier> applier = new Mock<ICommodityComplementKeyDataApplier>(MockBehavior.Strict);
         private readonly Mock<ILogWriter> logger = new Mock<ILogWriter>(MockBehavior.Strict);
         private readonly PopulateAnimalNumberHandler handler;
-        private defraimp_parametersetkeydatapair received;
+        private ApplyCommodityComplementKeyDataContext received;
 
         public PopulateAnimalNumberHandlerTests()
         {
             this.handler = new PopulateAnimalNumberHandler(this.applier.Object, this.runtime.CreateExecution(), this.logger.Object);
             this.applier
-                .Setup(value => value.Apply(It.IsAny<defraimp_parametersetkeydatapair>()))
-                .Callback<defraimp_parametersetkeydatapair>(keyDataPair => this.received = keyDataPair);
+                .Setup(value => value.Apply(It.IsAny<ApplyCommodityComplementKeyDataContext>()))
+                .Callback<ApplyCommodityComplementKeyDataContext>(context => this.received = context);
             this.logger.Setup(value => value.Log(It.IsAny<Severity>(), It.IsAny<string>(), It.IsAny<string>()));
         }
 
@@ -62,9 +63,9 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
 
             this.handler.Execute();
 
-            Assert.Equal(KeyDataPairKeys.NumberOfAnimals, this.received.defraimp_name);
-            Assert.Equal("7", this.received.defraimp_data);
-            Assert.Equal(this.importerNotificationId, this.received.defraimp_ImporterNotificationId.Id);
+            Assert.Equal(KeyDataPairKeys.NumberOfAnimals, this.received.Key);
+            Assert.Equal("7", this.received.Data);
+            Assert.Equal(this.importerNotificationId, this.received.ImporterNotificationId);
             this.logger.VerifyNoOtherCalls();
         }
 
@@ -76,7 +77,7 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
 
             this.handler.Execute();
 
-            Assert.Equal("7", this.received.defraimp_data);
+            Assert.Equal("7", this.received.Data);
         }
 
         [Fact]
@@ -86,7 +87,7 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
 
             this.handler.Execute();
 
-            Assert.Equal("7", this.received.defraimp_data);
+            Assert.Equal("7", this.received.Data);
         }
 
         [Fact]
@@ -96,7 +97,7 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
 
             this.handler.Execute();
 
-            Assert.Equal(UnmappedKey, this.received.defraimp_name);
+            Assert.Equal(UnmappedKey, this.received.Key);
         }
 
         [Fact]
@@ -108,9 +109,9 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
 
             this.handler.Execute();
 
-            Assert.Equal(KeyDataPairKeys.NumberOfAnimals, this.received.defraimp_name);
-            Assert.Equal("15", this.received.defraimp_data);
-            Assert.Equal(this.importerNotificationId, this.received.defraimp_ImporterNotificationId.Id);
+            Assert.Equal(KeyDataPairKeys.NumberOfAnimals, this.received.Key);
+            Assert.Equal("15", this.received.Data);
+            Assert.Equal(this.importerNotificationId, this.received.ImporterNotificationId);
             this.logger.VerifyNoOtherCalls();
         }
 
@@ -123,7 +124,6 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
 
             this.handler.Execute();
 
-            Assert.NotSame(preImage, this.received);
             Assert.Equal("8", preImage.defraimp_data);
             Assert.Equal(1, target.Attributes.Count);
             Assert.Equal("15", target.defraimp_data);
@@ -137,8 +137,8 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
 
             this.handler.Execute();
 
-            Assert.Equal(KeyDataPairKeys.NumberOfAnimals, this.received.defraimp_name);
-            Assert.Equal("15", this.received.defraimp_data);
+            Assert.Equal(KeyDataPairKeys.NumberOfAnimals, this.received.Key);
+            Assert.Equal("15", this.received.Data);
         }
 
         [Fact]
@@ -150,7 +150,7 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
 
             this.handler.Execute();
 
-            Assert.Null(this.received.defraimp_data);
+            Assert.Null(this.received.Data);
         }
 
         [Fact]
@@ -169,7 +169,7 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
         {
             this.ForPostOperation(PluginMessages.Create).WithTarget(this.CreateKeyDataPair(KeyDataPairKeys.NumberOfAnimals, "7"));
             this.applier
-                .Setup(value => value.Apply(It.IsAny<defraimp_parametersetkeydatapair>()))
+                .Setup(value => value.Apply(It.IsAny<ApplyCommodityComplementKeyDataContext>()))
                 .Throws(new InvalidOperationException("The commodity complement could not be updated."));
 
             var exception = Record.Exception(() => this.handler.Execute());
@@ -188,8 +188,8 @@ namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
         {
             this.ForPostOperation(PluginMessages.Create).WithTarget(this.CreateKeyDataPair(KeyDataPairKeys.NumberOfAnimals, "7"));
             this.applier
-                .Setup(value => value.Apply(It.IsAny<defraimp_parametersetkeydatapair>()))
-                .Callback<defraimp_parametersetkeydatapair>(keyDataPair => throw new InvalidOperationException("Failed."));
+                .Setup(value => value.Apply(It.IsAny<ApplyCommodityComplementKeyDataContext>()))
+                .Callback<ApplyCommodityComplementKeyDataContext>(context => throw new InvalidOperationException("Failed."));
 
             this.handler.Execute();
 
