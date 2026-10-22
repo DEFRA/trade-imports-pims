@@ -1,0 +1,41 @@
+name: $(SetAggregateRunNumber.RunNumber)
+
+pool:
+  vmImage: windows-latest
+
+trigger: none
+pr: none
+
+resources:
+  pipelines:
+    - pipeline: pims
+      source: pims
+      branch: main
+      tags:
+        - Deployed to TST
+  repositories:
+    - repository: power-pipelines
+      name: ewingjm/power-pipelines
+      ref: refs/heads/feat/multi-environment-deployments
+      type: github
+      endpoint: github.com_ewingjm
+  
+extends:
+  template: templates/power-platform/pipelines/deploy-packages-pipeline.yml@power-pipelines
+  parameters:
+    environments:
+      - environment: PRE
+        serviceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
+        variables:
+          - group: Environment - Imports - PRE
+      - environment: PRD
+        serviceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
+        dependsOn:
+          - PRE
+        variables:
+          - group: Environment - Imports - PRD
+    packages:
+        - resource: pims
+          artifact: package
+          file: Defra.Imports.Deployment.dll
+    tagSuccess: true
