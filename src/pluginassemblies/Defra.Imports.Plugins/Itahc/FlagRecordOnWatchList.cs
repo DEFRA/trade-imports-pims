@@ -1,32 +1,19 @@
-﻿using Defra.Imports.BusinessLogic;
-using Defra.Imports.BusinessLogic.Itahc;
-using Defra.Imports.Dataverse.Model;
-using Defra.Imports.Infrastructure.Logging;
-using Defra.Imports.Repositories;
-using Microsoft.Xrm.Sdk;
-
 namespace Defra.Imports.Plugins.Itahc
 {
-    [CrmPluginRegistration(
-       MessageNameEnum.Create,
-       nameof(defraimp_itahc),
-       StageEnum.PostOperation,
-       ExecutionModeEnum.Synchronous,
-       "defraimp_itahcid",
-       "Create Step - ITAHC Flag record on Watch List",
-       0,
-       IsolationModeEnum.Sandbox)]
-    public class FlagRecordOnWatchList : Plugin
+    using Defra.Imports.Infrastructure.Plugins;
+
+    /// <summary>
+    /// Flags an ITAHC on each active watch list that refers to one of its economic operators. The class name is
+    /// retained for the registered step; <see cref="FlagRecordOnWatchListHandler"/> adapts the step and the shared
+    /// application service does the work. Registered as a post-operation, synchronous Create step of defraimp_itahc
+    /// (filtering on defraimp_itahcid, no images).
+    /// </summary>
+    public sealed class FlagRecordOnWatchList : PluginBase<FlagRecordOnWatchListHandler>
     {
-        protected override void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)
+        /// <summary>Initializes a new instance of the <see cref="FlagRecordOnWatchList"/> class.</summary>
+        public FlagRecordOnWatchList()
+            : base(PluginCompositionRoot.Root)
         {
-            var itahcFromContext = ((Entity)context.InputParameters["Target"]).ToEntity<defraimp_itahc>();
-
-            var watchListRepo = new CrmRepository<ImportsContext, defraimp_WatchList>(orgSvc);
-            var watchFlagRepo = new CrmRepository<ImportsContext, defraimp_WatchFlag>(orgSvc);
-
-            FlagRecordOnWatchListBusinessLogic flagRecordLogic = new FlagRecordOnWatchListBusinessLogic(orgSvc, itahcFromContext, watchListRepo, watchFlagRepo);
-            flagRecordLogic.FlagRecordIfOnWatchList();
         }
     }
 }

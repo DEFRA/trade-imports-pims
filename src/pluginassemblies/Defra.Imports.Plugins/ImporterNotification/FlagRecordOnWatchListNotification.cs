@@ -1,32 +1,19 @@
-﻿using Defra.Imports.BusinessLogic;
-using Defra.Imports.BusinessLogic.ImporterNotification;
-using Defra.Imports.Dataverse.Model;
-using Defra.Imports.Infrastructure.Logging;
-using Defra.Imports.Repositories;
-using Microsoft.Xrm.Sdk;
-
 namespace Defra.Imports.Plugins.ImporterNotification
 {
-    [CrmPluginRegistration(
-        MessageNameEnum.Create,
-        defraimp_ImporterNotification.EntityLogicalName,
-        StageEnum.PostOperation,
-        ExecutionModeEnum.Synchronous,
-        "defraimp_importernotificationid",
-        "Create Step - Importer Notification Flag record on Watch List",
-        0,
-        IsolationModeEnum.Sandbox)]
-    public class FlagRecordOnWatchListNotification : Plugin
+    using Defra.Imports.Infrastructure.Plugins;
+
+    /// <summary>
+    /// Flags an importer notification on each active watch list that refers to one of its economic operators. The
+    /// class name is retained for the registered step; <see cref="FlagRecordOnWatchListNotificationHandler"/> adapts
+    /// the step and the shared application service does the work. Registered as a post-operation, synchronous Create
+    /// step of defraimp_importernotification (filtering on defraimp_importernotificationid, no images).
+    /// </summary>
+    public sealed class FlagRecordOnWatchListNotification : PluginBase<FlagRecordOnWatchListNotificationHandler>
     {
-        protected override void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)
+        /// <summary>Initializes a new instance of the <see cref="FlagRecordOnWatchListNotification"/> class.</summary>
+        public FlagRecordOnWatchListNotification()
+            : base(PluginCompositionRoot.Root)
         {
-            var notificationFromContext = ((Entity)context.InputParameters["Target"]).ToEntity<defraimp_ImporterNotification>();
-
-            var watchListRepo = new CrmRepository<ImportsContext, defraimp_WatchList>(orgSvc);
-            var watchFlagRepo = new CrmRepository<ImportsContext, defraimp_WatchFlag>(orgSvc);
-
-            FlagRecordsOnWatchListNotificationBusinessLogic flagRecordLogic = new FlagRecordsOnWatchListNotificationBusinessLogic(orgSvc, notificationFromContext, watchListRepo, watchFlagRepo);
-            flagRecordLogic.FlagRecordIfOnWatchList();
         }
     }
 }

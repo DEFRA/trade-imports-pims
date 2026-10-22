@@ -306,6 +306,17 @@ namespace Defra.Imports.Dataverse.Model
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Dataverse.Model.defraimp_parametersetidentifier"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Dataverse.Model.defraimp_parametersetidentifier> defraimp_parametersetidentifierSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Dataverse.Model.defraimp_parametersetidentifier>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Defra.Imports.Dataverse.Model.defraimp_parametersetkeydatapair"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Defra.Imports.Dataverse.Model.defraimp_parametersetkeydatapair> defraimp_parametersetkeydatapairSet
@@ -368,6 +379,17 @@ namespace Defra.Imports.Dataverse.Model
 			get
 			{
 				return this.CreateQuery<Defra.Imports.Dataverse.Model.defraimp_Transporter>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Dataverse.Model.defraimp_Veterinarian"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Dataverse.Model.defraimp_Veterinarian> defraimp_VeterinarianSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Dataverse.Model.defraimp_Veterinarian>();
 			}
 		}
 		

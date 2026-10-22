@@ -7,6 +7,8 @@ namespace Defra.Imports.UnitTests.Plugins
     using Defra.Imports.Infrastructure.Logging;
     using Defra.Imports.Infrastructure.Plugins;
     using Defra.Imports.Plugins;
+    using Defra.Imports.Plugins.ImporterNotification;
+    using Defra.Imports.Plugins.Itahc;
     using Defra.Imports.Plugins.ParameterSetKeyDataPair;
     using Defra.Imports.Plugins.WatchLists;
     using Defra.Imports.UnitTests.Support;
@@ -79,6 +81,50 @@ namespace Defra.Imports.UnitTests.Plugins
                 var applier = scope.Resolve<ICommodityComplementKeyDataApplier>();
 
                 Assert.IsType<CommodityComplementKeyDataApplier>(applier);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithRuntimeServices_ResolvesTheItahcWatchListHandler()
+        {
+            var runtime = new PluginRuntime();
+            using (var scope = PluginCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IPluginExecution>(runtime.CreateExecution());
+                scope.Register<IOrganizationService>(runtime.Service.Object);
+
+                var handler = scope.Resolve<FlagRecordOnWatchListHandler>();
+
+                Assert.NotNull(handler);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithRuntimeServices_ResolvesTheImporterNotificationWatchListHandler()
+        {
+            var runtime = new PluginRuntime();
+            using (var scope = PluginCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IPluginExecution>(runtime.CreateExecution());
+                scope.Register<IOrganizationService>(runtime.Service.Object);
+
+                var handler = scope.Resolve<FlagRecordOnWatchListNotificationHandler>();
+
+                Assert.NotNull(handler);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithOrganizationService_ResolvesTheSharedWatchFlagCreator()
+        {
+            var runtime = new PluginRuntime();
+            using (var scope = PluginCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IOrganizationService>(runtime.Service.Object);
+
+                var creator = scope.Resolve<IWatchFlagCreator>();
+
+                Assert.IsType<WatchFlagCreator>(creator);
             }
         }
 

@@ -89,6 +89,7 @@ namespace Defra.Imports.Dataverse.Model
 			public const string defraimp_defraimp_placeofdestination_defraimp_watchlist_PlaceOfDestinationId = "defraimp_defraimp_placeofdestination_defraimp_watchlist_PlaceOfDestinationId";
 			public const string defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId = "defraimp_defraimp_placeoforigin_defraimp_watchlist_PlaceOfOriginId";
 			public const string defraimp_defraimp_transporter_defraimp_watchlist_TransporterId = "defraimp_defraimp_transporter_defraimp_watchlist_TransporterId";
+			public const string defraimp_defraimp_veterinarian_defraimp_watchlist_VeterinarianId = "defraimp_defraimp_veterinarian_defraimp_watchlist_VeterinarianId";
 			public const string lk_defraimp_watchlist_createdby = "lk_defraimp_watchlist_createdby";
 			public const string lk_defraimp_watchlist_createdonbehalfby = "lk_defraimp_watchlist_createdonbehalfby";
 			public const string lk_defraimp_watchlist_modifiedby = "lk_defraimp_watchlist_modifiedby";
@@ -677,6 +678,25 @@ namespace Defra.Imports.Dataverse.Model
 				this.OnPropertyChanging("defraimp_defraimp_transporter_defraimp_watchlist_TransporterId");
 				this.SetRelatedEntity<Defra.Imports.Dataverse.Model.defraimp_Transporter>("defraimp_defraimp_transporter_defraimp_watchlist_TransporterId", null, value);
 				this.OnPropertyChanged("defraimp_defraimp_transporter_defraimp_watchlist_TransporterId");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 defraimp_defraimp_veterinarian_defraimp_watchlist_VeterinarianId
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_veterinarianid")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_veterinarian_defraimp_watchlist_VeterinarianId")]
+		public Defra.Imports.Dataverse.Model.defraimp_Veterinarian defraimp_defraimp_veterinarian_defraimp_watchlist_VeterinarianId
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Dataverse.Model.defraimp_Veterinarian>("defraimp_defraimp_veterinarian_defraimp_watchlist_VeterinarianId", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_veterinarian_defraimp_watchlist_VeterinarianId");
+				this.SetRelatedEntity<Defra.Imports.Dataverse.Model.defraimp_Veterinarian>("defraimp_defraimp_veterinarian_defraimp_watchlist_VeterinarianId", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_veterinarian_defraimp_watchlist_VeterinarianId");
 			}
 		}
 		

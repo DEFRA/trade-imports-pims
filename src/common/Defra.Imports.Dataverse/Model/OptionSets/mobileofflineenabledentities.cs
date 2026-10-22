@@ -634,10 +634,19 @@ namespace Defra.Imports.Dataverse.Model
 		msdyn_guardrail_localized_policy = 11958,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		GeolocationRecord = 11962,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ActionOwnerAssignment = 11965,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GeolocationRecord = 11962,
+		ImpostorBioScores = 12005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrecomputedRateDistribution = 12006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrecomputedRate = 12007,
 	}
 }
 #pragma warning restore CS1591

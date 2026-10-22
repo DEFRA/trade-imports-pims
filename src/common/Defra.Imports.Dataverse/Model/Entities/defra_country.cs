@@ -137,6 +137,7 @@ namespace Defra.Imports.Dataverse.Model
 			public const string defraimp_defra_country_defraimp_placeofdestination_Country = "defraimp_defra_country_defraimp_placeofdestination_Country";
 			public const string defraimp_defra_country_defraimp_placeoforigin_AddressCountry = "defraimp_defra_country_defraimp_placeoforigin_AddressCountry";
 			public const string defraimp_defra_country_defraimp_transporter_Country = "defraimp_defra_country_defraimp_transporter_Country";
+			public const string defraimp_defra_country_defraimp_veterinarian_Country = "defraimp_defra_country_defraimp_veterinarian_Country";
 			public const string defraimp_importernotification_PlaceofOriginCountryId_defra_country = "defraimp_importernotification_PlaceofOriginCountryId_defra_country";
 			public const string defraimp_defraimp_importapplication_defra_country = "defraimp_defraimp_importapplication_defra_country";
 			public const string defraimp_goldbronzecountriesnn = "defraimp_goldbronzecountriesnn";
@@ -1375,6 +1376,24 @@ namespace Defra.Imports.Dataverse.Model
 				this.OnPropertyChanging("defraimp_defra_country_defraimp_transporter_Country");
 				this.SetRelatedEntities<Defra.Imports.Dataverse.Model.defraimp_Transporter>("defraimp_defra_country_defraimp_transporter_Country", null, value);
 				this.OnPropertyChanged("defraimp_defra_country_defraimp_transporter_Country");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N defraimp_defra_country_defraimp_veterinarian_Country
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defra_country_defraimp_veterinarian_Country")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Dataverse.Model.defraimp_Veterinarian> defraimp_defra_country_defraimp_veterinarian_Country
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Dataverse.Model.defraimp_Veterinarian>("defraimp_defra_country_defraimp_veterinarian_Country", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defra_country_defraimp_veterinarian_Country");
+				this.SetRelatedEntities<Defra.Imports.Dataverse.Model.defraimp_Veterinarian>("defraimp_defra_country_defraimp_veterinarian_Country", null, value);
+				this.OnPropertyChanged("defraimp_defra_country_defraimp_veterinarian_Country");
 			}
 		}
 		

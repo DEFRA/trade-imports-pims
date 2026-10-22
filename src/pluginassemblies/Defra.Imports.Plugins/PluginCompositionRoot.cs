@@ -8,6 +8,8 @@ namespace Defra.Imports.Plugins
     using Defra.Imports.Dataverse.Queries;
     using Defra.Imports.Infrastructure.DependencyInjection;
     using Defra.Imports.Infrastructure.Logging;
+    using Defra.Imports.Plugins.ImporterNotification;
+    using Defra.Imports.Plugins.Itahc;
     using Defra.Imports.Plugins.ParameterSetKeyDataPair;
     using Defra.Imports.Plugins.WatchLists;
 
@@ -33,6 +35,11 @@ namespace Defra.Imports.Plugins
             root.Register<ICommodityComplementKeyDataApplier, CommodityComplementKeyDataApplier>();
             root.Register<CommodityComplementQueries>();
             root.Register<PopulateAnimalNumberHandler>();
+
+            root.Register<IWatchFlagCreator, WatchFlagCreator>();
+            root.Register<WatchFlagQueries>();
+            root.Register<FlagRecordOnWatchListHandler>();
+            root.Register<FlagRecordOnWatchListNotificationHandler>();
 
             root.Register<ILogWriter, TimestampedTracingLogWriter>();
             root.Register<IImportsContextFactory, ImportsContextFactory>();
