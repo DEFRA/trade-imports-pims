@@ -1,6 +1,6 @@
 ﻿using Defra.Imports.BusinessLogic.ImportApplication;
 using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Strategies;
-using Defra.Imports.Model;
+using Defra.Imports.Dataverse.Model;
 using Microsoft.Xrm.Sdk;
 using Moq;
 using System;

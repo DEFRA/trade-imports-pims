@@ -27,6 +27,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="System.Activities" />
     <PackageReference Include="Creedengo" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -45,9 +46,11 @@
     <ProjectReference Include="..\..\common\Defra.Imports.Container\Defra.Imports.Container.csproj" Condition="'$(Configuration)' == 'UnitTest'" />
   </ItemGroup>
 
-  <Import Project="..\..\common\Defra.Imports.Model\Defra.Imports.Model.projitems" Label="Shared" Condition="'$(Configuration)' != 'UnitTest'" />
   <Import Project="..\..\common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems" Label="Shared" Condition="'$(Configuration)' != 'UnitTest'" />
   <Import Project="..\..\common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems" Label="Shared" Condition="'$(Configuration)' != 'UnitTest'" />
+  <Import Project="..\..\common\Defra.Imports.Application\Defra.Imports.Application.projitems" Label="Shared" Condition="'$(Configuration)' != 'UnitTest'" />
+  <Import Project="..\..\common\Defra.Imports.Dataverse\Defra.Imports.Dataverse.projitems" Label="Shared" Condition="'$(Configuration)' != 'UnitTest'" />
+  <Import Project="..\..\common\Defra.Imports.Infrastructure\Defra.Imports.Infrastructure.projitems" Label="Shared" Condition="'$(Configuration)' != 'UnitTest'" />
 
   <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Plugin.targets" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Plugin.targets')" />
   

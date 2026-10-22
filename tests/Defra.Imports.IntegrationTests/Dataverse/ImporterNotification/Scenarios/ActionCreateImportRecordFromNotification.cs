@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dataverse.ImporterNotification.Scenarios
 {
     using System;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
     using Microsoft.Xrm.Sdk;
 

@@ -2,7 +2,7 @@
 {
     using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
     using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
 
     public class P2DetermineInspection : AbstractDetermineInspection
     {

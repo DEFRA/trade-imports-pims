@@ -15,7 +15,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.ImporterNotification.TestCase
     using Defra.Imports.IntegrationTests.Dataverse.Transporter.Scenarios;
     using Defra.Imports.IntegrationTests.Dataverse.WatchList.SampleData;
     using Defra.Imports.IntegrationTests.Dataverse.WatchList.Scenarios;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

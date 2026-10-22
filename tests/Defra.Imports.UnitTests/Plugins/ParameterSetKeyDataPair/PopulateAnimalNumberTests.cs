@@ -1,7 +1,7 @@
 namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
 {
     using System;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Plugins.ParameterSetKeyDataPair;
     using Microsoft.Xrm.Sdk;
     using Moq;

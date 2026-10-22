@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dataverse.PlaceOfOrigin.SampleData
 {
     using System;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
 
     public class GoldPlaceOfOrigin
     {

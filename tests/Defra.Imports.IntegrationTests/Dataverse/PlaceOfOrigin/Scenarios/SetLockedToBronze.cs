@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dataverse.PlaceOfOrigin.Scenarios
 {
     using System;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
 
     class SetLockedToBronze : IExecutableAction<defraimp_placeoforigin, Guid>

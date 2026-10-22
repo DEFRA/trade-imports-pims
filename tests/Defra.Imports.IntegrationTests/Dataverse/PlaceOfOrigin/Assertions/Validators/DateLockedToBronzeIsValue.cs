@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dataverse.PlaceOfOrigin.Assertions.Validators
 {
     using System;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using FluentAssertions;
     using MarkTek.Fluent.Testing.RecordGeneration;
 

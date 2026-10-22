@@ -3,7 +3,7 @@
     using Defra.Imports.BusinessLogic.ImportApplication.Contexts;
     using Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers;
     using Defra.Imports.BusinessLogic.RepoInterfaces;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Repositories;
     using System.Linq;
 

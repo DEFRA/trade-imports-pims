@@ -8,8 +8,8 @@ namespace Defra.Imports.IntegrationTests.Dataverse.ImportApplication.TestCases
     using Defra.Imports.IntegrationTests.Dataverse.ImportApplication.Scenarios;
     using Defra.Imports.IntegrationTests.Dataverse.ImporterNotification.SampleRecords;
     using Defra.Imports.IntegrationTests.Dataverse.ImporterNotification.Scenarios;
-    using Defra.Imports.Model;
-    using Defra.Imports.Model.ReferenceData;
+    using Defra.Imports.Dataverse.Model;
+    using Defra.Imports.Application.ReferenceData;
     using MarkTek.Fluent.Testing.RecordGeneration;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

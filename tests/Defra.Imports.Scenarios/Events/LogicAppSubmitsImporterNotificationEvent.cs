@@ -3,7 +3,7 @@ namespace Defra.Imports.Scenarios.Events
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Scenarios.Fakers;
     using Microsoft.Extensions.Logging;
     using ScenarioBuilder;

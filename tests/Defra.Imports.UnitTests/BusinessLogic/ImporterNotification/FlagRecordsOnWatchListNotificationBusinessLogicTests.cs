@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
 {
     using Defra.Imports.BusinessLogic.ImporterNotification;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Repositories;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;

@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dataverse.PostImportCheck.Scenarios
 {
     using System;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
 
     class SetPostImportCheckOutcome : IExecutableAction<defraimp_importinspection, Guid>

@@ -9,7 +9,7 @@ namespace Defra.Imports.IntegrationTests
     using Azure.Security.KeyVault.Secrets;
     using Defra.Imports.IntegrationTests.Dataverse;
     using Defra.Imports.IntegrationTests.ServiceBus;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Scenarios;
     using Defra.Imports.Scenarios.Logging;
     using Microsoft.Extensions.Configuration;

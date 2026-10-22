@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.BusinessLogic.ImportApplication
 {
     using Defra.Imports.BusinessLogic.Logging;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Repositories;
 
     class PrimaryITAHCCountManagerBusinessLogic

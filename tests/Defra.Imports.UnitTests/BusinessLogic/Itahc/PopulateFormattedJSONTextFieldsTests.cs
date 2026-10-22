@@ -1,5 +1,5 @@
 ﻿using Defra.Imports.BusinessLogic.Itahc;
-using Defra.Imports.Model;
+using Defra.Imports.Dataverse.Model;
 using System;
 using System.Linq;
 using Xunit;

@@ -1,6 +1,6 @@
 ﻿using Defra.Imports.BusinessLogic.Itahc;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
-using Defra.Imports.Model;
+using Defra.Imports.Dataverse.Model;
 using Microsoft.Xrm.Sdk;
 using Moq;
 using System;

@@ -4,7 +4,7 @@ namespace Defra.Imports.Scenarios
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Scenarios.Config;
     using Defra.Imports.Scenarios.Extensions;
     using Microsoft.PowerPlatform.Dataverse.Client;

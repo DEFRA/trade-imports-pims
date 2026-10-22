@@ -4,7 +4,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.PlaceOfOrigin.TestCases
     using Defra.Imports.IntegrationTests.Dataverse.PlaceOfOrigin.Assertions;
     using Defra.Imports.IntegrationTests.Dataverse.PlaceOfOrigin.SampleData;
     using Defra.Imports.IntegrationTests.Dataverse.PlaceOfOrigin.Scenarios;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

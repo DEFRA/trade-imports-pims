@@ -2,7 +2,7 @@ namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
 {
     using System;
     using System.Collections.Generic;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Workflows.ImporterNotification;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;

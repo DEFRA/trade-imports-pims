@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using Defra.Imports.IntegrationTests.Dataverse.ImporterNotification.Assertions.Validators;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Marktek.Fluent.Testing.Engine;
     using MarkTek.Fluent.Testing.RecordGeneration;
     using Microsoft.Xrm.Sdk;

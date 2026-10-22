@@ -7,7 +7,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.PostImportCheck.TestCases
     using Defra.Imports.IntegrationTests.Dataverse.PostImportCheck.Assertions;
     using Defra.Imports.IntegrationTests.Dataverse.PostImportCheck.SampleRecords;
     using Defra.Imports.IntegrationTests.Dataverse.PostImportCheck.Scenarios;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
     using Microsoft.Xrm.Sdk;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

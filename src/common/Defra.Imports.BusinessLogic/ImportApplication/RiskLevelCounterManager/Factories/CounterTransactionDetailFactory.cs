@@ -1,4 +1,4 @@
-﻿using Defra.Imports.Model;
+﻿using Defra.Imports.Dataverse.Model;
 
 namespace Defra.Imports.BusinessLogic.ImportApplication.Factories
 {

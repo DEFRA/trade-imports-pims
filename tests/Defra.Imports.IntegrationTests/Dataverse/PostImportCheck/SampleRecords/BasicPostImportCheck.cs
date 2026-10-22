@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dataverse.PostImportCheck.SampleRecords
 {
     using System;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Microsoft.Xrm.Sdk;
 
     class BasicPostImportCheck

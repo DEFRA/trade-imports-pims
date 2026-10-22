@@ -2,7 +2,7 @@
 namespace Defra.Imports.IntegrationTests.Dataverse.Autonumber.Scenarios
 {
     using System;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
 
     class SetAutonumberValue : IWaitableAction

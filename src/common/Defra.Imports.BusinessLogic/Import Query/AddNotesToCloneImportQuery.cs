@@ -1,5 +1,5 @@
 ﻿using Defra.Imports.BusinessLogic.RepoInterfaces;
-using Defra.Imports.Model;
+using Defra.Imports.Dataverse.Model;
 using System.Collections.Generic;
 
 namespace Defra.Imports.BusinessLogic.Import_Query

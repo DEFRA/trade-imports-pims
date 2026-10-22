@@ -4,7 +4,7 @@ description: Use this agent to implement, maintain, and improve automated accept
 model: Claude Sonnet 5 (copilot)
 argument-hint: Provide the work item, BDD scenario(s), or branch/diff that needs acceptance or integration test implementation.
 reasoning-effort: high
-tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, vscode/toolSearch, execute/killTerminal, execute/sendToTerminal, execute/runInTerminal, read/readFile, edit/createFile, edit/editFiles, search, web, vscodeGeneral/toolSearch]
+tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, vscode/toolSearch, execute/killTerminal, execute/sendToTerminal, execute/runInTerminal, read/readFile, edit/createFile, edit/editFiles, search, web, vscodeGeneral/toolSearch, azure/search, 'microsoftdocs/mcp/*']
 ---
 
 # Quality Engineer

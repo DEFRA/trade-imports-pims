@@ -6,7 +6,7 @@ namespace Defra.Imports.Scenarios.Extensions
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.Xrm.Sdk.Query;
 

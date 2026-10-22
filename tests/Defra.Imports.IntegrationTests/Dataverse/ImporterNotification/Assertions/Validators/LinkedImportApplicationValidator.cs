@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dataverse.ImporterNotification.Assertions.Validators
 {
     using System.Linq;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using FluentAssertions;
     using MarkTek.Fluent.Testing.RecordGeneration;
 

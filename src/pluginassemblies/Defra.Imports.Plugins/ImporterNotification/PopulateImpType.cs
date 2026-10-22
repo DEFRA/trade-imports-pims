@@ -1,7 +1,7 @@
 ﻿using Defra.Imports.BusinessLogic;
 using Defra.Imports.BusinessLogic.ImporterNotification;
 using Defra.Imports.BusinessLogic.Logging;
-using Defra.Imports.Model;
+using Defra.Imports.Dataverse.Model;
 using Microsoft.Xrm.Sdk;
 
 namespace Defra.Imports.Plugins.ImporterNotification

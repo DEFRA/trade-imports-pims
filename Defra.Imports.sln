@@ -13,9 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pluginassemblies", "plugina
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Defra.Imports.Repositories", "src\common\Defra.Imports.Repositories\Defra.Imports.Repositories.shproj", "{56D657E2-2DB7-4489-AD26-CA2E147836C6}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Defra.Imports.Model", "src\common\Defra.Imports.Model\Defra.Imports.Model.shproj", "{70363B14-5D32-4BD6-AA74-A1CA3373C087}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Defra.Imports.BusinessLogic", "src\common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.shproj", "{2B1EF6DE-63CC-4B7E-9BF6-5D9B4C0AFDED}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Defra.Imports.Dataverse", "src\common\Defra.Imports.Dataverse\Defra.Imports.Dataverse.shproj", "{E6FDCD42-BD40-4FC9-A77B-38C8C3FAB202}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Defra.Imports.Infrastructure", "src\common\Defra.Imports.Infrastructure\Defra.Imports.Infrastructure.shproj", "{E6FDCD42-BD40-4FC9-A77B-38C8C3FAB203}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defra.Imports.Plugins", "src\pluginassemblies\Defra.Imports.Plugins\Defra.Imports.Plugins.csproj", "{F76F0D3D-661A-F1F6-15A9-FF2E6C84D1B5}"
 EndProject
@@ -39,6 +41,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Defra.Imports.Application", "src\common\Defra.Imports.Application\Defra.Imports.Application.shproj", "{E6FDCD42-BD40-4FC9-A77B-38C8C3FAB201}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -154,7 +158,6 @@ Global
 		{DB1591DE-E758-F5B3-3417-41F8B0B7C8C1}.Release|x86.ActiveCfg = Release|Any CPU
 		{DB1591DE-E758-F5B3-3417-41F8B0B7C8C1}.Release|x86.Build.0 = Release|Any CPU
 		{DB1591DE-E758-F5B3-3417-41F8B0B7C8C1}.UnitTest|Any CPU.ActiveCfg = Release|Any CPU
-		{DB1591DE-E758-F5B3-3417-41F8B0B7C8C1}.UnitTest|Any CPU.Build.0 = Release|Any CPU
 		{DB1591DE-E758-F5B3-3417-41F8B0B7C8C1}.UnitTest|x64.ActiveCfg = Release|Any CPU
 		{DB1591DE-E758-F5B3-3417-41F8B0B7C8C1}.UnitTest|x64.Build.0 = Release|Any CPU
 		{DB1591DE-E758-F5B3-3417-41F8B0B7C8C1}.UnitTest|x86.ActiveCfg = Release|Any CPU
@@ -203,8 +206,9 @@ Global
 		{EB575062-024E-450E-AAC2-50C65A801FDA} = {3F31CBAD-D41F-4297-AF34-635628AAFD01}
 		{9BB74E89-9C23-4937-A8C3-09BC7671176A} = {3F31CBAD-D41F-4297-AF34-635628AAFD01}
 		{56D657E2-2DB7-4489-AD26-CA2E147836C6} = {EB575062-024E-450E-AAC2-50C65A801FDA}
-		{70363B14-5D32-4BD6-AA74-A1CA3373C087} = {EB575062-024E-450E-AAC2-50C65A801FDA}
 		{2B1EF6DE-63CC-4B7E-9BF6-5D9B4C0AFDED} = {EB575062-024E-450E-AAC2-50C65A801FDA}
+		{E6FDCD42-BD40-4FC9-A77B-38C8C3FAB202} = {EB575062-024E-450E-AAC2-50C65A801FDA}
+		{E6FDCD42-BD40-4FC9-A77B-38C8C3FAB203} = {EB575062-024E-450E-AAC2-50C65A801FDA}
 		{F76F0D3D-661A-F1F6-15A9-FF2E6C84D1B5} = {9BB74E89-9C23-4937-A8C3-09BC7671176A}
 		{09A85DAD-DF88-6D09-4C22-143FDEB641CC} = {9BB74E89-9C23-4937-A8C3-09BC7671176A}
 		{1203DE90-854F-81C1-D439-F7CB54C198D2} = {FD3CAA3F-296C-4ECB-A6E9-A4A8CA3E15B6}
@@ -213,22 +217,21 @@ Global
 		{DB1591DE-E758-F5B3-3417-41F8B0B7C8C1} = {5A7CC9D4-5645-4EF7-88F7-8B31A76CA92A}
 		{40CC105C-51ED-BBF6-28E7-8B305BF70BF1} = {FD3CAA3F-296C-4ECB-A6E9-A4A8CA3E15B6}
 		{14B0A363-5CCE-168C-D779-64C28F81EB05} = {FD3CAA3F-296C-4ECB-A6E9-A4A8CA3E15B6}
+		{E6FDCD42-BD40-4FC9-A77B-38C8C3FAB201} = {EB575062-024E-450E-AAC2-50C65A801FDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3D6A7645-2C64-4610-BC84-6AD17AA98B71}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{09a85dad-df88-6d09-4c22-143fdeb641cc}*SharedItemsImports = 5
-		src\common\Defra.Imports.Model\Defra.Imports.Model.projitems*{09a85dad-df88-6d09-4c22-143fdeb641cc}*SharedItemsImports = 5
-		src\common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{09a85dad-df88-6d09-4c22-143fdeb641cc}*SharedItemsImports = 5
 		src\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{2b1ef6de-63cc-4b7e-9bf6-5d9b4c0afded}*SharedItemsImports = 13
 		src\common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{56d657e2-2db7-4489-ad26-ca2e147836c6}*SharedItemsImports = 13
-		src\common\Defra.Imports.Model\Defra.Imports.Model.projitems*{70363b14-5d32-4bd6-aa74-a1ca3373c087}*SharedItemsImports = 13
+		src\common\Defra.Imports.Application\Defra.Imports.Application.projitems*{960f4741-338c-e21c-e95b-e38695a78b78}*SharedItemsImports = 5
 		src\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{960f4741-338c-e21c-e95b-e38695a78b78}*SharedItemsImports = 5
-		src\common\Defra.Imports.Model\Defra.Imports.Model.projitems*{960f4741-338c-e21c-e95b-e38695a78b78}*SharedItemsImports = 5
+		src\common\Defra.Imports.Dataverse\Defra.Imports.Dataverse.projitems*{960f4741-338c-e21c-e95b-e38695a78b78}*SharedItemsImports = 5
+		src\common\Defra.Imports.Infrastructure\Defra.Imports.Infrastructure.projitems*{960f4741-338c-e21c-e95b-e38695a78b78}*SharedItemsImports = 5
 		src\common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{960f4741-338c-e21c-e95b-e38695a78b78}*SharedItemsImports = 5
-		src\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{f76f0d3d-661a-f1f6-15a9-ff2e6c84d1b5}*SharedItemsImports = 5
-		src\common\Defra.Imports.Model\Defra.Imports.Model.projitems*{f76f0d3d-661a-f1f6-15a9-ff2e6c84d1b5}*SharedItemsImports = 5
-		src\common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{f76f0d3d-661a-f1f6-15a9-ff2e6c84d1b5}*SharedItemsImports = 5
+		src\common\Defra.Imports.Application\Defra.Imports.Application.projitems*{e6fdcd42-bd40-4fc9-a77b-38c8c3fab201}*SharedItemsImports = 13
+		src\common\Defra.Imports.Dataverse\Defra.Imports.Dataverse.projitems*{e6fdcd42-bd40-4fc9-a77b-38c8c3fab202}*SharedItemsImports = 13
+		src\common\Defra.Imports.Infrastructure\Defra.Imports.Infrastructure.projitems*{e6fdcd42-bd40-4fc9-a77b-38c8c3fab203}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

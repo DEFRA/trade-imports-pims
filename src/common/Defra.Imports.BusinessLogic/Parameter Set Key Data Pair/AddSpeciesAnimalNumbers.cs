@@ -2,7 +2,7 @@
 {
     using System;
     using Defra.Imports.BusinessLogic.Logging;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;
 

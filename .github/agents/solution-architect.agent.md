@@ -4,7 +4,7 @@ description: Use this agent for enterprise-grade, Agile and DevOps-friendly solu
 model: Claude Sonnet 5 (copilot)
 argument-hint: Provide the Epic/Feature/User Story, or the business requirement, that needs a solution architecture.
 reasoning-effort: high
-tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, vscode/toolSearch, execute/killTerminal, execute/sendToTerminal, execute/runInTerminal, read/readFile, edit/createFile, edit/editFiles, search, web, vscodeGeneral/toolSearch]
+tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, vscode/toolSearch, execute/killTerminal, execute/sendToTerminal, execute/runInTerminal, read/readFile, edit/createFile, edit/editFiles, search, web, vscodeGeneral/toolSearch, 'microsoftdocs/mcp/*']
 ---
 
 # Solution Architect

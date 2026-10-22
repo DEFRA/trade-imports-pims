@@ -1,4 +1,4 @@
-﻿using Defra.Imports.Model;
+﻿using Defra.Imports.Dataverse.Model;
 using Defra.Imports.Workflows.ImportApplication;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;

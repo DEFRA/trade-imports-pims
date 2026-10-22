@@ -4,7 +4,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.Autonumber.TestCases
     using Defra.Imports.BusinessLogic.ImportApplication;
     using Defra.Imports.IntegrationTests.Dataverse;
     using Defra.Imports.IntegrationTests.Dataverse.Autonumber.Assertions;
-    using Defra.Imports.Model.ReferenceData;
+    using Defra.Imports.Application.ReferenceData;
     using MarkTek.Fluent.Testing.RecordGeneration;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

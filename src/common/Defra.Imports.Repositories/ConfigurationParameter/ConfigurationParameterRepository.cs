@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.Repositories
 {
     using Defra.Imports.BusinessLogic.RepoInterfaces;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using System.Linq;
 
     public class ConfigurationParameterRepository : IConfigurationParameterRepository

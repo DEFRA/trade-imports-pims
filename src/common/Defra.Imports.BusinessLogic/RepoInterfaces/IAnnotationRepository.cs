@@ -1,4 +1,4 @@
-﻿using Defra.Imports.Model;
+﻿using Defra.Imports.Dataverse.Model;
 using System;
 using System.Collections.Generic;
 

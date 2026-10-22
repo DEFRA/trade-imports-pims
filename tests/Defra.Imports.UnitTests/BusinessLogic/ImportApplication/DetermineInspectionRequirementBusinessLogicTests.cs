@@ -2,7 +2,7 @@
 //using Defra.Imports.BusinessLogic.ImportApplication;
 //using Defra.Imports.BusinessLogic.Logging;
 //using Defra.Imports.BusinessLogic.RepoInterfaces;
-//using Defra.Imports.Model;
+//using Defra.Imports.Dataverse.Model;
 //using Defra.Imports.Repositories;
 //using Microsoft.Xrm.Sdk;
 //using Moq;

@@ -1,6 +1,6 @@
 namespace Defra.Imports.Scenarios.Fakers
 {
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
 
     /// <summary>
     /// A <see cref="RecordFaker{TEntity}"/> for <see cref="defraimp_parametersetkeydatapair"/> records - the child record

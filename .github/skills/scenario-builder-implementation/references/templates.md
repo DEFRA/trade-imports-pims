@@ -1,6 +1,6 @@
 # Scenario Builder Templates
 
-Worked example: an `ImportRecordScenario` covering a user submitting an import record. Adjust namespaces, entities (`Defra.Imports.Model`), and API calls to the real Dataverse process — this is structural, not business-accurate, guidance.
+Worked example: an `ImportRecordScenario` covering a user submitting an import record. Adjust namespaces, entities (`Defra.Imports.Dataverse.Model`), and API calls to the real Dataverse process — this is structural, not business-accurate, guidance.
 
 ## 1. Leaf event
 
@@ -9,7 +9,7 @@ namespace Defra.Imports.Scenarios.Events
 {
     using System;
     using System.Threading.Tasks;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Microsoft.Extensions.Logging;
     using ScenarioBuilder;
 

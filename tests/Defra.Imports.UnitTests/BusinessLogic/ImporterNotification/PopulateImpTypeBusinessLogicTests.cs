@@ -1,5 +1,5 @@
 ﻿using Defra.Imports.BusinessLogic.ImporterNotification;
-using Defra.Imports.Model;
+using Defra.Imports.Dataverse.Model;
 using Defra.Imports.Repositories;
 using Moq;
 using System;

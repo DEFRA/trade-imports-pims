@@ -1,6 +1,6 @@
 ﻿namespace Defra.Imports.BusinessLogic.ImportApplication.DetermineInspection.Helpers
 {
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Repositories;
     using Microsoft.Xrm.Sdk;
     using System;
