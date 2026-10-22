@@ -1,10 +1,13 @@
 namespace Defra.Imports.UnitTests.Plugins
 {
+    using Defra.Imports.Application.CommodityComplements;
     using Defra.Imports.Application.WatchLists;
     using Defra.Imports.Dataverse.Contexts;
     using Defra.Imports.Infrastructure.Execution;
+    using Defra.Imports.Infrastructure.Logging;
     using Defra.Imports.Infrastructure.Plugins;
     using Defra.Imports.Plugins;
+    using Defra.Imports.Plugins.ParameterSetKeyDataPair;
     using Defra.Imports.Plugins.WatchLists;
     using Defra.Imports.UnitTests.Support;
     using Microsoft.Xrm.Sdk;
@@ -45,6 +48,53 @@ namespace Defra.Imports.UnitTests.Plugins
                 var initialiser = scope.Resolve<IWatchListInitialiser>();
 
                 Assert.IsType<WatchListInitialiser>(initialiser);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithRuntimeServices_ResolvesPopulateAnimalNumberHandler()
+        {
+            var runtime = new PluginRuntime();
+            using (var scope = PluginCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IPluginExecution>(runtime.CreateExecution());
+                scope.Register<IOrganizationService>(runtime.Service.Object);
+                scope.Register<ITracingService>(runtime.Tracing);
+
+                var handler = scope.Resolve<PopulateAnimalNumberHandler>();
+
+                Assert.NotNull(handler);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithOrganizationService_ResolvesTheSharedCommodityComplementKeyDataApplier()
+        {
+            var runtime = new PluginRuntime();
+            using (var scope = PluginCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IOrganizationService>(runtime.Service.Object);
+                scope.Register<ITracingService>(runtime.Tracing);
+
+                var applier = scope.Resolve<ICommodityComplementKeyDataApplier>();
+
+                Assert.IsType<CommodityComplementKeyDataApplier>(applier);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithTracingService_ResolvesATimestampedLogWriter()
+        {
+            var runtime = new PluginRuntime();
+            using (var scope = PluginCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<ITracingService>(runtime.Tracing);
+
+                var logWriter = scope.Resolve<ILogWriter>();
+                logWriter.Log(Severity.Info, "Tag", "Message");
+
+                Assert.IsType<TimestampedTracingLogWriter>(logWriter);
+                Assert.Matches(@"^\d{4}-\d{2}-\d{2}T.*: Tag: Info: Message$", Assert.Single(runtime.Tracing.Messages));
             }
         }
 

@@ -14,6 +14,7 @@ namespace Defra.Imports.UnitTests.Support
             this.Context.SetupGet(context => context.UserId).Returns(this.UserId);
             this.Context.SetupGet(context => context.OutputParameters).Returns(new ParameterCollection());
             this.Context.SetupGet(context => context.InputParameters).Returns(this.InputParameters);
+            this.Context.SetupGet(context => context.PreEntityImages).Returns(this.PreImages);
             this.Factory.Setup(factory => factory.CreateOrganizationService(this.UserId)).Returns(this.Service.Object);
             this.Provider.Setup(provider => provider.GetService(typeof(IPluginExecutionContext))).Returns(this.Context.Object);
             this.Provider.Setup(provider => provider.GetService(typeof(IOrganizationServiceFactory))).Returns(this.Factory.Object);
@@ -34,6 +35,9 @@ namespace Defra.Imports.UnitTests.Support
 
         // The step's input parameters, such as the Target entity of a Create.
         public ParameterCollection InputParameters { get; } = new ParameterCollection();
+
+        // The step's pre-entity images, empty unless the step registers one.
+        public EntityImageCollection PreImages { get; } = new EntityImageCollection();
 
         // Doubles as the channel through which test handlers report what they observed.
         public ParameterCollection OutputParameters => this.Context.Object.OutputParameters;
@@ -69,6 +73,12 @@ namespace Defra.Imports.UnitTests.Support
         public PluginRuntime WithoutTarget()
         {
             this.InputParameters.Remove("Target");
+            return this;
+        }
+
+        public PluginRuntime WithPreImage(string name, Entity image)
+        {
+            this.PreImages[name] = image;
             return this;
         }
 

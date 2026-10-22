@@ -1,6 +1,6 @@
 ﻿namespace Defra.Imports.BusinessLogic.Utils
 {
-    using Defra.Imports.BusinessLogic.Logging;
+    using Defra.Imports.Infrastructure.Logging;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;
     using System.Collections.Generic;

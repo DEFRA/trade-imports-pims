@@ -1,8 +1,8 @@
 ﻿using Defra.Imports.BusinessLogic;
 using Defra.Imports.BusinessLogic.Extensions;
-using Defra.Imports.BusinessLogic.Logging;
 using Defra.Imports.BusinessLogic.Utils;
 using Defra.Imports.Dataverse.Model;
+using Defra.Imports.Infrastructure.Logging;
 using Defra.Imports.Repositories;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Workflow;

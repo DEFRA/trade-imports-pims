@@ -13,12 +13,19 @@
     <Compile Include="$(MSBuildThisFileDirectory)Execution\IExecutionServiceProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Execution\PluginExecutionServiceProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Execution\WorkflowExecutionServiceProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\ILogWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Severity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\TimestampedTracingLogWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\TracingServiceLogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugins\IPluginHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugins\IPluginExecution.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginExecution.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginInputParameters.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginMessages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginModes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginStages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivities\IWorkflowActivityHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivities\WorkflowActivityBase.cs" />
-    <Folder Include="$(MSBuildThisFileDirectory)Logging\" />
   </ItemGroup>
 </Project>

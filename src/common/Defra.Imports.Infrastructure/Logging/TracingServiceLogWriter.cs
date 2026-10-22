@@ -1,8 +1,8 @@
-namespace Defra.Imports.BusinessLogic.Logging
+namespace Defra.Imports.Infrastructure.Logging
 {
-    using Microsoft.Xrm.Sdk;
     using System;
     using System.Globalization;
+    using Microsoft.Xrm.Sdk;
 
     /// <summary>
     /// Logs messages using the tracing service.
@@ -31,7 +31,11 @@ namespace Defra.Imports.BusinessLogic.Logging
 
         private string FormatMessage(Severity severity, string tag, string message)
         {
-            return $"{(this.addTimestamps ? $"{DateTime.UtcNow.ToString("o", CultureInfo.CurrentCulture)}: " : string.Empty)}{tag}: {severity}: {message}";
+            var timestamp = this.addTimestamps
+                ? $"{DateTime.UtcNow.ToString("o", CultureInfo.CurrentCulture)}: "
+                : string.Empty;
+
+            return $"{timestamp}{tag}: {severity}: {message}";
         }
     }
 }

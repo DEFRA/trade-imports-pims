@@ -1,4 +1,4 @@
-namespace Defra.Imports.BusinessLogic.Logging
+namespace Defra.Imports.Infrastructure.Logging
 {
     /// <summary>
     /// Log severity.

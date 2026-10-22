@@ -1,11 +1,14 @@
 namespace Defra.Imports.Plugins
 {
     using System;
+    using Defra.Imports.Application.CommodityComplements;
     using Defra.Imports.Application.WatchLists;
     using Defra.Imports.Dataverse.Contexts;
     using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Dataverse.Queries;
     using Defra.Imports.Infrastructure.DependencyInjection;
+    using Defra.Imports.Infrastructure.Logging;
+    using Defra.Imports.Plugins.ParameterSetKeyDataPair;
     using Defra.Imports.Plugins.WatchLists;
 
     /// <summary>Owns registration metadata shared by new plug-in entry points.</summary>
@@ -27,6 +30,11 @@ namespace Defra.Imports.Plugins
             root.Register<WatchListQueries>();
             root.Register<WatchListInitialisationHandler>();
 
+            root.Register<ICommodityComplementKeyDataApplier, CommodityComplementKeyDataApplier>();
+            root.Register<CommodityComplementQueries>();
+            root.Register<PopulateAnimalNumberHandler>();
+
+            root.Register<ILogWriter, TimestampedTracingLogWriter>();
             root.Register<IImportsContextFactory, ImportsContextFactory>();
             root.Register<ImportsContext>();
             return root;
