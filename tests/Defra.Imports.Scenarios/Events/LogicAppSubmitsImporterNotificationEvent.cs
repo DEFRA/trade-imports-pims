@@ -6,6 +6,7 @@ namespace Defra.Imports.Scenarios.Events
     using Defra.Imports.Model;
     using Defra.Imports.Scenarios.Fakers;
     using Microsoft.Extensions.Logging;
+    using Microsoft.Xrm.Sdk;
     using ScenarioBuilder;
 
     /// <summary>
@@ -146,6 +147,52 @@ namespace Defra.Imports.Scenarios.Events
                 this.importerNotificationFaker.RuleFor(n => n.defraimp_consignortwoaddresspostalzipcode, f => f.Address.ZipCode());
                 this.importerNotificationFaker.RuleFor(n => n.defraimp_consignortwoapprovalnumber, f => f.Random.Replace("APP-#####"));
                 this.importerNotificationFaker.RuleFor(n => n.defraimp_consignortwootheridentifier, f => f.Random.Replace("ID-#####"));
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures the Importer Notification to have one permanent address record.
+            /// </summary>
+            /// <returns>The builder.</returns>
+            public Builder WithPermanentAddress()
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+                this.importerNotificationFaker.FinishWith((f, n) =>
+                    n.RelatedEntities[new Relationship(NotificationPermanentAddressFaker.ImporterNotificationRelationshipName)] =
+                        new EntityCollection(new NotificationPermanentAddressFaker().Generate(1))
+                        {
+                            EntityName = NotificationPermanentAddressFaker.EntityLogicalName,
+                        });
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures the Importer Notification so its parameter set identifier and key/data pair records also reference the notification,
+            /// which is what their Related tab grids filter on. Must be called before any other configuration, as it creates the faker.
+            /// </summary>
+            /// <returns>The builder.</returns>
+            public Builder WithLinkedParameterSetRecords()
+            {
+                if (this.importerNotificationFaker != null)
+                {
+                    throw new InvalidOperationException($"{nameof(this.WithLinkedParameterSetRecords)} must be called before any other configuration of the Importer Notification.");
+                }
+
+                // The notification's ID is chosen up front so its nested records can reference it before it is created.
+                var notificationId = Guid.NewGuid();
+                var notificationReference = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, notificationId);
+
+                var identifierFaker = new ParameterSetIdentifierFaker();
+                identifierFaker.RuleFor(i => i.defraimp_ImporterNotificationId, f => notificationReference);
+
+                var keyDataPairFaker = new ParameterSetKeyDataPairFaker();
+                keyDataPairFaker.RuleFor(k => k.defraimp_ImporterNotificationId, f => notificationReference);
+
+                this.importerNotificationFaker = new ImporterNotificationFaker(
+                    commodityComplementParameterSetFaker: new CommodityComplementParameterSetFaker(identifierFaker, keyDataPairFaker));
+                this.importerNotificationFaker.RuleFor(n => n.Id, f => notificationId);
 
                 return this;
             }

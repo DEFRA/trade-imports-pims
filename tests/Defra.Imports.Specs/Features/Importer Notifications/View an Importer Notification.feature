@@ -236,3 +236,87 @@ Scenario: A caseworker views an Importer Notification's transporter details
 		| Route Transiting States                                          |
 	And I see a 'Countries Of Transit <subgrid_countries_of_transit>' subgrid with the following columns
 		| Official Country Name |
+
+Scenario: A caseworker views an Importer Notification's permanent address entry
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification with a permanent address
+	When I select the 'Permanent Addresses' tab
+	And I open a record in the 'Permanent Addresses <Subgrid_3>' subgrid
+	Then I see the following fields
+		| Field                    |
+		| Individual Name          |
+		| Importer Notification    |
+		| Id                       |
+		| Type                     |
+		| Status                   |
+		| Approval Number          |
+		| Other Identifier         |
+		| Company Name             |
+		| Address Line 1           |
+		| Address Line 2           |
+		| Address Line 3           |
+		| Address City             |
+		| Address Post             |
+		| Address Country          |
+		| Email                    |
+		| Telephone                |
+		| UK Telephone             |
+		| International Phone Code |
+		| International Telephone  |
+
+Scenario: A caseworker views an Importer Notification's commodity species details
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification
+	When I select the 'Commodity Species' tab
+	And I open a record in the related grid
+	Then I see the following fields
+		| Field                 |
+		| Complement Id         |
+		| Complement Name       |
+		| Commodity Id          |
+		| Commodity Description |
+		| Importer Notification |
+		| Number of Animals     |
+		| Number of Packages    |
+		| Species Id            |
+		| Species Name          |
+		| Species Nomination    |
+		| Species Type Name     |
+		| Species Type          |
+		| Species Class Name    |
+		| Species Class         |
+		| Species Family Name   |
+		| Species Family        |
+		| Species Common Name   |
+
+Scenario: A caseworker views an Importer Notification's parameter set identifier details
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification with linked parameter set records
+	When I select the 'Parameter Set Identifiers' tab
+	And I open a record in the related grid
+	Then I see the following fields
+		| Field                                          |
+		| Commodity Complement Parameter Set             |
+		| Species Number                                 |
+		| Data                                           |
+		| Importer Notification Id                       |
+		| Permanent Address                              |
+		| Is Place Of Destination The Permanent Address  |
+		| Type                                           |
+		| Address Line1                                  |
+		| Address Line2                                  |
+		| city                                           |
+		| Postal Zip Code                                |
+		| Email                                          |
+		| Telephone                                      |
+
+Scenario: A caseworker views an Importer Notification's parameter set key data pair details
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification with linked parameter set records
+	When I select the 'Parameter Set Key Data Pairs' tab
+	And I open a record in the related grid
+	Then I see the following fields
+		| Field                              |
+		| Commodity Complement Parameter Set |
+		| Key                                |
+		| Data                               |

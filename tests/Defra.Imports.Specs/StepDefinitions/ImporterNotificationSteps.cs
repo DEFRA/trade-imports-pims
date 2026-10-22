@@ -190,6 +190,46 @@ namespace Defra.Imports.Specs.StepDefinitions
         }
 
         /// <summary>
+        /// Submits an Importer Notification, as the EU Imports Notifications Logic App would from an IPAFFS message, with one permanent address, and navigates to it.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("I have opened an Importer Notification with a permanent address")]
+        public async Task GivenIHaveOpenedAnImporterNotificationWithAPermanentAddress()
+        {
+            this.powerPlaywrightCtx.Validate();
+
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a => a
+                    .WithPermanentAddress())
+                .BuildAsync();
+
+            var importerNotificationId = scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;
+
+            this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
+                new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId));
+        }
+
+        /// <summary>
+        /// Submits an Importer Notification whose parameter set identifier and key/data pair records also reference the notification, and navigates to it.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("I have opened an Importer Notification with linked parameter set records")]
+        public async Task GivenIHaveOpenedAnImporterNotificationWithLinkedParameterSetRecords()
+        {
+            this.powerPlaywrightCtx.Validate();
+
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a => a
+                    .WithLinkedParameterSetRecords())
+                .BuildAsync();
+
+            var importerNotificationId = scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;
+
+            this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
+                new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId));
+        }
+
+        /// <summary>
         /// Submits an Importer Notification, as the EU Imports Notifications Logic App would from an IPAFFS message, with no specific configuration, and adds it to the scenario context for later steps to reference.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
