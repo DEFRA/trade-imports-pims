@@ -25,11 +25,11 @@ extends:
   parameters:
     environments:
       - environment: PRE
-        serviceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
+        serviceConnection: Power Platform - Deployment (PRE)
         variables:
           - group: Environment - Imports - PRE
       - environment: PRD
-        serviceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
+        serviceConnection: Power Platform - Deployment (PRD)
         dependsOn:
           - PRE
         variables:
