@@ -1,0 +1,53 @@
+namespace Defra.Imports.UnitTests.Support
+{
+    using System.Collections.Generic;
+    using System.Linq;
+    using Microsoft.Xrm.Sdk;
+    using Microsoft.Xrm.Sdk.Messages;
+    using Microsoft.Xrm.Sdk.Query;
+    using Moq;
+
+    internal static class WatchListServiceMockExtensions
+    {
+        // The early-bound LINQ provider issues RetrieveMultipleRequest through Execute, not RetrieveMultiple.
+        // Supplying no records simulates a query that matches nothing. The returned list records each query
+        // for the table, so tests can assert what was asked for.
+        public static IList<QueryExpression> ReturnsRecords(
+            this Mock<IOrganizationService> service, string logicalName, params Entity[] records)
+        {
+            var queries = new List<QueryExpression>();
+            var response = new RetrieveMultipleResponse
+            {
+                Results = new ParameterCollection
+                {
+                    { "EntityCollection", new EntityCollection(records.ToList()) { EntityName = logicalName } },
+                },
+            };
+
+            service
+                .Setup(value => value.Execute(It.Is<OrganizationRequest>(request => IsFor(request, logicalName))))
+                .Callback<OrganizationRequest>(request => queries.Add((QueryExpression)((RetrieveMultipleRequest)request).Query))
+                .Returns(response);
+            return queries;
+        }
+
+        // Counts the queries sent for a table.
+        public static void VerifyQueried(this Mock<IOrganizationService> service, string logicalName, Times times)
+        {
+            service.Verify(value => value.Execute(It.Is<OrganizationRequest>(request => IsFor(request, logicalName))), times);
+        }
+
+        // Counts all queries sent, whichever table they were for.
+        public static void VerifyQueriedAny(this Mock<IOrganizationService> service, Times times)
+        {
+            service.Verify(value => value.Execute(It.IsAny<RetrieveMultipleRequest>()), times);
+        }
+
+        private static bool IsFor(OrganizationRequest request, string logicalName)
+        {
+            return request is RetrieveMultipleRequest retrieve
+                && retrieve.Query is QueryExpression expression
+                && expression.EntityName == logicalName;
+        }
+    }
+}

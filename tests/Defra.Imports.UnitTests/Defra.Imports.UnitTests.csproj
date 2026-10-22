@@ -7,7 +7,6 @@
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>Defra.Imports.UnitTests.snk</AssemblyOriginatorKeyFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <VSTestCLIRunSettings>RunConfiguration.DisableAppDomain=true</VSTestCLIRunSettings>
   </PropertyGroup>
 
