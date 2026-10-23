@@ -312,6 +312,32 @@ namespace Defra.Imports.Specs.StepDefinitions
         }
 
         /// <summary>
+        /// Submits an amended Importer Notification with a Health Certificate document, and adds it to the scenario context for later steps to reference.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("an amended Importer Notification with a health certificate has been created")]
+        public async Task GivenAnAmendedImporterNotificationWithAHealthCertificateHasBeenCreated()
+        {
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a => a
+                    .WithStatus(defraimp_importernotificationstatus.Amend)
+                    .WithHealthCertificate())
+                .BuildAsync();
+
+            this.ctx.Set(scenario);
+        }
+
+        /// <summary>
+        /// Searches the active entity list page's data set for the Importer Notification stored in the scenario context, by its reference number.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [When("I search for the Importer Notification by its reference number")]
+        public async Task WhenISearchForTheImporterNotificationByItsReferenceNumber()
+        {
+            await this.EntityListPage.DataSet.SearchAsync(this.GetCreatedImporterNotification().defraimp_Name);
+        }
+
+        /// <summary>
         /// Searches the active entity list page's data set for the Importer Notification stored in the scenario context, using a value selected at random from one of the given fields.
         /// </summary>
         /// <param name="fields">The candidate fields to search by.</param>

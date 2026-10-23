@@ -6,6 +6,7 @@
     using FluentAssertions;
     using FluentAssertions.Execution;
     using PowerPlaywright.Framework.Controls.Pcf.Classes;
+    using PowerPlaywright.Framework.Extensions;
     using PowerPlaywright.Framework.Model;
     using PowerPlaywright.Framework.Pages;
     using Reqnroll;
@@ -93,6 +94,25 @@
         public async Task WhenISwitchToTheView(string viewName)
         {
             await this.EntityListPage.DataSet.SwitchViewAsync(viewName);
+        }
+
+        /// <summary>
+        /// Asserts that no column title in the current view is cut off.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("no column title in the view is cut off")]
+        public async Task ThenNoColumnTitleInTheViewIsCutOff()
+        {
+            var page = this.EntityListPage.Page;
+            await page.Locator("[role='columnheader']").First.WaitForAsync();
+            await page.WaitForAppIdleAsync();
+
+            // A title is cut off when any element inside its header is narrower than its content.
+            var truncated = await page.EvaluateAsync<string[]>(@"() => [...document.querySelectorAll(""[role='columnheader']"")]
+                .filter(h => [...h.querySelectorAll('*')].some(e => e.clientWidth > 0 && e.scrollWidth > e.clientWidth + 1 && (e.innerText || '').trim()))
+                .map(h => (h.innerText || '').split('\n').map(t => t.trim()).find(t => t.length > 1))");
+
+            truncated.Should().BeEmpty($"every column title should be fully visible, but these are cut off: {string.Join(", ", truncated)}");
         }
 
         /// <summary>

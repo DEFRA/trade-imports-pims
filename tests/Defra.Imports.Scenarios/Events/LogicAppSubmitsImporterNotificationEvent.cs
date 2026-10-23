@@ -121,6 +121,19 @@ namespace Defra.Imports.Scenarios.Events
             }
 
             /// <summary>
+            /// Configures the Importer Notification to have the given status.
+            /// </summary>
+            /// <param name="status">The status.</param>
+            /// <returns>The builder.</returns>
+            public Builder WithStatus(defraimp_importernotificationstatus status)
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_status, f => status);
+
+                return this;
+            }
+
+            /// <summary>
             /// Configures the Importer Notification to have the given purpose of consignment.
             /// </summary>
             /// <param name="purposeOfConsignment">The display value of the purpose of consignment.</param>
