@@ -19,17 +19,23 @@ resources:
       ref: refs/heads/main
       type: github
       endpoint: github.com_ewingjm
-
-variables:
-  - group: Environment - Imports - PRE
-
+  
 extends:
   template: templates/power-platform/pipelines/deploy-packages-pipeline.yml@power-pipelines
   parameters:
-    serviceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
-    environment: PRE
+    environments:
+      - environment: PRE
+        serviceConnection: Power Platform - Deployment (PRE)
+        variables:
+          - group: Environment - Imports - PRE
+      - environment: PRD
+        serviceConnection: Power Platform - Deployment (PRD)
+        dependsOn:
+          - PRE
+        variables:
+          - group: Environment - Imports - PRD
     packages:
-      - resource: pims
-        artifact: package
-        file: Defra.Imports.Deployment.dll
+        - resource: pims
+          artifact: package
+          file: Defra.Imports.Deployment.dll
     tagSuccess: true
