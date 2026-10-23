@@ -43,7 +43,7 @@ Scenario: A caseworker views an Importer Notification's importer notification de
 	And I see an 'IPAFFS Documents (Importer Notification) <documents_Subgrid>' subgrid with the following columns
 		| Document Type | Document Reference | Document Issue Date | Document URL |
 
-@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-1
+@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-1 @acceptance-criteria:us-044-7
 Scenario: A caseworker views an Importer Notification's importer notification details (CHEDA/CVEDA)
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification of type CHEDA or CVEDA
@@ -58,6 +58,42 @@ Scenario: A caseworker views an Importer Notification's importer notification de
 		| Purpose of Movement |
 		| Weight (KG)         |
 		| Imp Type            |
+
+# Defect: the Type field on the Importer Notification Details tab shows 'IMP' rather than 'Importer Notification' as required by US-044 AC-5 (BR-038).
+@issue:US-044 @acceptance-criteria:us-044-5 @ignore @defect
+Scenario: A caseworker views the IMP notification type labelled as Importer Notification
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification of type 'IMP'
+	When I select the 'Importer Notification Details' tab
+	Then I see a value of 'Importer Notification' in the 'Type' field
+
+@issue:US-044 @acceptance-criteria:us-044-4
+Scenario: A caseworker views Health Certificate Attached as Yes when a health certificate document with a URL is attached
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification with a health certificate document
+	When I select the 'Importer Notification Details' tab
+	Then the 'Health Certificate Attached' checkbox is checked
+
+@issue:US-044 @acceptance-criteria:us-044-4
+Scenario: A caseworker views Health Certificate Attached as No when no health certificate document is attached
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification without a health certificate document
+	When I select the 'Importer Notification Details' tab
+	Then the 'Health Certificate Attached' checkbox is unchecked
+
+@issue:US-044 @acceptance-criteria:us-044-4
+Scenario: A caseworker can edit the Health Certificate Attached field
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification
+	When I select the 'Importer Notification Details' tab
+	Then I can edit the 'Health Certificate Attached' field
+
+@issue:US-044 @acceptance-criteria:us-044-4
+Scenario: A caseworker views Health Certificate Attached immediately beneath Imp Type
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification
+	When I select the 'Importer Notification Details' tab
+	Then the 'Health Certificate Attached' field is immediately beneath the 'Imp Type' field
 
 @acceptance-criteria:us-003-1
 Scenario: A caseworker views an Importer Notification's internal market purpose (CVED/CHEDA)

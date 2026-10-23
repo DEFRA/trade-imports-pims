@@ -1,6 +1,6 @@
 Feature: View Importer Notifications
 
-@issue:US-003 @acceptance-criteria:us-003-2
+@issue:US-003 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-8
 Scenario: A caseworker views active Importer Notifications
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'

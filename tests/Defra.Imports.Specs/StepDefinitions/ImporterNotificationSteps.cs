@@ -191,6 +191,32 @@ namespace Defra.Imports.Specs.StepDefinitions
         }
 
         /// <summary>
+        /// Submits an Importer Notification with or without a Health Certificate document that has a URL, and navigates to it.
+        /// </summary>
+        /// <param name="withOrWithout">Whether the notification has a health certificate document.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("^I have opened an Importer Notification (with|without) a health certificate document$")]
+        public async Task GivenIHaveOpenedAnImporterNotificationWithAHealthCertificateDocument(string withOrWithout)
+        {
+            this.powerPlaywrightCtx.Validate();
+
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a =>
+                {
+                    if (withOrWithout == "with")
+                    {
+                        a.WithHealthCertificate();
+                    }
+                })
+                .BuildAsync();
+
+            var importerNotificationId = scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;
+
+            this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
+                new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId));
+        }
+
+        /// <summary>
         /// Submits an Importer Notification with one permanent address, and navigates directly to that permanent address.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
