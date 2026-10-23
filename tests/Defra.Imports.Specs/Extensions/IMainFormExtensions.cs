@@ -84,7 +84,7 @@
         {
             IDataSet<IReadOnlyGrid> dataSet = null;
             bool dataSetVisible = false;
-            for (int i = 1; i < 50; i++)
+            for (int i = 1; i < 10; i++)
             {
                 dataSet = mainForm.GetDataSet<IReadOnlyGrid>(i.ToString());
                 dataSetVisible = await dataSet.IsVisibleAsync();

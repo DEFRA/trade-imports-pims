@@ -1,7 +1,7 @@
 @issue:US-003
 Feature: View an Importer Notification
 
-@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-4 @acceptance-criteria:us-044-5 @issue:US-029 @acceptance-criteria:us-029-7 @issue:US-006
+@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-4 @acceptance-criteria:us-044-5 @issue:US-029 @acceptance-criteria:us-029-7 @issue:US-006 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's importer notification details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -43,7 +43,7 @@ Scenario: A caseworker views an Importer Notification's importer notification de
 	And I see an 'IPAFFS Documents (Importer Notification) <documents_Subgrid>' subgrid with the following columns
 		| Document Type | Document Reference | Document Issue Date | Document URL |
 
-@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2
+@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's importer notification details (CHEDA/CVEDA)
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification of type CHEDA or CVEDA
@@ -68,7 +68,7 @@ Scenario: A caseworker views an Importer Notification's internal market purpose 
 		| Field                   |
 		| Internal Market Purpose |
 
-@acceptance-criteria:us-003-1 @issue:US-056 @acceptance-criteria:us-056-3
+@acceptance-criteria:us-003-1 @issue:US-056 @acceptance-criteria:us-056-3 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's commodity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -81,7 +81,7 @@ Scenario: A caseworker views an Importer Notification's commodity details
 		| Importer Notification | Commodity Species Id | Commodity Species Name | Number of Animals | Number of Packages | Created On |
 
 # Possible defect: subgrid is visible for all types.
-@acceptance-criteria:us-003-6 @possible-defect
+@acceptance-criteria:us-003-6 @possible-defect @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's commodity permanent address information (CHEDA/CVEDA)
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification of type CHEDA or CVEDA
@@ -114,7 +114,7 @@ Scenario: A caseworker views an Importer Notification's charity details
 		| Type                    |
 		| Other Identifier        |
 
-@acceptance-criteria:us-003-1
+@acceptance-criteria:us-003-1 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's person responsible details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -127,7 +127,7 @@ Scenario: A caseworker views an Importer Notification's person responsible detai
 		| Address |
 		| Country |
 
-@acceptance-criteria:us-003-1
+@acceptance-criteria:us-003-1 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's importer details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -147,7 +147,7 @@ Scenario: A caseworker views an Importer Notification's importer details
 		| Address Line 3  |
 		| City            |
 
-@acceptance-criteria:us-003-1
+@acceptance-criteria:us-003-1 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's place of origin details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -167,7 +167,7 @@ Scenario: A caseworker views an Importer Notification's place of origin details
 		| Address Line 3  |
 		| City            |
 
-@acceptance-criteria:us-003-1
+@acceptance-criteria:us-003-1 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's place of destination details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -188,7 +188,7 @@ Scenario: A caseworker views an Importer Notification's place of destination det
 		| City               |
 		| Permanent Address? |
 
-@acceptance-criteria:us-003-1
+@acceptance-criteria:us-003-1 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's permanent address details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -197,7 +197,7 @@ Scenario: A caseworker views an Importer Notification's permanent address detail
 	Then I see a 'Permanent Addresses <Subgrid_3>' subgrid with the following columns
 		| Name | Company Name | Email | Telephone | Address Line 1 | Address Line 2 | Address Line 3 | Address City | Address Postcode | Address Country | Approval Number | Type | Status |
 
-@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-9 @issue:US-001 @acceptance-criteria:us-001-2
+@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-9 @issue:US-001 @acceptance-criteria:us-001-2 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's transporter details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -237,11 +237,10 @@ Scenario: A caseworker views an Importer Notification's transporter details
 	And I see a 'Countries Of Transit <subgrid_countries_of_transit>' subgrid with the following columns
 		| Official Country Name |
 
+@issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's permanent address entry
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification with a permanent address
-	When I select the 'Permanent Addresses' tab
-	And I open a record in the 'Permanent Addresses <Subgrid_3>' subgrid
+	And I have opened a permanent address of an Importer Notification
 	Then I see the following fields
 		| Field                    |
 		| Individual Name          |
@@ -264,11 +263,10 @@ Scenario: A caseworker views an Importer Notification's permanent address entry
 		| International Phone Code |
 		| International Telephone  |
 
+@issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's commodity species details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification
-	When I select the 'Commodity Species' tab
-	And I open a record in the related grid
+	And I have opened a commodity species of an Importer Notification
 	Then I see the following fields
 		| Field                 |
 		| Complement Id         |
@@ -289,11 +287,10 @@ Scenario: A caseworker views an Importer Notification's commodity species detail
 		| Species Family        |
 		| Species Common Name   |
 
+@issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's parameter set identifier details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification with linked parameter set records
-	When I select the 'Parameter Set Identifiers' tab
-	And I open a record in the related grid
+	And I have opened a parameter set identifier of an Importer Notification
 	Then I see the following fields
 		| Field                                          |
 		| Commodity Complement Parameter Set             |
@@ -310,13 +307,70 @@ Scenario: A caseworker views an Importer Notification's parameter set identifier
 		| Email                                          |
 		| Telephone                                      |
 
+@issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's parameter set key data pair details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification with linked parameter set records
-	When I select the 'Parameter Set Key Data Pairs' tab
-	And I open a record in the related grid
+	And I have opened a parameter set key data pair of an Importer Notification
 	Then I see the following fields
 		| Field                              |
 		| Commodity Complement Parameter Set |
 		| Key                                |
 		| Data                               |
+
+@issue:US-044 @acceptance-criteria:us-044-1
+Scenario: A caseworker views an Importer Notification's commodity complement parameter set details
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened a commodity complement parameter set of an Importer Notification
+	Then I see the following fields
+		| Field                 |
+		| Complement Id         |
+		| Species Id            |
+		| Importer Notification |
+		| Species Name          |
+		| Species Quantity      |
+	And I can see the 'Parameter Set Identifiers (Commodity Complement Parameter Set) <Identifiers>' subgrid
+	And I can see the 'Parameter Set Key Data Pairs (Commodity Complement Parameter Set) <KeyDataPairs>' subgrid
+
+# Possible defect: the D365 schema (IMTA-7201) marks the fields below as displayed on the Importer Notification form, but the form does not have them.
+@issue:US-044 @acceptance-criteria:us-044-1 @possible-defect
+Scenario: A caseworker does not see the schema fields missing from the Person Responsible tab
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification
+	When I select the 'Person Responsible' tab
+	Then I do not see the following fields
+		| Field |
+		| Type  |
+		| Fax   |
+
+# Possible defect: see the Person Responsible scenario.
+@issue:US-044 @acceptance-criteria:us-044-1 @possible-defect
+Scenario Outline: A caseworker does not see the schema fields missing from the <Tab> tab
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification
+	When I select the '<Tab>' tab
+	Then I do not see the following fields
+		| Field                   |
+		| Individual Name         |
+		| UK Telephone            |
+		| International Telephone |
+		| Other Identifier        |
+
+	Examples:
+		| Tab                  |
+		| Importer             |
+		| Place of Origin      |
+		| Place of Destination |
+		| Transporter          |
+
+# Possible defect: see the Person Responsible scenario.
+@issue:US-044 @acceptance-criteria:us-044-1 @possible-defect
+Scenario: A caseworker does not see the schema commodity fields missing from the Importer Notification Details tab
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification
+	When I select the 'Importer Notification Details' tab
+	Then I do not see the following fields
+		| Field                           |
+		| Commodities Total Gross Weight  |
+		| Commodities Total Net Weight    |
+		| Commodity Intended For          |
+		| Consigned Country               |

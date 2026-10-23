@@ -5,24 +5,11 @@ namespace Defra.Imports.Scenarios.Fakers
     using Microsoft.Xrm.Sdk;
 
     /// <summary>
-    /// A <see cref="RecordFaker{TEntity}"/> for <c>defraimp_notificationpermanentaddress</c> records - the child records
+    /// A <see cref="RecordFaker{TEntity}"/> for <see cref="defraimp_notificationpermanentaddress"/> records - the child records
     /// shown on an Importer Notification's Permanent Addresses tab.
     /// </summary>
-    /// <remarks>
-    /// Late-bound because the table is not yet in the early-bound model. Once it is, switch this to the generated class.
-    /// </remarks>
-    public class NotificationPermanentAddressFaker : RecordFaker<Entity>
+    public class NotificationPermanentAddressFaker : RecordFaker<defraimp_notificationpermanentaddress>
     {
-        /// <summary>
-        /// The logical name of the table.
-        /// </summary>
-        public const string EntityLogicalName = "defraimp_notificationpermanentaddress";
-
-        /// <summary>
-        /// The schema name of the one-to-many relationship from the Importer Notification, used to deep insert these records.
-        /// </summary>
-        public const string ImporterNotificationRelationshipName = "defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_ImporterNotificationId";
-
         private static readonly string[] PartyTypes = { "commercial", "private" };
         private static readonly string[] PartyStatuses = { "approved", "nonapproved", "suspended" };
 
@@ -41,35 +28,25 @@ namespace Defra.Imports.Scenarios.Fakers
         public NotificationPermanentAddressFaker()
         {
             // Value lengths respect the table's column limits (e.g. UK telephone 11, international code 3, international number 12).
-            this.CustomInstantiator(f =>
-            {
-                var address = new Entity(EntityLogicalName);
-
-                address["defraimp_name"] = f.Random.Int(1, 999999).ToString();
-                address["defraimp_id"] = f.Random.Int(100000, 999999).ToString();
-                address["defraimp_type"] = f.PickRandom(PartyTypes);
-                address["defraimp_status"] = f.PickRandom(PartyStatuses);
-                address["defraimp_companyname"] = f.Company.CompanyName();
-                address["defraimp_individualname"] = f.Name.FullName();
-                address["defraimp_approvalnumber"] = f.Random.AlphaNumeric(8).ToUpperInvariant();
-                address["defraimp_otheridentifier"] = f.Random.AlphaNumeric(8).ToUpperInvariant();
-                address["defraimp_addressline1"] = f.Address.StreetAddress();
-                address["defraimp_addressline2"] = f.Address.SecondaryAddress();
-                address["defraimp_addressline3"] = f.Address.County();
-                address["defraimp_addresscity"] = f.Address.City();
-                address["defraimp_addresspostalzipcode"] = f.Address.ZipCode();
-                address["defraimp_addresscountryid"] = new EntityReference(defra_country.EntityLogicalName, f.PickRandom(CountryIds));
-                address["defraimp_addressemail"] = f.Internet.Email();
-                address["defraimp_addresstelephone"] = f.Random.ReplaceNumbers("01#########");
-                address["defraimp_addressuktelephone"] = f.Random.ReplaceNumbers("07#########");
-                address["defraimp_internationalphonecode"] = "44";
-                address["defraimp_internationalphonenumber"] = f.Random.ReplaceNumbers("7###########");
-
-                return address;
-            });
-
-            // A late-bound entity needs its primary key attribute set explicitly for the Id to be honoured on create.
-            this.FinishWith((f, e) => e["defraimp_notificationpermanentaddressid"] = e.Id);
+            this.RuleFor(a => a.defraimp_name, f => f.Random.Int(1, 999999).ToString());
+            this.RuleFor(a => a.defraimp_id, f => f.Random.Int(100000, 999999).ToString());
+            this.RuleFor(a => a.defraimp_type, f => f.PickRandom(PartyTypes));
+            this.RuleFor(a => a.defraimp_status, f => f.PickRandom(PartyStatuses));
+            this.RuleFor(a => a.defraimp_companyname, f => f.Company.CompanyName());
+            this.RuleFor(a => a.defraimp_IndividualName, f => f.Name.FullName());
+            this.RuleFor(a => a.defraimp_approvalnumber, f => f.Random.AlphaNumeric(8).ToUpperInvariant());
+            this.RuleFor(a => a.defraimp_otheridentifier, f => f.Random.AlphaNumeric(8).ToUpperInvariant());
+            this.RuleFor(a => a.defraimp_addressline1, f => f.Address.StreetAddress());
+            this.RuleFor(a => a.defraimp_addressline2, f => f.Address.SecondaryAddress());
+            this.RuleFor(a => a.defraimp_addressline3, f => f.Address.County());
+            this.RuleFor(a => a.defraimp_addresscity, f => f.Address.City());
+            this.RuleFor(a => a.defraimp_addresspostalzipcode, f => f.Address.ZipCode());
+            this.RuleFor(a => a.defraimp_AddressCountryId, f => new EntityReference(defra_country.EntityLogicalName, f.PickRandom(CountryIds)));
+            this.RuleFor(a => a.defraimp_addressemail, f => f.Internet.Email());
+            this.RuleFor(a => a.defraimp_addresstelephone, f => f.Random.ReplaceNumbers("01#########"));
+            this.RuleFor(a => a.defraimp_addressuktelephone, f => f.Random.ReplaceNumbers("07#########"));
+            this.RuleFor(a => a.defraimp_internationalphonecode, f => "44");
+            this.RuleFor(a => a.defraimp_internationalphonenumber, f => f.Random.ReplaceNumbers("7###########"));
         }
     }
 }

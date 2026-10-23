@@ -113,18 +113,6 @@
         }
 
         /// <summary>
-        /// Opens the first record in the grid shown for the selected related tab.
-        /// </summary>
-        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        [When("I open a record in the related grid")]
-        public async Task WhenIOpenARecordInTheRelatedGrid()
-        {
-            var grid = await this.RecordPage.Form.GetRelatedDataSetAsync();
-
-            this.powerPlaywrightCtx.ActivePage = await grid.Control.OpenRecordAsync(0);
-        }
-
-        /// <summary>
         /// Enter a date into a date field.
         /// </summary>
         /// <param name="direction">The date direction.</param>
