@@ -410,3 +410,13 @@ Scenario: A caseworker does not see the schema commodity fields missing from the
 		| Commodities Total Net Weight    |
 		| Commodity Intended For          |
 		| Consigned Country               |
+
+# Ignored: the test data's document URL is a random placeholder, and the real URL comes from the IPAFFS base URL configuration plus the reference number, so whether it resolves can't be checked without real IPAFFS documents.
+@issue:US-044 @acceptance-criteria:us-044-10 @ignore
+Scenario: A caseworker sees a document URL and opens it from the Importer Notification
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification
+	When I select the 'Importer Notification Details' tab
+	Then I see a document URL link in the documents subgrid
+	When I click the first document URL in the documents subgrid
+	Then the document opens in a new tab

@@ -2,26 +2,32 @@ namespace Defra.Imports.Specs.StepDefinitions
 {
     using System;
     using System.Linq;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using FluentAssertions;
     using Microsoft.Playwright;
     using Reqnroll;
 
     /// <summary>
-    /// Steps for the record sharing menu and the notes timeline, neither of which Power Playwright supports.
+    /// Record page steps for the share menu, notes timeline and document links, which Power Playwright doesn't support.
     /// </summary>
     [Binding]
-    public class SharingAndNotesSteps
+    public class RecordPageCollaborationSteps
     {
+        private const string DocumentPopupContextKey = "DocumentLinkPopup";
+
         private readonly PowerPlaywrightContext powerPlaywrightCtx;
+        private readonly ScenarioContext ctx;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SharingAndNotesSteps"/> class.
+        /// Initializes a new instance of the <see cref="RecordPageCollaborationSteps"/> class.
         /// </summary>
         /// <param name="powerPlaywrightCtx">The Power Playwright context.</param>
-        public SharingAndNotesSteps(PowerPlaywrightContext powerPlaywrightCtx)
+        /// <param name="ctx">The scenario context.</param>
+        public RecordPageCollaborationSteps(PowerPlaywrightContext powerPlaywrightCtx, ScenarioContext ctx)
         {
             this.powerPlaywrightCtx = powerPlaywrightCtx;
+            this.ctx = ctx;
         }
 
         private IPage Page => this.powerPlaywrightCtx.ActivePage.Page;
@@ -117,6 +123,49 @@ namespace Defra.Imports.Specs.StepDefinitions
             var note = this.Page.GetByText(noteText, new PageGetByTextOptions { Exact = false }).First;
 
             await note.WaitForAsync(new LocatorWaitForOptions { State = WaitForSelectorState.Visible, Timeout = 15000 });
+        }
+
+        /// <summary>
+        /// Asserts the first document in the documents subgrid has a visible link.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("I see a document URL link in the documents subgrid")]
+        public async Task ThenISeeADocumentUrlLinkInTheDocumentsSubgrid()
+        {
+            var link = this.GetFirstDocumentLink();
+
+            await link.WaitForAsync(new LocatorWaitForOptions { State = WaitForSelectorState.Visible });
+        }
+
+        /// <summary>
+        /// Clicks the first document URL link in the documents subgrid.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [When("I click the first document URL in the documents subgrid")]
+        public async Task WhenIClickTheFirstDocumentUrlInTheDocumentsSubgrid()
+        {
+            var popup = await this.Page.Context.RunAndWaitForPageAsync(async () => await this.GetFirstDocumentLink().ClickAsync());
+
+            this.ctx.Set(popup, DocumentPopupContextKey);
+        }
+
+        /// <summary>
+        /// Asserts the clicked document link opened a new tab.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("the document opens in a new tab")]
+        public async Task ThenTheDocumentOpensInANewTab()
+        {
+            var popup = this.ctx.Get<IPage>(DocumentPopupContextKey);
+
+            await popup.WaitForURLAsync(new Regex("^https?://"), new PageWaitForURLOptions { WaitUntil = WaitUntilState.Commit, Timeout = 15000 });
+
+            popup.Url.Should().StartWith("http", "the document link should open the document URL in a new tab");
+        }
+
+        private ILocator GetFirstDocumentLink()
+        {
+            return this.Page.Locator("[data-lp-id*='documents_Subgrid'] a[href^='http']").First;
         }
     }
 }
