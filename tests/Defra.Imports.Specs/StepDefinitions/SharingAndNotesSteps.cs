@@ -1,0 +1,122 @@
+namespace Defra.Imports.Specs.StepDefinitions
+{
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using FluentAssertions;
+    using Microsoft.Playwright;
+    using Reqnroll;
+
+    /// <summary>
+    /// Steps for the record sharing menu and the notes timeline, neither of which Power Playwright supports.
+    /// </summary>
+    [Binding]
+    public class SharingAndNotesSteps
+    {
+        private readonly PowerPlaywrightContext powerPlaywrightCtx;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SharingAndNotesSteps"/> class.
+        /// </summary>
+        /// <param name="powerPlaywrightCtx">The Power Playwright context.</param>
+        public SharingAndNotesSteps(PowerPlaywrightContext powerPlaywrightCtx)
+        {
+            this.powerPlaywrightCtx = powerPlaywrightCtx;
+        }
+
+        private IPage Page => this.powerPlaywrightCtx.ActivePage.Page;
+
+        /// <summary>
+        /// Opens the share menu on the record page.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [When("I open the share menu")]
+        public async Task WhenIOpenTheShareMenu()
+        {
+            // Share renders as its own button beside the command bar rather than as a command within it.
+            var shareButton = this.Page.Locator("button[aria-label='Share']").First;
+
+            await shareButton.WaitForAsync();
+            await shareButton.ClickAsync();
+        }
+
+        /// <summary>
+        /// Asserts the open share menu offers the given options.
+        /// </summary>
+        /// <param name="options">A table with header 'Option'.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("I see the following share options")]
+        public async Task ThenISeeTheFollowingShareOptions(DataTable options)
+        {
+            foreach (var option in options.Rows.Select(r => r["Option"]))
+            {
+                var menuItem = this.Page.GetByRole(AriaRole.Menuitem, new PageGetByRoleOptions { Name = option, Exact = true });
+
+                await menuItem.WaitForAsync();
+                (await menuItem.IsVisibleAsync()).Should().BeTrue($"the share menu should offer '{option}'");
+            }
+        }
+
+        /// <summary>
+        /// Adds a note to the record using the notes timeline.
+        /// </summary>
+        /// <param name="noteText">The note text.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [When("I add the note {string}")]
+        public async Task WhenIAddTheNote(string noteText)
+        {
+            // "notescontrol" is the form's fixed control name for the notes timeline.
+            var addTimelineRecordButton = this.Page.Locator("[data-id='notescontrol-action_bar_add_command']");
+            await addTimelineRecordButton.WaitForAsync();
+            await addTimelineRecordButton.ClickAsync();
+
+            var noteMenuItem = this.Page.GetByRole(AriaRole.Menuitem, new PageGetByRoleOptions { Name = "Note", Exact = true });
+            await noteMenuItem.WaitForAsync();
+            await noteMenuItem.ClickAsync();
+
+            // The composer renders inline on the timeline: a title input, a CKEditor body and a split save button.
+            var titleField = this.Page.Locator("[data-id*='create_note_medium_title' i]").First;
+            await titleField.WaitForAsync(new LocatorWaitForOptions { State = WaitForSelectorState.Visible, Timeout = 15000 });
+            await titleField.FillAsync("Importer Notification note");
+
+            var bodyField = this.Page.Locator("[id^='create_note_notesText'] div.ck-editor__editable_inline").First;
+            await bodyField.WaitForAsync(new LocatorWaitForOptions { State = WaitForSelectorState.Visible, Timeout = 15000 });
+            await bodyField.ClickAsync();
+            await bodyField.PressSequentiallyAsync(noteText);
+
+            // CKEditor only syncs its model, and enables Save, once the field loses focus.
+            await bodyField.PressAsync("Tab");
+
+            var saveButton = this.Page.Locator("#splitsave-button");
+            await saveButton.WaitForAsync();
+
+            const int maxAttempts = 3;
+            for (var attempt = 1; attempt <= maxAttempts; attempt++)
+            {
+                await saveButton.ClickAsync();
+
+                try
+                {
+                    await titleField.WaitForAsync(new LocatorWaitForOptions { State = WaitForSelectorState.Hidden, Timeout = 10000 });
+                    break;
+                }
+                catch (TimeoutException) when (attempt < maxAttempts)
+                {
+                }
+            }
+        }
+
+        /// <summary>
+        /// Asserts the notes timeline shows a note containing the given text.
+        /// </summary>
+        /// <param name="noteText">The note text.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("I see a note containing {string}")]
+        public async Task ThenISeeANoteContaining(string noteText)
+        {
+            var note = this.Page.GetByText(noteText, new PageGetByTextOptions { Exact = false }).First;
+
+            await note.WaitForAsync(new LocatorWaitForOptions { State = WaitForSelectorState.Visible, Timeout = 15000 });
+        }
+    }
+}
