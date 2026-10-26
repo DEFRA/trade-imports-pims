@@ -722,7 +722,7 @@ The target layout is a proportionate structural improvement, not a rewrite of un
 
 ## Adoption Guidance
 
-To adopt the pattern for a **real** plug-in step or CWA (none exist yet):
+To adopt the pattern for a **real** plug-in step or CWA:
 
 1. Use a `<YourDomain>` folder convention: targeted application services in `Application`, queries, projections and models in `Dataverse`, handlers beside their host class in `Plugins` or `Workflows`.
 2. Add the handler and its registrations to the single `PluginCompositionRoot` (or `WorkflowCompositionRoot`). Never capture a per-execution instance in a root, and never add a per-plug-in root or repeat common registrations.

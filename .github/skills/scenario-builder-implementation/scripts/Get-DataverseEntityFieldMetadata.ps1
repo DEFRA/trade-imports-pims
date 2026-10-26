@@ -20,7 +20,7 @@
     defraimp_CommodityId) and cannot be inferred from the LogicalName (schema name), and mapping an Entity.xml
     attribute Type to a CLR type via rules is unreliable (nullable wrapping, `virtual`, generated enum/option-
     set type names, and collection element types all depend on the actual generated code). Verify both by
-    grepping the generated entity class under src/common/Defra.Imports.Dataverse.Model/Entities/<EntityLogicalName>.cs
+    grepping the generated entity class under src/common/Defra.Imports.Dataverse/Model/Entities/<EntityLogicalName>.cs
     for the LogicalName reported here - see Get-DataverseEntityPropertyClrType.ps1 and the skill's "Determine
     the property name and CLR type from the generated entity class" section.
 

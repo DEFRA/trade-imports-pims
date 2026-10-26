@@ -11,7 +11,7 @@
     type names, and collection element types all depend on the actual generated code, not the attribute
     metadata. This script resolves both from the one unambiguous input - the attribute's logical name - by
     grepping the generated partial class for the entity at
-    src/common/Defra.Imports.Dataverse.Model/Entities/<EntityLogicalName>.cs.
+    src/common/Defra.Imports.Dataverse/Model/Entities/<EntityLogicalName>.cs.
 
     For each requested attribute, it finds its
     [Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("<logicalName>")] annotation and reads the property name
@@ -22,7 +22,7 @@
 
 .PARAMETER EntityLogicalName
     The entity's logical (schema) name, e.g. defraimp_importernotification. Used to locate
-    src/common/Defra.Imports.Dataverse.Model/Entities/<EntityLogicalName>.cs.
+    src/common/Defra.Imports.Dataverse/Model/Entities/<EntityLogicalName>.cs.
 
 .PARAMETER AttributeName
     One or more attribute logical names to look up (the LogicalName value reported by
@@ -62,7 +62,7 @@ if (-not $repoRoot) {
 }
 
 $entityFileName = "$($EntityLogicalName.ToLowerInvariant()).cs"
-$entityCsPath = Join-Path $repoRoot "src/common/Defra.Imports.Dataverse.Model/Entities/$entityFileName"
+$entityCsPath = Join-Path $repoRoot "src/common/Defra.Imports.Dataverse/Model/Entities/$entityFileName"
 if (-not (Test-Path $entityCsPath)) {
     throw "Could not find generated entity class at $entityCsPath. Run the 'Generate model' task if the model is out of date."
 }
