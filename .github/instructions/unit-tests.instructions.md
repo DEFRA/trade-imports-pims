@@ -55,10 +55,10 @@ The production code conventions are in [csharp-source.instructions.md](./csharp-
 
 ## Running the tests
 
-Run the tests through the `dotnet-build-verification` skill. It builds both heads, compares the warnings with a baseline and summarises the test results:
+Run the tests through the `dotnet-build-verification` skill. It builds both heads and this project, compares the warnings with a baseline, including this project's own, and summarises the test results:
 
-- One area while iterating: `pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/Test-Change.ps1 -SkipBuild -TestFilter 'FullyQualifiedName~Defra.Imports.UnitTests.Plugins.Itahc'`.
-- The full gate: `pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/Test-Change.ps1`.
-- The gate does not diff warnings in this project. Check new and changed test files with the command in [Known gap: test-project warnings](../skills/dotnet-build-verification/SKILL.md#known-gap-test-project-warnings).
+- One area while iterating: `pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/Test-Change.ps1 -SkipBuild -TestFilter 'FullyQualifiedName~Defra.Imports.UnitTests.Plugins.Itahc'`. It does not build, so it checks no warnings.
+- The full gate: `pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/Test-Change.ps1`. It fails if a warning is added in a test file.
+- To list the warnings in the test files you touched, run a build with a path filter, for example `Test-Change.ps1 -PathFilter 'tests/Defra.Imports.UnitTests/Plugins/Itahc/*' -TestFilter 'FullyQualifiedName~Defra.Imports.UnitTests.Plugins.Itahc'`. `IN SCOPE` must show none. Use `-PathFilter 'tests/Defra.Imports.UnitTests/<folder>/*'` for any folder; a run with `-SkipBuild` ignores it.
 
 The direct equivalent is `dotnet test tests\Defra.Imports.UnitTests\Defra.Imports.UnitTests.csproj -p:Configuration=UnitTest -nologo`. A few tests are skipped by design, including some `DetermineInspection` cases.

@@ -73,9 +73,9 @@ It hands bounded, fully specified mechanical work to the **Developer Worker** su
    - Take the warning baseline before the first C# edit.
    - Write production code yourself, and delegate according to the policy below.
 6. **Verify.**
-   - Run the full gate yourself and read its output. You need:
+   - Run the full gate yourself, with `-PathFilter` for the new and changed source and test files, and read its output. You need:
      - `RESULT PASS`;
-     - no warnings in new or changed test files;
+     - no added warnings, and none under `IN SCOPE`, including in test files;
      - no stale references.
    - Review the whole diff against the instructions and the skill checklists.
 7. **Report.**
@@ -175,8 +175,8 @@ For C# work that no skill covers, follow [csharp-source.instructions.md](../inst
 A change is complete only when:
 
 - the approved design is implemented, and nothing outside it has changed;
-- you have read `RESULT PASS` from the full verification gate yourself;
-- new and changed test files add no warnings;
+- you have read a bare `RESULT PASS` from the full verification gate yourself;
+- the gate shows no added warnings, and no warnings in new or changed files, test files included;
 - no stale references remain;
 - affected documentation is updated, including the ADR adoption record for a migration;
 - the report lists every flagged item, behaviour change, risk, working-tree change that is not yours and open question.

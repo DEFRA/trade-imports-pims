@@ -4,9 +4,25 @@
 
 Set-StrictMode -Version Latest
 
-$script:HeadProjects = @(
-    'src/pluginassemblies/Defra.Imports.Plugins/Defra.Imports.Plugins.csproj'
-    'src/pluginassemblies/Defra.Imports.Workflows/Defra.Imports.Workflows.csproj'
+# The unit test project in the UnitTest configuration compiles the shared projects through Defra.Imports.Container and
+# builds both heads again. MSBuild attributes those repeated warnings to Container and the heads, so only warnings
+# attributed to the test project itself (AttributedTo) are recorded for it.
+$script:VerificationProjects = @(
+    [pscustomobject]@{
+        Path         = 'src/pluginassemblies/Defra.Imports.Plugins/Defra.Imports.Plugins.csproj'
+        Arguments    = @('--configuration', 'Release')
+        AttributedTo = $null
+    }
+    [pscustomobject]@{
+        Path         = 'src/pluginassemblies/Defra.Imports.Workflows/Defra.Imports.Workflows.csproj'
+        Arguments    = @('--configuration', 'Release')
+        AttributedTo = $null
+    }
+    [pscustomobject]@{
+        Path         = 'tests/Defra.Imports.UnitTests/Defra.Imports.UnitTests.csproj'
+        Arguments    = @('-p:Configuration=UnitTest')
+        AttributedTo = 'tests/Defra.Imports.UnitTests/Defra.Imports.UnitTests.csproj'
+    }
 )
 
 function Get-RepositoryRoot {
@@ -113,6 +129,10 @@ function ConvertTo-DiagnosticKey {
         Normalises MSBuild diagnostics to "file|code|message": repository-relative paths with forward slashes, and no
         line numbers, columns, node prefixes or project suffixes. Unparsed lines are kept as "<unparsed>||<line>"
         unless -MatchedOnly is set.
+
+        With -Project (a repository-relative path with forward slashes), only diagnostics that MSBuild attributes to
+        that project, through its trailing "[project]" suffix, are returned. Unparsed lines cannot be attributed, so
+        they are dropped.
     #>
     param(
         [Parameter(Mandatory = $true)]
@@ -125,7 +145,9 @@ function ConvertTo-DiagnosticKey {
         [ValidateSet('warning', 'error')]
         [string]$Severity,
 
-        [switch]$MatchedOnly
+        [switch]$MatchedOnly,
+
+        [string]$Project
     )
 
     if (-not (Test-Path -LiteralPath $Path)) {
@@ -142,20 +164,30 @@ function ConvertTo-DiagnosticKey {
         }
 
         if ($line -match $pattern) {
+            if ($Project) {
+                # MSBuild appends "::TargetFramework=..." to the project of a multi-targeted build.
+                $attributedTo = ("$($Matches['project'])" -replace '::.*$', '') -replace '\\', '/'
+                if ($attributedTo -ine $Project) {
+                    continue
+                }
+            }
+
             $origin = $Matches['origin'].Trim() -replace '\\', '/'
             '{0}|{1}|{2}' -f $origin, $Matches['code'], $Matches['message'].Trim()
         }
-        elseif (-not $MatchedOnly) {
+        elseif (-not $MatchedOnly -and -not $Project) {
             '<unparsed>||{0}' -f $line.Trim()
         }
     }
 }
 
-function Invoke-HeadBuild {
+function Invoke-VerificationBuild {
     <#
     .SYNOPSIS
-        Builds both plug-in assembly heads in Release with the repository's agreed flags and returns, per head, whether
-        it succeeded and its normalised warnings and errors.
+        Builds the two plug-in assembly heads in Release and the unit test project in the UnitTest configuration, with
+        the repository's agreed flags, and returns, per project, whether it succeeded and its normalised warnings and
+        errors. Warnings are those MSBuild attributes to the project itself; errors come from every project in the
+        build, because a shared-source compile error is attributed to Defra.Imports.Container.
     #>
     param(
         [Parameter(Mandatory = $true)]
@@ -165,20 +197,22 @@ function Invoke-HeadBuild {
         [string]$LogDirectory
     )
 
-    foreach ($project in $script:HeadProjects) {
-        $name = [IO.Path]::GetFileNameWithoutExtension($project)
+    foreach ($project in $script:VerificationProjects) {
+        $name = [IO.Path]::GetFileNameWithoutExtension($project.Path)
         $warningsLog = Join-Path $LogDirectory "$name.warnings.log"
         $errorsLog = Join-Path $LogDirectory "$name.errors.log"
         $buildLog = Join-Path $LogDirectory "$name.build.log"
+        $projectArguments = @($project.Arguments)
 
         # File loggers record each diagnostic once; the console logger repeats them in its summary.
-        & dotnet build (Join-Path $RepositoryRoot $project) --configuration Release -v q -nologo --no-incremental '-clp:ForceNoAlign' "-flp1:logfile=$warningsLog;warningsonly;forcenoalign;nosummary" "-flp2:logfile=$errorsLog;errorsonly;forcenoalign;nosummary" *> $buildLog
+        & dotnet build (Join-Path $RepositoryRoot $project.Path) @projectArguments -v q -nologo --no-incremental '-clp:ForceNoAlign' "-flp1:logfile=$warningsLog;warningsonly;forcenoalign;nosummary" "-flp2:logfile=$errorsLog;errorsonly;forcenoalign;nosummary" *> $buildLog
         $exitCode = $LASTEXITCODE
 
         [pscustomobject]@{
             Name      = $name
+            Path      = $project.Path
             Succeeded = $exitCode -eq 0
-            Warnings  = @(ConvertTo-DiagnosticKey -Path $warningsLog -RepositoryRoot $RepositoryRoot -Severity warning)
+            Warnings  = @(ConvertTo-DiagnosticKey -Path $warningsLog -RepositoryRoot $RepositoryRoot -Severity warning -Project $project.AttributedTo)
             Errors    = @(ConvertTo-DiagnosticKey -Path $errorsLog -RepositoryRoot $RepositoryRoot -Severity error)
             Log       = $buildLog
         }
@@ -257,4 +291,4 @@ function Get-RepositoryState {
     }
 }
 
-Export-ModuleMember -Function Get-RepositoryRoot, Get-VerificationDirectory, Enter-VerificationLock, Exit-VerificationLock, Remove-OldVerificationRun, ConvertTo-DiagnosticKey, Invoke-HeadBuild, Get-DiagnosticCount, Compare-DiagnosticCount, Get-RepositoryState
+Export-ModuleMember -Function Get-RepositoryRoot, Get-VerificationDirectory, Enter-VerificationLock, Exit-VerificationLock, Remove-OldVerificationRun, ConvertTo-DiagnosticKey, Invoke-VerificationBuild, Get-DiagnosticCount, Compare-DiagnosticCount, Get-RepositoryState

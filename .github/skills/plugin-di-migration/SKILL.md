@@ -85,7 +85,7 @@ At the start, record these steps as todos. Once the design is approved, record i
 
 ### 4. Baseline `[D]`
 
-- Before the first edit, run `pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/New-WarningBaseline.ps1`. Both builds must succeed.
+- Before the first edit, run `pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/New-WarningBaseline.ps1`. All three builds (both heads and the unit test project) must succeed.
 - If it reports `RESULT FAIL`, stop and report the red build. Stale `.projitems` entries are a common cause.
 
 ### 5. Characterise `[D]`
@@ -124,7 +124,7 @@ Cover every item in [test-checklist.md](./references/test-checklist.md).
   - query tests (W3);
   - handler and composition-root tests (W4);
   - ported legacy cases (W5).
-- Check each area with `Test-Change.ps1 -SkipBuild -TestFilter '<filter>'`.
+- Check each area with `Test-Change.ps1 -PathFilter '<test files touched>' -TestFilter '<filter>'`. It builds once, runs the filtered tests and lists the warnings in those test files under `IN SCOPE`, which must show none. Use `-SkipBuild` only for a quick run that checks no warnings.
 
 ### 8. Delete the legacy code `[W]`
 
@@ -141,8 +141,7 @@ Cover every item in [test-checklist.md](./references/test-checklist.md).
 
 ### 10. Verify `[D]`
 
-- **Gate.** Run `pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/Test-Change.ps1` with no switches. It must print `RESULT PASS`. Warnings removed from deleted legacy files are expected; none may be added.
-- **Test files.** Check new and changed test files with [Known gap: test-project warnings](../dotnet-build-verification/SKILL.md#known-gap-test-project-warnings). Fix every warning; use W8 for mechanical fixes.
+- **Gate.** Run `pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/Test-Change.ps1 -PathFilter '<new and changed files>'`, with no skip switches and no `-TestFilter`, listing the source and test files you created or changed. It must print `RESULT PASS`, and `IN SCOPE` must show no warnings. Warnings removed from deleted legacy files are expected; none may be added. Fix every warning in those files; use W8 for mechanical fixes.
 - **Stale references.** Confirm that the stale-reference sweep (W7) is clean.
 - **Self-review.**
   - Review `git --no-optional-locks diff` for every changed production file, and new files in full, against [behaviour-freeze.md](./references/behaviour-freeze.md).

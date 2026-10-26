@@ -16,15 +16,16 @@ Keep the report factual and short. Quote script output verbatim rather than para
 - <path> (and its `.projitems` entry)
 
 ## Verification
-- Gate (`Test-Change.ps1`, no switches):
+- Gate (`Test-Change.ps1 -PathFilter '<new and changed files>'`, no skip switches):
   ```text
   BUILD …
   WARNINGS …
+  IN SCOPE …
   TESTS …
   RESULT …
   ```
 - Removed warnings: <count>, all from deleted legacy files.
-- Test-project warnings in new and changed test files: <none | list>.
+- Warnings in new and changed files, including test files (from `IN SCOPE`): <none | list>.
 - Stale-reference sweep: <clean | expected mentions only (ADR history)>.
 - Tests: <n> new, including <n> ported from <n> legacy cases.
 

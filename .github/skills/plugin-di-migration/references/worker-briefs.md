@@ -36,11 +36,15 @@ REPORT: the standard Developer Worker report.
 
 **Test acceptance.** Most briefs use this check, written in full:
 
-`pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/Test-Change.ps1 -SkipBuild -TestFilter 'FullyQualifiedName~<namespace or class>'`
+`pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/Test-Change.ps1 -PathFilter '<test files touched, comma-separated>' -TestFilter 'FullyQualifiedName~<namespace or class>'`
 
-- It must print `RESULT    PASS (build skipped)` and a `TESTS` line with the expected number passed. Give that number in the brief.
-- `dotnet test` still compiles the test project, and the project picks up new files without a project entry.
-- Add the [test-project warning check](../../dotnet-build-verification/SKILL.md#known-gap-test-project-warnings), with one `-Pattern` per test file the worker touched. It must find no matches.
+- It builds once, runs the filtered tests against that build and lists the warnings in the test files touched. It must print:
+  - `WARNINGS  … | added 0 | removed 0`;
+  - `IN SCOPE  0 warning(s) in files matching: <the test files>`;
+  - a `TESTS` line with the expected number passed (give that number in the brief) and no failures;
+  - `RESULT    PASS (tests filtered)`.
+- Give the paths with forward slashes, for example `tests/Defra.Imports.UnitTests/Dataverse/Queries/WatchFlagQueriesTests.cs`. The test project picks up new files without a project entry.
+- Any other `RESULT` line, an added warning or an `IN SCOPE` warning means the brief is not met. Fix the warning; do not suppress it.
 
 ## W1: usage sweep (read-only)
 
@@ -162,7 +166,7 @@ REPORT: the standard Developer Worker report.
 ## W8: mechanical analyser fixes
 
 - OBJECTIVE: fix the listed analyser warnings without changing behaviour.
-- CONTEXT: each warning as `file|code|message`, from the gate's `IN SCOPE` output or the test-project warning check.
+- CONTEXT: each warning as `file|code|message`, from the gate's `IN SCOPE` output.
 - SPECIFICATION:
   1. Fix each listed warning, and only those, for example:
      - `using` order (SA1210);
@@ -171,6 +175,4 @@ REPORT: the standard Developer Worker report.
   2. If a fix would change logic, signatures or names, stop and report BLOCKED.
 - ALLOWED FILES: modify only the files in the list.
 - MUST NOT: add `#pragma`, `[SuppressMessage]`, `.editorconfig` or `NoWarn` changes.
-- ACCEPTANCE CHECK:
-  - `pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/Test-Change.ps1 -SkipTests -PathFilter '<files>'` prints `IN SCOPE  0 warning(s)`.
-  - For test files, the test-project warning check finds no matches.
+- ACCEPTANCE CHECK: `pwsh -NoProfile -File .github/skills/dotnet-build-verification/scripts/Test-Change.ps1 -SkipTests -PathFilter '<files>'` prints `IN SCOPE  0 warning(s)`, whether the files are source or test files, and `added 0` on the `WARNINGS` line.
