@@ -203,5 +203,165 @@ namespace Defra.Imports.UnitTests.Dataverse.Queries
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => this.queries.FindEconomicOperatorId((defraimp_watchtype)0, "Acme"));
         }
+
+        [Fact]
+        public void GetItahcWatchFlagsLinkedToImportApplication_MatchingWatchFlags_ReturnsThemInOrder()
+        {
+            var first = WatchFlagTestData.WatchFlag(importApplicationId: Guid.NewGuid());
+            var second = WatchFlagTestData.WatchFlag(importApplicationId: Guid.NewGuid());
+            this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName, first, second);
+
+            var watchFlags = this.queries.GetItahcWatchFlagsLinkedToImportApplication(Guid.NewGuid());
+
+            Assert.Equal(new[] { first.Id, second.Id }, watchFlags.Select(watchFlag => watchFlag.Id).ToArray());
+            Assert.Equal(first.defraimp_ImportApplicationId.Id, watchFlags[0].defraimp_ImportApplicationId.Id);
+        }
+
+        [Fact]
+        public void GetItahcWatchFlagsLinkedToImportApplication_NoMatches_ReturnsAnEmptyList()
+        {
+            this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName);
+
+            Assert.Empty(this.queries.GetItahcWatchFlagsLinkedToImportApplication(Guid.NewGuid()));
+        }
+
+        [Fact]
+        public void GetItahcWatchFlagsLinkedToImportApplication_ImportApplication_FiltersOnTheImportApplicationAndAnItahc()
+        {
+            var importApplicationId = Guid.NewGuid();
+            var recorded = this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName);
+
+            this.queries.GetItahcWatchFlagsLinkedToImportApplication(importApplicationId);
+
+            this.AssertLinkedToImportApplicationWithLookup(Assert.Single(recorded), importApplicationId, defraimp_WatchFlag.Fields.defraimp_ItahcId);
+        }
+
+        [Fact]
+        public void GetNotificationWatchFlagsLinkedToImportApplication_MatchingWatchFlags_ReturnsThemInOrder()
+        {
+            var first = WatchFlagTestData.WatchFlag(importApplicationId: Guid.NewGuid());
+            var second = WatchFlagTestData.WatchFlag(importApplicationId: Guid.NewGuid());
+            this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName, first, second);
+
+            var watchFlags = this.queries.GetNotificationWatchFlagsLinkedToImportApplication(Guid.NewGuid());
+
+            Assert.Equal(new[] { first.Id, second.Id }, watchFlags.Select(watchFlag => watchFlag.Id).ToArray());
+            Assert.Equal(second.defraimp_ImportApplicationId.Id, watchFlags[1].defraimp_ImportApplicationId.Id);
+        }
+
+        [Fact]
+        public void GetNotificationWatchFlagsLinkedToImportApplication_NoMatches_ReturnsAnEmptyList()
+        {
+            this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName);
+
+            Assert.Empty(this.queries.GetNotificationWatchFlagsLinkedToImportApplication(Guid.NewGuid()));
+        }
+
+        [Fact]
+        public void GetNotificationWatchFlagsLinkedToImportApplication_ImportApplication_FiltersOnTheImportApplicationAndAnImporterNotification()
+        {
+            var importApplicationId = Guid.NewGuid();
+            var recorded = this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName);
+
+            this.queries.GetNotificationWatchFlagsLinkedToImportApplication(importApplicationId);
+
+            this.AssertLinkedToImportApplicationWithLookup(Assert.Single(recorded), importApplicationId, defraimp_WatchFlag.Fields.defraimp_ImporterNotificationId);
+        }
+
+        [Fact]
+        public void GetWatchFlagsForItahc_MatchingWatchFlags_ReturnsThemWithoutImplyingAnImportApplication()
+        {
+            var linked = WatchFlagTestData.WatchFlag(importApplicationId: Guid.NewGuid());
+            var unlinked = WatchFlagTestData.WatchFlag();
+            this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName, linked, unlinked);
+
+            var watchFlags = this.queries.GetWatchFlagsForItahc(Guid.NewGuid());
+
+            Assert.Equal(new[] { linked.Id, unlinked.Id }, watchFlags.Select(watchFlag => watchFlag.Id).ToArray());
+            Assert.Equal(linked.defraimp_ImportApplicationId.Id, watchFlags[0].defraimp_ImportApplicationId.Id);
+            Assert.Null(watchFlags[1].defraimp_ImportApplicationId);
+        }
+
+        [Fact]
+        public void GetWatchFlagsForItahc_NoMatches_ReturnsAnEmptyList()
+        {
+            this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName);
+
+            Assert.Empty(this.queries.GetWatchFlagsForItahc(Guid.NewGuid()));
+        }
+
+        [Fact]
+        public void GetWatchFlagsForItahc_Itahc_FiltersOnlyByTheItahc()
+        {
+            var itahcId = Guid.NewGuid();
+            var recorded = this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName);
+
+            this.queries.GetWatchFlagsForItahc(itahcId);
+
+            this.AssertFiltersOnlyByLookup(Assert.Single(recorded), defraimp_WatchFlag.Fields.defraimp_ItahcId, itahcId);
+        }
+
+        [Fact]
+        public void GetWatchFlagsForImporterNotification_MatchingWatchFlags_ReturnsThemWithoutImplyingAnImportApplication()
+        {
+            var linked = WatchFlagTestData.WatchFlag(importApplicationId: Guid.NewGuid());
+            var unlinked = WatchFlagTestData.WatchFlag();
+            this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName, linked, unlinked);
+
+            var watchFlags = this.queries.GetWatchFlagsForImporterNotification(Guid.NewGuid());
+
+            Assert.Equal(new[] { linked.Id, unlinked.Id }, watchFlags.Select(watchFlag => watchFlag.Id).ToArray());
+            Assert.Equal(linked.defraimp_ImportApplicationId.Id, watchFlags[0].defraimp_ImportApplicationId.Id);
+            Assert.Null(watchFlags[1].defraimp_ImportApplicationId);
+        }
+
+        [Fact]
+        public void GetWatchFlagsForImporterNotification_NoMatches_ReturnsAnEmptyList()
+        {
+            this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName);
+
+            Assert.Empty(this.queries.GetWatchFlagsForImporterNotification(Guid.NewGuid()));
+        }
+
+        [Fact]
+        public void GetWatchFlagsForImporterNotification_Notification_FiltersOnlyByTheNotification()
+        {
+            var notificationId = Guid.NewGuid();
+            var recorded = this.service.ReturnsRecords(defraimp_WatchFlag.EntityLogicalName);
+
+            this.queries.GetWatchFlagsForImporterNotification(notificationId);
+
+            this.AssertFiltersOnlyByLookup(Assert.Single(recorded), defraimp_WatchFlag.Fields.defraimp_ImporterNotificationId, notificationId);
+        }
+
+        private void AssertLinkedToImportApplicationWithLookup(QueryExpression query, Guid importApplicationId, string lookup)
+        {
+            Assert.True(query.UsesOnlyAndFilters());
+            var conditions = query.GetAllConditions();
+            Assert.Equal(2, conditions.Count);
+            var application = Assert.Single(conditions, condition => condition.AttributeName == defraimp_WatchFlag.Fields.defraimp_ImportApplicationId);
+            Assert.Equal(ConditionOperator.Equal, application.Operator);
+            Assert.Equal(importApplicationId, Assert.Single(application.Values));
+            var lookupCondition = Assert.Single(conditions, condition => condition.AttributeName == lookup);
+            Assert.Equal(ConditionOperator.NotNull, lookupCondition.Operator);
+            this.AssertRetrievesOnlyTheIdentifierAndTheImportApplication(query);
+        }
+
+        private void AssertFiltersOnlyByLookup(QueryExpression query, string lookup, Guid id)
+        {
+            Assert.True(query.UsesOnlyAndFilters());
+            var condition = Assert.Single(query.GetAllConditions());
+            Assert.Equal(lookup, condition.AttributeName);
+            Assert.Equal(ConditionOperator.Equal, condition.Operator);
+            Assert.Equal(id, Assert.Single(condition.Values));
+            this.AssertRetrievesOnlyTheIdentifierAndTheImportApplication(query);
+        }
+
+        private void AssertRetrievesOnlyTheIdentifierAndTheImportApplication(QueryExpression query)
+        {
+            Assert.False(query.ColumnSet.AllColumns);
+            var expected = new[] { defraimp_WatchFlag.Fields.defraimp_WatchFlagId, defraimp_WatchFlag.Fields.defraimp_ImportApplicationId };
+            Assert.Equal(expected.OrderBy(column => column), query.ColumnSet.Columns.OrderBy(column => column));
+        }
     }
 }

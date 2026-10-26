@@ -7,7 +7,8 @@ namespace Defra.Imports.Dataverse.Queries
     using Microsoft.Xrm.Sdk.Client;
 
     /// <summary>
-    /// Read-only queries that find the active watch lists and the economic operators that they may refer to.
+    /// Read-only queries that find the active watch lists, the economic operators that they may refer to, and the
+    /// watch flags that are linked to an import application or to its primary ITAHC or importer notification.
     /// </summary>
     public class WatchFlagQueries
     {
@@ -88,6 +89,88 @@ namespace Defra.Imports.Dataverse.Queries
                 default:
                     throw new ArgumentOutOfRangeException(nameof(watchType), watchType, "The watch type has no economic operator table.");
             }
+        }
+
+        /// <summary>
+        /// Retrieves the watch flags that are linked to the import application and to an ITAHC. The result is not
+        /// paged, so only the first page that Dataverse returns is used.
+        /// </summary>
+        /// <param name="importApplicationId">The identifier of the import application.</param>
+        /// <returns>Watch flags holding only their identifier and import application lookup.</returns>
+        public IReadOnlyList<defraimp_WatchFlag> GetItahcWatchFlagsLinkedToImportApplication(Guid importApplicationId)
+        {
+            var query =
+                from watchFlag in this.context.defraimp_WatchFlagSet
+                where watchFlag.defraimp_ImportApplicationId.Id == importApplicationId
+                    && watchFlag.defraimp_ItahcId != null
+                select new defraimp_WatchFlag
+                {
+                    defraimp_WatchFlagId = watchFlag.defraimp_WatchFlagId,
+                    defraimp_ImportApplicationId = watchFlag.defraimp_ImportApplicationId,
+                };
+
+            return query.ToList();
+        }
+
+        /// <summary>
+        /// Retrieves the watch flags that are linked to the import application and to an importer notification. The
+        /// result is not paged, so only the first page that Dataverse returns is used.
+        /// </summary>
+        /// <param name="importApplicationId">The identifier of the import application.</param>
+        /// <returns>Watch flags holding only their identifier and import application lookup.</returns>
+        public IReadOnlyList<defraimp_WatchFlag> GetNotificationWatchFlagsLinkedToImportApplication(Guid importApplicationId)
+        {
+            var query =
+                from watchFlag in this.context.defraimp_WatchFlagSet
+                where watchFlag.defraimp_ImportApplicationId.Id == importApplicationId
+                    && watchFlag.defraimp_ImporterNotificationId != null
+                select new defraimp_WatchFlag
+                {
+                    defraimp_WatchFlagId = watchFlag.defraimp_WatchFlagId,
+                    defraimp_ImportApplicationId = watchFlag.defraimp_ImportApplicationId,
+                };
+
+            return query.ToList();
+        }
+
+        /// <summary>
+        /// Retrieves the watch flags of an ITAHC, whichever import application they are linked to. The result is not
+        /// paged, so only the first page that Dataverse returns is used.
+        /// </summary>
+        /// <param name="itahcId">The identifier of the ITAHC.</param>
+        /// <returns>Watch flags holding only their identifier and import application lookup.</returns>
+        public IReadOnlyList<defraimp_WatchFlag> GetWatchFlagsForItahc(Guid itahcId)
+        {
+            var query =
+                from watchFlag in this.context.defraimp_WatchFlagSet
+                where watchFlag.defraimp_ItahcId.Id == itahcId
+                select new defraimp_WatchFlag
+                {
+                    defraimp_WatchFlagId = watchFlag.defraimp_WatchFlagId,
+                    defraimp_ImportApplicationId = watchFlag.defraimp_ImportApplicationId,
+                };
+
+            return query.ToList();
+        }
+
+        /// <summary>
+        /// Retrieves the watch flags of an importer notification, whichever import application they are linked to.
+        /// The result is not paged, so only the first page that Dataverse returns is used.
+        /// </summary>
+        /// <param name="importerNotificationId">The identifier of the importer notification.</param>
+        /// <returns>Watch flags holding only their identifier and import application lookup.</returns>
+        public IReadOnlyList<defraimp_WatchFlag> GetWatchFlagsForImporterNotification(Guid importerNotificationId)
+        {
+            var query =
+                from watchFlag in this.context.defraimp_WatchFlagSet
+                where watchFlag.defraimp_ImporterNotificationId.Id == importerNotificationId
+                select new defraimp_WatchFlag
+                {
+                    defraimp_WatchFlagId = watchFlag.defraimp_WatchFlagId,
+                    defraimp_ImportApplicationId = watchFlag.defraimp_ImportApplicationId,
+                };
+
+            return query.ToList();
         }
     }
 }

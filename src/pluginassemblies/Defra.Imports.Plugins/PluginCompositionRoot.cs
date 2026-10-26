@@ -8,6 +8,7 @@ namespace Defra.Imports.Plugins
     using Defra.Imports.Dataverse.Queries;
     using Defra.Imports.Infrastructure.DependencyInjection;
     using Defra.Imports.Infrastructure.Logging;
+    using Defra.Imports.Plugins.ImportApplication;
     using Defra.Imports.Plugins.ImporterNotification;
     using Defra.Imports.Plugins.Itahc;
     using Defra.Imports.Plugins.ParameterSetKeyDataPair;
@@ -40,6 +41,10 @@ namespace Defra.Imports.Plugins
             root.Register<WatchFlagQueries>();
             root.Register<FlagRecordOnWatchListHandler>();
             root.Register<FlagRecordOnWatchListNotificationHandler>();
+
+            root.Register<IWatchFlagAssociator, WatchFlagAssociator>();
+            root.Register<AssociateWatchFlagsFromPrimaryItahcHandler>();
+            root.Register<AssociateWatchFlagsFromNotificationHandler>();
 
             root.Register<ILogWriter, TimestampedTracingLogWriter>();
             root.Register<IImportsContextFactory, ImportsContextFactory>();

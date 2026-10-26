@@ -7,6 +7,7 @@ namespace Defra.Imports.UnitTests.Plugins
     using Defra.Imports.Infrastructure.Logging;
     using Defra.Imports.Infrastructure.Plugins;
     using Defra.Imports.Plugins;
+    using Defra.Imports.Plugins.ImportApplication;
     using Defra.Imports.Plugins.ImporterNotification;
     using Defra.Imports.Plugins.Itahc;
     using Defra.Imports.Plugins.ParameterSetKeyDataPair;
@@ -125,6 +126,50 @@ namespace Defra.Imports.UnitTests.Plugins
                 var creator = scope.Resolve<IWatchFlagCreator>();
 
                 Assert.IsType<WatchFlagCreator>(creator);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithRuntimeServices_ResolvesTheAssociateWatchFlagsFromPrimaryItahcHandler()
+        {
+            var runtime = new PluginRuntime();
+            using (var scope = PluginCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IPluginExecution>(runtime.CreateExecution());
+                scope.Register<IOrganizationService>(runtime.Service.Object);
+
+                var handler = scope.Resolve<AssociateWatchFlagsFromPrimaryItahcHandler>();
+
+                Assert.NotNull(handler);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithRuntimeServices_ResolvesTheAssociateWatchFlagsFromNotificationHandler()
+        {
+            var runtime = new PluginRuntime();
+            using (var scope = PluginCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IPluginExecution>(runtime.CreateExecution());
+                scope.Register<IOrganizationService>(runtime.Service.Object);
+
+                var handler = scope.Resolve<AssociateWatchFlagsFromNotificationHandler>();
+
+                Assert.NotNull(handler);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithOrganizationService_ResolvesTheSharedWatchFlagAssociator()
+        {
+            var runtime = new PluginRuntime();
+            using (var scope = PluginCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IOrganizationService>(runtime.Service.Object);
+
+                var associator = scope.Resolve<IWatchFlagAssociator>();
+
+                Assert.IsType<WatchFlagAssociator>(associator);
             }
         }
 

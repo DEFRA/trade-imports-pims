@@ -44,6 +44,35 @@ namespace Defra.Imports.UnitTests.Support
             return notification;
         }
 
+        // A Create Target of an import application holds only the primary lookups that were supplied.
+        public static defraimp_importapplication ImportApplication(Guid? id = null, Guid? primaryItahcId = null, Guid? primaryImporterNotificationId = null)
+        {
+            var importApplication = new defraimp_importapplication { Id = id ?? Guid.NewGuid() };
+            if (primaryItahcId != null)
+            {
+                importApplication.defraimp_PrimaryITAHCId = new EntityReference(defraimp_itahc.EntityLogicalName, primaryItahcId.Value);
+            }
+
+            if (primaryImporterNotificationId != null)
+            {
+                importApplication.defraimp_PrimaryImporterNotificationId = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, primaryImporterNotificationId.Value);
+            }
+
+            return importApplication;
+        }
+
+        // As the queries return it: only the identifier and the import application lookup are present.
+        public static defraimp_WatchFlag WatchFlag(Guid? id = null, Guid? importApplicationId = null)
+        {
+            var watchFlag = new defraimp_WatchFlag { defraimp_WatchFlagId = id ?? Guid.NewGuid() };
+            if (importApplicationId != null)
+            {
+                watchFlag.defraimp_ImportApplicationId = new EntityReference(defraimp_importapplication.EntityLogicalName, importApplicationId.Value);
+            }
+
+            return watchFlag;
+        }
+
         private static void SetIfSupplied(Entity entity, string attributeName, string value)
         {
             if (value != null)

@@ -31,6 +31,27 @@ namespace Defra.Imports.UnitTests.Support
             return queries;
         }
 
+        // Returns each set of records in turn, one per query for the table, so a test can supply different results to
+        // successive reads of the same table. A further query than there are sets fails the test.
+        public static IList<QueryExpression> ReturnsRecordsInSequence(
+            this Mock<IOrganizationService> service, string logicalName, params Entity[][] sets)
+        {
+            var queries = new List<QueryExpression>();
+            var responses = new Queue<OrganizationResponse>(sets.Select(records => (OrganizationResponse)new RetrieveMultipleResponse
+            {
+                Results = new ParameterCollection
+                {
+                    { "EntityCollection", new EntityCollection(records.ToList()) { EntityName = logicalName } },
+                },
+            }));
+
+            service
+                .Setup(value => value.Execute(It.Is<OrganizationRequest>(request => IsFor(request, logicalName))))
+                .Callback<OrganizationRequest>(request => queries.Add((QueryExpression)((RetrieveMultipleRequest)request).Query))
+                .Returns(() => responses.Dequeue());
+            return queries;
+        }
+
         // Counts the queries sent for a table.
         public static void VerifyQueried(this Mock<IOrganizationService> service, string logicalName, Times times)
         {
