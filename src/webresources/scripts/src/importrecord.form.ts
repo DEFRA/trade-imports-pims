@@ -1,6 +1,6 @@
 const MANUAL_POST_IMPORT_CHECK_BLANK_ERROR_MSG =
   "'Manual Post Import Check Decision' must be populated.";
-type FormType = ReturnType<Xrm.Ui["getFormType"]>;
+type FormType = ReturnType<Xrm.Ui['getFormType']>;
 
 const ManualDecision = {
   Other: 714100000,
@@ -29,14 +29,10 @@ const nonComplianceOtherType = 714100005;
 const manualDecisionWasSetByForm = new WeakMap<Xrm.FormContext, boolean>();
 const errorDialogOpenByForm = new WeakSet<Xrm.FormContext>();
 
-export function OnLoadQuickCreateForm(
-  executionContext: Xrm.Events.EventContext
-): void {
+export function OnLoadQuickCreateForm(executionContext: Xrm.Events.EventContext): void {
   const formContext = executionContext.getFormContext();
   if (formContext.ui.getFormType() === FORM_TYPE_CREATE)
-    formContext
-      .getAttribute<Xrm.Attributes.LookupAttribute>("ownerid")!
-      .setValue(null);
+    formContext.getAttribute<Xrm.Attributes.LookupAttribute>('ownerid')!.setValue(null);
 }
 
 export function onLoad(executionContext: Xrm.Events.EventContext): void {
@@ -44,7 +40,7 @@ export function onLoad(executionContext: Xrm.Events.EventContext): void {
   storeWasManualPostImportCheckSet(formContext);
   showOrHideNonComplianceTab(
     formContext,
-    booleanValue(formContext, "defraimp_isnoncompliantcalculated")
+    booleanValue(formContext, 'defraimp_isnoncompliantcalculated')
   );
   showOrHideNonComplianceOther(executionContext);
 }
@@ -61,80 +57,60 @@ export function onChangeOfManualPostImportCheckDecision(
   setSystemDeterminedInspectionValues(executionContext.getFormContext());
 }
 
-export function showOrHideNonComplianceOther(
-  executionContext: Xrm.Events.EventContext
-): void {
+export function showOrHideNonComplianceOther(executionContext: Xrm.Events.EventContext): void {
   const formContext = executionContext.getFormContext();
   const values = formContext
-    .getAttribute<Xrm.Attributes.MultiSelectOptionSetAttribute>(
-      "defraimp_typesofnoncompliance"
-    )!
+    .getAttribute<Xrm.Attributes.MultiSelectOptionSetAttribute>('defraimp_typesofnoncompliance')!
     .getValue();
   formContext
-    .getControl<Xrm.Controls.StandardControl>(
-      "defraimp_noncomplianceothercomments"
-    )!
+    .getControl<Xrm.Controls.StandardControl>('defraimp_noncomplianceothercomments')!
     .setVisible(values?.includes(nonComplianceOtherType) === true);
 }
 
-export function onChangeOfMoveToCompletion(
-  executionContext: Xrm.Events.EventContext
-): void {
+export function onChangeOfMoveToCompletion(executionContext: Xrm.Events.EventContext): void {
   const formContext = executionContext.getFormContext();
-  const move = booleanValue(formContext, "defraimp_movetocompletion");
+  const move = booleanValue(formContext, 'defraimp_movetocompletion');
   formContext
-    .getAttribute<Xrm.Attributes.DateAttribute>(
-      "defraimp_movedtocompletiondate"
-    )!
+    .getAttribute<Xrm.Attributes.DateAttribute>('defraimp_movedtocompletiondate')!
     .setValue(move ? new Date() : null);
 }
 
-export function showRelevantSections(
-  executionContext: Xrm.Events.EventContext
-): void {
+export function showRelevantSections(executionContext: Xrm.Events.EventContext): void {
   const formContext = executionContext.getFormContext();
   formContext.ui.tabs
-    .get("Charity_Tab")!
-    .setVisible(booleanValue(formContext, "defraimp_importingfromcharity"));
+    .get('Charity_Tab')!
+    .setVisible(booleanValue(formContext, 'defraimp_importingfromcharity'));
   const type = formContext
-    .getAttribute<Xrm.Attributes.OptionSetAttribute>(
-      "defraimp_importapplicationtype"
-    )!
+    .getAttribute<Xrm.Attributes.OptionSetAttribute>('defraimp_importapplicationtype')!
     .getValue();
   const isItahc =
-    type === ImportApplicationType.ITAHC ||
-    type === ImportApplicationType.ITAHCLandbridge;
-  formContext.ui.tabs.get("AdditionalITAHC_Tab")!.setVisible(isItahc);
+    type === ImportApplicationType.ITAHC || type === ImportApplicationType.ITAHCLandbridge;
+  formContext.ui.tabs.get('AdditionalITAHC_Tab')!.setVisible(isItahc);
   formContext.ui.tabs
-    .get("Summary")!
-    .sections.get("iv66_section")!
+    .get('Summary')!
+    .sections.get('iv66_section')!
     .setVisible(isItahc || type === ImportApplicationType.Notification);
   formContext.ui.tabs
-    .get("Summary")!
-    .sections.get("cheda_section")!
+    .get('Summary')!
+    .sections.get('cheda_section')!
     .setVisible(type === ImportApplicationType.CHEDA);
   formContext.ui.tabs
-    .get("Summary")!
-    .sections.get("chedp_section")!
+    .get('Summary')!
+    .sections.get('chedp_section')!
     .setVisible(type === ImportApplicationType.CHEDP);
   formContext.ui.tabs
-    .get("Summary")!
-    .sections.get("chedp_controls_section")!
+    .get('Summary')!
+    .sections.get('chedp_controls_section')!
     .setVisible(type === ImportApplicationType.CHEDP);
   formContext.ui.tabs
-    .get("Transporter_Tab")!
-    .sections.get("transport_information_section")!
-    .setVisible(
-      type === ImportApplicationType.CHEDA ||
-        type === ImportApplicationType.CHEDP
-    );
+    .get('Transporter_Tab')!
+    .sections.get('transport_information_section')!
+    .setVisible(type === ImportApplicationType.CHEDA || type === ImportApplicationType.CHEDP);
 }
 
 function storeWasManualPostImportCheckSet(formContext: Xrm.FormContext): void {
   const decision = formContext
-    .getAttribute<Xrm.Attributes.OptionSetAttribute>(
-      "defraimp_manualpostimportcheckdecision"
-    )!
+    .getAttribute<Xrm.Attributes.OptionSetAttribute>('defraimp_manualpostimportcheckdecision')!
     .getValue();
 
   if (decision !== null) {
@@ -142,63 +118,40 @@ function storeWasManualPostImportCheckSet(formContext: Xrm.FormContext): void {
   }
 }
 
-function setSystemDeterminedInspectionValues(
-  formContext: Xrm.FormContext
-): void {
+function setSystemDeterminedInspectionValues(formContext: Xrm.FormContext): void {
   const decision = formContext
-    .getAttribute<Xrm.Attributes.OptionSetAttribute>(
-      "defraimp_manualpostimportcheckdecision"
-    )!
+    .getAttribute<Xrm.Attributes.OptionSetAttribute>('defraimp_manualpostimportcheckdecision')!
     .getValue();
 
   switch (decision) {
     case ManualDecision.System:
       setOption(
         formContext,
-        "defraimp_inspectionrequired",
-        optionValue(formContext, "defraimp_inspectionrequiredoriginalvalue")
+        'defraimp_inspectionrequired',
+        optionValue(formContext, 'defraimp_inspectionrequiredoriginalvalue')
       );
       setOption(
         formContext,
-        "defraimp_inspectionrequiredreason",
-        optionValue(
-          formContext,
-          "defraimp_inspectionrequiredreasonoriginalvalue"
-        )
+        'defraimp_inspectionrequiredreason',
+        optionValue(formContext, 'defraimp_inspectionrequiredreasonoriginalvalue')
       );
       return;
     case ManualDecision.Other:
-      setInspection(
-        formContext,
-        InspectionRequired.Yes,
-        InspectionReason.ManuallyRequested
-      );
+      setInspection(formContext, InspectionRequired.Yes, InspectionReason.ManuallyRequested);
       return;
     case ManualDecision.Quarantine:
-      setInspection(
-        formContext,
-        InspectionRequired.Yes,
-        InspectionReason.Quarantine
-      );
+      setInspection(formContext, InspectionRequired.Yes, InspectionReason.Quarantine);
       return;
     case ManualDecision.TB:
-      setInspection(
-        formContext,
-        InspectionRequired.No,
-        InspectionReason.NoInspectionRequired
-      );
+      setInspection(formContext, InspectionRequired.No, InspectionReason.NoInspectionRequired);
       return;
     case ManualDecision.DoNotCheck: {
-      setInspection(
-        formContext,
-        InspectionRequired.No,
-        InspectionReason.NoInspectionRequired
-      );
+      setInspection(formContext, InspectionRequired.No, InspectionReason.NoInspectionRequired);
       const declined = formContext.getAttribute<Xrm.Attributes.StringAttribute>(
-        "defraimp_inspectiondeclinedreason"
+        'defraimp_inspectiondeclinedreason'
       )!;
-      if (declined.getValue() === null || declined.getValue() === "") {
-        declined.setValue("System Required Post Import Check Skipped");
+      if (declined.getValue() === null || declined.getValue() === '') {
+        declined.setValue('System Required Post Import Check Skipped');
       }
       return;
     }
@@ -211,15 +164,12 @@ function preventSaveIfPostImportChecksIsUpdatedToBlank(
   executionContext: Xrm.Events.SaveEventContext,
   formContext: Xrm.FormContext
 ): void {
-  const wasManualPostImportCheckSet =
-    manualDecisionWasSetByForm.get(formContext) === true;
+  const wasManualPostImportCheckSet = manualDecisionWasSetByForm.get(formContext) === true;
 
   if (
     wasManualPostImportCheckSet &&
     formContext
-      .getAttribute<Xrm.Attributes.OptionSetAttribute>(
-        "defraimp_manualpostimportcheckdecision"
-      )!
+      .getAttribute<Xrm.Attributes.OptionSetAttribute>('defraimp_manualpostimportcheckdecision')!
       .getValue() === null
   ) {
     executionContext.getEventArgs().preventDefault();
@@ -242,45 +192,23 @@ async function displayManualPostImportCheckDecisionErrorMessage(
   }
 }
 
-function setInspection(
-  formContext: Xrm.FormContext,
-  required: number,
-  reason: number
-): void {
-  setOption(formContext, "defraimp_inspectionrequired", required);
-  setOption(formContext, "defraimp_inspectionrequiredreason", reason);
+function setInspection(formContext: Xrm.FormContext, required: number, reason: number): void {
+  setOption(formContext, 'defraimp_inspectionrequired', required);
+  setOption(formContext, 'defraimp_inspectionrequiredreason', reason);
 }
 
-function setOption(
-  formContext: Xrm.FormContext,
-  name: string,
-  value: number | null
-): void {
-  formContext
-    .getAttribute<Xrm.Attributes.OptionSetAttribute>(name)!
-    .setValue(value);
+function setOption(formContext: Xrm.FormContext, name: string, value: number | null): void {
+  formContext.getAttribute<Xrm.Attributes.OptionSetAttribute>(name)!.setValue(value);
 }
 
-function optionValue(
-  formContext: Xrm.FormContext,
-  name: string
-): number | null {
-  return formContext
-    .getAttribute<Xrm.Attributes.NumberAttribute>(name)!
-    .getValue();
+function optionValue(formContext: Xrm.FormContext, name: string): number | null {
+  return formContext.getAttribute<Xrm.Attributes.NumberAttribute>(name)!.getValue();
 }
 
 function booleanValue(formContext: Xrm.FormContext, name: string): boolean {
-  return (
-    formContext
-      .getAttribute<Xrm.Attributes.BooleanAttribute>(name)!
-      .getValue() === true
-  );
+  return formContext.getAttribute<Xrm.Attributes.BooleanAttribute>(name)!.getValue() === true;
 }
 
-function showOrHideNonComplianceTab(
-  formContext: Xrm.FormContext,
-  visible: boolean
-): void {
-  formContext.ui.tabs.get("NonCompliance_Tab")!.setVisible(visible);
+function showOrHideNonComplianceTab(formContext: Xrm.FormContext, visible: boolean): void {
+  formContext.ui.tabs.get('NonCompliance_Tab')!.setVisible(visible);
 }
