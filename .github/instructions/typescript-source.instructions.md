@@ -56,7 +56,7 @@ Apply these to new code and to code you change.
 
 - ESLint (`eslint.config.js`) is type-aware, with `@typescript-eslint/recommended-requiring-type-checking`, `unbound-method` and the Creedengo plugin. `npm run lint` is clean at baseline and must stay clean.
 - Do not add suppressions (`eslint-disable`, `@ts-ignore`, `@ts-expect-error`) or change the ESLint or TypeScript configuration to reach a pass without the user's approval for that specific suppression.
-- Format with Prettier. The repository's `prettierrc.js` has no leading dot, so Prettier ignores it and its defaults apply (double quotes, two-space indent, semicolons, trailing commas where valid, an 80-column print width). Do not rename that file or rewrite existing files to a different style. Check your own files with `npx prettier --check <files> --end-of-line auto`. `npm run format:check` is not clean at baseline, so it is not the gate, and `npm run format` must not be run over the whole folder.
+- Format with Prettier, configured in `.prettierrc.js` (single quotes, two-space indent, semicolons, a 100-column print width, ES5 trailing commas, and `endOfLine: "auto"` so that CRLF and LF checkouts both pass). Do not hand-format. Run `npm run format` (or `npx prettier --write <files>`) after editing, and `npm run format:check` must pass. `package-lock.json`, `*.js` and build output are in `.prettierignore`.
 - Write comments and messages in British English, and comment only what needs clarifying. Error messages are read by makers and users, so make them specific.
 
 ## Running and verifying
@@ -64,5 +64,6 @@ Apply these to new code and to code you change.
 From `src/webresources/scripts`, restore with `npm ci --legacy-peer-deps` if `node_modules` is missing, then:
 
 - `npm run lint` for linting;
+- `npm run format:check` for formatting. It is clean, so it must stay clean;
 - `npm test` to build (`tsc`, then rollup) and run Jest with coverage, including the bundle contract test. This is what the pipeline runs (`pipelines/templates/steps/run-typescript-unit-tests-steps.yml`);
 - `npx jest tests/<file>.test.ts --coverage=false` while iterating on one file. It does not build the bundles, so finish with `npm test`.

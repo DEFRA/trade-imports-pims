@@ -231,7 +231,7 @@ A change is complete only when:
 - **design principles:** each new class has one responsibility and depends on abstractions; behaviour that varies is configuration or data, with a test that proves a second configuration works without a code change; names describe the capability, not the first use case;
 - **test-first:** every behaviour has a test that you saw fail before the code that satisfies it existed, and the tests describe behaviour rather than implementation;
 - **C# changes:** you have read a bare `RESULT PASS` from the full `dotnet-build-verification` gate yourself, with no added warnings and none in new or changed files (`-PathFilter`), test files included;
-- **web resource script changes:** from `src/webresources/scripts`, `npm run lint` and `npm test` pass, and `npx prettier --check <files> --end-of-line auto` passes for the files you changed. `npm test` builds the bundles and runs Jest, including the bundle contract test. `npm run format:check` is not clean at baseline, so it is not the gate;
+- **web resource script changes:** from `src/webresources/scripts`, `npm run lint`, `npm run format:check` and `npm test` all pass. `npm test` builds the bundles and runs Jest, including the bundle contract test;
 - **package deployer template changes:** the deployment project builds, or you have said why it could not be built here;
 - no stale references remain;
 - affected documentation is updated;

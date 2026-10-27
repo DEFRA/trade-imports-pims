@@ -34,7 +34,7 @@ Rules:
 - Use `beforeEach` to install a fresh `Xrm` with `setupXrm()`, and build test data in small helper functions at the top of the file, as the existing tests do. Do not share mutable state between tests, and do not depend on test order.
 - Type the tests. Cast a hand-built mock with `as unknown as Xrm.FormContext` (or the relevant type) at the call, not with `any`.
 - Do not add suppressions (`eslint-disable`, `@ts-ignore`) without the user's approval. The one accepted exception is the narrow `eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-assignment` on a `require` of a script after `jest.resetModules()`, as in `postimportcheck.form.test.ts`.
-- Format with Prettier defaults, as in the source (`npx prettier --check <files> --end-of-line auto`). Write test names in British English.
+- Format with Prettier, as in the source (`npm run format`, and `npm run format:check` must pass). Write test names in British English.
 
 ## Mocks and test data
 
@@ -83,3 +83,4 @@ From `src/webresources/scripts`:
 - One file while iterating: `npx jest tests/<file>.test.ts --coverage=false`. It does not build the bundles.
 - The full run, as the pipeline does it: `npm test`. It builds first, so it also compiles the source and runs the bundle contract test.
 - Lint: `npm run lint`. It covers the test files too, because `tsconfig.jest.json` is one of its projects.
+- Formatting: `npm run format:check`.

@@ -30,7 +30,7 @@ Run these from `src/webresources/scripts`; the full list, including iterating on
 | --- | --- |
 | `npm run lint` | ESLint over TypeScript. It passes today, so it must stay clean |
 | `npm test` | Builds (`tsc` then rollup) and runs Jest with coverage, including the bundle contract test. This is what the pipeline runs |
-| `npx prettier --check <files> --end-of-line auto` | Format check for the files you touched. `npm run format:check` is not clean at baseline, so it is not the gate |
+| `npm run format:check` | Prettier check over the project. It is clean, so it must stay clean. Fix with `npm run format` |
 
 ## Design principles for this skill
 
@@ -47,7 +47,7 @@ The Developer agent's Design Principles apply in full, and [typescript-source.in
    - Write the test in `tests/<file>.test.ts`, run it and confirm that it fails for the right reason (red). Write the smallest code in `src/<file>.ts` that passes it (green), then refactor while the tests stay green.
    - For a new file, add it to `namespacesByFileName` in `rollup.config.mjs`. A file that is not listed is silently skipped and produces no bundle. Add the file and its handler names to `bundles` in `tests/bundle.contract.test.ts`.
    - Extend `xrm-mock.helper.ts` only when a test needs a mock it lacks, and keep existing helpers backwards compatible.
-7. **Verify.** From `src/webresources/scripts`, run `npm run lint` and `npm test`. Both must pass, and `npx prettier --check` must pass for your files. Cover the checklist below.
+7. **Verify.** From `src/webresources/scripts`, run `npm run format`, then `npm run lint`, `npm run format:check` and `npm test`. All must pass. Cover the checklist below.
 8. **Report,** including how the design meets the principles, the parameters to supply, and the hand-off below.
 
 ## Registration hand-off
