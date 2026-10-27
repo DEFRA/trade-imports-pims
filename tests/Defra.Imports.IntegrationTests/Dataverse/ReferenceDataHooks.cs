@@ -3,7 +3,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Microsoft.Xrm.Sdk;
 

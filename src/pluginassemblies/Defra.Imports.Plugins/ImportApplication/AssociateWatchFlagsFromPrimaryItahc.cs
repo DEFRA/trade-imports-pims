@@ -1,44 +1,20 @@
-﻿using Defra.Imports.BusinessLogic;
-using Defra.Imports.BusinessLogic.ImportApplication;
-using Defra.Imports.BusinessLogic.Logging;
-using Defra.Imports.Model;
-using Defra.Imports.Repositories;
-using Microsoft.Xrm.Sdk;
-
 namespace Defra.Imports.Plugins.ImportApplication
 {
-    [CrmPluginRegistration(
-       MessageNameEnum.Create,
-       nameof(defraimp_importapplication),
-       StageEnum.PostOperation,
-       ExecutionModeEnum.Synchronous,
-       "defraimp_importapplicationid",
-       "Create Step - Associate watch flags from primary itahc",
-       0,
-       IsolationModeEnum.Sandbox)]
+    using Defra.Imports.Infrastructure.Plugins;
 
-    [CrmPluginRegistration(
-        MessageNameEnum.Update,
-        nameof(defraimp_importapplication),
-        StageEnum.PostOperation,
-        ExecutionModeEnum.Synchronous,
-        "defraimp_primaryitahcid",
-        "Update Step - Associate watch flags from primary itahc",
-        0,
-        IsolationModeEnum.Sandbox)]
-    public class AssociateWatchFlagsFromPrimaryItahc : Plugin
+    /// <summary>
+    /// Associates an import application with the watch flags of its primary ITAHC. The class name is retained for the
+    /// registered steps; <see cref="AssociateWatchFlagsFromPrimaryItahcHandler"/> adapts the steps and the shared
+    /// application service does the work. Registered as post-operation, synchronous Create (filtering on
+    /// defraimp_importapplicationid) and Update (filtering on defraimp_primaryitahcid) steps of
+    /// defraimp_importapplication, with no images.
+    /// </summary>
+    public sealed class AssociateWatchFlagsFromPrimaryItahc : PluginBase<AssociateWatchFlagsFromPrimaryItahcHandler>
     {
-        protected override void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)
+        /// <summary>Initializes a new instance of the <see cref="AssociateWatchFlagsFromPrimaryItahc"/> class.</summary>
+        public AssociateWatchFlagsFromPrimaryItahc()
+            : base(PluginCompositionRoot.Root)
         {
-            defraimp_importapplication target = ((Entity)context.InputParameters["Target"]).ToEntity<defraimp_importapplication>();
-            ICrmRepository<defraimp_WatchFlag> watchFlagRepo = repositoryFactory.GetRepository<ImportsContext, defraimp_WatchFlag>();
-
-            if (context.MessageName == MessageNameEnum.Update.ToString() ||
-                (context.MessageName == MessageNameEnum.Create.ToString() && target.defraimp_PrimaryITAHCId != null))
-            {
-                AssociateWatchFlagsFromPrimaryItahcBusinessLogic associateFlagLogic = new AssociateWatchFlagsFromPrimaryItahcBusinessLogic(target, watchFlagRepo);
-                associateFlagLogic.RunLogic();
-            }
         }
     }
 }

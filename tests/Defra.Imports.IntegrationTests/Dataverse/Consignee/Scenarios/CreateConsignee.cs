@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dataverse.Consignee.Scenarios
 {
     using System;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
 
     public class CreateConsignee : IRecordCreator<defraimp_Consignee, Guid>

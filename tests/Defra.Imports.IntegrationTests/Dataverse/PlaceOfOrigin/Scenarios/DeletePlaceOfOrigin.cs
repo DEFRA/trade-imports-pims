@@ -2,7 +2,7 @@
 {
     using System;
     using System.Linq;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Marktek.Fluent.Testing.Engine.Interfaces;
 
     public class DeletePlaceOfOrigin : IExecutableAction<defraimp_placeoforigin, Guid>

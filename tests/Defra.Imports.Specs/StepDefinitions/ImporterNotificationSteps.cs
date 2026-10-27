@@ -5,7 +5,7 @@ namespace Defra.Imports.Specs.StepDefinitions
     using System.Linq;
     using System.Threading.Tasks;
     using Bogus;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Scenarios;
     using Defra.Imports.Specs.Services;
     using FluentAssertions;

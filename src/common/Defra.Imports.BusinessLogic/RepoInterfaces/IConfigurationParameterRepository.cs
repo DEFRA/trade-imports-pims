@@ -1,6 +1,6 @@
 ﻿namespace Defra.Imports.BusinessLogic.RepoInterfaces
 {
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
 
     public interface IConfigurationParameterRepository
     {

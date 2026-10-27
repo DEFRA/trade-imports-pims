@@ -1,6 +1,6 @@
 ﻿using Defra.Imports.BusinessLogic;
 using Defra.Imports.BusinessLogic.Extensions;
-using Defra.Imports.BusinessLogic.Logging;
+using Defra.Imports.Infrastructure.Logging;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Workflow;
 using System.Activities;

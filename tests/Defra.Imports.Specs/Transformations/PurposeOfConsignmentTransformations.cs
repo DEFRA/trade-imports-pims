@@ -2,7 +2,7 @@
 {
     using System;
     using System.Text.RegularExpressions;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Reqnroll;
 
     /// <summary>

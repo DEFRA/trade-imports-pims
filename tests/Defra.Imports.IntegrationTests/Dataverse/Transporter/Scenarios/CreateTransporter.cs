@@ -1,7 +1,7 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dataverse.Transporter.Scenarios
 {
     using System;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using MarkTek.Fluent.Testing.RecordGeneration;
 
     public class CreateTransporter : IRecordCreator<defraimp_Transporter, Guid>

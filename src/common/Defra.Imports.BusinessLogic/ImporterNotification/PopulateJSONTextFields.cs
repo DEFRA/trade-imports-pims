@@ -1,6 +1,6 @@
 ﻿using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.CommodityComplementObjects;
 using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.IdentificationOfAnimalsObjects;
-using Defra.Imports.Model;
+using Defra.Imports.Dataverse.Model;
 using Microsoft.Xrm.Sdk;
 using System;
 using System.Collections.Generic;

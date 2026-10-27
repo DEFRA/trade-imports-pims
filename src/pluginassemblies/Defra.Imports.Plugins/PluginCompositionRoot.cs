@@ -1,0 +1,68 @@
+namespace Defra.Imports.Plugins
+{
+    using System;
+    using Defra.Imports.Application.CommodityComplements;
+    using Defra.Imports.Application.InspectionRequirements;
+    using Defra.Imports.Application.WatchLists;
+    using Defra.Imports.Dataverse.Contexts;
+    using Defra.Imports.Dataverse.Model;
+    using Defra.Imports.Dataverse.Queries;
+    using Defra.Imports.Infrastructure.DependencyInjection;
+    using Defra.Imports.Infrastructure.Logging;
+    using Defra.Imports.Plugins.ImportApplication;
+    using Defra.Imports.Plugins.ImporterNotification;
+    using Defra.Imports.Plugins.Itahc;
+    using Defra.Imports.Plugins.ParameterSetKeyDataPair;
+    using Defra.Imports.Plugins.WatchLists;
+
+    /// <summary>Owns registration metadata shared by new plug-in entry points.</summary>
+    internal static class PluginCompositionRoot
+    {
+        private static readonly Lazy<PluginContainer> RootValue = new Lazy<PluginContainer>(BuildRoot);
+
+        /// <summary>Gets the immutable registration root for this deployment head.</summary>
+        internal static PluginContainer Root => RootValue.Value;
+
+        private static PluginContainer BuildRoot()
+        {
+            var root = new PluginContainer();
+
+            // ILLUSTRATIVE EXAMPLE registrations (watch list initialisation) for the pattern in
+            // architecture/adr/0001-plugin-workflow-di-scaffold.md. They are not a real business process; do not
+            // register the example with Dataverse, and do not copy it as a template for entity or business choices.
+            root.Register<IWatchListInitialiser, WatchListInitialiser>();
+            root.Register<WatchListQueries>();
+            root.Register<WatchListInitialisationHandler>();
+
+            root.Register<ICommodityComplementKeyDataApplier, CommodityComplementKeyDataApplier>();
+            root.Register<CommodityComplementQueries>();
+            root.Register<PopulateAnimalNumberHandler>();
+
+            root.Register<IWatchFlagCreator, WatchFlagCreator>();
+            root.Register<WatchFlagQueries>();
+            root.Register<FlagRecordOnWatchListHandler>();
+            root.Register<FlagRecordOnWatchListNotificationHandler>();
+
+            root.Register<IWatchFlagAssociator, WatchFlagAssociator>();
+            root.Register<AssociateWatchFlagsFromPrimaryItahcHandler>();
+            root.Register<AssociateWatchFlagsFromNotificationHandler>();
+
+            root.Register<IInspectionRequirementDeterminer, InspectionRequirementDeterminer>();
+            root.Register<InspectionStrategyFactory>();
+            root.Register<RiskCounterManagerFactory>();
+            root.Register<InspectionRequirementUpdater>();
+            root.Register<ImportRiskCounterAuditor>();
+            root.Register<AutonumberCounters>();
+            root.Register<PlaceOfOriginCounters>();
+            root.Register<InspectionQueries>();
+            root.Register<AutonumberQueries>();
+            root.Register<PlaceOfOriginQueries>();
+            root.Register<DetermineInspectionRequirementHandler>();
+
+            root.Register<ILogWriter, TimestampedTracingLogWriter>();
+            root.Register<IImportsContextFactory, ImportsContextFactory>();
+            root.Register<ImportsContext>();
+            return root;
+        }
+    }
+}

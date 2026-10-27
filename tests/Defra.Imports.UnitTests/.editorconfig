@@ -1,0 +1,4 @@
+[*.cs]
+
+# Test code is not a published API, so its elements are described by their names rather than XML comments.
+dotnet_diagnostic.SA1600.severity = none

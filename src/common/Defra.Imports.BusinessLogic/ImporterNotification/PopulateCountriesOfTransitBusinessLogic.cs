@@ -1,5 +1,5 @@
-﻿using Defra.Imports.BusinessLogic.Logging;
-using Defra.Imports.Model;
+using Defra.Imports.Dataverse.Model;
+using Defra.Imports.Infrastructure.Logging;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using System;

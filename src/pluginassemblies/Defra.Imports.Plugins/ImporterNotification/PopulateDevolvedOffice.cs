@@ -1,8 +1,8 @@
 ﻿using Defra.Imports.BusinessLogic;
 using Defra.Imports.BusinessLogic.Itahc;
-using Defra.Imports.BusinessLogic.Logging;
 using Defra.Imports.BusinessLogic.RepoInterfaces;
-using Defra.Imports.Model;
+using Defra.Imports.Dataverse.Model;
+using Defra.Imports.Infrastructure.Logging;
 using Defra.Imports.Repositories;
 using Defra.Imports.Repositories.PostcodeRegion;
 using Microsoft.Xrm.Sdk;

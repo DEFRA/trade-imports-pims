@@ -1,265 +1,194 @@
 namespace Defra.Imports.UnitTests.Plugins.ParameterSetKeyDataPair
 {
     using System;
-    using Defra.Imports.Model;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Defra.Imports.Application.CommodityComplements;
+    using Defra.Imports.Application.Constants;
+    using Defra.Imports.Dataverse.Model;
+    using Defra.Imports.Infrastructure.Plugins;
     using Defra.Imports.Plugins.ParameterSetKeyDataPair;
+    using Defra.Imports.UnitTests.Support;
     using Microsoft.Xrm.Sdk;
+    using Microsoft.Xrm.Sdk.Query;
     using Moq;
     using Xunit;
 
-    /// <summary>
-    /// Unit tests for <see cref="PopulateAnimalNumber"/>.
-    /// </summary>
-    public sealed class PopulateAnimalNumberTests
+    public sealed class PopulateAnimalNumberTests : PluginTestBase<PopulateAnimalNumber>
     {
-        private readonly Mock<IServiceProvider> serviceProviderMock;
-        private readonly Mock<ITracingService> tracingServiceMock;
-        private readonly Mock<IPluginExecutionContext> pluginContextMock;
-        private readonly Mock<IOrganizationServiceFactory> orgSvcFactoryMock;
-        private readonly Mock<IOrganizationService> orgSvcMock;
-        private readonly PopulateAnimalNumber sut;
+        private const string PreImageName = "PreImage";
+        private const string UnmappedKey = "some_other_key";
+        private const string UnsupportedMessage = "Delete";
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PopulateAnimalNumberTests"/> class.
-        /// </summary>
+        private readonly Guid importerNotificationId = Guid.NewGuid();
+        private readonly Guid parameterSetId = Guid.NewGuid();
+        private readonly Guid commodityComplementId = Guid.NewGuid();
+        private Entity updated;
+
         public PopulateAnimalNumberTests()
         {
-            this.serviceProviderMock = new Mock<IServiceProvider>();
-            this.tracingServiceMock = new Mock<ITracingService>();
-            this.pluginContextMock = new Mock<IPluginExecutionContext>();
-            this.orgSvcFactoryMock = new Mock<IOrganizationServiceFactory>();
-            this.orgSvcMock = new Mock<IOrganizationService>();
-
-            this.orgSvcFactoryMock
-                .Setup(f => f.CreateOrganizationService(It.IsAny<Guid?>()))
-                .Returns(this.orgSvcMock.Object);
-
-            this.serviceProviderMock
-                .Setup(s => s.GetService(typeof(ITracingService)))
-                .Returns(this.tracingServiceMock.Object);
-            this.serviceProviderMock
-                .Setup(s => s.GetService(typeof(IPluginExecutionContext)))
-                .Returns(this.pluginContextMock.Object);
-            this.serviceProviderMock
-                .Setup(s => s.GetService(typeof(IOrganizationServiceFactory)))
-                .Returns(this.orgSvcFactoryMock.Object);
-
-            this.sut = new PopulateAnimalNumber();
+            this.Runtime.Service
+                .Setup(service => service.Update(It.IsAny<Entity>()))
+                .Callback<Entity>(entity => this.updated = entity);
         }
 
-        /// <summary>
-        /// Tests that on Create, when the key data pair is for the number of animals, the
-        /// business logic is invoked using the Target entity and the commodity complement is updated.
-        /// </summary>
+        [Fact]
+        public void Plugin_Instance_IsAHandlerFirstPluginBase()
+        {
+            Assert.IsAssignableFrom<PluginBase<PopulateAnimalNumberHandler>>(this.Plugin);
+        }
+
         [Fact]
         public void Execute_OnCreateWithNumberAnimalKey_UpdatesCommodityComplement()
         {
-            // Arrange
-            var importerNotificationId = Guid.NewGuid();
-            var commodityComplementId = Guid.NewGuid();
+            this.ForPostOperation(PluginMessages.Create).WithTarget(this.CreateKeyDataPair(KeyDataPairKeys.NumberOfAnimals, "7", "42"));
+            this.SetupCommodityComplement();
 
-            var target = new defraimp_parametersetkeydatapair
-            {
-                defraimp_name = "number_animal",
-                defraimp_ImporterNotificationId = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId),
-                defraimp_CommodityComplementParameterSet = new EntityReference(defraimp_commoditycomplementparameterset.EntityLogicalName, Guid.NewGuid()) { Name = "42" },
-                defraimp_data = "7",
-            };
+            this.Execute();
 
-            this.pluginContextMock.Setup(c => c.MessageName).Returns("Create");
-            this.pluginContextMock.Setup(c => c.InputParameters).Returns(new ParameterCollection { { "Target", target } });
-
-            var existingComplement = new defraimp_commoditycomplement { Id = commodityComplementId };
-
-            this.orgSvcMock
-                .Setup(o => o.RetrieveMultiple(It.IsAny<Microsoft.Xrm.Sdk.Query.QueryExpression>()))
-                .Returns(new EntityCollection(new System.Collections.Generic.List<Entity> { existingComplement }));
-
-            defraimp_commoditycomplement updated = null;
-            this.orgSvcMock
-                .Setup(o => o.Update(It.IsAny<Entity>()))
-                .Callback<Entity>(e => updated = (defraimp_commoditycomplement)e);
-
-            // Act
-            this.sut.Execute(this.serviceProviderMock.Object);
-
-            // Assert
-            Assert.NotNull(updated);
-            Assert.Equal(commodityComplementId, updated.Id);
-            Assert.Equal("7", updated.defraimp_NumberofAnimals);
+            var update = Assert.IsType<defraimp_commoditycomplement>(this.updated);
+            Assert.Equal(this.commodityComplementId, update.Id);
+            Assert.Equal("7", update.defraimp_NumberofAnimals);
+            this.Runtime.Service.Verify(service => service.Update(It.IsAny<Entity>()), Times.Once);
         }
 
-        /// <summary>
-        /// Tests that on Create, when the key data pair's name is not "number_animal", no
-        /// commodity complement update is attempted.
-        /// </summary>
         [Fact]
-        public void Execute_OnCreateWithDifferentKey_DoesNotUpdateCommodityComplement()
+        public void Execute_OnCreateWithoutAParameterSetName_ReadsTheNameBeforeUpdating()
         {
-            // Arrange
-            var target = new defraimp_parametersetkeydatapair
-            {
-                defraimp_name = "some_other_key",
-                defraimp_ImporterNotificationId = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, Guid.NewGuid()),
-                defraimp_CommodityComplementParameterSet = new EntityReference(defraimp_commoditycomplementparameterset.EntityLogicalName, Guid.NewGuid()) { Name = "42" },
-                defraimp_data = "7",
-            };
+            this.ForPostOperation(PluginMessages.Create).WithTarget(this.CreateKeyDataPair(KeyDataPairKeys.NumberOfAnimals, "7", null));
+            this.Runtime.Service.ReturnsRecords(
+                defraimp_commoditycomplementparameterset.EntityLogicalName,
+                new defraimp_commoditycomplementparameterset { Id = this.parameterSetId, defraimp_name = "42" });
+            this.SetupCommodityComplement();
 
-            this.pluginContextMock.Setup(c => c.MessageName).Returns("Create");
-            this.pluginContextMock.Setup(c => c.InputParameters).Returns(new ParameterCollection { { "Target", target } });
+            this.Execute();
 
-            // Act
-            this.sut.Execute(this.serviceProviderMock.Object);
-
-            // Assert
-            this.orgSvcMock.Verify(o => o.RetrieveMultiple(It.IsAny<Microsoft.Xrm.Sdk.Query.QueryExpression>()), Times.Never);
-            this.orgSvcMock.Verify(o => o.Update(It.IsAny<Entity>()), Times.Never);
+            Assert.Equal(this.commodityComplementId, this.updated.Id);
+            this.Runtime.Service.VerifyQueried(defraimp_commoditycomplementparameterset.EntityLogicalName, Times.Once());
         }
 
-        /// <summary>
-        /// Tests that on Update, when the key data pair is for the number of animals, the
-        /// business logic uses the pre-image entity and updates the commodity complement.
-        /// </summary>
+        [Fact]
+        public void Execute_OnCreateWithDifferentKey_MakesNoServiceCalls()
+        {
+            this.ForPostOperation(PluginMessages.Create).WithTarget(this.CreateKeyDataPair(UnmappedKey, "7", "42"));
+
+            this.Execute();
+
+            this.Runtime.Service.VerifyNoOtherCalls();
+        }
+
         [Fact]
         public void Execute_OnUpdateWithNumberAnimalKey_UsesPreImageAndUpdatesCommodityComplement()
         {
-            // Arrange
-            var importerNotificationId = Guid.NewGuid();
-            var commodityComplementId = Guid.NewGuid();
+            var target = new defraimp_parametersetkeydatapair { defraimp_data = "15" };
+            this.ForPostOperation(PluginMessages.Update).WithTarget(target).WithPreImage(PreImageName, this.CreateKeyDataPair(KeyDataPairKeys.NumberOfAnimals, null, "99"));
+            this.SetupCommodityComplement();
 
-            var target = new defraimp_parametersetkeydatapair
-            {
-                defraimp_data = "15",
-            };
+            this.Execute();
 
-            var preImage = new defraimp_parametersetkeydatapair
-            {
-                defraimp_name = "number_animal",
-                defraimp_ImporterNotificationId = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId),
-                defraimp_CommodityComplementParameterSet = new EntityReference(defraimp_commoditycomplementparameterset.EntityLogicalName, Guid.NewGuid()) { Name = "99" },
-            };
-
-            this.pluginContextMock.Setup(c => c.MessageName).Returns("Update");
-            this.pluginContextMock.Setup(c => c.InputParameters).Returns(new ParameterCollection { { "Target", target } });
-            this.pluginContextMock.Setup(c => c.PreEntityImages).Returns(new EntityImageCollection { { "PreImage", preImage } });
-
-            var existingComplement = new defraimp_commoditycomplement { Id = commodityComplementId };
-
-            this.orgSvcMock
-                .Setup(o => o.RetrieveMultiple(It.IsAny<Microsoft.Xrm.Sdk.Query.QueryExpression>()))
-                .Returns(new EntityCollection(new System.Collections.Generic.List<Entity> { existingComplement }));
-
-            defraimp_commoditycomplement updated = null;
-            this.orgSvcMock
-                .Setup(o => o.Update(It.IsAny<Entity>()))
-                .Callback<Entity>(e => updated = (defraimp_commoditycomplement)e);
-
-            // Act
-            this.sut.Execute(this.serviceProviderMock.Object);
-
-            // Assert
-            Assert.NotNull(updated);
-            Assert.Equal(commodityComplementId, updated.Id);
-            Assert.Equal("15", updated.defraimp_NumberofAnimals);
+            Assert.Equal(this.commodityComplementId, this.updated.Id);
+            Assert.Equal("15", ((defraimp_commoditycomplement)this.updated).defraimp_NumberofAnimals);
         }
 
-        /// <summary>
-        /// Tests that on Update, when the key data pair is for the number of animals, the
-        /// business logic uses the pre-image entity (for the reference fields) combined with
-        /// the Target's defraimp_data value, and updates the commodity complement.
-        /// </summary>
         [Fact]
         public void Execute_OnUpdateWithNumberAnimalKey_MergesPreImageWithTargetDataAndUpdatesCommodityComplement()
         {
-            // Arrange
-            var importerNotificationId = Guid.NewGuid();
-            var commodityComplementId = Guid.NewGuid();
+            var target = new defraimp_parametersetkeydatapair { defraimp_name = KeyDataPairKeys.NumberOfAnimals, defraimp_data = "15" };
 
-            var target = new defraimp_parametersetkeydatapair
-            {
-                defraimp_name = "number_animal",
-                defraimp_data = "15",
-            };
+            // The pre-image data is deliberately different, to prove the Target's value takes precedence.
+            this.ForPostOperation(PluginMessages.Update).WithTarget(target).WithPreImage(PreImageName, this.CreateKeyDataPair(KeyDataPairKeys.NumberOfAnimals, "8", "99"));
+            var recorded = this.SetupCommodityComplement();
 
-            var preImage = new defraimp_parametersetkeydatapair
-            {
-                defraimp_name = "number_animal",
-                defraimp_ImporterNotificationId = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId),
-                defraimp_CommodityComplementParameterSet = new EntityReference(defraimp_commoditycomplementparameterset.EntityLogicalName, Guid.NewGuid()) { Name = "99" },
+            this.Execute();
 
-                // Deliberately different to the Target's value, to prove the Target's defraimp_data takes precedence.
-                defraimp_data = "8",
-            };
-
-            this.pluginContextMock.Setup(c => c.MessageName).Returns("Update");
-            this.pluginContextMock.Setup(c => c.InputParameters).Returns(new ParameterCollection { { "Target", target } });
-            this.pluginContextMock.Setup(c => c.PreEntityImages).Returns(new EntityImageCollection { { "PreImage", preImage } });
-
-            var existingComplement = new defraimp_commoditycomplement { Id = commodityComplementId };
-
-            this.orgSvcMock
-                .Setup(o => o.RetrieveMultiple(It.IsAny<Microsoft.Xrm.Sdk.Query.QueryExpression>()))
-                .Returns(new EntityCollection(new System.Collections.Generic.List<Entity> { existingComplement }));
-
-            defraimp_commoditycomplement updated = null;
-            this.orgSvcMock
-                .Setup(o => o.Update(It.IsAny<Entity>()))
-                .Callback<Entity>(e => updated = (defraimp_commoditycomplement)e);
-
-            // Act
-            this.sut.Execute(this.serviceProviderMock.Object);
-
-            // Assert
-            Assert.NotNull(updated);
-            Assert.Equal(commodityComplementId, updated.Id);
-            Assert.Equal("15", updated.defraimp_NumberofAnimals);
+            Assert.Equal("15", ((defraimp_commoditycomplement)this.updated).defraimp_NumberofAnimals);
+            Assert.Contains(
+                Assert.Single(recorded).GetAllConditions(),
+                condition => condition.AttributeName == defraimp_commoditycomplement.Fields.defraimp_complementid && Equals(condition.Values.Single(), 99));
         }
 
-        /// <summary>
-        /// Tests that on Update, when there is no pre-image available, the merged key data pair
-        /// is null and no commodity complement update is attempted.
-        /// </summary>
         [Fact]
-        public void Execute_OnUpdateWithNoPreImage_DoesNotUpdateCommodityComplement()
+        public void Execute_OnUpdateWithNoPreImage_MakesNoServiceCallsAndDoesNotThrow()
         {
-            // Arrange
-            var target = new defraimp_parametersetkeydatapair
-            {
-                defraimp_name = "number_animal",
-                defraimp_data = "15",
-            };
+            this.ForPostOperation(PluginMessages.Update).WithTarget(new defraimp_parametersetkeydatapair { defraimp_name = KeyDataPairKeys.NumberOfAnimals, defraimp_data = "15" });
 
-            this.pluginContextMock.Setup(c => c.MessageName).Returns("Update");
-            this.pluginContextMock.Setup(c => c.InputParameters).Returns(new ParameterCollection { { "Target", target } });
-            this.pluginContextMock.Setup(c => c.PreEntityImages).Returns(new EntityImageCollection());
+            this.Execute();
 
-            // Act
-            var exception = Record.Exception(() => this.sut.Execute(this.serviceProviderMock.Object));
-
-            // Assert
-            Assert.Null(exception);
-            this.orgSvcMock.Verify(o => o.RetrieveMultiple(It.IsAny<Microsoft.Xrm.Sdk.Query.QueryExpression>()), Times.Never);
-            this.orgSvcMock.Verify(o => o.Update(It.IsAny<Entity>()), Times.Never);
+            this.Runtime.Service.VerifyNoOtherCalls();
         }
 
-        /// <summary>
-        /// Tests that an exception thrown during execution is caught and logged via the tracing service
-        /// rather than propagating out of the plugin.
-        /// </summary>
         [Fact]
-        public void Execute_WhenExceptionThrown_LogsErrorAndDoesNotThrow()
+        public void Execute_NoMatchingCommodityComplement_TracesATimestampedWarningAndUpdatesNothing()
         {
-            // Arrange
-            // Omitting "Target" from InputParameters causes a null reference when cast, triggering the catch block.
-            this.pluginContextMock.Setup(c => c.MessageName).Returns("Create");
-            this.pluginContextMock.Setup(c => c.InputParameters).Returns(new ParameterCollection());
+            this.ForPostOperation(PluginMessages.Create).WithTarget(this.CreateKeyDataPair(KeyDataPairKeys.NumberOfAnimals, "7", "42"));
+            this.Runtime.Service.ReturnsRecords(defraimp_commoditycomplement.EntityLogicalName);
 
-            // Act
-            var exception = Record.Exception(() => this.sut.Execute(this.serviceProviderMock.Object));
+            this.Execute();
 
-            // Assert
-            Assert.Null(exception);
-            this.tracingServiceMock.Verify(t => t.Trace(It.IsAny<string>(), It.IsAny<object[]>()), Times.AtLeastOnce);
+            this.Runtime.Service.Verify(service => service.Update(It.IsAny<Entity>()), Times.Never);
+            var warning = Assert.Single(this.Runtime.Tracing.Messages, message => message.Contains($": {nameof(CommodityComplementKeyDataApplier)}: Warning: Cannot apply key data pair '{KeyDataPairKeys.NumberOfAnimals}' - no matching commodity complement found"));
+            Assert.Matches(@"^\d{4}-\d{2}-\d{2}T", warning);
+        }
+
+        [Fact]
+        public void Execute_WhenTheTargetIsMissing_ThrowsInvalidPluginExecutionWithoutCallingTheService()
+        {
+            this.ForPostOperation(PluginMessages.Create).WithoutTarget();
+
+            this.AssertExecuteFailsWithoutCallingService();
+        }
+
+        [Fact]
+        public void Execute_UnsupportedMessage_ThrowsInvalidPluginExecutionWithoutCallingTheService()
+        {
+            this.ForPostOperation(UnsupportedMessage).WithTarget(this.CreateKeyDataPair(KeyDataPairKeys.NumberOfAnimals, "7", "42"));
+
+            this.AssertExecuteFailsWithoutCallingService();
+        }
+
+        [Fact]
+        public void Execute_WhenTheUpdateFails_TracesTheErrorAndDoesNotThrow()
+        {
+            this.ForPostOperation(PluginMessages.Create).WithTarget(this.CreateKeyDataPair(KeyDataPairKeys.NumberOfAnimals, "7", "42"));
+            this.SetupCommodityComplement();
+            this.Runtime.Service.Setup(service => service.Update(It.IsAny<Entity>())).Throws(new InvalidOperationException("The update failed."));
+
+            this.Execute();
+
+            Assert.Single(this.Runtime.Tracing.Messages, message => message.Contains($": {nameof(PopulateAnimalNumber)}: Error: The update failed."));
+        }
+
+        private PluginRuntime ForPostOperation(string messageName)
+        {
+            return this.Runtime.ForStep(messageName, defraimp_parametersetkeydatapair.EntityLogicalName, PluginStages.PostOperation, PluginModes.Synchronous);
+        }
+
+        private defraimp_parametersetkeydatapair CreateKeyDataPair(string name, string data, string complementSetName)
+        {
+            var keyDataPair = new defraimp_parametersetkeydatapair
+            {
+                defraimp_ImporterNotificationId = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, this.importerNotificationId),
+                defraimp_CommodityComplementParameterSet = new EntityReference(defraimp_commoditycomplementparameterset.EntityLogicalName, this.parameterSetId) { Name = complementSetName },
+            };
+
+            if (name != null)
+            {
+                keyDataPair.defraimp_name = name;
+            }
+
+            if (data != null)
+            {
+                keyDataPair.defraimp_data = data;
+            }
+
+            return keyDataPair;
+        }
+
+        private IList<QueryExpression> SetupCommodityComplement()
+        {
+            return this.Runtime.Service.ReturnsRecords(
+                defraimp_commoditycomplement.EntityLogicalName,
+                new defraimp_commoditycomplement { Id = this.commodityComplementId });
         }
     }
 }

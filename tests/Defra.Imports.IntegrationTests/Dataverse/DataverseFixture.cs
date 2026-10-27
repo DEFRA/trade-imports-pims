@@ -3,7 +3,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse
     using System;
     using System.Configuration;
     using System.Linq;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Scenarios;
     using Microsoft.PowerPlatform.Dataverse.Client;
 

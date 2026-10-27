@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>e6fdcd42-bd40-4fc9-a77b-38c8c3fab203</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Defra.Imports.Infrastructure</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DependencyInjection\PluginContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Execution\IExecutionServiceProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Execution\PluginExecutionServiceProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Execution\WorkflowExecutionServiceProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\ILogWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Severity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\TimestampedTracingLogWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\UntimestampedTracingLogWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\TracingServiceLogWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\IPluginHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\IPluginExecution.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginExecution.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginInputParameters.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginMessages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginModes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PluginStages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivities\IWorkflowActivityHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivities\WorkflowActivityBase.cs" />
+  </ItemGroup>
+</Project>

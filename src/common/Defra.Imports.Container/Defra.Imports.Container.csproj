@@ -10,13 +10,14 @@
     <Configurations>Debug;Release;UnitTest</Configurations>
   </PropertyGroup>
 
-  <Import Project="..\Defra.Imports.Model\Defra.Imports.Model.projitems" Label="Shared" />
-
   <Import Project="..\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems" Label="Shared" />
-
   <Import Project="..\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems" Label="Shared" />
+  <Import Project="..\Defra.Imports.Application\Defra.Imports.Application.projitems" Label="Shared" />
+  <Import Project="..\Defra.Imports.Dataverse\Defra.Imports.Dataverse.projitems" Label="Shared" />
+  <Import Project="..\Defra.Imports.Infrastructure\Defra.Imports.Infrastructure.projitems" Label="Shared" />
 
   <ItemGroup>
+    <Reference Include="System.Activities" />
     <PackageReference Include="Creedengo" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

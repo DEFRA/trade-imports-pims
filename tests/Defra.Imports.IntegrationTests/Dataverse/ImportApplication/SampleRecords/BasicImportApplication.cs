@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dataverse.ImportApplication.SampleRecords
 {
     using System;
-    using Defra.Imports.Model;
-    using Defra.Imports.Model.ReferenceData;
+    using Defra.Imports.Dataverse.Model;
+    using Defra.Imports.Application.ReferenceData;
 
     class BasicImportApplication
     {

@@ -1,8 +1,8 @@
 ﻿namespace Defra.Imports.IntegrationTests.Dataverse.PlaceOfDestination.SampleData
 {
     using System;
-    using Defra.Imports.Model;
-    using Defra.Imports.Model.ReferenceData;
+    using Defra.Imports.Dataverse.Model;
+    using Defra.Imports.Application.ReferenceData;
 
     public class PlaceOfDestinationWithData
     {

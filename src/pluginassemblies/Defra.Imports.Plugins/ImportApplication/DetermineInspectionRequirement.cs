@@ -1,94 +1,24 @@
-﻿namespace Defra.Imports.Plugins.ImportApplication
+namespace Defra.Imports.Plugins.ImportApplication
 {
-    using Defra.Imports.BusinessLogic;
-    using Defra.Imports.BusinessLogic.Constants;
-    using Defra.Imports.BusinessLogic.ImportApplication;
-    using Defra.Imports.BusinessLogic.Logging;
-    using Defra.Imports.Model;
-    using Microsoft.Xrm.Sdk;
+    using Defra.Imports.Infrastructure.Plugins;
 
-    [CrmPluginRegistration(
-       MessageNameEnum.Update,
-       nameof(defraimp_importapplication),
-       StageEnum.PostOperation,
-       ExecutionModeEnum.Synchronous,
-       "defraimp_primaryitahcid,defraimp_importrisklevelid,defraimp_placeoforiginid,defraimp_primaryimporternotificationid",
-       "Update Step",
-       0,
-       IsolationModeEnum.Sandbox,
-       Image1Attributes = "defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision,defraimp_primaryimporternotificationid",
-       Image1Name = "PreImage",
-       Image1Type = ImageTypeEnum.PreImage,
-       Image2Attributes = "defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision,defraimp_primaryimporternotificationid",
-       Image2Name = "PostImage",
-       Image2Type = ImageTypeEnum.PostImage)]
-
-    [CrmPluginRegistration(
-       MessageNameEnum.SetState,
-       nameof(defraimp_importapplication),
-       StageEnum.PostOperation,
-       ExecutionModeEnum.Synchronous,
-       "",
-       "Set State Step",
-       0,
-       IsolationModeEnum.Sandbox,
-       Image1Attributes = "defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision,defraimp_primaryimporternotificationid",
-       Image1Name = "PreImage",
-       Image1Type = ImageTypeEnum.PreImage,
-       Image2Attributes = "defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision,defraimp_primaryimporternotificationid",
-       Image2Name = "PostImage",
-       Image2Type = ImageTypeEnum.PostImage)]
-
-    [CrmPluginRegistration(
-       MessageNameEnum.Delete,
-       nameof(defraimp_importapplication),
-       StageEnum.PreOperation,
-       ExecutionModeEnum.Synchronous,
-       "",
-       "Delete Step",
-       0,
-       IsolationModeEnum.Sandbox,
-       Image1Attributes = "defraimp_importapplicationtype,defraimp_importrisklevelid,defraimp_previousimportrisklevelid,defraimp_inspectionrequired,defraimp_inspectionrequiredreason,defraimp_placeoforiginid,defraimp_commoditytypeid,defraimp_countryoforiginid,defraimp_primaryitahcid,statuscode,statecode,defraimp_importrecordcounted,defraimp_manualpostimportcheckdecision,defraimp_primaryimporternotificationid",
-       Image1Name = "PreImage",
-       Image1Type = ImageTypeEnum.PreImage)]
-
-    public class DetermineInspectionRequirement : Plugin
+    /// <summary>
+    /// Determines the inspection requirement of an import application, and keeps the counters that its inspection
+    /// is balanced against up to date, when the import application changes. The class name is retained for the
+    /// registered steps; <see cref="DetermineInspectionRequirementHandler"/> adapts them and the shared application
+    /// service does the work. Registered as three synchronous steps of defraimp_importapplication:
+    /// <list type="bullet">
+    /// <item><description>Update, post-operation, filtering on defraimp_primaryitahcid, defraimp_importrisklevelid, defraimp_placeoforiginid and defraimp_primaryimporternotificationid, with a PreImage and a PostImage on the Target.</description></item>
+    /// <item><description>SetState, post-operation, with a PreImage and a PostImage on the EntityMoniker.</description></item>
+    /// <item><description>Delete, pre-operation, with a PreImage on the Target.</description></item>
+    /// </list>
+    /// </summary>
+    public sealed class DetermineInspectionRequirement : PluginBase<DetermineInspectionRequirementHandler>
     {
-        protected override void Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)
+        /// <summary>Initializes a new instance of the <see cref="DetermineInspectionRequirement"/> class.</summary>
+        public DetermineInspectionRequirement()
+            : base(PluginCompositionRoot.Root)
         {
-            logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Fired plugin with message: " + context.MessageName + ". Depth = " + context.Depth);
-            logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Plugin executing");
-
-            // Try to retrieve a pre-image. This won't work if it's the correct step, so we will pass in a null object which the business logic will handle.
-            defraimp_importapplication preImageApplication = context.PreEntityImages.Contains("PreImage") ? context.PreEntityImages["PreImage"].ToEntity<defraimp_importapplication>() : null;
-
-            // Get the post image
-            defraimp_importapplication postImageApplication = context.PostEntityImages.Contains("PostImage") ? context.PostEntityImages["PostImage"].ToEntity<defraimp_importapplication>() : null;
-
-            DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(preImageApplication, postImageApplication, repositoryFactory, logWriter);
-            determineInspectionRequirementBusinessLogic.RunLogic();
-        }
-
-        private bool IsITAHCUpdateMessage(IPluginExecutionContext context, TracingServiceLogWriter logWriter)
-        {
-            string[] customMessageNames = this.GetCustomMessageNames();
-            bool isRootContextCustomMessage = this.IsRootContextCustomMessage(context, customMessageNames);
-
-            if (context.MessageName == "Update" && isRootContextCustomMessage)
-            {
-                logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Plugin Message is ITAHC Update");
-                return true;
-            }
-            else
-            {
-                logWriter.Log(Severity.Info, "DetermineInspectionLogic", "Plugin Message is not ITAHC Update. Context message: " + context.MessageName + ". IsRootContextCustomMessage = " + isRootContextCustomMessage);
-                return false;
-            }
-        }
-
-        private string[] GetCustomMessageNames()
-        {
-            return new string[] { CustomActionNames.CreateImportRecordFromItahc };
         }
     }
 }

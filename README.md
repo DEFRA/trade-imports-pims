@@ -15,6 +15,10 @@ pip install -r docs-requirements.txt
 mkdocs serve
 ```
 
+## Architecture
+
+Architecture Decision Records and related governance artefacts are maintained under [`architecture/`](architecture/), starting with [ADR 0001 — Lightweight DI Scaffold for Dataverse Plug-ins](architecture/adr/0001-plugin-workflow-di-scaffold.md), a migration and usage guide for the `Application`/`Dataverse`/`Infrastructure` shared-project composition pattern. The scaffold is implemented and unit-tested on this branch, but the ADR's status remains **Proposed**: no component is registered with Dataverse, and no real plug-in/CWA, isolated-environment, or effective-identity validation has been performed.
+
 ## Prerequisites
 
 The following solutions must exist in the target Dataverse environment in order to deploy the package:

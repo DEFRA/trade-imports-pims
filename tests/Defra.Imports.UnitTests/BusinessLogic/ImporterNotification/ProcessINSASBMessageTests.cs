@@ -6,8 +6,8 @@
     using Defra.Imports.BusinessLogic.Extensions;
     using Defra.Imports.BusinessLogic.ImporterNotification;
     using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.INSObject;
-    using Defra.Imports.BusinessLogic.Logging;
-    using Defra.Imports.Model;
+    using Defra.Imports.Infrastructure.Logging;
+    using Defra.Imports.Dataverse.Model;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Messages;
     using Microsoft.Xrm.Sdk.Query;

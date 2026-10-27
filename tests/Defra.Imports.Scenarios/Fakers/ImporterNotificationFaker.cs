@@ -1,7 +1,7 @@
 namespace Defra.Imports.Scenarios.Fakers
 {
     using System;
-    using Defra.Imports.Model;
+    using Defra.Imports.Dataverse.Model;
     using Microsoft.Xrm.Sdk;
 
     /// <summary>

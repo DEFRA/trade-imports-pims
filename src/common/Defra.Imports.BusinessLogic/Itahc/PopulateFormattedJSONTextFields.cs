@@ -1,7 +1,7 @@
 ﻿using Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects;
 using Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects.Formatters;
 using Defra.Imports.BusinessLogic.Itahc.JsonFormatterClassObjects.IdentificationParameterSetObjects;
-using Defra.Imports.Model;
+using Defra.Imports.Dataverse.Model;
 using Microsoft.Xrm.Sdk;
 using System;
 using System.IO;

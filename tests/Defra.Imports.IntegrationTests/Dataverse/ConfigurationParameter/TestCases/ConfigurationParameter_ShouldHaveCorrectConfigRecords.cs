@@ -2,7 +2,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.ConfigurationParameter.TestCa
 {
     using System;
     using Defra.Imports.IntegrationTests.Dataverse.ConfigurationParameter.Assertions;
-    using Defra.Imports.Model.ReferenceData;
+    using Defra.Imports.Application.ReferenceData;
     using MarkTek.Fluent.Testing.RecordGeneration;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
