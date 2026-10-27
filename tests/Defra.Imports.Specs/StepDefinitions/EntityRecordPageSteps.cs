@@ -352,6 +352,16 @@
         }
 
         /// <summary>
+        /// Reloads the record page so that later assertions read the persisted values rather than the form's in-memory state.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [When("I reload the record")]
+        public async Task WhenIReloadTheRecord()
+        {
+            await this.RecordPage.Page.ReloadAndWaitForAppIdleAsync();
+        }
+
+        /// <summary>
         /// Assigns the record to the currently logged in user.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>

@@ -5,6 +5,7 @@ namespace Defra.Imports.Specs.StepDefinitions
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using FluentAssertions;
+    using FluentAssertions.Execution;
     using Microsoft.Playwright;
     using Reqnroll;
 
@@ -54,12 +55,15 @@ namespace Defra.Imports.Specs.StepDefinitions
         [Then("I see the following share options")]
         public async Task ThenISeeTheFollowingShareOptions(DataTable options)
         {
-            foreach (var option in options.Rows.Select(r => r["Option"]))
+            using (new AssertionScope())
             {
-                var menuItem = this.Page.GetByRole(AriaRole.Menuitem, new PageGetByRoleOptions { Name = option, Exact = true });
+                foreach (var option in options.Rows.Select(r => r["Option"]))
+                {
+                    var menuItem = this.Page.GetByRole(AriaRole.Menuitem, new PageGetByRoleOptions { Name = option, Exact = true });
 
-                await menuItem.WaitForAsync();
-                (await menuItem.IsVisibleAsync()).Should().BeTrue($"the share menu should offer '{option}'");
+                    await menuItem.WaitForAsync();
+                    (await menuItem.IsVisibleAsync()).Should().BeTrue($"the share menu should offer '{option}'");
+                }
             }
         }
 

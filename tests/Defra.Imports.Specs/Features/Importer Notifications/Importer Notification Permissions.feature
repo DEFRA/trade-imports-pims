@@ -42,8 +42,9 @@ Scenario: A caseworker can assign an Importer Notification
 	When I assign the current record to me
 	Then 'Owner' field is populated with the current user
 
-@acceptance-criteria:us-044-2
-Scenario: A caseworker can share an Importer Notification
+# Smoke check only: menu visibility doesn't prove the Share privilege, as sharing is never attempted and the items could be disabled. Granting access via Manage access is not covered.
+@issue:US-044
+Scenario: A caseworker sees the share options on an Importer Notification
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
 	When I open the share menu
@@ -72,9 +73,11 @@ Scenario: A caseworker can set a lookup on an Importer Notification
 	And I enter 'IRMS - Wales' in the 'Devolved Office' field
 	And I save the record
 	Then the record is saved successfully
-	And I see a value of 'IRMS - Wales' in the 'Devolved Office' field
+	When I reload the record
+	And I select the 'Importer Notification Details' tab
+	Then I see a value of 'IRMS - Wales' in the 'Devolved Office' field
 
-@acceptance-criteria:us-044-2 @ignore
+@acceptance-criteria:us-044-2
 Scenario: A caseworker cannot create an Importer Notification
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'

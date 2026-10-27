@@ -329,6 +329,25 @@ namespace Defra.Imports.Specs.StepDefinitions
         }
 
         /// <summary>
+        /// Submits an Importer Notification with the given IPAFFS Status and PIMS Status and a Health Certificate document, and adds it to the scenario context for later steps to reference.
+        /// </summary>
+        /// <param name="status">The IPAFFS status.</param>
+        /// <param name="pimsStatus">The PIMS status.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("^an Importer Notification with an IPAFFS Status of '(.*)', a PIMS Status of '(.*)' and a health certificate has been created$")]
+        public async Task GivenAnImporterNotificationWithStatusesAndAHealthCertificateHasBeenCreated(defraimp_importernotificationstatus status, defraimp_pimsstatus pimsStatus)
+        {
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a => a
+                    .WithPimsStatus(pimsStatus)
+                    .WithStatus(status)
+                    .WithHealthCertificate())
+                .BuildAsync();
+
+            this.ctx.Set(scenario);
+        }
+
+        /// <summary>
         /// Searches the active entity list page's data set for the Importer Notification stored in the scenario context, by its reference number.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
@@ -390,6 +409,22 @@ namespace Defra.Imports.Specs.StepDefinitions
 
             this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
                 selectChild(scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotification));
+        }
+
+        /// <summary>
+        /// Asserts that the Importer Notification stored in the scenario context is not in the active entity list page's search results, identified by its reference number.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("I do not see the matching Importer Notification in the search results")]
+        public async Task ThenIDoNotSeeTheMatchingImporterNotificationInTheSearchResults()
+        {
+            var importerNotification = this.GetCreatedImporterNotification();
+
+            var rows = await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetRowDataAsync();
+
+            rows.Should().NotContain(
+                row => row.Contains("Reference Number") && row.Get("Reference Number") == importerNotification.defraimp_Name,
+                because: $"the search results should not include the Importer Notification '{importerNotification.defraimp_Name}'");
         }
 
         private defraimp_ImporterNotification GetCreatedImporterNotification()

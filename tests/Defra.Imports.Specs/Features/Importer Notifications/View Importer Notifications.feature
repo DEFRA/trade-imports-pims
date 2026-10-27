@@ -42,8 +42,8 @@ Scenario: A caseworker sees every column title in the amended Importer Notificat
 	When I switch to the 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view
 	Then no column title in the view is cut off
 
-# The deployed view filters on the IPAFFS Status (Amend), not the PIMS Status (Amended) that AC-6 requires, so the notification has both set.
-@issue:US-044 @acceptance-criteria:us-044-6
+# Both statuses are set, so this passes whichever status the view filters on; it checks the Owner and Health Certificate Attached filters. The PIMS Status filter is covered by the two scenarios below.
+@issue:US-044
 Scenario: A caseworker finds an amended Importer Notification with a health certificate in the Amended Notifications view
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And an amended Importer Notification with a health certificate has been created
@@ -51,6 +51,26 @@ Scenario: A caseworker finds an amended Importer Notification with a health cert
 	When I switch to the 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view
 	And I search for the Importer Notification by its reference number
 	Then I see the matching Importer Notification in the search results
+
+# Defect: US-044 AC-6 filters the view on PIMS Status = Amended, but the deployed view filters on the IPAFFS Status (Amend), so this notification is not found.
+@issue:US-044 @acceptance-criteria:us-044-6 @ignore @defect
+Scenario: A caseworker finds an Importer Notification with a PIMS Status of Amended in the Amended Notifications view
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And an Importer Notification with an IPAFFS Status of 'Submitted', a PIMS Status of 'Amended' and a health certificate has been created
+	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	When I switch to the 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view
+	And I search for the Importer Notification by its reference number
+	Then I see the matching Importer Notification in the search results
+
+# Defect: see the previous scenario; the deployed view includes this notification because its IPAFFS Status is Amend, although its PIMS Status is Open.
+@issue:US-044 @acceptance-criteria:us-044-6 @ignore @defect
+Scenario: A caseworker does not find an Importer Notification with a PIMS Status of Open in the Amended Notifications view
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And an Importer Notification with an IPAFFS Status of 'Amend', a PIMS Status of 'Open' and a health certificate has been created
+	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	When I switch to the 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view
+	And I search for the Importer Notification by its reference number
+	Then I do not see the matching Importer Notification in the search results
 
 # Defect: deployed quick find configuration only searches Reference Number; it does not search Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name or Animal / Product ID as required.
 @issue:US-003 @acceptance-criteria:us-003-3 @ignore @defect
