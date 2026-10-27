@@ -1,42 +1,35 @@
-﻿using Defra.Imports.BusinessLogic;
-using Defra.Imports.BusinessLogic.ImportApplication;
-using Defra.Imports.Dataverse.Model;
-using Defra.Imports.Infrastructure.Logging;
-using Defra.Imports.Repositories;
-using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Workflow;
-using System;
-using System.Activities;
-
 namespace Defra.Imports.Workflows.ImportApplication
 {
+    using System.Activities;
+    using Defra.Imports.Infrastructure.DependencyInjection;
+    using Defra.Imports.Infrastructure.Workflows;
+    using Microsoft.Xrm.Sdk;
+    using Microsoft.Xrm.Sdk.Workflow;
 
-
-    [CrmPluginRegistration(
-    nameof(DetermineInspectionRequirement),
-    "Determine Inspection for Import Application",
-    "Determines whether a particular application should be inspected",
-    "Defra.Imports.Workflows.ImportApplication",
-    IsolationModeEnum.Sandbox)]
-    public class DetermineInspectionRequirement : WorkflowActivity
+    /// <summary>
+    /// Determines whether an import application should be inspected, as if it had just been created. The class
+    /// name, the activity registration and the argument are retained;
+    /// <see cref="DetermineInspectionRequirementHandler"/> adapts the argument and the shared application service
+    /// does the work.
+    /// </summary>
+    public sealed class DetermineInspectionRequirement : WorkflowActivityBase<DetermineInspectionRequirementHandler>
     {
-        #region
+        /// <summary>Initializes a new instance of the <see cref="DetermineInspectionRequirement"/> class.</summary>
+        public DetermineInspectionRequirement()
+            : base(WorkflowCompositionRoot.Root)
+        {
+        }
+
+        /// <summary>Gets or sets the import application whose inspection requirement is determined.</summary>
         [Input("Import Application")]
         [ReferenceTarget("defraimp_importapplication")]
         [RequiredArgument]
         public InArgument<EntityReference> ImportApplication { get; set; }
-        #endregion
 
-        internal override void ExecuteWorkflowActivity(CodeActivityContext context, IWorkflowContext workflowContext, IOrganizationService orgSvc, ILogWriter logWriter)
+        /// <inheritdoc/>
+        protected override void RegisterActivity(PluginContainer scope)
         {
-            Guid importApplicationId = context.GetValue<EntityReference>(ImportApplication).Id;
-            
-            // Create an import application repository
-            ICrmRepository<defraimp_importapplication> importApplicationRepo = new CrmRepository<ImportsContext, defraimp_importapplication>(orgSvc);
-            IRepositoryFactory repositoryFactory = new RepositoryFactory(orgSvc);
-            defraimp_importapplication importApplication = importApplicationRepo.Retrieve(importApplicationId, new string[] { "defraimp_importrisklevelid", "defraimp_previousimportrisklevelid", "defraimp_inspectionrequired", "defraimp_placeoforiginid","defraimp_commoditytypeid", "defraimp_countryoforiginid", "defraimp_primaryitahcid" });
-            DetermineInspectionRequirementBusinessLogic determineInspectionRequirementBusinessLogic = new DetermineInspectionRequirementBusinessLogic(null,importApplication, repositoryFactory, logWriter);
-            determineInspectionRequirementBusinessLogic.RunLogic();
+            scope.Register<DetermineInspectionRequirement>(this);
         }
     }
 }

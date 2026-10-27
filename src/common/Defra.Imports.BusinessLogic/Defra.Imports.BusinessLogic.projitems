@@ -15,32 +15,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ObjectExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Import Query\AddNotesToCloneImportQuery.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Contexts\DetermineInspectionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\InspectionsSinceLastCheckCounterManagerBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\PrimaryImpoterNotificationCountManagerBusinessLogic.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Strategies\TBDetermineInspection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\PopulateCountriesOfTransitFromNotificationBusinessLogic.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Auditor\CounterTransactionDetail.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Auditor\IImportRiskCounterAuditor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Auditor\ImportRiskCounterAuditor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Factories\AbstractCounterTransactionDetailFactory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Factories\CounterTransactionDetailFactory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\AutonumberRiskLevelCounterManager - Copy.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\OnlyGlobalCounterRiskLevelManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\PlaceOfOriginRiskLevelCounterManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\AbstractRiskCounterManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\InspectionPlaceOfOriginChangeBusinessLogic.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\DetermineInspectionRequirementBusinessLogic.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Helpers\CommodityHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Strategies\AbstractDetermineInspection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Helpers\InspectionRequirement.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Strategies\P1DetermineInspection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Strategies\P2DetermineInspection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Strategies\P3DetermineInspection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\DetermineInspection\Strategies\UnknownDetermineInspection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Factories\DetermineInspectionAbstractFatory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\Factories\DetermineInspectionFactory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\ImportApplicationConstants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImportApplication\CounterManagers\PrimaryITAHCCountManagerBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\CommodityComplementObjects\CommodityComplementObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\IdentificationOfAnimalsObjects\Data.cs" />
@@ -123,7 +100,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)WorkflowActivity.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)ImportApplication\RiskLevelCounterManager\Managers\" />
     <Folder Include="$(MSBuildThisFileDirectory)Itahc\JsonFormatterClassObjects\CommodityComplementObjects\" />
   </ItemGroup>
 </Project>

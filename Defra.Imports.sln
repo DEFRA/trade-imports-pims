@@ -224,6 +224,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{2b1ef6de-63cc-4b7e-9bf6-5d9b4c0afded}*SharedItemsImports = 13
+		src\common\Defra.Imports.Dataverse\Defra.Imports.Dataverse.projitems*{2b1ef6de-63cc-4b7e-9bf6-5d9b4c0afded}*SharedItemsImports = 13
+		src\common\Defra.Imports.Infrastructure\Defra.Imports.Infrastructure.projitems*{2b1ef6de-63cc-4b7e-9bf6-5d9b4c0afded}*SharedItemsImports = 13
 		src\common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{56d657e2-2db7-4489-ad26-ca2e147836c6}*SharedItemsImports = 13
 		src\common\Defra.Imports.Application\Defra.Imports.Application.projitems*{960f4741-338c-e21c-e95b-e38695a78b78}*SharedItemsImports = 5
 		src\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{960f4741-338c-e21c-e95b-e38695a78b78}*SharedItemsImports = 5

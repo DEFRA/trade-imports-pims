@@ -3,10 +3,14 @@ namespace Defra.Imports.UnitTests.Workflows
     using System;
     using System.Activities;
     using System.Runtime.Serialization;
+    using Defra.Imports.Application.InspectionRequirements;
     using Defra.Imports.Application.WatchLists;
     using Defra.Imports.Dataverse.Contexts;
     using Defra.Imports.Infrastructure.Execution;
+    using Defra.Imports.Infrastructure.Logging;
+    using Defra.Imports.UnitTests.Support;
     using Defra.Imports.Workflows;
+    using Defra.Imports.Workflows.ImportApplication;
     using Defra.Imports.Workflows.WatchLists;
     using Microsoft.Xrm.Sdk;
     using Moq;
@@ -35,6 +39,88 @@ namespace Defra.Imports.UnitTests.Workflows
                 var handler = scope.Resolve<InitialiseWatchListHandler>();
 
                 Assert.NotNull(handler);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithRuntimeServices_ResolvesDetermineInspectionRequirementHandler()
+        {
+            using (var scope = WorkflowCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IOrganizationService>(Mock.Of<IOrganizationService>());
+                scope.Register<ITracingService>(new RecordingTracingService());
+
+                // The host supplies a CodeActivityContext that cannot be constructed outside the workflow runtime;
+                // resolution only stores it, so an uninitialised instance is enough to prove the graph resolves.
+                scope.Register<CodeActivityContext>((CodeActivityContext)FormatterServices.GetUninitializedObject(typeof(CodeActivityContext)));
+                scope.Register<DetermineInspectionRequirement>(new DetermineInspectionRequirement());
+
+                var handler = scope.Resolve<DetermineInspectionRequirementHandler>();
+
+                Assert.NotNull(handler);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithRuntimeServices_ResolvesInspectionPlaceOfOriginChangeHandler()
+        {
+            using (var scope = WorkflowCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IOrganizationService>(Mock.Of<IOrganizationService>());
+                scope.Register<ITracingService>(new RecordingTracingService());
+
+                // The host supplies a CodeActivityContext that cannot be constructed outside the workflow runtime;
+                // resolution only stores it, so an uninitialised instance is enough to prove the graph resolves.
+                scope.Register<CodeActivityContext>((CodeActivityContext)FormatterServices.GetUninitializedObject(typeof(CodeActivityContext)));
+                scope.Register<InspectionPlaceOfOriginChange>(new InspectionPlaceOfOriginChange());
+
+                var handler = scope.Resolve<InspectionPlaceOfOriginChangeHandler>();
+
+                Assert.NotNull(handler);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithOrganizationService_ResolvesTheSharedInspectionRequirementDeterminer()
+        {
+            using (var scope = WorkflowCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IOrganizationService>(Mock.Of<IOrganizationService>());
+                scope.Register<ITracingService>(new RecordingTracingService());
+
+                var determiner = scope.Resolve<IInspectionRequirementDeterminer>();
+
+                Assert.IsType<InspectionRequirementDeterminer>(determiner);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithOrganizationService_ResolvesTheSharedInspectionPlaceOfOriginChanger()
+        {
+            using (var scope = WorkflowCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IOrganizationService>(Mock.Of<IOrganizationService>());
+                scope.Register<ITracingService>(new RecordingTracingService());
+
+                var changer = scope.Resolve<IInspectionPlaceOfOriginChanger>();
+
+                Assert.IsType<InspectionPlaceOfOriginChanger>(changer);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithTracingService_ResolvesAnUntimestampedLogWriter()
+        {
+            var tracing = new RecordingTracingService();
+            using (var scope = WorkflowCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<ITracingService>(tracing);
+
+                var logWriter = scope.Resolve<ILogWriter>();
+                logWriter.Log(Severity.Info, "Tag", "Message");
+
+                Assert.IsType<UntimestampedTracingLogWriter>(logWriter);
+                Assert.Equal("Tag: Info: Message", Assert.Single(tracing.Messages));
             }
         }
 

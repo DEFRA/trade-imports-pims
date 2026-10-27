@@ -46,5 +46,37 @@ namespace Defra.Imports.Dataverse.Extensions
                 importApplication.Id,
                 importApplication.defraimp_PrimaryImporterNotificationId?.Id);
         }
+
+        /// <summary>
+        /// Projects an import application onto the values needed to determine its inspection requirement. The import
+        /// application is not modified. An attribute that it does not hold, such as one that an image or a retrieve
+        /// did not include, is projected as null.
+        /// </summary>
+        /// <param name="importApplication">The import application.</param>
+        /// <returns>The context holding the values that the inspection requirement depends on.</returns>
+        public static InspectionImportApplicationContext ToInspectionContext(this defraimp_importapplication importApplication)
+        {
+            if (importApplication == null)
+            {
+                throw new ArgumentNullException(nameof(importApplication));
+            }
+
+            return new InspectionImportApplicationContext(
+                importApplication.Id,
+                importApplication.defraimp_ImportApplicationType,
+                importApplication.defraimp_importrisklevelid,
+                importApplication.defraimp_InspectionRequired,
+                importApplication.defraimp_InspectionRequiredReason,
+                importApplication.defraimp_PlaceofOriginid,
+                importApplication.defraimp_previousplaceoforiginid,
+                importApplication.defraimp_CommodityTypeId,
+                importApplication.defraimp_CountryofOriginId,
+                importApplication.defraimp_PrimaryITAHCId,
+                importApplication.defraimp_PrimaryImporterNotificationId,
+                importApplication.statecode,
+                importApplication.statuscode,
+                importApplication.defraimp_ImportRecordCounted,
+                importApplication.defraimp_ManualPostImportCheckDecision);
+        }
     }
 }

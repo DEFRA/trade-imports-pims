@@ -1,6 +1,7 @@
 namespace Defra.Imports.UnitTests.Plugins
 {
     using Defra.Imports.Application.CommodityComplements;
+    using Defra.Imports.Application.InspectionRequirements;
     using Defra.Imports.Application.WatchLists;
     using Defra.Imports.Dataverse.Contexts;
     using Defra.Imports.Infrastructure.Execution;
@@ -170,6 +171,37 @@ namespace Defra.Imports.UnitTests.Plugins
                 var associator = scope.Resolve<IWatchFlagAssociator>();
 
                 Assert.IsType<WatchFlagAssociator>(associator);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithRuntimeServices_ResolvesTheDetermineInspectionRequirementHandler()
+        {
+            var runtime = new PluginRuntime();
+            using (var scope = PluginCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IPluginExecution>(runtime.CreateExecution());
+                scope.Register<IOrganizationService>(runtime.Service.Object);
+                scope.Register<ITracingService>(runtime.Tracing);
+
+                var handler = scope.Resolve<DetermineInspectionRequirementHandler>();
+
+                Assert.NotNull(handler);
+            }
+        }
+
+        [Fact]
+        public void Root_ExecutionScopeWithOrganizationService_ResolvesTheSharedInspectionRequirementDeterminer()
+        {
+            var runtime = new PluginRuntime();
+            using (var scope = PluginCompositionRoot.Root.CreateExecutionScope())
+            {
+                scope.Register<IOrganizationService>(runtime.Service.Object);
+                scope.Register<ITracingService>(runtime.Tracing);
+
+                var determiner = scope.Resolve<IInspectionRequirementDeterminer>();
+
+                Assert.IsType<InspectionRequirementDeterminer>(determiner);
             }
         }
 

@@ -2,6 +2,7 @@ namespace Defra.Imports.Plugins
 {
     using System;
     using Defra.Imports.Application.CommodityComplements;
+    using Defra.Imports.Application.InspectionRequirements;
     using Defra.Imports.Application.WatchLists;
     using Defra.Imports.Dataverse.Contexts;
     using Defra.Imports.Dataverse.Model;
@@ -45,6 +46,18 @@ namespace Defra.Imports.Plugins
             root.Register<IWatchFlagAssociator, WatchFlagAssociator>();
             root.Register<AssociateWatchFlagsFromPrimaryItahcHandler>();
             root.Register<AssociateWatchFlagsFromNotificationHandler>();
+
+            root.Register<IInspectionRequirementDeterminer, InspectionRequirementDeterminer>();
+            root.Register<InspectionStrategyFactory>();
+            root.Register<RiskCounterManagerFactory>();
+            root.Register<InspectionRequirementUpdater>();
+            root.Register<ImportRiskCounterAuditor>();
+            root.Register<AutonumberCounters>();
+            root.Register<PlaceOfOriginCounters>();
+            root.Register<InspectionQueries>();
+            root.Register<AutonumberQueries>();
+            root.Register<PlaceOfOriginQueries>();
+            root.Register<DetermineInspectionRequirementHandler>();
 
             root.Register<ILogWriter, TimestampedTracingLogWriter>();
             root.Register<IImportsContextFactory, ImportsContextFactory>();

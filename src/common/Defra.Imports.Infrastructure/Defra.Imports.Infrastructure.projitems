@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ILogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\Severity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\TimestampedTracingLogWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\UntimestampedTracingLogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\TracingServiceLogWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugins\IPluginHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugins\IPluginExecution.cs" />

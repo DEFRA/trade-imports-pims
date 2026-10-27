@@ -1,7 +1,7 @@
 namespace Defra.Imports.IntegrationTests.Dataverse.Autonumber.TestCases
 {
     using System;
-    using Defra.Imports.BusinessLogic.ImportApplication;
+    using Defra.Imports.Application.Constants;
     using Defra.Imports.IntegrationTests.Dataverse;
     using Defra.Imports.IntegrationTests.Dataverse.Autonumber.Assertions;
     using Defra.Imports.Application.ReferenceData;
@@ -17,7 +17,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.Autonumber.TestCases
         {
             var recordService = new RecordService<Guid>(Autonumbers.p1RecordCount.Id);
             recordService
-                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), ImportApplicationConstants.P1_COUNTER_NAME));
+                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), InspectionConstants.P1CounterName));
         }
 
         [TestMethod]
@@ -25,7 +25,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.Autonumber.TestCases
         {
             var recordService = new RecordService<Guid>(Autonumbers.p1QuotaCount.Id);
             recordService
-                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), ImportApplicationConstants.P1_QUOTA_COUNTER_NAME));
+                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), InspectionConstants.P1QuotaCounterName));
         }
 
         [TestMethod]
@@ -33,7 +33,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.Autonumber.TestCases
         {
             var recordService = new RecordService<Guid>(Autonumbers.p2RecordCount.Id);
             recordService
-                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), ImportApplicationConstants.P2_COUNTER_NAME));
+                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), InspectionConstants.P2CounterName));
         }
 
         [TestMethod]
@@ -41,7 +41,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.Autonumber.TestCases
         {
             var recordService = new RecordService<Guid>(Autonumbers.p2QuotaCount.Id);
             recordService
-                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), ImportApplicationConstants.P2_QUOTA_COUNTER_NAME));
+                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), InspectionConstants.P2QuotaCounterName));
         }
 
         [TestMethod]
@@ -49,7 +49,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.Autonumber.TestCases
         {
             var recordService = new RecordService<Guid>(Autonumbers.p3RecordCount.Id);
             recordService
-                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), ImportApplicationConstants.P3_COUNTER_NAME));
+                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), InspectionConstants.P3CounterName));
         }
 
         [TestMethod]
@@ -57,7 +57,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.Autonumber.TestCases
         {
             var recordService = new RecordService<Guid>(Autonumbers.p3QuotaCount.Id);
             recordService
-                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), ImportApplicationConstants.P3_QUOTA_COUNTER_NAME));
+                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), InspectionConstants.P3QuotaCounterName));
         }
 
         [TestMethod]
@@ -65,7 +65,7 @@ namespace Defra.Imports.IntegrationTests.Dataverse.Autonumber.TestCases
         {
             var recordService = new RecordService<Guid>(Autonumbers.importApplicationCount.Id);
             recordService
-                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), ImportApplicationConstants.IMPORT_APPLICATION_COUNTER_NAME));
+                .AssertAgainst(new AutonumberRecordValidateValues(this.GetAppUserContext(), InspectionConstants.ImportApplicationCounterName));
         }
 
     }

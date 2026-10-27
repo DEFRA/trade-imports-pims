@@ -1,11 +1,14 @@
 namespace Defra.Imports.Workflows
 {
     using System;
+    using Defra.Imports.Application.InspectionRequirements;
     using Defra.Imports.Application.WatchLists;
     using Defra.Imports.Dataverse.Contexts;
     using Defra.Imports.Dataverse.Model;
     using Defra.Imports.Dataverse.Queries;
     using Defra.Imports.Infrastructure.DependencyInjection;
+    using Defra.Imports.Infrastructure.Logging;
+    using Defra.Imports.Workflows.ImportApplication;
     using Defra.Imports.Workflows.WatchLists;
 
     /// <summary>Owns registration metadata shared by new workflow activity handlers.</summary>
@@ -27,6 +30,23 @@ namespace Defra.Imports.Workflows
             root.Register<IWatchListInitialiser, WatchListInitialiser>();
             root.Register<WatchListQueries>();
             root.Register<InitialiseWatchListHandler>();
+
+            root.Register<IInspectionRequirementDeterminer, InspectionRequirementDeterminer>();
+            root.Register<IInspectionPlaceOfOriginChanger, InspectionPlaceOfOriginChanger>();
+            root.Register<InspectionStrategyFactory>();
+            root.Register<RiskCounterManagerFactory>();
+            root.Register<InspectionRequirementUpdater>();
+            root.Register<ImportRiskCounterAuditor>();
+            root.Register<AutonumberCounters>();
+            root.Register<PlaceOfOriginCounters>();
+            root.Register<InspectionQueries>();
+            root.Register<AutonumberQueries>();
+            root.Register<PlaceOfOriginQueries>();
+            root.Register<DetermineInspectionRequirementHandler>();
+            root.Register<InspectionPlaceOfOriginChangeHandler>();
+
+            // The legacy workflow activities traced without timestamps.
+            root.Register<ILogWriter, UntimestampedTracingLogWriter>();
 
             root.Register<IImportsContextFactory, ImportsContextFactory>();
             root.Register<ImportsContext>();

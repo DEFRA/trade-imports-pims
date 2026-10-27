@@ -8,5 +8,11 @@ namespace Defra.Imports.Infrastructure.Plugins
 
         /// <summary>The Update message.</summary>
         public const string Update = "Update";
+
+        /// <summary>The Delete message.</summary>
+        public const string Delete = "Delete";
+
+        /// <summary>The SetState message.</summary>
+        public const string SetState = "SetState";
     }
 }

@@ -26,12 +26,15 @@ namespace Defra.Imports.UnitTests.Infrastructure.Plugins
         {
             Assert.Equal("Create", PluginMessages.Create);
             Assert.Equal("Update", PluginMessages.Update);
+            Assert.Equal("Delete", PluginMessages.Delete);
+            Assert.Equal("SetState", PluginMessages.SetState);
         }
 
         [Fact]
         public void PluginInputParameters_HaveTheDataverseParameterNames()
         {
             Assert.Equal("Target", PluginInputParameters.Target);
+            Assert.Equal("EntityMoniker", PluginInputParameters.EntityMoniker);
         }
     }
 }

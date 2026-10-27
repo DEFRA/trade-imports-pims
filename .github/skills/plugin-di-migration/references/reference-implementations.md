@@ -17,6 +17,9 @@ Copy the shape of these files, not their business content. Read only the layers 
 | Composition root | `src/pluginassemblies/Defra.Imports.Plugins/PluginCompositionRoot.cs` | `Register<I, T>()` for services; `Register<T>()` for queries and handlers |
 | Plug-in constants | `src/common/Defra.Imports.Infrastructure/Plugins/PluginMessages.cs`, `PluginStages.cs`, `PluginModes.cs`, `PluginInputParameters.cs` | Shared message, stage, mode and parameter names |
 | Base types (do not change) | `src/common/Defra.Imports.Infrastructure/Plugins/PluginBase.cs`, `IPluginHandler.cs`, `IPluginExecution.cs`, `PluginExecution.cs` | What every migrated plug-in inherits: scope creation, tracing and failure wrapping |
+| Entry point with three steps and images | `src/pluginassemblies/Defra.Imports.Plugins/ImportApplication/DetermineInspectionRequirement.cs`, `DetermineInspectionRequirementHandler.cs` | Per-message stage, `Target` or `EntityMoniker` and image validation; pre and post images projected onto one context; `ILogWriter` because the legacy plug-in traced |
+| Workflow activity and handler | `src/pluginassemblies/Defra.Imports.Workflows/ImportApplication/DetermineInspectionRequirement.cs`, `DetermineInspectionRequirementHandler.cs`, `InspectionPlaceOfOriginChange.cs`, `InspectionPlaceOfOriginChangeHandler.cs` | `WorkflowActivityBase<THandler>` over a frozen argument; the handler passes the identifier and the application service retrieves with the legacy columns |
+| Stateful, interleaved use case | `src/common/Defra.Imports.Application/InspectionRequirements/` | Strategies and counter managers as injected collaborators; a working record that tracks a changed flag so that inputs are never modified; the auditor called directly in place of an event |
 
 ## Tests
 
@@ -30,6 +33,7 @@ All paths are under `tests/Defra.Imports.UnitTests`.
 | Query | `Dataverse/Queries/WatchFlagQueriesTests.cs`, `Dataverse/Queries/CommodityComplementQueriesTests.cs` |
 | Extension | `Dataverse/Extensions/ItahcExtensionsTests.cs`, `ImporterNotificationExtensionsTests.cs`, `ParameterSetKeyDataPairExtensionsTests.cs` |
 | Composition root and constants | `Plugins/PluginCompositionRootTests.cs`, `Infrastructure/Plugins/PluginConstantsTests.cs` |
+| Stateful logic over an in-memory store | `Support/InspectionDataverse.cs`, `InspectionTestData.cs`, `InspectionServices.cs`; `Application/InspectionRequirements/P1InspectionStrategyTests.cs`, `InspectionRequirementDeterminerTests.cs` |
 | Support | `Support/PluginTestBase.cs`, `PluginRuntime.cs`, `RecordingTracingService.cs`, `WatchListServiceMockExtensions.cs`, `QueryExpressionExtensions.cs` |
 
 ## Not a reference
