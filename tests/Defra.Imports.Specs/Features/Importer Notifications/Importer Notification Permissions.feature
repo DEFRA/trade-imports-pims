@@ -61,6 +61,17 @@ Scenario: A caseworker can append a note to an Importer Notification
 	When I add the note 'Reviewed and ready for risk assessment.'
 	Then I see a note containing 'Reviewed and ready for risk assessment.'
 
+# Setting a lookup on the Importer Notification needs Append on the Importer Notification. Afghanistan is not one of the countries the test data generates, so the save always changes the value.
+@acceptance-criteria:us-044-2
+Scenario: A caseworker can set a lookup on an Importer Notification
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification
+	When I select the 'Importer Notification Details' tab
+	And I enter 'Afghanistan' in the 'Country of Origin' field
+	And I save the record
+	Then the record is saved successfully
+	And I see a value of 'Afghanistan' in the 'Country of Origin' field
+
 @acceptance-criteria:us-044-2 @ignore
 Scenario: A caseworker cannot create an Importer Notification
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
