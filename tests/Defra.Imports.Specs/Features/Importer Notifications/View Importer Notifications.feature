@@ -1,6 +1,6 @@
 Feature: View Importer Notifications
 
-@issue:US-003 @acceptance-criteria:us-003-2
+@issue:US-003 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-8
 Scenario: A caseworker views active Importer Notifications
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
@@ -24,6 +24,53 @@ Scenario: A caseworker views Importer Notifications flagged for multiple commodi
 	Then I see a 'Importer Notifications with >1 Commodity Codes - No Caseworker intervention' view with the following columns
 		| Reference Number | Version | Submission Date | Created On | Status | Type | Person Responsible Name | Person Responsible Company Name | Person Responsible Email | Person Responsible Phone | Country of Origin | Region of Origin |
 	And the view is sorted by the 'Created On' column in descending order
+
+@issue:US-044 @acceptance-criteria:us-044-6
+# US-044 AC-6 names the last-but-one column 'Port of Entry'; the deployed view labels it 'BCP or Port of Entry'.
+Scenario: A caseworker views amended Importer Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	Then I see a 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view with the following columns
+		| Reference Number | Version | PIMS Status | Type of Non-Compliance | IRMS Person Responsible | Devolved Office | Arrival Date | Submission Date | Created On | Status | Type | Country of Origin | Commodity Code | Commodity Species Name | Commodities Number of Animals | Commodity ID Types | Purpose of Movement | Place of Original Harvest Company Name | Place of Original Harvest Individual Name | Place of Destination Address Postcode | Place of Destination Company Name | Place of Destination Address City | Person Responsible Name | Person Responsible Company Name | Transporter Company Name | BCP or Port of Entry | Owner |
+	And the view is sorted by the 'Created On' column in ascending order
+
+# Defect: US-044 AC-6 requires column widths to show the whole title, but 'Type of Non-Compliance', 'Submission Date', 'Commodity Species Name', 'Commodities Number of Animals', 'Commodity ID Types' and 'BCP or Port of Entry' are cut off in the deployed view.
+@issue:US-044 @acceptance-criteria:us-044-6 @ignore @defect
+Scenario: A caseworker sees every column title in the amended Importer Notifications view
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	When I switch to the 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view
+	Then no column title in the view is cut off
+
+# Both statuses are set, so this passes whichever status the view filters on; it checks the Owner and Health Certificate Attached filters. The PIMS Status filter is covered by the two scenarios below.
+@issue:US-044
+Scenario: A caseworker finds an amended Importer Notification with a health certificate in the Amended Notifications view
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And an amended Importer Notification with a health certificate has been created
+	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	When I switch to the 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view
+	And I search for the Importer Notification by its reference number
+	Then I see the matching Importer Notification in the search results
+
+# Defect: US-044 AC-6 filters the view on PIMS Status = Amended, but the deployed view filters on the IPAFFS Status (Amend), so this notification is not found.
+@issue:US-044 @acceptance-criteria:us-044-6 @ignore @defect
+Scenario: A caseworker finds an Importer Notification with a PIMS Status of Amended in the Amended Notifications view
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And an Importer Notification with an IPAFFS Status of 'Submitted', a PIMS Status of 'Amended' and a health certificate has been created
+	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	When I switch to the 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view
+	And I search for the Importer Notification by its reference number
+	Then I see the matching Importer Notification in the search results
+
+# Defect: see the previous scenario; the deployed view includes this notification because its IPAFFS Status is Amend, although its PIMS Status is Open.
+@issue:US-044 @acceptance-criteria:us-044-6 @ignore @defect
+Scenario: A caseworker does not find an Importer Notification with a PIMS Status of Open in the Amended Notifications view
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And an Importer Notification with an IPAFFS Status of 'Amend', a PIMS Status of 'Open' and a health certificate has been created
+	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	When I switch to the 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view
+	And I search for the Importer Notification by its reference number
+	Then I do not see the matching Importer Notification in the search results
 
 # Defect: deployed quick find configuration only searches Reference Number; it does not search Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name or Animal / Product ID as required.
 @issue:US-003 @acceptance-criteria:us-003-3 @ignore @defect

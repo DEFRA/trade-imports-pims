@@ -306,6 +306,28 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_notificationpermanentaddress"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_notificationpermanentaddress> defraimp_notificationpermanentaddressSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_notificationpermanentaddress>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_parametersetidentifier"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_parametersetidentifier> defraimp_parametersetidentifierSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_parametersetidentifier>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_parametersetkeydatapair"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_parametersetkeydatapair> defraimp_parametersetkeydatapairSet

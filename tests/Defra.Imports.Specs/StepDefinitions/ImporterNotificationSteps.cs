@@ -7,6 +7,7 @@ namespace Defra.Imports.Specs.StepDefinitions
     using Bogus;
     using Defra.Imports.Model;
     using Defra.Imports.Scenarios;
+    using Defra.Imports.Scenarios.Events;
     using Defra.Imports.Specs.Services;
     using FluentAssertions;
     using Microsoft.Extensions.Logging;
@@ -190,6 +191,98 @@ namespace Defra.Imports.Specs.StepDefinitions
         }
 
         /// <summary>
+        /// Submits an Importer Notification with or without a Health Certificate document that has a URL, and navigates to it.
+        /// </summary>
+        /// <param name="withOrWithout">Whether the notification has a health certificate document.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("^I have opened an Importer Notification (with|without) a health certificate document$")]
+        public async Task GivenIHaveOpenedAnImporterNotificationWithAHealthCertificateDocument(string withOrWithout)
+        {
+            this.powerPlaywrightCtx.Validate();
+
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a =>
+                {
+                    if (withOrWithout == "with")
+                    {
+                        a.WithHealthCertificate();
+                    }
+                })
+                .BuildAsync();
+
+            var importerNotificationId = scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;
+
+            this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
+                new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId));
+        }
+
+        /// <summary>
+        /// Submits an Importer Notification with one permanent address, and navigates directly to that permanent address.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("I have opened a permanent address of an Importer Notification")]
+        public async Task GivenIHaveOpenedAPermanentAddressOfAnImporterNotification()
+        {
+            await this.NavigateToChildRecordAsync(
+                a => a.WithPermanentAddress(),
+                n => new EntityReference(defraimp_notificationpermanentaddress.EntityLogicalName, n.defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_ImporterNotificationId.First().Id));
+        }
+
+        /// <summary>
+        /// Submits an Importer Notification and navigates directly to its commodity species (commodity complement) record.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("I have opened a commodity species of an Importer Notification")]
+        public async Task GivenIHaveOpenedACommoditySpeciesOfAnImporterNotification()
+        {
+            await this.NavigateToChildRecordAsync(
+                null,
+                n => new EntityReference(defraimp_commoditycomplement.EntityLogicalName, n.defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification.First().Id));
+        }
+
+        /// <summary>
+        /// Submits an Importer Notification and navigates directly to one of its parameter set identifier records.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("I have opened a parameter set identifier of an Importer Notification")]
+        public async Task GivenIHaveOpenedAParameterSetIdentifierOfAnImporterNotification()
+        {
+            await this.NavigateToChildRecordAsync(
+                null,
+                n => new EntityReference(
+                    defraimp_parametersetidentifier.EntityLogicalName,
+                    n.defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNotification.First().defraimp_parameterset_defraimp_parametersetidentifier_CommodityComplementParameterSet.First().Id));
+        }
+
+        /// <summary>
+        /// Submits an Importer Notification and navigates directly to one of its parameter set key/data pair records.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("I have opened a parameter set key data pair of an Importer Notification")]
+        public async Task GivenIHaveOpenedAParameterSetKeyDataPairOfAnImporterNotification()
+        {
+            await this.NavigateToChildRecordAsync(
+                null,
+                n => new EntityReference(
+                    defraimp_parametersetkeydatapair.EntityLogicalName,
+                    n.defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNotification.First().defraimp_parameterset_defraimp_parametersetkeydatapair_CommodityComplementParameterSet.First().Id));
+        }
+
+        /// <summary>
+        /// Submits an Importer Notification and navigates directly to one of its commodity complement parameter set records.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("I have opened a commodity complement parameter set of an Importer Notification")]
+        public async Task GivenIHaveOpenedACommodityComplementParameterSetOfAnImporterNotification()
+        {
+            await this.NavigateToChildRecordAsync(
+                null,
+                n => new EntityReference(
+                    defraimp_commoditycomplementparameterset.EntityLogicalName,
+                    n.defraimp_importernotification_defraimp_commoditycomplementparameterset_ImporterNotification.First().Id));
+        }
+
+        /// <summary>
         /// Submits an Importer Notification, as the EU Imports Notifications Logic App would from an IPAFFS message, with no specific configuration, and adds it to the scenario context for later steps to reference.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
@@ -216,6 +309,52 @@ namespace Defra.Imports.Specs.StepDefinitions
                 .BuildAsync();
 
             this.ctx.Set(scenario);
+        }
+
+        /// <summary>
+        /// Submits an amended Importer Notification (PIMS Status Amended, IPAFFS Status Amend) with a Health Certificate document, and adds it to the scenario context for later steps to reference.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("an amended Importer Notification with a health certificate has been created")]
+        public async Task GivenAnAmendedImporterNotificationWithAHealthCertificateHasBeenCreated()
+        {
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a => a
+                    .WithPimsStatus(defraimp_pimsstatus.Amended)
+                    .WithStatus(defraimp_importernotificationstatus.Amend)
+                    .WithHealthCertificate())
+                .BuildAsync();
+
+            this.ctx.Set(scenario);
+        }
+
+        /// <summary>
+        /// Submits an Importer Notification with the given IPAFFS Status and PIMS Status and a Health Certificate document, and adds it to the scenario context for later steps to reference.
+        /// </summary>
+        /// <param name="status">The IPAFFS status.</param>
+        /// <param name="pimsStatus">The PIMS status.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Given("^an Importer Notification with an IPAFFS Status of '(.*)', a PIMS Status of '(.*)' and a health certificate has been created$")]
+        public async Task GivenAnImporterNotificationWithStatusesAndAHealthCertificateHasBeenCreated(defraimp_importernotificationstatus status, defraimp_pimsstatus pimsStatus)
+        {
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a => a
+                    .WithPimsStatus(pimsStatus)
+                    .WithStatus(status)
+                    .WithHealthCertificate())
+                .BuildAsync();
+
+            this.ctx.Set(scenario);
+        }
+
+        /// <summary>
+        /// Searches the active entity list page's data set for the Importer Notification stored in the scenario context, by its reference number.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [When("I search for the Importer Notification by its reference number")]
+        public async Task WhenISearchForTheImporterNotificationByItsReferenceNumber()
+        {
+            await this.EntityListPage.DataSet.SearchAsync(this.GetCreatedImporterNotification().defraimp_Name);
         }
 
         /// <summary>
@@ -258,6 +397,34 @@ namespace Defra.Imports.Specs.StepDefinitions
             rows.Should().Contain(
                 row => row.Contains("Reference Number") && row.Get("Reference Number") == importerNotification.defraimp_Name,
                 because: $"the search results should include the Importer Notification '{importerNotification.defraimp_Name}'");
+        }
+
+        private async Task NavigateToChildRecordAsync(Action<LogicAppSubmitsImporterNotificationEvent.Builder> configurator, Func<defraimp_ImporterNotification, EntityReference> selectChild)
+        {
+            this.powerPlaywrightCtx.Validate();
+
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(configurator)
+                .BuildAsync();
+
+            this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
+                selectChild(scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotification));
+        }
+
+        /// <summary>
+        /// Asserts that the Importer Notification stored in the scenario context is not in the active entity list page's search results, identified by its reference number.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("I do not see the matching Importer Notification in the search results")]
+        public async Task ThenIDoNotSeeTheMatchingImporterNotificationInTheSearchResults()
+        {
+            var importerNotification = this.GetCreatedImporterNotification();
+
+            var rows = await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetRowDataAsync();
+
+            rows.Should().NotContain(
+                row => row.Contains("Reference Number") && row.Get("Reference Number") == importerNotification.defraimp_Name,
+                because: $"the search results should not include the Importer Notification '{importerNotification.defraimp_Name}'");
         }
 
         private defraimp_ImporterNotification GetCreatedImporterNotification()

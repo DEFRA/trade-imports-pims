@@ -251,6 +251,55 @@
         }
 
         /// <summary>
+        /// Verifies the state of a checkbox field.
+        /// </summary>
+        /// <param name="displayName">The field display name.</param>
+        /// <param name="state">The expected state, 'checked' or 'unchecked'.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("^the '(.*)' checkbox is (checked|unchecked)$")]
+        public async Task ThenTheCheckboxIs(string displayName, string state)
+        {
+            // The framework's checkbox control targets the legacy control, not the PowerApps.CoreControls.Checkbox this form renders.
+            var checkbox = this.RecordPage.Form.Container.Page.GetByRole(
+                Microsoft.Playwright.AriaRole.Checkbox,
+                new Microsoft.Playwright.PageGetByRoleOptions { Name = displayName, Exact = true });
+
+            (await checkbox.IsCheckedAsync()).Should().Be(state == "checked");
+        }
+
+        /// <summary>
+        /// Verifies a field is displayed immediately beneath another field in the same column of the active tab.
+        /// </summary>
+        /// <param name="displayName">The field expected beneath.</param>
+        /// <param name="aboveDisplayName">The field expected above.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("the {string} field is immediately beneath the {string} field")]
+        public async Task ThenTheFieldIsImmediatelyBeneathTheField(string displayName, string aboveDisplayName)
+        {
+            var formId = await this.RecordPage.GetFormIdAsync();
+            var logicalName = this.formMetadataSvc.GetControlLogicalName(formId, displayName, out _);
+            var aboveLogicalName = this.formMetadataSvc.GetControlLogicalName(formId, aboveDisplayName, out _);
+
+            // Compares rendered positions: the nearest visible field item below the upper one, in the same column.
+            const string script = @"aboveName => {
+                const items = [...document.querySelectorAll(""[data-lp-id^='MscrmControls.Containers.FieldSectionItem|']"")]
+                    .filter(e => e.getBoundingClientRect().width > 0);
+                const upper = items.find(e => e.getAttribute('data-lp-id').includes('|' + aboveName + '|'));
+                if (!upper) { return null; }
+                const u = upper.getBoundingClientRect();
+                const below = items
+                    .filter(e => e !== upper && Math.abs(e.getBoundingClientRect().left - u.left) < 4 && e.getBoundingClientRect().top >= u.bottom - 1)
+                    .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0];
+                return below ? below.getAttribute('data-lp-id') : null;
+            }";
+
+            var nextField = await this.RecordPage.Form.Container.Page.EvaluateAsync<string>(script, aboveLogicalName);
+
+            nextField.Should().NotBeNull($"'{aboveDisplayName}' should be visible on the form");
+            nextField.Should().Contain($"|{logicalName}|", $"'{displayName}' should be immediately beneath '{aboveDisplayName}'");
+        }
+
+        /// <summary>
         /// Enters the specified details into the form.
         /// </summary>
         /// <param name="fields">The field values to populate.</param>
@@ -300,6 +349,16 @@
         public async Task WhenISaveTheRecord()
         {
             await this.RecordPage.Form.CommandBar.ClickCommandAsync("Save");
+        }
+
+        /// <summary>
+        /// Reloads the record page so that later assertions read the persisted values rather than the form's in-memory state.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [When("I reload the record")]
+        public async Task WhenIReloadTheRecord()
+        {
+            await this.RecordPage.Page.ReloadAndWaitForAppIdleAsync();
         }
 
         /// <summary>

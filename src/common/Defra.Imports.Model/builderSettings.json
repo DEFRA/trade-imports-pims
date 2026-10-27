@@ -45,7 +45,8 @@
     "defraimp_placeofdestination",
     "defraimp_consignee",
     "defraimp_transporter",
-    "systemuser"
+    "systemuser",
+    "defraimp_notificationpermanentaddress"
   ],
   "messageNamesFilter": [
     "defraimp_CreateImportRecordFromNotification"
