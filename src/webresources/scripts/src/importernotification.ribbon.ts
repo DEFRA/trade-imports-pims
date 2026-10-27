@@ -1,18 +1,18 @@
 const tracesConfigParameter = {
-  entityName: "defraexp_configurationparameter",
-  entityId: "{2bb103d9-b629-eb11-a813-000d3ad82cac}",
+  entityName: 'defraexp_configurationparameter',
+  entityId: '{2bb103d9-b629-eb11-a813-000d3ad82cac}',
 } as const;
 
 class CreateImportRecordFromNotificationRequest {
   public constructor(public entity: Xrm.LookupValue) {}
   public getMetadata() {
     return {
-      boundParameter: "entity",
+      boundParameter: 'entity',
       operationType: 0,
-      operationName: "defraimp_CreateImportRecordFromNotification",
+      operationName: 'defraimp_CreateImportRecordFromNotification',
       parameterTypes: {
         entity: {
-          typeName: "mscrm.defraimp_importernotification",
+          typeName: 'mscrm.defraimp_importernotification',
           structuralProperty: 5,
         },
       },
@@ -27,15 +27,15 @@ export async function onCreateImportRecordFromNotification(
     const result: { defraexp_value: string } = await Xrm.WebApi.retrieveRecord(
       tracesConfigParameter.entityName,
       tracesConfigParameter.entityId,
-      "?$select=defraexp_value"
+      '?$select=defraexp_value'
     );
     const isTracesDisabled = /false/i.test(result.defraexp_value);
     if (isTracesDisabled) {
-      Xrm.Utility.showProgressIndicator("Loading");
+      Xrm.Utility.showProgressIndicator('Loading');
       await executeCreateImportRecordFromNotification(primaryControl);
     } else
       await Xrm.Navigation.openAlertDialog({
-        text: "Access to TRACES is still enabled. Please create Import Records from ITAHCs.",
+        text: 'Access to TRACES is still enabled. Please create Import Records from ITAHCs.',
       });
   } catch (error) {
     await Xrm.Navigation.openAlertDialog({ text: getErrorMessage(error) });
@@ -47,9 +47,7 @@ async function executeCreateImportRecordFromNotification(
 ): Promise<void> {
   try {
     await Xrm.WebApi.online.execute(
-      new CreateImportRecordFromNotificationRequest(
-        primaryControl.data.entity.getEntityReference()
-      )
+      new CreateImportRecordFromNotificationRequest(primaryControl.data.entity.getEntityReference())
     );
     await primaryControl.data.refresh(false);
   } catch (error) {

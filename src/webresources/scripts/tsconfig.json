@@ -17,8 +17,8 @@
         "transform": "ts-auto-mock/transformer",
         "cacheBetweenTests": false
       }
-    ],
+    ]
   },
   "include": ["src/**/*", "typings/**/*"],
-  "types": ["node", "xrm"],
+  "types": ["node", "xrm"]
 }
