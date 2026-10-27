@@ -23,6 +23,8 @@ The task may involve any language in this repository, such as C# or TypeScript. 
    - Do not design, improve, rename, reformat or reorder code.
    - Do not add validation, guards, null checks or analyser, compiler or linter suppressions.
 3. **Change only the files under ALLOWED FILES.** In a test task, never change production code.
+   - When the brief asks for tests and code, write the tests first, run them and confirm that they fail for the reason the brief gives, then write the code. Report the failing run in CHECKS.
+   - Do not introduce a constant, class name or abstraction that the brief does not specify, and do not generalise beyond it.
 4. **Never guess.** Stop and report `BLOCKED` with the exact question if:
    - the brief is ambiguous;
    - it contradicts itself or the code;

@@ -21,12 +21,31 @@ These rules apply to the plug-in assemblies and the shared projects they compile
 - Both heads compile the shared projects (`.shproj` and `.projitems`) in the `Debug` and `Release` configurations. In the `UnitTest` configuration they reference `Defra.Imports.Container` instead.
 - `src/solutions/defra_Imports` holds the solution metadata. It is synchronised from a development environment; do not edit it as part of C# work.
 
+## Design principles
+
+Apply these to new code and to code you change. They are part of the definition of done, not preferences.
+
+- **Single responsibility.** An entry point adapts the platform and calls one business logic class. A business logic class has one reason to change. Split a class that you describe with "and".
+- **Open/closed.** Add behaviour with configuration, data or a new small class, not by editing a working one. Replace `if` and `switch` chains on a key with a lookup that data chooses.
+- **Liskov and interface segregation.** An implementation honours the contract of its abstraction. Depend on the narrowest abstraction you need: a repository or mapper interface, or a value, rather than a whole service or entity.
+- **Dependency inversion.** Business logic receives its dependencies (`IOrganizationService`, `ILogWriter`, repository and mapper interfaces) through its constructor. Never create them inside the class with `new`, and never read them from a static, so that a test can substitute them. The entry point is the composition point.
+- **Configuration- and data-driven.** Anything that varies by table, column, key, threshold, message or environment is configuration, not code. The existing mechanisms are:
+  - step unsecure and secure configuration (`UnsecureConfig` and `SecureConfig` on `Plugin`, set by the `Plugin(string, string)` constructor that the entry point must pass through);
+  - custom workflow activity inputs;
+  - `defraexp_configurationparameter` records, through `IConfigurationParameterRepository`;
+  - XML mapping web resources, parsed by `FieldMappingConfigParser` and applied by `GenericEntityMapper`, as `MapFieldsFromOneRecordToAnotherBusinessLogic` does;
+  - seed and reference data under `data`.
+  Parse and validate configuration in one place, fail with a clear message on bad configuration, and cover it with tests. Extend an existing generic class (the mapper, the fetch template service) before writing a new one. Hard-code only what is structural.
+- **Capability naming.** Name every class, file, namespace, step, argument and web resource for the capability, not the first use case. Use `MapKeyDataPairToCommodityComplement`, not `PopulateAnimalNumber`; the animal number is one row of configuration. When you touch a use-case-named class that you must keep, because registered steps refer to it, add the generic class and make the old one a thin adapter that supplies its configuration.
+- **No speculative generality.** Generalise to the capability that the requirement plainly implies and no further. Add no extension point that nothing uses.
+
 ## Scope
 
 - Make the smallest change that delivers the request. Do not refactor unrelated legacy code as a side effect of another change.
 - `src/common/Defra.Imports.Model` is generated. Never edit it, and never add hand-written types to the `Defra.Imports.Model` namespace.
-- If a table or column you need is missing from the generated model, stop and ask for the model to be regenerated. The table is added to `Model/builderSettings.json` and the **Generate model** VS Code task is run. Do not work around the gap with late-bound queries, hand-written schema names or "regenerate later" comments.
-- Prefer configuration over code. Business processes belong in workflows, actions and flows. Code belongs here only when it is generic, reusable and unlikely to change, or when Dataverse offers no declarative alternative.
+- If a table or column you need is missing from the generated model, stop and ask for the model to be regenerated. The table is added to `Model/builderSettings.json` and the **Generate model** VS Code task is run. Do not work around the gap with late-bound queries, hand-written schema names or "regenerate later" comments. (Names that are configuration or inputs are a different case; see Business logic and data access.)
+- Prefer configuration over code. Business processes belong in workflows, actions and flows. Code belongs here only when it is generic, reusable and unlikely to change, or when Dataverse offers no declarative alternative. Keep it configuration-driven (see Design principles).
+- Work test-first. Write a failing test for each behaviour before the code that satisfies it (see [unit-tests.instructions.md](./unit-tests.instructions.md)).
 
 ## Platform constraints
 
@@ -45,7 +64,8 @@ These rules apply to the plug-in assemblies and the shared projects they compile
 ## Plug-ins
 
 - A plug-in is a `public class X : Plugin` in `Defra.Imports.Plugins.<Table>` that overrides `Execute(IPluginExecutionContext context, IOrganizationService orgSvc, TracingServiceLogWriter logWriter, RepositoryFactory repositoryFactory)`. `Plugin` is in `Defra.Imports.BusinessLogic`. Do not derive from the `PluginBase` class in the plug-in head.
-- Keep the class thin. Read the `Target` and images from the context, call a business logic class, and apply the result. Put the rules in `Defra.Imports.BusinessLogic.<Table or Theme>`.
+- Keep the class thin. Read the `Target` and images from the context, read configuration (`this.UnsecureConfig`), call a business logic class, and apply the result. Put the rules in `Defra.Imports.BusinessLogic.<Table or Theme>`.
+- Name the plug-in for the capability (see Design principles), and put what varies, such as column mappings and keys, in the step's unsecure configuration or in data. To receive step configuration, give the plug-in a `(string unsecureConfig, string secureConfig)` constructor that calls `base(unsecureConfig, secureConfig)` and keep the parameterless constructor.
 - Read the target with `((Entity)context.InputParameters["Target"]).ToEntity<T>()`. Read images with `GetPreImage<T>` and `GetPostImage<T>`.
 - Decorate the class with one `[CrmPluginRegistration]` attribute per step, as neighbouring plug-ins do. The attribute documents the step. The registration itself lives in the solution metadata under `src/solutions/defra_Imports/src/SdkMessageProcessingSteps`, so tell the user which step to register in a development environment; do not write that XML.
 - Keep step scope narrow: set filtering attributes, and use an image only for the attributes that the logic reads. Avoid organisation-wide steps on out-of-the-box messages and entities.
@@ -57,13 +77,13 @@ These rules apply to the plug-in assemblies and the shared projects they compile
 - Declare inputs and outputs as `InArgument<T>` and `OutArgument<T>` properties with `[Input]`, `[Output]` and `[RequiredArgument]`. Give each a clear display name, because it is what makers see. Add `[ReferenceTarget(<Entity>.EntityLogicalName)]` to a lookup input.
 - Read inputs with `GetRequired(context, nameof(this.Argument))` (from `Defra.Imports.BusinessLogic.Extensions`) for a required value, or `context.GetValue(...)`. Write outputs with `Set(context, value)`.
 - Decorate the class with `[CrmPluginRegistration(name, displayName, description, groupName, IsolationModeEnum.Sandbox)]`.
-- Make activities generic, granular and reusable, so that a maker can combine them in a workflow, action or flow without a code change.
+- Make activities generic, granular and reusable, so that a maker can combine them in a workflow, action or flow without a code change. Expose what varies (tables, fields, keys, thresholds, mapping resources) as inputs, as `MapFieldsFromItahcToImportRecord` does with its mapping web resource, and name the activity for the capability.
 
 ## Business logic and data access
 
-- Business logic classes are `public` and `sealed` where possible, take their dependencies (`IOrganizationService`, `ILogWriter`, repositories) in the constructor and expose one clear method per use case. Do not depend on plug-in or workflow types such as `IPluginExecutionContext` or `CodeActivityContext`, so that the class can be unit tested.
+- Business logic classes are `public` and `sealed` where possible, take their dependencies (`IOrganizationService`, `ILogWriter`, repository and mapper interfaces) in the constructor, null-check them, and expose one clear method per use case. Take configuration as a parsed, validated object (a dictionary, a small settings class) rather than reading it from inside the rules. Do not depend on plug-in or workflow types such as `IPluginExecutionContext` or `CodeActivityContext`, so that the class can be unit tested.
 - Never mutate an entity that you were given unless that is the documented purpose of the method. Build a new entity for an `Update` that holds only the attributes that change.
-- Use the early-bound model. Name tables and columns with `<Entity>.EntityLogicalName` and `<Entity>.Fields.<Name>`, never string literals. Use the generated option set enums rather than numbers.
+- Use the early-bound model. Name tables and columns with `<Entity>.EntityLogicalName` and `<Entity>.Fields.<Name>`, never string literals, and use the generated option set enums rather than numbers. The exception is a table, column or key that is supplied by configuration or an input: a generic, configuration-driven class handles it late-bound (`Entity`, `EntityReference.LogicalName`), validates it, and fails clearly if it is wrong. This does not permit working around a gap in the generated model for a name that the code fixes at compile time.
 - Generated property casing varies between tables (`defraimp_Name`, `defraimp_name`), so look it up rather than guess:
   `pwsh -NoProfile -Command "& ./.github/skills/scenario-builder-implementation/scripts/Get-DataverseEntityPropertyClrType.ps1 -EntityLogicalName defraimp_itahc -AttributeName defraimp_name,defraimp_consigneename"`
 - Retrieve only the columns you need (`ColumnSet` or a LINQ projection). Use `CrmRepository<ImportsContext, T>` or the organisation service directly, following the neighbouring code. Use FetchXML only when `QueryExpression` and LINQ cannot express the query, and say why in a comment.

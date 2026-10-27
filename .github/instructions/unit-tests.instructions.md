@@ -9,6 +9,22 @@ applyTo: "tests/Defra.Imports.UnitTests/**"
 
 The production code conventions are in [csharp-source.instructions.md](./csharp-source.instructions.md).
 
+## Test-driven development
+
+Tests drive the design. Work red, green, refactor, one behaviour at a time:
+
+1. **Red.** Write one test that states a behaviour, run it and confirm that it fails for the right reason (a missing member is a compile failure, not yet a meaningful red; add the smallest stub so that the test fails on the behaviour).
+2. **Green.** Write the smallest production code that makes it pass. Run the tests again.
+3. **Refactor.** Remove duplication and improve names while the tests stay green. Do not change behaviour while refactoring.
+
+Rules:
+
+- Test behaviour through the public surface, not private members or call order, unless the call is the behaviour (a write that must or must not happen).
+- Order the first tests from the simplest case to the most general, so that the design emerges: the empty or no-op case, one configured mapping, then several.
+- Every configuration-driven class has a test that supplies a second, different configuration and shows that the behaviour changes without a code change. This is the proof that nothing is hard-coded.
+- Hard-to-test code is a design signal: inject the dependency or extract a class instead of adding a workaround.
+- A bug fix starts with a test that reproduces the bug and fails.
+
 ## Conventions
 
 - Mirror the source folders and namespaces:
