@@ -28,7 +28,8 @@ Scenario: A caseworker can write to the Non-Compliance fields of an Importer Not
 	And I can edit the 'Date Email Sent' field
 	And I can edit the 'Type of Non-Compliance' field
 	And I can edit the 'Date Telephone Call Made' field
-	And I can edit the 'Non-Compliance Other Comments' field
+	When I enter 'Other' in the 'Type of Non-Compliance' field
+	Then I can edit the 'Non-Compliance Other Comments' field
 	And I can edit the 'Non-Compliance Status' field
 	And I can edit the 'IRMS Person Responsible' field
 	And I can edit the 'Date Completed' field

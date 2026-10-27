@@ -134,6 +134,19 @@ namespace Defra.Imports.Scenarios.Events
             }
 
             /// <summary>
+            /// Configures the Importer Notification to have the given PIMS status.
+            /// </summary>
+            /// <param name="pimsStatus">The PIMS status.</param>
+            /// <returns>The builder.</returns>
+            public Builder WithPimsStatus(defraimp_pimsstatus pimsStatus)
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_PIMSStatus, f => pimsStatus);
+
+                return this;
+            }
+
+            /// <summary>
             /// Configures the Importer Notification to have the given purpose of consignment.
             /// </summary>
             /// <param name="purposeOfConsignment">The display value of the purpose of consignment.</param>

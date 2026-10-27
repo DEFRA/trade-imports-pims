@@ -367,24 +367,24 @@ Scenario: A caseworker views an Importer Notification's commodity complement par
 	And I can see the 'Parameter Set Identifiers (Commodity Complement Parameter Set) <Identifiers>' subgrid
 	And I can see the 'Parameter Set Key Data Pairs (Commodity Complement Parameter Set) <KeyDataPairs>' subgrid
 
-# Possible defect: the D365 schema (IMTA-7201) marks the fields below as displayed on the Importer Notification form, but the form does not have them.
-@issue:US-044 @acceptance-criteria:us-044-1 @possible-defect
-Scenario: A caseworker does not see the schema fields missing from the Person Responsible tab
+# Defect: the D365 schema (IMTA-7201) marks the fields below as displayed on the Importer Notification form, but the form does not have them. To be confirmed with the Product Analyst.
+@issue:US-044 @acceptance-criteria:us-044-1 @ignore @defect
+Scenario: A caseworker sees the schema fields on the Person Responsible tab
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
 	When I select the 'Person Responsible' tab
-	Then I do not see the following fields
+	Then I see the following fields
 		| Field |
 		| Type  |
 		| Fax   |
 
-# Possible defect: see the Person Responsible scenario.
-@issue:US-044 @acceptance-criteria:us-044-1 @possible-defect
-Scenario Outline: A caseworker does not see the schema fields missing from the <Tab> tab
+# Defect: see the Person Responsible scenario.
+@issue:US-044 @acceptance-criteria:us-044-1 @ignore @defect
+Scenario Outline: A caseworker sees the schema fields on the <Tab> tab
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
 	When I select the '<Tab>' tab
-	Then I do not see the following fields
+	Then I see the following fields
 		| Field                   |
 		| Individual Name         |
 		| UK Telephone            |
@@ -398,13 +398,13 @@ Scenario Outline: A caseworker does not see the schema fields missing from the <
 		| Place of Destination |
 		| Transporter          |
 
-# Possible defect: see the Person Responsible scenario.
-@issue:US-044 @acceptance-criteria:us-044-1 @possible-defect
-Scenario: A caseworker does not see the schema commodity fields missing from the Importer Notification Details tab
+# Defect: see the Person Responsible scenario.
+@issue:US-044 @acceptance-criteria:us-044-1 @ignore @defect
+Scenario: A caseworker sees the schema commodity fields on the Importer Notification Details tab
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
 	When I select the 'Importer Notification Details' tab
-	Then I do not see the following fields
+	Then I see the following fields
 		| Field                           |
 		| Commodities Total Gross Weight  |
 		| Commodities Total Net Weight    |

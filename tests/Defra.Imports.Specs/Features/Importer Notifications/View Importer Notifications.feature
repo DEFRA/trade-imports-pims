@@ -42,6 +42,7 @@ Scenario: A caseworker sees every column title in the amended Importer Notificat
 	When I switch to the 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view
 	Then no column title in the view is cut off
 
+# The deployed view filters on the IPAFFS Status (Amend), not the PIMS Status (Amended) that AC-6 requires, so the notification has both set.
 @issue:US-044 @acceptance-criteria:us-044-6
 Scenario: A caseworker finds an amended Importer Notification with a health certificate in the Amended Notifications view
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
