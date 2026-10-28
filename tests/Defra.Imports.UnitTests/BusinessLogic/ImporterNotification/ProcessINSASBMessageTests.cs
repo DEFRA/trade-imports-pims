@@ -41,6 +41,15 @@
             this.orgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_commoditycomplement.EntityLogicalName)))
                 .Returns(new EntityCollection());
+
+            // Default: schema version environment variable definition has no override/default value configured,
+            // which resolves to a null schema version. Since none of the test-built messages set
+            // metadata.schemaVersion (also null), IsSchemaVersionCurrent compares null to null and passes,
+            // allowing existing tests to exercise the create/update logic as before. Tests that specifically
+            // target IsSchemaVersionCurrent configure their own override via SetupEnvironmentVariableQuery.
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == EnvironmentVariableDefinition.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { new EnvironmentVariableDefinition { Id = Guid.NewGuid() } }));
         }
 
         /// <summary>
@@ -1254,28 +1263,22 @@
         }
 
         /// <summary>
-        /// Tests that one commodity complement is created per included trade line item
-        /// and that mapped fields are populated correctly.
+        /// Tests that one commodity complement is attached per included trade line item
+        /// via the created notification's RelatedEntities, and that mapped fields are populated correctly.
         /// </summary>
         [Fact]
-        public void ApplyConsignmentItemDetails_WhenTradeLineItemsExist_CreatesCommodityComplementsWithMappedFields()
+        public void AttachConsignmentItemDetails_WhenTradeLineItemsExist_AttachesCommodityComplementsWithMappedFieldsViaRelatedEntities()
         {
             // Arrange
-            var importerNotificationId = Guid.NewGuid();
-
             this.orgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
                 .Returns(new EntityCollection());
 
+            Entity created = null;
             this.orgSvcMock
                 .Setup(o => o.Create(It.IsAny<Entity>()))
-                .Returns(importerNotificationId);
-
-            OrganizationRequestCollection capturedRequests = null;
-            this.orgSvcMock
-                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
-                .Callback<OrganizationRequest>(r => capturedRequests = ((ExecuteMultipleRequest)r).Requests)
-                .Returns(new ExecuteMultipleResponse());
+                .Callback<Entity>(e => created = e)
+                .Returns(Guid.NewGuid());
 
             var message = this.BuildMessageWithIncludedTradeLineItems("INS-CC-001", 1, "SUBMITTED");
 
@@ -1284,22 +1287,13 @@
 
             // Assert
             Assert.True(result.Item1);
-            Assert.NotNull(capturedRequests);
+            Assert.NotNull(created);
 
-            var complements = new List<defraimp_commoditycomplement>();
-            foreach (var request in capturedRequests)
-            {
-                if (request is CreateRequest createRequest && createRequest.Target.LogicalName == defraimp_commoditycomplement.EntityLogicalName)
-                {
-                    complements.Add((defraimp_commoditycomplement)createRequest.Target);
-                }
-            }
-
+            var complements = GetAttachedCommodityComplements(created);
             Assert.Equal(2, complements.Count);
 
             var first = complements[0];
-            Assert.NotNull(first.defraimp_ImporterNotificationId);
-            Assert.Equal(importerNotificationId, first.defraimp_ImporterNotificationId.Id);
+            Assert.Null(first.defraimp_ImporterNotificationId);
             Assert.Equal("12", first.defraimp_NumberofAnimals);
             Assert.Equal(3, first.defraimp_NumberofPackages);
             Assert.Equal("Canis lupus", first.defraimp_name);
@@ -1316,6 +1310,8 @@
             Assert.Equal("Cat", second.defraimp_commoditydescription);
             Assert.Equal("Felis catus", second.defraimp_speciesname);
             Assert.Equal("Cat", second.defraimp_speciescommonname);
+
+            this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Never);
         }
 
         /// <summary>
@@ -1406,22 +1402,18 @@
         /// GetNumberOfPackages, GetCommodityId, and GetCommodityDescription).
         /// </summary>
         [Fact]
-        public void ApplyConsignmentItemDetails_WhenTradeLineItemHasNoOptionalData_CreatesCommodityComplementWithNullFields()
+        public void AttachConsignmentItemDetails_WhenTradeLineItemHasNoOptionalData_AttachesCommodityComplementWithNullFields()
         {
             // Arrange
             this.orgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
                 .Returns(new EntityCollection());
 
+            Entity created = null;
             this.orgSvcMock
                 .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
-
-            OrganizationRequestCollection capturedRequests = null;
-            this.orgSvcMock
-                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
-                .Callback<OrganizationRequest>(r => capturedRequests = ((ExecuteMultipleRequest)r).Requests)
-                .Returns(new ExecuteMultipleResponse());
 
             var message = this.BuildMessageWithMinimalTradeLineItem("INS-CC-002", "Loris tardigradus", "Slow Loris");
 
@@ -1430,13 +1422,9 @@
 
             // Assert
             Assert.True(result.Item1);
-            Assert.NotNull(capturedRequests);
+            Assert.NotNull(created);
 
-            var complement = capturedRequests
-                .OfType<CreateRequest>()
-                .Select(r => r.Target)
-                .OfType<defraimp_commoditycomplement>()
-                .Single();
+            var complement = GetAttachedCommodityComplements(created).Single();
 
             Assert.Null(complement.defraimp_NumberofAnimals);
             Assert.Null(complement.defraimp_NumberofPackages);
@@ -1448,61 +1436,22 @@
         }
 
         /// <summary>
-        /// Tests that PopulateConsignmentDetails does not set the CPH number or port of entry
-        /// when the final destination location and unloading baseport location are absent.
+        /// Tests that AttachConsignmentItemDetails does not attach any commodity complements
+        /// (no RelatedEntities entry is added) when there are no included consignment items
+        /// on the specified consignment.
         /// </summary>
         [Fact]
-        public void PopulateConsignmentDetails_WithNoLocations_DoesNotSetCphNumberOrPortOfEntry()
-        {
-            // Arrange
-            var message = BuildMessageWithEmptyConsignment("INS-301", 1, "SUBMITTED");
-            var created = this.CaptureCreatedEntity(message);
-
-            // Assert
-            Assert.Null(created.defraimp_cphnumber);
-            Assert.Null(created.defraimp_portofentry);
-        }
-
-        /// <summary>
-        /// Tests that ApplyConsignmentItemDetails does not attempt to create any commodity
-        /// complements when the newly created importer notification's Id is Guid.Empty.
-        /// </summary>
-        [Fact]
-        public void ApplyConsignmentItemDetails_WhenImporterNotificationIdIsEmpty_DoesNotCreateComplements()
+        public void AttachConsignmentItemDetails_WithNoIncludedConsignmentItems_DoesNotAttachAnyComplements()
         {
             // Arrange
             this.orgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
                 .Returns(new EntityCollection());
 
+            Entity created = null;
             this.orgSvcMock
                 .Setup(o => o.Create(It.IsAny<Entity>()))
-                .Returns(Guid.Empty);
-
-            var message = this.BuildMessageWithIncludedTradeLineItems("INS-CC-003", 1, "SUBMITTED");
-
-            // Act
-            var result = this.sut.UpsertImporterNotification(message);
-
-            // Assert
-            Assert.True(result.Item1);
-            this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Never);
-        }
-
-        /// <summary>
-        /// Tests that ApplyConsignmentItemDetails does not create any commodity complements
-        /// when there are no included consignment items on the specified consignment.
-        /// </summary>
-        [Fact]
-        public void ApplyConsignmentItemDetails_WithNoIncludedConsignmentItems_DoesNotCreateAnyComplements()
-        {
-            // Arrange
-            this.orgSvcMock
-                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
-                .Returns(new EntityCollection());
-
-            this.orgSvcMock
-                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
 
             var message = BuildMessageWithEmptyConsignment("INS-CC-004", 1, "SUBMITTED");
@@ -1512,30 +1461,29 @@
 
             // Assert
             Assert.True(result.Item1);
+            Assert.NotNull(created);
+            Assert.Empty(GetAttachedCommodityComplements(created));
             this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Never);
         }
 
         /// <summary>
-        /// Tests that ApplyConsignmentItemDetails processes each included consignment item in turn,
-        /// creating commodity complements for every consignment item's trade line items.
+        /// Tests that AttachConsignmentItemDetails combines trade line items from multiple
+        /// included consignment items into a single RelatedEntities entry (one relationship key,
+        /// one EntityCollection containing all complements) rather than attaching separately per item.
         /// </summary>
         [Fact]
-        public void ApplyConsignmentItemDetails_WithMultipleConsignmentItems_CreatesComplementsForEachConsignmentItem()
+        public void AttachConsignmentItemDetails_WithMultipleConsignmentItems_CombinesComplementsIntoSingleRelatedEntitiesEntry()
         {
             // Arrange
             this.orgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
                 .Returns(new EntityCollection());
 
+            Entity created = null;
             this.orgSvcMock
                 .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
-
-            var capturedBatches = new List<OrganizationRequestCollection>();
-            this.orgSvcMock
-                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
-                .Callback<OrganizationRequest>(r => capturedBatches.Add(((ExecuteMultipleRequest)r).Requests))
-                .Returns(new ExecuteMultipleResponse());
 
             var message = $@"{{
               ""aggregateVersion"": 1,
@@ -1567,13 +1515,11 @@
 
             // Assert
             Assert.True(result.Item1);
-            Assert.Equal(2, capturedBatches.Count);
+            Assert.NotNull(created);
 
-            var complements = capturedBatches
-                .SelectMany(b => b.OfType<CreateRequest>())
-                .Select(r => r.Target)
-                .OfType<defraimp_commoditycomplement>()
-                .ToList();
+            // Exactly one relationship entry should exist in RelatedEntities, containing both complements.
+            Assert.Single(created.RelatedEntities);
+            var complements = GetAttachedCommodityComplements(created);
 
             Assert.Equal(2, complements.Count);
             Assert.Contains(complements, c => c.defraimp_name == "Canis lupus");
@@ -1581,35 +1527,44 @@
         }
 
         /// <summary>
-        /// Tests that ApplyConsignmentItemDetails safely skips a null entry within the
+        /// Tests that PopulateConsignmentDetails does not set the CPH number or port of entry
+        /// when the final destination location and unloading baseport location are absent.
+        /// </summary>
+        [Fact]
+        public void PopulateConsignmentDetails_WithNoLocations_DoesNotSetCphNumberOrPortOfEntry()
+        {
+            // Arrange
+            var message = BuildMessageWithEmptyConsignment("INS-301", 1, "SUBMITTED");
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_cphnumber);
+            Assert.Null(created.defraimp_portofentry);
+        }
+
+        /// <summary>
+        /// Tests that AttachConsignmentItemDetails safely skips a null entry within the
         /// included consignment item array, still processing the remaining valid entries.
         /// </summary>
         [Fact]
-        public void ApplyConsignmentItemDetails_WithNullConsignmentItemInArray_SkipsNullEntry()
+        public void AttachConsignmentItemDetails_WithNullConsignmentItemInArray_SkipsNullEntry()
         {
             // Arrange
             this.orgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
                 .Returns(new EntityCollection());
 
+            Entity created = null;
             this.orgSvcMock
                 .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
-
-            var capturedBatches = new List<OrganizationRequestCollection>();
-            this.orgSvcMock
-                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
-                .Callback<OrganizationRequest>(r => capturedBatches.Add(((ExecuteMultipleRequest)r).Requests))
-                .Returns(new ExecuteMultipleResponse());
 
             var message = $@"{{
               ""aggregateVersion"": 1,
-              ""data"": {{
-                ""exchangedDocument"": {{
-                  ""identifier"": ""INS-CC-006"",
-                  ""notificationStatusCode"": ""SUBMITTED"",
-                  ""versionId"": 1
-                }},
+              ""data"": {{""exchangedDocument"": {{ ""identifier"": ""INS-CC-006"",
+                ""notificationStatusCode"": ""SUBMITTED"",
+                ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
                   ""includedConsignmentItem"": [
                     null,
@@ -1628,15 +1583,147 @@
 
             // Assert
             Assert.True(result.Item1);
+            Assert.NotNull(created);
 
-            var complements = capturedBatches
-                .SelectMany(b => b.OfType<CreateRequest>())
-                .Select(r => r.Target)
-                .OfType<defraimp_commoditycomplement>()
-                .ToList();
-
-            var complement = Assert.Single(complements);
+            var complement = GetAttachedCommodityComplements(created).Single();
             Assert.Equal("Canis lupus", complement.defraimp_name);
+        }
+
+        /// <summary>
+        /// Tests that AttachConsignmentItemDetails does not attach any commodity complements
+        /// when the included trade line item array is empty.
+        /// </summary>
+        [Fact]
+        public void AttachConsignmentItemDetails_WithNoTradeLineItems_DoesNotAttachAnyComplements()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            Entity created = null;
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Callback<Entity>(e => created = e)
+                .Returns(Guid.NewGuid());
+
+            var message = $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{ ""identifier"": ""INS-CC-007"",
+                ""notificationStatusCode"": ""SUBMITTED"",
+                ""versionId"": 1 }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    {{ ""includedTradeLineItem"": [] }}
+                  ]
+                }}
+              }}
+            }}";
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.NotNull(created);
+            Assert.Empty(GetAttachedCommodityComplements(created));
+            this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Never);
+        }
+
+        /// <summary>
+        /// Tests that AttachConsignmentItemDetails skips null entries within the included trade
+        /// line item array, attaching a commodity complement only for the non-null entry.
+        /// </summary>
+        [Fact]
+        public void AttachConsignmentItemDetails_WithNullTradeLineItemInArray_SkipsNullEntries()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            Entity created = null;
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Callback<Entity>(e => created = e)
+                .Returns(Guid.NewGuid());
+
+            var message = $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{ ""identifier"": ""INS-CC-008"",
+                ""notificationStatusCode"": ""SUBMITTED"",
+                ""versionId"": 1 }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    {{
+                      ""includedTradeLineItem"": [
+                        null,
+                        {{ ""scientificName"": ""Loris tardigradus"", ""commonName"": ""Slow Loris"" }}
+                      ]
+                    }}
+                  ]
+                }}
+              }}
+            }}";
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.NotNull(created);
+
+            var complement = GetAttachedCommodityComplements(created).Single();
+            Assert.Equal("Loris tardigradus", complement.defraimp_name);
+        }
+
+        /// <summary>
+        /// Tests that AttachConsignmentItemDetails does not attach any commodity complements
+        /// when every entry in the included trade line item array is null.
+        /// </summary>
+        [Fact]
+        public void AttachConsignmentItemDetails_WithOnlyNullTradeLineItems_DoesNotAttachAnyComplements()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            Entity created = null;
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Callback<Entity>(e => created = e)
+                .Returns(Guid.NewGuid());
+
+            var message = $@"{{
+              ""aggregateVersion"": 1,
+              ""data"": {{
+                ""exchangedDocument"": {{ ""identifier"": ""INS-CC-009"",
+                ""notificationStatusCode"": ""SUBMITTED"",
+                ""versionId"": 1 }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [
+                    {{
+                      ""includedTradeLineItem"": [
+                        null,
+                        null
+                      ]
+                    }}
+                  ]
+                }}
+              }}
+            }}";
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.NotNull(created);
+            Assert.Empty(GetAttachedCommodityComplements(created));
+            this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Never);
         }
 
         /// <summary>
@@ -1677,65 +1764,6 @@
             // Assert
             Assert.True(result.Item1);
             this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Never);
-        }
-
-        /// <summary>
-        /// Tests that ApplyTradeLineItemDetails skips null entries within the included trade
-        /// line item array, creating a commodity complement only for the non-null entry.
-        /// </summary>
-        [Fact]
-        public void ApplyTradeLineItemDetails_WithNullTradeLineItemInArray_SkipsNullEntries()
-        {
-            // Arrange
-            this.orgSvcMock
-                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
-                .Returns(new EntityCollection());
-
-            this.orgSvcMock
-                .Setup(o => o.Create(It.IsAny<Entity>()))
-                .Returns(Guid.NewGuid());
-
-            OrganizationRequestCollection capturedRequests = null;
-            this.orgSvcMock
-                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
-                .Callback<OrganizationRequest>(r => capturedRequests = ((ExecuteMultipleRequest)r).Requests)
-                .Returns(new ExecuteMultipleResponse());
-
-            var message = $@"{{
-              ""aggregateVersion"": 1,
-              ""data"": {{
-                ""exchangedDocument"": {{
-                  ""identifier"": ""INS-CC-008"",
-                  ""notificationStatusCode"": ""SUBMITTED"",
-                  ""versionId"": 1
-                }},
-                ""specifiedConsignment"": {{
-                  ""includedConsignmentItem"": [
-                    {{
-                      ""includedTradeLineItem"": [
-                        null,
-                        {{ ""scientificName"": ""Loris tardigradus"", ""commonName"": ""Slow Loris"" }}
-                      ]
-                    }}
-                  ]
-                }}
-              }}
-            }}";
-
-            // Act
-            var result = this.sut.UpsertImporterNotification(message);
-
-            // Assert
-            Assert.True(result.Item1);
-            Assert.NotNull(capturedRequests);
-
-            var complement = capturedRequests
-                .OfType<CreateRequest>()
-                .Select(r => r.Target)
-                .OfType<defraimp_commoditycomplement>()
-                .Single();
-
-            Assert.Equal("Loris tardigradus", complement.defraimp_name);
         }
 
         /// <summary>
@@ -2615,6 +2643,25 @@
         private static string ToJsonValue(string value)
         {
             return value == null ? "null" : $"\"{value}\"";
+        }
+
+        /// <summary>
+        /// Extracts the commodity complement entities attached to the given entity's RelatedEntities
+        /// collection under the ImporterNotification-to-CommodityComplement relationship, or an empty
+        /// list if no such relationship entry exists.
+        /// </summary>
+        private static List<defraimp_commoditycomplement> GetAttachedCommodityComplements(Entity entity)
+        {
+            var relationship = new Relationship(defraimp_commoditycomplement.Fields.defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification);
+
+            if (!entity.RelatedEntities.TryGetValue(relationship, out var collection))
+            {
+                return new List<defraimp_commoditycomplement>();
+            }
+
+            return collection.Entities
+                .Select(e => e.ToEntity<defraimp_commoditycomplement>())
+                .ToList();
         }
 
         private string BuildMessageWithMinimalTradeLineItem(string identifier, string scientificName, string commonName)

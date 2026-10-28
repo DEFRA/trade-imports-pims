@@ -12,7 +12,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         /// Gets code.
         /// </summary>
         [DataMember(Name = "code")]
-        public CountryCode Code { get; internal set; }
+        public CodedValue Code { get; internal set; }
 
         /// <summary>
         /// Gets subordinate trade country sub divisions.

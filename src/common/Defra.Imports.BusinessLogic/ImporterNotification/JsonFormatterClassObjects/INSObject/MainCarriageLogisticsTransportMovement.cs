@@ -24,7 +24,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         /// Gets transport contract related referenced documents.
         /// </summary>
         [DataMember(Name = "transportContractRelatedReferencedDocument")]
-        public TransportContractRelatedReferencedDocument[] TransportContractRelatedReferencedDocument { get; internal set; }
+        public ReferenceDocument[] TransportContractRelatedReferencedDocument { get; internal set; }
 
         /// <summary>
         /// Gets departure events.
@@ -43,5 +43,11 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         /// </summary>
         [DataMember(Name = "urlId")]
         public string UrlId { get; internal set; }
+
+        /// <summary>
+        /// Gets used logistics transport means.
+        /// </summary>
+        [DataMember(Name = "usedLogisticsTransportMeans")]
+        public UsedLogisticsTransportMeans UsedLogisticsTransportMeans { get; internal set; }
     }
 }

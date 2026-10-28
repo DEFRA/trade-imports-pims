@@ -663,6 +663,10 @@ namespace Defra.Imports.Model
 			public const string lk_defraimp_matchrecord_createdonbehalfby = "lk_defraimp_matchrecord_createdonbehalfby";
 			public const string lk_defraimp_matchrecord_modifiedby = "lk_defraimp_matchrecord_modifiedby";
 			public const string lk_defraimp_matchrecord_modifiedonbehalfby = "lk_defraimp_matchrecord_modifiedonbehalfby";
+			public const string lk_defraimp_parametersetidentifier_createdby = "lk_defraimp_parametersetidentifier_createdby";
+			public const string lk_defraimp_parametersetidentifier_createdonbehalfby = "lk_defraimp_parametersetidentifier_createdonbehalfby";
+			public const string lk_defraimp_parametersetidentifier_modifiedby = "lk_defraimp_parametersetidentifier_modifiedby";
+			public const string lk_defraimp_parametersetidentifier_modifiedonbehalfby = "lk_defraimp_parametersetidentifier_modifiedonbehalfby";
 			public const string lk_defraimp_parametersetkeydatapair_createdby = "lk_defraimp_parametersetkeydatapair_createdby";
 			public const string lk_defraimp_parametersetkeydatapair_createdonbehalfby = "lk_defraimp_parametersetkeydatapair_createdonbehalfby";
 			public const string lk_defraimp_parametersetkeydatapair_modifiedby = "lk_defraimp_parametersetkeydatapair_modifiedby";
@@ -691,6 +695,14 @@ namespace Defra.Imports.Model
 			public const string lk_defraimp_watchlist_createdonbehalfby = "lk_defraimp_watchlist_createdonbehalfby";
 			public const string lk_defraimp_watchlist_modifiedby = "lk_defraimp_watchlist_modifiedby";
 			public const string lk_defraimp_watchlist_modifiedonbehalfby = "lk_defraimp_watchlist_modifiedonbehalfby";
+			public const string lk_environmentvariabledefinition_createdby = "lk_environmentvariabledefinition_createdby";
+			public const string lk_environmentvariabledefinition_createdonbehalfby = "lk_environmentvariabledefinition_createdonbehalfby";
+			public const string lk_environmentvariabledefinition_modifiedby = "lk_environmentvariabledefinition_modifiedby";
+			public const string lk_environmentvariabledefinition_modifiedonbehalfby = "lk_environmentvariabledefinition_modifiedonbehalfby";
+			public const string lk_environmentvariablevalue_createdby = "lk_environmentvariablevalue_createdby";
+			public const string lk_environmentvariablevalue_createdonbehalfby = "lk_environmentvariablevalue_createdonbehalfby";
+			public const string lk_environmentvariablevalue_modifiedby = "lk_environmentvariablevalue_modifiedby";
+			public const string lk_environmentvariablevalue_modifiedonbehalfby = "lk_environmentvariablevalue_modifiedonbehalfby";
 			public const string Referencedlk_systemuser_createdonbehalfby = "Referencedlk_systemuser_createdonbehalfby";
 			public const string Referencedlk_systemuser_modifiedonbehalfby = "Referencedlk_systemuser_modifiedonbehalfby";
 			public const string Referencedlk_systemuserbase_createdby = "Referencedlk_systemuserbase_createdby";
@@ -712,6 +724,7 @@ namespace Defra.Imports.Model
 			public const string user_defraimp_ipaffsdocument = "user_defraimp_ipaffsdocument";
 			public const string user_defraimp_itahc = "user_defraimp_itahc";
 			public const string user_defraimp_matchrecord = "user_defraimp_matchrecord";
+			public const string user_defraimp_parametersetidentifier = "user_defraimp_parametersetidentifier";
 			public const string user_defraimp_parametersetkeydatapair = "user_defraimp_parametersetkeydatapair";
 			public const string user_defraimp_placeofdestination = "user_defraimp_placeofdestination";
 			public const string user_defraimp_placeoforigin = "user_defraimp_placeoforigin";
@@ -719,6 +732,7 @@ namespace Defra.Imports.Model
 			public const string user_defraimp_transporter = "user_defraimp_transporter";
 			public const string user_defraimp_watchflag = "user_defraimp_watchflag";
 			public const string user_defraimp_watchlist = "user_defraimp_watchlist";
+			public const string user_environmentvariabledefinition = "user_environmentvariabledefinition";
 			public const string Referenceduser_parent_user = "Referenceduser_parent_user";
 			public const string Referencinglk_systemuser_createdonbehalfby = "lk_systemuser_createdonbehalfby";
 			public const string Referencinglk_systemuser_modifiedonbehalfby = "lk_systemuser_modifiedonbehalfby";
@@ -5136,6 +5150,78 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N lk_defraimp_parametersetidentifier_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_parametersetidentifier_createdby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_parametersetidentifier> lk_defraimp_parametersetidentifier_createdby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("lk_defraimp_parametersetidentifier_createdby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_parametersetidentifier_createdby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("lk_defraimp_parametersetidentifier_createdby", null, value);
+				this.OnPropertyChanged("lk_defraimp_parametersetidentifier_createdby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_defraimp_parametersetidentifier_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_parametersetidentifier_createdonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_parametersetidentifier> lk_defraimp_parametersetidentifier_createdonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("lk_defraimp_parametersetidentifier_createdonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_parametersetidentifier_createdonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("lk_defraimp_parametersetidentifier_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_defraimp_parametersetidentifier_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_defraimp_parametersetidentifier_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_parametersetidentifier_modifiedby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_parametersetidentifier> lk_defraimp_parametersetidentifier_modifiedby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("lk_defraimp_parametersetidentifier_modifiedby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_parametersetidentifier_modifiedby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("lk_defraimp_parametersetidentifier_modifiedby", null, value);
+				this.OnPropertyChanged("lk_defraimp_parametersetidentifier_modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_defraimp_parametersetidentifier_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_parametersetidentifier_modifiedonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_parametersetidentifier> lk_defraimp_parametersetidentifier_modifiedonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("lk_defraimp_parametersetidentifier_modifiedonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_parametersetidentifier_modifiedonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("lk_defraimp_parametersetidentifier_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_defraimp_parametersetidentifier_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N lk_defraimp_parametersetkeydatapair_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_parametersetkeydatapair_createdby")]
@@ -5640,6 +5726,150 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N lk_environmentvariabledefinition_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_environmentvariabledefinition_createdby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.EnvironmentVariableDefinition> lk_environmentvariabledefinition_createdby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.EnvironmentVariableDefinition>("lk_environmentvariabledefinition_createdby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_environmentvariabledefinition_createdby");
+				this.SetRelatedEntities<Defra.Imports.Model.EnvironmentVariableDefinition>("lk_environmentvariabledefinition_createdby", null, value);
+				this.OnPropertyChanged("lk_environmentvariabledefinition_createdby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_environmentvariabledefinition_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_environmentvariabledefinition_createdonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.EnvironmentVariableDefinition> lk_environmentvariabledefinition_createdonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.EnvironmentVariableDefinition>("lk_environmentvariabledefinition_createdonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_environmentvariabledefinition_createdonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.EnvironmentVariableDefinition>("lk_environmentvariabledefinition_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_environmentvariabledefinition_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_environmentvariabledefinition_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_environmentvariabledefinition_modifiedby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.EnvironmentVariableDefinition> lk_environmentvariabledefinition_modifiedby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.EnvironmentVariableDefinition>("lk_environmentvariabledefinition_modifiedby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_environmentvariabledefinition_modifiedby");
+				this.SetRelatedEntities<Defra.Imports.Model.EnvironmentVariableDefinition>("lk_environmentvariabledefinition_modifiedby", null, value);
+				this.OnPropertyChanged("lk_environmentvariabledefinition_modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_environmentvariabledefinition_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_environmentvariabledefinition_modifiedonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.EnvironmentVariableDefinition> lk_environmentvariabledefinition_modifiedonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.EnvironmentVariableDefinition>("lk_environmentvariabledefinition_modifiedonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_environmentvariabledefinition_modifiedonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.EnvironmentVariableDefinition>("lk_environmentvariabledefinition_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_environmentvariabledefinition_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_environmentvariablevalue_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_environmentvariablevalue_createdby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.EnvironmentVariableValue> lk_environmentvariablevalue_createdby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.EnvironmentVariableValue>("lk_environmentvariablevalue_createdby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_environmentvariablevalue_createdby");
+				this.SetRelatedEntities<Defra.Imports.Model.EnvironmentVariableValue>("lk_environmentvariablevalue_createdby", null, value);
+				this.OnPropertyChanged("lk_environmentvariablevalue_createdby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_environmentvariablevalue_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_environmentvariablevalue_createdonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.EnvironmentVariableValue> lk_environmentvariablevalue_createdonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.EnvironmentVariableValue>("lk_environmentvariablevalue_createdonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_environmentvariablevalue_createdonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.EnvironmentVariableValue>("lk_environmentvariablevalue_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_environmentvariablevalue_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_environmentvariablevalue_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_environmentvariablevalue_modifiedby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.EnvironmentVariableValue> lk_environmentvariablevalue_modifiedby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.EnvironmentVariableValue>("lk_environmentvariablevalue_modifiedby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_environmentvariablevalue_modifiedby");
+				this.SetRelatedEntities<Defra.Imports.Model.EnvironmentVariableValue>("lk_environmentvariablevalue_modifiedby", null, value);
+				this.OnPropertyChanged("lk_environmentvariablevalue_modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_environmentvariablevalue_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_environmentvariablevalue_modifiedonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.EnvironmentVariableValue> lk_environmentvariablevalue_modifiedonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.EnvironmentVariableValue>("lk_environmentvariablevalue_modifiedonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_environmentvariablevalue_modifiedonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.EnvironmentVariableValue>("lk_environmentvariablevalue_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_environmentvariablevalue_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N lk_systemuser_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_systemuser_createdonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
@@ -6018,6 +6248,24 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N user_defraimp_parametersetidentifier
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_defraimp_parametersetidentifier")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_parametersetidentifier> user_defraimp_parametersetidentifier
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("user_defraimp_parametersetidentifier", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("user_defraimp_parametersetidentifier");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_parametersetidentifier>("user_defraimp_parametersetidentifier", null, value);
+				this.OnPropertyChanged("user_defraimp_parametersetidentifier");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N user_defraimp_parametersetkeydatapair
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_defraimp_parametersetkeydatapair")]
@@ -6140,6 +6388,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("user_defraimp_watchlist");
 				this.SetRelatedEntities<Defra.Imports.Model.defraimp_WatchList>("user_defraimp_watchlist", null, value);
 				this.OnPropertyChanged("user_defraimp_watchlist");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N user_environmentvariabledefinition
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_environmentvariabledefinition")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.EnvironmentVariableDefinition> user_environmentvariabledefinition
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.EnvironmentVariableDefinition>("user_environmentvariabledefinition", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("user_environmentvariabledefinition");
+				this.SetRelatedEntities<Defra.Imports.Model.EnvironmentVariableDefinition>("user_environmentvariabledefinition", null, value);
+				this.OnPropertyChanged("user_environmentvariabledefinition");
 			}
 		}
 		

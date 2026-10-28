@@ -657,6 +657,7 @@ namespace Defra.Imports.Model
 			public const string msdyn_portaltermsagreementdate = "msdyn_portaltermsagreementdate";
 			public const string msdyn_PrimaryTimeZone = "msdyn_primarytimezone";
 			public const string msdyn_segmentid = "msdyn_segmentid";
+			public const string msft_DataState = "msft_datastate";
 			public const string mspp_userpreferredlcid = "mspp_userpreferredlcid";
 			public const string NickName = "nickname";
 			public const string NumberOfChildren = "numberofchildren";
@@ -3993,6 +3994,15 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("msdyn_segmentid");
 				this.SetAttributeValue("msdyn_segmentid", value);
 				this.OnPropertyChanged("msdyn_segmentid");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("msft_datastate")]
+		public virtual msft_datastate? msft_DataState
+		{
+			get
+			{
+				return ((msft_datastate?)(EntityOptionSetEnum.GetEnum(this, "msft_datastate")));
 			}
 		}
 		
