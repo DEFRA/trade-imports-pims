@@ -193,7 +193,7 @@ Scenario: A caseworker views an Importer Notification's permanent address detail
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
 	When I select the 'Permanent Addresses' tab
-	# Subgrid columns were not itemised in requirements (US-003 AC-1 confirms the Permanent Destination field group but not this subgrid's column set) but inferred from the implementation
+	# Subgrid columns were not itemised in requirements (US-003 AC-1A caseworker views an Importer Notification's transporter details confirms the Permanent Destination field group but not this subgrid's column set) but inferred from the implementation
 	Then I see a 'Permanent Addresses <Subgrid_3>' subgrid with the following columns
 		| Name | Company Name | Email | Telephone | Address Line 1 | Address Line 2 | Address Line 3 | Address City | Address Postcode | Address Country | Approval Number | Type | Status |
 
@@ -235,4 +235,4 @@ Scenario: A caseworker views an Importer Notification's transporter details
 		| Exit Border Control Post Date                                    |
 		| Route Transiting States                                          |
 	And I see a 'Countries Of Transit <subgrid_countries_of_transit>' subgrid with the following columns
-		| Official Country Name |
+		| Common Country Name |
