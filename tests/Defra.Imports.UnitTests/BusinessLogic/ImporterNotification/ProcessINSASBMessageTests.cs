@@ -145,6 +145,89 @@
         }
 
         /// <summary>
+        /// Tests that UpsertImporterNotification does not process a message when metadata.schemaVersion
+        /// does not match the currently configured schema version.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WithSchemaVersionMismatch_ReturnsFalseWithVersionAndLogsInfo()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == EnvironmentVariableDefinition.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity>
+                {
+                    new EnvironmentVariableDefinition
+                    {
+                        Id = Guid.NewGuid(),
+                        DefaultValue = "2.0",
+                    },
+                }));
+
+            const string message = @"{
+              ""aggregateVersion"": 1,
+              ""metadata"": { ""schemaVersion"": ""1.0"" },
+              ""data"": {
+                ""exchangedDocument"": {
+                  ""identifier"": ""INS-SCHEMA-001"",
+                  ""notificationStatusCode"": ""SUBMITTED"",
+                  ""versionId"": 1
+                }
+              }
+            }";
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.False(result.Item1);
+            Assert.Equal("version", result.Item2);
+            Assert.Contains("message schema version '1.0' does not match current schema version", result.Item3);
+
+            this.loggerMock.Verify(
+                l => l.Log(
+                    Severity.Info,
+                    nameof(ProcessINSASBMessage),
+                    It.Is<string>(m => m.Contains("message schema version '1.0' does not match current schema version"))),
+                Times.Once);
+
+            this.orgSvcMock.Verify(o => o.Create(It.IsAny<Entity>()), Times.Never);
+            this.orgSvcMock.Verify(o => o.Update(It.IsAny<Entity>()), Times.Never);
+        }
+
+        /// <summary>
+        /// Tests that UpsertImporterNotification does not process a message when the schema version
+        /// environment variable definition cannot be found.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenSchemaVersionDefinitionIsMissing_ReturnsFalseWithVersionAndLogsInfo()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == EnvironmentVariableDefinition.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            var message = BuildMessage("INS-SCHEMA-002", 1, "SUBMITTED");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.False(result.Item1);
+            Assert.Equal("version", result.Item2);
+            Assert.Contains("does not match current schema version", result.Item3);
+
+            this.loggerMock.Verify(
+                l => l.Log(
+                    Severity.Info,
+                    nameof(ProcessINSASBMessage),
+                    It.Is<string>(m => m.Contains("does not match current schema version"))),
+                Times.Once);
+
+            this.orgSvcMock.Verify(o => o.Create(It.IsAny<Entity>()), Times.Never);
+            this.orgSvcMock.Verify(o => o.Update(It.IsAny<Entity>()), Times.Never);
+        }
+
+        /// <summary>
         /// Tests that UpsertImporterNotification creates a new record when no existing record is found and the status is SUBMITTED.
         /// </summary>
         [Fact]
@@ -1560,7 +1643,7 @@
                 .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
 
-            var message = $@"{{
+            const string message = @"{{
               ""aggregateVersion"": 1,
               ""data"": {{""exchangedDocument"": {{ ""identifier"": ""INS-CC-006"",
                 ""notificationStatusCode"": ""SUBMITTED"",
@@ -1607,7 +1690,7 @@
                 .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
 
-            var message = $@"{{
+            const string message = @"{{
               ""aggregateVersion"": 1,
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-007"",
@@ -1649,7 +1732,7 @@
                 .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
 
-            var message = $@"{{
+            const string message = @"{{
               ""aggregateVersion"": 1,
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-008"",
@@ -1697,7 +1780,7 @@
                 .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
 
-            var message = $@"{{
+            const string message = @"{{
               ""aggregateVersion"": 1,
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-009"",

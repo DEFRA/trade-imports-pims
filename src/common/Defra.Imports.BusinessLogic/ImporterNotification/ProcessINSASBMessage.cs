@@ -60,7 +60,7 @@
 
             if (!this.IsSchemaVersionCurrent(insObject))
             {
-                var infoMessage = $"Not processing Importer Notification - message schema version '{insObject?.Metadata?.SchemaVersion}' does not match current schema version.";
+                var infoMessage = $"Not processing Importer Notification - message schema version '{insObject.Metadata?.SchemaVersion}' does not match current schema version.";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), infoMessage);
                 return Tuple.Create(false, "version", infoMessage);
             }
@@ -262,10 +262,7 @@
 
             var query = new QueryExpression(EnvironmentVariableDefinition.EntityLogicalName);
             query.Criteria.AddCondition(new ConditionExpression(EnvironmentVariableDefinition.Fields.SchemaName, ConditionOperator.Equal, EnvironmentVariableSchemaName));
-            query.ColumnSet = new ColumnSet(new string[]
-            {
-                EnvironmentVariableDefinition.Fields.DefaultValue,
-            });
+            query.ColumnSet = new ColumnSet(EnvironmentVariableDefinition.Fields.DefaultValue);
 
             var valueLink = query.AddLink(
                 EnvironmentVariableValue.EntityLogicalName,
@@ -331,7 +328,7 @@
 
         private int? GetNumberOfPackages(IncludedTradeLineItem lineItem)
         {
-            var numberOfPackages =  lineItem.PhysicalReferencedLogisticsPackage != null && lineItem.PhysicalReferencedLogisticsPackage.Length > 0
+            var numberOfPackages = lineItem.PhysicalReferencedLogisticsPackage != null && lineItem.PhysicalReferencedLogisticsPackage.Length > 0
                 ? lineItem.PhysicalReferencedLogisticsPackage[0]?.ItemQuantity
                 : null;
             if (numberOfPackages == null)
