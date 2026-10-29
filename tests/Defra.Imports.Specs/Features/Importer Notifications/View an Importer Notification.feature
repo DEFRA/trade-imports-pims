@@ -235,4 +235,4 @@ Scenario: A caseworker views an Importer Notification's transporter details
 		| Exit Border Control Post Date                                    |
 		| Route Transiting States                                          |
 	And I see a 'Countries Of Transit <subgrid_countries_of_transit>' subgrid with the following columns
-		| Official Country Name |
+		| Common Country Name |

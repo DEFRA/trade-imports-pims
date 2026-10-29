@@ -30,7 +30,7 @@
     <Sequence DisplayName="StopWorkflowStep2: Stop Workflow">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Object" Name="StopWorkflowStep2_1" />
-        <Variable x:TypeArguments="x:String" Default="cea823e5-e79e-43c0-a8a5-af8a8e1a7313" Name="stepLabelLabelId" />
+        <Variable x:TypeArguments="x:String" Default="48b9c83c-33d1-4b00-b521-e1086ff605f5" Name="stepLabelLabelId" />
         <Variable x:TypeArguments="x:String" Name="stepLabelDescription">
           <Variable.Default>
             <Literal x:TypeArguments="x:String" Value="" />
