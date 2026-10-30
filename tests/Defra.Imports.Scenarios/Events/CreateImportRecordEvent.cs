@@ -36,7 +36,7 @@ namespace Defra.Imports.Scenarios.Events
 
             this.logger.LogInformation("Creating Import Record from Importer Notification action for {ImporterNotificationId}.", this.importerNotificationId);
 
-            var client = await this.clientFactory.GetClientAsync(Persona.LogicApp);
+            using var client = this.clientFactory.GetAppUserClient();
             await client.ExecuteAsync(new defraimp_CreateImportRecordFromNotificationRequest
             {
                 Target = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, this.importerNotificationId),

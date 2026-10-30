@@ -1,6 +1,7 @@
 ﻿namespace Defra.Imports.Specs.StepDefinitions
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Defra.Imports.Specs.Extensions;
@@ -51,13 +52,28 @@
             // TODO: Update this implementation when Power Playwright supports retrieving the list of views.
             foreach (var expectedView in expectedViews.Rows.Select(r => r[0]))
             {
-                try
+                var attemptedViews = new List<string>();
+                Exception lastException = null;
+
+                foreach (var candidateView in this.GetPackagedViewCandidates(expectedView))
                 {
-                    await this.EntityListPage.DataSet.SwitchViewAsync(expectedView);
+                    attemptedViews.Add(candidateView);
+
+                    try
+                    {
+                        await this.EntityListPage.DataSet.SwitchViewAsync(candidateView);
+                        lastException = null;
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        lastException = ex;
+                    }
                 }
-                catch
+
+                if (lastException != null)
                 {
-                    throw new AssertionFailedException($"The view '{expectedView}' was not found.");
+                    throw new AssertionFailedException($"The view '{expectedView}' was not found. Attempted variants: {string.Join(", ", attemptedViews)}.");
                 }
             }
         }
@@ -133,6 +149,29 @@
 
             var columns = await readOnlyGrid.GetColumnNamesAsync();
             columns.Should().BeEquivalentTo(expectedColumns.Header);
+        }
+
+        private IEnumerable<string> GetPackagedViewCandidates(string viewName)
+        {
+            if (string.IsNullOrWhiteSpace(viewName))
+            {
+                yield break;
+            }
+
+            yield return viewName;
+
+            var importNotificationVariant = viewName.Replace("Importer Notifications", "Import Notifications");
+            if (!string.Equals(importNotificationVariant, viewName, StringComparison.Ordinal))
+            {
+                yield return importNotificationVariant;
+            }
+
+            var importerNotificationVariant = viewName.Replace("Import Notifications", "Importer Notifications");
+            if (!string.Equals(importerNotificationVariant, viewName, StringComparison.Ordinal)
+                && !string.Equals(importerNotificationVariant, importNotificationVariant, StringComparison.Ordinal))
+            {
+                yield return importerNotificationVariant;
+            }
         }
 
         /// <summary>

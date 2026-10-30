@@ -225,7 +225,7 @@ namespace Defra.Imports.Scenarios
         private IEnumerable<Persona> GetAssignedPersonas(string username)
         {
             return this.personaConfigurations
-                .Where(p => p.Value.Users != null && p.Value.Users.Contains(username))
+                .Where(p => p.Value.Users != null && p.Value.Users.Contains(username, StringComparer.OrdinalIgnoreCase))
                 .Select(p => p.Key);
         }
 

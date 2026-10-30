@@ -1,6 +1,7 @@
 namespace Defra.Imports.Specs.StepDefinitions
 {
     using System;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using Defra.Imports.Model;
     using Defra.Imports.Scenarios;
@@ -147,7 +148,12 @@ namespace Defra.Imports.Specs.StepDefinitions
             await textbox.WaitForAsync(new LocatorWaitForOptions { Timeout = 60000 });
             await textbox.FillAsync(note);
 
-            var postButton = page.GetByRole(AriaRole.Button, new PageGetByRoleOptions { Name = "Post|Save", Exact = false }).First;
+            var postButton = page.GetByRole(
+                AriaRole.Button,
+                new PageGetByRoleOptions
+                {
+                    NameRegex = new Regex("^(Post|Save)$", RegexOptions.IgnoreCase),
+                }).First;
 
             await postButton.WaitForAsync(new LocatorWaitForOptions { Timeout = 30000 });
             await postButton.ClickAsync();
@@ -161,7 +167,14 @@ namespace Defra.Imports.Specs.StepDefinitions
         public async Task ThenISeeTheNonComplianceTimelineNote()
         {
             var expectedNote = this.ctx.Get<string>(ContextKeyTimelineNote);
-            await this.RecordPage.Page.GetByText(expectedNote, new PageGetByTextOptions { Exact = false }).First.WaitForAsync(new LocatorWaitForOptions { Timeout = 60000 });
+
+            var timeline = this.RecordPage.Page.Locator("[aria-label='Timeline'], [data-id='notescontrol'], [id*='Timeline']").First;
+            var savedTimelineEntry = timeline
+                .Locator(":not(textarea):not([contenteditable='true'])")
+                .GetByText(expectedNote, new LocatorGetByTextOptions { Exact = false })
+                .First;
+
+            await savedTimelineEntry.WaitForAsync(new LocatorWaitForOptions { Timeout = 60000 });
         }
 
         /// <summary>

@@ -39,9 +39,7 @@ namespace Defra.Imports.Scenarios.Events
 
             var importerNotification = this.ImporterNotificationFaker.Generate();
 
-            // Not disposed here: GetClientAsync returns a client owned and cached by the factory for the
-            // scenario's lifetime, released when the factory itself is disposed at the end of the scenario.
-            var client = await this.clientFactory.GetClientAsync(Persona.LogicApp);
+            using var client = this.clientFactory.GetAppUserClient();
             var importerNotificationId = await client.CreateAsync(importerNotification);
             importerNotification.Id = importerNotificationId;
 
