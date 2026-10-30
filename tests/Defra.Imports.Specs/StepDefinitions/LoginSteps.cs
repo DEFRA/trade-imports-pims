@@ -23,6 +23,7 @@
     public class LoginSteps
     {
         private const string AppLogicalName = "defraimp_EUImportsApp";
+        private const int LaunchTimeoutMs = 120000;
 
         private readonly IPowerPlaywright powerPlaywright;
         private readonly IPlaywright playwright;
@@ -124,6 +125,10 @@
         private async Task LoginAndSetContextAsync(string username, string password)
         {
             var (browserContext, isReused) = await this.GetBrowserContextAsync(username);
+
+            browserContext.SetDefaultNavigationTimeout(LaunchTimeoutMs);
+            browserContext.SetDefaultTimeout(LaunchTimeoutMs);
+
             IModelDrivenAppPage homePage;
 
             try
@@ -139,6 +144,8 @@
             {
                 await browserContext.CloseAsync();
                 (browserContext, _) = await this.GetBrowserContextAsync(username);
+                browserContext.SetDefaultNavigationTimeout(LaunchTimeoutMs);
+                browserContext.SetDefaultTimeout(LaunchTimeoutMs);
                 homePage = await this.powerPlaywright.LaunchAppAsync(
                     browserContext,
                     this.testConfig.Url,

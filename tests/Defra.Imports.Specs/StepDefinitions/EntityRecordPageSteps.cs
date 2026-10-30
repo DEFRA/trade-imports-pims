@@ -1133,10 +1133,45 @@
                     async (field, fieldContext) =>
                     {
                         var value = await field.GetValueAsync(fieldContext.ControlType);
-                        value.ToString().Should().Be(r["Value"]);
+                        var actualValue = value?.ToString();
+                        var expectedValue = r["Value"];
+
+                        if (fieldContext.ControlType == typeof(IYesNo)
+                            && TryParseBooleanValue(actualValue, out var actualBoolean)
+                            && TryParseBooleanValue(expectedValue, out var expectedBoolean))
+                        {
+                            actualBoolean.Should().Be(expectedBoolean);
+                            return;
+                        }
+
+                        actualValue.Should().Be(expectedValue);
                     },
                     tab: await this.RecordPage.Form.GetActiveTabAsync());
             }
+        }
+
+        private static bool TryParseBooleanValue(string value, out bool parsed)
+        {
+            parsed = false;
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return false;
+            }
+
+            var normalized = value.Trim();
+            if (normalized.Equals("yes", StringComparison.OrdinalIgnoreCase))
+            {
+                parsed = true;
+                return true;
+            }
+
+            if (normalized.Equals("no", StringComparison.OrdinalIgnoreCase))
+            {
+                parsed = false;
+                return true;
+            }
+
+            return bool.TryParse(normalized, out parsed);
         }
 
         /// <summary>

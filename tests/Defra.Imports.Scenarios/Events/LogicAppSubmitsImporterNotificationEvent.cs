@@ -39,9 +39,7 @@ namespace Defra.Imports.Scenarios.Events
 
             var importerNotification = this.ImporterNotificationFaker.Generate();
 
-            // Not disposed here: GetClientAsync returns a client owned and cached by the factory for the
-            // scenario's lifetime, released when the factory itself is disposed at the end of the scenario.
-            var client = await this.clientFactory.GetClientAsync(Persona.LogicApp);
+            using var client = this.clientFactory.GetAppUserClient();
             var importerNotificationId = await client.CreateAsync(importerNotification);
             importerNotification.Id = importerNotificationId;
 
@@ -94,6 +92,32 @@ namespace Defra.Imports.Scenarios.Events
             }
 
             /// <summary>
+            /// Configures the Importer Notification non-compliance status.
+            /// </summary>
+            /// <param name="status">The non-compliance status.</param>
+            /// <returns>The builder.</returns>
+            public Builder WithNotificationNonComplianceStatus(defraimp_noncompliancestatus status)
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_NonComplianceStatus, _ => status);
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures whether the Importer Notification has been contacted due to non-compliance.
+            /// </summary>
+            /// <param name="contacted">Whether contacted due to non-compliance.</param>
+            /// <returns>The builder.</returns>
+            public Builder WithNotificationContactedDueToNonCompliance(bool contacted)
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_ContactedDuetoNonCompliance, _ => contacted);
+
+                return this;
+            }
+
+            /// <summary>
             /// Configures the Importer Notification to have the given type.
             /// </summary>
             /// <param name="type">The type.</param>
@@ -116,6 +140,41 @@ namespace Defra.Imports.Scenarios.Events
                 this.importerNotificationFaker ??= new ImporterNotificationFaker();
 
                 this.importerNotificationFaker.RuleFor(n => n.defraimp_PurposeofConsignment, f => purposeOfConsignment);
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures the Importer Notification to have the given non-compliance type.
+            /// </summary>
+            /// <param name="type">The non-compliance type.</param>
+            /// <returns>The builder.</returns>
+            public Builder WithNotificationNonComplianceType(defraimp_noncompliancetypenotification type)
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_TypeofNonCompliance, _ => type);
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures the Importer Notification's non-compliance details.
+            /// </summary>
+            /// <param name="type">The non-compliance type.</param>
+            /// <param name="otherComments">Optional comments for the Other type.</param>
+            /// <returns>The builder.</returns>
+            public Builder WithNotificationNonCompliance(
+                defraimp_noncompliancetypenotification type,
+                string otherComments = null)
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_TypeofNonCompliance, _ => type);
+
+                if (type == defraimp_noncompliancetypenotification.Other)
+                {
+                    this.importerNotificationFaker.RuleFor(n => n.defraimp_NonComplianceOtherComments, f => otherComments ?? f.Lorem.Sentence());
+                }
 
                 return this;
             }
