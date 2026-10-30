@@ -7,6 +7,7 @@
     using Defra.Imports.Scenarios.Logging;
     using Defra.Imports.Specs.Services;
     using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Logging.Abstractions;
     using Microsoft.Playwright;
     using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -170,12 +171,20 @@
         [BeforeScenario(Order = -9999)]
         public void RegisterScenarioUserClient()
         {
-            var testConfiguration = this.objectContainer.Resolve<TestConfiguration>();
-            var scenarioUserClient = new ScenarioUserClient(this.objectContainer.Resolve<UserPoolService>(), testConfiguration.Credentials);
+            try
+            {
+                var testConfiguration = this.objectContainer.Resolve<TestConfiguration>();
+                var scenarioUserClient = new ScenarioUserClient(this.objectContainer.Resolve<UserPoolService>(), testConfiguration.Credentials);
 
-            scenarioUserClient.Logged += this.outputHelper.WriteLine;
+                scenarioUserClient.Logged += this.outputHelper.WriteLine;
 
-            this.objectContainer.RegisterInstanceAs(scenarioUserClient);
+                this.objectContainer.RegisterInstanceAs(scenarioUserClient);
+            }
+            catch (Exception ex)
+            {
+                this.outputHelper.WriteLine($"[BeforeScenario] {nameof(this.RegisterScenarioUserClient)} failed: {ex}");
+                throw;
+            }
         }
 
         /// <summary>
@@ -184,10 +193,33 @@
         [BeforeScenario(Order = 0)]
         public void RegisterLogger()
         {
-            var testContext = this.objectContainer.Resolve<TestContext>();
+            try
+            {
+                if (!this.objectContainer.IsRegistered<TestContext>())
+                {
+                    this.objectContainer.RegisterInstanceAs<ILogger>(NullLogger.Instance);
+                    this.objectContainer.RegisterInstanceAs<ILoggerProvider>(NullLoggerProvider.Instance);
+                    this.outputHelper.WriteLine("[BeforeScenario] TestContext was not registered. Falling back to null logger.");
+                    return;
+                }
 
-            this.objectContainer.RegisterInstanceAs<ILogger>(new MsTestLogger(testContext));
-            this.objectContainer.RegisterInstanceAs<ILoggerProvider>(new MsTestLoggerProvider(testContext));
+                var testContext = this.objectContainer.Resolve<TestContext>();
+                if (testContext == null)
+                {
+                    this.objectContainer.RegisterInstanceAs<ILogger>(NullLogger.Instance);
+                    this.objectContainer.RegisterInstanceAs<ILoggerProvider>(NullLoggerProvider.Instance);
+                    this.outputHelper.WriteLine("[BeforeScenario] TestContext was null. Falling back to null logger.");
+                    return;
+                }
+
+                this.objectContainer.RegisterInstanceAs<ILogger>(new MsTestLogger(testContext));
+                this.objectContainer.RegisterInstanceAs<ILoggerProvider>(new MsTestLoggerProvider(testContext));
+            }
+            catch (Exception ex)
+            {
+                this.outputHelper.WriteLine($"[BeforeScenario] {nameof(this.RegisterLogger)} failed: {ex}");
+                throw;
+            }
         }
 
         /// <summary>
@@ -197,9 +229,17 @@
         [BeforeScenario(Order = -9998)]
         public async Task SetupPowerPlaywright()
         {
-            var powerPlaywright = await PowerPlaywright.CreateAsync(new PowerPlaywrightConfiguration());
+            try
+            {
+                var powerPlaywright = await PowerPlaywright.CreateAsync(new PowerPlaywrightConfiguration());
 
-            this.objectContainer.RegisterInstanceAs(powerPlaywright);
+                this.objectContainer.RegisterInstanceAs(powerPlaywright);
+            }
+            catch (Exception ex)
+            {
+                this.outputHelper.WriteLine($"[BeforeScenario] {nameof(this.SetupPowerPlaywright)} failed: {ex}");
+                throw;
+            }
         }
 
         /// <summary>

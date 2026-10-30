@@ -121,6 +121,43 @@ namespace Defra.Imports.Scenarios.Events
             }
 
             /// <summary>
+            /// Configures the Importer Notification to have the given non-compliance type.
+            /// </summary>
+            /// <param name="type">The non-compliance type.</param>
+            /// <returns>The builder.</returns>
+            public Builder WithNotificationNonComplianceType(defraimp_noncompliancetypenotification type)
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_TypeofNonCompliance, _ => type);
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures the Importer Notification's non-compliance details.
+            /// </summary>
+            /// <param name="type">The non-compliance type.</param>
+            /// <param name="otherComments">Optional comments for the Other type.</param>
+            /// <returns>The builder.</returns>
+            public Builder WithNotificationNonCompliance(
+                defraimp_noncompliancetypenotification type,
+                string otherComments = null)
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_TypeofNonCompliance, _ => type);
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_ContactedDuetoNonCompliance, _ => false);
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_NonComplianceStatus, _ => defraimp_noncompliancestatus.InProgress);
+
+                if (type == defraimp_noncompliancetypenotification.Other)
+                {
+                    this.importerNotificationFaker.RuleFor(n => n.defraimp_NonComplianceOtherComments, f => otherComments ?? f.Lorem.Sentence());
+                }
+
+                return this;
+            }
+
+            /// <summary>
             /// Configures the Importer Notification as importing from a charity, populating the Charity tab's consignor two fields.
             /// </summary>
             /// <returns>The builder.</returns>

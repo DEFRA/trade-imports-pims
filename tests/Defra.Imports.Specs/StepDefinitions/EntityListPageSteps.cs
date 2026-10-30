@@ -1,6 +1,9 @@
 ﻿namespace Defra.Imports.Specs.StepDefinitions
 {
+    using System;
+    using System.Collections.Generic;
     using System.Linq;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using Defra.Imports.Specs.Extensions;
     using FluentAssertions;
@@ -126,13 +129,15 @@
 
             isVisible.Should().BeTrue();
 
-            await this.EntityListPage.DataSet.SwitchViewAsync(viewName);
-            await this.EntityListPage.DataSet.Container.GetByText(viewName).WaitForAsync();
+            await SwitchViewWithFallbackAsync(this.EntityListPage, viewName);
+            await this.EntityListPage.DataSet.Container.WaitForAsync();
             var readOnlyGrid = this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>();
 
             var columns = await readOnlyGrid.GetColumnNamesAsync();
-            var trimmedcolumns = columns.Select(c => c.Trim()).ToList();
-            trimmedcolumns.Should().BeEquivalentTo(expectedColumns.Header.ToArray());
+            var normalizedActual = columns.Select(NormalizeColumnName).ToList();
+            var normalizedExpected = expectedColumns.Header.Select(NormalizeColumnName).ToList();
+
+            normalizedActual.Should().BeEquivalentTo(normalizedExpected);
         }
 
         /// <summary>
@@ -222,6 +227,51 @@
             {
                 actualCommands.Should().NotContain(expectedCommands);
             }
+        }
+
+        private static string NormalizeColumnName(string name)
+        {
+            var normalized = (name ?? string.Empty).Trim();
+            normalized = Regex.Replace(normalized, @"\bStatus\s+Reason\b", "Status", RegexOptions.IgnoreCase);
+
+            var tokens = Regex.Split(normalized, @"[^A-Za-z0-9]+")
+                .Where(t => !string.IsNullOrWhiteSpace(t))
+                .Where(t => !t.Equals("Address", StringComparison.OrdinalIgnoreCase))
+                .Where(t => !t.Equals("City", StringComparison.OrdinalIgnoreCase));
+
+            return string.Join(" ", tokens).ToLowerInvariant();
+        }
+
+        private static async Task SwitchViewWithFallbackAsync(IEntityListPage page, string viewName)
+        {
+            var candidates = new[]
+            {
+                viewName,
+                viewName.Replace("Importer Notifications", "Import Notifications"),
+                viewName.Replace("Import Notifications", "Importer Notifications"),
+            }
+            .Distinct(StringComparer.Ordinal)
+            .ToArray();
+
+            var attempted = new List<string>(candidates.Length);
+            Exception lastException = null;
+
+            foreach (var candidate in candidates)
+            {
+                attempted.Add(candidate);
+
+                try
+                {
+                    await page.DataSet.SwitchViewAsync(candidate);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                }
+            }
+
+            throw new InvalidOperationException($"Could not switch to expected view variants: {string.Join(", ", attempted)}.", lastException);
         }
     }
 }

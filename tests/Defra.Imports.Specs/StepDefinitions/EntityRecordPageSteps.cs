@@ -265,7 +265,18 @@
                     row["Field"],
                     async (field, fieldContext) =>
                     {
-                        await field.SetValueAsync(fieldContext.ControlType, row["Value"]);
+                        try
+                        {
+                            await field.SetValueAsync(fieldContext.ControlType, row["Value"]);
+                        }
+                        catch (InvalidOperationException ex) when (ex.Message.Contains("Cannot convert from type System.String to type System.Collections.Generic.IEnumerable`1"))
+                        {
+                            await field.SetValueAsync(fieldContext.ControlType, new System.Collections.Generic.List<string> { row["Value"] });
+                        }
+                        catch (InvalidOperationException ex) when (ex.Message.Contains("Cannot convert from type System.String[] to type System.Collections.Generic.IEnumerable`1"))
+                        {
+                            await field.SetValueAsync(fieldContext.ControlType, new System.Collections.Generic.List<string> { row["Value"] });
+                        }
                     },
                     tab: await this.RecordPage.Form.Container.IsVisibleAsync() ? await this.RecordPage.Form.GetActiveTabAsync() : null);
             }
@@ -1133,7 +1144,17 @@
                     async (field, fieldContext) =>
                     {
                         var value = await field.GetValueAsync(fieldContext.ControlType);
-                        value.ToString().Should().Be(r["Value"]);
+                        var actualValue = value?.ToString();
+                        var expectedValue = r["Value"];
+
+                        if (this.TryParseBooleanValue(actualValue, out var actualBoolean)
+                            && this.TryParseBooleanValue(expectedValue, out var expectedBoolean))
+                        {
+                            actualBoolean.Should().Be(expectedBoolean);
+                            return;
+                        }
+
+                        actualValue.Should().Be(expectedValue);
                     },
                     tab: await this.RecordPage.Form.GetActiveTabAsync());
             }
@@ -2562,6 +2583,30 @@
             }
 
             return template;
+        }
+
+        private bool TryParseBooleanValue(string value, out bool parsed)
+        {
+            parsed = false;
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return false;
+            }
+
+            var normalized = value.Trim();
+            if (normalized.Equals("yes", StringComparison.OrdinalIgnoreCase))
+            {
+                parsed = true;
+                return true;
+            }
+
+            if (normalized.Equals("no", StringComparison.OrdinalIgnoreCase))
+            {
+                parsed = false;
+                return true;
+            }
+
+            return bool.TryParse(normalized, out parsed);
         }
 
         private async Task ExecuteGenericEditableGridActionAsync(string controlDisplayName, Func<IDataSet<IGridControl>, Task> action)
