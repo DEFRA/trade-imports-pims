@@ -1643,7 +1643,7 @@
                 .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
 
-            const string message = @"{{
+            var message = $@"{{
               ""aggregateVersion"": 1,
               ""data"": {{""exchangedDocument"": {{ ""identifier"": ""INS-CC-006"",
                 ""notificationStatusCode"": ""SUBMITTED"",
@@ -1690,7 +1690,7 @@
                 .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
 
-            const string message = @"{{
+            var message = $@"{{
               ""aggregateVersion"": 1,
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-007"",
@@ -1732,7 +1732,7 @@
                 .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
 
-            const string message = @"{{
+            var message = $@"{{
               ""aggregateVersion"": 1,
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-008"",
@@ -1780,7 +1780,7 @@
                 .Callback<Entity>(e => created = e)
                 .Returns(Guid.NewGuid());
 
-            const string message = @"{{
+            var message = $@"{{
               ""aggregateVersion"": 1,
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-009"",
