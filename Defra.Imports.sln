@@ -218,17 +218,11 @@ Global
 		SolutionGuid = {3D6A7645-2C64-4610-BC84-6AD17AA98B71}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{09a85dad-df88-6d09-4c22-143fdeb641cc}*SharedItemsImports = 5
-		src\common\Defra.Imports.Model\Defra.Imports.Model.projitems*{09a85dad-df88-6d09-4c22-143fdeb641cc}*SharedItemsImports = 5
-		src\common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{09a85dad-df88-6d09-4c22-143fdeb641cc}*SharedItemsImports = 5
 		src\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{2b1ef6de-63cc-4b7e-9bf6-5d9b4c0afded}*SharedItemsImports = 13
 		src\common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{56d657e2-2db7-4489-ad26-ca2e147836c6}*SharedItemsImports = 13
 		src\common\Defra.Imports.Model\Defra.Imports.Model.projitems*{70363b14-5d32-4bd6-aa74-a1ca3373c087}*SharedItemsImports = 13
 		src\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{960f4741-338c-e21c-e95b-e38695a78b78}*SharedItemsImports = 5
 		src\common\Defra.Imports.Model\Defra.Imports.Model.projitems*{960f4741-338c-e21c-e95b-e38695a78b78}*SharedItemsImports = 5
 		src\common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{960f4741-338c-e21c-e95b-e38695a78b78}*SharedItemsImports = 5
-		src\Common\Defra.Imports.BusinessLogic\Defra.Imports.BusinessLogic.projitems*{f76f0d3d-661a-f1f6-15a9-ff2e6c84d1b5}*SharedItemsImports = 5
-		src\common\Defra.Imports.Model\Defra.Imports.Model.projitems*{f76f0d3d-661a-f1f6-15a9-ff2e6c84d1b5}*SharedItemsImports = 5
-		src\common\Defra.Imports.Repositories\Defra.Imports.Repositories.projitems*{f76f0d3d-661a-f1f6-15a9-ff2e6c84d1b5}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

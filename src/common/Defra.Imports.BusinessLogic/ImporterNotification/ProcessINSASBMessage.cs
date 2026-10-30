@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using System.Runtime.CompilerServices;
     using Defra.Imports.BusinessLogic.Extensions;
     using Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObjects.INSObject;
     using Defra.Imports.BusinessLogic.Logging;
@@ -55,6 +56,13 @@
                 var errorMessage = "Error processing Importer Notification - message does not contain data.exchangedDocument.identifier";
                 this.logger.Log(Severity.Error, nameof(ProcessINSASBMessage), errorMessage);
                 return Tuple.Create(false, "error", errorMessage);
+            }
+
+            if (!this.IsSchemaVersionCurrent(insObject))
+            {
+                var infoMessage = $"Not processing Importer Notification - message schema version '{insObject.Metadata?.SchemaVersion}' does not match current schema version.";
+                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), infoMessage);
+                return Tuple.Create(false, "version", infoMessage);
             }
 
             try
@@ -242,6 +250,44 @@
             return this.BuildCountryDictionary(countryCodes, results);
         }
 
+        /// <summary>
+        /// Checks whether the schema version of the supplied INSObject matches the current value of the
+        /// "defraimp_INSVersionNumber" environment variable.
+        /// </summary>
+        /// <param name="insObject">INS object containing the schema version to validate.</param>
+        /// <returns>True if the schema version matches the environment variable value; otherwise false.</returns>
+        public bool IsSchemaVersionCurrent(INSObject insObject)
+        {
+            const string EnvironmentVariableSchemaName = "defraimp_INSVersionNumber";
+
+            var query = new QueryExpression(EnvironmentVariableDefinition.EntityLogicalName);
+            query.Criteria.AddCondition(new ConditionExpression(EnvironmentVariableDefinition.Fields.SchemaName, ConditionOperator.Equal, EnvironmentVariableSchemaName));
+            query.ColumnSet = new ColumnSet(EnvironmentVariableDefinition.Fields.DefaultValue);
+
+            var valueLink = query.AddLink(
+                EnvironmentVariableValue.EntityLogicalName,
+                EnvironmentVariableDefinition.Fields.EnvironmentVariableDefinitionId,
+                EnvironmentVariableValue.Fields.EnvironmentVariableDefinitionId,
+                JoinOperator.LeftOuter);
+            valueLink.EntityAlias = "envvarvalue";
+            valueLink.Columns = new ColumnSet(EnvironmentVariableValue.Fields.Value);
+
+            var results = this.orgSvc.RetrieveMultiple(query);
+            var definition = results.Entities.FirstOrDefault();
+
+            if (definition == null)
+            {
+                return false;
+            }
+
+            var currentValue = definition.GetAttributeValue<AliasedValue>("envvarvalue." + EnvironmentVariableValue.Fields.Value)?.Value as string;
+            var insVersionNumber = string.IsNullOrWhiteSpace(currentValue)
+                ? definition.GetAttributeValue<string>(EnvironmentVariableDefinition.Fields.DefaultValue)
+                : currentValue;
+
+            return string.Equals(insVersionNumber, insObject?.Metadata?.SchemaVersion, StringComparison.OrdinalIgnoreCase);
+        }
+
         private static StatusChange GetStatusChange(INSObject insObject, Func<StatusChange, bool> predicate, bool ascending)
         {
             if (insObject.StatusChanges == null || insObject.StatusChanges.Length == 0)
@@ -256,47 +302,77 @@
             return ordered.FirstOrDefault(predicate);
         }
 
-        private static int? GetNumberOfAnimals(IncludedTradeLineItem lineItem)
+        private int? GetNumberOfAnimals(IncludedTradeLineItem lineItem)
         {
-            return lineItem.SpecifiedLineTradeDelivery != null && lineItem.SpecifiedLineTradeDelivery.Length > 0
+            var numberOfAnimals = lineItem.SpecifiedLineTradeDelivery != null && lineItem.SpecifiedLineTradeDelivery.Length > 0
                 ? lineItem.SpecifiedLineTradeDelivery[0]?.ProductUnitQuantity?.Content
                 : null;
+            if (numberOfAnimals == null)
+            {
+                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), "No number of animals identified");
+            }
+
+            return numberOfAnimals;
         }
 
-        private static string FormatNumberOfAnimals(int? numberOfAnimals)
+        private string FormatNumberOfAnimals(int? numberOfAnimals)
         {
-            return numberOfAnimals.HasValue ? numberOfAnimals.Value.ToString(CultureInfo.InvariantCulture) : null;
+            var stringAnimals = numberOfAnimals.HasValue ? numberOfAnimals.Value.ToString(CultureInfo.InvariantCulture) : null;
+            if (stringAnimals == null)
+            {
+                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), "Could not format string number of animals");
+            }
+
+            return stringAnimals;
         }
 
-        private static int? GetNumberOfPackages(IncludedTradeLineItem lineItem)
+        private int? GetNumberOfPackages(IncludedTradeLineItem lineItem)
         {
-            return lineItem.PhysicalReferencedLogisticsPackage != null && lineItem.PhysicalReferencedLogisticsPackage.Length > 0
+            var numberOfPackages = lineItem.PhysicalReferencedLogisticsPackage != null && lineItem.PhysicalReferencedLogisticsPackage.Length > 0
                 ? lineItem.PhysicalReferencedLogisticsPackage[0]?.ItemQuantity
                 : null;
+            if (numberOfPackages == null)
+            {
+                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), "Could not find value for number of packages");
+            }
+
+            return numberOfPackages;
         }
 
-        private static string GetCommodityId(IncludedTradeLineItem lineItem)
+        private string GetCommodityId(IncludedTradeLineItem lineItem)
         {
-            return lineItem.ApplicableClassification?.Length > 0 ? lineItem.ApplicableClassification[0]?.ClassCode?.Value : null;
+            var commodityId = lineItem.ApplicableClassification?.Length > 0 ? lineItem.ApplicableClassification[0]?.ClassCode?.Value : null;
+            if (commodityId == null)
+            {
+                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), "Could not find commodity ID");
+            }
+
+            return commodityId;
         }
 
-        private static string GetCommodityDescription(IncludedTradeLineItem lineItem)
+        private string GetCommodityDescription(IncludedTradeLineItem lineItem)
         {
-            return lineItem.Description != null && lineItem.Description.Length > 0
+            var description = lineItem.Description != null && lineItem.Description.Length > 0
                 ? string.Join(", ", lineItem.Description)
                 : null;
+            if (description == null)
+            {
+                this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), "Could not find commodity description");
+            }
+
+            return description;
         }
 
-        private static defraimp_commoditycomplement BuildCommodityComplement(defraimp_ImporterNotification importerNotification, IncludedTradeLineItem lineItem)
+        private defraimp_commoditycomplement BuildCommodityComplement(EntityReference importerNotification, IncludedTradeLineItem lineItem, bool isUpdate)
         {
             return new defraimp_commoditycomplement
             {
-                defraimp_ImporterNotificationId = importerNotification.ToEntityReference(),
-                defraimp_NumberofAnimals = FormatNumberOfAnimals(GetNumberOfAnimals(lineItem)),
-                defraimp_NumberofPackages = GetNumberOfPackages(lineItem),
+                defraimp_ImporterNotificationId = isUpdate ? importerNotification : null,
+                defraimp_NumberofAnimals = this.FormatNumberOfAnimals(this.GetNumberOfAnimals(lineItem)),
+                defraimp_NumberofPackages = this.GetNumberOfPackages(lineItem),
                 defraimp_name = lineItem.ScientificName,
-                defraimp_commodityid = GetCommodityId(lineItem),
-                defraimp_commoditydescription = GetCommodityDescription(lineItem),
+                defraimp_commodityid = this.GetCommodityId(lineItem),
+                defraimp_commoditydescription = this.GetCommodityDescription(lineItem),
                 defraimp_speciesname = lineItem.ScientificName,
                 defraimp_speciescommonname = lineItem.CommonName,
             };
@@ -311,7 +387,7 @@
                 this.PopulateImporterNotificationFields(existing, insObject, true);
                 this.orgSvc.Update(existing);
                 this.DeleteExistingConsignmentItems(existing);
-                this.ApplyConsignmentItemDetails(existing, insObject.Data?.SpecifiedConsignment?.IncludedConsignmentItem);
+                this.ApplyConsignmentItemDetails(existing.ToEntityReference(), insObject.Data?.SpecifiedConsignment?.IncludedConsignmentItem);
 
                 var successMessage = $"Importer Notification with Name: {identifier} updated successfully.";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
@@ -350,7 +426,7 @@
                 this.PopulateImporterNotificationFields(existing, insObject, true);
                 this.orgSvc.Update(existing);
                 this.DeleteExistingConsignmentItems(existing);
-                this.ApplyConsignmentItemDetails(existing, insObject.Data?.SpecifiedConsignment?.IncludedConsignmentItem);
+                this.ApplyConsignmentItemDetails(existing.ToEntityReference(), insObject.Data?.SpecifiedConsignment?.IncludedConsignmentItem);
 
                 var successMessage = $"Importer Notification with Name: {identifier} updated successfully based on last updated date.";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
@@ -370,10 +446,8 @@
 
             if (newNotification.defraimp_status != defraimp_importernotificationstatus.Draft)
             {
+                this.AttachConsignmentItemDetails(newNotification, insObject.Data?.SpecifiedConsignment?.IncludedConsignmentItem);
                 var importerNotificationId = this.orgSvc.Create(newNotification);
-                newNotification.Id = importerNotificationId;
-
-                this.ApplyConsignmentItemDetails(newNotification, insObject.Data?.SpecifiedConsignment?.IncludedConsignmentItem);
 
                 var successMessage = $"Importer Notification with Name: {identifier} created successfully.";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
@@ -775,13 +849,8 @@
             }
         }
 
-        private void ApplyConsignmentItemDetails(defraimp_ImporterNotification importerNotification, IncludedConsignmentItem[] includedConsignmentItem)
+        private void ApplyConsignmentItemDetails(EntityReference importerNotification, IncludedConsignmentItem[] includedConsignmentItem)
         {
-            if (importerNotification == null || importerNotification.Id == Guid.Empty)
-            {
-                return;
-            }
-
             if (includedConsignmentItem == null || includedConsignmentItem.Length == 0)
             {
                 return;
@@ -789,33 +858,77 @@
 
             foreach (var consignmentItem in includedConsignmentItem)
             {
-                this.ApplyTradeLineItemDetails(importerNotification, consignmentItem?.IncludedTradeLineItem);
-            }
-        }
-
-        private void ApplyTradeLineItemDetails(defraimp_ImporterNotification importerNotification, IncludedTradeLineItem[] includedTradeLineItem)
-        {
-            if (includedTradeLineItem == null || includedTradeLineItem.Length == 0)
-            {
-                return;
-            }
-
-            var createRequests = new OrganizationRequestCollection();
-
-            foreach (var lineItem in includedTradeLineItem)
-            {
-                if (lineItem == null)
+                if (consignmentItem == null)
                 {
                     continue;
                 }
 
-                var commodityComplement = BuildCommodityComplement(importerNotification, lineItem);
-                createRequests.Add(new CreateRequest { Target = commodityComplement });
+                var includedTradeLineItems = consignmentItem.IncludedTradeLineItem;
+
+                if (includedTradeLineItems == null || includedTradeLineItems.Length == 0)
+                {
+                    continue;
+                }
+
+                var createRequests = new OrganizationRequestCollection();
+
+                foreach (var lineItem in includedTradeLineItems)
+                {
+                    if (lineItem == null)
+                    {
+                        continue;
+                    }
+
+                    var commodityComplement = this.BuildCommodityComplement(importerNotification, lineItem, true);
+                    createRequests.Add(new CreateRequest { Target = commodityComplement });
+                }
+
+                if (createRequests.Count > 0)
+                {
+                    this.ExecuteMultiple(createRequests);
+                }
+            }
+        }
+
+        private void AttachConsignmentItemDetails(defraimp_ImporterNotification importerNotification, IncludedConsignmentItem[] includedConsignmentItem)
+        {
+            if (includedConsignmentItem == null || includedConsignmentItem.Length == 0)
+            {
+                return;
             }
 
-            if (createRequests.Count > 0)
+            EntityCollection relatedCommodityComplements = new EntityCollection();
+
+            foreach (var consignmentItem in includedConsignmentItem)
             {
-                this.ExecuteMultiple(createRequests);
+                if (consignmentItem == null)
+                {
+                    continue;
+                }
+
+                var includedTradeLineItems = consignmentItem.IncludedTradeLineItem;
+
+                if (includedTradeLineItems == null || includedTradeLineItems.Length == 0)
+                {
+                    continue;
+                }
+
+                foreach (var lineItem in includedTradeLineItems)
+                {
+                    if (lineItem == null)
+                    {
+                        continue;
+                    }
+
+                    var commodityComplement = this.BuildCommodityComplement(importerNotification.ToEntityReference(), lineItem, false);
+                    relatedCommodityComplements.Entities.Add(commodityComplement);
+                }
+            }
+
+            if (relatedCommodityComplements.Entities.Count > 0)
+            {
+                var relationship = new Relationship(defraimp_commoditycomplement.Fields.defraimp_importernotification_defraimp_commoditycomplement_ImporterNotification);
+                importerNotification.RelatedEntities.Add(relationship, relatedCommodityComplements);
             }
         }
 
@@ -850,12 +963,20 @@
                 Settings = new ExecuteMultipleSettings
                 {
                     ContinueOnError = true,
-                    ReturnResponses = false,
+                    ReturnResponses = true,
                 },
                 Requests = requests,
             };
 
-            this.orgSvc.Execute(request);
+            var response = (ExecuteMultipleResponse)this.orgSvc.Execute(request);
+            if (response.IsFaulted)
+            {
+                var faultMessages = response.Responses
+                    .Where(r => r.Fault != null)
+                    .Select(r => r.Fault.Message)
+                    .ToList();
+                this.logger.Log(Severity.Error, nameof(ProcessINSASBMessage), $"ExecuteMultiple completed with fault {string.Join(", ", faultMessages)}");
+            }
         }
 
         private bool TryDeserializeMessage(string message, out INSObject insObject, out string errorMessage)

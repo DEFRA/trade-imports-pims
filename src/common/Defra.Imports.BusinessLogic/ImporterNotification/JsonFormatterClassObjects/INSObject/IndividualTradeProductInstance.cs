@@ -24,6 +24,6 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         /// Gets permanent location.
         /// </summary>
         [DataMember(Name = "permanentLocation")]
-        public PermanentLocation PermanentLocation { get; internal set; }
+        public LogisticsLocation PermanentLocation { get; internal set; }
     }
 }
