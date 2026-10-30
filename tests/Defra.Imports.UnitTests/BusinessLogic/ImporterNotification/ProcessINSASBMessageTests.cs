@@ -228,6 +228,63 @@
         }
 
         /// <summary>
+        /// Tests that IsSchemaVersionCurrent uses the environment variable default value when no
+        /// environment variable value override is present.
+        /// </summary>
+        [Fact]
+        public void IsSchemaVersionCurrent_WhenOverrideIsMissing_UsesDefaultValue()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == EnvironmentVariableDefinition.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity>
+                {
+                    new EnvironmentVariableDefinition
+                    {
+                        Id = Guid.NewGuid(),
+                        DefaultValue = "1.0",
+                    },
+                }));
+
+            var insObject = BuildInsObjectWithSchemaVersion("INS-SCHEMA-003", "1.0");
+
+            // Act
+            var isCurrent = this.sut.IsSchemaVersionCurrent(insObject);
+
+            // Assert
+            Assert.True(isCurrent);
+        }
+
+        /// <summary>
+        /// Tests that IsSchemaVersionCurrent prefers the environment variable value override
+        /// over the environment variable default value when both are available.
+        /// </summary>
+        [Fact]
+        public void IsSchemaVersionCurrent_WhenOverrideExists_PrefersOverrideOverDefault()
+        {
+            // Arrange
+            var definition = new EnvironmentVariableDefinition
+            {
+                Id = Guid.NewGuid(),
+                DefaultValue = "1.0",
+            };
+            definition["envvarvalue." + EnvironmentVariableValue.Fields.Value] =
+                new AliasedValue(EnvironmentVariableValue.EntityLogicalName, EnvironmentVariableValue.Fields.Value, "2.0");
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == EnvironmentVariableDefinition.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { definition }));
+
+            var insObject = BuildInsObjectWithSchemaVersion("INS-SCHEMA-004", "1.0");
+
+            // Act
+            var isCurrent = this.sut.IsSchemaVersionCurrent(insObject);
+
+            // Assert
+            Assert.False(isCurrent);
+        }
+
+        /// <summary>
         /// Tests that UpsertImporterNotification creates a new record when no existing record is found and the status is SUBMITTED.
         /// </summary>
         [Fact]
@@ -2426,6 +2483,21 @@
         private static INSObject BuildInsObject(string identifier, int aggregateVersion, string statusCode)
         {
             return BuildMessage(identifier, aggregateVersion, statusCode).FromJSON<INSObject>();
+        }
+
+        private static INSObject BuildInsObjectWithSchemaVersion(string identifier, string schemaVersion)
+        {
+            return $@"{{
+              ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""{schemaVersion}"" }},
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""{identifier}"",
+                  ""notificationStatusCode"": ""SUBMITTED"",
+                  ""versionId"": 1
+                }}
+              }}
+            }}".FromJSON<INSObject>();
         }
 
         private static INSObject BuildInsObjectWithIssuerCountry(string identifier, int aggregateVersion, string statusCode, string countryId)
