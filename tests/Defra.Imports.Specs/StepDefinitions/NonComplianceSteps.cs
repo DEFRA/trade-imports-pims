@@ -7,7 +7,6 @@ namespace Defra.Imports.Specs.StepDefinitions
     using Defra.Imports.Specs.Services;
     using Microsoft.Extensions.Logging;
     using Microsoft.Playwright;
-    using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.Xrm.Sdk;
     using PowerPlaywright.Framework.Pages;
     using Reqnroll;
@@ -24,7 +23,6 @@ namespace Defra.Imports.Specs.StepDefinitions
         private readonly ILoggerProvider loggerProvider;
         private readonly PowerPlaywrightContext powerPlaywrightCtx;
         private readonly RecordNavigatorService recordNavigator;
-        private readonly ServiceClient serviceClient;
         private readonly ScenarioContext ctx;
 
         /// <summary>
@@ -34,21 +32,18 @@ namespace Defra.Imports.Specs.StepDefinitions
         /// <param name="loggerProvider">The logger provider.</param>
         /// <param name="powerPlaywrightCtx">The Power Playwright context.</param>
         /// <param name="recordNavigator">The record navigator service.</param>
-        /// <param name="serviceClient">The service client.</param>
         /// <param name="ctx">The scenario context.</param>
         public NonComplianceSteps(
             ServiceClientFactory clientFactory,
             ILoggerProvider loggerProvider,
             PowerPlaywrightContext powerPlaywrightCtx,
             RecordNavigatorService recordNavigator,
-            ServiceClient serviceClient,
             ScenarioContext ctx)
         {
             this.clientFactory = clientFactory;
             this.loggerProvider = loggerProvider;
             this.powerPlaywrightCtx = powerPlaywrightCtx;
             this.recordNavigator = recordNavigator;
-            this.serviceClient = serviceClient;
             this.ctx = ctx;
         }
 
@@ -83,7 +78,10 @@ namespace Defra.Imports.Specs.StepDefinitions
             var type = this.ToNotificationType(nonComplianceType);
 
             var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
-                .SubmittedByLogicApp(a => a.WithNotificationNonCompliance(type))
+                .SubmittedByLogicApp(a => a
+                    .WithNotificationNonCompliance(type)
+                    .WithNotificationNonComplianceStatus(defraimp_noncompliancestatus.InProgress)
+                    .WithNotificationContactedDueToNonCompliance(false))
                 .BuildAsync();
 
             this.ctx.Set(scenario);
@@ -100,15 +98,17 @@ namespace Defra.Imports.Specs.StepDefinitions
         public async Task GivenIHaveOpenedAnImportRecordLinkedToANonCompliantImporterNotification()
         {
             var notificationScenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
-                .SubmittedByLogicApp(a => a.WithNotificationNonCompliance(defraimp_noncompliancetypenotification.NoHealthCertificate))
+                .SubmittedByLogicApp(a => a
+                    .WithNotificationNonCompliance(defraimp_noncompliancetypenotification.NoHealthCertificate)
+                    .WithNotificationNonComplianceStatus(defraimp_noncompliancestatus.InProgress)
+                    .WithNotificationContactedDueToNonCompliance(false))
                 .BuildAsync();
 
             var importerNotificationId = notificationScenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;
 
             var importRecordScenario = await new ImportRecordScenario.Builder(this.clientFactory, this.loggerProvider)
                 .Created(a => a
-                    .ForImporterNotification(importerNotificationId)
-                    .WithNonComplianceTypes(defraimp_noncompliancetype.HealthCertificatenotattachedtoIN))
+                    .ForImporterNotification(importerNotificationId))
                 .BuildAsync();
 
             this.ctx.Set(notificationScenario);
@@ -138,23 +138,19 @@ namespace Defra.Imports.Specs.StepDefinitions
                 await addNoteButton.ClickAsync();
             }
 
-            try
-            {
-                var textbox = page
-                    .Locator("[aria-label='Timeline'] textarea, [data-id='notescontrol'] textarea, textarea[placeholder*='note'], textarea[aria-label*='note' i], textarea")
-                    .First;
-                await textbox.WaitForAsync(new LocatorWaitForOptions { Timeout = 60000 });
-                await textbox.FillAsync(note);
+            var textbox = page
+                .GetByPlaceholder("Type a note...")
+                .Or(page.GetByLabel("Type a note..."))
+                .Or(page.Locator("div[contenteditable='true'][role='textbox'][aria-label*='note' i]"))
+                .First;
 
-                var postButton = page.GetByRole(AriaRole.Button, new PageGetByRoleOptions { Name = "Post" }).First;
-                await postButton.WaitForAsync(new LocatorWaitForOptions { Timeout = 30000 });
-                await postButton.ClickAsync();
-            }
-            catch (TimeoutException)
-            {
-                this.CreateTimelineNoteViaApi(note);
-                await page.ReloadAsync();
-            }
+            await textbox.WaitForAsync(new LocatorWaitForOptions { Timeout = 60000 });
+            await textbox.FillAsync(note);
+
+            var postButton = page.GetByRole(AriaRole.Button, new PageGetByRoleOptions { Name = "Post|Save", Exact = false }).First;
+
+            await postButton.WaitForAsync(new LocatorWaitForOptions { Timeout = 30000 });
+            await postButton.ClickAsync();
         }
 
         /// <summary>
@@ -190,32 +186,5 @@ namespace Defra.Imports.Specs.StepDefinitions
             };
         }
 
-        private void CreateTimelineNoteViaApi(string note)
-        {
-            EntityReference regarding = null;
-
-            if (this.ctx.TryGetValue<ImporterNotificationScenario>(out var importerNotificationScenario))
-            {
-                regarding = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationScenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId);
-            }
-            else if (this.ctx.TryGetValue<ImportRecordScenario>(out var importRecordScenario))
-            {
-                regarding = new EntityReference(defraimp_importapplication.EntityLogicalName, importRecordScenario.CreateImportRecordEvent.ImportRecordId);
-            }
-
-            if (regarding == null)
-            {
-                throw new InvalidOperationException("No current record was found to attach a timeline note.");
-            }
-
-            var annotation = new Entity("annotation")
-            {
-                ["subject"] = "US-049 non-compliance note",
-                ["notetext"] = note,
-                ["objectid"] = regarding,
-            };
-
-            this.serviceClient.Create(annotation);
-        }
     }
 }

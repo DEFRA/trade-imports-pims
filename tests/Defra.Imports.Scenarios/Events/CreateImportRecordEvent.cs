@@ -2,10 +2,12 @@ namespace Defra.Imports.Scenarios.Events
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Defra.Imports.Model;
     using Microsoft.Extensions.Logging;
     using Microsoft.Xrm.Sdk;
+    using Microsoft.Xrm.Sdk.Query;
     using ScenarioBuilder;
 
     /// <summary>
@@ -32,26 +34,40 @@ namespace Defra.Imports.Scenarios.Events
                 throw new InvalidOperationException($"{nameof(importerNotificationId)} must be configured before executing {nameof(CreateImportRecordEvent)}.");
             }
 
-            var importRecord = new defraimp_importapplication
-            {
-                Id = Guid.NewGuid(),
-                defraimp_name = this.importRecordName ?? $"IR-{Guid.NewGuid():N}".Substring(0, 12),
-                defraimp_ImportApplicationType = defraimp_importapplication_defraimp_importapplicationtype.ImportNotification,
-                defraimp_PrimaryImporterNotificationId = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, this.importerNotificationId),
-            };
-
-            if (this.nonComplianceTypes != null)
-            {
-                importRecord.defraimp_TypesofNonCompliance = this.nonComplianceTypes;
-                importRecord.defraimp_ContactedDuetoNonCompliance = false;
-                importRecord.defraimp_NonComplianceStatus = defraimp_noncompliancestatus.InProgress;
-            }
-
-            this.logger.LogInformation("Creating Import Record linked to Importer Notification {ImporterNotificationId}.", this.importerNotificationId);
+            this.logger.LogInformation("Creating Import Record from Importer Notification action for {ImporterNotificationId}.", this.importerNotificationId);
 
             var client = await this.clientFactory.GetClientAsync(Persona.LogicApp);
-            var importRecordId = await client.CreateAsync(importRecord);
-            importRecord.Id = importRecordId;
+            await client.ExecuteAsync(new defraimp_CreateImportRecordFromNotificationRequest
+            {
+                Target = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, this.importerNotificationId),
+            }).ConfigureAwait(false);
+
+            var importRecord = await this.GetLatestImportRecordAsync(client).ConfigureAwait(false)
+                ?? throw new InvalidOperationException($"No Import Record was created for Importer Notification '{this.importerNotificationId}' by defraimp_CreateImportRecordFromNotification.");
+
+            if (!string.IsNullOrWhiteSpace(this.importRecordName) || this.nonComplianceTypes != null)
+            {
+                var update = new defraimp_importapplication
+                {
+                    Id = importRecord.Id,
+                };
+
+                if (!string.IsNullOrWhiteSpace(this.importRecordName))
+                {
+                    update.defraimp_name = this.importRecordName;
+                    importRecord.defraimp_name = this.importRecordName;
+                }
+
+                if (this.nonComplianceTypes != null)
+                {
+                    update.defraimp_TypesofNonCompliance = this.nonComplianceTypes;
+                    importRecord.defraimp_TypesofNonCompliance = this.nonComplianceTypes;
+                }
+
+                await client.UpdateAsync(update).ConfigureAwait(false);
+            }
+
+            var importRecordId = importRecord.Id;
 
             this.logger.LogInformation("Created Import Record {ImportRecordId}.", importRecordId);
 
@@ -60,6 +76,39 @@ namespace Defra.Imports.Scenarios.Events
                 ImportRecordId = importRecordId,
                 ImportRecord = importRecord,
             });
+        }
+
+        private async Task<defraimp_importapplication> GetLatestImportRecordAsync(Microsoft.PowerPlatform.Dataverse.Client.ServiceClient client)
+        {
+            var query = new QueryExpression(defraimp_importapplication.EntityLogicalName)
+            {
+                ColumnSet = new ColumnSet(true),
+                TopCount = 1,
+                Criteria = new FilterExpression
+                {
+                    Conditions =
+                    {
+                        new ConditionExpression(defraimp_importapplication.Fields.defraimp_PrimaryImporterNotificationId, ConditionOperator.Equal, this.importerNotificationId),
+                    },
+                },
+            };
+
+            query.Orders.Add(new OrderExpression("createdon", OrderType.Descending));
+
+            for (var attempt = 0; attempt < 6; attempt++)
+            {
+                var result = await client.RetrieveMultipleAsync(query).ConfigureAwait(false);
+                var entity = result.Entities.FirstOrDefault();
+
+                if (entity != null)
+                {
+                    return entity.ToEntity<defraimp_importapplication>();
+                }
+
+                await Task.Delay(1000).ConfigureAwait(false);
+            }
+
+            return null;
         }
 
         /// <summary>

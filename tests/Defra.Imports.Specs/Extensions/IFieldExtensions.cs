@@ -1,6 +1,8 @@
 ﻿namespace Defra.Imports.Specs.Extensions
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.Linq;
     using System.Threading.Tasks;
@@ -84,6 +86,11 @@
                 }
             }
 
+            if (TryConvertEnumerableOfString(rawValue, targetType, out var enumerableValue))
+            {
+                return enumerableValue;
+            }
+
             var converter = TypeDescriptor.GetConverter(targetType);
             if (converter == null)
             {
@@ -96,6 +103,42 @@
             }
 
             return converter.ConvertFrom(rawValue);
+        }
+
+        private static bool TryConvertEnumerableOfString(object rawValue, Type targetType, out object converted)
+        {
+            converted = null;
+
+            if (!targetType.IsGenericType || targetType.GetGenericTypeDefinition() != typeof(IEnumerable<>))
+            {
+                return false;
+            }
+
+            var itemType = targetType.GetGenericArguments()[0];
+            if (itemType != typeof(string))
+            {
+                return false;
+            }
+
+            if (rawValue is string single)
+            {
+                converted = new List<string> { single };
+                return true;
+            }
+
+            if (rawValue is IEnumerable<string> stringEnumerable)
+            {
+                converted = stringEnumerable.ToList();
+                return true;
+            }
+
+            if (rawValue is IEnumerable nonGenericEnumerable)
+            {
+                converted = nonGenericEnumerable.Cast<object>().Select(v => v?.ToString() ?? string.Empty).ToList();
+                return true;
+            }
+
+            return false;
         }
     }
 }
