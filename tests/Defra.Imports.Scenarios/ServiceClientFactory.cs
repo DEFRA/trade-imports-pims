@@ -132,16 +132,6 @@ namespace Defra.Imports.Scenarios
                 return client;
             }
 
-            if (personas.Length == 1 && personas[0] == Persona.LogicApp)
-            {
-                var fallbackClient = this.baseClient.Clone();
-                this.personaClients[key] = fallbackClient;
-                this.personaUsernames[key] = "app-user-fallback";
-                this.appUserPersonaKeys.Add(key);
-                this.logger?.LogInformation("No LogicApp AppId configured; using base app user client fallback.");
-                return fallbackClient;
-            }
-
             if (this.userPoolService is null)
             {
                 throw new InvalidOperationException("No user pool service has been configured for this factory.");

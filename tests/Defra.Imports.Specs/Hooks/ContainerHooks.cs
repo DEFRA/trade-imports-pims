@@ -58,14 +58,8 @@
                 // ownership is passed to the persona configuration service, which disposes it, cascading from UserPoolService.Dispose().
                 var poolServiceClient = new ServiceClient(testConfiguration.Url, testConfiguration.ClientId.ToString(), testConfiguration.ClientSecret, true);
                 var personaConfigurationService = new PersonaConfigurationService(poolServiceClient);
-                var staticUsers = testConfiguration.Personas.Values
-                    .Where(p => p.Users != null)
-                    .SelectMany(p => p.Users);
-
-                var credentialUsers = testConfiguration.Credentials.Select(c => c.Username);
-
-                var usernames = staticUsers
-                    .Concat(credentialUsers)
+                var usernames = testConfiguration.Credentials
+                    .Select(c => c.Username)
                     .Where(u => !string.IsNullOrWhiteSpace(u))
                     .Distinct(StringComparer.OrdinalIgnoreCase);
 
