@@ -69,6 +69,23 @@ namespace Defra.Imports.Specs.StepDefinitions
         }
 
         /// <summary>
+        /// Creates and opens a non-compliant Importer Notification without explicitly setting default non-compliance values.
+        /// </summary>
+        /// <returns>A task.</returns>
+        [Given("I have opened a non-compliant Importer Notification without default non-compliance values")]
+        public async Task GivenIHaveOpenedANonCompliantImporterNotificationWithoutDefaultValues()
+        {
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+                .SubmittedByLogicApp(a => a.WithNotificationNonCompliance(defraimp_noncompliancetypenotification.NoHealthCertificate))
+                .BuildAsync();
+
+            this.ctx.Set(scenario);
+
+            this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
+                new EntityReference(defraimp_ImporterNotification.EntityLogicalName, scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId));
+        }
+
+        /// <summary>
         /// Creates and opens a non-compliant Importer Notification.
         /// </summary>
         /// <param name="nonComplianceType">The notification non-compliance type.</param>

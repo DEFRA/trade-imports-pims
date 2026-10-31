@@ -21,10 +21,11 @@ Scenario: A caseworker views and updates non-compliance fields on an Importer No
 		| Other comments |
 
 # Known product behavior gap in CIT: default Non-Compliance Status is not auto-populated.
+# Known product behavior gap in CIT: default Non-Compliance Status is not auto-populated.
 @acceptance-criteria:us-049-1 @ignore @defect
 Scenario: A caseworker sees default non-compliance values on an Importer Notification
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened a non-compliant Importer Notification
+	And I have opened a non-compliant Importer Notification without default non-compliance values
 	When I select the 'Non-Compliance' tab
 	Then I see the following field values
 		| Field                           | Value       |

@@ -195,7 +195,20 @@ namespace Defra.Imports.Scenarios
 
             var requested = personas.ToList();
             var appIdMatches = requested
-                .Select(p => this.personaConfigurations.TryGetValue(p, out var config) ? config.AppId : null)
+                .Select(p =>
+                {
+                    if (!this.personaConfigurations.TryGetValue(p, out var config))
+                    {
+                        return null;
+                    }
+
+                    if (!config.AppId.HasValue || config.AppId.Value == Guid.Empty)
+                    {
+                        return null;
+                    }
+
+                    return config.AppId;
+                })
                 .ToList();
 
             var appIds = appIdMatches
