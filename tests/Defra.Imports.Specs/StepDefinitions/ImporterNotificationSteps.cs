@@ -1,4 +1,4 @@
-namespace Defra.Imports.Specs.StepDefinitions
+﻿namespace Defra.Imports.Specs.StepDefinitions
 {
     using System;
     using System.Collections.Generic;
@@ -193,17 +193,17 @@ namespace Defra.Imports.Specs.StepDefinitions
         /// <summary>
         /// Submits an Importer Notification with or without a Health Certificate document that has a URL, and navigates to it.
         /// </summary>
-        /// <param name="withOrWithout">Whether the notification has a health certificate document.</param>
+        /// <param name="withHealthCertificate">Whether the notification has a health certificate document.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Given("^I have opened an Importer Notification (with|without) a health certificate document$")]
-        public async Task GivenIHaveOpenedAnImporterNotificationWithAHealthCertificateDocument(string withOrWithout)
+        public async Task GivenIHaveOpenedAnImporterNotificationWithAHealthCertificateDocument(bool withHealthCertificate)
         {
             this.powerPlaywrightCtx.Validate();
 
             var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
                 .SubmittedByLogicApp(a =>
                 {
-                    if (withOrWithout == "with")
+                    if (withHealthCertificate)
                     {
                         a.WithHealthCertificate();
                     }
@@ -312,7 +312,7 @@ namespace Defra.Imports.Specs.StepDefinitions
         }
 
         /// <summary>
-        /// Submits an amended Importer Notification (PIMS Status Amended, IPAFFS Status Amend) with a Health Certificate document, and adds it to the scenario context for later steps to reference.
+        /// Submits an amended Importer Notification (Status Amend) with a Health Certificate document, and adds it to the scenario context for later steps to reference.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Given("an amended Importer Notification with a health certificate has been created")]
@@ -322,25 +322,6 @@ namespace Defra.Imports.Specs.StepDefinitions
                 .SubmittedByLogicApp(a => a
                     .WithPimsStatus(defraimp_pimsstatus.Amended)
                     .WithStatus(defraimp_importernotificationstatus.Amend)
-                    .WithHealthCertificate())
-                .BuildAsync();
-
-            this.ctx.Set(scenario);
-        }
-
-        /// <summary>
-        /// Submits an Importer Notification with the given IPAFFS Status and PIMS Status and a Health Certificate document, and adds it to the scenario context for later steps to reference.
-        /// </summary>
-        /// <param name="status">The IPAFFS status.</param>
-        /// <param name="pimsStatus">The PIMS status.</param>
-        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        [Given("^an Importer Notification with an IPAFFS Status of '(.*)', a PIMS Status of '(.*)' and a health certificate has been created$")]
-        public async Task GivenAnImporterNotificationWithStatusesAndAHealthCertificateHasBeenCreated(defraimp_importernotificationstatus status, defraimp_pimsstatus pimsStatus)
-        {
-            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
-                .SubmittedByLogicApp(a => a
-                    .WithPimsStatus(pimsStatus)
-                    .WithStatus(status)
                     .WithHealthCertificate())
                 .BuildAsync();
 

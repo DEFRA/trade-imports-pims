@@ -88,5 +88,16 @@
 
             return false;
         }
+
+        /// <summary>
+        /// Transorms with or without into a <see cref="bool"/> value.
+        /// </summary>
+        /// <param name="value">The with or without string.</param>
+        /// <returns>The bool value.</returns>
+        [StepArgumentTransformation("(with|without)")]
+        public static bool With(string value)
+        {
+            return value.Equals("with", StringComparison.OrdinalIgnoreCase);
+        }
     }
 }

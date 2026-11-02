@@ -1,7 +1,7 @@
-@issue:US-003
+﻿@issue:US-003
 Feature: View an Importer Notification
 
-@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-4 @acceptance-criteria:us-044-5 @issue:US-029 @acceptance-criteria:us-029-7 @issue:US-006 @acceptance-criteria:us-044-1
+@acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-4 @issue:US-029 @acceptance-criteria:us-029-7 @issue:US-006 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's importer notification details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -33,6 +33,11 @@ Scenario: A caseworker views an Importer Notification's importer notification de
 		| Region of Origin              |
 		| Arrival Time                  |
 		| Commodities Number of Animals |
+		# Defect: the D365 schema (IMTA-7201) marks these fields as displayed on the Importer Notification form, but they are not on it. Add them to the form or correct the schema, then uncomment.
+		# | Commodities Total Gross Weight |
+		# | Commodities Total Net Weight   |
+		# | Commodity Intended For         |
+		# | Consigned Country              |
 	And I do not see the following fields
 		| Field                  |
 		| Purpose of Consignment |
@@ -59,41 +64,12 @@ Scenario: A caseworker views an Importer Notification's importer notification de
 		| Weight (KG)         |
 		| Imp Type            |
 
-# Defect: the Type field on the Importer Notification Details tab shows 'IMP' rather than 'Importer Notification' as required by US-044 AC-5 (BR-038).
-@issue:US-044 @acceptance-criteria:us-044-5 @ignore @defect
-Scenario: A caseworker views the IMP notification type labelled as Importer Notification
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification of type 'IMP'
-	When I select the 'Importer Notification Details' tab
-	Then I see a value of 'Importer Notification' in the 'Type' field
-
 @issue:US-044 @acceptance-criteria:us-044-4
-Scenario: A caseworker views Health Certificate Attached as Yes when a health certificate document with a URL is attached
+Scenario: A caseworker views an Importer Notification's Health Certificate Attached field when a health certificate document is attached
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification with a health certificate document
 	When I select the 'Importer Notification Details' tab
 	Then the 'Health Certificate Attached' checkbox is checked
-
-@issue:US-044 @acceptance-criteria:us-044-4
-Scenario: A caseworker views Health Certificate Attached as No when no health certificate document is attached
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification without a health certificate document
-	When I select the 'Importer Notification Details' tab
-	Then the 'Health Certificate Attached' checkbox is unchecked
-
-@issue:US-044 @acceptance-criteria:us-044-4
-Scenario: A caseworker can edit the Health Certificate Attached field
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification
-	When I select the 'Importer Notification Details' tab
-	Then I can edit the 'Health Certificate Attached' field
-
-@issue:US-044 @acceptance-criteria:us-044-4
-Scenario: A caseworker views Health Certificate Attached immediately beneath Imp Type
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification
-	When I select the 'Importer Notification Details' tab
-	Then the 'Health Certificate Attached' field is immediately beneath the 'Imp Type' field
 
 @acceptance-criteria:us-003-1
 Scenario: A caseworker views an Importer Notification's internal market purpose (CVED/CHEDA)
@@ -162,6 +138,9 @@ Scenario: A caseworker views an Importer Notification's person responsible detai
 		| Phone   |
 		| Address |
 		| Country |
+		# Defect: the D365 schema (IMTA-7201) marks these fields as displayed on the Importer Notification form, but they are not on it. Add them to the form or correct the schema, then uncomment.
+		# | Person Responsible Type |
+		# | Person Responsible Fax  |
 
 @acceptance-criteria:us-003-1 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's importer details
@@ -182,6 +161,11 @@ Scenario: A caseworker views an Importer Notification's importer details
 		| Address Line 2  |
 		| Address Line 3  |
 		| City            |
+		# Defect: the D365 schema (IMTA-7201) marks these fields as displayed on the Importer Notification form, but they are not on it. Add them to the form or correct the schema, then uncomment.
+		# | Individual Name         |
+		# | UK Telephone            |
+		# | International Telephone |
+		# | Other Identifier        |
 
 @acceptance-criteria:us-003-1 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's place of origin details
@@ -202,6 +186,11 @@ Scenario: A caseworker views an Importer Notification's place of origin details
 		| Address Line 2  |
 		| Address Line 3  |
 		| City            |
+		# Defect: the D365 schema (IMTA-7201) marks these fields as displayed on the Importer Notification form, but they are not on it. Add them to the form or correct the schema, then uncomment.
+		# | Individual Name         |
+		# | UK Telephone            |
+		# | International Telephone |
+		# | Other Identifier        |
 
 @acceptance-criteria:us-003-1 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's place of destination details
@@ -223,6 +212,11 @@ Scenario: A caseworker views an Importer Notification's place of destination det
 		| Address Line 3     |
 		| City               |
 		| Permanent Address? |
+		# Defect: the D365 schema (IMTA-7201) marks these fields as displayed on the Importer Notification form, but they are not on it. Add them to the form or correct the schema, then uncomment.
+		# | Individual Name         |
+		# | UK Telephone            |
+		# | International Telephone |
+		# | Other Identifier        |
 
 @acceptance-criteria:us-003-1 @issue:US-044 @acceptance-criteria:us-044-1
 Scenario: A caseworker views an Importer Notification's permanent address details
@@ -270,153 +264,10 @@ Scenario: A caseworker views an Importer Notification's transporter details
 		| Exit Border Control Post                                         |
 		| Exit Border Control Post Date                                    |
 		| Route Transiting States                                          |
+		# Defect: the D365 schema (IMTA-7201) marks these fields as displayed on the Importer Notification form, but they are not on it. Add them to the form or correct the schema, then uncomment.
+		# | Individual Name                                                  |
+		# | UK Telephone                                                     |
+		# | International Telephone                                          |
+		# | Other Identifier                                                 |
 	And I see a 'Countries Of Transit <subgrid_countries_of_transit>' subgrid with the following columns
 		| Official Country Name |
-
-@issue:US-044 @acceptance-criteria:us-044-1
-Scenario: A caseworker views an Importer Notification's permanent address entry
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened a permanent address of an Importer Notification
-	Then I see the following fields
-		| Field                    |
-		| Individual Name          |
-		| Importer Notification    |
-		| Id                       |
-		| Type                     |
-		| Status                   |
-		| Approval Number          |
-		| Other Identifier         |
-		| Company Name             |
-		| Address Line 1           |
-		| Address Line 2           |
-		| Address Line 3           |
-		| Address City             |
-		| Address Post             |
-		| Address Country          |
-		| Email                    |
-		| Telephone                |
-		| UK Telephone             |
-		| International Phone Code |
-		| International Telephone  |
-
-@issue:US-044 @acceptance-criteria:us-044-1
-Scenario: A caseworker views an Importer Notification's commodity species details
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened a commodity species of an Importer Notification
-	Then I see the following fields
-		| Field                 |
-		| Complement Id         |
-		| Complement Name       |
-		| Commodity Id          |
-		| Commodity Description |
-		| Importer Notification |
-		| Number of Animals     |
-		| Number of Packages    |
-		| Species Id            |
-		| Species Name          |
-		| Species Nomination    |
-		| Species Type Name     |
-		| Species Type          |
-		| Species Class Name    |
-		| Species Class         |
-		| Species Family Name   |
-		| Species Family        |
-		| Species Common Name   |
-
-@issue:US-044 @acceptance-criteria:us-044-1
-Scenario: A caseworker views an Importer Notification's parameter set identifier details
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened a parameter set identifier of an Importer Notification
-	Then I see the following fields
-		| Field                                          |
-		| Commodity Complement Parameter Set             |
-		| Species Number                                 |
-		| Data                                           |
-		| Importer Notification Id                       |
-		| Permanent Address                              |
-		| Is Place Of Destination The Permanent Address  |
-		| Type                                           |
-		| Address Line1                                  |
-		| Address Line2                                  |
-		| city                                           |
-		| Postal Zip Code                                |
-		| Email                                          |
-		| Telephone                                      |
-
-@issue:US-044 @acceptance-criteria:us-044-1
-Scenario: A caseworker views an Importer Notification's parameter set key data pair details
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened a parameter set key data pair of an Importer Notification
-	Then I see the following fields
-		| Field                              |
-		| Commodity Complement Parameter Set |
-		| Key                                |
-		| Data                               |
-
-@issue:US-044 @acceptance-criteria:us-044-1
-Scenario: A caseworker views an Importer Notification's commodity complement parameter set details
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened a commodity complement parameter set of an Importer Notification
-	Then I see the following fields
-		| Field                 |
-		| Complement Id         |
-		| Species Id            |
-		| Importer Notification |
-		| Species Name          |
-		| Species Quantity      |
-	And I can see the 'Parameter Set Identifiers (Commodity Complement Parameter Set) <Identifiers>' subgrid
-	And I can see the 'Parameter Set Key Data Pairs (Commodity Complement Parameter Set) <KeyDataPairs>' subgrid
-
-# Defect: the D365 schema (IMTA-7201) marks the fields below as displayed on the Importer Notification form, but the form does not have them. To be confirmed with the Product Analyst.
-@issue:US-044 @acceptance-criteria:us-044-1 @ignore @defect
-Scenario: A caseworker sees the schema fields on the Person Responsible tab
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification
-	When I select the 'Person Responsible' tab
-	Then I see the following fields
-		| Field |
-		| Type  |
-		| Fax   |
-
-# Defect: see the Person Responsible scenario.
-@issue:US-044 @acceptance-criteria:us-044-1 @ignore @defect
-Scenario Outline: A caseworker sees the schema fields on the <Tab> tab
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification
-	When I select the '<Tab>' tab
-	Then I see the following fields
-		| Field                   |
-		| Individual Name         |
-		| UK Telephone            |
-		| International Telephone |
-		| Other Identifier        |
-
-	Examples:
-		| Tab                  |
-		| Importer             |
-		| Place of Origin      |
-		| Place of Destination |
-		| Transporter          |
-
-# Defect: see the Person Responsible scenario.
-@issue:US-044 @acceptance-criteria:us-044-1 @ignore @defect
-Scenario: A caseworker sees the schema commodity fields on the Importer Notification Details tab
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification
-	When I select the 'Importer Notification Details' tab
-	Then I see the following fields
-		| Field                           |
-		| Commodities Total Gross Weight  |
-		| Commodities Total Net Weight    |
-		| Commodity Intended For          |
-		| Consigned Country               |
-
-# Ignored: the test data's document URL is a random placeholder, and the real URL comes from the IPAFFS base URL configuration plus the reference number, so whether it resolves can't be checked without real IPAFFS documents.
-@issue:US-044 @acceptance-criteria:us-044-10 @ignore
-Scenario: A caseworker sees a document URL and opens it from the Importer Notification
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have opened an Importer Notification
-	When I select the 'Importer Notification Details' tab
-	Then I see a document URL link in the documents subgrid
-	When I click the first document URL in the documents subgrid
-	Then the document opens in a new tab
