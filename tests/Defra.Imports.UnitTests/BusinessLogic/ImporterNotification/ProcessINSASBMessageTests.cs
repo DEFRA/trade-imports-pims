@@ -1530,11 +1530,7 @@
 
             var message = BuildUpdateMessageWithConsignmentItems(
                 "INS-UPD-001",
-                @"null,
-                    { },
-                    { ""includedTradeLineItem"": [] },
-                    { ""includedTradeLineItem"": [ null, { ""scientificName"": ""Canis lupus"" }, { ""scientificName"": ""Felis catus"" } ] },
-                    { ""includedTradeLineItem"": [ { ""scientificName"": ""Bos taurus"" } ] }");
+                @"null,{ },{ ""includedTradeLineItem"": [] },{ ""includedTradeLineItem"": [ null, { ""scientificName"": ""Canis lupus"" }, { ""scientificName"": ""Felis catus"" } ] },{ ""includedTradeLineItem"": [ { ""scientificName"": ""Bos taurus"" } ] }");
 
             // Act
             var result = this.sut.UpsertImporterNotification(message);
@@ -1992,7 +1988,7 @@
                 .Setup(o => o.Create(It.IsAny<Entity>()))
                 .Returns(Guid.NewGuid());
 
-            var message = $@"{{
+            const string message = @"{{
               ""aggregateVersion"": 1,
               ""data"": {{
                 ""exchangedDocument"": {{
@@ -2032,7 +2028,7 @@
                 .Setup(o => o.Create(It.IsAny<Entity>()))
                 .Returns(Guid.NewGuid());
 
-            var message = $@"{{
+            const string message = @"{{
               ""aggregateVersion"": 1,
               ""data"": {{
                 ""exchangedDocument"": {{
