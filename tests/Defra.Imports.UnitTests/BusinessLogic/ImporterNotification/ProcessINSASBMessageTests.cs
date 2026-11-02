@@ -1772,6 +1772,48 @@
         }
 
         /// <summary>
+        /// Tests that AttachConsignmentItemDetails does not attach any commodity complements
+        /// when includedTradeLineItem is absent (null) on a consignment item.
+        /// </summary>
+        [Fact]
+        public void AttachConsignmentItemDetails_WithNullTradeLineItems_DoesNotAttachAnyComplements()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            Entity created = null;
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Callback<Entity>(e => created = e)
+                .Returns(Guid.NewGuid());
+
+            const string message = @"{
+              ""aggregateVersion"": 1,
+              ""data"": {
+                ""exchangedDocument"": { ""identifier"": ""INS-CC-010"",
+                ""notificationStatusCode"": ""SUBMITTED"",
+                ""versionId"": 1 },
+                ""specifiedConsignment"": {
+                  ""includedConsignmentItem"": [
+                    { }
+                  ]
+                }
+              }
+            }";
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.NotNull(created);
+            Assert.Empty(GetAttachedCommodityComplements(created));
+            this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Never);
+        }
+
+        /// <summary>
         /// Tests that AttachConsignmentItemDetails skips null entries within the included trade
         /// line item array, attaching a commodity complement only for the non-null entry.
         /// </summary>
