@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="defraimp_INSVersionNumber">
+  <defaultvalue>0.2.0</defaultvalue>
+  <description default="The current version number that PIMS should ingest">
+    <label description="The current version number that PIMS should ingest" languagecode="1033" />
+  </description>
+  <displayname default="INS Version Number">
+    <label description="INS Version Number" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.6.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

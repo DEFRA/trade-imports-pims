@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26092.157" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.26092.00157">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26101.177" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.26101.00177">
   <Entities />
   <Roles />
   <Workflows />
@@ -29,6 +29,14 @@
     <connectionreference connectionreferencelogicalname="defraimp_sharedservicebus_dde88">
       <connectionreferencedisplayname>Service Bus defra_Imports-dde88</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_servicebus</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="defraimp_sharedservicebus1_b6e54">
+      <connectionreferencedisplayname>Service Bus defra_Imports-b6e54</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_servicebus-1</connectorid>
       <iscustomizable>1</iscustomizable>
       <promptingbehavior>0</promptingbehavior>
       <statecode>0</statecode>
