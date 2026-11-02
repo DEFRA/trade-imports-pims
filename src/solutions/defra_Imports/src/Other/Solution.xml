@@ -6,7 +6,7 @@
       <LocalizedName description="DEFRA - Imports" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.6.0</Version>
+    <Version>0.0.0</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -183,7 +183,6 @@
       <RootComponent type="29" id="{1089028f-74d7-44db-a0f2-48448b2979cd}" behavior="0" />
       <RootComponent type="29" id="{144314d6-3905-ea11-a811-000d3ab5d511}" behavior="0" />
       <RootComponent type="29" id="{14cb109e-3edd-4841-ac4e-9b53c4991b0d}" behavior="0" />
-      <RootComponent type="29" id="{16d3ae3e-b7ce-f111-a05c-000d3ad9e3d6}" behavior="0" />
       <RootComponent type="29" id="{17de83cc-724b-4200-91d1-a4d9d1a8de84}" behavior="0" />
       <RootComponent type="29" id="{1993fd67-23ba-ea11-a812-000d3ab6d757}" behavior="0" />
       <RootComponent type="29" id="{1b17a35b-2906-ea11-a811-000d3ab4df6c}" behavior="0" />
