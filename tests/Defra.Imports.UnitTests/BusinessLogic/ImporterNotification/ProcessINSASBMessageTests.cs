@@ -1556,6 +1556,93 @@
         }
 
         /// <summary>
+        /// Tests that ExecuteMultiple logs an error containing only the messages of faulted responses
+        /// when the ExecuteMultiple response is faulted.
+        /// </summary>
+        [Fact]
+        public void ExecuteMultiple_WhenResponseIsFaulted_LogsErrorWithFaultMessages()
+        {
+            // Arrange
+            var existingId = Guid.NewGuid();
+            this.SetupExistingNotificationForUpdate(existingId, "INS-FAULT-001");
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_commoditycomplement.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity>
+                {
+                    new defraimp_commoditycomplement { Id = Guid.NewGuid() },
+                }));
+
+            var responses = new ExecuteMultipleResponseItemCollection
+            {
+                new ExecuteMultipleResponseItem { Fault = new OrganizationServiceFault { Message = "First failure" } },
+                new ExecuteMultipleResponseItem(),
+                new ExecuteMultipleResponseItem { Fault = new OrganizationServiceFault { Message = "Second failure" } },
+            };
+
+            var faultedResponse = new ExecuteMultipleResponse
+            {
+                Results = new ParameterCollection
+                {
+                    { "IsFaulted", true },
+                    { "Responses", responses },
+                },
+            };
+
+            this.orgSvcMock
+                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
+                .Returns(faultedResponse);
+
+            var message = BuildMessage("INS-FAULT-001", 2, "SUBMITTED");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+
+            this.loggerMock.Verify(
+                l => l.Log(
+                    Severity.Error,
+                    nameof(ProcessINSASBMessage),
+                    "ExecuteMultiple completed with fault First failure, Second failure"),
+                Times.Once);
+        }
+
+        /// <summary>
+        /// Tests that ExecuteMultiple does not log an error when the ExecuteMultiple response is not faulted.
+        /// </summary>
+        [Fact]
+        public void ExecuteMultiple_WhenResponseIsNotFaulted_DoesNotLogError()
+        {
+            // Arrange
+            this.SetupExistingNotificationForUpdate(Guid.NewGuid(), "INS-FAULT-002");
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_commoditycomplement.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity>
+                {
+                    new defraimp_commoditycomplement { Id = Guid.NewGuid() },
+                }));
+
+            var message = BuildMessage("INS-FAULT-002", 2, "SUBMITTED");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+
+            this.orgSvcMock.Verify(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()), Times.Once);
+            this.loggerMock.Verify(
+                l => l.Log(
+                    Severity.Error,
+                    nameof(ProcessINSASBMessage),
+                    It.Is<string>(m => m.Contains("ExecuteMultiple completed with fault"))),
+                Times.Never);
+        }
+
+        /// <summary>
         /// Tests that ApplyConsignmentItemDetails does not call ExecuteMultiple when the consignment items
         /// are null, empty, null entries, lack trade line items, or only contain null line items.
         /// </summary>
@@ -1988,21 +2075,21 @@
                 .Setup(o => o.Create(It.IsAny<Entity>()))
                 .Returns(Guid.NewGuid());
 
-            const string message = @"{{
+            const string message = @"{
               ""aggregateVersion"": 1,
-              ""data"": {{
-                ""exchangedDocument"": {{
+              ""data"": {
+                ""exchangedDocument"": {
                   ""identifier"": ""INS-CC-007"",
                   ""notificationStatusCode"": ""SUBMITTED"",
                   ""versionId"": 1
-                }},
-                ""specifiedConsignment"": {{
+                },
+                ""specifiedConsignment"": {
                   ""includedConsignmentItem"": [
-                    {{ ""includedTradeLineItem"": [] }}
+                    { ""includedTradeLineItem"": [] }
                   ]
-                }}
-              }}
-            }}";
+                }
+              }
+            }";
 
             // Act
             var result = this.sut.UpsertImporterNotification(message);
@@ -2028,26 +2115,26 @@
                 .Setup(o => o.Create(It.IsAny<Entity>()))
                 .Returns(Guid.NewGuid());
 
-            const string message = @"{{
+            const string message = @"{
               ""aggregateVersion"": 1,
-              ""data"": {{
-                ""exchangedDocument"": {{
+              ""data"": {
+                ""exchangedDocument"": {
                   ""identifier"": ""INS-CC-009"",
                   ""notificationStatusCode"": ""SUBMITTED"",
                   ""versionId"": 1
-                }},
-                ""specifiedConsignment"": {{
+                },
+                ""specifiedConsignment"": {
                   ""includedConsignmentItem"": [
-                    {{
+                    {
                       ""includedTradeLineItem"": [
                         null,
                         null
                       ]
-                    }}
+                    }
                   ]
-                }}
-              }}
-            }}";
+                }
+              }
+            }";
 
             // Act
             var result = this.sut.UpsertImporterNotification(message);
