@@ -1516,6 +1516,74 @@
             Assert.Equal(2, deletedIds.Count);
         }
 
+        /// <summary>
+        /// Tests that ApplyConsignmentItemDetails creates commodity complements via one ExecuteMultiple call per
+        /// consignment item with trade line items, skipping null consignment items, items with missing or empty
+        /// trade line items, and null line items.
+        /// </summary>
+        [Fact]
+        public void ApplyConsignmentItemDetails_WhenUpdatingWithMixedItems_CreatesComplementsPerConsignmentItemAndSkipsInvalidEntries()
+        {
+            // Arrange
+            var existingId = Guid.NewGuid();
+            var executedRequests = this.SetupExistingNotificationForUpdate(existingId, "INS-UPD-001");
+
+            var message = BuildUpdateMessageWithConsignmentItems(
+                "INS-UPD-001",
+                @"null,
+                    { },
+                    { ""includedTradeLineItem"": [] },
+                    { ""includedTradeLineItem"": [ null, { ""scientificName"": ""Canis lupus"" }, { ""scientificName"": ""Felis catus"" } ] },
+                    { ""includedTradeLineItem"": [ { ""scientificName"": ""Bos taurus"" } ] }");
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.Equal(2, executedRequests.Count);
+
+            var firstBatch = executedRequests[0].Requests.Cast<CreateRequest>().Select(r => (defraimp_commoditycomplement)r.Target).ToList();
+            Assert.Equal(2, firstBatch.Count);
+            Assert.Equal("Canis lupus", firstBatch[0].defraimp_name);
+            Assert.Equal("Felis catus", firstBatch[1].defraimp_name);
+
+            var secondBatch = executedRequests[1].Requests.Cast<CreateRequest>().Select(r => (defraimp_commoditycomplement)r.Target).ToList();
+            Assert.Single(secondBatch);
+            Assert.Equal("Bos taurus", secondBatch[0].defraimp_name);
+
+            foreach (var complement in firstBatch.Concat(secondBatch))
+            {
+                Assert.NotNull(complement.defraimp_ImporterNotificationId);
+                Assert.Equal(existingId, complement.defraimp_ImporterNotificationId.Id);
+            }
+        }
+
+        /// <summary>
+        /// Tests that ApplyConsignmentItemDetails does not call ExecuteMultiple when the consignment items
+        /// are null, empty, null entries, lack trade line items, or only contain null line items.
+        /// </summary>
+        /// <param name="consignmentItemsJson">Content of the includedConsignmentItem array.</param>
+        [Theory]
+        [InlineData("")]
+        [InlineData("null")]
+        [InlineData("{ }")]
+        [InlineData("{ \"includedTradeLineItem\": [] }")]
+        [InlineData("{ \"includedTradeLineItem\": [ null, null ] }")]
+        public void ApplyConsignmentItemDetails_WhenUpdatingWithNoUsableLineItems_DoesNotCallExecuteMultiple(string consignmentItemsJson)
+        {
+            // Arrange
+            var executedRequests = this.SetupExistingNotificationForUpdate(Guid.NewGuid(), "INS-UPD-002");
+            var message = BuildUpdateMessageWithConsignmentItems("INS-UPD-002", consignmentItemsJson);
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.Empty(executedRequests);
+        }
+
         // ── PopulateConsignmentDetails: FinalDestinationLocation / UnloadingBaseportLocation ──
 
         /// <summary>
@@ -2859,6 +2927,46 @@
             return collection.Entities
                 .Select(e => e.ToEntity<defraimp_commoditycomplement>())
                 .ToList();
+        }
+
+        private static string BuildUpdateMessageWithConsignmentItems(string identifier, string consignmentItemsJson)
+        {
+            return $@"{{
+              ""aggregateVersion"": 2,
+              ""data"": {{
+                ""exchangedDocument"": {{
+                  ""identifier"": ""{identifier}"",
+                  ""notificationStatusCode"": ""SUBMITTED"",
+                  ""versionId"": 1
+                }},
+                ""specifiedConsignment"": {{
+                  ""includedConsignmentItem"": [ {consignmentItemsJson} ]
+                }}
+              }}
+            }}";
+        }
+
+        private List<ExecuteMultipleRequest> SetupExistingNotificationForUpdate(Guid existingId, string identifier)
+        {
+            var existingRecord = new defraimp_ImporterNotification
+            {
+                Id = existingId,
+                defraimp_ImporterNotificationId = existingId,
+                defraimp_Name = identifier,
+                defraimp_AggregateVersion = 1,
+            };
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { existingRecord }));
+
+            var executedRequests = new List<ExecuteMultipleRequest>();
+            this.orgSvcMock
+                .Setup(o => o.Execute(It.IsAny<ExecuteMultipleRequest>()))
+                .Callback<OrganizationRequest>(r => executedRequests.Add((ExecuteMultipleRequest)r))
+                .Returns(new ExecuteMultipleResponse());
+
+            return executedRequests;
         }
 
         private string BuildMessageWithMinimalTradeLineItem(string identifier, string scientificName, string commonName)
