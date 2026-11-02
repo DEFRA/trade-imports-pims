@@ -40,6 +40,7 @@ extends:
     packageProject: deploy\Defra.Imports.Deployment\Defra.Imports.Deployment.csproj
     displayNamePrefix: $(Environment.DisplayNamePrefix)
     domainNamePrefix: $(Environment.DomainNamePrefix)
+    location: $(Environment.Location)
     serviceConnection: $(Environment.ManagementApp.ServiceConnectionName)
     deployServiceConnection: $(Environment.DeploymentUser.ServiceConnectionName)
     templates: D365_CustomerService

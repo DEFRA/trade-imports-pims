@@ -60,6 +60,7 @@ extends:
       - src/pluginassemblies/*
     displayNamePrefix: $(Environment.DisplayNamePrefix)
     domainNamePrefix: $(Environment.DomainNamePrefix)
+    location: $(Environment.Location)
     templates: D365_CustomerService
     securityGroupId: $(Environment.SecurityGroupId)
     adminSecurityGroupId: $(Environment.AdminSecurityGroupId)
