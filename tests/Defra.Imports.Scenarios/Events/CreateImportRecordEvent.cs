@@ -23,12 +23,16 @@ namespace Defra.Imports.Scenarios.Events
         private readonly ILogger<CreateImportRecordEvent> logger = logger;
 
         private Guid importerNotificationId;
-        private string importRecordName;
-        private IEnumerable<defraimp_noncompliancetype> nonComplianceTypes;
 
         /// <inheritdoc/>
         public override async Task ExecuteAsync(ScenarioContext context)
         {
+            if (this.importerNotificationId == Guid.Empty)
+            {
+                var notificationInfo = context.Get<LogicAppSubmitsImporterNotificationEvent.Info>(nameof(LogicAppSubmitsImporterNotificationEvent));
+                this.importerNotificationId = notificationInfo?.ImporterNotificationId ?? Guid.Empty;
+            }
+
             if (this.importerNotificationId == Guid.Empty)
             {
                 throw new InvalidOperationException($"{nameof(importerNotificationId)} must be configured before executing {nameof(CreateImportRecordEvent)}.");
@@ -36,36 +40,16 @@ namespace Defra.Imports.Scenarios.Events
 
             this.logger.LogInformation("Creating Import Record from Importer Notification action for {ImporterNotificationId}.", this.importerNotificationId);
 
-            using var client = this.clientFactory.GetAppUserClient();
+            // Not disposed here: GetClientAsync returns a client owned and cached by the factory for the
+            // scenario's lifetime, released when the factory itself is disposed at the end of the scenario.
+            var client = await this.clientFactory.GetClientAsync(Persona.Caseworker);
             await client.ExecuteAsync(new defraimp_CreateImportRecordFromNotificationRequest
             {
                 Target = new EntityReference(defraimp_ImporterNotification.EntityLogicalName, this.importerNotificationId),
             }).ConfigureAwait(false);
 
-            var importRecord = await this.GetLatestImportRecordAsync(client).ConfigureAwait(false)
+            var importRecord = await this.GetImportRecordAsync(client).ConfigureAwait(false)
                 ?? throw new InvalidOperationException($"No Import Record was created for Importer Notification '{this.importerNotificationId}' by defraimp_CreateImportRecordFromNotification.");
-
-            if (!string.IsNullOrWhiteSpace(this.importRecordName) || this.nonComplianceTypes != null)
-            {
-                var update = new defraimp_importapplication
-                {
-                    Id = importRecord.Id,
-                };
-
-                if (!string.IsNullOrWhiteSpace(this.importRecordName))
-                {
-                    update.defraimp_name = this.importRecordName;
-                    importRecord.defraimp_name = this.importRecordName;
-                }
-
-                if (this.nonComplianceTypes != null)
-                {
-                    update.defraimp_TypesofNonCompliance = this.nonComplianceTypes;
-                    importRecord.defraimp_TypesofNonCompliance = this.nonComplianceTypes;
-                }
-
-                await client.UpdateAsync(update).ConfigureAwait(false);
-            }
 
             var importRecordId = importRecord.Id;
 
@@ -78,7 +62,7 @@ namespace Defra.Imports.Scenarios.Events
             });
         }
 
-        private async Task<defraimp_importapplication> GetLatestImportRecordAsync(Microsoft.PowerPlatform.Dataverse.Client.ServiceClient client)
+        private async Task<defraimp_importapplication> GetImportRecordAsync(Microsoft.PowerPlatform.Dataverse.Client.ServiceClient client)
         {
             var query = new QueryExpression(defraimp_importapplication.EntityLogicalName)
             {
@@ -95,20 +79,10 @@ namespace Defra.Imports.Scenarios.Events
 
             query.Orders.Add(new OrderExpression("createdon", OrderType.Descending));
 
-            for (var attempt = 0; attempt < 6; attempt++)
-            {
-                var result = await client.RetrieveMultipleAsync(query).ConfigureAwait(false);
-                var entity = result.Entities.FirstOrDefault();
+            var result = await client.RetrieveMultipleAsync(query).ConfigureAwait(false);
+            var entity = result.Entities.FirstOrDefault();
 
-                if (entity != null)
-                {
-                    return entity.ToEntity<defraimp_importapplication>();
-                }
-
-                await Task.Delay(1000).ConfigureAwait(false);
-            }
-
-            return null;
+            return entity?.ToEntity<defraimp_importapplication>();
         }
 
         /// <summary>
@@ -137,8 +111,6 @@ namespace Defra.Imports.Scenarios.Events
             : Builder<CreateImportRecordEvent>(eventFactory, eventId, constructorArgs)
         {
             private Guid importerNotificationId;
-            private string importRecordName;
-            private IEnumerable<defraimp_noncompliancetype> nonComplianceTypes;
 
             /// <summary>
             /// Sets the Importer Notification to link from the created Import Record.
@@ -152,29 +124,6 @@ namespace Defra.Imports.Scenarios.Events
                 return this;
             }
 
-            /// <summary>
-            /// Sets the Import Record name.
-            /// </summary>
-            /// <param name="name">The import record name.</param>
-            /// <returns>The builder.</returns>
-            public Builder WithName(string name)
-            {
-                this.importRecordName = name;
-
-                return this;
-            }
-
-            /// <summary>
-            /// Sets Import Record non-compliance types.
-            /// </summary>
-            /// <param name="types">The non-compliance types.</param>
-            /// <returns>The builder.</returns>
-            public Builder WithNonComplianceTypes(params defraimp_noncompliancetype[] types)
-            {
-                this.nonComplianceTypes = types;
-
-                return this;
-            }
         }
     }
 }

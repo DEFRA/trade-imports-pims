@@ -1,13 +1,12 @@
 namespace Defra.Imports.Specs.StepDefinitions
 {
     using System;
-    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using Defra.Imports.Model;
     using Defra.Imports.Scenarios;
+    using Defra.Imports.Specs.Controls;
     using Defra.Imports.Specs.Services;
     using Microsoft.Extensions.Logging;
-    using Microsoft.Playwright;
     using Microsoft.Xrm.Sdk;
     using PowerPlaywright.Framework.Pages;
     using Reqnroll;
@@ -98,7 +97,6 @@ namespace Defra.Imports.Specs.StepDefinitions
             var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
                 .SubmittedByLogicApp(a => a
                     .WithNotificationNonCompliance(type)
-                    .WithNotificationNonComplianceStatus(defraimp_noncompliancestatus.InProgress)
                     .WithNotificationContactedDueToNonCompliance(false))
                 .BuildAsync();
 
@@ -115,25 +113,30 @@ namespace Defra.Imports.Specs.StepDefinitions
         [Given("I have opened an Import Record linked to a non-compliant Importer Notification")]
         public async Task GivenIHaveOpenedAnImportRecordLinkedToANonCompliantImporterNotification()
         {
-            var notificationScenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
+            await this.GivenIHaveOpenedAnImportRecordLinkedToANonCompliantImporterNotificationOfType("No Health Certificate");
+        }
+
+        /// <summary>
+        /// Creates and opens an Import Record linked to a non-compliant Importer Notification of the specified type.
+        /// </summary>
+        /// <param name="nonComplianceType">The notification non-compliance type.</param>
+        /// <returns>A task.</returns>
+        [Given("I have opened an Import Record linked to a non-compliant Importer Notification of type {string}")]
+        public async Task GivenIHaveOpenedAnImportRecordLinkedToANonCompliantImporterNotificationOfType(string nonComplianceType)
+        {
+            var type = this.ToNotificationType(nonComplianceType);
+
+            var scenario = await new ImporterNotificationScenario.Builder(this.clientFactory, this.loggerProvider)
                 .SubmittedByLogicApp(a => a
-                    .WithNotificationNonCompliance(defraimp_noncompliancetypenotification.NoHealthCertificate)
-                    .WithNotificationNonComplianceStatus(defraimp_noncompliancestatus.InProgress)
+                    .WithNotificationNonCompliance(type)
                     .WithNotificationContactedDueToNonCompliance(false))
+                .CreatedImportRecord()
                 .BuildAsync();
 
-            var importerNotificationId = notificationScenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;
-
-            var importRecordScenario = await new ImportRecordScenario.Builder(this.clientFactory, this.loggerProvider)
-                .Created(a => a
-                    .ForImporterNotification(importerNotificationId))
-                .BuildAsync();
-
-            this.ctx.Set(notificationScenario);
-            this.ctx.Set(importRecordScenario);
+            this.ctx.Set(scenario);
 
             this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
-                new EntityReference(defraimp_importapplication.EntityLogicalName, importRecordScenario.CreateImportRecordEvent.ImportRecordId));
+                new EntityReference(defraimp_importapplication.EntityLogicalName, scenario.CreateImportRecordEvent.ImportRecordId));
         }
 
         /// <summary>
@@ -141,39 +144,14 @@ namespace Defra.Imports.Specs.StepDefinitions
         /// </summary>
         /// <returns>A task.</returns>
         [When("I add a non-compliance timeline note")]
+        [When("I add a timeline note")]
         public async Task WhenIAddANonComplianceTimelineNote()
         {
             var note = $"US-049 non-compliance note {Guid.NewGuid():N}";
             this.ctx.Set(note, ContextKeyTimelineNote);
 
-            var page = this.RecordPage.Page;
-            var timeline = page.Locator("[aria-label='Timeline'], [data-id='notescontrol'], [id*='Timeline']").First;
-            await timeline.WaitForAsync(new LocatorWaitForOptions { Timeout = 60000 });
-
-            var addNoteButton = page.GetByRole(AriaRole.Button, new PageGetByRoleOptions { Name = "Add note" }).First;
-            if (await addNoteButton.IsVisibleAsync())
-            {
-                await addNoteButton.ClickAsync();
-            }
-
-            var textbox = page
-                .GetByPlaceholder("Type a note...")
-                .Or(page.GetByLabel("Type a note..."))
-                .Or(page.Locator("div[contenteditable='true'][role='textbox'][aria-label*='note' i]"))
-                .First;
-
-            await textbox.WaitForAsync(new LocatorWaitForOptions { Timeout = 60000 });
-            await textbox.FillAsync(note);
-
-            var postButton = page.GetByRole(
-                AriaRole.Button,
-                new PageGetByRoleOptions
-                {
-                    NameRegex = new Regex("^(Post|Save)$", RegexOptions.IgnoreCase),
-                }).First;
-
-            await postButton.WaitForAsync(new LocatorWaitForOptions { Timeout = 30000 });
-            await postButton.ClickAsync();
+            var timeline = new TimelineControl(this.RecordPage.Page);
+            await timeline.AddNoteAsync(note);
         }
 
         /// <summary>
@@ -181,17 +159,13 @@ namespace Defra.Imports.Specs.StepDefinitions
         /// </summary>
         /// <returns>A task.</returns>
         [Then("I see the non-compliance timeline note")]
+        [Then("I see the timeline note")]
         public async Task ThenISeeTheNonComplianceTimelineNote()
         {
             var expectedNote = this.ctx.Get<string>(ContextKeyTimelineNote);
 
-            var timeline = this.RecordPage.Page.Locator("[aria-label='Timeline'], [data-id='notescontrol'], [id*='Timeline']").First;
-            var savedTimelineEntry = timeline
-                .Locator(":not(textarea):not([contenteditable='true'])")
-                .GetByText(expectedNote, new LocatorGetByTextOptions { Exact = false })
-                .First;
-
-            await savedTimelineEntry.WaitForAsync(new LocatorWaitForOptions { Timeout = 60000 });
+            var timeline = new TimelineControl(this.RecordPage.Page);
+            await timeline.WaitForNoteAsync(expectedNote);
         }
 
         /// <summary>
@@ -199,11 +173,11 @@ namespace Defra.Imports.Specs.StepDefinitions
         /// </summary>
         /// <returns>A task.</returns>
         [Then("I see a non-compliance timeline")]
+        [Then("I see a timeline")]
         public async Task ThenISeeANonComplianceTimeline()
         {
-            var page = this.RecordPage.Page;
-            var timeline = page.Locator("[aria-label='Timeline'], [data-id='notescontrol'], [id*='Timeline']").First;
-            await timeline.WaitForAsync();
+            var timeline = new TimelineControl(this.RecordPage.Page);
+            await timeline.WaitForVisibleAsync();
         }
 
         private defraimp_noncompliancetypenotification ToNotificationType(string value)

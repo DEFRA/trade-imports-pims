@@ -10,6 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ReqnrollFeatureFile Remove="Features\Import Records\View an Import Record.feature" />
+    <ReqnrollFeatureFile Remove="Features\Import Records\View Import Records.feature" />
+    <ReqnrollFeatureFile Remove="Features\Importer Notifications\Update an Importer Notification.feature" />
+    <ReqnrollFeatureFile Remove="Features\Non-Compliance\View a Non-Compliance.feature" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.5.1" />
     <PackageReference Include="Bogus" Version="35.6.5" />
     <PackageReference Include="Creedengo" Version="3.1.0">

@@ -94,19 +94,6 @@ namespace Defra.Imports.Scenarios.Events
             }
 
             /// <summary>
-            /// Configures the Importer Notification non-compliance status.
-            /// </summary>
-            /// <param name="status">The non-compliance status.</param>
-            /// <returns>The builder.</returns>
-            public Builder WithNotificationNonComplianceStatus(defraimp_noncompliancestatus status)
-            {
-                this.importerNotificationFaker ??= new ImporterNotificationFaker();
-                this.importerNotificationFaker.RuleFor(n => n.defraimp_NonComplianceStatus, _ => status);
-
-                return this;
-            }
-
-            /// <summary>
             /// Configures whether the Importer Notification has been contacted due to non-compliance.
             /// </summary>
             /// <param name="contacted">Whether contacted due to non-compliance.</param>

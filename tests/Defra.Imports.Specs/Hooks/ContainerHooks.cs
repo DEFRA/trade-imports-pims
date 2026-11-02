@@ -7,7 +7,6 @@
     using Defra.Imports.Scenarios.Logging;
     using Defra.Imports.Specs.Services;
     using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Logging.Abstractions;
     using Microsoft.Playwright;
     using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -202,19 +201,13 @@
             {
                 if (!this.objectContainer.IsRegistered<TestContext>())
                 {
-                    this.objectContainer.RegisterInstanceAs<ILogger>(NullLogger.Instance);
-                    this.objectContainer.RegisterInstanceAs<ILoggerProvider>(NullLoggerProvider.Instance);
-                    this.outputHelper.WriteLine("[BeforeScenario] TestContext was not registered. Falling back to null logger.");
-                    return;
+                    throw new InvalidOperationException("TestContext was not registered in the scenario container.");
                 }
 
                 var testContext = this.objectContainer.Resolve<TestContext>();
                 if (testContext == null)
                 {
-                    this.objectContainer.RegisterInstanceAs<ILogger>(NullLogger.Instance);
-                    this.objectContainer.RegisterInstanceAs<ILoggerProvider>(NullLoggerProvider.Instance);
-                    this.outputHelper.WriteLine("[BeforeScenario] TestContext was null. Falling back to null logger.");
-                    return;
+                    throw new InvalidOperationException("TestContext was resolved as null from the scenario container.");
                 }
 
                 this.objectContainer.RegisterInstanceAs<ILogger>(new MsTestLogger(testContext));

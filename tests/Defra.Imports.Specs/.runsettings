@@ -8,7 +8,6 @@
     <TestTimeout>600000</TestTimeout>
   </MSTest>
   <RunConfiguration>
-    <ResultsDirectory>C:\tr</ResultsDirectory>
     <EnvironmentVariables>
       <PWDEBUG>0</PWDEBUG>
       <HEADLESS>true</HEADLESS>
