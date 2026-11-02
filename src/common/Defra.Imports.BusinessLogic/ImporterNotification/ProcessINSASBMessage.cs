@@ -447,7 +447,7 @@
             if (newNotification.defraimp_status != defraimp_importernotificationstatus.Draft)
             {
                 this.AttachConsignmentItemDetails(newNotification, insObject.Data?.SpecifiedConsignment?.IncludedConsignmentItem);
-                var importerNotificationId = this.orgSvc.Create(newNotification);
+                this.orgSvc.Create(newNotification);
 
                 var successMessage = $"Importer Notification with Name: {identifier} created successfully.";
                 this.logger.Log(Severity.Info, nameof(ProcessINSASBMessage), successMessage);
