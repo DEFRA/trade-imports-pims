@@ -458,7 +458,7 @@
 
         private void ApplyOriginDetails(defraimp_ImporterNotification importerNotification, SpecifiedConsignment consignment, Dictionary<string, defra_country> countries)
         {
-            if (consignment.OriginCountry?.Code != null && countries.TryGetValue(consignment.OriginCountry.Code.Value, out var originCountry))
+            if (!string.IsNullOrWhiteSpace(consignment.OriginCountry?.Code?.Value) && countries.TryGetValue(consignment.OriginCountry.Code.Value, out var originCountry))
             {
                 importerNotification.defraimp_CountryofOriginId = originCountry.ToEntityReference();
             }
@@ -488,7 +488,7 @@
                 importerNotification.defraimp_consigneeaddresscity = address.CityName;
                 importerNotification.defraimp_consigneeaddresspostalzipcode = address.PostcodeCode;
 
-                if (countries.TryGetValue(address.CountryId, out var country))
+                if (!string.IsNullOrWhiteSpace(address.CountryId) && countries.TryGetValue(address.CountryId, out var country))
                 {
                     importerNotification.defraimp_ConsigneeAddressCountryId = country.ToEntityReference();
                 }
@@ -519,7 +519,7 @@
                 importerNotification.defraimp_importeraddresscity = address.CityName;
                 importerNotification.defraimp_importeraddresspostalzipcode = address.PostcodeCode;
 
-                if (countries.TryGetValue(address.CountryId, out var country))
+                if (!string.IsNullOrWhiteSpace(address.CountryId) && countries.TryGetValue(address.CountryId, out var country))
                 {
                     importerNotification.defraimp_ImporterAddressCountryid = country.ToEntityReference();
                 }
@@ -550,7 +550,7 @@
                 importerNotification.defraimp_consignoraddresscity = address.CityName;
                 importerNotification.defraimp_consignoraddresspostalzipcode = address.PostcodeCode;
 
-                if (countries.TryGetValue(address.CountryId, out var country))
+                if (!string.IsNullOrWhiteSpace(address.CountryId) && countries.TryGetValue(address.CountryId, out var country))
                 {
                     importerNotification.defraimp_ConsignorAddressCountryid = country.ToEntityReference();
                 }
@@ -581,7 +581,7 @@
                 importerNotification.defraimp_PlaceofOriginCity = address.CityName;
                 importerNotification.defraimp_PlaceofOriginPostcode = address.PostcodeCode;
 
-                if (countries.TryGetValue(address.CountryId, out var country))
+                if (!string.IsNullOrWhiteSpace(address.CountryId) && countries.TryGetValue(address.CountryId, out var country))
                 {
                     importerNotification.defraimp_PlaceofOriginCountryId = country.ToEntityReference();
                 }
@@ -614,7 +614,7 @@
                 importerNotification.defraimp_placeofdestinationaddresscity = address.CityName;
                 importerNotification.defraimp_placeofdestinationaddresspostalzipcode = address.PostcodeCode;
 
-                if (countries.TryGetValue(address.CountryId, out var country))
+                if (!string.IsNullOrWhiteSpace(address.CountryId) && countries.TryGetValue(address.CountryId, out var country))
                 {
                     importerNotification.defraimp_PlaceofDestinationCountryid = country.ToEntityReference();
                 }
@@ -671,7 +671,7 @@
                 importerNotification.defraimp_transporteraddresscity = address.CityName;
                 importerNotification.defraimp_transporteraddresspostalzipcode = address.PostcodeCode;
 
-                if (countries.TryGetValue(address.CountryId, out var country))
+                if (!string.IsNullOrWhiteSpace(address.CountryId) && countries.TryGetValue(address.CountryId, out var country))
                 {
                     importerNotification.defraimp_TransporterAddressCountryid = country.ToEntityReference();
                 }
@@ -760,7 +760,7 @@
                 importerNotification.defraimp_personresponsibleaddress =
                     this.FormatAddress(address.LineOne, address.LineTwo, address.CityName, address.PostcodeCode);
 
-                if (countries.TryGetValue(address.CountryId, out var personResponsibleCountry))
+                if (!string.IsNullOrWhiteSpace(address.CountryId) && countries.TryGetValue(address.CountryId, out var personResponsibleCountry))
                 {
                     importerNotification.defraimp_PersonResponsibleCountryId = personResponsibleCountry.ToEntityReference();
                 }

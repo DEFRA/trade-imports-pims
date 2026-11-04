@@ -2129,6 +2129,141 @@
             Assert.Null(created.defraimp_TransporterAddressCountryid);
         }
 
+        /// <summary>
+        /// Tests that ApplyTransporterDetails does not throw and does not set the transporter country lookup
+        /// when the carrier's postal address country code is null, empty or whitespace.
+        /// </summary>
+        /// <param name="country">Country code under test.</param>
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("   ")]
+        public void ApplyTransporterDetails_WithNullOrEmptyCountry_DoesNotSetTransporterCountryId(string country)
+        {
+            // Arrange
+            var message = BuildMessageWithCarrier(
+                "INS-281",
+                name: "FastFreight",
+                carrierIdentifier: "FF-99",
+                line1: "6 Carrier Way",
+                city: "Dover",
+                postcode: "CT16 1AA",
+                country: country,
+                partyTypeCode: "CT1");
+
+            // Act
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("FastFreight", created.defraimp_transportercompanyname);
+            Assert.Null(created.defraimp_TransporterAddressCountryid);
+        }
+
+        /// <summary>
+        /// Tests that a carrier postal address with no countryId property at all is processed successfully.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WithCarrierAddressMissingCountryId_ReturnsSuccess()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+
+            var message = @"{ ""aggregateVersion"": 1, ""data"": {
+                ""exchangedDocument"": { ""identifier"": ""INS-282"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 },
+                ""specifiedConsignment"": { ""carrier"": { ""name"": ""Lough Neagh"", ""postalAddress"": { ""lineOne"": ""4 Shore Road"", ""cityName"": ""Antrim"" } } } } }";
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.Equal("success", result.Item2);
+        }
+
+        /// <summary>
+        /// Tests that party country lookups are skipped, without error, when the country code is null or empty.
+        /// </summary>
+        /// <param name="partyProperty">Consignment party property name.</param>
+        /// <param name="country">Country code under test.</param>
+        [Theory]
+        [InlineData("consigneeParty", null)]
+        [InlineData("consigneeParty", "")]
+        [InlineData("importer", null)]
+        [InlineData("importer", "")]
+        [InlineData("consignorParty", null)]
+        [InlineData("consignorParty", "")]
+        [InlineData("despatchParty", null)]
+        [InlineData("despatchParty", "")]
+        [InlineData("deliveryParty", null)]
+        [InlineData("deliveryParty", "")]
+        public void UpsertImporterNotification_WithPartyNullOrEmptyCountry_ReturnsSuccess(string partyProperty, string country)
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+
+            var message = BuildMessageWithParty("INS-283", partyProperty, "Party", "1 Street", null, "Town", "AB1 2CD", country, null, null);
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.Equal("success", result.Item2);
+        }
+
+        /// <summary>
+        /// Tests that the issuer country lookup is skipped, without error, when the country code is null or empty.
+        /// </summary>
+        /// <param name="country">Country code under test.</param>
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void UpsertImporterNotification_WithIssuerNullOrEmptyCountry_ReturnsSuccessAndDoesNotSetCountry(string country)
+        {
+            // Arrange
+            var message = BuildMessageWithIssuer("INS-284", 1, "SUBMITTED", "Issuer", "1 Street", null, "Town", "AB1 2CD", null, null, null, country);
+
+            // Act
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Null(created.defraimp_PersonResponsibleCountryId);
+        }
+
+        /// <summary>
+        /// Tests that an empty origin country code is processed without error.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WithEmptyOriginCountryCode_ReturnsSuccess()
+        {
+            // Arrange
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+
+            var message = BuildMessageWithOriginCountry("INS-285", 1, "SUBMITTED", countryCode: string.Empty, regionIdentifier: null);
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(message);
+
+            // Assert
+            Assert.True(result.Item1);
+            Assert.Equal("success", result.Item2);
+        }
+
         // ── ApplyPlaceOfDestinationDetails: defraimp_PlaceofDestinationCountryId ──────────
 
         /// <summary>
