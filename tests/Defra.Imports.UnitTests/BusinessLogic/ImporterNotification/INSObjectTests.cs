@@ -485,23 +485,6 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Equal("Commercial", result.Name);
         }
 
-        // ?? CountryCode ???????????????????????????????????????????????????????
-
-        /// <summary>
-        /// Tests that CountryCode deserializes all properties correctly.
-        /// </summary>
-        [Fact]
-        public void CountryCode_WithAllProperties_DeserializesCorrectly()
-        {
-            var json = @"{ ""value"": ""GB"", ""urlId"": ""url-gb"", ""name"": ""United Kingdom"" }";
-
-            var result = json.FromJSON<CountryCode>();
-
-            Assert.Equal("GB", result.Value);
-            Assert.Equal("url-gb", result.UrlId);
-            Assert.Equal("United Kingdom", result.Name);
-        }
-
         // ?? Party ?????????????????????????????????????????????????????????????
 
         /// <summary>
@@ -675,6 +658,7 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
                 ""subordinateTradeCountrySubDivision"": [
                     {
                         ""identifier"": ""ENG"",
+                        ""urlId"": ""url-eng"",
                         ""functionTypeCode"": { ""content"": ""region"" }
                     }
                 ]
@@ -689,6 +673,7 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.NotNull(result.SubordinateTradeCountrySubDivision);
             Assert.Single(result.SubordinateTradeCountrySubDivision);
             Assert.Equal("ENG", result.SubordinateTradeCountrySubDivision[0].Identifier);
+            Assert.Equal("url-eng", result.SubordinateTradeCountrySubDivision[0].UrlId);
             Assert.NotNull(result.SubordinateTradeCountrySubDivision[0].FunctionTypeCode);
             Assert.Equal("region", result.SubordinateTradeCountrySubDivision[0].FunctionTypeCode.Content);
         }
@@ -755,22 +740,6 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Equal("London", result.PostalAddress.CityName);
         }
 
-        // ?? TransportContractRelatedReferencedDocument ????????????????????????
-
-        /// <summary>
-        /// Tests that TransportContractRelatedReferencedDocument deserializes all properties correctly.
-        /// </summary>
-        [Fact]
-        public void TransportContractRelatedReferencedDocument_WithAllProperties_DeserializesCorrectly()
-        {
-            var json = @"{ ""typeCode"": ""AWB"", ""identifier"": ""DOC-XYZ"" }";
-
-            var result = json.FromJSON<TransportContractRelatedReferencedDocument>();
-
-            Assert.Equal("AWB", result.TypeCode);
-            Assert.Equal("DOC-XYZ", result.Identifier);
-        }
-
         // ?? TransportEvent ????????????????????????????????????????????????????
 
         /// <summary>
@@ -825,6 +794,9 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
                 ""transportContractRelatedReferencedDocument"": [
                     { ""typeCode"": ""BL"", ""identifier"": ""BL-001"" }
                 ],
+                ""usedLogisticsTransportMeans"": {
+                    ""name"": ""MV Test Carrier""
+                },
                 ""arrivalEvent"": [
                     { ""scheduledOccurrenceDateTime"": ""2024-08-10 08:00:00"" }
                 ],
@@ -840,7 +812,10 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Equal("url-v1", result.UrlId);
             Assert.NotNull(result.TransportContractRelatedReferencedDocument);
             Assert.Single(result.TransportContractRelatedReferencedDocument);
+            Assert.Equal("BL", result.TransportContractRelatedReferencedDocument[0].TypeCode);
             Assert.Equal("BL-001", result.TransportContractRelatedReferencedDocument[0].Identifier);
+            Assert.NotNull(result.UsedLogisticsTransportMeans);
+            Assert.Equal("MV Test Carrier", result.UsedLogisticsTransportMeans.Name);
             Assert.NotNull(result.ArrivalEvent);
             Assert.Single(result.ArrivalEvent);
             Assert.Equal("2024-08-10 08:00:00", result.ArrivalEvent[0].ScheduledOccurrenceDateTime);
@@ -861,6 +836,7 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Null(result.ModeCode);
             Assert.Null(result.UrlId);
             Assert.Null(result.TransportContractRelatedReferencedDocument);
+            Assert.Null(result.UsedLogisticsTransportMeans);
             Assert.Null(result.ArrivalEvent);
             Assert.Null(result.DepartureEvent);
         }
@@ -954,7 +930,13 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             var json = @"{
                 ""originCountry"": {
                     ""code"": { ""value"": ""FR"" },
-                    ""subordinateTradeCountrySubDivision"": [ { ""identifier"": ""BRE"" } ]
+                    ""subordinateTradeCountrySubDivision"": [
+                        {
+                            ""identifier"": ""BRE"",
+                            ""urlId"": ""url-bre"",
+                            ""functionTypeCode"": { ""content"": ""region"" }
+                        }
+                    ]
                 }
             }";
 
@@ -964,6 +946,9 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Equal("FR", result.OriginCountry.Code.Value);
             Assert.Single(result.OriginCountry.SubordinateTradeCountrySubDivision);
             Assert.Equal("BRE", result.OriginCountry.SubordinateTradeCountrySubDivision[0].Identifier);
+            Assert.Equal("url-bre", result.OriginCountry.SubordinateTradeCountrySubDivision[0].UrlId);
+            Assert.NotNull(result.OriginCountry.SubordinateTradeCountrySubDivision[0].FunctionTypeCode);
+            Assert.Equal("region", result.OriginCountry.SubordinateTradeCountrySubDivision[0].FunctionTypeCode.Content);
         }
 
         /// <summary>
@@ -996,7 +981,13 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
                     {
                         ""identifier"": ""VESSEL-99"",
                         ""modeCode"": 1,
-                        ""arrivalEvent"": [ { ""scheduledOccurrenceDateTime"": ""2024-09-01 07:00:00"" } ]
+                        ""urlId"": ""url-v99"",
+                        ""transportContractRelatedReferencedDocument"": [
+                            { ""typeCode"": ""BOL"", ""identifier"": ""BOL-99"" }
+                        ],
+                        ""usedLogisticsTransportMeans"": { ""name"": ""MV Nested Carrier"" },
+                        ""arrivalEvent"": [ { ""scheduledOccurrenceDateTime"": ""2024-09-01 07:00:00"" } ],
+                        ""departureEvent"": [ { ""scheduledOccurrenceDateTime"": ""2024-08-28 19:30:00"" } ]
                     }
                 ]
             }";
@@ -1008,6 +999,16 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             var transport = result.MainCarriageLogisticsTransportMovement[0];
             Assert.Equal("VESSEL-99", transport.Identifier);
             Assert.Equal(1, transport.ModeCode);
+            Assert.Equal("url-v99", transport.UrlId);
+            Assert.NotNull(transport.TransportContractRelatedReferencedDocument);
+            Assert.Single(transport.TransportContractRelatedReferencedDocument);
+            Assert.Equal("BOL", transport.TransportContractRelatedReferencedDocument[0].TypeCode);
+            Assert.Equal("BOL-99", transport.TransportContractRelatedReferencedDocument[0].Identifier);
+            Assert.NotNull(transport.UsedLogisticsTransportMeans);
+            Assert.Equal("MV Nested Carrier", transport.UsedLogisticsTransportMeans.Name);
+            Assert.NotNull(transport.DepartureEvent);
+            Assert.Single(transport.DepartureEvent);
+            Assert.Equal("2024-08-28 19:30:00", transport.DepartureEvent[0].ScheduledOccurrenceDateTime);
             Assert.Single(transport.ArrivalEvent);
             Assert.Equal("2024-09-01 07:00:00", transport.ArrivalEvent[0].ScheduledOccurrenceDateTime);
         }
