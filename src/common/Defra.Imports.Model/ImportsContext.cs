@@ -306,6 +306,17 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_parametersetidentifier"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_parametersetidentifier> defraimp_parametersetidentifierSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.defraimp_parametersetidentifier>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.defraimp_parametersetkeydatapair"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Defra.Imports.Model.defraimp_parametersetkeydatapair> defraimp_parametersetkeydatapairSet
@@ -390,6 +401,28 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.CreateQuery<Defra.Imports.Model.defraimp_WatchList>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.EnvironmentVariableDefinition"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.EnvironmentVariableDefinition> EnvironmentVariableDefinitionSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.EnvironmentVariableDefinition>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.EnvironmentVariableValue"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.EnvironmentVariableValue> EnvironmentVariableValueSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.EnvironmentVariableValue>();
 			}
 		}
 		

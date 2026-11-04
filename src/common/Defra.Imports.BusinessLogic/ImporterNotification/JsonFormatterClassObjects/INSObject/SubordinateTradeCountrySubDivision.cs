@@ -15,6 +15,12 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         public string Identifier { get; internal set; }
 
         /// <summary>
+        /// Gets Url.
+        /// </summary>
+        [DataMember(Name = "urlId")]
+        public string UrlId { get; internal set; }
+
+        /// <summary>
         /// Gets function type code.
         /// </summary>
         [DataMember(Name = "functionTypeCode")]
