@@ -47,7 +47,8 @@
     "defraimp_transporter",
     "environmentvariabledefinition",
     "environmentvariablevalue",
-    "systemuser"
+    "systemuser",
+    "defraimp_notificationpermanentaddress"
   ],
   "messageNamesFilter": [
     "defraimp_CreateImportRecordFromNotification"

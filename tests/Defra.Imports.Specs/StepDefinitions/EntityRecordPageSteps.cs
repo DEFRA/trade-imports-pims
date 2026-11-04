@@ -7,6 +7,7 @@
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
+    using Defra.Imports.PageObjects.Controls;
     using Defra.Imports.Specs.Extensions;
     using Defra.Imports.Specs.Model;
     using Defra.Imports.Specs.Services;
@@ -246,6 +247,24 @@
                 async (control, fieldContext) =>
                 {
                     await control.SetValueAsync(bool.Parse(value));
+                },
+                tab: await this.RecordPage.Form.GetActiveTabAsync());
+        }
+
+        /// <summary>
+        /// Verifies the state of a checkbox field.
+        /// </summary>
+        /// <param name="displayName">The field display name.</param>
+        /// <param name="isChecked">Whether the checkbox is expected to be checked.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("^the '(.*)' checkbox is (checked|unchecked)$")]
+        public async Task ThenTheCheckboxIs(string displayName, bool isChecked)
+        {
+            await this.ExecuteControlActionAsync<ICoreCheckboxControl>(
+                displayName,
+                async (control, fieldContext) =>
+                {
+                    (await control.GetValueAsync()).Should().Be(isChecked);
                 },
                 tab: await this.RecordPage.Form.GetActiveTabAsync());
         }

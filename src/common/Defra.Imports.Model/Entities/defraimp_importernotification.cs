@@ -340,6 +340,8 @@ namespace Defra.Imports.Model
 			public const string defraimp_defraimp_importernotification_defraimp_ipaffsdocument_ImporterNotificationId = "defraimp_defraimp_importernotification_defraimp_ipaffsdocument_ImporterNotificati" +
 		"onId";
 			public const string defraimp_defraimp_importernotification_defraimp_matchrecord_ImporterNotification = "defraimp_defraimp_importernotification_defraimp_matchrecord_ImporterNotification";
+			public const string defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_ImporterNotificationId = "defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_Impo" +
+		"rterNotificationId";
 			public const string defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNotificationId = "defraimp_defraimp_importernotification_defraimp_parametersetidentifier_ImporterNo" +
 		"tificationId";
 			public const string defraimp_defraimp_importernotification_defraimp_parametersetkeydatapair_ImporterNotificationId = "defraimp_defraimp_importernotification_defraimp_parametersetkeydatapair_ImporterN" +
@@ -5042,6 +5044,29 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("defraimp_defraimp_importernotification_defraimp_matchrecord_ImporterNotification");
 				this.SetRelatedEntities<Defra.Imports.Model.defraimp_matchrecord>("defraimp_defraimp_importernotification_defraimp_matchrecord_ImporterNotification", null, value);
 				this.OnPropertyChanged("defraimp_defraimp_importernotification_defraimp_matchrecord_ImporterNotification");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_ImporterNotificationId
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_Impo" +
+			"rterNotificationId")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_notificationpermanentaddress> defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_ImporterNotificationId
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_Impo" +
+						"rterNotificationId", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_Impo" +
+						"rterNotificationId");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_Impo" +
+						"rterNotificationId", null, value);
+				this.OnPropertyChanged("defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_Impo" +
+						"rterNotificationId");
 			}
 		}
 		

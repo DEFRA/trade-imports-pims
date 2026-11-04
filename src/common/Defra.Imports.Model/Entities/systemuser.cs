@@ -663,6 +663,10 @@ namespace Defra.Imports.Model
 			public const string lk_defraimp_matchrecord_createdonbehalfby = "lk_defraimp_matchrecord_createdonbehalfby";
 			public const string lk_defraimp_matchrecord_modifiedby = "lk_defraimp_matchrecord_modifiedby";
 			public const string lk_defraimp_matchrecord_modifiedonbehalfby = "lk_defraimp_matchrecord_modifiedonbehalfby";
+			public const string lk_defraimp_notificationpermanentaddress_createdby = "lk_defraimp_notificationpermanentaddress_createdby";
+			public const string lk_defraimp_notificationpermanentaddress_createdonbehalfby = "lk_defraimp_notificationpermanentaddress_createdonbehalfby";
+			public const string lk_defraimp_notificationpermanentaddress_modifiedby = "lk_defraimp_notificationpermanentaddress_modifiedby";
+			public const string lk_defraimp_notificationpermanentaddress_modifiedonbehalfby = "lk_defraimp_notificationpermanentaddress_modifiedonbehalfby";
 			public const string lk_defraimp_parametersetidentifier_createdby = "lk_defraimp_parametersetidentifier_createdby";
 			public const string lk_defraimp_parametersetidentifier_createdonbehalfby = "lk_defraimp_parametersetidentifier_createdonbehalfby";
 			public const string lk_defraimp_parametersetidentifier_modifiedby = "lk_defraimp_parametersetidentifier_modifiedby";
@@ -724,6 +728,7 @@ namespace Defra.Imports.Model
 			public const string user_defraimp_ipaffsdocument = "user_defraimp_ipaffsdocument";
 			public const string user_defraimp_itahc = "user_defraimp_itahc";
 			public const string user_defraimp_matchrecord = "user_defraimp_matchrecord";
+			public const string user_defraimp_notificationpermanentaddress = "user_defraimp_notificationpermanentaddress";
 			public const string user_defraimp_parametersetidentifier = "user_defraimp_parametersetidentifier";
 			public const string user_defraimp_parametersetkeydatapair = "user_defraimp_parametersetkeydatapair";
 			public const string user_defraimp_placeofdestination = "user_defraimp_placeofdestination";
@@ -5150,6 +5155,78 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N lk_defraimp_notificationpermanentaddress_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_notificationpermanentaddress_createdby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_notificationpermanentaddress> lk_defraimp_notificationpermanentaddress_createdby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("lk_defraimp_notificationpermanentaddress_createdby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_notificationpermanentaddress_createdby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("lk_defraimp_notificationpermanentaddress_createdby", null, value);
+				this.OnPropertyChanged("lk_defraimp_notificationpermanentaddress_createdby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_defraimp_notificationpermanentaddress_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_notificationpermanentaddress_createdonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_notificationpermanentaddress> lk_defraimp_notificationpermanentaddress_createdonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("lk_defraimp_notificationpermanentaddress_createdonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_notificationpermanentaddress_createdonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("lk_defraimp_notificationpermanentaddress_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_defraimp_notificationpermanentaddress_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_defraimp_notificationpermanentaddress_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_notificationpermanentaddress_modifiedby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_notificationpermanentaddress> lk_defraimp_notificationpermanentaddress_modifiedby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("lk_defraimp_notificationpermanentaddress_modifiedby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_notificationpermanentaddress_modifiedby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("lk_defraimp_notificationpermanentaddress_modifiedby", null, value);
+				this.OnPropertyChanged("lk_defraimp_notificationpermanentaddress_modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_defraimp_notificationpermanentaddress_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_notificationpermanentaddress_modifiedonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_notificationpermanentaddress> lk_defraimp_notificationpermanentaddress_modifiedonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("lk_defraimp_notificationpermanentaddress_modifiedonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_defraimp_notificationpermanentaddress_modifiedonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("lk_defraimp_notificationpermanentaddress_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_defraimp_notificationpermanentaddress_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N lk_defraimp_parametersetidentifier_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_defraimp_parametersetidentifier_createdby")]
@@ -6244,6 +6321,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("user_defraimp_matchrecord");
 				this.SetRelatedEntities<Defra.Imports.Model.defraimp_matchrecord>("user_defraimp_matchrecord", null, value);
 				this.OnPropertyChanged("user_defraimp_matchrecord");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N user_defraimp_notificationpermanentaddress
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_defraimp_notificationpermanentaddress")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.defraimp_notificationpermanentaddress> user_defraimp_notificationpermanentaddress
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("user_defraimp_notificationpermanentaddress", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("user_defraimp_notificationpermanentaddress");
+				this.SetRelatedEntities<Defra.Imports.Model.defraimp_notificationpermanentaddress>("user_defraimp_notificationpermanentaddress", null, value);
+				this.OnPropertyChanged("user_defraimp_notificationpermanentaddress");
 			}
 		}
 		
