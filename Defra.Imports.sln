@@ -40,6 +40,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defra.Imports.PageObjects", "tests\Defra.Imports.PageObjects\Defra.Imports.PageObjects.csproj", "{DC56ADA1-583B-4648-908A-0D1880751905}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -195,6 +197,24 @@ Global
 		{14B0A363-5CCE-168C-D779-64C28F81EB05}.UnitTest|x64.Build.0 = Release|Any CPU
 		{14B0A363-5CCE-168C-D779-64C28F81EB05}.UnitTest|x86.ActiveCfg = Release|Any CPU
 		{14B0A363-5CCE-168C-D779-64C28F81EB05}.UnitTest|x86.Build.0 = Release|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Debug|x64.Build.0 = Debug|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Debug|x86.Build.0 = Debug|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Release|x64.ActiveCfg = Release|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Release|x64.Build.0 = Release|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Release|x86.ActiveCfg = Release|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.Release|x86.Build.0 = Release|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.UnitTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.UnitTest|Any CPU.Build.0 = Debug|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.UnitTest|x64.ActiveCfg = Debug|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.UnitTest|x64.Build.0 = Debug|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.UnitTest|x86.ActiveCfg = Debug|Any CPU
+		{DC56ADA1-583B-4648-908A-0D1880751905}.UnitTest|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -213,6 +233,7 @@ Global
 		{DB1591DE-E758-F5B3-3417-41F8B0B7C8C1} = {5A7CC9D4-5645-4EF7-88F7-8B31A76CA92A}
 		{40CC105C-51ED-BBF6-28E7-8B305BF70BF1} = {FD3CAA3F-296C-4ECB-A6E9-A4A8CA3E15B6}
 		{14B0A363-5CCE-168C-D779-64C28F81EB05} = {FD3CAA3F-296C-4ECB-A6E9-A4A8CA3E15B6}
+		{DC56ADA1-583B-4648-908A-0D1880751905} = {FD3CAA3F-296C-4ECB-A6E9-A4A8CA3E15B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3D6A7645-2C64-4610-BC84-6AD17AA98B71}

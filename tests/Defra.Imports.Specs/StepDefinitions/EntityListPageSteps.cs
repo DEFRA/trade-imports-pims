@@ -132,7 +132,8 @@
             var readOnlyGrid = this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>();
 
             var columns = await readOnlyGrid.GetColumnNamesAsync();
-            columns.Should().BeEquivalentTo(expectedColumns.Header);
+            var trimmedColumns = columns.Select(c => c.Trim()).ToList();
+            trimmedColumns.Should().BeEquivalentTo(expectedColumns.Header.ToArray());
         }
 
         /// <summary>

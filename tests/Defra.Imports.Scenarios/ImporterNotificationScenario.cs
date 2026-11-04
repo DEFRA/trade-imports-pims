@@ -10,7 +10,8 @@ namespace Defra.Imports.Scenarios
     /// A scenario for an Importer Notification.
     /// </summary>
     [ComposeUsing(0, EventIds.ImporterNotificationSubmission, typeof(LogicAppSubmitsImporterNotificationEvent))]
-    [ComposeUsing(1, EventIds.ImportRecordCreation, typeof(CreateImportRecordEvent))]
+    [ComposeUsing(1, EventIds.ImportRecordCreation, typeof(CaseworkerCreatesImportRecordEvent))]
+    [ComposeUsing(2, EventIds.CaseworkerProcessing, typeof(CaseworkerProcessesImporterNotificationEvent))]
     public class ImporterNotificationScenario : Scenario
     {
         /// <summary>
@@ -24,7 +25,12 @@ namespace Defra.Imports.Scenarios
         /// <summary>
         /// Gets the outputs of the Import Record creation event.
         /// </summary>
-        public CreateImportRecordEvent.Info CreateImportRecordEvent { get; internal set; }
+        public CaseworkerCreatesImportRecordEvent.Info CaseworkerCreatesImportRecordEvent { get; internal set; }
+
+        /// <summary>
+        /// Gets the outputs of caseworker processing of the Importer Notification.
+        /// </summary>
+        public CaseworkerProcessesImporterNotificationEvent.Info CaseworkerProcessesImporterNotificationEvent { get; internal set; }
 
         /// <summary>
         /// The event IDs for the events within the <see cref="ImporterNotificationScenario"/>.
@@ -40,6 +46,11 @@ namespace Defra.Imports.Scenarios
             /// The event ID of the Import Record creation event.
             /// </summary>
             public const string ImportRecordCreation = nameof(ImportRecordCreation);
+
+            /// <summary>
+            /// The event ID of the caseworker processing event.
+            /// </summary>
+            public const string CaseworkerProcessing = nameof(CaseworkerProcessing);
         }
 
         /// <summary>
@@ -72,9 +83,21 @@ namespace Defra.Imports.Scenarios
             /// </summary>
             /// <param name="configurator">The configurator.</param>
             /// <returns>The builder.</returns>
-            public Builder CreatedImportRecord(Action<CreateImportRecordEvent.Builder> configurator = null)
+            public Builder CreatedImportRecord(Action<CaseworkerCreatesImportRecordEvent.Builder> configurator = null)
             {
-                this.ConfigureEvent<CreateImportRecordEvent, CreateImportRecordEvent.Builder>(EventIds.ImportRecordCreation, configurator);
+                this.ConfigureEvent<CaseworkerCreatesImportRecordEvent, CaseworkerCreatesImportRecordEvent.Builder>(EventIds.ImportRecordCreation, configurator);
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures caseworker processing of the submitted Importer Notification.
+            /// </summary>
+            /// <param name="configurator">The configurator.</param>
+            /// <returns>The builder.</returns>
+            public Builder ProcessedByCaseworker(Action<CaseworkerProcessesImporterNotificationEvent.Builder> configurator = null)
+            {
+                this.ConfigureEvent<CaseworkerProcessesImporterNotificationEvent, CaseworkerProcessesImporterNotificationEvent.Builder>(EventIds.CaseworkerProcessing, configurator);
 
                 return this;
             }

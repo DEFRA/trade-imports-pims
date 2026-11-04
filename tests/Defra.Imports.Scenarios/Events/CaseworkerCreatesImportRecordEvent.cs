@@ -16,11 +16,11 @@ namespace Defra.Imports.Scenarios.Events
     /// <param name="eventId">The event ID.</param>
     /// <param name="clientFactory">The service client factory.</param>
     /// <param name="logger">The logger.</param>
-    public class CreateImportRecordEvent(string eventId, ServiceClientFactory clientFactory, ILogger<CreateImportRecordEvent> logger)
+    public class CaseworkerCreatesImportRecordEvent(string eventId, ServiceClientFactory clientFactory, ILogger<CaseworkerCreatesImportRecordEvent> logger)
         : Event(eventId)
     {
         private readonly ServiceClientFactory clientFactory = clientFactory;
-        private readonly ILogger<CreateImportRecordEvent> logger = logger;
+        private readonly ILogger<CaseworkerCreatesImportRecordEvent> logger = logger;
 
         private Guid importerNotificationId;
 
@@ -35,7 +35,7 @@ namespace Defra.Imports.Scenarios.Events
 
             if (this.importerNotificationId == Guid.Empty)
             {
-                throw new InvalidOperationException($"{nameof(importerNotificationId)} must be configured before executing {nameof(CreateImportRecordEvent)}.");
+                throw new InvalidOperationException($"{nameof(importerNotificationId)} must be configured before executing {nameof(CaseworkerCreatesImportRecordEvent)}.");
             }
 
             this.logger.LogInformation("Creating Import Record from Importer Notification action for {ImporterNotificationId}.", this.importerNotificationId);
@@ -55,7 +55,7 @@ namespace Defra.Imports.Scenarios.Events
 
             this.logger.LogInformation("Created Import Record {ImportRecordId}.", importRecordId);
 
-            context.Set(nameof(CreateImportRecordEvent), new Info
+            context.Set(nameof(CaseworkerCreatesImportRecordEvent), new Info
             {
                 ImportRecordId = importRecordId,
                 ImportRecord = importRecord,
@@ -86,7 +86,7 @@ namespace Defra.Imports.Scenarios.Events
         }
 
         /// <summary>
-        /// Outputs captured by <see cref="CreateImportRecordEvent"/>.
+        /// Outputs captured by <see cref="CaseworkerCreatesImportRecordEvent"/>.
         /// </summary>
         public class Info
         {
@@ -102,13 +102,13 @@ namespace Defra.Imports.Scenarios.Events
         }
 
         /// <summary>
-        /// A builder for <see cref="CreateImportRecordEvent"/>.
+        /// A builder for <see cref="CaseworkerCreatesImportRecordEvent"/>.
         /// </summary>
         /// <param name="eventFactory">The event factory.</param>
         /// <param name="eventId">The event ID.</param>
         /// <param name="constructorArgs">The constructor args.</param>
         public class Builder(EventFactory eventFactory, string eventId, object[] constructorArgs = null)
-            : Builder<CreateImportRecordEvent>(eventFactory, eventId, constructorArgs)
+            : Builder<CaseworkerCreatesImportRecordEvent>(eventFactory, eventId, constructorArgs)
         {
             private Guid importerNotificationId;
 

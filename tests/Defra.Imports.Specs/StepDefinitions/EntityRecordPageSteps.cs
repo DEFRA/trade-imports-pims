@@ -933,11 +933,22 @@
                     {
                         if (checkEditable)
                         {
-                            var expectedDisabled = !bool.Parse(row["Editable"]);
-                            var actualDisabled = fieldContext.IsQuickView || await field.IsDisabledAsync(); // Workaround due to bug in Power Playwright that returns true for IsDisabledAsync for quick view fields.
-                            if (actualDisabled != expectedDisabled)
+                            var editableValue = row["Editable"];
+                            if (!string.IsNullOrWhiteSpace(editableValue))
                             {
-                                exceptions.Add(new AssertFailedException($"Expected {fieldDisplayName} Disabled: {expectedDisabled} but found Disabled: {actualDisabled}."));
+                                if (!bool.TryParse(editableValue, out var expectedEditable))
+                                {
+                                    exceptions.Add(new AssertFailedException($"Expected {fieldDisplayName} Editable to be a boolean value but found '{editableValue}'."));
+                                }
+                                else
+                                {
+                                    var expectedDisabled = !expectedEditable;
+                                    var actualDisabled = fieldContext.IsQuickView || await field.IsDisabledAsync(); // Workaround due to bug in Power Playwright that returns true for IsDisabledAsync for quick view fields.
+                                    if (actualDisabled != expectedDisabled)
+                                    {
+                                        exceptions.Add(new AssertFailedException($"Expected {fieldDisplayName} Disabled: {expectedDisabled} but found Disabled: {actualDisabled}."));
+                                    }
+                                }
                             }
                         }
 

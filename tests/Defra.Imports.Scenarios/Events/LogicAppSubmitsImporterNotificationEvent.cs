@@ -94,19 +94,6 @@ namespace Defra.Imports.Scenarios.Events
             }
 
             /// <summary>
-            /// Configures whether the Importer Notification has been contacted due to non-compliance.
-            /// </summary>
-            /// <param name="contacted">Whether contacted due to non-compliance.</param>
-            /// <returns>The builder.</returns>
-            public Builder WithNotificationContactedDueToNonCompliance(bool contacted)
-            {
-                this.importerNotificationFaker ??= new ImporterNotificationFaker();
-                this.importerNotificationFaker.RuleFor(n => n.defraimp_ContactedDuetoNonCompliance, _ => contacted);
-
-                return this;
-            }
-
-            /// <summary>
             /// Configures the Importer Notification to have the given type.
             /// </summary>
             /// <param name="type">The type.</param>
