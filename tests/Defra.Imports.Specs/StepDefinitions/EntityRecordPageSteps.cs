@@ -1133,7 +1133,10 @@
                     async (field, fieldContext) =>
                     {
                         var value = await field.GetValueAsync(fieldContext.ControlType);
-                        value.ToString().Should().Be(r["Value"]);
+                        var actualValue = value?.ToString();
+                        var expectedValue = r["Value"];
+
+                        actualValue.Should().Be(expectedValue);
                     },
                     tab: await this.RecordPage.Form.GetActiveTabAsync());
             }

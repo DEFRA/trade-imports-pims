@@ -236,3 +236,31 @@ Scenario: A caseworker views an Importer Notification's transporter details
 		| Route Transiting States                                          |
 	And I see a 'Countries Of Transit <subgrid_countries_of_transit>' subgrid with the following columns
 		| Official Country Name |
+
+# Known product behavior gap in CIT: default Non-Compliance Status is not auto-populated.
+@issue:US-049 @acceptance-criteria:us-049-1 @ignore @defect
+Scenario: A caseworker views an Importer Notification's non-compliance details
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened a non-compliant Importer Notification
+	When I select the 'Non-Compliance' tab
+	Then I see the following fields
+		| Field                             |
+		| Contacted Due to Non-Compliance   |
+		| Date Email Sent                   |
+		| Date Telephone Call Made          |
+		| Type of Non-Compliance            |
+		| IRMS Person Responsible           |
+		| Non-Compliance Status             |
+		| PIMS Status                       |
+		| Date Completed                    |
+	And I do not see the following fields
+		| Field            |
+		| Other comments |
+	And I see the following field values
+		| Field                           | Value       |
+		| Contacted Due to Non-Compliance | No          |
+		| Non-Compliance Status           | In Progress |
+	And the following fields are empty
+		| Field          |
+		| Date Completed |
+

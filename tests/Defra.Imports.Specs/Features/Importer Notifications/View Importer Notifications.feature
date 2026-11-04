@@ -25,6 +25,22 @@ Scenario: A caseworker views Importer Notifications flagged for multiple commodi
 		| Reference Number | Version | Submission Date | Created On | Status | Type | Person Responsible Name | Person Responsible Company Name | Person Responsible Email | Person Responsible Phone | Country of Origin | Region of Origin |
 	And the view is sorted by the 'Created On' column in descending order
 
+@issue:US-049 @acceptance-criteria:us-049-4
+Scenario: A caseworker views importer notifications with active non-compliance queries
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	Then I see a 'Import Notification with Active Non-Compliance Queries' view with the following columns
+		| Reference Number | Submission Date | PIMS Status | Type of Non-Compliance | IRMS Person Responsible | Country of Origin | Place of Destination Address Postcode | Contacted Due to Non-Compliance | Date Email Sent | Date Telephone Call Made | Status |
+	And the view is sorted by the 'Reference Number' column in ascending order
+
+@issue:US-049 @acceptance-criteria:us-049-4
+Scenario: A caseworker views importer notifications with closed non-compliance queries
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	Then I see a 'Import Notification with Closed Non-Compliance Queries' view with the following columns
+		| Reference Number | Submission Date | PIMS Status | Date Completed | Type of Non-Compliance | IRMS Person Responsible | Country of Origin | Place of Destination Address Postcode | Contacted Due to Non-Compliance | Date Email Sent | Date Telephone Call Made | Status |
+	And the view is sorted by the 'Reference Number' column in ascending order
+
 # Defect: deployed quick find configuration only searches Reference Number; it does not search Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name or Animal / Product ID as required.
 @issue:US-003 @acceptance-criteria:us-003-3 @ignore @defect
 Scenario: A caseworker searches for an Importer Notification by related party or commodity details

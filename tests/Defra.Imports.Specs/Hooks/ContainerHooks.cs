@@ -57,7 +57,12 @@
                 // ownership is passed to the persona configuration service, which disposes it, cascading from UserPoolService.Dispose().
                 var poolServiceClient = new ServiceClient(testConfiguration.Url, testConfiguration.ClientId.ToString(), testConfiguration.ClientSecret, true);
                 var personaConfigurationService = new PersonaConfigurationService(poolServiceClient);
-                var userPoolService = new UserPoolService(testConfiguration.Credentials.Select(c => c.Username), testConfiguration.Personas, personaConfigurationService);
+                var usernames = testConfiguration.Credentials
+                    .Select(c => c.Username)
+                    .Where(u => !string.IsNullOrWhiteSpace(u))
+                    .Distinct(StringComparer.OrdinalIgnoreCase);
+
+                var userPoolService = new UserPoolService(usernames, testConfiguration.Personas, personaConfigurationService);
 
                 testThreadContainer.RegisterInstanceAs(userPoolService);
             }
@@ -170,12 +175,20 @@
         [BeforeScenario(Order = -9999)]
         public void RegisterScenarioUserClient()
         {
-            var testConfiguration = this.objectContainer.Resolve<TestConfiguration>();
-            var scenarioUserClient = new ScenarioUserClient(this.objectContainer.Resolve<UserPoolService>(), testConfiguration.Credentials);
+            try
+            {
+                var testConfiguration = this.objectContainer.Resolve<TestConfiguration>();
+                var scenarioUserClient = new ScenarioUserClient(this.objectContainer.Resolve<UserPoolService>(), testConfiguration.Credentials);
 
-            scenarioUserClient.Logged += this.outputHelper.WriteLine;
+                scenarioUserClient.Logged += this.outputHelper.WriteLine;
 
-            this.objectContainer.RegisterInstanceAs(scenarioUserClient);
+                this.objectContainer.RegisterInstanceAs(scenarioUserClient);
+            }
+            catch (Exception ex)
+            {
+                this.outputHelper.WriteLine($"[BeforeScenario] {nameof(this.RegisterScenarioUserClient)} failed: {ex}");
+                throw;
+            }
         }
 
         /// <summary>
@@ -184,10 +197,27 @@
         [BeforeScenario(Order = 0)]
         public void RegisterLogger()
         {
-            var testContext = this.objectContainer.Resolve<TestContext>();
+            try
+            {
+                if (!this.objectContainer.IsRegistered<TestContext>())
+                {
+                    throw new InvalidOperationException("TestContext was not registered in the scenario container.");
+                }
 
-            this.objectContainer.RegisterInstanceAs<ILogger>(new MsTestLogger(testContext));
-            this.objectContainer.RegisterInstanceAs<ILoggerProvider>(new MsTestLoggerProvider(testContext));
+                var testContext = this.objectContainer.Resolve<TestContext>();
+                if (testContext == null)
+                {
+                    throw new InvalidOperationException("TestContext was resolved as null from the scenario container.");
+                }
+
+                this.objectContainer.RegisterInstanceAs<ILogger>(new MsTestLogger(testContext));
+                this.objectContainer.RegisterInstanceAs<ILoggerProvider>(new MsTestLoggerProvider(testContext));
+            }
+            catch (Exception ex)
+            {
+                this.outputHelper.WriteLine($"[BeforeScenario] {nameof(this.RegisterLogger)} failed: {ex}");
+                throw;
+            }
         }
 
         /// <summary>
@@ -197,9 +227,17 @@
         [BeforeScenario(Order = -9998)]
         public async Task SetupPowerPlaywright()
         {
-            var powerPlaywright = await PowerPlaywright.CreateAsync(new PowerPlaywrightConfiguration());
+            try
+            {
+                var powerPlaywright = await PowerPlaywright.CreateAsync(new PowerPlaywrightConfiguration());
 
-            this.objectContainer.RegisterInstanceAs(powerPlaywright);
+                this.objectContainer.RegisterInstanceAs(powerPlaywright);
+            }
+            catch (Exception ex)
+            {
+                this.outputHelper.WriteLine($"[BeforeScenario] {nameof(this.SetupPowerPlaywright)} failed: {ex}");
+                throw;
+            }
         }
 
         /// <summary>

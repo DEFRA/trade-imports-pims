@@ -32,7 +32,9 @@ namespace Defra.Imports.Specs.Services
                 throw new ArgumentNullException(nameof(credentials));
             }
 
-            this.credentialsByUsername = credentials.ToDictionary(c => c.Username);
+            this.credentialsByUsername = credentials
+                .Where(c => c != null && !string.IsNullOrWhiteSpace(c.Username))
+                .ToDictionary(c => c.Username, StringComparer.OrdinalIgnoreCase);
         }
 
         /// <summary>

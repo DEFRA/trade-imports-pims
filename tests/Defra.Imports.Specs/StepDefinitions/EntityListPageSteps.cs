@@ -1,5 +1,6 @@
 ﻿namespace Defra.Imports.Specs.StepDefinitions
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
     using Defra.Imports.Specs.Extensions;
@@ -54,7 +55,7 @@
                 {
                     await this.EntityListPage.DataSet.SwitchViewAsync(expectedView);
                 }
-                catch
+                catch (Exception)
                 {
                     throw new AssertionFailedException($"The view '{expectedView}' was not found.");
                 }
@@ -131,8 +132,7 @@
             var readOnlyGrid = this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>();
 
             var columns = await readOnlyGrid.GetColumnNamesAsync();
-            var trimmedcolumns = columns.Select(c => c.Trim()).ToList();
-            trimmedcolumns.Should().BeEquivalentTo(expectedColumns.Header.ToArray());
+            columns.Should().BeEquivalentTo(expectedColumns.Header);
         }
 
         /// <summary>
@@ -223,5 +223,6 @@
                 actualCommands.Should().NotContain(expectedCommands);
             }
         }
+
     }
 }

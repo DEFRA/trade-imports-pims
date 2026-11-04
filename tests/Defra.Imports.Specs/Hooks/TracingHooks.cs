@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Playwright;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -41,11 +42,12 @@
         [AfterScenario]
         public async Task TearDownTracingAsync(IBrowserContext browserCtx)
         {
+            var shortScenarioName = GetShortSafeFileName(this.ctx.ScenarioInfo.Title);
             var outputPath = this.ctx.ScenarioExecutionStatus == ScenarioExecutionStatus.TestError ?
                 Path.Combine(
                     this.testContext.ResultsDirectory,
                     "playwright-traces",
-                    $"{string.Join(string.Empty, this.ctx.ScenarioInfo.Title.Split(Path.GetInvalidFileNameChars()))}.zip")
+                    $"{shortScenarioName}.zip")
                 :
                 null;
 
@@ -65,6 +67,18 @@
             }
 
             this.testContext.AddResultFile(outputPath);
+        }
+
+        private static string GetShortSafeFileName(string title)
+        {
+            var safeTitle = string.Join(string.Empty, (title ?? string.Empty).Split(Path.GetInvalidFileNameChars()));
+            if (safeTitle.Length > 48)
+            {
+                safeTitle = safeTitle.Substring(0, 48);
+            }
+
+            var hash = Math.Abs((title ?? string.Empty).Aggregate(17, (current, c) => (current * 31) + c));
+            return $"{safeTitle}-{hash:x}";
         }
     }
 }
