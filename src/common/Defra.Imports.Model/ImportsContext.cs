@@ -416,6 +416,28 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.EnvironmentVariableDefinition"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.EnvironmentVariableDefinition> EnvironmentVariableDefinitionSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.EnvironmentVariableDefinition>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.EnvironmentVariableValue"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.EnvironmentVariableValue> EnvironmentVariableValueSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.EnvironmentVariableValue>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.SystemUser"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Defra.Imports.Model.SystemUser> SystemUserSet
