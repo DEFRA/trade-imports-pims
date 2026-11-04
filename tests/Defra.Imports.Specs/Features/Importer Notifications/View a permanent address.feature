@@ -1,6 +1,7 @@
-﻿Feature: View a permanent address
+@issue:US-044
+Feature: View a permanent address
 
-@issue:US-044 @acceptance-criteria:us-044-1
+@acceptance-criteria:us-044-1
 Scenario: A caseworker views a permanent address
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened a permanent address of an Importer Notification

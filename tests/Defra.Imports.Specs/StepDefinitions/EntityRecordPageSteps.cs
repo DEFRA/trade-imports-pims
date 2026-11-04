@@ -255,16 +255,16 @@
         /// Verifies the state of a checkbox field.
         /// </summary>
         /// <param name="displayName">The field display name.</param>
-        /// <param name="state">The expected state, 'checked' or 'unchecked'.</param>
+        /// <param name="isChecked">Whether the checkbox is expected to be checked.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Then("^the '(.*)' checkbox is (checked|unchecked)$")]
-        public async Task ThenTheCheckboxIs(string displayName, string state)
+        public async Task ThenTheCheckboxIs(string displayName, bool isChecked)
         {
             await this.ExecuteControlActionAsync<ICoreCheckboxControl>(
                 displayName,
                 async (control, fieldContext) =>
                 {
-                    (await control.GetValueAsync()).Should().Be(state == "checked");
+                    (await control.GetValueAsync()).Should().Be(isChecked);
                 },
                 tab: await this.RecordPage.Form.GetActiveTabAsync());
         }

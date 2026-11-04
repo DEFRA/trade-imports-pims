@@ -10,7 +10,7 @@ Scenario: A caseworker updates an Importer Notification's Health Certificate Att
 		| Field                       | Editable |
 		| Health Certificate Attached | true     |
 
-@acceptance-criteria:us-044-2
+@issue:US-059 @acceptance-criteria:us-059-1
 Scenario: A caseworker updates an Importer Notification's Devolved Office
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -19,7 +19,7 @@ Scenario: A caseworker updates an Importer Notification's Devolved Office
 	And I save the record
 	Then the record is saved successfully
 
-@acceptance-criteria:us-044-2
+@issue:US-049 @acceptance-criteria:us-049-1
 Scenario: A caseworker updates an Importer Notification's non-compliance details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -30,9 +30,13 @@ Scenario: A caseworker updates an Importer Notification's non-compliance details
 		| Date Email Sent                  | true     |
 		| Type of Non-Compliance           | true     |
 		| Date Telephone Call Made         | true     |
+		| Non-Compliance Status            | true     |
+		| IRMS Person Responsible          | true     |
+		| Date Completed                   | true     |
+		| PIMS Status                      | true     |
 
 # 'Non-Compliance Other Comments' is only shown once the type is Other.
-@acceptance-criteria:us-044-2
+@issue:US-049 @acceptance-criteria:us-049-1
 Scenario: A caseworker updates an Importer Notification's non-compliance details when the type is Other
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -41,12 +45,8 @@ Scenario: A caseworker updates an Importer Notification's non-compliance details
 	Then I see the following fields
 		| Field                         | Editable |
 		| Non-Compliance Other Comments | true     |
-		| Non-Compliance Status         | true     |
-		| IRMS Person Responsible       | true     |
-		| Date Completed                | true     |
-		| PIMS Status                   | true     |
 
-@acceptance-criteria:us-044-2
+@issue:US-049 @acceptance-criteria:us-049-6
 Scenario: A caseworker updates an importer notification with a note
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification

@@ -2,6 +2,7 @@ namespace Defra.Imports.Specs.StepDefinitions
 {
     using System.Threading.Tasks;
     using Defra.Imports.PageObjects.Controls;
+    using FluentAssertions;
     using PowerPlaywright.Framework.Pages;
     using Reqnroll;
 
@@ -12,6 +13,7 @@ namespace Defra.Imports.Specs.StepDefinitions
     public class RecordPageCollaborationSteps
     {
         private const string NotesControlName = "notescontrol";
+        private const string NoteTitle = "Importer Notification note";
 
         private readonly PowerPlaywrightContext powerPlaywrightCtx;
 
@@ -24,8 +26,9 @@ namespace Defra.Imports.Specs.StepDefinitions
             this.powerPlaywrightCtx = powerPlaywrightCtx;
         }
 
-        private INotesTimelineControl Notes => ((IEntityRecordPage)this.powerPlaywrightCtx.ActivePage)
-            .Form.GetDataSet<INotesTimelineControl>(NotesControlName).Control;
+        // Replace GetDataSet with the generic control method once Power Playwright provides one.
+        private ITimelineWallControl Notes => ((IEntityRecordPage)this.powerPlaywrightCtx.ActivePage)
+            .Form.GetDataSet<ITimelineWallControl>(NotesControlName).Control;
 
         /// <summary>
         /// Adds a note to the record using the notes timeline.
@@ -35,7 +38,7 @@ namespace Defra.Imports.Specs.StepDefinitions
         [When("I add the note {string}")]
         public async Task WhenIAddTheNote(string noteText)
         {
-            await this.Notes.AddNoteAsync(noteText);
+            await this.Notes.AddNoteAsync(NoteTitle, noteText);
         }
 
         /// <summary>
@@ -46,7 +49,9 @@ namespace Defra.Imports.Specs.StepDefinitions
         [Then("I see a note containing {string}")]
         public async Task ThenISeeANoteContaining(string noteText)
         {
-            await this.Notes.WaitForNoteAsync(noteText);
+            var notes = await this.Notes.GetNotesAsync();
+
+            notes.Should().Contain(n => n.Contains(noteText));
         }
     }
 }

@@ -1,5 +1,7 @@
 namespace Defra.Imports.PageObjects.Strategies
 {
+    using System;
+    using System.Threading.Tasks;
     using Defra.Imports.PageObjects.Controls;
     using Microsoft.Playwright;
     using PowerPlaywright.Framework;
@@ -7,8 +9,6 @@ namespace Defra.Imports.PageObjects.Strategies
     using PowerPlaywright.Framework.Controls.Pcf.Attributes;
     using PowerPlaywright.Framework.Extensions;
     using PowerPlaywright.Framework.Pages;
-    using System;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// A strategy for the <see cref="IFlipSwitchControl"/>.
@@ -25,7 +25,7 @@ namespace Defra.Imports.PageObjects.Strategies
         /// <param name="appPage">The app page.</param>
         /// <param name="infoProvider">The info provider.</param>
         /// <param name="parent">The parent control.</param>
-        public FlipSwitchControl(string name, IAppPage appPage, IEnvironmentInfoProvider infoProvider, IControl parent = null) 
+        public FlipSwitchControl(string name, IAppPage appPage, IEnvironmentInfoProvider infoProvider, IControl parent = null)
             : base(name, appPage, infoProvider, parent)
         {
             this.flipSwitch = this.Container.GetByRole(AriaRole.Checkbox);
@@ -36,7 +36,7 @@ namespace Defra.Imports.PageObjects.Strategies
         {
             await this.Container.Page.WaitForAppIdleAsync();
 
-            await this.CheckVisiblity();
+            await this.CheckVisibility();
 
             return await this.flipSwitch.IsCheckedAsync();
         }
@@ -46,7 +46,7 @@ namespace Defra.Imports.PageObjects.Strategies
         {
             await this.Container.Page.WaitForAppIdleAsync();
 
-            await this.CheckVisiblity();
+            await this.CheckVisibility();
 
             if (await this.flipSwitch.IsDisabledAsync())
             {
@@ -63,13 +63,7 @@ namespace Defra.Imports.PageObjects.Strategies
             await this.Container.Page.WaitForAppIdleAsync();
         }
 
-        /// <inheritdoc/>
-        protected override ILocator GetRoot(ILocator context)
-        {
-            return context.Locator("div[data-id*='.fieldControl_container']");
-        }
-
-        private async Task CheckVisiblity() 
+        private async Task CheckVisibility()
         {
             if (!await this.flipSwitch.IsVisibleAsync())
             {

@@ -1,5 +1,6 @@
 namespace Defra.Imports.PageObjects.Controls
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using PowerPlaywright.Framework.Controls.Pcf;
     using PowerPlaywright.Framework.Controls.Pcf.Attributes;
@@ -8,20 +9,20 @@ namespace Defra.Imports.PageObjects.Controls
     /// The timeline wall control used to show and add notes on a record form.
     /// </summary>
     [PcfControl("MscrmControls.TimelineWallControl.TimelineWall")]
-    public interface INotesTimelineControl : IPcfControl
+    public interface ITimelineWallControl : IPcfControl
     {
         /// <summary>
         /// Adds a note to the timeline.
         /// </summary>
+        /// <param name="title">The note title.</param>
         /// <param name="noteText">The note text.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        Task AddNoteAsync(string noteText);
+        Task AddNoteAsync(string title, string noteText);
 
         /// <summary>
-        /// Waits for a note containing the given text to be shown in the timeline.
+        /// Gets the text of the notes shown in the timeline.
         /// </summary>
-        /// <param name="noteText">The note text.</param>
-        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        Task WaitForNoteAsync(string noteText);
+        /// <returns>The note texts.</returns>
+        Task<IReadOnlyList<string>> GetNotesAsync();
     }
 }

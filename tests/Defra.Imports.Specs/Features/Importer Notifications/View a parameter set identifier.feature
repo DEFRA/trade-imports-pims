@@ -1,6 +1,7 @@
-﻿Feature: View a parameter set identifier
+@issue:US-044
+Feature: View a parameter set identifier
 
-@issue:US-044 @acceptance-criteria:us-044-1
+@acceptance-criteria:us-044-1
 Scenario: A caseworker views a parameter set identifier
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened a parameter set identifier of an Importer Notification

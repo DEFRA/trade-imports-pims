@@ -1,4 +1,4 @@
-﻿@issue:US-003
+@issue:US-003
 Feature: View an Importer Notification
 
 @acceptance-criteria:us-003-1 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-4 @issue:US-029 @acceptance-criteria:us-029-7 @issue:US-006 @acceptance-criteria:us-044-1

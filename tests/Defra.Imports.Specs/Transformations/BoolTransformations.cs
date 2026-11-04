@@ -99,5 +99,16 @@
         {
             return value.Equals("with", StringComparison.OrdinalIgnoreCase);
         }
+
+        /// <summary>
+        /// Transforms checked or unchecked into a <see cref="bool"/> value.
+        /// </summary>
+        /// <param name="value">The checked or unchecked string.</param>
+        /// <returns>The bool value.</returns>
+        [StepArgumentTransformation("(checked|unchecked)")]
+        public static bool Checked(string value)
+        {
+            return value.Equals("checked", StringComparison.OrdinalIgnoreCase);
+        }
     }
 }

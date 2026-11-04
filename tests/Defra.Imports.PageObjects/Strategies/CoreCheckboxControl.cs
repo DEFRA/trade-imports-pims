@@ -58,11 +58,5 @@ namespace Defra.Imports.PageObjects.Strategies
 
             await this.Container.Page.WaitForAppIdleAsync();
         }
-
-        /// <inheritdoc/>
-        protected override ILocator GetRoot(ILocator context)
-        {
-            return context.Locator("div[data-lp-id^='PowerApps.CoreControls.Checkbox|']");
-        }
     }
 }
