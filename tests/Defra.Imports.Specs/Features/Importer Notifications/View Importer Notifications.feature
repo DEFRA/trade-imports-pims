@@ -1,6 +1,6 @@
 Feature: View Importer Notifications
 
-@issue:US-003 @acceptance-criteria:us-003-2
+@issue:US-003 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-8
 Scenario: A caseworker views active Importer Notifications
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
@@ -24,6 +24,24 @@ Scenario: A caseworker views Importer Notifications flagged for multiple commodi
 	Then I see a 'Importer Notifications with >1 Commodity Codes - No Caseworker intervention' view with the following columns
 		| Reference Number | Version | Submission Date | Created On | Status | Type | Person Responsible Name | Person Responsible Company Name | Person Responsible Email | Person Responsible Phone | Country of Origin | Region of Origin |
 	And the view is sorted by the 'Created On' column in descending order
+
+@issue:US-044 @acceptance-criteria:us-044-6
+# US-044 AC-6 names the last-but-one column 'Port of Entry'; the deployed view labels it 'BCP or Port of Entry'.
+Scenario: A caseworker views Importer Notifications that are Amended, have a Health Certificate Attached and are owned by EU Imports Dynamics
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	Then I see a 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view with the following columns
+		| Reference Number | Version | PIMS Status | Type of Non-Compliance | IRMS Person Responsible | Devolved Office | Arrival Date | Submission Date | Created On | Status | Type | Country of Origin | Commodity Code | Commodity Species Name | Commodities Number of Animals | Commodity ID Types | Purpose of Movement | Place of Original Harvest Company Name | Place of Original Harvest Individual Name | Place of Destination Address Postcode | Place of Destination Company Name | Place of Destination Address City | Person Responsible Name | Person Responsible Company Name | Transporter Company Name | BCP or Port of Entry | Owner |
+	And the view is sorted by the 'Created On' column in ascending order
+
+@issue:US-044
+Scenario: A caseworker views Importer Notifications that are Amended, have a Health Certificate Attached and are owned by EU Imports Dynamics by reference number
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And an amended Importer Notification with a health certificate has been created
+	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
+	When I switch to the 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view
+	And I search for the Importer Notification by its reference number
+	Then I see the matching Importer Notification in the search results
 
 # Defect: deployed quick find configuration only searches Reference Number; it does not search Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name or Animal / Product ID as required.
 @issue:US-003 @acceptance-criteria:us-003-3 @ignore @defect
