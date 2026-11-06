@@ -72,6 +72,72 @@
             <Description description="Identifier for EU or ROW imports" languagecode="1033" />
           </Descriptions>
         </attribute>
+        <attribute PhysicalName="defra_aka">
+          <Type>nvarchar</Type>
+          <Name>defra_aka</Name>
+          <LogicalName>defra_aka</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>0.0.0.1</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>text</Format>
+          <MaxLength>56</MaxLength>
+          <Length>112</Length>
+          <displaynames>
+            <displayname description="Official Country Name" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Official Country Name" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="defra_codeassignmenttype">
+          <Type>nvarchar</Type>
+          <Name>defra_codeassignmenttype</Name>
+          <LogicalName>defra_codeassignmenttype</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>0.0.0.6</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Code Assignment Type" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
         <attribute PhysicalName="defra_name">
           <Type>nvarchar</Type>
           <Name>defra_name</Name>
@@ -99,10 +165,10 @@
           <MaxLength>54</MaxLength>
           <Length>108</Length>
           <displaynames>
-            <displayname description="Official Country Name" languagecode="1033" />
+            <displayname description="Common Country Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The name of the custom entity." languagecode="1033" />
+            <Description description="Common Country Name" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="defraimp_SixCharacterCountryCode">
