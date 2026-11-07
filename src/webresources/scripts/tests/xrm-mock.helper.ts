@@ -11,9 +11,7 @@ export function makeSection() {
   return { setVisible: jest.fn() };
 }
 
-export function makeTab(
-  sectionsMap: Record<string, ReturnType<typeof makeSection>> = {}
-) {
+export function makeTab(sectionsMap: Record<string, ReturnType<typeof makeSection>> = {}) {
   return {
     setVisible: jest.fn(),
     sections: { get: jest.fn((n: string) => sectionsMap[n]) },
@@ -46,9 +44,7 @@ export function makeGridRow(ref: { id: string; name: string; entityType: string 
 export function makeSelectedRows(refs: Array<{ id: string; name: string; entityType: string }>) {
   const rows = refs.map(makeGridRow);
   return {
-    forEach: jest.fn((cb: (r: ReturnType<typeof makeGridRow>) => void) =>
-      rows.forEach(cb)
-    ),
+    forEach: jest.fn((cb: (r: ReturnType<typeof makeGridRow>) => void) => rows.forEach(cb)),
   };
 }
 
@@ -79,13 +75,13 @@ export function makeFormContext(
     getControl: jest.fn((n: string) => controls[n]),
     data: {
       entity: {
-        getId: jest.fn().mockReturnValue(opts.entityId ?? "{test-guid}"),
+        getId: jest.fn().mockReturnValue(opts.entityId ?? '{test-guid}'),
         addOnSave: jest.fn(),
         addOnPostSave: jest.fn(),
         removeOnPostSave: jest.fn(),
-        getEntityReference: jest.fn().mockReturnValue(
-          opts.entityRef ?? { id: "test-id", name: "Test", entityType: "entity" }
-        ),
+        getEntityReference: jest
+          .fn()
+          .mockReturnValue(opts.entityRef ?? { id: 'test-id', name: 'Test', entityType: 'entity' }),
       },
       save: jest.fn().mockResolvedValue(undefined),
       refresh: jest.fn().mockResolvedValue(undefined),
@@ -117,9 +113,7 @@ export function setupXrm() {
         execute: jest.fn().mockResolvedValue(undefined),
         executeMultiple: jest.fn().mockResolvedValue(undefined),
       },
-      retrieveRecord: jest
-        .fn()
-        .mockResolvedValue({ defraexp_value: "true" }),
+      retrieveRecord: jest.fn().mockResolvedValue({ defraexp_value: 'true' }),
     },
     Navigation: {
       openAlertDialog: jest.fn().mockResolvedValue(undefined),

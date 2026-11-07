@@ -11,11 +11,7 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "isolatedModules": true,
-    "types": [
-      "jest",
-      "node",
-      "xrm"
-    ]
+    "types": ["jest", "node", "xrm"]
   },
   "include": ["tests/**/*.ts"]
 }
