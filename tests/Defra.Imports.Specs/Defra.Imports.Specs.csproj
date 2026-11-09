@@ -54,4 +54,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Import Record\" />
+  </ItemGroup>
+
 </Project>
