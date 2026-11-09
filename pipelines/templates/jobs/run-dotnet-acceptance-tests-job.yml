@@ -50,7 +50,7 @@ jobs:
 
       - pwsh: |
           $script = Get-ChildItem -Path "$(Build.SourcesDirectory)" -Filter playwright.ps1 -Recurse |
-            Where-Object { $_.FullName -match 'Release' } |
+            Where-Object { $_.FullName -match 'Release' -and (Test-Path (Join-Path $_.DirectoryName 'Microsoft.Playwright.dll')) } |
             Select-Object -First 1
           if (-not $script) { throw 'playwright.ps1 not found in build output.' }
           & $script.FullName install --with-deps

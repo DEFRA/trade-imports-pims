@@ -5,22 +5,19 @@ type ImportRecordRequest = {
 };
 
 class UpdateImportRecordWithItahcRequest implements ImportRecordRequest {
-  public constructor(
-    public entity: Xrm.LookupValue,
-    public overwriteExistingData: boolean
-  ) {}
+  public constructor(public entity: Xrm.LookupValue, public overwriteExistingData: boolean) {}
   public getMetadata() {
     return {
-      boundParameter: "entity",
+      boundParameter: 'entity',
       operationType: 0,
-      operationName: "defraimp_UpdateImportRecordWithItahc",
+      operationName: 'defraimp_UpdateImportRecordWithItahc',
       parameterTypes: {
         entity: {
-          typeName: "mscrm.defraimp_importapplication",
+          typeName: 'mscrm.defraimp_importapplication',
           structuralProperty: 5,
         },
         overwriteExistingData: {
-          typename: "Edm.Boolean",
+          typename: 'Edm.Boolean',
           structuralProperty: 1,
         },
       },
@@ -28,76 +25,52 @@ class UpdateImportRecordWithItahcRequest implements ImportRecordRequest {
   }
 }
 class UpdateImportRecordWithNotificationRequest implements ImportRecordRequest {
-  public constructor(
-    public entity: Xrm.LookupValue,
-    public overwriteExistingData: boolean
-  ) {}
+  public constructor(public entity: Xrm.LookupValue, public overwriteExistingData: boolean) {}
   // TODO: Verify the deployed custom-action metadata's existing `typename` spelling before changing it.
   public getMetadata() {
     return {
-      boundParameter: "entity",
+      boundParameter: 'entity',
       operationType: 0,
-      operationName: "defraimp_UpdateImportRecordWithNotification",
+      operationName: 'defraimp_UpdateImportRecordWithNotification',
       parameterTypes: {
         entity: {
-          typeName: "mscrm.defraimp_importapplication",
+          typeName: 'mscrm.defraimp_importapplication',
           structuralProperty: 5,
         },
         overwriteExistingData: {
-          typename: "Edm.Boolean",
+          typename: 'Edm.Boolean',
           structuralProperty: 1,
         },
       },
     };
   }
 }
-export function onFillEmptyDataWithItahc(
-  primaryControl: Xrm.FormContext
-): void {
+export function onFillEmptyDataWithItahc(primaryControl: Xrm.FormContext): void {
   void execute(primaryControl, false, UpdateImportRecordWithItahcRequest);
 }
-export function onOverwriteDataWithItahc(
-  primaryControl: Xrm.FormContext
-): void {
+export function onOverwriteDataWithItahc(primaryControl: Xrm.FormContext): void {
   void execute(primaryControl, true, UpdateImportRecordWithItahcRequest);
 }
-export function onFillEmptyDataWithNotification(
-  primaryControl: Xrm.FormContext
-): void {
-  void execute(
-    primaryControl,
-    false,
-    UpdateImportRecordWithNotificationRequest
-  );
+export function onFillEmptyDataWithNotification(primaryControl: Xrm.FormContext): void {
+  void execute(primaryControl, false, UpdateImportRecordWithNotificationRequest);
 }
-export function onOverwriteDataWithNotification(
-  primaryControl: Xrm.FormContext
-): void {
+export function onOverwriteDataWithNotification(primaryControl: Xrm.FormContext): void {
   void execute(primaryControl, true, UpdateImportRecordWithNotificationRequest);
 }
 
-export function openUrlFromRibbon(
-  formContext: Xrm.FormContext,
-  schemaName: string
-): void {
+export function openUrlFromRibbon(formContext: Xrm.FormContext, schemaName: string): void {
   ImportRibbon.openUrlField(formContext, schemaName);
 }
 
 async function execute(
   primaryControl: Xrm.FormContext,
   overwriteExistingData: boolean,
-  Request: new (
-    entity: Xrm.LookupValue,
-    overwrite: boolean
-  ) => ImportRecordRequest
+  Request: new (entity: Xrm.LookupValue, overwrite: boolean) => ImportRecordRequest
 ): Promise<void> {
-  Xrm.Utility.showProgressIndicator("Loading");
+  Xrm.Utility.showProgressIndicator('Loading');
   try {
     await Xrm.WebApi.online.execute(
-      new Request(
-        primaryControl.data.entity.getEntityReference(),
-        overwriteExistingData
-      )
+      new Request(primaryControl.data.entity.getEntityReference(), overwriteExistingData)
     );
     Xrm.Utility.closeProgressIndicator();
     await primaryControl.data.refresh(false);
@@ -112,34 +85,30 @@ function getErrorMessage(error: unknown): string {
 
 class ImportRibbon {
   private static readonly Ids = {
-    UrlErrorId: "ERROR_OPENURL",
-    UrlMissingSchemaId: "ERROR_MISSINGURLSCHEMA",
+    UrlErrorId: 'ERROR_OPENURL',
+    UrlMissingSchemaId: 'ERROR_MISSINGURLSCHEMA',
   };
 
   private static readonly Errors = {
-    UrlErrorMessage: "URL is missing for this Import Record.",
-    UrlMissingSchema: "Notification id field not found on Import Record.",
+    UrlErrorMessage: 'URL is missing for this Import Record.',
+    UrlMissingSchema: 'Notification id field not found on Import Record.',
   };
 
   private static readonly ConfigParameterConstants = {
-    entityName: "defraexp_configurationparameter",
-    decisionHubEntityId: "537cea15-01d5-ec11-a7b5-0022489ef71e",
+    entityName: 'defraexp_configurationparameter',
+    decisionHubEntityId: '537cea15-01d5-ec11-a7b5-0022489ef71e',
   };
 
-  public static openUrlField(
-    formContext: Xrm.FormContext,
-    schemaName: string
-  ): void {
+  public static openUrlField(formContext: Xrm.FormContext, schemaName: string): void {
     formContext.ui.clearFormNotification(ImportRibbon.Ids.UrlErrorId);
     formContext.ui.clearFormNotification(ImportRibbon.Ids.UrlMissingSchemaId);
 
-    const urlField =
-      formContext.getAttribute<Xrm.Attributes.LookupAttribute>(schemaName);
+    const urlField = formContext.getAttribute<Xrm.Attributes.LookupAttribute>(schemaName);
 
     if (!urlField) {
       formContext.ui.setFormNotification(
         ImportRibbon.Errors.UrlMissingSchema,
-        "ERROR",
+        'ERROR',
         ImportRibbon.Ids.UrlMissingSchemaId
       );
       return;
@@ -148,10 +117,10 @@ class ImportRibbon {
     const value = urlField.getValue();
     const notificationId = value?.[0]?.name;
 
-    if (!notificationId || notificationId === "") {
+    if (!notificationId || notificationId === '') {
       formContext.ui.setFormNotification(
         ImportRibbon.Errors.UrlErrorMessage,
-        "ERROR",
+        'ERROR',
         ImportRibbon.Ids.UrlErrorId
       );
       return;
@@ -168,15 +137,15 @@ class ImportRibbon {
       const result: { defraexp_value: string } = await Xrm.WebApi.retrieveRecord(
         ImportRibbon.ConfigParameterConstants.entityName,
         ImportRibbon.ConfigParameterConstants.decisionHubEntityId,
-        "?$select=defraexp_value"
+        '?$select=defraexp_value'
       );
-      const url = result.defraexp_value.replace("#notificationid", notificationId);
+      const url = result.defraexp_value.replace('#notificationid', notificationId);
 
       Xrm.Navigation.openUrl(url);
     } catch (error) {
       formContext.ui.setFormNotification(
         error instanceof Error ? error.message : String(error),
-        "ERROR",
+        'ERROR',
         ImportRibbon.Ids.UrlErrorId
       );
     }

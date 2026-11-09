@@ -1,15 +1,15 @@
 export function CloneImportQueryButton(primaryControl: Xrm.FormContext): void {
   const emailToSend = requiredAttribute<Xrm.Attributes.StringAttribute>(
     primaryControl,
-    "defraimp_querysentto"
+    'defraimp_querysentto'
   ).getValue();
   const subject = requiredAttribute<Xrm.Attributes.StringAttribute>(
     primaryControl,
-    "subject"
+    'subject'
   ).getValue();
   const dueDate = requiredAttribute<Xrm.Attributes.DateAttribute>(
     primaryControl,
-    "defraimp_duedate"
+    'defraimp_duedate'
   ).getValue();
   const queryId = normalizeEntityId(primaryControl.data.entity.getId());
 
@@ -19,12 +19,12 @@ export function CloneImportQueryButton(primaryControl: Xrm.FormContext): void {
     defraimp_duedate: dueDate?.toISOString(),
     defraimp_originalquery: JSON.stringify({
       id: queryId,
-      name: subject ?? "",
-      entityType: "defraimp_importquery",
+      name: subject ?? '',
+      entityType: 'defraimp_importquery',
     }),
   };
 
-  Xrm.Navigation.openForm({ entityName: "defraimp_importquery" }, parameters);
+  Xrm.Navigation.openForm({ entityName: 'defraimp_importquery' }, parameters);
 }
 
 function requiredAttribute<T extends Xrm.Attributes.Attribute>(
@@ -40,5 +40,5 @@ function requiredAttribute<T extends Xrm.Attributes.Attribute>(
 }
 
 function normalizeEntityId(entityId: string): string {
-  return entityId.replace(/[{}]/g, "");
+  return entityId.replace(/[{}]/g, '');
 }

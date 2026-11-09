@@ -33,6 +33,14 @@ namespace Defra.Imports.UnitTests.Workflows.ImporterNotification
             this.OrgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_commoditycomplement.EntityLogicalName)))
                 .Returns(new EntityCollection());
+
+            // Default: schema version environment variable definition has no override/default value configured,
+            // which resolves to a null schema version. Since the test-built messages do not set
+            // metadata.schemaVersion (also null), IsSchemaVersionCurrent compares null to null and passes,
+            // allowing the create/update workflow logic to be exercised as before.
+            this.OrgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == EnvironmentVariableDefinition.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { new EnvironmentVariableDefinition { Id = Guid.NewGuid() } }));
         }
 
         /// <summary>

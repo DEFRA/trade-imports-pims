@@ -9,4 +9,6 @@ out/
 dist/
 coverage/
 node_modules/
+test-results/
+package-lock.json
 .vs/

@@ -1,19 +1,17 @@
-const MULTIPLE_COMMODITY_ERROR_ID = "multipleCommodityError";
-const MULTIPLE_COMMODITY_NOTIFICATION_ID = "multipleCommodityNotification";
+const MULTIPLE_COMMODITY_ERROR_ID = 'multipleCommodityError';
+const MULTIPLE_COMMODITY_NOTIFICATION_ID = 'multipleCommodityNotification';
 
-type SaveMode = ReturnType<Xrm.Events.SaveEventArguments["getSaveMode"]>;
+type SaveMode = ReturnType<Xrm.Events.SaveEventArguments['getSaveMode']>;
 
 const TYPE_CVEDA = 714100000;
 const PURPOSE_OF_CONSIGNMENT_RE_ENTRY = 714100009;
 const SAVE_MODE_SAVE_AND_CLOSE = 2 as SaveMode;
 
-export function showHideCharity(
-  executionContext: Xrm.Events.EventContext
-): void {
+export function showHideCharity(executionContext: Xrm.Events.EventContext): void {
   const formContext = executionContext.getFormContext();
 
   const type = formContext
-    .getAttribute<Xrm.Attributes.OptionSetAttribute>("defraimp_type")
+    .getAttribute<Xrm.Attributes.OptionSetAttribute>('defraimp_type')
     ?.getValue();
 
   if (type === TYPE_CVEDA) {
@@ -22,32 +20,22 @@ export function showHideCharity(
   }
 
   const importingFromCharity = formContext
-    .getAttribute<Xrm.Attributes.BooleanAttribute>(
-      "defraimp_importingfromcharity"
-    )!
+    .getAttribute<Xrm.Attributes.BooleanAttribute>('defraimp_importingfromcharity')!
     .getValue();
 
-  formContext.ui.tabs
-    .get("Charity_Tab")!
-    .setVisible(importingFromCharity ?? false);
+  formContext.ui.tabs.get('Charity_Tab')!.setVisible(importingFromCharity ?? false);
 }
 
-export function checkForMultipleCommodities(
-  executionContext: Xrm.Events.EventContext
-): void {
+export function checkForMultipleCommodities(executionContext: Xrm.Events.EventContext): void {
   const formContext = executionContext.getFormContext();
   const hasMultipleCommodities = formContext
-    .getAttribute<Xrm.Attributes.BooleanAttribute>(
-      "defraimp_hasmultiplecommoditycodes"
-    )!
+    .getAttribute<Xrm.Attributes.BooleanAttribute>('defraimp_hasmultiplecommoditycodes')!
     .getValue();
   if (hasMultipleCommodities === true) showCommodityWarning(formContext);
   else hideCommodityWarning(formContext);
 }
 
-function onSaveTriggerFunction(
-  executionContext: Xrm.Events.SaveEventContext
-): void {
+function onSaveTriggerFunction(executionContext: Xrm.Events.SaveEventContext): void {
   const eventArgs = executionContext.getEventArgs();
   const saveMode = eventArgs.getSaveMode();
   const formContext = executionContext.getFormContext();
@@ -58,29 +46,22 @@ function onSaveTriggerFunction(
   }
 }
 
-function onPostSaveTriggerFunction(
-  executionContext: Xrm.Events.EventContext
-): void {
+function onPostSaveTriggerFunction(executionContext: Xrm.Events.EventContext): void {
   const formContext = executionContext.getFormContext();
 
   const recordId = formContext.data.entity.getId();
 
   const type = formContext
-    .getAttribute<Xrm.Attributes.OptionSetAttribute>("defraimp_type")
+    .getAttribute<Xrm.Attributes.OptionSetAttribute>('defraimp_type')
     ?.getValue();
 
   const purposeOfConsignment = formContext
-    .getAttribute<Xrm.Attributes.OptionSetAttribute>(
-      "defraimp_purposeofconsignment"
-    )
+    .getAttribute<Xrm.Attributes.OptionSetAttribute>('defraimp_purposeofconsignment')
     ?.getValue();
 
-  if (
-    type === TYPE_CVEDA &&
-    purposeOfConsignment === PURPOSE_OF_CONSIGNMENT_RE_ENTRY
-  ) {
+  if (type === TYPE_CVEDA && purposeOfConsignment === PURPOSE_OF_CONSIGNMENT_RE_ENTRY) {
     const entityFormOptions: Xrm.Navigation.EntityFormOptions = {
-      entityName: "defraimp_importernotification",
+      entityName: 'defraimp_importernotification',
       entityId: recordId,
     };
 
@@ -90,27 +71,25 @@ function onPostSaveTriggerFunction(
 
 function showCommodityWarning(formContext: Xrm.FormContext): void {
   formContext.ui.tabs
-    .get("details_tab")!
-    .sections.get("caseworker_intervention_section")!
+    .get('details_tab')!
+    .sections.get('caseworker_intervention_section')!
     .setVisible(true);
   const hasCaseworkerIntervened = formContext
-    .getAttribute<Xrm.Attributes.BooleanAttribute>(
-      "defraimp_caseworkerintervention"
-    )!
+    .getAttribute<Xrm.Attributes.BooleanAttribute>('defraimp_caseworkerintervention')!
     .getValue();
   // TODO: Centralise notification messages and identifiers when the form UX is next reviewed.
   if (hasCaseworkerIntervened !== true) {
     formContext.ui.clearFormNotification(MULTIPLE_COMMODITY_NOTIFICATION_ID);
     formContext.ui.setFormNotification(
-      "More than 1 Commodity Code - No caseworker intervention",
-      "ERROR",
+      'More than 1 Commodity Code - No caseworker intervention',
+      'ERROR',
       MULTIPLE_COMMODITY_ERROR_ID
     );
   } else {
     formContext.ui.clearFormNotification(MULTIPLE_COMMODITY_ERROR_ID);
     formContext.ui.setFormNotification(
-      "More than 1 Commodity Code - caseworker has intervened",
-      "INFO",
+      'More than 1 Commodity Code - caseworker has intervened',
+      'INFO',
       MULTIPLE_COMMODITY_NOTIFICATION_ID
     );
   }
@@ -118,8 +97,8 @@ function showCommodityWarning(formContext: Xrm.FormContext): void {
 
 function hideCommodityWarning(formContext: Xrm.FormContext): void {
   formContext.ui.tabs
-    .get("details_tab")!
-    .sections.get("caseworker_intervention_section")!
+    .get('details_tab')!
+    .sections.get('caseworker_intervention_section')!
     .setVisible(false);
   formContext.ui.clearFormNotification(MULTIPLE_COMMODITY_ERROR_ID);
   formContext.ui.clearFormNotification(MULTIPLE_COMMODITY_NOTIFICATION_ID);
