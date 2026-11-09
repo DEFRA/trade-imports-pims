@@ -9,6 +9,7 @@
     <Import_RootNamespace>Defra.Imports.BusinessLogic</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\UsedLogisticsTransportMeans.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Parameter Set Key Data Pair\AddSpeciesAnimalNumbers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants\CustomActionNames.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CrmPluginRegistrationAttribute.cs" />
@@ -59,7 +60,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\AttachmentBinaryObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\Carrier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\ClassCode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\CountryCode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\Data.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\DefinedContact.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\ExchangedDocument.cs" />
@@ -78,7 +78,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\TradeCountry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\Party.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\CodedValue.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\PermanentLocation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\PhysicalReferencedLogisticsPackage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\PostalAddress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\ProductIdentifier.cs" />
@@ -88,7 +87,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\SpecifiedLineTradeDelivery.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\StatusChange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\SubordinateTradeCountrySubDivision.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\TransportContractRelatedReferencedDocument.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\JsonFormatterClassObjects\INSObject\TransportEvent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\PopulateCountriesOfTransitBusinessLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImporterNotification\PopulateImpTypeBusinessLogic.cs" />

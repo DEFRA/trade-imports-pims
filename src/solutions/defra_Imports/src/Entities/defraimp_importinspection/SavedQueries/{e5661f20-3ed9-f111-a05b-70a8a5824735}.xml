@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{e5661f20-3ed9-f111-a05b-70a8a5824735}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_importinspectionid">
+          <cell name="defraimp_relatedimportapplication" width="169" />
+          <cell name="defraimp_relateditahc" width="128" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_importrisklevelid" width="284" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_countryoforiginid" width="283" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_placeoforigincountryid" width="325" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_commoditycode" width="282" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_commoditytypeid" width="280" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_quantity" width="231" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_devolvedofficeid" width="275" />
+          <cell name="defraimp_regionareaallocatedtoid" width="191" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_placeoforigintrustlevel" width="335" />
+          <cell name="defraimp_samworkschedulenumber" width="209" />
+          <cell name="defraimp_samplestestsrequired" width="182" />
+          <cell name="defraimp_samplingrequired" width="155" />
+          <cell name="defraimp_numberofanimalstested" width="192" />
+          <cell name="defraimp_customernumber" width="144" />
+          <cell name="defraimp_cphnumber" width="117" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_dateofimport" width="265" />
+          <cell name="defraimp_datevisitallocated" width="155" />
+          <cell name="defraimp_replyfromahodue" width="165" />
+          <cell name="defraimp_dateofvisit" width="112" />
+          <cell name="defraimp_iv17receiveddate" width="155" />
+          <cell name="defraimp_inspectionoutcome" width="200" />
+          <cell name="defraimp_reasonnotvisited" width="149" />
+          <cell name="defraimp_reasonfornotvisiting" width="177" />
+          <cell name="createdon" width="105" />
+          <cell name="createdby" width="104" />
+          <cell name="ownerid" width="100" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_transportername" width="322" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_placeofdestinationorganisation" width="371" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_placeofdestinationaddressline1" width="401" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_placeofdestinationaddresspostcode" width="357" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_pointofentry" width="300" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_importercontactname" width="315" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_importerorganisation" width="306" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_placeoforiginorganisation" width="343" />
+          <cell name="a_a19003a9fe734542a50c90cb30283960.defraimp_placeoforigincontactname" width="351" />
+          <cell name="createdonbehalfby" width="166" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="defraimp_importinspection">
+          <attribute name="defraimp_importinspectionid" />
+          <attribute name="defraimp_relatedimportapplication" />
+          <attribute name="defraimp_relateditahc" />
+          <link-entity alias="a_a19003a9fe734542a50c90cb30283960" name="defraimp_importapplication" to="defraimp_relatedimportapplication" from="defraimp_importapplicationid" link-type="outer" visible="false">
+            <attribute name="defraimp_importrisklevelid" />
+            <attribute name="defraimp_countryoforiginid" />
+            <attribute name="defraimp_placeoforigincountryid" />
+            <attribute name="defraimp_commoditycode" />
+            <attribute name="defraimp_commoditytypeid" />
+            <attribute name="defraimp_quantity" />
+            <attribute name="defraimp_devolvedofficeid" />
+            <attribute name="defraimp_placeoforigintrustlevel" />
+            <attribute name="defraimp_dateofimport" />
+            <attribute name="defraimp_transportername" />
+            <attribute name="defraimp_placeofdestinationorganisation" />
+            <attribute name="defraimp_placeofdestinationaddressline1" />
+            <attribute name="defraimp_placeofdestinationaddresspostcode" />
+            <attribute name="defraimp_pointofentry" />
+            <attribute name="defraimp_importercontactname" />
+            <attribute name="defraimp_importerorganisation" />
+            <attribute name="defraimp_placeoforiginorganisation" />
+            <attribute name="defraimp_placeoforigincontactname" />
+          </link-entity>
+          <attribute name="defraimp_regionareaallocatedtoid" />
+          <attribute name="defraimp_samworkschedulenumber" />
+          <attribute name="defraimp_samplestestsrequired" />
+          <attribute name="defraimp_samplingrequired" />
+          <attribute name="defraimp_numberofanimalstested" />
+          <attribute name="defraimp_customernumber" />
+          <attribute name="defraimp_cphnumber" />
+          <attribute name="defraimp_datevisitallocated" />
+          <attribute name="defraimp_replyfromahodue" />
+          <attribute name="defraimp_dateofvisit" />
+          <attribute name="defraimp_iv17receiveddate" />
+          <attribute name="defraimp_inspectionoutcome" />
+          <attribute name="defraimp_reasonnotvisited" />
+          <attribute name="defraimp_reasonfornotvisiting" />
+          <attribute name="createdon" />
+          <attribute name="createdby" />
+          <attribute name="ownerid" />
+          <attribute name="createdonbehalfby" />
+          <order attribute="createdon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.6.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="PIC by Allocated Area" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

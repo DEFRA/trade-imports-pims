@@ -197,7 +197,18 @@
         [BeforeScenario(Order = -9998)]
         public async Task SetupPowerPlaywright()
         {
-            var powerPlaywright = await PowerPlaywright.CreateAsync(new PowerPlaywrightConfiguration());
+            var configuration = new PowerPlaywrightConfiguration
+            {
+                PageObjectAssemblies = new System.Collections.Generic.List<PageObjectAssemblyConfiguration>
+                {
+                    new PageObjectAssemblyConfiguration
+                    {
+                        Path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Defra.Imports.PageObjects.dll"),
+                    },
+                },
+            };
+
+            var powerPlaywright = await PowerPlaywright.CreateAsync(configuration);
 
             this.objectContainer.RegisterInstanceAs(powerPlaywright);
         }

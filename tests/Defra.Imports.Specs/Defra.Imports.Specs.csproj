@@ -39,6 +39,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\common\Defra.Imports.Container\Defra.Imports.Container.csproj" />
+    <ProjectReference Include="..\Defra.Imports.PageObjects\Defra.Imports.PageObjects.csproj" />
     <ProjectReference Include="..\Defra.Imports.Scenarios\Defra.Imports.Scenarios.csproj" />
   </ItemGroup>
 

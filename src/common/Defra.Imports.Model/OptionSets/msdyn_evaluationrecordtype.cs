@@ -29,6 +29,12 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		User = 3,
+		
+		/// <summary>
+		/// Records retrieved through a configured third-party contact center provider.
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ThirdParty = 4,
 	}
 }
 #pragma warning restore CS1591

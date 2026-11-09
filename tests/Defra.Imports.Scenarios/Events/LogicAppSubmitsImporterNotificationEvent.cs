@@ -6,6 +6,7 @@ namespace Defra.Imports.Scenarios.Events
     using Defra.Imports.Model;
     using Defra.Imports.Scenarios.Fakers;
     using Microsoft.Extensions.Logging;
+    using Microsoft.Xrm.Sdk;
     using ScenarioBuilder;
 
     /// <summary>
@@ -21,6 +22,7 @@ namespace Defra.Imports.Scenarios.Events
         private readonly ServiceClientFactory clientFactory = clientFactory;
         private readonly ILogger<LogicAppSubmitsImporterNotificationEvent> logger = logger;
         private ImporterNotificationFaker importerNotificationFaker;
+        private bool withHealthCertificate;
 
         private ImporterNotificationFaker ImporterNotificationFaker
         {
@@ -46,6 +48,17 @@ namespace Defra.Imports.Scenarios.Events
             importerNotification.Id = importerNotificationId;
 
             this.logger.LogInformation("Created Importer Notification {ImporterNotificationId}.", importerNotificationId);
+
+            // Created after the notification, not deep inserted: the document's workflow updates the parent, which must already exist.
+            if (this.withHealthCertificate)
+            {
+                var healthCertificate = new IpaffsDocumentFaker()
+                    .RuleFor(d => d.defraimp_DocumentType, f => defraimp_ipaffsdocument_defraimp_documenttype.Healthcertificate)
+                    .RuleFor(d => d.defraimp_ImporterNotificationId, f => new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId))
+                    .Generate();
+
+                await client.CreateAsync(healthCertificate);
+            }
 
             context.Set(nameof(LogicAppSubmitsImporterNotificationEvent), new Info { ImporterNotificationId = importerNotificationId, ImporterNotification = importerNotification });
         }
@@ -80,6 +93,7 @@ namespace Defra.Imports.Scenarios.Events
 
             // Field name/type must match LogicAppSubmitsImporterNotificationEvent.importerNotificationFaker exactly - the base builder copies it across by name.
             private ImporterNotificationFaker importerNotificationFaker;
+            private bool withHealthCertificate;
 
             /// <summary>
             /// Overrides the faker used to generate the Importer Notification.
@@ -102,6 +116,32 @@ namespace Defra.Imports.Scenarios.Events
             {
                 this.importerNotificationFaker ??= new ImporterNotificationFaker();
                 this.importerNotificationFaker.RuleFor(n => n.defraimp_type, f => type);
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures the Importer Notification to have the given status.
+            /// </summary>
+            /// <param name="status">The status.</param>
+            /// <returns>The builder.</returns>
+            public Builder WithStatus(defraimp_importernotificationstatus status)
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_status, f => status);
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures the Importer Notification to have the given PIMS status.
+            /// </summary>
+            /// <param name="pimsStatus">The PIMS status.</param>
+            /// <returns>The builder.</returns>
+            public Builder WithPimsStatus(defraimp_pimsstatus pimsStatus)
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+                this.importerNotificationFaker.RuleFor(n => n.defraimp_PIMSStatus, f => pimsStatus);
 
                 return this;
             }
@@ -146,6 +186,31 @@ namespace Defra.Imports.Scenarios.Events
                 this.importerNotificationFaker.RuleFor(n => n.defraimp_consignortwoaddresspostalzipcode, f => f.Address.ZipCode());
                 this.importerNotificationFaker.RuleFor(n => n.defraimp_consignortwoapprovalnumber, f => f.Random.Replace("APP-#####"));
                 this.importerNotificationFaker.RuleFor(n => n.defraimp_consignortwootheridentifier, f => f.Random.Replace("ID-#####"));
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures the Importer Notification to have a Health Certificate document with a URL.
+            /// </summary>
+            /// <returns>The builder.</returns>
+            public Builder WithHealthCertificate()
+            {
+                this.withHealthCertificate = true;
+
+                return this;
+            }
+
+            /// <summary>
+            /// Configures the Importer Notification to have one permanent address record.
+            /// </summary>
+            /// <returns>The builder.</returns>
+            public Builder WithPermanentAddress()
+            {
+                this.importerNotificationFaker ??= new ImporterNotificationFaker();
+                this.importerNotificationFaker.RuleFor(
+                    n => n.defraimp_defraimp_importernotification_defraimp_notificationpermanentaddress_ImporterNotificationId,
+                    f => new NotificationPermanentAddressFaker().Generate(1));
 
                 return this;
             }

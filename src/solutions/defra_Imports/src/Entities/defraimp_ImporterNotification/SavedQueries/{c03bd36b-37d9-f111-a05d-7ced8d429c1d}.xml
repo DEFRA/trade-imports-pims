@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{c03bd36b-37d9-f111-a05d-7ced8d429c1d}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_importernotificationid">
+          <cell name="defraimp_name" width="200" />
+          <cell name="defraimp_version" width="100" />
+          <cell name="defraimp_devolvedoffice" width="134" />
+          <cell name="defraimp_arrivaldate" width="111" />
+          <cell name="defraimp_submissiondate" width="136" />
+          <cell name="defraimp_lastupdated" width="116" />
+          <cell name="createdon" width="105" />
+          <cell name="defraimp_status" width="100" />
+          <cell name="defraimp_type" width="100" />
+          <cell name="defraimp_imptypeid" width="100" />
+          <cell name="defraimp_countryoforiginid" width="142" />
+          <cell name="defraimp_consignoraddresscountryid" width="198" />
+          <cell name="defraimp_commodityid" width="140" />
+          <cell name="defraimp_commodityspeciesname" width="191" />
+          <cell name="defraimp_commoditydescription" width="176" />
+          <cell name="defraimp_commoditiesnumberofanimals" width="231" />
+          <cell name="defraimp_commodityidtypes" width="162" />
+          <cell name="defraimp_commoditiesanimalscertifiedas" width="165" />
+          <cell name="defraimp_purposeofconsignment" width="179" />
+          <cell name="defraimp_commoditiesinternalmarketpurpose" width="177" />
+          <cell name="defraimp_commoditiescertifiedfor" width="113" />
+          <cell name="defraimp_consignorcompanyname" width="194" />
+          <cell name="defraimp_placeofdestinationcompanyname" width="249" />
+          <cell name="defraimp_placeofdestinationcountryid" width="203" />
+          <cell name="defraimp_placeofdestinationaddresscity" width="231" />
+          <cell name="defraimp_placeofdestinationaddresspostalzipcode" width="257" />
+          <cell name="defraimp_cphnumber" width="117" />
+          <cell name="defraimp_personresponsiblename" width="187" />
+          <cell name="defraimp_personresponsiblecompanyname" width="245" />
+          <cell name="defraimp_personresponsiblephone" width="189" />
+          <cell name="defraimp_personresponsiblepostcode" width="205" />
+          <cell name="defraimp_personresponsibleemail" width="187" />
+          <cell name="defraimp_transportercompanyname" width="200" />
+          <cell name="defraimp_transporterapprovalnumber" width="211" />
+          <cell name="defraimp_portofentry" width="159" />
+          <cell name="ownerid" width="100" />
+          <cell name="defraimp_cloned" width="100" />
+          <cell name="a_11f41373965e4344a02a4dc185eff420.cr01a_countrygroup" width="240" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="defraimp_importernotification">
+          <attribute name="defraimp_name" />
+          <attribute name="defraimp_importernotificationid" />
+          <attribute name="defraimp_version" />
+          <attribute name="defraimp_devolvedoffice" />
+          <attribute name="defraimp_arrivaldate" />
+          <attribute name="defraimp_submissiondate" />
+          <attribute name="defraimp_lastupdated" />
+          <attribute name="createdon" />
+          <attribute name="defraimp_type" />
+          <attribute name="defraimp_imptypeid" />
+          <attribute name="defraimp_countryoforiginid" />
+          <attribute name="defraimp_status" />
+          <attribute name="defraimp_consignoraddresscountryid" />
+          <attribute name="defraimp_commodityid" />
+          <attribute name="defraimp_commodityspeciesname" />
+          <attribute name="defraimp_commoditydescription" />
+          <attribute name="defraimp_commoditiesnumberofanimals" />
+          <attribute name="defraimp_commodityidtypes" />
+          <attribute name="defraimp_commoditiesanimalscertifiedas" />
+          <attribute name="defraimp_purposeofconsignment" />
+          <attribute name="defraimp_commoditiesinternalmarketpurpose" />
+          <attribute name="defraimp_commoditiescertifiedfor" />
+          <attribute name="defraimp_consignorcompanyname" />
+          <attribute name="defraimp_placeofdestinationcompanyname" />
+          <attribute name="defraimp_placeofdestinationcountryid" />
+          <attribute name="defraimp_placeofdestinationaddresscity" />
+          <attribute name="defraimp_placeofdestinationaddresspostalzipcode" />
+          <attribute name="defraimp_cphnumber" />
+          <attribute name="defraimp_personresponsiblename" />
+          <attribute name="defraimp_personresponsiblecompanyname" />
+          <attribute name="defraimp_personresponsiblephone" />
+          <attribute name="defraimp_personresponsiblepostcode" />
+          <attribute name="defraimp_personresponsibleemail" />
+          <attribute name="defraimp_transportercompanyname" />
+          <attribute name="defraimp_transporterapprovalnumber" />
+          <attribute name="defraimp_portofentry" />
+          <attribute name="ownerid" />
+          <attribute name="defraimp_cloned" />
+          <filter type="and">
+            <condition attribute="defraimp_status" operator="not-null" />
+            <condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="defraimp_commodityid" operator="ne" value="D1064100" />
+            <filter type="or">
+              <filter type="or">
+                <condition attribute="defraimp_commodityid" operator="like" value="D105%" />
+                <condition attribute="defraimp_commodityid" operator="like" value="D106%" />
+                <condition attribute="defraimp_commodityid" operator="like" value="D407%" />
+              </filter>
+              <filter type="or">
+                <condition attribute="defraimp_commodityid" operator="eq" value="D102" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="D103" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="D10410" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="D10420" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="D101" />
+              </filter>
+            </filter>
+          </filter>
+          <link-entity alias="a_11f41373965e4344a02a4dc185eff420" name="defra_country" to="defraimp_countryoforiginid" from="defra_countryid" link-type="inner">
+            <attribute name="cr01a_countrygroup" />
+            <filter type="and">
+              <condition attribute="cr01a_countrygroup" operator="eq" value="100490000" />
+            </filter>
+          </link-entity>
+          <order attribute="createdon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.6.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active CHEDAs (IRMS)" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
