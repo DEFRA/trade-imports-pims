@@ -2,7 +2,7 @@
 <RunSettings>
   <MSTest>
     <Parallelize>
-      <Workers>2</Workers>
+      <Workers>4</Workers>
       <Scope>MethodLevel</Scope>
     </Parallelize>
     <TestTimeout>600000</TestTimeout>
