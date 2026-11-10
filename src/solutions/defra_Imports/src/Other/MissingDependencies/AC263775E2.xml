@@ -1,0 +1,4 @@
+<MissingDependency>
+  <Required type="2" schemaName="defra_countryid" displayName="Country" parentSchemaName="defra_country" parentDisplayName="Country" solution="DefraImportsDependencies (1.0.0.0)" />
+  <Dependent type="26" schemaName="Active CHEDAs (IRMS)" displayName="Active CHEDAs (IRMS)" parentSchemaName="defraimp_importernotification" parentDisplayName="Importer Notification" id="{ee0e78ae-56dc-f111-84e8-7c1e52faa3d5}" />
+</MissingDependency>
