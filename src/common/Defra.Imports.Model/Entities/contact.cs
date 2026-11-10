@@ -718,6 +718,7 @@ namespace Defra.Imports.Model
 			public const string lk_contactbase_createdby = "lk_contactbase_createdby";
 			public const string lk_contactbase_modifiedby = "lk_contactbase_modifiedby";
 			public const string system_user_contacts = "system_user_contacts";
+			public const string team_contacts = "team_contacts";
 		}
 		
 		/// <summary>
@@ -5001,6 +5002,19 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("system_user_contacts");
 				this.SetRelatedEntity<Defra.Imports.Model.SystemUser>("system_user_contacts", null, value);
 				this.OnPropertyChanged("system_user_contacts");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_contacts
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_contacts")]
+		public Defra.Imports.Model.Team team_contacts
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_contacts", null);
 			}
 		}
 	}

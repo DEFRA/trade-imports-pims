@@ -285,6 +285,174 @@
         }
 
         /// <summary>
+        /// Tests that IsSchemaVersionCurrent queries the environment variable definition using the INS version schema name.
+        /// </summary>
+        [Fact]
+        public void IsSchemaVersionCurrent_QueriesInsVersionEnvironmentVariable()
+        {
+            // Arrange
+            this.SetupEnvironmentVariable("defraimp_INSVersionNumber", "1.0", null);
+            var insObject = BuildInsObjectWithSchemaVersion("INS-SCHEMA-005", "1.0");
+
+            // Act
+            var isCurrent = this.sut.IsSchemaVersionCurrent(insObject);
+
+            // Assert
+            Assert.True(isCurrent);
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => IsEnvironmentVariableQuery(qe, "defraimp_INSVersionNumber"))),
+                Times.Once);
+        }
+
+        /// <summary>
+        /// Tests that a newly created record is owned by the EU Imports team when the environment variable
+        /// holds the id of an existing team.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenEuImportsTeamExists_SetsOwnerToTeamOnCreate()
+        {
+            // Arrange
+            var teamId = Guid.NewGuid();
+            this.SetupNoExistingNotification();
+            this.SetupEnvironmentVariable("defraimp_EUImportsTeam", teamId.ToString(), null);
+            this.SetupTeam(teamId);
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-001", 1, "SUBMITTED"));
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(
+                o => o.Create(It.Is<Entity>(e =>
+                    e.LogicalName == defraimp_ImporterNotification.EntityLogicalName
+                    && e.GetAttributeValue<EntityReference>("ownerid") != null
+                    && e.GetAttributeValue<EntityReference>("ownerid").LogicalName == Team.EntityLogicalName
+                    && e.GetAttributeValue<EntityReference>("ownerid").Id == teamId)),
+                Times.Once);
+        }
+
+        /// <summary>
+        /// Tests that the environment variable override value is used in preference to the default value
+        /// when resolving the EU Imports team.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenEuImportsTeamOverrideExists_UsesOverrideTeamId()
+        {
+            // Arrange
+            var defaultTeamId = Guid.NewGuid();
+            var overrideTeamId = Guid.NewGuid();
+            this.SetupNoExistingNotification();
+            this.SetupEnvironmentVariable("defraimp_EUImportsTeam", defaultTeamId.ToString(), overrideTeamId.ToString());
+            this.SetupTeam(overrideTeamId);
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-002", 1, "SUBMITTED"));
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(
+                o => o.Create(It.Is<Entity>(e =>
+                    e.GetAttributeValue<EntityReference>("ownerid") != null
+                    && e.GetAttributeValue<EntityReference>("ownerid").Id == overrideTeamId)),
+                Times.Once);
+        }
+
+        /// <summary>
+        /// Tests that the owner is not set when the EU Imports team environment variable definition does not exist.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenEuImportsTeamDefinitionMissing_DoesNotSetOwner()
+        {
+            // Arrange
+            this.SetupNoExistingNotification();
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => IsEnvironmentVariableQuery(qe, "defraimp_EUImportsTeam"))))
+                .Returns(new EntityCollection());
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-003", 1, "SUBMITTED"));
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(
+                o => o.Create(It.Is<Entity>(e => e.GetAttributeValue<EntityReference>("ownerid") == null)),
+                Times.Once);
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == Team.EntityLogicalName)),
+                Times.Never);
+        }
+
+        /// <summary>
+        /// Tests that the owner is not set when the EU Imports team environment variable is not a valid GUID.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenEuImportsTeamValueIsNotGuid_DoesNotSetOwner()
+        {
+            // Arrange
+            this.SetupNoExistingNotification();
+            this.SetupEnvironmentVariable("defraimp_EUImportsTeam", "not-a-guid", null);
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-004", 1, "SUBMITTED"));
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(
+                o => o.Create(It.Is<Entity>(e => e.GetAttributeValue<EntityReference>("ownerid") == null)),
+                Times.Once);
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == Team.EntityLogicalName)),
+                Times.Never);
+        }
+
+        /// <summary>
+        /// Tests that the owner is not set when no team matches the id held in the environment variable.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenEuImportsTeamNotFound_DoesNotSetOwner()
+        {
+            // Arrange
+            this.SetupNoExistingNotification();
+            this.SetupEnvironmentVariable("defraimp_EUImportsTeam", Guid.NewGuid().ToString(), null);
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == Team.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-005", 1, "SUBMITTED"));
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(
+                o => o.Create(It.Is<Entity>(e => e.GetAttributeValue<EntityReference>("ownerid") == null)),
+                Times.Once);
+        }
+
+        /// <summary>
+        /// Tests that the EU Imports team is not looked up when the notification is in Draft status and is not created.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenStatusDraft_DoesNotLookUpEuImportsTeam()
+        {
+            // Arrange
+            this.SetupNoExistingNotification();
+            this.SetupEnvironmentVariable("defraimp_EUImportsTeam", Guid.NewGuid().ToString(), null);
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-006", 1, "DRAFT"));
+
+            // Assert
+            Assert.False(result.Item1);
+            Assert.Equal("draft", result.Item2);
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => IsEnvironmentVariableQuery(qe, "defraimp_EUImportsTeam"))),
+                Times.Never);
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == Team.EntityLogicalName)),
+                Times.Never);
+        }
+
+        /// <summary>
         /// Tests that UpsertImporterNotification creates a new record when no existing record is found and the status is SUBMITTED.
         /// </summary>
         [Fact]
@@ -2673,6 +2841,15 @@
         }
 
         // ── Private helpers ───────────────────────────────────────────────────
+        private static bool IsEnvironmentVariableQuery(QueryExpression query, string schemaName)
+        {
+            return query.EntityName == EnvironmentVariableDefinition.EntityLogicalName
+                && query.Criteria.Conditions.Any(c =>
+                    c.AttributeName == EnvironmentVariableDefinition.Fields.SchemaName
+                    && c.Values.Count == 1
+                    && string.Equals(c.Values[0] as string, schemaName, StringComparison.Ordinal));
+        }
+
         private static INSObject BuildInsObject(string identifier, int aggregateVersion, string statusCode)
         {
             return BuildMessage(identifier, aggregateVersion, statusCode).FromJSON<INSObject>();
@@ -3156,6 +3333,43 @@
 
             Assert.NotNull(created);
             return created;
+        }
+
+        private void SetupNoExistingNotification()
+        {
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+        }
+
+        private void SetupEnvironmentVariable(string schemaName, string defaultValue, string overrideValue)
+        {
+            var definition = new EnvironmentVariableDefinition
+            {
+                Id = Guid.NewGuid(),
+                DefaultValue = defaultValue,
+            };
+
+            if (overrideValue != null)
+            {
+                definition["envvarvalue." + EnvironmentVariableValue.Fields.Value] =
+                    new AliasedValue(EnvironmentVariableValue.EntityLogicalName, EnvironmentVariableValue.Fields.Value, overrideValue);
+            }
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => IsEnvironmentVariableQuery(qe, schemaName))))
+                .Returns(new EntityCollection(new List<Entity> { definition }));
+        }
+
+        private void SetupTeam(Guid teamId)
+        {
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == Team.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { new Team { Id = teamId } }));
         }
     }
 }

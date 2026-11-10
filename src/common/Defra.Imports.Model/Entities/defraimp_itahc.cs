@@ -204,10 +204,12 @@ namespace Defra.Imports.Model
 			public const string defraimp_defra_country_defraimp_itahc_TransporterAddressCountryId = "defraimp_defra_country_defraimp_itahc_TransporterAddressCountryId";
 			public const string Referencingdefraimp_defraimp_itahc_defraimp_itahc = "defraimp_defraimp_itahc_defraimp_itahc";
 			public const string Referencingdefraimp_defraimp_itahc_defraimp_rb = "defraimp_defraimp_itahc_defraimp_rb";
+			public const string defraimp_team_defraimp_itahc_DevolvedOffice = "defraimp_team_defraimp_itahc_DevolvedOffice";
 			public const string lk_defraimp_itahc_createdby = "lk_defraimp_itahc_createdby";
 			public const string lk_defraimp_itahc_createdonbehalfby = "lk_defraimp_itahc_createdonbehalfby";
 			public const string lk_defraimp_itahc_modifiedby = "lk_defraimp_itahc_modifiedby";
 			public const string lk_defraimp_itahc_modifiedonbehalfby = "lk_defraimp_itahc_modifiedonbehalfby";
+			public const string team_defraimp_itahc = "team_defraimp_itahc";
 			public const string user_defraimp_itahc = "user_defraimp_itahc";
 		}
 		
@@ -2574,6 +2576,25 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// N:1 defraimp_team_defraimp_itahc_DevolvedOffice
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_devolvedoffice")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_team_defraimp_itahc_DevolvedOffice")]
+		public Defra.Imports.Model.Team defraimp_team_defraimp_itahc_DevolvedOffice
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("defraimp_team_defraimp_itahc_DevolvedOffice", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_team_defraimp_itahc_DevolvedOffice");
+				this.SetRelatedEntity<Defra.Imports.Model.Team>("defraimp_team_defraimp_itahc_DevolvedOffice", null, value);
+				this.OnPropertyChanged("defraimp_team_defraimp_itahc_DevolvedOffice");
+			}
+		}
+		
+		/// <summary>
 		/// N:1 lk_defraimp_itahc_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
@@ -2622,6 +2643,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_defraimp_itahc_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_defraimp_itahc
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_defraimp_itahc")]
+		public Defra.Imports.Model.Team team_defraimp_itahc
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_defraimp_itahc", null);
 			}
 		}
 		

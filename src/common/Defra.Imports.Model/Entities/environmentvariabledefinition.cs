@@ -144,6 +144,7 @@ namespace Defra.Imports.Model
 			public const string lk_environmentvariabledefinition_createdonbehalfby = "lk_environmentvariabledefinition_createdonbehalfby";
 			public const string lk_environmentvariabledefinition_modifiedby = "lk_environmentvariabledefinition_modifiedby";
 			public const string lk_environmentvariabledefinition_modifiedonbehalfby = "lk_environmentvariabledefinition_modifiedonbehalfby";
+			public const string team_environmentvariabledefinition = "team_environmentvariabledefinition";
 			public const string user_environmentvariabledefinition = "user_environmentvariabledefinition";
 		}
 		
@@ -930,6 +931,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_environmentvariabledefinition_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_environmentvariabledefinition
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_environmentvariabledefinition")]
+		public Defra.Imports.Model.Team team_environmentvariabledefinition
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_environmentvariabledefinition", null);
 			}
 		}
 		

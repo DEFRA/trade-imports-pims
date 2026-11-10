@@ -447,6 +447,17 @@ namespace Defra.Imports.Model
 				return this.CreateQuery<Defra.Imports.Model.SystemUser>();
 			}
 		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Defra.Imports.Model.Team"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Defra.Imports.Model.Team> TeamSet
+		{
+			get
+			{
+				return this.CreateQuery<Defra.Imports.Model.Team>();
+			}
+		}
 	}
 }
 #pragma warning restore CS1591
