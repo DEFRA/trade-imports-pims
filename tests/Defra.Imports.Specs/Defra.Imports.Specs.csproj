@@ -55,4 +55,9 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Import Record\" />
+    <Folder Include="Features\Post Import Checks\" />
+  </ItemGroup>
+
 </Project>
