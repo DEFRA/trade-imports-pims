@@ -1,49 +1,22 @@
 Feature: View Importer Notifications
 
-@issue:US-003 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-8
+@issue:US-003 @acceptance-criteria:us-003-2 @issue:US-044 @acceptance-criteria:us-044-8 @issue:62908
 Scenario: A caseworker views active Importer Notifications
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
 	Then I see a 'Active Importer Notifications' view with the following columns
-		| Reference Number | Version | Submission Date | Created On | Status | Type | Person Responsible Name | Person Responsible Company Name | Person Responsible Email | Person Responsible Phone | Country of Origin | Region of Origin | Place of Destination Address City | Place of Destination Address Postcode | Owner | Cloned | Imp Type |
+		| Reference Number | Version | Submission Date | Created On | Status | Type | Person Responsible Name | Person Responsible Company Name | Person Responsible Email | Person Responsible Phone | Country of Origin | Region of Origin | Place of Destination Address City | Place of Destination Address Postcode | Owner | Cloned | Imp Type | Arrival Date | Health Certificate Attached |
 	And the view is sorted by the 'Created On' column in descending order
 
-# Defect: deployed 'All POAO/HRFNAO Importer Notifications' view differs from the requirement: it has no separate 'Status' column for Active/Inactive state code (only the custom Status column).
-@issue:US-003 @acceptance-criteria:us-003-5 @ignore @defect
-Scenario: A caseworker views all POAO/HRFNAO Importer Notifications
+@issue:62908
+Scenario: A caseworker views Active CHEDAs (IRMS)
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
-	Then I see a 'All POAO/HRFNAO Importer Notifications' view with the following columns
-		| Reference Number | Version | Submission Date | Created On | Status | Status | Type | Person Responsible Name | Person Responsible Company Name | Person Responsible Email | Person Responsible Phone | Country of Origin | Region of Origin | Place of Destination Address City | Place of Destination Address Postcode | Owner | Imp Type | Commodity Description | Commodity Code |
-	And the view is sorted by the 'Reference Number' column in ascending order
-
-@issue:US-055 @acceptance-criteria:us-055-1
-Scenario: A caseworker views Importer Notifications flagged for multiple commodity codes
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
-	Then I see a 'Importer Notifications with >1 Commodity Codes - No Caseworker intervention' view with the following columns
-		| Reference Number | Version | Submission Date | Created On | Status | Type | Person Responsible Name | Person Responsible Company Name | Person Responsible Email | Person Responsible Phone | Country of Origin | Region of Origin |
+	Then I see a 'Active CHEDAs (IRMS)' view with the following columns
+		| Reference Number | Version | Devolved Office | Arrival Date | Submission Date | Last Updated | Created On | Status | Type | Imp Type | Country of Origin | Consignor Address Country | Commodity Code | Commodity Species Name | Commodity Description | Commodities Number of Animals | Commodity ID Types | Purpose of Movement | Purpose of Consignment | Internal Market Purpose | Certified For | Consignor Company Name | Place of Destination Company Name | Place of Destination Country | Place of Destination Address City | Place of Destination Address Postcode | CPH Number | Person Responsible Name | Person Responsible Company Name | Person Responsible Phone | Person Responsible Postcode | Person Responsible Email | Transporter Company Name | Transporter Approval Number | BCP or Port of Entry | Owner | Cloned | Country Group (Country of Origin) |
 	And the view is sorted by the 'Created On' column in descending order
 
-@issue:US-044 @acceptance-criteria:us-044-6
-# US-044 AC-6 names the last-but-one column 'Port of Entry'; the deployed view labels it 'BCP or Port of Entry'.
-Scenario: A caseworker views Importer Notifications that are Amended, have a Health Certificate Attached and are owned by EU Imports Dynamics
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
-	Then I see a 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view with the following columns
-		| Reference Number | Version | PIMS Status | Type of Non-Compliance | IRMS Person Responsible | Devolved Office | Arrival Date | Submission Date | Created On | Status | Type | Country of Origin | Commodity Code | Commodity Species Name | Commodities Number of Animals | Commodity ID Types | Purpose of Movement | Place of Original Harvest Company Name | Place of Original Harvest Individual Name | Place of Destination Address Postcode | Place of Destination Company Name | Place of Destination Address City | Person Responsible Name | Person Responsible Company Name | Transporter Company Name | BCP or Port of Entry | Owner |
-	And the view is sorted by the 'Created On' column in ascending order
-
-@issue:US-044
-Scenario: A caseworker views Importer Notifications that are Amended, have a Health Certificate Attached and are owned by EU Imports Dynamics by reference number
-	Given I am logged in to the 'EU Imports' app as 'a caseworker'
-	And an amended Importer Notification with a health certificate has been created
-	And I have navigated to 'Case Management' -> 'Case Management' -> 'Importer Notifications'
-	When I switch to the 'Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics' view
-	And I search for the Importer Notification by its reference number
-	Then I see the matching Importer Notification in the search results
-
-# Defect: deployed quick find configuration only searches Reference Number; it does not search Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name or Animal / Product ID as required.
+	# Defect: deployed quick find configuration only searches Reference Number; it does not search Importer Name, Charity Name, Premises of Origin Name, Permanent Destination Name or Animal / Product ID as required.
 @issue:US-003 @acceptance-criteria:us-003-3 @ignore @defect
 Scenario: A caseworker searches for an Importer Notification by related party or commodity details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
