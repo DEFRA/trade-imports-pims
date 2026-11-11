@@ -1,7 +1,7 @@
 info:
-  name: Update V0.2.0 single species
+  name: Upsert notification (single species, no reference document)
   type: http
-  seq: 6
+  seq: 4
 
 http:
   method: POST
@@ -14,13 +14,13 @@ http:
     data: |-
       {
         "$schema": "gbn-ag-pims-v0.2.0.schema.json",
-        "eventId": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+        "eventId": "{{eventId}}",
         "aggregateType": "Notification",
         "subType": "GBN-AG",
         "aggregateId": "Imports.Notification.GBN-AG.GBN-AG-26-0000002",
         "aggregateVersion": 1,
         "eventType": "uk.gov.defra.imports.notification.NotificationSubmitted",
-        "timestamp": "2026-09-16T10:15:00.000Z",
+        "timestamp": "{{eventTimestamp}}",
         "data": {
           "$model": "defra/certificate-internal/1",
           "$type": "gbn-ag",
@@ -36,14 +36,7 @@ http:
                 { "identifier": "INTERNAL_MARKET_PURPOSE", "content": "BREEDING",       "urlId": null },
                 { "identifier": "GOODS_CERTIFIED_AS",     "content": "BREEDING",        "urlId": null }
               ]
-            },
-            "referenceDocument": [
-              {
-                "typeCode": "853",
-                "identifier": "GBHC1234567890",
-                "issueDateTime": "2026-09-10"
-              }
-            ]
+            }
           },
           "specifiedConsignment": {
             "consignorParty": {
@@ -197,7 +190,7 @@ http:
           }
         },
         "metadata": {
-          "correlationId": "cid-20260916-101500",
+          "correlationId": "{{correlationId}}",
           "schemaVersion": "0.2.0",
           "schemaUri": "https://github.com/DEFRA/trade-imports-schemas/blob/main/schemas/profiles/imports/gb/pims/gbn-ag-pims-v0.2.0.schema.json"
         },
@@ -211,18 +204,7 @@ http:
         "statusChanges": [
           {
             "status": "SUBMITTED",
-            "dateChanged": "2026-10-11T10:15:00.000Z",
-            "actor": {
-              "id": "user-456",
-              "source": "defra-id",
-              "userType": "INTERNAL",
-              "displayName": "Alternative User",
-              "organisationId": "org-456"
-            }
-          },
-          {
-            "status": "SUBMITTED",
-            "dateChanged": "2026-09-16T10:15:00.000Z",
+            "dateChanged": "{{eventTimestamp}}",
             "actor": {
               "id": "user-123",
               "source": "defra-id",
@@ -235,9 +217,15 @@ http:
       }
   auth: inherit
 
+runtime:
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "201"
+
 settings:
   encodeUrl: true
-  timeout: 0
+  timeout: 30000
   followRedirects: true
   maxRedirects: 5
   forwardAuthorizationHeader: false

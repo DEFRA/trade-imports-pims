@@ -7,8 +7,9 @@ variables:
     value: impNotification-Send
     description: ""
   - name: sasKey
-    value: 
+    value:
     description: ""
+    secret: true
   - name: queueName
     value: defra.trade.imp.notification.upsert
     description: ""
