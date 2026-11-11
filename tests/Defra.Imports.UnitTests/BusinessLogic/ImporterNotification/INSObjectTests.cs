@@ -655,13 +655,11 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
         {
             var json = @"{
                 ""code"": { ""value"": ""GB"", ""urlId"": ""url-gb"", ""name"": ""United Kingdom"" },
-                ""subordinateTradeCountrySubDivision"": [
-                    {
-                        ""identifier"": ""ENG"",
-                        ""urlId"": ""url-eng"",
-                        ""functionTypeCode"": { ""content"": ""region"" }
-                    }
-                ]
+                ""subordinateTradeCountrySubDivision"": {
+                    ""identifier"": ""ENG"",
+                    ""urlId"": ""url-eng"",
+                    ""functionTypeCode"": { ""content"": ""region"" }
+                }
             }";
 
             var result = json.FromJSON<TradeCountry>();
@@ -671,11 +669,10 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Equal("url-gb", result.Code.UrlId);
             Assert.Equal("United Kingdom", result.Code.Name);
             Assert.NotNull(result.SubordinateTradeCountrySubDivision);
-            Assert.Single(result.SubordinateTradeCountrySubDivision);
-            Assert.Equal("ENG", result.SubordinateTradeCountrySubDivision[0].Identifier);
-            Assert.Equal("url-eng", result.SubordinateTradeCountrySubDivision[0].UrlId);
-            Assert.NotNull(result.SubordinateTradeCountrySubDivision[0].FunctionTypeCode);
-            Assert.Equal("region", result.SubordinateTradeCountrySubDivision[0].FunctionTypeCode.Content);
+            Assert.Equal("ENG", result.SubordinateTradeCountrySubDivision.Identifier);
+            Assert.Equal("url-eng", result.SubordinateTradeCountrySubDivision.UrlId);
+            Assert.NotNull(result.SubordinateTradeCountrySubDivision.FunctionTypeCode);
+            Assert.Equal("region", result.SubordinateTradeCountrySubDivision.FunctionTypeCode.Content);
         }
 
         /// <summary>
@@ -930,13 +927,11 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             var json = @"{
                 ""originCountry"": {
                     ""code"": { ""value"": ""FR"" },
-                    ""subordinateTradeCountrySubDivision"": [
-                        {
-                            ""identifier"": ""BRE"",
-                            ""urlId"": ""url-bre"",
-                            ""functionTypeCode"": { ""content"": ""region"" }
-                        }
-                    ]
+                    ""subordinateTradeCountrySubDivision"": {
+                        ""identifier"": ""BRE"",
+                        ""urlId"": ""url-bre"",
+                        ""functionTypeCode"": { ""content"": ""region"" }
+                    }
                 }
             }";
 
@@ -944,11 +939,10 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
 
             Assert.NotNull(result.OriginCountry);
             Assert.Equal("FR", result.OriginCountry.Code.Value);
-            Assert.Single(result.OriginCountry.SubordinateTradeCountrySubDivision);
-            Assert.Equal("BRE", result.OriginCountry.SubordinateTradeCountrySubDivision[0].Identifier);
-            Assert.Equal("url-bre", result.OriginCountry.SubordinateTradeCountrySubDivision[0].UrlId);
-            Assert.NotNull(result.OriginCountry.SubordinateTradeCountrySubDivision[0].FunctionTypeCode);
-            Assert.Equal("region", result.OriginCountry.SubordinateTradeCountrySubDivision[0].FunctionTypeCode.Content);
+            Assert.Equal("BRE", result.OriginCountry.SubordinateTradeCountrySubDivision.Identifier);
+            Assert.Equal("url-bre", result.OriginCountry.SubordinateTradeCountrySubDivision.UrlId);
+            Assert.NotNull(result.OriginCountry.SubordinateTradeCountrySubDivision.FunctionTypeCode);
+            Assert.Equal("region", result.OriginCountry.SubordinateTradeCountrySubDivision.FunctionTypeCode.Content);
         }
 
         /// <summary>
