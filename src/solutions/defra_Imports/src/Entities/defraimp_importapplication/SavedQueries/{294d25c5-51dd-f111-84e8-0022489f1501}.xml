@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{294d25c5-51dd-f111-84e8-0022489f1501}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="defraimp_name" select="1" icon="1" preview="1">
+        <row name="result" id="defraimp_importapplicationid">
+          <cell name="defraimp_name" width="200" />
+          <cell name="defraimp_primaryitahcid" width="109" />
+          <cell name="defraimp_primaryimporternotificationid" width="224" />
+          <cell name="defraimp_devolvedofficeid" width="134" />
+          <cell name="defraimp_regionareaallocatedtoid" width="191" />
+          <cell name="defraimp_commoditycode" width="140" />
+          <cell name="defraimp_commodityidentifiers" width="168" />
+          <cell name="defraimp_commoditytypeid" width="139" />
+          <cell name="defraimp_animalcertifiedas" width="165" />
+          <cell name="defraimp_commoditiescertifiedfor" width="113" />
+          <cell name="defraimp_purposeofconsignment" width="179" />
+          <cell name="defraimp_internalmarketpurpose" width="177" />
+          <cell name="defraimp_countryoforiginid" width="142" />
+          <cell name="a_637ae6175a144864ac9ebe89c8733e9b.defraimp_consignoraddresscountryid" width="394" />
+          <cell name="defraimp_placeoforigincountryid" width="184" />
+          <cell name="a_637ae6175a144864ac9ebe89c8733e9b.defraimp_consigneeaddresscountryid" width="395" />
+          <cell name="defraimp_dateofimport" width="124" />
+          <cell name="defraimp_importrisklevelid" width="143" />
+          <cell name="defraimp_dateiv66received" width="246" />
+          <cell name="defraimp_placeoforiginorganisation" width="202" />
+          <cell name="defraimp_placeoforiginid" width="175" />
+          <cell name="a_5d41a90477dc4c7ab760f65c1f695b9e.defraimp_trustlevel" width="252" />
+          <cell name="defraimp_placeofdestinationorganisation" width="230" />
+          <cell name="defraimp_placeofdestinationaddresscity" width="247" />
+          <cell name="defraimp_placeofdestinationaddresspostcode" width="216" />
+          <cell name="createdon" width="105" />
+          <cell name="defraimp_completionsummary" width="165" />
+          <cell name="createdby" width="104" />
+          <cell name="ownerid" width="100" />
+          <cell name="defraimp_quantity" width="100" />
+          <cell name="a_cc9cc3978cdc4fb193c90ce983e9a0f9.defraimp_ovname" width="179" />
+          <cell name="a_637ae6175a144864ac9ebe89c8733e9b.defraimp_consignorcompanyname" width="390" />
+          <cell name="a_637ae6175a144864ac9ebe89c8733e9b.defraimp_personresponsiblecompanyid" width="420" />
+          <cell name="a_637ae6175a144864ac9ebe89c8733e9b.defraimp_personresponsibleemail" width="384" />
+          <cell name="defraimp_transportername" width="181" />
+          <cell name="a_637ae6175a144864ac9ebe89c8733e9b.ownerid" width="275" />
+          <cell name="defraimp_iv66receivedinrequiredtimescale" width="317" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="defraimp_importapplication">
+          <attribute name="defraimp_name" />
+          <attribute name="defraimp_importapplicationid" />
+          <attribute name="defraimp_primaryitahcid" />
+          <attribute name="defraimp_primaryimporternotificationid" />
+          <attribute name="defraimp_devolvedofficeid" />
+          <attribute name="defraimp_regionareaallocatedtoid" />
+          <attribute name="defraimp_commoditycode" />
+          <attribute name="defraimp_commodityidentifiers" />
+          <attribute name="defraimp_commoditytypeid" />
+          <attribute name="defraimp_animalcertifiedas" />
+          <attribute name="defraimp_commoditiescertifiedfor" />
+          <attribute name="defraimp_purposeofconsignment" />
+          <attribute name="defraimp_internalmarketpurpose" />
+          <attribute name="defraimp_countryoforiginid" />
+          <link-entity alias="a_637ae6175a144864ac9ebe89c8733e9b" name="defraimp_importernotification" to="defraimp_primaryimporternotificationid" from="defraimp_importernotificationid" link-type="outer" visible="false">
+            <attribute name="defraimp_consignoraddresscountryid" />
+            <attribute name="defraimp_consigneeaddresscountryid" />
+            <attribute name="defraimp_consignorcompanyname" />
+            <attribute name="defraimp_personresponsiblecompanyid" />
+            <attribute name="defraimp_personresponsibleemail" />
+            <attribute name="ownerid" />
+          </link-entity>
+          <attribute name="defraimp_placeoforigincountryid" />
+          <attribute name="defraimp_dateofimport" />
+          <attribute name="defraimp_importrisklevelid" />
+          <attribute name="defraimp_dateiv66received" />
+          <attribute name="defraimp_placeoforiginorganisation" />
+          <attribute name="defraimp_placeoforiginid" />
+          <link-entity alias="a_5d41a90477dc4c7ab760f65c1f695b9e" name="defraimp_placeoforigin" to="defraimp_placeoforiginid" from="defraimp_placeoforiginid" link-type="outer" visible="false">
+            <attribute name="defraimp_trustlevel" />
+          </link-entity>
+          <attribute name="defraimp_placeofdestinationorganisation" />
+          <attribute name="defraimp_placeofdestinationaddresscity" />
+          <attribute name="defraimp_placeofdestinationaddresspostcode" />
+          <attribute name="createdon" />
+          <attribute name="defraimp_completionsummary" />
+          <attribute name="createdby" />
+          <attribute name="ownerid" />
+          <attribute name="defraimp_quantity" />
+          <link-entity alias="a_cc9cc3978cdc4fb193c90ce983e9a0f9" name="defraimp_itahc" to="defraimp_primaryitahcid" from="defraimp_itahcid" link-type="outer" visible="false">
+            <attribute name="defraimp_ovname" />
+          </link-entity>
+          <attribute name="defraimp_transportername" />
+          <attribute name="defraimp_iv66receivedinrequiredtimescale" />
+          <order attribute="createdon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.7.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Import Records by Owner" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

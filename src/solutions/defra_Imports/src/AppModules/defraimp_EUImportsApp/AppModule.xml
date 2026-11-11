@@ -39,6 +39,11 @@
     <AppModuleComponent type="1" schemaName="defraimp_transporter" />
     <AppModuleComponent type="1" schemaName="defraimp_veterinarian" />
     <AppModuleComponent type="1" schemaName="defraimp_watchlist" />
+    <AppModuleComponent type="26" id="{294d25c5-51dd-f111-84e8-0022489f1501}" />
+    <AppModuleComponent type="26" id="{791e870d-55dd-f111-84e8-0022489f1501}" />
+    <AppModuleComponent type="26" id="{68fa7e47-59dd-f111-84e8-0022489f1501}" />
+    <AppModuleComponent type="26" id="{ab5e8047-deb2-47fc-9830-2a100822b807}" />
+    <AppModuleComponent type="26" id="{30c69233-1e70-4b0f-adfb-f22a3850b2e2}" />
     <AppModuleComponent type="60" id="{7721a0e0-3911-ea11-a811-000d3ab35da5}" />
     <AppModuleComponent type="60" id="{89ce33c9-720f-ea11-a811-000d3ab4de89}" />
     <AppModuleComponent type="60" id="{a5086809-3f10-ea11-a811-000d3ab55801}" />
