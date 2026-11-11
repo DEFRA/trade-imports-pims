@@ -1,0 +1,14 @@
+name: Dev PIMS Service Bus
+variables:
+  - name: servicebusNamespace
+    value: devtreinfsb1001
+    description: ""
+  - name: sasKeyName
+    value: impNotification-Send
+    description: ""
+  - name: sasKey
+    value: 
+    description: ""
+  - name: queueName
+    value: defra.trade.imp.notification.upsert
+    description: ""

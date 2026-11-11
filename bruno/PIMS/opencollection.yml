@@ -1,0 +1,68 @@
+opencollection: 1.0.0
+
+info:
+  name: PIMS
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+
+request:
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Authorization
+      value: "{{sasToken}}"
+  scripts:
+    - type: before-request
+      code: |-
+        const CryptoJS = require("crypto-js");
+
+        const getVariable = (name) =>
+          bru.getEnvVar(name) ?? bru.getVar(name);
+
+        const servicebusNamespace = getVariable("servicebusNamespace");
+        const sasKeyName = getVariable("sasKeyName");
+        const sasKey = getVariable("sasKey");
+
+        if (!servicebusNamespace || !sasKeyName || !sasKey) {
+          throw new Error(
+            "Missing servicebusNamespace, sasKeyName, or sasKey. Set them in Bruno's active environment variables."
+          );
+        }
+
+        const resourceUri =
+          `https://${servicebusNamespace}.servicebus.windows.net`;
+        const encodedResourceUri = encodeURIComponent(resourceUri);
+        const expires = Math.floor(Date.now() / 1000) + 60;
+        const stringToSign = `${encodedResourceUri}\n${expires}`;
+
+        // Azure SAS keys are Base64-encoded; decode the key before signing
+        const signature = CryptoJS.HmacSHA256(stringToSign, sasKey)
+          .toString(CryptoJS.enc.Base64);
+
+        //sasToken variable creation
+        const sasToken =
+          `SharedAccessSignature sr=${encodedResourceUri}` +
+          `&sig=${encodeURIComponent(signature)}` +
+          `&se=${expires}` +
+          `&skn=${encodeURIComponent(sasKeyName)}`;
+
+        //Authorization Header set; leave the Authentication as 'No Auth'
+        req.setHeader("Authorization", sasToken);
+
+        //sasToken variable assignment
+        bru.setVar("sasToken", sasToken);
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
