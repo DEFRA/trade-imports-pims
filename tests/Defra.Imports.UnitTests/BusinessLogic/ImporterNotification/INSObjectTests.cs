@@ -1312,6 +1312,84 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
         }
 
         /// <summary>
+        /// Tests that ProductIdentifier deserializes all properties correctly.
+        /// </summary>
+        [Fact]
+        public void ProductIdentifier_WithAllProperties_DeserializesCorrectly()
+        {
+            // Arrange
+            var json = @"{ ""typeCode"": ""EAR_TAG"", ""content"": ""UK123456"", ""urlId"": ""url-tag"" }";
+
+            // Act
+            var result = json.FromJSON<ProductIdentifier>();
+
+            // Assert
+            Assert.Equal("EAR_TAG", result.TypeCode);
+            Assert.Equal("UK123456", result.Content);
+            Assert.Equal("url-tag", result.UrlId);
+        }
+
+        /// <summary>
+        /// Tests that ProductIdentifier optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void ProductIdentifier_WithEmptyJson_OptionalPropertiesAreNull()
+        {
+            // Act
+            var result = "{}".FromJSON<ProductIdentifier>();
+
+            // Assert
+            Assert.Null(result.TypeCode);
+            Assert.Null(result.Content);
+            Assert.Null(result.UrlId);
+        }
+
+        /// <summary>
+        /// Tests that IndividualTradeProductInstance deserializes its Identifier array of ProductIdentifier entries.
+        /// </summary>
+        [Fact]
+        public void IndividualTradeProductInstance_WithIdentifiers_DeserializesCorrectly()
+        {
+            // Arrange
+            var json = @"{
+                ""name"": ""Animal 1"",
+                ""identifier"": [
+                    { ""typeCode"": ""EAR_TAG"", ""content"": ""UK123456"", ""urlId"": ""url-tag"" },
+                    { ""typeCode"": ""PASSPORT"", ""content"": ""PP-99"" }
+                ]
+            }";
+
+            // Act
+            var result = json.FromJSON<IndividualTradeProductInstance>();
+
+            // Assert
+            Assert.Equal("Animal 1", result.Name);
+            Assert.NotNull(result.Identifier);
+            Assert.Equal(2, result.Identifier.Length);
+            Assert.Equal("EAR_TAG", result.Identifier[0].TypeCode);
+            Assert.Equal("UK123456", result.Identifier[0].Content);
+            Assert.Equal("url-tag", result.Identifier[0].UrlId);
+            Assert.Equal("PASSPORT", result.Identifier[1].TypeCode);
+            Assert.Equal("PP-99", result.Identifier[1].Content);
+            Assert.Null(result.Identifier[1].UrlId);
+        }
+
+        /// <summary>
+        /// Tests that IndividualTradeProductInstance optional properties are null when absent.
+        /// </summary>
+        [Fact]
+        public void IndividualTradeProductInstance_WithEmptyJson_OptionalPropertiesAreNull()
+        {
+            // Act
+            var result = "{}".FromJSON<IndividualTradeProductInstance>();
+
+            // Assert
+            Assert.Null(result.Name);
+            Assert.Null(result.Identifier);
+            Assert.Null(result.PermanentLocation);
+        }
+
+        /// <summary>
         /// Tests that IncludedTradeLineItem optional properties are null when absent.
         /// </summary>
         [Fact]
