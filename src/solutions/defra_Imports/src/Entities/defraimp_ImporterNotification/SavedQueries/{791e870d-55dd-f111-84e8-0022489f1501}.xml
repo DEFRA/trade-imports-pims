@@ -96,18 +96,19 @@
           <filter type="and">
             <condition attribute="defraimp_status" operator="not-null" />
             <condition attribute="statecode" operator="eq" value="0" />
-            <condition attribute="defraimp_commodityid" operator="ne" value="D1064100" />
+            <condition attribute="defraimp_commodityid" operator="ne" value="01064100" />
             <filter type="or">
               <filter type="or">
-                <condition attribute="defraimp_commodityid" operator="eq" value="D105" />
-                <condition attribute="defraimp_commodityid" operator="eq" value="D106" />
-                <condition attribute="defraimp_commodityid" operator="eq" value="D407" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="0105" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="0106" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="0407" />
               </filter>
               <filter type="or">
-                <condition attribute="defraimp_commodityid" operator="eq" value="D102" />
-                <condition attribute="defraimp_commodityid" operator="eq" value="D103" />
-                <condition attribute="defraimp_commodityid" operator="eq" value="D10420" />
-                <condition attribute="defraimp_commodityid" operator="eq" value="D101" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="0102" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="0103" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="010410" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="010420" />
+                <condition attribute="defraimp_commodityid" operator="eq" value="0101" />
               </filter>
             </filter>
           </filter>
