@@ -51,7 +51,7 @@
     </fetchxml>
     <IntroducedVersion>0.0.0.49</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="[TO BE DELETED] Importer Notification Associated View" languagecode="1033" />
+      <LocalizedName description="Importer Notification Associated View" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

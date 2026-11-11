@@ -53,7 +53,7 @@
     </fetchxml>
     <IntroducedVersion>0.0.0.2</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="[TO BE DELETED] Quick Find Active Import Queries" languagecode="1033" />
+      <LocalizedName description="Quick Find Active Import Queries" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
