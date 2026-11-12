@@ -5,7 +5,7 @@
     <CanBeDeleted>0</CanBeDeleted>
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
-    <isdefault>1</isdefault>
+    <isdefault>0</isdefault>
     <savedqueryid>{dd020992-1353-4a60-8ead-c0e0925163e4}</savedqueryid>
     <layoutxml>
       <grid name="resultset" preview="1" icon="1" select="1" jump="defraimp_name">
