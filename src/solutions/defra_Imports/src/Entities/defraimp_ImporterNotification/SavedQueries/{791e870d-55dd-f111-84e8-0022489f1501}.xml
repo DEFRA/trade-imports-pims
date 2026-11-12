@@ -99,9 +99,9 @@
             <condition attribute="defraimp_commodityid" operator="ne" value="01064100" />
             <filter type="or">
               <filter type="or">
-                <condition attribute="defraimp_commodityid" operator="eq" value="0105" />
-                <condition attribute="defraimp_commodityid" operator="eq" value="0106" />
-                <condition attribute="defraimp_commodityid" operator="eq" value="0407" />
+                <condition attribute="defraimp_commodityid" operator="like" value="0105%" />
+                <condition attribute="defraimp_commodityid" operator="like" value="0106%" />
+                <condition attribute="defraimp_commodityid" operator="like" value="0407%" />
               </filter>
               <filter type="or">
                 <condition attribute="defraimp_commodityid" operator="eq" value="0102" />
