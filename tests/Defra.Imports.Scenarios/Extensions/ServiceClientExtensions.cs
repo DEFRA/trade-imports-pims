@@ -7,6 +7,7 @@ namespace Defra.Imports.Scenarios.Extensions
     using System.Threading;
     using System.Threading.Tasks;
     using Defra.Imports.Model;
+    using Microsoft.Extensions.Logging;
     using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.Xrm.Sdk.Query;
 
@@ -50,6 +51,35 @@ namespace Defra.Imports.Scenarios.Extensions
             }
 
             return resultTask;
+        }
+
+        /// <summary>
+        /// Waits for and returns the ID of the Import Record created from the given Importer Notification.
+        /// </summary>
+        /// <param name="serviceClient">The service client used to query Dataverse.</param>
+        /// <param name="importerNotificationId">The ID of the source Importer Notification.</param>
+        /// <param name="logger">A logger used to record each retry attempt.</param>
+        /// <returns>The Import Record ID.</returns>
+        public static async Task<Guid> RetrieveImportRecordCreatedFromNotificationAsync(this ServiceClient serviceClient, Guid importerNotificationId, ILogger logger)
+        {
+            var query = new QueryExpression(defraimp_importapplication.EntityLogicalName)
+            {
+                ColumnSet = new ColumnSet(false),
+            };
+
+            query.Criteria.AddCondition(defraimp_importapplication.Fields.defraimp_PrimaryImporterNotificationId, ConditionOperator.Equal, importerNotificationId);
+
+            var importRecordId = Guid.Empty;
+
+            await RetryExtensions.RetryUntilSucceedsAsync(
+                async () =>
+                {
+                    importRecordId = (await serviceClient.RetrieveMultipleAsync(query)).Entities.FirstOrDefault()?.Id
+                        ?? throw new InvalidOperationException($"No Import Record has been created from Importer Notification {importerNotificationId} yet.");
+                },
+                logger);
+
+            return importRecordId;
         }
 
         private static void EvictOnFailure(string username, Task<Guid> lookupTask)

@@ -110,5 +110,16 @@
         {
             return value.Equals("checked", StringComparison.OrdinalIgnoreCase);
         }
+
+        /// <summary>
+        /// Transforms Yes or No into a <see cref="bool"/> value.
+        /// </summary>
+        /// <param name="value">The Yes or No string.</param>
+        /// <returns>The bool value.</returns>
+        [StepArgumentTransformation("(Yes|No)")]
+        public static bool YesNo(string value)
+        {
+            return value.Equals("Yes", StringComparison.OrdinalIgnoreCase);
+        }
     }
 }

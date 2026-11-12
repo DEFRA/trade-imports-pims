@@ -37,7 +37,8 @@ namespace Defra.Imports.Scenarios.Fakers
     {
         private static readonly string[] Ports = { "Dover", "Portsmouth", "Harwich", "Holyhead", "Felixstowe" };
         private static readonly string[] TransitingStates = { "NIR", "EN", "AT", "LT" };
-        private static readonly string[] ImpTypes = { "POAO", "HRFNAO" };
+        // The PopulateImpType plug-in matches these against the Imp Type reference codes (P = POAO, D = HRFNAO).
+        private static readonly string[] ImpTypes = { "P", "D" };
 
         // Raw enum tokens per notification-schema.json's CommodityIntendedFor definition - passed through verbatim by
         // the Logic App with no dictionary conversion (unlike animalsCertifiedAs).
@@ -141,6 +142,13 @@ namespace Defra.Imports.Scenarios.Fakers
             // Per notification-schema.json's commodityComplement.commodityID definition (minLength 1, maxLength 20) -
             // narrower than the Dataverse field's own 100-character limit, so bounded to the real IPAFFS constraint.
             this.RuleFor(n => n.defraimp_CommodityId, f => f.Random.String2(f.Random.Int(4, 10), "0123456789"));
+            this.RuleFor(n => n.defraimp_CommoditySpeciesId, f => commodityComplements[0].defraimp_speciesid);
+            this.RuleFor(n => n.defraimp_commoditiesnumberofanimals, f => f.Random.Int(1, 50));
+
+            // The PopulateIdentificationFormatJson plug-in builds Commodity ID Types from this JSON, as the Logic App passes it through from IPAFFS.
+            this.RuleFor(
+                n => n.defraimp_IdentificationOfAnimalsText,
+                f => $"[{{\"complementID\":1,\"speciesID\":\"{commodityComplements[0].defraimp_speciesid}\",\"identifiers\":[{{\"speciesNumber\":\"1\",\"data\":{{\"microchip\":\"{f.Random.ReplaceNumbers("###############")}\",\"passport\":\"{f.Random.Replace("PP-####??")}\"}}}}]}}]");
 
             this.RuleFor(n => n.defraimp_meansoftransportfromentrypointtype, f => f.PickRandom(MeansOfTransportTypes));
             this.RuleFor(n => n.defraimp_meansoftransportfromentrypointid, f => f.Vehicle.Vin());

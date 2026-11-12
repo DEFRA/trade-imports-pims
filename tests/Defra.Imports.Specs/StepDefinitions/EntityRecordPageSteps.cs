@@ -270,6 +270,24 @@
         }
 
         /// <summary>
+        /// Verifies the value of a flip switch field.
+        /// </summary>
+        /// <param name="displayName">The field display name.</param>
+        /// <param name="value">The expected value.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("^the '(.*)' switch is set to (Yes|No)$")]
+        public async Task ThenTheSwitchIsSetTo(string displayName, bool value)
+        {
+            await this.ExecuteControlActionAsync<IFlipSwitchControl>(
+                displayName,
+                async (control, fieldContext) =>
+                {
+                    (await control.GetValueAsync()).Should().Be(value);
+                },
+                tab: await this.RecordPage.Form.GetActiveTabAsync());
+        }
+
+        /// <summary>
         /// Enters the specified details into the form.
         /// </summary>
         /// <param name="fields">The field values to populate.</param>
@@ -939,6 +957,7 @@
             var checkEditable = table.Header.Contains("Editable");
             var checkRequirementLevel = table.Header.Contains("Requirement Level");
             var checkPopulated = table.Header.Contains("Populated");
+            var checkVisible = table.Header.Contains("Visible");
 
             var exceptions = new List<Exception>();
             var currentTab = !this.ctx.StepContext.StepInfo.Text.Contains("header") && await this.RecordPage.Form.Container.IsVisibleAsync() ? await this.RecordPage.Form.GetActiveTabAsync() : null;
@@ -981,11 +1000,14 @@
                             }
                         }
 
-                        var isVisible = await field.IsVisibleAsync();
-
-                        if (!isVisible)
+                        if (checkVisible)
                         {
-                            exceptions.Add(new AssertFailedException($"Expected {fieldDisplayName} Visible: true but found Visible: false."));
+                            var expectedVisible = bool.Parse(row["Visible"]);
+                            var actualVisible = await field.IsVisibleAsync();
+                            if (actualVisible != expectedVisible)
+                            {
+                                exceptions.Add(new AssertFailedException($"Expected {fieldDisplayName} Visible: {expectedVisible} but found Visible: {actualVisible}."));
+                            }
                         }
                     },
                     tab: currentTab);
@@ -1173,6 +1195,27 @@
                     var actualValue = await field.GetValueAsync();
 
                     actualValue.Value.Date.Should().Be(DateTime.Today.Date);
+                },
+                tab: await this.RecordPage.Form.GetActiveTabAsync());
+        }
+
+        /// <summary>
+        /// Asserts that the specified date field contains the Submission Date of the Importer Notification opened earlier in the scenario.
+        /// </summary>
+        /// <param name="displayName">The display name of the date field.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("I see the Importer Notification's Submission Date in the {string} field")]
+        public async Task ThenISeeTheImporterNotificationsSubmissionDateInTheField(string displayName)
+        {
+            var submissionDate = (DateTime?)this.ctx[ScenarioContextKeys.ImporterNotificationSubmissionDate];
+
+            await this.ExecuteControlActionAsync<IDateTime>(
+                displayName,
+                async (field, fieldContext) =>
+                {
+                    var actualValue = await field.GetValueAsync();
+
+                    actualValue.Value.Date.Should().Be(submissionDate.Value.Date);
                 },
                 tab: await this.RecordPage.Form.GetActiveTabAsync());
         }
@@ -1957,7 +2000,6 @@
                 actualOptions.Should().BeEquivalentTo(expectedOptions, "because the field options should match the expected options");
             });
         }
-
         /// <summary>
         /// Asserts that a price list can be seen in the results of a lookup control.
         /// </summary>
