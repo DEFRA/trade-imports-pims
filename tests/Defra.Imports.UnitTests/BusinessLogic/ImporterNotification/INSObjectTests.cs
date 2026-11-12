@@ -615,7 +615,7 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
                 ""postalAddress"": { ""lineOne"": ""5 Dock Road"", ""countryId"": ""GB"" }
             }";
 
-            var result = json.FromJSON<Carrier>();
+            var result = json.FromJSON<Party>();
 
             Assert.Equal("FastFreight", result.Name);
             Assert.Equal("FF-99", result.Identifier);
@@ -635,7 +635,7 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
         [Fact]
         public void Carrier_WithEmptyJson_OptionalPropertiesAreNull()
         {
-            var result = "{}".FromJSON<Carrier>();
+            var result = "{}".FromJSON<Party>();
 
             Assert.Null(result.Name);
             Assert.Null(result.Identifier);
@@ -645,7 +645,7 @@ namespace Defra.Imports.UnitTests.BusinessLogic.ImporterNotification
             Assert.Null(result.PostalAddress);
         }
 
-        // ?? TradeCountry ??????????????????????????????????????????????????????
+        // TradeCountry
 
         /// <summary>
         /// Tests that TradeCountry deserializes its Code and sub-divisions correctly.

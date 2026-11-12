@@ -726,7 +726,7 @@
             return this.IsSameAddress(destinationAddress, productInstance.PermanentLocation.PostalAddress);
         }
 
-        private void ApplyTransporterDetails(defraimp_ImporterNotification importerNotification, Carrier transporter, Dictionary<string, defra_country> countries)
+        private void ApplyTransporterDetails(defraimp_ImporterNotification importerNotification, Party transporter, Dictionary<string, defra_country> countries)
         {
             if (transporter == null)
             {
@@ -755,8 +755,6 @@
             {
                 importerNotification.defraimp_transportertype = transporter.PartyTypeCode[0].Value;
             }
-
-            // TODO - transporter status and approval number
         }
 
         private void ApplyTransportMovementDetails(defraimp_ImporterNotification importerNotification, SpecifiedConsignment consignment)
