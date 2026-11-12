@@ -6,7 +6,7 @@
       <LocalizedName description="DEFRA - Imports" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.7.1</Version>
+    <Version>0.0.0</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
