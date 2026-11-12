@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="defraimp_EUImportsTeam">
+  <defaultvalue>9cb51eb0-f1c7-4e8a-8bb3-dc6979733c5c</defaultvalue>
+  <description default="The team that should be set as the owner for all new importer notifications, and again when the HC attached flag is set to true">
+    <label description="The team that should be set as the owner for all new importer notifications, and again when the HC attached flag is set to true" languagecode="1033" />
+  </description>
+  <displayname default="EU Imports Team">
+    <label description="EU Imports Team" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.7.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

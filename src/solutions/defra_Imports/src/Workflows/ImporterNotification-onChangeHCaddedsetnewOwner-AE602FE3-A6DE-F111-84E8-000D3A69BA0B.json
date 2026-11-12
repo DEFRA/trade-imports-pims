@@ -1,0 +1,102 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-1": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "defraimp_sharedcommondataserviceforapps_8795b"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "EU Imports Team (defraimp_EUImportsTeam)": {
+          "defaultValue": "9cb51eb0-f1c7-4e8a-8bb3-dc6979733c5c",
+          "type": "String",
+          "metadata": {
+            "schemaName": "defraimp_EUImportsTeam",
+            "description": "The team that should be set as the owner for all new importer notifications, and again when the HC attached flag is set to true"
+          }
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "de157963-1bef-4520-b1d4-a086c1595d82"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "defraimp_importernotification",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "defraimp_healthcertificateattached",
+              "subscriptionRequest/runas": 3
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps-1"
+            }
+          },
+          "description": "Only trigger on HC boolean change"
+        }
+      },
+      "actions": {
+        "Condition_-_Check_if_HC_is_attached": {
+          "actions": {
+            "Update_a_row": {
+              "metadata": {
+                "operationMetadataId": "524489f8-152e-4f9f-b714-9ff9c15e540e"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "defraimp_importernotifications",
+                  "recordId": "@triggerOutputs()?['body/defraimp_importernotificationid']",
+                  "item/ownerid@odata.bind": "teams(@{parameters('EU Imports Team (defraimp_EUImportsTeam)')})"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "description": "Change Owner to team 'EU Imports' == sys variable 'EU Imports Team' 9cb51eb0-f1c7-4e8a-8bb3-dc6979733c5c "
+            }
+          },
+          "runAfter": {},
+          "else": {
+            "actions": {}
+          },
+          "expression": {
+            "equals": [
+              "@triggerOutputs()?['body/defraimp_healthcertificateattached']",
+              "@true"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "044db7b6-fd25-461c-80f5-9b354853e31f"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
