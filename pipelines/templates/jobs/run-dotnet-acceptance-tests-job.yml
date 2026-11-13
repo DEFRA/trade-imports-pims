@@ -18,6 +18,12 @@ parameters:
     type: string
   - name: keyVaultName
     type: string
+  - name: parallelWorkers
+    type: string
+    default: 4
+  - name: testTimeoutMinutes
+    type: number
+    default: 10
   - name: dependsOn
     type: object
     default: []
@@ -58,12 +64,20 @@ jobs:
           & $script.FullName install --with-deps
         displayName: Install Playwright browsers and dependencies
 
+      - pwsh: |
+          $ms = [int]${{ parameters.testTimeoutMinutes }} * 60000
+          Write-Host "##vso[task.setvariable variable=RunDotNetAcceptanceTests.TestTimeoutMs]$ms"
+        displayName: Calculate test timeout in milliseconds
+
       - task: DotNetCoreCLI@2
         displayName: Run acceptance tests
         inputs:
           command: test
           projects: ${{ parameters.project }}
-          arguments: --configuration Release --no-build
+          arguments: >-
+            --configuration Release --no-build
+            -- MSTest.Parallelize.Workers=${{ parameters.parallelWorkers }}
+            MSTest.TestTimeout=$(RunDotNetAcceptanceTests.TestTimeoutMs)
           publishTestResults: true
           testRunTitle: Acceptance tests
         env:

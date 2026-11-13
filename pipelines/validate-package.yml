@@ -102,6 +102,7 @@ extends:
           keyVaultClientId: $(KeyVault.TestUsers.ClientId)
           keyVaultClientSecret: $(KeyVault.TestUsers.ClientSecret)
           keyVaultName: $(KeyVault.TestUsers.Name)
+          parallelWorkers: $(Tests.Acceptance.Workers)
           dependsOn: RunDotNetIntegrationTests
     githubToken: $(GitHub.Token)
     config: PkgAssets/ImportConfig.Standalone.xml
