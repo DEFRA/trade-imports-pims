@@ -61,15 +61,7 @@ jobs:
           projects: ${{ parameters.project }}
           arguments: --configuration Release
 
-      - pwsh: |
-          $script = Get-ChildItem -Path "$(Build.SourcesDirectory)" -Filter playwright.ps1 -Recurse |
-            Where-Object { $_.FullName -match 'Release' -and (Test-Path (Join-Path $_.DirectoryName 'Microsoft.Playwright.dll')) } |
-            Select-Object -First 1
-          if (-not $script) { throw 'playwright.ps1 not found in build output.' }
-          & $script.FullName install --with-deps
-        displayName: Install Playwright browsers and dependencies
-
-      - pwsh: |
+      - powershell: |
           $ms = [int]${{ parameters.testTimeoutMinutes }} * 60000
           Write-Host "##vso[task.setvariable variable=RunDotNetAcceptanceTests.TestTimeoutMs]$ms"
         displayName: Calculate test timeout in milliseconds
