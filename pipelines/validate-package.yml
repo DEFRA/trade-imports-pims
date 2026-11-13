@@ -93,12 +93,14 @@ extends:
           - tests/Defra.Imports.Scenarios/*
         stepName: GetIntegrationTestsUpdated
         stepDisplayName: Get integration tests updated
+        triggerEnvironmentCreate: true
       - filePatterns:
           - tests/Defra.Imports.Scenarios/*
           - tests/Defra.Imports.PageObjects/*
           - tests/Defra.Imports.Specs/*
         stepName: GetAcceptanceTestsUpdated
         stepDisplayName: Get acceptance tests updated
+        triggerEnvironmentCreate: true
     testJobs:
       - template: templates/jobs/run-dotnet-integration-tests-job.yml
         parameters:
