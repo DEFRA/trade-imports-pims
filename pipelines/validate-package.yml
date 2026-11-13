@@ -91,7 +91,7 @@ extends:
       - filePatterns:
           - tests/Defra.Imports.IntegrationTests/*
           - tests/Defra.Imports.Scenarios/*
-          - pipeline/templates/jobs/run-dotnet-integration-tests-job.yml
+          - pipelines/templates/jobs/run-dotnet-integration-tests-job.yml
         stepName: GetIntegrationTestsUpdated
         stepDisplayName: Get integration tests updated
         triggerEnvironmentCreate: true
@@ -99,7 +99,7 @@ extends:
           - tests/Defra.Imports.Scenarios/*
           - tests/Defra.Imports.PageObjects/*
           - tests/Defra.Imports.Specs/*
-          - pipeline/templates/jobs/run-dotnet-acceptance-tests-job.yml
+          - pipelines/templates/jobs/run-dotnet-acceptance-tests-job.yml
         stepName: GetAcceptanceTestsUpdated
         stepDisplayName: Get acceptance tests updated
         triggerEnvironmentCreate: true
