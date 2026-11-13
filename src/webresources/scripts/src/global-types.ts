@@ -1,1 +1,1 @@
-import "xrm";
+import 'xrm';

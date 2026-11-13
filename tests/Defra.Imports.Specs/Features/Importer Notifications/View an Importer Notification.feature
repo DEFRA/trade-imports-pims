@@ -270,4 +270,4 @@ Scenario: A caseworker views an Importer Notification's transporter details
 		# | International Telephone                                          |
 		# | Other Identifier                                                 |
 	And I see a 'Countries Of Transit <subgrid_countries_of_transit>' subgrid with the following columns
-		| Official Country Name |
+		| Common Country Name |

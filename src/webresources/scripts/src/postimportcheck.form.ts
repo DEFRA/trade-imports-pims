@@ -14,16 +14,12 @@ export function onChangeSamplingRequired(): void {
   showHideSampleTestsBasedOnSamplingRequired(currentFormContext);
 }
 
-function showHideSampleTestsBasedOnSamplingRequired(
-  context: Xrm.FormContext
-): void {
+function showHideSampleTestsBasedOnSamplingRequired(context: Xrm.FormContext): void {
   const isSamplingRequired = requiredAttribute<Xrm.Attributes.BooleanAttribute>(
     context,
-    "defraimp_samplingrequired"
+    'defraimp_samplingrequired'
   ).getValue();
-  requiredGridControl(context, "SamplesTestsRequired").setVisible(
-    isSamplingRequired === true
-  );
+  requiredGridControl(context, 'SamplesTestsRequired').setVisible(isSamplingRequired === true);
 }
 
 function requiredAttribute<T extends Xrm.Attributes.Attribute>(
@@ -38,10 +34,7 @@ function requiredAttribute<T extends Xrm.Attributes.Attribute>(
   return attribute;
 }
 
-function requiredGridControl(
-  formContext: Xrm.FormContext,
-  name: string
-): Xrm.Controls.GridControl {
+function requiredGridControl(formContext: Xrm.FormContext, name: string): Xrm.Controls.GridControl {
   const control = formContext.getControl<Xrm.Controls.GridControl>(name);
   if (!control) {
     throw new Error(`Required grid control '${name}' was not found.`);

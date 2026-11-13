@@ -7,18 +7,18 @@ import {
   makeTab,
   setupXrm,
   flushPromises,
-} from "./xrm-mock.helper";
+} from './xrm-mock.helper';
 
 let xrm: ReturnType<typeof setupXrm>;
 
 // Use fresh module state for each test to avoid wasManualPostImportCheckSet bleed-through.
-let subject: typeof import("../src/importrecord.form");
+let subject: typeof import('../src/importrecord.form');
 
 beforeEach(() => {
   jest.resetModules();
   xrm = setupXrm();
   // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-assignment
-  subject = require("../src/importrecord.form");
+  subject = require('../src/importrecord.form');
 });
 
 function getPreventDefaultMock(
@@ -35,22 +35,22 @@ function getPreventDefaultMock(
 // OnLoadQuickCreateForm
 // ---------------------------------------------------------------------------
 
-describe("OnLoadQuickCreateForm", () => {
-  test("sets ownerid to null when form type is Create (1)", () => {
-    const ownerid = makeAttr([{ id: "owner-1", name: "Owner", entityType: "systemuser" }]);
+describe('OnLoadQuickCreateForm', () => {
+  test('sets ownerid to null when form type is Create (1)', () => {
+    const ownerid = makeAttr([{ id: 'owner-1', name: 'Owner', entityType: 'systemuser' }]);
     const fc = makeFormContext({ ownerid }, {}, {}, { formType: 1 });
     subject.OnLoadQuickCreateForm(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(ownerid.setValue).toHaveBeenCalledWith(null);
   });
 
-  test("does not touch ownerid when form type is Update (2)", () => {
-    const ownerid = makeAttr([{ id: "owner-1", name: "Owner", entityType: "systemuser" }]);
+  test('does not touch ownerid when form type is Update (2)', () => {
+    const ownerid = makeAttr([{ id: 'owner-1', name: 'Owner', entityType: 'systemuser' }]);
     const fc = makeFormContext({ ownerid }, {}, {}, { formType: 2 });
     subject.OnLoadQuickCreateForm(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(ownerid.setValue).not.toHaveBeenCalled();
   });
 
-  test("does not touch ownerid when form type is ReadOnly (3)", () => {
+  test('does not touch ownerid when form type is ReadOnly (3)', () => {
     const ownerid = makeAttr(null);
     const fc = makeFormContext({ ownerid }, {}, {}, { formType: 3 });
     subject.OnLoadQuickCreateForm(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
@@ -62,7 +62,7 @@ describe("OnLoadQuickCreateForm", () => {
 // showOrHideNonComplianceOther
 // ---------------------------------------------------------------------------
 
-describe("showOrHideNonComplianceOther", () => {
+describe('showOrHideNonComplianceOther', () => {
   function buildCtx(multiSelectValue: number[] | null) {
     const attr = makeAttr(multiSelectValue);
     const ctrl = makeControl();
@@ -73,7 +73,7 @@ describe("showOrHideNonComplianceOther", () => {
     return { attr, ctrl, fc };
   }
 
-  test("hides control when multi-select value is null", () => {
+  test('hides control when multi-select value is null', () => {
     const { ctrl, fc } = buildCtx(null);
     subject.showOrHideNonComplianceOther(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -81,7 +81,7 @@ describe("showOrHideNonComplianceOther", () => {
     expect(ctrl.setVisible).toHaveBeenCalledWith(false);
   });
 
-  test("shows control when multi-select includes 714100005", () => {
+  test('shows control when multi-select includes 714100005', () => {
     const { ctrl, fc } = buildCtx([714100001, 714100005]);
     subject.showOrHideNonComplianceOther(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -89,7 +89,7 @@ describe("showOrHideNonComplianceOther", () => {
     expect(ctrl.setVisible).toHaveBeenCalledWith(true);
   });
 
-  test("hides control when multi-select does not include 714100005", () => {
+  test('hides control when multi-select does not include 714100005', () => {
     const { ctrl, fc } = buildCtx([714100001, 714100002]);
     subject.showOrHideNonComplianceOther(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -97,7 +97,7 @@ describe("showOrHideNonComplianceOther", () => {
     expect(ctrl.setVisible).toHaveBeenCalledWith(false);
   });
 
-  test("shows control when multi-select contains only 714100005", () => {
+  test('shows control when multi-select contains only 714100005', () => {
     const { ctrl, fc } = buildCtx([714100005]);
     subject.showOrHideNonComplianceOther(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -105,7 +105,7 @@ describe("showOrHideNonComplianceOther", () => {
     expect(ctrl.setVisible).toHaveBeenCalledWith(true);
   });
 
-  test("hides control when multi-select is an empty array", () => {
+  test('hides control when multi-select is an empty array', () => {
     const { ctrl, fc } = buildCtx([]);
     subject.showOrHideNonComplianceOther(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -118,7 +118,7 @@ describe("showOrHideNonComplianceOther", () => {
 // showRelevantSections
 // ---------------------------------------------------------------------------
 
-describe("showRelevantSections", () => {
+describe('showRelevantSections', () => {
   function buildCtx(importAppType: number | null, importingFromCharity = false) {
     const summarySections = {
       iv66_section: makeSection(),
@@ -141,7 +141,7 @@ describe("showRelevantSections", () => {
     return { tabs, summarySections, transportSection, fc };
   }
 
-  test("ITAHC (714100000): shows AdditionalITAHC and iv66 sections, hides others", () => {
+  test('ITAHC (714100000): shows AdditionalITAHC and iv66 sections, hides others', () => {
     const { tabs, summarySections, transportSection, fc } = buildCtx(714100000);
     subject.showRelevantSections(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(tabs.AdditionalITAHC_Tab.setVisible).toHaveBeenCalledWith(true);
@@ -152,7 +152,7 @@ describe("showRelevantSections", () => {
     expect(transportSection.setVisible).toHaveBeenCalledWith(false);
   });
 
-  test("Notification (714100001): shows iv66 section only, hides AdditionalITAHC", () => {
+  test('Notification (714100001): shows iv66 section only, hides AdditionalITAHC', () => {
     const { tabs, summarySections, transportSection, fc } = buildCtx(714100001);
     subject.showRelevantSections(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(tabs.AdditionalITAHC_Tab.setVisible).toHaveBeenCalledWith(false);
@@ -162,7 +162,7 @@ describe("showRelevantSections", () => {
     expect(transportSection.setVisible).toHaveBeenCalledWith(false);
   });
 
-  test("CHEDA (714100002): shows cheda_section and transport, hides ITAHC and iv66", () => {
+  test('CHEDA (714100002): shows cheda_section and transport, hides ITAHC and iv66', () => {
     const { tabs, summarySections, transportSection, fc } = buildCtx(714100002);
     subject.showRelevantSections(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(tabs.AdditionalITAHC_Tab.setVisible).toHaveBeenCalledWith(false);
@@ -172,7 +172,7 @@ describe("showRelevantSections", () => {
     expect(transportSection.setVisible).toHaveBeenCalledWith(true);
   });
 
-  test("CHEDP (714100003): shows chedp, chedp_controls and transport sections", () => {
+  test('CHEDP (714100003): shows chedp, chedp_controls and transport sections', () => {
     const { tabs, summarySections, transportSection, fc } = buildCtx(714100003);
     subject.showRelevantSections(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(tabs.AdditionalITAHC_Tab.setVisible).toHaveBeenCalledWith(false);
@@ -182,7 +182,7 @@ describe("showRelevantSections", () => {
     expect(summarySections.cheda_section.setVisible).toHaveBeenCalledWith(false);
   });
 
-  test("DOCOM (714100004): hides all special sections", () => {
+  test('DOCOM (714100004): hides all special sections', () => {
     const { tabs, summarySections, transportSection, fc } = buildCtx(714100004);
     subject.showRelevantSections(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(tabs.AdditionalITAHC_Tab.setVisible).toHaveBeenCalledWith(false);
@@ -192,7 +192,7 @@ describe("showRelevantSections", () => {
     expect(transportSection.setVisible).toHaveBeenCalledWith(false);
   });
 
-  test("ITAHCLandbridge (714100005): treated the same as ITAHC", () => {
+  test('ITAHCLandbridge (714100005): treated the same as ITAHC', () => {
     const { tabs, summarySections, transportSection, fc } = buildCtx(714100005);
     subject.showRelevantSections(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(tabs.AdditionalITAHC_Tab.setVisible).toHaveBeenCalledWith(true);
@@ -200,19 +200,19 @@ describe("showRelevantSections", () => {
     expect(transportSection.setVisible).toHaveBeenCalledWith(false);
   });
 
-  test("Charity_Tab visibility reflects defraimp_importingfromcharity", () => {
+  test('Charity_Tab visibility reflects defraimp_importingfromcharity', () => {
     const { tabs, fc } = buildCtx(714100000, true);
     subject.showRelevantSections(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(tabs.Charity_Tab.setVisible).toHaveBeenCalledWith(true);
   });
 
-  test("Charity_Tab hidden when defraimp_importingfromcharity is false", () => {
+  test('Charity_Tab hidden when defraimp_importingfromcharity is false', () => {
     const { tabs, fc } = buildCtx(714100000, false);
     subject.showRelevantSections(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(tabs.Charity_Tab.setVisible).toHaveBeenCalledWith(false);
   });
 
-  test("null type: hides all dynamic sections", () => {
+  test('null type: hides all dynamic sections', () => {
     const { tabs, summarySections, transportSection, fc } = buildCtx(null);
     subject.showRelevantSections(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(tabs.AdditionalITAHC_Tab.setVisible).toHaveBeenCalledWith(false);
@@ -227,7 +227,7 @@ describe("showRelevantSections", () => {
 // onChangeOfMoveToCompletion
 // ---------------------------------------------------------------------------
 
-describe("onChangeOfMoveToCompletion", () => {
+describe('onChangeOfMoveToCompletion', () => {
   function buildCtx(moveToCompletion: boolean | null) {
     const dateAttr = makeAttr<Date | null>(null);
     const fc = makeFormContext({
@@ -237,7 +237,7 @@ describe("onChangeOfMoveToCompletion", () => {
     return { dateAttr, fc };
   }
 
-  test("sets defraimp_movedtocompletiondate to a Date when moveToCompletion is true", () => {
+  test('sets defraimp_movedtocompletiondate to a Date when moveToCompletion is true', () => {
     const { dateAttr, fc } = buildCtx(true);
     subject.onChangeOfMoveToCompletion(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -245,7 +245,7 @@ describe("onChangeOfMoveToCompletion", () => {
     expect(dateAttr.setValue).toHaveBeenCalledWith(expect.any(Date));
   });
 
-  test("sets defraimp_movedtocompletiondate to null when moveToCompletion is false", () => {
+  test('sets defraimp_movedtocompletiondate to null when moveToCompletion is false', () => {
     const { dateAttr, fc } = buildCtx(false);
     subject.onChangeOfMoveToCompletion(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -253,7 +253,7 @@ describe("onChangeOfMoveToCompletion", () => {
     expect(dateAttr.setValue).toHaveBeenCalledWith(null);
   });
 
-  test("sets defraimp_movedtocompletiondate to null when moveToCompletion is null", () => {
+  test('sets defraimp_movedtocompletiondate to null when moveToCompletion is null', () => {
     const { dateAttr, fc } = buildCtx(null);
     subject.onChangeOfMoveToCompletion(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -266,24 +266,20 @@ describe("onChangeOfMoveToCompletion", () => {
 // onLoad
 // ---------------------------------------------------------------------------
 
-describe("onLoad", () => {
-  function buildCtx(opts: {
-    manualDecisionValue?: number | null;
-    isNonCompliantCalculated?: boolean;
-    typesOfNoncompliance?: number[] | null;
-  } = {}) {
+describe('onLoad', () => {
+  function buildCtx(
+    opts: {
+      manualDecisionValue?: number | null;
+      isNonCompliantCalculated?: boolean;
+      typesOfNoncompliance?: number[] | null;
+    } = {}
+  ) {
     const nonComplianceTab = makeTab();
     const nonComplianceOtherCtrl = makeControl();
     const attrs = {
-      defraimp_manualpostimportcheckdecision: makeAttr(
-        opts.manualDecisionValue ?? null
-      ),
-      defraimp_isnoncompliantcalculated: makeAttr(
-        opts.isNonCompliantCalculated ?? false
-      ),
-      defraimp_typesofnoncompliance: makeAttr(
-        opts.typesOfNoncompliance ?? null
-      ),
+      defraimp_manualpostimportcheckdecision: makeAttr(opts.manualDecisionValue ?? null),
+      defraimp_isnoncompliantcalculated: makeAttr(opts.isNonCompliantCalculated ?? false),
+      defraimp_typesofnoncompliance: makeAttr(opts.typesOfNoncompliance ?? null),
     };
     const fc = makeFormContext(
       attrs,
@@ -293,19 +289,19 @@ describe("onLoad", () => {
     return { fc, nonComplianceTab, nonComplianceOtherCtrl };
   }
 
-  test("shows NonCompliance_Tab when isnoncompliantcalculated is true", () => {
+  test('shows NonCompliance_Tab when isnoncompliantcalculated is true', () => {
     const { fc, nonComplianceTab } = buildCtx({ isNonCompliantCalculated: true });
     subject.onLoad(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(nonComplianceTab.setVisible).toHaveBeenCalledWith(true);
   });
 
-  test("hides NonCompliance_Tab when isnoncompliantcalculated is false", () => {
+  test('hides NonCompliance_Tab when isnoncompliantcalculated is false', () => {
     const { fc, nonComplianceTab } = buildCtx({ isNonCompliantCalculated: false });
     subject.onLoad(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(nonComplianceTab.setVisible).toHaveBeenCalledWith(false);
   });
 
-  test("shows noncompliance other control when typesofnoncompliance includes 714100005", () => {
+  test('shows noncompliance other control when typesofnoncompliance includes 714100005', () => {
     const { fc, nonComplianceOtherCtrl } = buildCtx({
       typesOfNoncompliance: [714100005],
     });
@@ -313,7 +309,7 @@ describe("onLoad", () => {
     expect(nonComplianceOtherCtrl.setVisible).toHaveBeenCalledWith(true);
   });
 
-  test("hides noncompliance other control when typesofnoncompliance is null", () => {
+  test('hides noncompliance other control when typesofnoncompliance is null', () => {
     const { fc, nonComplianceOtherCtrl } = buildCtx({ typesOfNoncompliance: null });
     subject.onLoad(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(nonComplianceOtherCtrl.setVisible).toHaveBeenCalledWith(false);
@@ -324,7 +320,7 @@ describe("onLoad", () => {
 // onSave - wasManualPostImportCheckSet state interaction
 // ---------------------------------------------------------------------------
 
-describe("onSave", () => {
+describe('onSave', () => {
   function buildSaveCtx(manualDecisionValue: number | null, saveMode = 1) {
     const attrs = {
       defraimp_manualpostimportcheckdecision: makeAttr(manualDecisionValue),
@@ -334,14 +330,14 @@ describe("onSave", () => {
     return { fc, ec };
   }
 
-  test("does not call preventDefault when wasManualPostImportCheckSet is false (initial state)", async () => {
+  test('does not call preventDefault when wasManualPostImportCheckSet is false (initial state)', async () => {
     const { ec } = buildSaveCtx(null);
     subject.onSave(ec as unknown as Xrm.Events.SaveEventContext);
     await flushPromises();
     expect(getPreventDefaultMock(ec)).not.toHaveBeenCalled();
   });
 
-  test("calls preventDefault when decision was previously set then blanked", async () => {
+  test('calls preventDefault when decision was previously set then blanked', async () => {
     const manualDecision = makeAttr<number | null>(714100000);
     const loadAttrs = {
       defraimp_manualpostimportcheckdecision: manualDecision,
@@ -362,7 +358,7 @@ describe("onSave", () => {
     expect(getPreventDefaultMock(ec)).toHaveBeenCalled();
   });
 
-  test("does not call preventDefault when decision is still set after being set", async () => {
+  test('does not call preventDefault when decision is still set after being set', async () => {
     const loadAttrs = {
       defraimp_manualpostimportcheckdecision: makeAttr<number | null>(714100000),
       defraimp_isnoncompliantcalculated: makeAttr(false),
@@ -382,7 +378,7 @@ describe("onSave", () => {
     expect(getPreventDefaultMock(ec)).not.toHaveBeenCalled();
   });
 
-  test("opens error dialog with the blank-field message when save is prevented", async () => {
+  test('opens error dialog with the blank-field message when save is prevented', async () => {
     const manualDecision = makeAttr<number | null>(714100000);
     const loadAttrs = {
       defraimp_manualpostimportcheckdecision: manualDecision,
@@ -410,7 +406,7 @@ describe("onSave", () => {
 // onChangeOfManualPostImportCheckDecision
 // ---------------------------------------------------------------------------
 
-describe("onChangeOfManualPostImportCheckDecision", () => {
+describe('onChangeOfManualPostImportCheckDecision', () => {
   function buildCtx(decision: number | null) {
     const inspectionRequired = makeAttr<number | null>(null);
     const inspectionReason = makeAttr<number | null>(null);
@@ -429,7 +425,7 @@ describe("onChangeOfManualPostImportCheckDecision", () => {
     return { fc, inspectionRequired, inspectionReason, declinedReason };
   }
 
-  test("System (714100004): restores inspection values from original-value fields", () => {
+  test('System (714100004): restores inspection values from original-value fields', () => {
     const { fc, inspectionRequired, inspectionReason } = buildCtx(714100004);
     subject.onChangeOfManualPostImportCheckDecision(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -438,7 +434,7 @@ describe("onChangeOfManualPostImportCheckDecision", () => {
     expect(inspectionReason.setValue).toHaveBeenCalledWith(714100004);
   });
 
-  test("Other (714100000): sets InspectionRequired=Yes, Reason=ManuallyRequested", () => {
+  test('Other (714100000): sets InspectionRequired=Yes, Reason=ManuallyRequested', () => {
     const { fc, inspectionRequired, inspectionReason } = buildCtx(714100000);
     subject.onChangeOfManualPostImportCheckDecision(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -447,7 +443,7 @@ describe("onChangeOfManualPostImportCheckDecision", () => {
     expect(inspectionReason.setValue).toHaveBeenCalledWith(714100013); // ManuallyRequested
   });
 
-  test("Quarantine (714100003): sets InspectionRequired=Yes, Reason=Quarantine", () => {
+  test('Quarantine (714100003): sets InspectionRequired=Yes, Reason=Quarantine', () => {
     const { fc, inspectionRequired, inspectionReason } = buildCtx(714100003);
     subject.onChangeOfManualPostImportCheckDecision(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -456,7 +452,7 @@ describe("onChangeOfManualPostImportCheckDecision", () => {
     expect(inspectionReason.setValue).toHaveBeenCalledWith(714100010); // Quarantine
   });
 
-  test("TB (714100002): sets InspectionRequired=No, Reason=NoInspectionRequired", () => {
+  test('TB (714100002): sets InspectionRequired=No, Reason=NoInspectionRequired', () => {
     const { fc, inspectionRequired, inspectionReason } = buildCtx(714100002);
     subject.onChangeOfManualPostImportCheckDecision(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -465,7 +461,7 @@ describe("onChangeOfManualPostImportCheckDecision", () => {
     expect(inspectionReason.setValue).toHaveBeenCalledWith(714100004); // NoInspectionRequired
   });
 
-  test("DoNotCheck (714100001): sets InspectionRequired=No, Reason=NoInspectionRequired", () => {
+  test('DoNotCheck (714100001): sets InspectionRequired=No, Reason=NoInspectionRequired', () => {
     const { fc, inspectionRequired, inspectionReason } = buildCtx(714100001);
     subject.onChangeOfManualPostImportCheckDecision(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -474,38 +470,38 @@ describe("onChangeOfManualPostImportCheckDecision", () => {
     expect(inspectionReason.setValue).toHaveBeenCalledWith(714100004); // NoInspectionRequired
   });
 
-  test("DoNotCheck: sets declined reason when currently null", () => {
+  test('DoNotCheck: sets declined reason when currently null', () => {
     const { fc, declinedReason } = buildCtx(714100001);
     declinedReason.getValue.mockReturnValue(null);
     subject.onChangeOfManualPostImportCheckDecision(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
     );
     expect(declinedReason.setValue).toHaveBeenCalledWith(
-      "System Required Post Import Check Skipped"
+      'System Required Post Import Check Skipped'
     );
   });
 
-  test("DoNotCheck: sets declined reason when currently empty string", () => {
+  test('DoNotCheck: sets declined reason when currently empty string', () => {
     const { fc, declinedReason } = buildCtx(714100001);
-    declinedReason.getValue.mockReturnValue("");
+    declinedReason.getValue.mockReturnValue('');
     subject.onChangeOfManualPostImportCheckDecision(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
     );
     expect(declinedReason.setValue).toHaveBeenCalledWith(
-      "System Required Post Import Check Skipped"
+      'System Required Post Import Check Skipped'
     );
   });
 
-  test("DoNotCheck: does not overwrite declined reason when already populated", () => {
+  test('DoNotCheck: does not overwrite declined reason when already populated', () => {
     const { fc, declinedReason } = buildCtx(714100001);
-    declinedReason.getValue.mockReturnValue("Existing reason");
+    declinedReason.getValue.mockReturnValue('Existing reason');
     subject.onChangeOfManualPostImportCheckDecision(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
     );
     expect(declinedReason.setValue).not.toHaveBeenCalled();
   });
 
-  test("null decision: does not set any inspection values", () => {
+  test('null decision: does not set any inspection values', () => {
     const { fc, inspectionRequired, inspectionReason } = buildCtx(null);
     subject.onChangeOfManualPostImportCheckDecision(
       makeExecutionContext(fc) as unknown as Xrm.Events.EventContext
@@ -514,4 +510,3 @@ describe("onChangeOfManualPostImportCheckDecision", () => {
     expect(inspectionReason.setValue).not.toHaveBeenCalled();
   });
 });
-

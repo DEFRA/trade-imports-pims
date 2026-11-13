@@ -46,6 +46,7 @@
           <attribute name="defraimp_duedate" />
           <attribute name="regardingobjectid" />
           <order attribute="defraimp_querynumber" descending="true" />
+          <attribute name="activityid" />
         </entity>
       </fetch>
     </fetchxml>
