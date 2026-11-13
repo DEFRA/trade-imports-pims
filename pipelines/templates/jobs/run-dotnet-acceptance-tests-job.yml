@@ -45,6 +45,7 @@ jobs:
       RunDotNetAcceptanceTests.KeyVault.ClientId: ${{ parameters.keyVaultClientId }}
       RunDotNetAcceptanceTests.KeyVault.ClientSecret: ${{ parameters.keyVaultClientSecret }}
       RunDotNetAcceptanceTests.KeyVault.Name: ${{ parameters.keyVaultName }}
+      RunDotNetAcceptanceTests.ParallelWorkers: ${{ parameters.parallelWorkers }}
     steps:
       - checkout: self
 
@@ -80,7 +81,7 @@ jobs:
           projects: ${{ parameters.project }}
           arguments: >-
             --configuration Release --no-build
-            -- MSTest.Parallelize.Workers=${{ parameters.parallelWorkers }}
+            -- MSTest.Parallelize.Workers=$(RunDotNetAcceptanceTests.ParallelWorkers)
             MSTest.TestTimeout=$(RunDotNetAcceptanceTests.TestTimeoutMs)
           publishTestResults: true
           testRunTitle: Acceptance tests
