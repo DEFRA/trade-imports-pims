@@ -72,7 +72,7 @@ jobs:
           command: test
           projects: ${{ parameters.project }}
           arguments: >-
-            --configuration Release --no-build
+            --configuration Release --no-build -v normal
             -- MSTest.Parallelize.Workers=$(RunDotNetAcceptanceTests.ParallelWorkers)
             MSTest.TestTimeout=$(RunDotNetAcceptanceTests.TestTimeoutMs)
           publishTestResults: true
