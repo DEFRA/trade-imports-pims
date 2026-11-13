@@ -115,10 +115,10 @@ extends:
             and(
               not(canceled()),
               or(
+                eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetIntegrationTestsUpdated.IsUpdated'], 'True'),
                 and(
                   eq(stageDependencies.AnalyseUpdates.FindExistingEnvironment.outputs['FindWorkItemHyperlink.Relation.attributes.comment.commitHash'], ''),
                   or(
-                    eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetIntegrationTestsUpdated.IsUpdated'], 'True'),
                     eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetPackageTemplateUpdated.IsUpdated'], 'True'),
                     eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetSolutionUpdates.Backend.IsUpdated'], 'True')
                   )
@@ -126,7 +126,6 @@ extends:
                 and(
                   ne(stageDependencies.AnalyseUpdates.FindExistingEnvironment.outputs['FindWorkItemHyperlink.Relation.attributes.comment.commitHash'], ''),
                   or(
-                    eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetIntegrationTestsUpdated.IsUpdated'], 'True'),
                     eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetPackageTemplateUpdated.IsUpdated'], 'True'),
                     eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetSolutionUpdates.Backend.IsUpdated'], 'True')
                   )
@@ -147,10 +146,10 @@ extends:
               not(canceled()),
               in(dependencies.RunDotNetIntegrationTests.result, 'Succeeded', 'SucceededWithIssues', 'Skipped'),
               or(
+                eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetAcceptanceTestsUpdated.IsUpdated'], 'True'),
                 and(
                   eq(stageDependencies.AnalyseUpdates.FindExistingEnvironment.outputs['FindWorkItemHyperlink.Relation.attributes.comment.commitHash'], ''),
                   or(
-                    eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetAcceptanceTestsUpdated.IsUpdated'], 'True'),
                     eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetPackageTemplateUpdated.IsUpdated'], 'True'),
                     eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetSolutionUpdates.Frontend.IsUpdated'], 'True'),
                     eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetSolutionUpdates.Backend.IsUpdated'], 'True')
@@ -159,7 +158,6 @@ extends:
                 and(
                   ne(stageDependencies.AnalyseUpdates.FindExistingEnvironment.outputs['FindWorkItemHyperlink.Relation.attributes.comment.commitHash'], ''),
                   or(
-                    eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetAcceptanceTestsUpdated.IsUpdated'], 'True'),
                     eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetPackageTemplateUpdated.IsUpdated'], 'True'),
                     eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetSolutionUpdates.Frontend.IsUpdated'], 'True'),
                     eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetSolutionUpdates.Backend.IsUpdated'], 'True')
