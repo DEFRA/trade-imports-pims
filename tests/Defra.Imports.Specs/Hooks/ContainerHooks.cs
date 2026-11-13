@@ -115,6 +115,16 @@
         }
 
         /// <summary>
+        /// Disposes the browsers launched by every worker, once the test run has finished.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [AfterTestRun(Order = 999999)]
+        public static async Task DisposeBrowsers()
+        {
+            await BrowserProvider.DisposeAllAsync();
+        }
+
+        /// <summary>
         /// Disposes the assembly hook client.
         /// </summary>
         /// <param name="testThreadContainer">The test thread container.</param>
@@ -214,23 +224,22 @@
         }
 
         /// <summary>
-        /// Disposes the browser and browser context that were created for the scenario.
+        /// Closes the browser context that was created for the scenario. The browser itself is shared by the worker and is left open.
         /// </summary>
         /// <returns>An async Task.</returns>
         [AfterScenario(Order = 20000)]
-        public async Task DisposeBrowser()
+        public async Task DisposeBrowserContext()
         {
             try
             {
-                var browser = this.objectContainer.Resolve<IBrowser>();
-                if (browser != null)
+                if (this.objectContainer.IsRegistered<IBrowserContext>())
                 {
-                    await browser.DisposeAsync();
+                    await this.objectContainer.Resolve<IBrowserContext>().CloseAsync();
                 }
             }
             catch (Exception ex)
             {
-                this.outputHelper.WriteLine($"An error occurred while disposing the Playwright browser: {ex.Message}.");
+                this.outputHelper.WriteLine($"An error occurred while closing the Playwright browser context: {ex.Message}.");
             }
         }
 
