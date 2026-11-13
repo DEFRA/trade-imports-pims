@@ -537,11 +537,10 @@
                 importerNotification.defraimp_CountryofOriginId = originCountry.ToEntityReference();
             }
 
-            if (consignment.OriginCountry?.SubordinateTradeCountrySubDivision != null &&
-                consignment.OriginCountry.SubordinateTradeCountrySubDivision.Length > 0)
+            if (consignment.OriginCountry?.SubordinateTradeCountrySubDivision != null)
             {
                 importerNotification.defraimp_commoditiesregionoforigin =
-                    consignment.OriginCountry.SubordinateTradeCountrySubDivision[0].Identifier;
+                    consignment.OriginCountry.SubordinateTradeCountrySubDivision.Identifier;
             }
         }
 

@@ -2902,7 +2902,7 @@
         private static string BuildMessageWithOriginCountry(string identifier, int aggregateVersion, string statusCode, string countryCode, string regionIdentifier)
         {
             var subDivision = regionIdentifier != null
-                ? $@"""subordinateTradeCountrySubDivision"": [{{ ""identifier"": ""{regionIdentifier}"" }}],"
+                ? $@"""subordinateTradeCountrySubDivision"": {{ ""identifier"": ""{regionIdentifier}"" }},"
                 : string.Empty;
 
             return $@"{{

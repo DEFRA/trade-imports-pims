@@ -18,7 +18,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         /// Gets identifier.
         /// </summary>
         [DataMember(Name = "identifier")]
-        public ProductIdentifier Identifier { get; internal set; }
+        public ProductIdentifier[] Identifier { get; internal set; }
 
         /// <summary>
         /// Gets permanent location.
