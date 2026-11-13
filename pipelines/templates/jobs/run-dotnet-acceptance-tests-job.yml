@@ -27,11 +27,15 @@ parameters:
   - name: dependsOn
     type: object
     default: []
+  - name: condition
+    type: string
+    default: succeeded()
 
 jobs:
   - job: RunDotNetAcceptanceTests
     displayName: Run .NET acceptance tests
     dependsOn: ${{ parameters.dependsOn }}
+    condition: ${{ parameters.condition }}
     pool:
       name: playwright-medium
     variables:
