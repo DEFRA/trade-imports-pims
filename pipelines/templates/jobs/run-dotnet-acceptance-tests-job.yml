@@ -18,14 +18,26 @@ parameters:
     type: string
   - name: keyVaultName
     type: string
+  - name: parallelWorkers
+    type: string
+    default: 4
+  - name: testTimeoutMinutes
+    type: number
+    default: 10
   - name: dependsOn
     type: object
     default: []
+  - name: condition
+    type: string
+    default: succeeded()
 
 jobs:
   - job: RunDotNetAcceptanceTests
     displayName: Run .NET acceptance tests
     dependsOn: ${{ parameters.dependsOn }}
+    condition: ${{ parameters.condition }}
+    pool:
+      name: playwright-medium
     variables:
       RunDotNetAcceptanceTests.Url: ${{ parameters.url }}
       RunDotNetAcceptanceTests.ClientId: ${{ parameters.clientId }}
@@ -33,6 +45,7 @@ jobs:
       RunDotNetAcceptanceTests.KeyVault.ClientId: ${{ parameters.keyVaultClientId }}
       RunDotNetAcceptanceTests.KeyVault.ClientSecret: ${{ parameters.keyVaultClientSecret }}
       RunDotNetAcceptanceTests.KeyVault.Name: ${{ parameters.keyVaultName }}
+      RunDotNetAcceptanceTests.ParallelWorkers: ${{ parameters.parallelWorkers }}
     steps:
       - checkout: self
 
@@ -48,20 +61,20 @@ jobs:
           projects: ${{ parameters.project }}
           arguments: --configuration Release
 
-      - pwsh: |
-          $script = Get-ChildItem -Path "$(Build.SourcesDirectory)" -Filter playwright.ps1 -Recurse |
-            Where-Object { $_.FullName -match 'Release' -and (Test-Path (Join-Path $_.DirectoryName 'Microsoft.Playwright.dll')) } |
-            Select-Object -First 1
-          if (-not $script) { throw 'playwright.ps1 not found in build output.' }
-          & $script.FullName install --with-deps
-        displayName: Install Playwright browsers and dependencies
+      - powershell: |
+          $ms = [int]${{ parameters.testTimeoutMinutes }} * 60000
+          Write-Host "##vso[task.setvariable variable=RunDotNetAcceptanceTests.TestTimeoutMs]$ms"
+        displayName: Calculate test timeout in milliseconds
 
       - task: DotNetCoreCLI@2
         displayName: Run acceptance tests
         inputs:
           command: test
           projects: ${{ parameters.project }}
-          arguments: --configuration Release --no-build
+          arguments: >-
+            --configuration Release --no-build -v normal
+            -- MSTest.Parallelize.Workers=$(RunDotNetAcceptanceTests.ParallelWorkers)
+            MSTest.TestTimeout=$(RunDotNetAcceptanceTests.TestTimeoutMs)
           publishTestResults: true
           testRunTitle: Acceptance tests
         env:

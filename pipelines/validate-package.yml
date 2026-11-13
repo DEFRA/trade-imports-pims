@@ -87,6 +87,22 @@ extends:
     postBuildSteps:
       - template: templates\steps\run-typescript-unit-tests-steps.yml@self
       - template: templates\steps\sonarqube-publish-steps.yml@self
+    additionalPatterns:
+      - filePatterns:
+          - tests/Defra.Imports.IntegrationTests/*
+          - tests/Defra.Imports.Scenarios/*
+          - pipelines/templates/jobs/run-dotnet-integration-tests-job.yml
+        stepName: GetIntegrationTestsUpdated
+        stepDisplayName: Get integration tests updated
+        triggerEnvironmentCreate: true
+      - filePatterns:
+          - tests/Defra.Imports.Scenarios/*
+          - tests/Defra.Imports.PageObjects/*
+          - tests/Defra.Imports.Specs/*
+          - pipelines/templates/jobs/run-dotnet-acceptance-tests-job.yml
+        stepName: GetAcceptanceTestsUpdated
+        stepDisplayName: Get acceptance tests updated
+        triggerEnvironmentCreate: true
     testJobs:
       - template: templates/jobs/run-dotnet-integration-tests-job.yml
         parameters:
@@ -95,6 +111,27 @@ extends:
           keyVaultClientId: $(KeyVault.TestUsers.ClientId)
           keyVaultClientSecret: $(KeyVault.TestUsers.ClientSecret)
           keyVaultName: $(KeyVault.TestUsers.Name)
+          condition: |
+            and(
+              not(canceled()),
+              or(
+                eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetIntegrationTestsUpdated.IsUpdated'], 'True'),
+                and(
+                  eq(stageDependencies.AnalyseUpdates.FindExistingEnvironment.outputs['FindWorkItemHyperlink.Relation.attributes.comment.commitHash'], ''),
+                  or(
+                    eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetPackageTemplateUpdated.IsUpdated'], 'True'),
+                    eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetSolutionUpdates.Backend.IsUpdated'], 'True')
+                  )
+                ),
+                and(
+                  ne(stageDependencies.AnalyseUpdates.FindExistingEnvironment.outputs['FindWorkItemHyperlink.Relation.attributes.comment.commitHash'], ''),
+                  or(
+                    eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetPackageTemplateUpdated.IsUpdated'], 'True'),
+                    eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetSolutionUpdates.Backend.IsUpdated'], 'True')
+                  )
+                )
+              )
+            )
       - template: templates/jobs/run-dotnet-acceptance-tests-job.yml
         parameters:
           clientId: $(Tests.ApplicationUser.ApplicationId)
@@ -102,6 +139,31 @@ extends:
           keyVaultClientId: $(KeyVault.TestUsers.ClientId)
           keyVaultClientSecret: $(KeyVault.TestUsers.ClientSecret)
           keyVaultName: $(KeyVault.TestUsers.Name)
+          parallelWorkers: $(Tests.Acceptance.Workers)
           dependsOn: RunDotNetIntegrationTests
+          condition: |
+            and(
+              not(canceled()),
+              in(dependencies.RunDotNetIntegrationTests.result, 'Succeeded', 'SucceededWithIssues', 'Skipped'),
+              or(
+                eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetAcceptanceTestsUpdated.IsUpdated'], 'True'),
+                and(
+                  eq(stageDependencies.AnalyseUpdates.FindExistingEnvironment.outputs['FindWorkItemHyperlink.Relation.attributes.comment.commitHash'], ''),
+                  or(
+                    eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetPackageTemplateUpdated.IsUpdated'], 'True'),
+                    eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetSolutionUpdates.Frontend.IsUpdated'], 'True'),
+                    eq(stageDependencies.AnalyseUpdates.AnalyseUpdates.outputs['GetSolutionUpdates.Backend.IsUpdated'], 'True')
+                  )
+                ),
+                and(
+                  ne(stageDependencies.AnalyseUpdates.FindExistingEnvironment.outputs['FindWorkItemHyperlink.Relation.attributes.comment.commitHash'], ''),
+                  or(
+                    eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetPackageTemplateUpdated.IsUpdated'], 'True'),
+                    eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetSolutionUpdates.Frontend.IsUpdated'], 'True'),
+                    eq(stageDependencies.AnalyseUpdates.AnalyseEnvironmentUpdates.outputs['GetSolutionUpdates.Backend.IsUpdated'], 'True')
+                  )
+                )
+              )
+            )
     githubToken: $(GitHub.Token)
     config: PkgAssets/ImportConfig.Standalone.xml
