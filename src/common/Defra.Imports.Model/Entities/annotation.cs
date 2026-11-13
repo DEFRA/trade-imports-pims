@@ -69,6 +69,7 @@ namespace Defra.Imports.Model
 			public const string lk_annotationbase_createdonbehalfby = "lk_annotationbase_createdonbehalfby";
 			public const string lk_annotationbase_modifiedby = "lk_annotationbase_modifiedby";
 			public const string lk_annotationbase_modifiedonbehalfby = "lk_annotationbase_modifiedonbehalfby";
+			public const string team_annotations = "team_annotations";
 		}
 		
 		/// <summary>
@@ -763,6 +764,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_annotationbase_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_annotations
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_annotations")]
+		public Defra.Imports.Model.Team team_annotations
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_annotations", null);
 			}
 		}
 	}

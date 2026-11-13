@@ -104,6 +104,7 @@ namespace Defra.Imports.Model
 			public const string lk_defraimp_notificationpermanentaddress_createdonbehalfby = "lk_defraimp_notificationpermanentaddress_createdonbehalfby";
 			public const string lk_defraimp_notificationpermanentaddress_modifiedby = "lk_defraimp_notificationpermanentaddress_modifiedby";
 			public const string lk_defraimp_notificationpermanentaddress_modifiedonbehalfby = "lk_defraimp_notificationpermanentaddress_modifiedonbehalfby";
+			public const string team_defraimp_notificationpermanentaddress = "team_defraimp_notificationpermanentaddress";
 			public const string user_defraimp_notificationpermanentaddress = "user_defraimp_notificationpermanentaddress";
 		}
 		
@@ -932,6 +933,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_defraimp_notificationpermanentaddress_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_defraimp_notificationpermanentaddress
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_defraimp_notificationpermanentaddress")]
+		public Defra.Imports.Model.Team team_defraimp_notificationpermanentaddress
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_defraimp_notificationpermanentaddress", null);
 			}
 		}
 		

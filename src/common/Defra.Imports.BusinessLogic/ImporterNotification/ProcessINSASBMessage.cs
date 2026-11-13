@@ -21,6 +21,10 @@
         private readonly IOrganizationService orgSvc;
         private readonly ILogWriter logger;
 
+        private readonly string euImportsTeam = "defraimp_EUImportsTeam";
+
+        private readonly string insVersion = "defraimp_INSVersionNumber";
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessINSASBMessage"/> class.
         /// </summary>
@@ -258,32 +262,12 @@
         /// <returns>True if the schema version matches the environment variable value; otherwise false.</returns>
         public bool IsSchemaVersionCurrent(INSObject insObject)
         {
-            const string EnvironmentVariableSchemaName = "defraimp_INSVersionNumber";
+            var insVersionNumber = this.GetEnvironmentVariableValue(this.insVersion);
 
-            var query = new QueryExpression(EnvironmentVariableDefinition.EntityLogicalName);
-            query.Criteria.AddCondition(new ConditionExpression(EnvironmentVariableDefinition.Fields.SchemaName, ConditionOperator.Equal, EnvironmentVariableSchemaName));
-            query.ColumnSet = new ColumnSet(EnvironmentVariableDefinition.Fields.DefaultValue);
-
-            var valueLink = query.AddLink(
-                EnvironmentVariableValue.EntityLogicalName,
-                EnvironmentVariableDefinition.Fields.EnvironmentVariableDefinitionId,
-                EnvironmentVariableValue.Fields.EnvironmentVariableDefinitionId,
-                JoinOperator.LeftOuter);
-            valueLink.EntityAlias = "envvarvalue";
-            valueLink.Columns = new ColumnSet(EnvironmentVariableValue.Fields.Value);
-
-            var results = this.orgSvc.RetrieveMultiple(query);
-            var definition = results.Entities.FirstOrDefault();
-
-            if (definition == null)
+            if (string.IsNullOrWhiteSpace(insVersionNumber))
             {
                 return false;
             }
-
-            var currentValue = definition.GetAttributeValue<AliasedValue>("envvarvalue." + EnvironmentVariableValue.Fields.Value)?.Value as string;
-            var insVersionNumber = string.IsNullOrWhiteSpace(currentValue)
-                ? definition.GetAttributeValue<string>(EnvironmentVariableDefinition.Fields.DefaultValue)
-                : currentValue;
 
             return string.Equals(insVersionNumber, insObject?.Metadata?.SchemaVersion, StringComparison.OrdinalIgnoreCase);
         }
@@ -438,6 +422,25 @@
             return Tuple.Create(false, "noUpdate", noUpdateMessage);
         }
 
+        private void AssignEuImportsTeamOwner(defraimp_ImporterNotification importerNotification)
+        {
+            var teamIdValue = this.GetEnvironmentVariableValue(this.euImportsTeam);
+
+            if (!Guid.TryParse(teamIdValue, out var teamId))
+            {
+                return;
+            }
+
+            var teamQuery = new QueryExpression(Team.EntityLogicalName) { ColumnSet = new ColumnSet(Team.Fields.TeamId), TopCount = 1 };
+            teamQuery.Criteria.AddCondition(new ConditionExpression(Team.Fields.TeamId, ConditionOperator.Equal, teamId));
+
+            var team = this.orgSvc.RetrieveMultiple(teamQuery).Entities.Select(e => e.ToEntity<Team>()).FirstOrDefault();
+            if (team != null)
+            {
+                importerNotification.OwnerId = team.ToEntityReference();
+            }
+        }
+
         private Tuple<bool, string, string> TryCreateNew(INSObject insObject)
         {
             var identifier = insObject.Data.ExchangedDocument.Identifier;
@@ -446,6 +449,7 @@
 
             if (newNotification.defraimp_status != defraimp_importernotificationstatus.Draft)
             {
+                this.AssignEuImportsTeamOwner(newNotification);
                 this.AttachConsignmentItemDetails(newNotification, insObject.Data?.SpecifiedConsignment?.IncludedConsignmentItem);
                 this.orgSvc.Create(newNotification);
 
@@ -727,7 +731,7 @@
             return this.IsSameAddress(destinationAddress, productInstance.PermanentLocation.PostalAddress);
         }
 
-        private void ApplyTransporterDetails(defraimp_ImporterNotification importerNotification, Carrier transporter, Dictionary<string, defra_country> countries)
+        private void ApplyTransporterDetails(defraimp_ImporterNotification importerNotification, Party transporter, Dictionary<string, defra_country> countries)
         {
             if (transporter == null)
             {
@@ -756,8 +760,6 @@
             {
                 importerNotification.defraimp_transportertype = transporter.PartyTypeCode[0].Value;
             }
-
-            // TODO - transporter status and approval number
         }
 
         private void ApplyTransportMovementDetails(defraimp_ImporterNotification importerNotification, SpecifiedConsignment consignment)
@@ -1060,6 +1062,35 @@
             {
                 importerNotification.defraimp_lastupdatedbydisplayname = lastStatusChange.Actor.DisplayName;
             }
+        }
+
+        private string GetEnvironmentVariableValue(string schemaName)
+        {
+            var query = new QueryExpression(EnvironmentVariableDefinition.EntityLogicalName);
+            query.Criteria.AddCondition(new ConditionExpression(EnvironmentVariableDefinition.Fields.SchemaName, ConditionOperator.Equal, schemaName));
+            query.ColumnSet = new ColumnSet(EnvironmentVariableDefinition.Fields.DefaultValue);
+
+            var valueLink = query.AddLink(
+                EnvironmentVariableValue.EntityLogicalName,
+                EnvironmentVariableDefinition.Fields.EnvironmentVariableDefinitionId,
+                EnvironmentVariableValue.Fields.EnvironmentVariableDefinitionId,
+                JoinOperator.LeftOuter);
+            valueLink.EntityAlias = "envvarvalue";
+            valueLink.Columns = new ColumnSet(EnvironmentVariableValue.Fields.Value);
+
+            var definition = this.orgSvc.RetrieveMultiple(query).Entities.FirstOrDefault();
+            if (definition == null)
+            {
+                return null;
+            }
+
+            var currentValue = definition.GetAttributeValue<AliasedValue>("envvarvalue." + EnvironmentVariableValue.Fields.Value)?.Value as string;
+
+            var value = string.IsNullOrWhiteSpace(currentValue)
+                ? definition.GetAttributeValue<string>(EnvironmentVariableDefinition.Fields.DefaultValue)
+                : currentValue;
+
+            return value;
         }
     }
 }

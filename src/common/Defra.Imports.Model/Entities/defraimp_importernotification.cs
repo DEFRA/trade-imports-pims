@@ -367,10 +367,12 @@ namespace Defra.Imports.Model
 			public const string defraimp_defraimp_imptype_defraimp_importernotification_imptypeid = "defraimp_defraimp_imptype_defraimp_importernotification_imptypeid";
 			public const string defraimp_importernotification_PlaceofOriginCountryId_defra_country = "defraimp_importernotification_PlaceofOriginCountryId_defra_country";
 			public const string defraimp_systemuser_defraimp_importernotification_IRMSPersonResponsible = "defraimp_systemuser_defraimp_importernotification_IRMSPersonResponsible";
+			public const string defraimp_team_defraimp_importernotification_DevolvedOffice = "defraimp_team_defraimp_importernotification_DevolvedOffice";
 			public const string lk_defraimp_importernotification_createdby = "lk_defraimp_importernotification_createdby";
 			public const string lk_defraimp_importernotification_createdonbehalfby = "lk_defraimp_importernotification_createdonbehalfby";
 			public const string lk_defraimp_importernotification_modifiedby = "lk_defraimp_importernotification_modifiedby";
 			public const string lk_defraimp_importernotification_modifiedonbehalfby = "lk_defraimp_importernotification_modifiedonbehalfby";
+			public const string team_defraimp_importernotification = "team_defraimp_importernotification";
 			public const string user_defraimp_importernotification = "user_defraimp_importernotification";
 		}
 		
@@ -5483,6 +5485,25 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// N:1 defraimp_team_defraimp_importernotification_DevolvedOffice
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_devolvedoffice")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_team_defraimp_importernotification_DevolvedOffice")]
+		public Defra.Imports.Model.Team defraimp_team_defraimp_importernotification_DevolvedOffice
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("defraimp_team_defraimp_importernotification_DevolvedOffice", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_team_defraimp_importernotification_DevolvedOffice");
+				this.SetRelatedEntity<Defra.Imports.Model.Team>("defraimp_team_defraimp_importernotification_DevolvedOffice", null, value);
+				this.OnPropertyChanged("defraimp_team_defraimp_importernotification_DevolvedOffice");
+			}
+		}
+		
+		/// <summary>
 		/// N:1 lk_defraimp_importernotification_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
@@ -5531,6 +5552,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_defraimp_importernotification_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_defraimp_importernotification
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_defraimp_importernotification")]
+		public Defra.Imports.Model.Team team_defraimp_importernotification
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_defraimp_importernotification", null);
 			}
 		}
 		

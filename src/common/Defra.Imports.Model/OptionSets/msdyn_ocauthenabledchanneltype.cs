@@ -29,6 +29,9 @@ namespace Defra.Imports.Model
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppleMessagesForBusiness = 192450000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChatGPT = 192470000,
 	}
 }
 #pragma warning restore CS1591

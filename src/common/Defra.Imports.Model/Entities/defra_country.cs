@@ -146,6 +146,7 @@ namespace Defra.Imports.Model
 			public const string lk_defra_country_createdonbehalfby = "lk_defra_country_createdonbehalfby";
 			public const string lk_defra_country_modifiedby = "lk_defra_country_modifiedby";
 			public const string lk_defra_country_modifiedonbehalfby = "lk_defra_country_modifiedonbehalfby";
+			public const string team_defra_country = "team_defra_country";
 			public const string user_defra_country = "user_defra_country";
 		}
 		
@@ -1518,6 +1519,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_defra_country_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_defra_country
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_defra_country")]
+		public Defra.Imports.Model.Team team_defra_country
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_defra_country", null);
 			}
 		}
 		
