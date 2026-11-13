@@ -26,6 +26,8 @@ jobs:
   - job: RunDotNetAcceptanceTests
     displayName: Run .NET acceptance tests
     dependsOn: ${{ parameters.dependsOn }}
+    pool:
+      name: playwright-medium
     variables:
       RunDotNetAcceptanceTests.Url: ${{ parameters.url }}
       RunDotNetAcceptanceTests.ClientId: ${{ parameters.clientId }}
