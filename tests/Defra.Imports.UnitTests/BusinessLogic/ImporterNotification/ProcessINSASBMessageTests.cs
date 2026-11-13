@@ -42,14 +42,12 @@
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_commoditycomplement.EntityLogicalName)))
                 .Returns(new EntityCollection());
 
-            // Default: schema version environment variable definition has no override/default value configured,
-            // which resolves to a null schema version. Since none of the test-built messages set
-            // metadata.schemaVersion (also null), IsSchemaVersionCurrent compares null to null and passes,
-            // allowing existing tests to exercise the create/update logic as before. Tests that specifically
-            // target IsSchemaVersionCurrent configure their own override via SetupEnvironmentVariableQuery.
+            // Default: schema version environment variable default value is 1.0, matching the
+            // metadata.schemaVersion set on test-built messages, so existing tests exercise the create/update logic.
+            // Tests that specifically target IsSchemaVersionCurrent configure their own values.
             this.orgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == EnvironmentVariableDefinition.EntityLogicalName)))
-                .Returns(new EntityCollection(new List<Entity> { new EnvironmentVariableDefinition { Id = Guid.NewGuid() } }));
+                .Returns(new EntityCollection(new List<Entity> { new EnvironmentVariableDefinition { Id = Guid.NewGuid(), DefaultValue = "1.0" } }));
         }
 
         /// <summary>
@@ -1946,6 +1944,7 @@
 
             var message = $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""INS-CC-005"",
@@ -2021,6 +2020,7 @@
 
             var message = $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{""exchangedDocument"": {{ ""identifier"": ""INS-CC-006"",
                 ""notificationStatusCode"": ""SUBMITTED"",
                 ""versionId"": 1 }},
@@ -2068,6 +2068,7 @@
 
             var message = $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-007"",
                 ""notificationStatusCode"": ""SUBMITTED"",
@@ -2110,6 +2111,7 @@
 
             const string message = @"{
               ""aggregateVersion"": 1,
+              ""metadata"": { ""schemaVersion"": ""1.0"" },
               ""data"": {
                 ""exchangedDocument"": { ""identifier"": ""INS-CC-010"",
                 ""notificationStatusCode"": ""SUBMITTED"",
@@ -2152,6 +2154,7 @@
 
             var message = $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-008"",
                 ""notificationStatusCode"": ""SUBMITTED"",
@@ -2200,6 +2203,7 @@
 
             var message = $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-009"",
                 ""notificationStatusCode"": ""SUBMITTED"",
@@ -2245,6 +2249,7 @@
 
             const string message = @"{
               ""aggregateVersion"": 1,
+              ""metadata"": { ""schemaVersion"": ""1.0"" },
               ""data"": {
                 ""exchangedDocument"": {
                   ""identifier"": ""INS-CC-007"",
@@ -2285,6 +2290,7 @@
 
             const string message = @"{
               ""aggregateVersion"": 1,
+              ""metadata"": { ""schemaVersion"": ""1.0"" },
               ""data"": {
                 ""exchangedDocument"": {
                   ""identifier"": ""INS-CC-009"",
@@ -2702,7 +2708,7 @@
                 .Setup(o => o.Create(It.IsAny<Entity>()))
                 .Returns(Guid.NewGuid());
 
-            var message = @"{ ""aggregateVersion"": 1, ""data"": {
+            var message = @"{ ""aggregateVersion"": 1, ""metadata"": { ""schemaVersion"": ""1.0"" }, ""data"": {
                 ""exchangedDocument"": { ""identifier"": ""INS-282"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 },
                 ""specifiedConsignment"": { ""carrier"": { ""name"": ""Lough Neagh"", ""postalAddress"": { ""lineOne"": ""4 Shore Road"", ""cityName"": ""Antrim"" } } } } }";
 
@@ -3042,6 +3048,7 @@
 
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3066,6 +3073,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -3084,6 +3092,7 @@
 
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""{statusCode}"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -3110,6 +3119,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -3144,6 +3154,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -3171,6 +3182,7 @@
 
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -3189,6 +3201,7 @@
         {
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3203,6 +3216,7 @@
         {
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""{statusCode}"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{}}
@@ -3214,6 +3228,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -3249,6 +3264,7 @@
         {
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3269,6 +3285,7 @@
         {
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3328,6 +3345,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 2,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3368,6 +3386,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3394,6 +3413,7 @@
         {
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",

@@ -264,6 +264,11 @@
         {
             var insVersionNumber = this.GetEnvironmentVariableValue(this.insVersion);
 
+            if (string.IsNullOrWhiteSpace(insVersionNumber))
+            {
+                return false;
+            }
+
             return string.Equals(insVersionNumber, insObject?.Metadata?.SchemaVersion, StringComparison.OrdinalIgnoreCase);
         }
 
