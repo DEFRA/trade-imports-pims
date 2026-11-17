@@ -83,7 +83,7 @@
     </fetchxml>
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics" languagecode="1033" />
+      <LocalizedName description="[TO BE DELETED] Amended Notifications where Health Certificate Attached and Owner changed to EU Imports Dynamics" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
