@@ -4,6 +4,7 @@ const MULTIPLE_COMMODITY_NOTIFICATION_ID = 'multipleCommodityNotification';
 type SaveMode = ReturnType<Xrm.Events.SaveEventArguments['getSaveMode']>;
 
 const TYPE_CVEDA = 714100000;
+const TYPE_GBN_AG = 714100005;
 const PURPOSE_OF_CONSIGNMENT_RE_ENTRY = 714100009;
 const SAVE_MODE_SAVE_AND_CLOSE = 2 as SaveMode;
 
@@ -24,6 +25,16 @@ export function showHideCharity(executionContext: Xrm.Events.EventContext): void
     .getValue();
 
   formContext.ui.tabs.get('Charity_Tab')!.setVisible(importingFromCharity ?? false);
+}
+
+export function showHidePlaceOfOrigin(executionContext: Xrm.Events.EventContext): void {
+  const formContext = executionContext.getFormContext();
+
+  const type = formContext
+    .getAttribute<Xrm.Attributes.OptionSetAttribute>('defraimp_type')
+    ?.getValue();
+
+  formContext.ui.tabs.get('placeoforigin_tab')!.setVisible(type !== TYPE_GBN_AG);
 }
 
 export function checkForMultipleCommodities(executionContext: Xrm.Events.EventContext): void {
