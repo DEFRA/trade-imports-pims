@@ -7,6 +7,7 @@
   <AsyncAutoDelete>0</AsyncAutoDelete>
   <Description>Defra.Imports.Plugins.ParameterSetKeyDataPair.PopulateAnimalNumber: Update of defraimp_parametersetkeydatapair</Description>
   <FilteringAttributes>defraimp_data</FilteringAttributes>
+  <ImpersonatingUserIdName></ImpersonatingUserIdName>
   <InvocationSource>1</InvocationSource>
   <Mode>0</Mode>
   <Rank>1</Rank>

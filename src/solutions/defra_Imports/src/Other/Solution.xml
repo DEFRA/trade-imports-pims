@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.26102.136" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26102.136" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.26102.00136">
+<ImportExportXml version="9.2.26103.165" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26103.165" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.26103.00165">
   <SolutionManifest>
     <UniqueName>defra_Imports</UniqueName>
     <LocalizedNames>
       <LocalizedName description="DEFRA - Imports" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>0.1.0</Version>
+    <Version>1.7.0</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>defraimports</UniqueName>
@@ -248,7 +248,6 @@
       <RootComponent type="29" id="{a49eeb1b-f42a-4320-b98d-d6e3740bcca7}" behavior="0" />
       <RootComponent type="29" id="{a8fe68d8-bd16-ea11-a811-000d3ab4df6c}" behavior="0" />
       <RootComponent type="29" id="{abd73f62-b777-4672-b66e-e2eed645d8cc}" behavior="0" />
-      <RootComponent type="29" id="{ae602fe3-a6de-f111-84e8-000d3a69ba0b}" behavior="0" />
       <RootComponent type="29" id="{af1985db-030b-ea11-a811-000d3ab5d037}" behavior="0" />
       <RootComponent type="29" id="{b45cc4dd-8a6d-4f16-8ffe-27c8c6412918}" behavior="0" />
       <RootComponent type="29" id="{b8d9b874-fabf-4334-9be7-7aca44bb1f44}" behavior="0" />

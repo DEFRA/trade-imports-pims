@@ -46,13 +46,12 @@
           <attribute name="defraimp_duedate" />
           <attribute name="regardingobjectid" />
           <order attribute="defraimp_querynumber" descending="true" />
-          <attribute name="activityid" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>0.0.0.2</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="[TO BE DELETED] Closed Import Queries" languagecode="1033" />
+      <LocalizedName description="Closed Import Queries" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
