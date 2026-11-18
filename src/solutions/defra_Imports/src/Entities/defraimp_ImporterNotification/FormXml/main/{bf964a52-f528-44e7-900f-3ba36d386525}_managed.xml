@@ -432,6 +432,13 @@
               </sections>
             </column>
           </columns>
+          <events>
+            <event name="tabstatechange" application="false" active="false">
+              <Handlers>
+                <Handler functionName="DefraImports.ImporterNotification.showHidePlaceOfOrigin" libraryName="defraimp_/js/importernotification.form.js" handlerUniqueId="{b5d75af1-aee0-45e7-88f6-4313a8a52007}" enabled="true" parameters="" passExecutionContext="true" />
+              </Handlers>
+            </event>
+          </events>
         </tab>
         <tab name="commoditycomplements_tab" id="2263bba6-8e5e-4ab2-af2b-d2aecfbc381c" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
           <labels>
@@ -1228,16 +1235,16 @@
             </column>
           </columns>
         </tab>
-        <tab name="placeoforigin_tab" id="729d3bc9-9a83-4f72-8815-6a86a495cb9d" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
+        <tab name="consignor_tab" id="729d3bc9-9a83-4f72-8815-6a86a495cb9d" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
           <labels>
-            <label description="Place of Origin " languagecode="1033" />
+            <label description="Consignor" languagecode="1033" />
           </labels>
           <columns>
             <column width="50%">
               <sections>
                 <section name="tab_7_section_1" id="18cca320-b237-4e61-9db9-155f37af1281" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
-                    <label description="Place of Origin Details" languagecode="1033" />
+                    <label description="Consignor Details" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -1345,6 +1352,101 @@
                           <label description="Country" languagecode="1033" />
                         </labels>
                         <control id="defraimp_consignoraddresscountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_consignoraddresscountryid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="placeoforigin_tab" id="6762cf31-7014-4502-86e9-3e8ec101ac64" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Place of Origin" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section name="tab_16_section_1" id="116269df-225e-4b84-9ccc-7ba9077f92bf" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Place of Origin Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{a7d722b2-08cb-46ce-ac22-f5c61b62b3b8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforigincompanyname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforigincompanyname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5a5d68c5-7c1e-4772-81ab-61885967a659}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Email" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginemail" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginemail" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cbae1bda-f501-477a-b62e-7cb3f100fd98}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Telephone" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginphone" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginphone" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="tab_16_section_2" id="4aa7c513-24b9-44d8-9435-2bc51b897475" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Address" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{9dbe3c63-c749-4928-8582-92e143a313b2}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Address Line 1" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginaddressline1" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginaddressline1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{97b53914-8d48-437c-be2b-7f9a1543370a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Address Line 2" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginaddressline2" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginaddressline2" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{690c353c-126d-46d9-8da3-1778a4ade6ec}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="City" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforigincity" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforigincity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aec90e23-a0e3-457e-ba33-04141698299e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Postcode" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforiginpostcode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="defraimp_placeoforiginpostcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4d3018fd-a594-472f-bd2a-72d45283fd62}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Country" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_placeoforigincountryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_placeoforigincountryid" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -2313,6 +2415,7 @@
           <Handlers>
             <Handler functionName="DefraImports.ImporterNotification.showHideCharity" libraryName="defraimp_/js/importernotification.form.js" handlerUniqueId="{ceb5e324-b0b7-0853-6b93-606168a75126}" enabled="true" parameters="" passExecutionContext="true" />
             <Handler functionName="DefraImports.ImporterNotification.checkForMultipleCommodities" libraryName="defraimp_/js/importernotification.form.js" handlerUniqueId="{34bbe893-3980-b5dd-eea6-61267c282ce8}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="DefraImports.ImporterNotification.showHidePlaceOfOrigin" libraryName="defraimp_/js/importernotification.form.js" handlerUniqueId="{99b16593-a223-44f7-8d60-62090f62ba25}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
         <event name="onchange" application="false" active="false" attribute="defraimp_importingfromcharity">
@@ -2328,6 +2431,11 @@
         <event name="onchange" application="false" active="false" attribute="defraimp_caseworkerintervention">
           <Handlers>
             <Handler functionName="DefraImports.ImporterNotification.checkForMultipleCommodities" libraryName="defraimp_/js/importernotification.form.js" handlerUniqueId="{a986820b-04c1-8c59-e433-c9debbaea1b3}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="defraimp_type">
+          <Handlers>
+            <Handler functionName="DefraImports.ImporterNotification.showHidePlaceOfOrigin" libraryName="defraimp_/js/importernotification.form.js" handlerUniqueId="{d4905d74-a5ca-48aa-9206-19372dcb3d8f}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>
