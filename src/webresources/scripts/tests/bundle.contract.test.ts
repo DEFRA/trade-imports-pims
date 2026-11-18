@@ -29,7 +29,7 @@ const bundles = [
   [
     'importernotification.form.js',
     'ImporterNotification',
-    ['showHideCharity', 'checkForMultipleCommodities'],
+    ['showHideCharity', 'showHidePlaceOfOrigin', 'checkForMultipleCommodities'],
   ],
   [
     'importernotification.ribbon.js',
