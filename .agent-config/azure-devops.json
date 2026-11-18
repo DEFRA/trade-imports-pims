@@ -1,5 +1,4 @@
 {
-  "$schema": "../.github/skills/azure-boards-management/config.schema.json",
   "schemaVersion": "1.0",
   "organization": "defradev",
   "project": "Defra-EUX-Imports",
