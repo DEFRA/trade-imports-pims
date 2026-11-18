@@ -34,7 +34,7 @@ export function showHidePlaceOfOrigin(executionContext: Xrm.Events.EventContext)
     .getAttribute<Xrm.Attributes.OptionSetAttribute>('defraimp_type')
     ?.getValue();
 
-  formContext.ui.tabs.get('placeoforigin_tab')!.setVisible(type !== TYPE_GBN_AG);
+  formContext.ui.tabs.get('placeoforigin_tab')!.setVisible(type === TYPE_GBN_AG);
 }
 
 export function checkForMultipleCommodities(executionContext: Xrm.Events.EventContext): void {

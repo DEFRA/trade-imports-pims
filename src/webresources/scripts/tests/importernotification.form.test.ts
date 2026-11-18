@@ -90,22 +90,22 @@ describe('showHidePlaceOfOrigin', () => {
     return { placeOfOriginTab, fc };
   }
 
-  test('hides placeoforigin_tab when type is GBN AG (714100005)', () => {
+  test('shows placeoforigin_tab when type is GBN AG (714100005)', () => {
     const { placeOfOriginTab, fc } = buildCtx(TYPE_GBN_AG);
+    showHidePlaceOfOrigin(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
+    expect(placeOfOriginTab.setVisible).toHaveBeenCalledWith(true);
+  });
+
+  test('hides placeoforigin_tab when type is not GBN AG', () => {
+    const { placeOfOriginTab, fc } = buildCtx(714100000);
     showHidePlaceOfOrigin(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(placeOfOriginTab.setVisible).toHaveBeenCalledWith(false);
   });
 
-  test('shows placeoforigin_tab when type is not GBN AG', () => {
-    const { placeOfOriginTab, fc } = buildCtx(714100000);
-    showHidePlaceOfOrigin(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
-    expect(placeOfOriginTab.setVisible).toHaveBeenCalledWith(true);
-  });
-
-  test('shows placeoforigin_tab when type is null', () => {
+  test('hides placeoforigin_tab when type is null', () => {
     const { placeOfOriginTab, fc } = buildCtx(null);
     showHidePlaceOfOrigin(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
-    expect(placeOfOriginTab.setVisible).toHaveBeenCalledWith(true);
+    expect(placeOfOriginTab.setVisible).toHaveBeenCalledWith(false);
   });
 });
 
