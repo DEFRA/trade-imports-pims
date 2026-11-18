@@ -957,7 +957,6 @@
             var checkEditable = table.Header.Contains("Editable");
             var checkRequirementLevel = table.Header.Contains("Requirement Level");
             var checkPopulated = table.Header.Contains("Populated");
-            var checkVisible = table.Header.Contains("Visible");
 
             var exceptions = new List<Exception>();
             var currentTab = !this.ctx.StepContext.StepInfo.Text.Contains("header") && await this.RecordPage.Form.Container.IsVisibleAsync() ? await this.RecordPage.Form.GetActiveTabAsync() : null;
@@ -1000,14 +999,11 @@
                             }
                         }
 
-                        if (checkVisible)
+                        var isVisible = await field.IsVisibleAsync();
+
+                        if (!isVisible)
                         {
-                            var expectedVisible = bool.Parse(row["Visible"]);
-                            var actualVisible = await field.IsVisibleAsync();
-                            if (actualVisible != expectedVisible)
-                            {
-                                exceptions.Add(new AssertFailedException($"Expected {fieldDisplayName} Visible: {expectedVisible} but found Visible: {actualVisible}."));
-                            }
+                            exceptions.Add(new AssertFailedException($"Expected {fieldDisplayName} Visible: true but found Visible: false."));
                         }
                     },
                     tab: currentTab);
@@ -1207,7 +1203,9 @@
         [Then("I see the Importer Notification's Submission Date in the {string} field")]
         public async Task ThenISeeTheImporterNotificationsSubmissionDateInTheField(string displayName)
         {
-            var submissionDate = (DateTime?)this.ctx[ScenarioContextKeys.ImporterNotificationSubmissionDate];
+            var expectedValue = (DateTime?)this.ctx[ScenarioContextKeys.ImporterNotificationSubmissionDate];
+
+            expectedValue.Should().NotBeNull("the Importer Notification was submitted with a Submission Date");
 
             await this.ExecuteControlActionAsync<IDateTime>(
                 displayName,
@@ -1215,7 +1213,7 @@
                 {
                     var actualValue = await field.GetValueAsync();
 
-                    actualValue.Value.Date.Should().Be(submissionDate.Value.Date);
+                    actualValue.Value.Date.Should().Be(expectedValue.Value.Date);
                 },
                 tab: await this.RecordPage.Form.GetActiveTabAsync());
         }
@@ -1673,6 +1671,17 @@
         }
 
         /// <summary>
+        /// Verifies that the given fields all contain a value.
+        /// </summary>
+        /// <param name="fields">The fields to validate.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("I see a value in the following fields")]
+        public async Task ThenISeeAValueInTheFollowingFields(Table fields)
+        {
+            await this.ThenTheFollowingFieldsAreOrAreNotPopulated(true, fields);
+        }
+
+        /// <summary>
         /// Verifies that two fields are or aren't set to the same value.
         /// </summary>
         /// <param name="targetField">The target field.</param>
@@ -1985,6 +1994,29 @@
         [Then("I can see the following options in the {string} field")]
         public async Task ThenICanSeeTheFollowingOptionsInTheField(string fieldName, DataTable table)
         {
+            await this.AssertChoiceOptionsAsync(
+                fieldName,
+                table,
+                (actual, expected) => actual.Should().BeEquivalentTo(expected, "because the field options should match the expected options"));
+        }
+
+        /// <summary>
+        /// Asserts that a choice field includes the given options, whatever other options it offers.
+        /// </summary>
+        /// <param name="fieldName">The field.</param>
+        /// <param name="table">The options expected to be included.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous job.</returns>
+        [Then("the {string} field includes the following options")]
+        public async Task ThenTheFieldIncludesTheFollowingOptions(string fieldName, DataTable table)
+        {
+            await this.AssertChoiceOptionsAsync(
+                fieldName,
+                table,
+                (actual, expected) => actual.Should().Contain(expected, "because the field should offer these options"));
+        }
+
+        private async Task AssertChoiceOptionsAsync(string fieldName, DataTable table, Action<IEnumerable<string>, IEnumerable<string>> assertion)
+        {
             await this.ExecuteGenericFieldActionAsync(fieldName, async (field, fieldContext) =>
             {
                 if (fieldContext.ControlType != typeof(IChoice))
@@ -1993,11 +2025,9 @@
                 }
 
                 var expectedOptions = table.Rows.Select(r => r[0]);
+                var actualOptions = await field.GetControl<IChoice>().GetAllOptionsAsync();
 
-                var choice = field.GetControl<IChoice>();
-                var actualOptions = await choice.GetAllOptionsAsync();
-
-                actualOptions.Should().BeEquivalentTo(expectedOptions, "because the field options should match the expected options");
+                assertion(actualOptions, expectedOptions);
             });
         }
         /// <summary>
