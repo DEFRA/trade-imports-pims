@@ -18,6 +18,6 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         /// Gets subordinate trade country sub divisions.
         /// </summary>
         [DataMember(Name = "subordinateTradeCountrySubDivision")]
-        public SubordinateTradeCountrySubDivision[] SubordinateTradeCountrySubDivision { get; internal set; }
+        public SubordinateTradeCountrySubDivision SubordinateTradeCountrySubDivision { get; internal set; }
     }
 }

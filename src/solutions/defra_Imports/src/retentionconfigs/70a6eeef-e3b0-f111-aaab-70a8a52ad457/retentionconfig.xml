@@ -3,6 +3,7 @@
   <entitylogicalname>defraimp_importnotificationerror</entitylogicalname>
   <iscustomizable>1</iscustomizable>
   <name>BD - on Import Notification Error table rows older than 30 days</name>
+  <provisioningmode>0</provisioningmode>
   <recurrence>FREQ=DAILY;INTERVAL=1</recurrence>
   <starttime>8/31/2026 11:00:00 PM</starttime>
   <statecode>0</statecode>

@@ -5,7 +5,7 @@
     <CanBeDeleted>1</CanBeDeleted>
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
-    <isdefault>1</isdefault>
+    <isdefault>0</isdefault>
     <savedqueryid>{87b519a5-3ddc-4f62-b6ea-a8cee98be537}</savedqueryid>
     <layoutxml>
       <grid name="resultset" jump="subject" select="1" preview="1" icon="1">
@@ -57,7 +57,7 @@
     </fetchxml>
     <IntroducedVersion>0.0.0.91</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="My Open Import Queries" languagecode="1033" />
+      <LocalizedName description="[TO BE DELETED] My Open Import Queries" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

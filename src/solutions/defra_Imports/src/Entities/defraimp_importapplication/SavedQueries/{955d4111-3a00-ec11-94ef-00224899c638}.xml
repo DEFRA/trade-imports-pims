@@ -53,7 +53,7 @@
     </fetchxml>
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Import Records with Closed Non-Compliance Queries" languagecode="1033" />
+      <LocalizedName description="[TO BE DELETED] Import Records with Closed Non-Compliance Queries" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

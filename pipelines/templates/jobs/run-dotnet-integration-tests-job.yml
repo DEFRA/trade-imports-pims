@@ -18,10 +18,14 @@ parameters:
     type: string
   - name: keyVaultName
     type: string
+  - name: condition
+    type: string
+    default: succeeded()
 
 jobs:
   - job: RunDotNetIntegrationTests
     displayName: Run .NET integration tests
+    condition: ${{ parameters.condition }}
     variables:
       RunDotNetIntegrationTests.Url: ${{ parameters.url }}
       RunDotNetIntegrationTests.ClientId: ${{ parameters.clientId }}

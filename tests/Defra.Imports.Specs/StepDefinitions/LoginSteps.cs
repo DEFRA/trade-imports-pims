@@ -34,6 +34,7 @@
         private readonly ServiceClient serviceClient;
         private readonly TestContext testContext;
         private readonly IReqnrollOutputHelper outputHelper;
+        private readonly TestThreadContext testThreadContext;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginSteps"/> class.
@@ -48,8 +49,10 @@
         /// <param name="serviceClient">The service client.</param>
         /// <param name="testContext">The test context.</param>
         /// <param name="outputHelper">The output helper.</param>
-        public LoginSteps(IPowerPlaywright powerPlaywright, IPlaywright playwright, IObjectContainer objectContainer, Config.TestConfiguration testConfig, ScenarioUserClient userPool, PowerPlaywrightContext powerPlaywrightCtx, ScenarioContext ctx, ServiceClient serviceClient, TestContext testContext, IReqnrollOutputHelper outputHelper)
+        /// <param name="testThreadContext">The test thread context, used to share one browser per worker.</param>
+        public LoginSteps(IPowerPlaywright powerPlaywright, IPlaywright playwright, IObjectContainer objectContainer, Config.TestConfiguration testConfig, ScenarioUserClient userPool, PowerPlaywrightContext powerPlaywrightCtx, ScenarioContext ctx, ServiceClient serviceClient, TestContext testContext, IReqnrollOutputHelper outputHelper, TestThreadContext testThreadContext)
         {
+            this.testThreadContext = testThreadContext;
             this.powerPlaywright = powerPlaywright;
             this.playwright = playwright;
             this.objectContainer = objectContainer;
@@ -159,14 +162,7 @@
 
         private async Task<(IBrowserContext context, bool isReused)> GetBrowserContextAsync(string username = null)
         {
-            var browser = await this.playwright.Chromium.LaunchAsync(
-                new BrowserTypeLaunchOptions
-                {
-                    Headless = bool.TryParse(Environment.GetEnvironmentVariable("HEADLESS"), out var headless) && headless,
-                    Channel = "msedge",
-                });
-
-            this.objectContainer.RegisterInstanceAs(browser);
+            var browser = await BrowserProvider.ForWorker(this.testThreadContext).GetBrowserAsync(this.playwright);
 
             // Attempt to reuse storage state for the provided user
             IBrowserContext context;

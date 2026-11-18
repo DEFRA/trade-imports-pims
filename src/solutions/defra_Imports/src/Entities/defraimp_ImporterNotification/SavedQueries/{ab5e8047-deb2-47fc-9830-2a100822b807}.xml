@@ -18,6 +18,8 @@
           <cell name="defraimp_status" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_type" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_imptypeid" width="100" />
+          <cell name="defraimp_arrivaldate" width="111" />
+          <cell name="defraimp_healthcertificateattached" width="194" />
           <cell name="defraimp_personresponsiblename" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_personresponsiblecompanyname" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
           <cell name="defraimp_personresponsibleemail" width="200" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
@@ -56,6 +58,8 @@
           </filter>
           <attribute name="defraimp_importernotificationid" />
           <attribute name="defraimp_cloned" />
+          <attribute name="defraimp_arrivaldate" />
+          <attribute name="defraimp_healthcertificateattached" />
         </entity>
       </fetch>
     </fetchxml>
