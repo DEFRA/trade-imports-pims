@@ -10,7 +10,7 @@ namespace Defra.Imports.Scenarios.Fakers
     /// the representative Service Bus payloads under <c>Defra.Imports.IntegrationTests/TestData/NOTIFICATION*.json</c>
     /// (excluding amend/cancelled/error-case fixtures) and cross-referencing how each is mapped onto the Dataverse record
     /// by <c>Create_a_new_record_-_Notification</c> in <c>EUImportsNotifications.logicapp.json</c>.
-    /// Also populates the Consignor (Place of Origin/hidden Consignors tab), Consignee, Importer, Transporter, Place of
+    /// Also populates the Consignor (hidden "Consignors" tab), Place of Origin, Consignee, Importer, Transporter, Place of
     /// Destination and Person Responsible party field groups, and every country lookup, by default - grounded in the
     /// Importer Notification main FormXml's tab/control <c>datafieldname</c>s rather than the logical name alone. Country
     /// lookups reference <see cref="defra_country"/> reference data IDs known to exist in every target environment (see
@@ -162,7 +162,7 @@ namespace Defra.Imports.Scenarios.Fakers
             this.RuleFor(n => n.defraimp_CountryofOriginId, f => new EntityReference(defra_country.EntityLogicalName, f.PickRandom(CountryIds)));
             this.RuleFor(n => n.defraimp_transitdestinationcountryid, f => new EntityReference(defra_country.EntityLogicalName, f.PickRandom(CountryIds)));
 
-            // Consignor fields - back both the "Place of Origin" tab and the hidden "Consignors" tab (same datafieldnames on both).
+            // Consignor fields - back the hidden "Consignors" tab.
             this.RuleFor(n => n.defraimp_consignorindividualname, f => f.Name.FullName());
             this.RuleFor(n => n.defraimp_consignorcompanyname, f => f.Company.CompanyName());
             this.RuleFor(n => n.defraimp_consignoraddressemail, f => f.Internet.Email());
@@ -178,10 +178,22 @@ namespace Defra.Imports.Scenarios.Fakers
             this.RuleFor(n => n.defraimp_consignorapprovalnumber, f => f.Random.Replace("APP-#####"));
             this.RuleFor(n => n.defraimp_consignorstatus, f => f.PickRandom(PartyStatuses));
 
-            // Per notification-schema.json's EconomicOperator.type enum - the Place of Origin tab is backed by these
-            // same Consignor fields, so "premises of origin" is the grounded type for this party.
+            // Per notification-schema.json's EconomicOperator.type enum - "premises of origin" is the grounded type
+            // for this party.
             this.RuleFor(n => n.defraimp_consignortype, f => "premises of origin");
             this.RuleFor(n => n.defraimp_consignorotheridentifier, f => f.Random.Replace("ID-#####"));
+
+            // Place of Origin fields - back the new "Place of Origin" tab. A narrower field set than Consignor - no
+            // Approval Number/Status/Type/Other Identifier/3rd address line/UK-international phone split, just a
+            // single Phone field.
+            this.RuleFor(n => n.defraimp_PlaceofOriginCompanyName, f => f.Company.CompanyName());
+            this.RuleFor(n => n.defraimp_PlaceofOriginEmail, f => f.Internet.Email());
+            this.RuleFor(n => n.defraimp_PlaceofOriginPhone, f => f.Phone.PhoneNumber());
+            this.RuleFor(n => n.defraimp_PlaceofOriginAddressLine1, f => f.Address.StreetAddress());
+            this.RuleFor(n => n.defraimp_PlaceofOriginAddressLine2, f => f.Address.SecondaryAddress());
+            this.RuleFor(n => n.defraimp_PlaceofOriginCity, f => f.Address.City());
+            this.RuleFor(n => n.defraimp_PlaceofOriginPostcode, f => f.Address.ZipCode());
+            this.RuleFor(n => n.defraimp_PlaceofOriginCountryId, f => new EntityReference(defra_country.EntityLogicalName, f.PickRandom(CountryIds)));
 
             // Consignee fields - back the hidden "Consignee" tab.
             this.RuleFor(n => n.defraimp_consigneeindividualname, f => f.Name.FullName());

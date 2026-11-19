@@ -6,7 +6,11 @@ import {
   makeTab,
   setupXrm,
 } from './xrm-mock.helper';
-import { showHideCharity, checkForMultipleCommodities } from '../src/importernotification.form';
+import {
+  showHideCharity,
+  showHidePlaceOfOrigin,
+  checkForMultipleCommodities,
+} from '../src/importernotification.form';
 
 setupXrm();
 
@@ -66,6 +70,42 @@ describe('showHideCharity', () => {
     showHideCharity(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
     expect(fc.data.entity.addOnSave).not.toHaveBeenCalled();
     expect(fc.data.entity.addOnPostSave).not.toHaveBeenCalled();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// showHidePlaceOfOrigin
+// ---------------------------------------------------------------------------
+
+describe('showHidePlaceOfOrigin', () => {
+  const TYPE_GBN_AG = 714100005;
+
+  function buildCtx(type: number | null) {
+    const placeOfOriginTab = makeTab();
+    const fc = makeFormContext(
+      { defraimp_type: makeAttr(type) },
+      {},
+      { placeoforigin_tab: placeOfOriginTab }
+    );
+    return { placeOfOriginTab, fc };
+  }
+
+  test('shows placeoforigin_tab when type is GBN AG (714100005)', () => {
+    const { placeOfOriginTab, fc } = buildCtx(TYPE_GBN_AG);
+    showHidePlaceOfOrigin(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
+    expect(placeOfOriginTab.setVisible).toHaveBeenCalledWith(true);
+  });
+
+  test('hides placeoforigin_tab when type is not GBN AG', () => {
+    const { placeOfOriginTab, fc } = buildCtx(714100000);
+    showHidePlaceOfOrigin(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
+    expect(placeOfOriginTab.setVisible).toHaveBeenCalledWith(false);
+  });
+
+  test('hides placeoforigin_tab when type is null', () => {
+    const { placeOfOriginTab, fc } = buildCtx(null);
+    showHidePlaceOfOrigin(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
+    expect(placeOfOriginTab.setVisible).toHaveBeenCalledWith(false);
   });
 });
 
