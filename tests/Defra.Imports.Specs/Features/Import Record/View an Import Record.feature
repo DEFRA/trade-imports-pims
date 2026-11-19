@@ -2,6 +2,7 @@
 Feature: View an Import Record
 
 # Labels as they appear on the form, which differ from AC-1: 'Point of Entry' (Port of Entry), 'Purpose of Movement' (Purpose for Movement), 'IV65 Sent?' (IV65 Sent).
+# AC-10: the section is labelled 'Importer Notification' and the field 'Date Importer Notification Received' for every Import Record Type, never 'IV66', so the field assertions below cover it.
 @acceptance-criteria:us-001-1 @acceptance-criteria:us-001-10 @acceptance-criteria:us-001-16
 Scenario: A caseworker views an Import Record's summary details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
