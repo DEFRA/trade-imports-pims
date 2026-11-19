@@ -1,7 +1,6 @@
 namespace Defra.Imports.Workflows.ImportApplication
 {
     using System.Activities;
-    using Defra.Imports.Infrastructure.DependencyInjection;
     using Defra.Imports.Infrastructure.Workflows;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Workflow;
@@ -25,11 +24,5 @@ namespace Defra.Imports.Workflows.ImportApplication
         [ReferenceTarget("defraimp_importapplication")]
         [RequiredArgument]
         public InArgument<EntityReference> ImportApplication { get; set; }
-
-        /// <inheritdoc/>
-        protected override void RegisterActivity(PluginContainer scope)
-        {
-            scope.Register<InspectionPlaceOfOriginChange>(this);
-        }
     }
 }

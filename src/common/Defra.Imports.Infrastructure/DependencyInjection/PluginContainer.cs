@@ -51,9 +51,30 @@ namespace Defra.Imports.Infrastructure.DependencyInjection
         public void Register<TService>(TService instance)
             where TService : class
         {
+            this.Register(typeof(TService), instance);
+        }
+
+        /// <summary>
+        /// Registers a borrowed runtime service under a type known only at run time, which the scope will not
+        /// dispose. Instance registrations resolve by exact type.
+        /// </summary>
+        /// <param name="serviceType">The exact type that consumers request.</param>
+        /// <param name="instance">The current execution's service instance.</param>
+        public void Register(Type serviceType, object instance)
+        {
+            if (serviceType == null)
+            {
+                throw new ArgumentNullException(nameof(serviceType));
+            }
+
             if (instance == null)
             {
                 throw new ArgumentNullException(nameof(instance));
+            }
+
+            if (!serviceType.IsInstanceOfType(instance))
+            {
+                throw new ArgumentException("The instance must be assignable to " + serviceType.FullName + ".", nameof(instance));
             }
 
             lock (this.gate)
@@ -64,7 +85,7 @@ namespace Defra.Imports.Infrastructure.DependencyInjection
                     throw new InvalidOperationException("Runtime instances must be registered in an execution scope.");
                 }
 
-                this.instances.Add(typeof(TService), instance);
+                this.instances.Add(serviceType, instance);
             }
         }
 

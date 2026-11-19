@@ -17,8 +17,8 @@ namespace Defra.Imports.UnitTests.Infrastructure
             var sharedTypes = new[]
             {
                 typeof(IWorkflowActivityHandler),
-                typeof(WatchListQueries),
-                typeof(IWatchListInitialiser),
+                typeof(WatchFlagQueries),
+                typeof(IWatchFlagCreator),
                 typeof(EntityExtensions),
                 typeof(PluginBase<>),
                 typeof(WorkflowActivityBase<>),

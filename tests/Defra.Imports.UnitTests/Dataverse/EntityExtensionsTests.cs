@@ -3,7 +3,6 @@ namespace Defra.Imports.UnitTests.Dataverse
     using System;
     using Defra.Imports.Dataverse;
     using Defra.Imports.Dataverse.Model;
-    using Defra.Imports.UnitTests.Support;
     using Microsoft.Xrm.Sdk;
     using Xunit;
 
@@ -33,7 +32,7 @@ namespace Defra.Imports.UnitTests.Dataverse
         [Fact]
         public void Clone_TypedEntity_ReturnsTheSameEarlyBoundType()
         {
-            var original = WatchListTestData.CreateWatchList(this.id, Guid.NewGuid(), name: "Name");
+            var original = new defraimp_WatchList { Id = this.id, defraimp_Name = "Name" };
 
             var clone = original.Clone();
 
@@ -69,7 +68,7 @@ namespace Defra.Imports.UnitTests.Dataverse
         [Fact]
         public void Clone_TypedEntityWithoutAnIdentifier_DoesNotAddAnIdentifierAttribute()
         {
-            var original = WatchListTestData.CreateWatchList(Guid.Empty, Guid.NewGuid(), name: "Name");
+            var original = new defraimp_WatchList { defraimp_Name = "Name" };
 
             var clone = original.Clone();
 

@@ -13,7 +13,6 @@ namespace Defra.Imports.Plugins
     using Defra.Imports.Plugins.ImporterNotification;
     using Defra.Imports.Plugins.Itahc;
     using Defra.Imports.Plugins.ParameterSetKeyDataPair;
-    using Defra.Imports.Plugins.WatchLists;
 
     /// <summary>Owns registration metadata shared by new plug-in entry points.</summary>
     internal static class PluginCompositionRoot
@@ -26,13 +25,6 @@ namespace Defra.Imports.Plugins
         private static PluginContainer BuildRoot()
         {
             var root = new PluginContainer();
-
-            // ILLUSTRATIVE EXAMPLE registrations (watch list initialisation) for the pattern in
-            // architecture/adr/0001-plugin-workflow-di-scaffold.md. They are not a real business process; do not
-            // register the example with Dataverse, and do not copy it as a template for entity or business choices.
-            root.Register<IWatchListInitialiser, WatchListInitialiser>();
-            root.Register<WatchListQueries>();
-            root.Register<WatchListInitialisationHandler>();
 
             root.Register<ICommodityComplementKeyDataApplier, CommodityComplementKeyDataApplier>();
             root.Register<CommodityComplementQueries>();
@@ -47,16 +39,7 @@ namespace Defra.Imports.Plugins
             root.Register<AssociateWatchFlagsFromPrimaryItahcHandler>();
             root.Register<AssociateWatchFlagsFromNotificationHandler>();
 
-            root.Register<IInspectionRequirementDeterminer, InspectionRequirementDeterminer>();
-            root.Register<InspectionStrategyFactory>();
-            root.Register<RiskCounterManagerFactory>();
-            root.Register<InspectionRequirementUpdater>();
-            root.Register<ImportRiskCounterAuditor>();
-            root.Register<AutonumberCounters>();
-            root.Register<PlaceOfOriginCounters>();
-            root.Register<InspectionQueries>();
-            root.Register<AutonumberQueries>();
-            root.Register<PlaceOfOriginQueries>();
+            root.AddInspectionRequirements();
             root.Register<DetermineInspectionRequirementHandler>();
 
             root.Register<ILogWriter, TimestampedTracingLogWriter>();

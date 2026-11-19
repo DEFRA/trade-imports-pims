@@ -156,6 +156,37 @@ namespace Defra.Imports.UnitTests.Infrastructure.DependencyInjection
         }
 
         [Fact]
+        public void Register_InstanceUnderRuntimeTypeInScope_ResolvesByThatExactType()
+        {
+            var borrowed = new Dependency();
+            using (var scope = this.root.CreateExecutionScope())
+            {
+                scope.Register(borrowed.GetType(), borrowed);
+
+                Assert.Same(borrowed, scope.Resolve<Dependency>());
+                Assert.Throws<InvalidOperationException>(() => scope.Resolve<IDependency>());
+            }
+        }
+
+        [Fact]
+        public void Register_InstanceNotAssignableToRuntimeType_ThrowsArgumentException()
+        {
+            using (var scope = this.root.CreateExecutionScope())
+            {
+                Assert.Throws<ArgumentException>(() => scope.Register(typeof(IDependency), new object()));
+            }
+        }
+
+        [Fact]
+        public void Register_NullRuntimeTypeInScope_ThrowsArgumentNullException()
+        {
+            using (var scope = this.root.CreateExecutionScope())
+            {
+                Assert.Throws<ArgumentNullException>(() => scope.Register(null, new Dependency()));
+            }
+        }
+
+        [Fact]
         public void Register_InstanceAlreadyRegisteredInScope_ThrowsArgumentException()
         {
             using (var scope = this.root.CreateExecutionScope())

@@ -220,11 +220,6 @@ namespace Defra.Imports.UnitTests.Infrastructure.Workflows
 
             [Output("Observed id")]
             public OutArgument<Guid> ObservedId { get; set; }
-
-            protected override void RegisterActivity(PluginContainer scope)
-            {
-                scope.Register<TestWorkflowActivity>(this);
-            }
         }
 
         private sealed class TestWorkflowHandler : IWorkflowActivityHandler
@@ -265,11 +260,6 @@ namespace Defra.Imports.UnitTests.Infrastructure.Workflows
 
             [Input("Fail execution")]
             public InArgument<bool> FailExecution { get; set; }
-
-            protected override void RegisterActivity(PluginContainer scope)
-            {
-                scope.Register<CleanupWorkflowActivity>(this);
-            }
         }
 
         private sealed class CleanupWorkflowHandler : IWorkflowActivityHandler, IDisposable

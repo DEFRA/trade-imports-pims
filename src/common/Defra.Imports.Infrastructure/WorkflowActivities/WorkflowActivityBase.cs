@@ -22,10 +22,6 @@ namespace Defra.Imports.Infrastructure.Workflows
             this.container = container ?? throw new ArgumentNullException(nameof(container));
         }
 
-        /// <summary>Binds this host-created activity instance into the current invocation scope.</summary>
-        /// <param name="scope">The invocation-local scope.</param>
-        protected abstract void RegisterActivity(PluginContainer scope);
-
         /// <inheritdoc/>
         protected sealed override void Execute(CodeActivityContext context)
         {
@@ -50,7 +46,9 @@ namespace Defra.Imports.Infrastructure.Workflows
                 scope.Register<IOrganizationService>(service);
                 scope.Register<ITracingService>(tracing);
                 scope.Register<IExecutionServiceProvider>(new WorkflowExecutionServiceProvider(factory, workflowContext));
-                this.RegisterActivity(scope);
+
+                // The host creates the activity, so it is bound under its concrete type for the handler to request.
+                scope.Register(this.GetType(), this);
                 scope.Resolve<THandler>().Execute();
             }
             catch (Exception exception)

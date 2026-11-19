@@ -62,12 +62,6 @@ namespace Defra.Imports.UnitTests.Support
             return this.ForMessage(messageName, entityName, Guid.Empty);
         }
 
-        // A synchronous pre-operation Create of the entity, the shape the pipeline presents to a stage 20 plug-in.
-        public PluginRuntime ForPreOperationCreate(Entity target)
-        {
-            return this.ForStep("Create", target.LogicalName, 20, 0).WithTarget(target);
-        }
-
         public PluginRuntime WithPostImage(string name, Entity image)
         {
             this.PostImages[name] = image;

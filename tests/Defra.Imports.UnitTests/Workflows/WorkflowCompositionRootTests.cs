@@ -4,14 +4,12 @@ namespace Defra.Imports.UnitTests.Workflows
     using System.Activities;
     using System.Runtime.Serialization;
     using Defra.Imports.Application.InspectionRequirements;
-    using Defra.Imports.Application.WatchLists;
     using Defra.Imports.Dataverse.Contexts;
     using Defra.Imports.Infrastructure.Execution;
     using Defra.Imports.Infrastructure.Logging;
     using Defra.Imports.UnitTests.Support;
     using Defra.Imports.Workflows;
     using Defra.Imports.Workflows.ImportApplication;
-    using Defra.Imports.Workflows.WatchLists;
     using Microsoft.Xrm.Sdk;
     using Moq;
     using Xunit;
@@ -22,24 +20,6 @@ namespace Defra.Imports.UnitTests.Workflows
         public void Root_AccessedRepeatedly_ReturnsTheSameInstance()
         {
             Assert.Same(WorkflowCompositionRoot.Root, WorkflowCompositionRoot.Root);
-        }
-
-        [Fact]
-        public void Root_ExecutionScopeWithRuntimeServices_ResolvesInitialiseWatchListHandler()
-        {
-            using (var scope = WorkflowCompositionRoot.Root.CreateExecutionScope())
-            {
-                scope.Register<IOrganizationService>(Mock.Of<IOrganizationService>());
-
-                // The host supplies a CodeActivityContext that cannot be constructed outside the workflow runtime;
-                // resolution only stores it, so an uninitialised instance is enough to prove the graph resolves.
-                scope.Register<CodeActivityContext>((CodeActivityContext)FormatterServices.GetUninitializedObject(typeof(CodeActivityContext)));
-                scope.Register<InitialiseWatchListActivity>(new InitialiseWatchListActivity());
-
-                var handler = scope.Resolve<InitialiseWatchListHandler>();
-
-                Assert.NotNull(handler);
-            }
         }
 
         [Fact]
@@ -125,19 +105,6 @@ namespace Defra.Imports.UnitTests.Workflows
         }
 
         [Fact]
-        public void Root_ExecutionScopeWithOrganizationService_ResolvesTheSharedWatchListInitialiser()
-        {
-            using (var scope = WorkflowCompositionRoot.Root.CreateExecutionScope())
-            {
-                scope.Register<IOrganizationService>(Mock.Of<IOrganizationService>());
-
-                var initialiser = scope.Resolve<IWatchListInitialiser>();
-
-                Assert.IsType<WatchListInitialiser>(initialiser);
-            }
-        }
-
-        [Fact]
         public void Root_ExecutionScopeWithServiceProvider_ResolvesTheImportsContextFactory()
         {
             using (var scope = WorkflowCompositionRoot.Root.CreateExecutionScope())
@@ -164,7 +131,7 @@ namespace Defra.Imports.UnitTests.Workflows
         {
             using (var scope = WorkflowCompositionRoot.Root.CreateExecutionScope())
             {
-                Assert.Throws<InvalidOperationException>(() => scope.Resolve<InitialiseWatchListActivity>());
+                Assert.Throws<InvalidOperationException>(() => scope.Resolve<DetermineInspectionRequirement>());
             }
         }
     }

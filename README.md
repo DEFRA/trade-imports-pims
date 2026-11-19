@@ -17,7 +17,7 @@ mkdocs serve
 
 ## Architecture
 
-Architecture Decision Records and related governance artefacts are maintained under [`architecture/`](architecture/), starting with [ADR 0001 — Lightweight DI Scaffold for Dataverse Plug-ins](architecture/adr/0001-plugin-workflow-di-scaffold.md), a migration and usage guide for the `Application`/`Dataverse`/`Infrastructure` shared-project composition pattern. The scaffold is implemented and unit-tested on this branch, but the ADR's status remains **Proposed**: no component is registered with Dataverse, and no real plug-in/CWA, isolated-environment, or effective-identity validation has been performed.
+Architecture Decision Records and related governance artefacts are maintained under [`architecture/`](architecture/), starting with [ADR 0001 — Lightweight DI Scaffold for Dataverse Plug-ins and Custom Workflow Activities](architecture/adr/0001-plugin-workflow-di-scaffold.md), which records the decision to use the `Application`/`Dataverse`/`Infrastructure` shared-project composition pattern. The [pattern guide](docs/development/plugin-and-workflow-activity-pattern.md) explains how to use it, and the [migration log](architecture/plugin-workflow-migration-log.md) records each migrated plug-in and custom workflow activity. The ADR's status remains **Proposed**: the migrated components are unit-tested, but none has been validated in a Dataverse environment.
 
 ## Prerequisites
 
