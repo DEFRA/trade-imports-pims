@@ -1,0 +1,10 @@
+name: Test
+variables:
+  - name: servicebusNamespace
+    value: devtreinfsb1001
+  - name: sasKeyName
+    value: impNotification-Send
+  - secret: true
+    name: sasKey
+  - name: queueName
+    value: defra.trade.imp.notification.upsert

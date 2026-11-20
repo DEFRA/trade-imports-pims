@@ -1,0 +1,7 @@
+info:
+  name: v0.2.0
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit

@@ -78,7 +78,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         /// Gets transit trade country.
         /// </summary>
         [DataMember(Name = "transitTradeCountry")]
-        public TradeCountry TransitTradeCountry { get; internal set; }
+        public TradeCountry[] TransitTradeCountry { get; internal set; }
 
         /// <summary>
         /// Gets included consignment items.
