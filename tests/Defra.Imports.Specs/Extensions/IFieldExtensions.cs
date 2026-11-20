@@ -58,7 +58,9 @@
         {
             // TODO: Refactor Power Playwright to enable getting/setting values when the control type is only known at runtime.
             var controlInstance = field.GetControl(controlType);
-            var setValueAsyncMethod = controlType.GetMethod("SetValueAsync");
+            var setValueAsyncMethod = controlType.GetMethods()
+                .Concat(controlType.GetInterfaces().SelectMany(i => i.GetMethods()))
+                .Single(m => m.Name == "SetValueAsync" && m.GetParameters().Length == 1);
             var parameterType = setValueAsyncMethod.GetParameters()[0].ParameterType;
             var data = ConvertToType(value, parameterType);
 

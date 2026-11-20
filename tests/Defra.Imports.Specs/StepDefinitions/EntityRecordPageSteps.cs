@@ -270,6 +270,24 @@
         }
 
         /// <summary>
+        /// Verifies the value of a flip switch field.
+        /// </summary>
+        /// <param name="displayName">The field display name.</param>
+        /// <param name="value">The expected value.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("^the '(.*)' switch is set to (Yes|No)$")]
+        public async Task ThenTheSwitchIsSetTo(string displayName, bool value)
+        {
+            await this.ExecuteControlActionAsync<IFlipSwitchControl>(
+                displayName,
+                async (control, fieldContext) =>
+                {
+                    (await control.GetValueAsync()).Should().Be(value);
+                },
+                tab: await this.RecordPage.Form.GetActiveTabAsync());
+        }
+
+        /// <summary>
         /// Enters the specified details into the form.
         /// </summary>
         /// <param name="fields">The field values to populate.</param>

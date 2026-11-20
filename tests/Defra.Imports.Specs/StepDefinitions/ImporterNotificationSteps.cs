@@ -79,6 +79,8 @@ namespace Defra.Imports.Specs.StepDefinitions
                 .BuildAsync();
 
             var importerNotificationId = scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;
+            this.ctx[ScenarioContextKeys.ImporterNotificationId] = importerNotificationId;
+            this.ctx[ScenarioContextKeys.ImporterNotificationSubmissionDate] = scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotification.defraimp_submissiondate;
 
             this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
                 new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId));
@@ -185,6 +187,7 @@ namespace Defra.Imports.Specs.StepDefinitions
                 .BuildAsync();
 
             var importerNotificationId = scenario.LogicAppSubmitsImporterNotificationEvent.ImporterNotificationId;
+            this.ctx[ScenarioContextKeys.ImporterNotificationId] = importerNotificationId;
 
             this.powerPlaywrightCtx.ActivePage = await this.recordNavigator.NavigateToRecordAsync(
                 new EntityReference(defraimp_ImporterNotification.EntityLogicalName, importerNotificationId));
