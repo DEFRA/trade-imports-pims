@@ -4,6 +4,7 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Data;
+    using System.Globalization;
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
@@ -1206,6 +1207,8 @@
             var expectedValue = (DateTime?)this.ctx[ScenarioContextKeys.ImporterNotificationSubmissionDate];
 
             expectedValue.Should().NotBeNull("the Importer Notification was submitted with a Submission Date");
+
+            CultureInfo.CurrentCulture = new CultureInfo("en-GB");
 
             await this.ExecuteControlActionAsync<IDateTime>(
                 displayName,
