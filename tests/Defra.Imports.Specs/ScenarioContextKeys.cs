@@ -51,6 +51,11 @@
         public const string ImporterNotificationSubmissionDate = nameof(ImporterNotificationSubmissionDate);
 
         /// <summary>
+        /// A key for the ID of the Import Record created from an Importer Notification and opened by a step.
+        /// </summary>
+        public const string ImportRecordId = nameof(ImportRecordId);
+
+        /// <summary>
         /// A key for the Import Record prepared with searchable field values.
         /// </summary>
         public const string SearchableImportRecord = nameof(SearchableImportRecord);

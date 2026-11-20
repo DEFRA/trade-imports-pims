@@ -189,7 +189,38 @@ namespace Defra.Imports.Specs.StepDefinitions
                 importerNotificationId,
                 this.loggerProvider.CreateLogger(nameof(ImportRecordSteps)));
 
+            this.ctx.AddOrUpdate(ScenarioContextKeys.ImportRecordId, importRecordId);
+
             await this.NavigateToImportRecordAsync(importRecordId);
+        }
+
+        /// <summary>
+        /// Verifies that the Import Record created from the Importer Notification has the notification's Submission Date as its Date Importer Notification Received.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("the Date Importer Notification Received is the Importer Notification's Submission Date")]
+        public async Task ThenTheDateImporterNotificationReceivedIsTheImporterNotificationsSubmissionDate()
+        {
+            var expectedDate = ((DateTime?)this.ctx[ScenarioContextKeys.ImporterNotificationSubmissionDate]).Value.Date;
+            var importRecordId = (Guid)this.ctx[ScenarioContextKeys.ImportRecordId];
+            var client = await this.clientFactory.GetClientAsync(Persona.Caseworker);
+
+            // The date is copied by the create workflow, so re-read the record until it is populated.
+            await RetryExtensions.RetryUntilSucceedsAsync(
+                async () =>
+                {
+                    var importRecord = (defraimp_importapplication)await client.RetrieveAsync(
+                        defraimp_importapplication.EntityLogicalName,
+                        importRecordId,
+                        new ColumnSet(defraimp_importapplication.Fields.defraimp_DateIV66Received));
+
+                    DateTime? actualDate = importRecord.defraimp_DateIV66Received?.Date;
+
+                    actualDate.Should().Be(expectedDate, "the Date Importer Notification Received should be the Importer Notification's Submission Date");
+                },
+                this.loggerProvider.CreateLogger(nameof(ImportRecordSteps)),
+                retryCount: 5,
+                delay: TimeSpan.FromSeconds(3));
         }
 
         /// <summary>

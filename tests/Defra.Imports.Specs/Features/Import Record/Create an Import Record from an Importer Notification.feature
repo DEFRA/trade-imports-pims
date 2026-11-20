@@ -48,4 +48,4 @@ Scenario: A caseworker creates an Import Record from an Importer Notification an
 	And I have opened an Importer Notification
 	When I click the 'Create Import Record From Notification' command
 	And I open the Import Record created from the Importer Notification
-	Then I see the Importer Notification's Submission Date in the 'Date Importer Notification Received' field
+	Then the Date Importer Notification Received is the Importer Notification's Submission Date

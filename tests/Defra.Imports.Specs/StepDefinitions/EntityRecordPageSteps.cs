@@ -4,7 +4,6 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Data;
-    using System.Globalization;
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
@@ -1192,31 +1191,6 @@
                     var actualValue = await field.GetValueAsync();
 
                     actualValue.Value.Date.Should().Be(DateTime.Today.Date);
-                },
-                tab: await this.RecordPage.Form.GetActiveTabAsync());
-        }
-
-        /// <summary>
-        /// Asserts that the specified date field contains the Submission Date of the Importer Notification opened earlier in the scenario.
-        /// </summary>
-        /// <param name="displayName">The display name of the date field.</param>
-        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        [Then("I see the Importer Notification's Submission Date in the {string} field")]
-        public async Task ThenISeeTheImporterNotificationsSubmissionDateInTheField(string displayName)
-        {
-            var expectedValue = (DateTime?)this.ctx[ScenarioContextKeys.ImporterNotificationSubmissionDate];
-
-            expectedValue.Should().NotBeNull("the Importer Notification was submitted with a Submission Date");
-
-            CultureInfo.CurrentCulture = new CultureInfo("en-GB");
-
-            await this.ExecuteControlActionAsync<IDateTime>(
-                displayName,
-                async (field, fieldContext) =>
-                {
-                    var actualValue = await field.GetValueAsync();
-
-                    actualValue.Value.Date.Should().Be(expectedValue.Value.Date);
                 },
                 tab: await this.RecordPage.Form.GetActiveTabAsync());
         }
