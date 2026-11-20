@@ -78,10 +78,12 @@ namespace Defra.Imports.Model
 			public const string TimeZoneRuleVersionNumber = "timezoneruleversionnumber";
 			public const string UTCConversionTimeZoneCode = "utcconversiontimezonecode";
 			public const string VersionNumber = "versionnumber";
+			public const string defraimp_team_defraimp_postcoderegion_DevolvedOffice = "defraimp_team_defraimp_postcoderegion_DevolvedOffice";
 			public const string lk_defraimp_postcoderegion_createdby = "lk_defraimp_postcoderegion_createdby";
 			public const string lk_defraimp_postcoderegion_createdonbehalfby = "lk_defraimp_postcoderegion_createdonbehalfby";
 			public const string lk_defraimp_postcoderegion_modifiedby = "lk_defraimp_postcoderegion_modifiedby";
 			public const string lk_defraimp_postcoderegion_modifiedonbehalfby = "lk_defraimp_postcoderegion_modifiedonbehalfby";
+			public const string team_defraimp_postcoderegion = "team_defraimp_postcoderegion";
 			public const string user_defraimp_postcoderegion = "user_defraimp_postcoderegion";
 		}
 		
@@ -483,6 +485,25 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// N:1 defraimp_team_defraimp_postcoderegion_DevolvedOffice
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_devolvedoffice")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_team_defraimp_postcoderegion_DevolvedOffice")]
+		public Defra.Imports.Model.Team defraimp_team_defraimp_postcoderegion_DevolvedOffice
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("defraimp_team_defraimp_postcoderegion_DevolvedOffice", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_team_defraimp_postcoderegion_DevolvedOffice");
+				this.SetRelatedEntity<Defra.Imports.Model.Team>("defraimp_team_defraimp_postcoderegion_DevolvedOffice", null, value);
+				this.OnPropertyChanged("defraimp_team_defraimp_postcoderegion_DevolvedOffice");
+			}
+		}
+		
+		/// <summary>
 		/// N:1 lk_defraimp_postcoderegion_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
@@ -531,6 +552,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_defraimp_postcoderegion_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_defraimp_postcoderegion
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_defraimp_postcoderegion")]
+		public Defra.Imports.Model.Team team_defraimp_postcoderegion
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_defraimp_postcoderegion", null);
 			}
 		}
 		

@@ -81,6 +81,7 @@ namespace Defra.Imports.Model
 			public const string lk_defraimp_imptype_createdonbehalfby = "lk_defraimp_imptype_createdonbehalfby";
 			public const string lk_defraimp_imptype_modifiedby = "lk_defraimp_imptype_modifiedby";
 			public const string lk_defraimp_imptype_modifiedonbehalfby = "lk_defraimp_imptype_modifiedonbehalfby";
+			public const string team_defraimp_imptype = "team_defraimp_imptype";
 			public const string user_defraimp_imptype = "user_defraimp_imptype";
 		}
 		
@@ -521,6 +522,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_defraimp_imptype_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_defraimp_imptype
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_defraimp_imptype")]
+		public Defra.Imports.Model.Team team_defraimp_imptype
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_defraimp_imptype", null);
 			}
 		}
 		

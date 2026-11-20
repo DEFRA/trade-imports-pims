@@ -192,6 +192,7 @@ namespace Defra.Imports.Model
 			public const string defraimp_importquery_systemuser_modifiedby = "defraimp_importquery_systemuser_modifiedby";
 			public const string defraimp_importquery_systemuser_modifiedonbehalfby = "defraimp_importquery_systemuser_modifiedonbehalfby";
 			public const string defraimp_importquery_systemuser_owninguser = "defraimp_importquery_systemuser_owninguser";
+			public const string defraimp_importquery_team_owningteam = "defraimp_importquery_team_owningteam";
 		}
 		
 		/// <summary>
@@ -1738,6 +1739,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("defraimp_importquery_systemuser_owninguser", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 defraimp_importquery_team_owningteam
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_importquery_team_owningteam")]
+		public Defra.Imports.Model.Team defraimp_importquery_team_owningteam
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("defraimp_importquery_team_owningteam", null);
 			}
 		}
 	}

@@ -230,10 +230,12 @@ namespace Defra.Imports.Model
 			public const string defraimp_defra_country_defraimp_docom_TransporterAddressCountryId = "defraimp_defra_country_defraimp_docom_TransporterAddressCountryId";
 			public const string Referencingdefraimp_defraimp_docom_defraimp_docom_ReplacedById = "defraimp_defraimp_docom_defraimp_docom_ReplacedById";
 			public const string Referencingdefraimp_defraimp_docom_defraimp_docom_ReplacesId = "defraimp_defraimp_docom_defraimp_docom_ReplacesId";
+			public const string defraimp_docom_DevolvedOffice_Team = "defraimp_docom_DevolvedOffice_Team";
 			public const string lk_defraimp_docom_createdby = "lk_defraimp_docom_createdby";
 			public const string lk_defraimp_docom_createdonbehalfby = "lk_defraimp_docom_createdonbehalfby";
 			public const string lk_defraimp_docom_modifiedby = "lk_defraimp_docom_modifiedby";
 			public const string lk_defraimp_docom_modifiedonbehalfby = "lk_defraimp_docom_modifiedonbehalfby";
+			public const string team_defraimp_docom = "team_defraimp_docom";
 			public const string user_defraimp_docom = "user_defraimp_docom";
 		}
 		
@@ -2372,6 +2374,25 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// N:1 defraimp_docom_DevolvedOffice_Team
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defraimp_devolvedoffice")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("defraimp_docom_DevolvedOffice_Team")]
+		public Defra.Imports.Model.Team defraimp_docom_DevolvedOffice_Team
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("defraimp_docom_DevolvedOffice_Team", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("defraimp_docom_DevolvedOffice_Team");
+				this.SetRelatedEntity<Defra.Imports.Model.Team>("defraimp_docom_DevolvedOffice_Team", null, value);
+				this.OnPropertyChanged("defraimp_docom_DevolvedOffice_Team");
+			}
+		}
+		
+		/// <summary>
 		/// N:1 lk_defraimp_docom_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
@@ -2420,6 +2441,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_defraimp_docom_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_defraimp_docom
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_defraimp_docom")]
+		public Defra.Imports.Model.Team team_defraimp_docom
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_defraimp_docom", null);
 			}
 		}
 		

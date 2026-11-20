@@ -711,6 +711,11 @@ namespace Defra.Imports.Model
 			public const string Referencedlk_systemuser_modifiedonbehalfby = "Referencedlk_systemuser_modifiedonbehalfby";
 			public const string Referencedlk_systemuserbase_createdby = "Referencedlk_systemuserbase_createdby";
 			public const string Referencedlk_systemuserbase_modifiedby = "Referencedlk_systemuserbase_modifiedby";
+			public const string lk_team_createdonbehalfby = "lk_team_createdonbehalfby";
+			public const string lk_team_modifiedonbehalfby = "lk_team_modifiedonbehalfby";
+			public const string lk_teambase_administratorid = "lk_teambase_administratorid";
+			public const string lk_teambase_createdby = "lk_teambase_createdby";
+			public const string lk_teambase_modifiedby = "lk_teambase_modifiedby";
 			public const string system_user_contacts = "system_user_contacts";
 			public const string user_defra_country = "user_defra_country";
 			public const string user_defraexp_configurationparameter = "user_defraexp_configurationparameter";
@@ -739,6 +744,7 @@ namespace Defra.Imports.Model
 			public const string user_defraimp_watchlist = "user_defraimp_watchlist";
 			public const string user_environmentvariabledefinition = "user_environmentvariabledefinition";
 			public const string Referenceduser_parent_user = "Referenceduser_parent_user";
+			public const string teammembership_association = "teammembership_association";
 			public const string Referencinglk_systemuser_createdonbehalfby = "lk_systemuser_createdonbehalfby";
 			public const string Referencinglk_systemuser_modifiedonbehalfby = "lk_systemuser_modifiedonbehalfby";
 			public const string Referencinglk_systemuserbase_createdby = "lk_systemuserbase_createdby";
@@ -6019,6 +6025,96 @@ namespace Defra.Imports.Model
 		}
 		
 		/// <summary>
+		/// 1:N lk_team_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_team_createdonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.Team> lk_team_createdonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.Team>("lk_team_createdonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_team_createdonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.Team>("lk_team_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_team_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_team_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_team_modifiedonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.Team> lk_team_modifiedonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.Team>("lk_team_modifiedonbehalfby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_team_modifiedonbehalfby");
+				this.SetRelatedEntities<Defra.Imports.Model.Team>("lk_team_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_team_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_teambase_administratorid
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_teambase_administratorid")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.Team> lk_teambase_administratorid
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.Team>("lk_teambase_administratorid", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_teambase_administratorid");
+				this.SetRelatedEntities<Defra.Imports.Model.Team>("lk_teambase_administratorid", null, value);
+				this.OnPropertyChanged("lk_teambase_administratorid");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_teambase_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_teambase_createdby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.Team> lk_teambase_createdby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.Team>("lk_teambase_createdby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_teambase_createdby");
+				this.SetRelatedEntities<Defra.Imports.Model.Team>("lk_teambase_createdby", null, value);
+				this.OnPropertyChanged("lk_teambase_createdby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_teambase_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_teambase_modifiedby")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.Team> lk_teambase_modifiedby
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.Team>("lk_teambase_modifiedby", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("lk_teambase_modifiedby");
+				this.SetRelatedEntities<Defra.Imports.Model.Team>("lk_teambase_modifiedby", null, value);
+				this.OnPropertyChanged("lk_teambase_modifiedby");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N system_user_contacts
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("system_user_contacts")]
@@ -6519,6 +6615,24 @@ namespace Defra.Imports.Model
 				this.OnPropertyChanging("Referenceduser_parent_user");
 				this.SetRelatedEntities<Defra.Imports.Model.SystemUser>("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referenceduser_parent_user");
+			}
+		}
+		
+		/// <summary>
+		/// N:N teammembership_association
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("teammembership_association")]
+		public System.Collections.Generic.IEnumerable<Defra.Imports.Model.Team> teammembership_association
+		{
+			get
+			{
+				return this.GetRelatedEntities<Defra.Imports.Model.Team>("teammembership_association", null);
+			}
+			set
+			{
+				this.OnPropertyChanging("teammembership_association");
+				this.SetRelatedEntities<Defra.Imports.Model.Team>("teammembership_association", null, value);
+				this.OnPropertyChanged("teammembership_association");
 			}
 		}
 		
