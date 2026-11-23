@@ -754,10 +754,9 @@
                 }
             }
 
-            // TODO - check we want to take first party type code in this scenario
             if (transporter.PartyTypeCode != null && transporter.PartyTypeCode.Length > 0)
             {
-                importerNotification.defraimp_transportertype = transporter.PartyTypeCode[0].Value;
+                importerNotification.defraimp_transportertype = string.Join(",", System.Linq.Enumerable.Select(transporter.PartyTypeCode, c => c.Value));
             }
         }
 
