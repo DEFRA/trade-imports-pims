@@ -756,7 +756,8 @@
 
             if (transporter.PartyTypeCode != null && transporter.PartyTypeCode.Length > 0)
             {
-                importerNotification.defraimp_transportertype = string.Join(",", System.Linq.Enumerable.Select(transporter.PartyTypeCode, c => c.Value));
+                var transporterType = string.Join(",", System.Linq.Enumerable.Select(transporter.PartyTypeCode, c => c.Value));
+                importerNotification.defraimp_transportertype = transporterType.Length > 100 ? transporterType.Substring(0, 100) : transporterType;
             }
         }
 
