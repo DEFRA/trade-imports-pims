@@ -13,7 +13,7 @@ Scenario: A caseworker searches for an Import Record
 		| Premises of Origin Name |
 	Then I see the matching Import Record in the search results
 
-# Defect: searching by Date of Import, ITAHC Reference or Importer Notification Local Reference Number does not return the Import Record, although AC-3 requires it. The quick find configuration includes none of these fields.
+# Defect: searching by ITAHC Reference or Importer Notification Local Reference Number does not return the Import Record, although AC-3 requires it.
 @acceptance-criteria:us-001-3 @ignore @defect
 Scenario: A caseworker searches for an Import Record by its date of import or reference numbers
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'

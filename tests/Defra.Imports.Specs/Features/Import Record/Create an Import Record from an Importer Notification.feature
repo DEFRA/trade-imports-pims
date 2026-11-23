@@ -30,6 +30,7 @@ Scenario: A caseworker creates an Import Record from an Importer Notification
 		# | Warble Fly             |
 		# | Commodity Identifiers  |
 		# | Watch Flags            |
+	And the Primary Importer Notification is the Importer Notification
 
 @acceptance-criteria:us-001-14
 Scenario: A caseworker creates an Import Record from an Importer Notification and the transporter type is copied
@@ -38,9 +39,7 @@ Scenario: A caseworker creates an Import Record from an Importer Notification an
 	When I click the 'Create Import Record From Notification' command
 	And I open the Import Record created from the Importer Notification
 	And I select the 'Transporter' tab
-	Then the following fields are populated
-		| Field |
-		| Type  |
+	Then I see a value of 'commercial transporter' in the 'Type' field
 
 @acceptance-criteria:us-001-9
 Scenario: A caseworker creates an Import Record from an Importer Notification and the submission date is copied

@@ -202,25 +202,34 @@ namespace Defra.Imports.Specs.StepDefinitions
         public async Task ThenTheDateImporterNotificationReceivedIsTheImporterNotificationsSubmissionDate()
         {
             var expectedDate = ((DateTime?)this.ctx[ScenarioContextKeys.ImporterNotificationSubmissionDate]).Value.Date;
-            var importRecordId = (Guid)this.ctx[ScenarioContextKeys.ImportRecordId];
-            var client = await this.clientFactory.GetClientAsync(Persona.Caseworker);
 
-            // The date is copied by the create workflow, so re-read the record until it is populated.
-            await RetryExtensions.RetryUntilSucceedsAsync(
-                async () =>
+            await this.AssertCreatedImportRecordAsync(
+                defraimp_importapplication.Fields.defraimp_DateIV66Received,
+                importRecord =>
                 {
-                    var importRecord = (defraimp_importapplication)await client.RetrieveAsync(
-                        defraimp_importapplication.EntityLogicalName,
-                        importRecordId,
-                        new ColumnSet(defraimp_importapplication.Fields.defraimp_DateIV66Received));
-
                     DateTime? actualDate = importRecord.defraimp_DateIV66Received?.Date;
 
                     actualDate.Should().Be(expectedDate, "the Date Importer Notification Received should be the Importer Notification's Submission Date");
-                },
-                this.loggerProvider.CreateLogger(nameof(ImportRecordSteps)),
-                retryCount: 5,
-                delay: TimeSpan.FromSeconds(3));
+                });
+        }
+
+        /// <summary>
+        /// Verifies that the Import Record created from the Importer Notification has that notification as its Primary Importer Notification.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Then("the Primary Importer Notification is the Importer Notification")]
+        public async Task ThenThePrimaryImporterNotificationIsTheImporterNotification()
+        {
+            var expectedId = (Guid)this.ctx[ScenarioContextKeys.ImporterNotificationId];
+
+            await this.AssertCreatedImportRecordAsync(
+                defraimp_importapplication.Fields.defraimp_PrimaryImporterNotificationId,
+                importRecord =>
+                {
+                    Guid? actualId = importRecord.defraimp_PrimaryImporterNotificationId?.Id;
+
+                    actualId.Should().Be(expectedId, "the Import Record should be linked to the Importer Notification it was created from");
+                });
         }
 
         /// <summary>
@@ -260,6 +269,7 @@ namespace Defra.Imports.Specs.StepDefinitions
 
             foreach (var field in fields.Rows.Select(r => r["Field"]))
             {
+                await this.ClearSearchResultsAsync(importRecord);
                 await this.EntityListPage.DataSet.SearchAsync(SearchFieldValueSelectors[field](importRecord));
 
                 try
@@ -298,6 +308,48 @@ namespace Defra.Imports.Specs.StepDefinitions
             var fieldsWithoutResults = (List<string>)this.ctx[ScenarioContextKeys.FieldsWithoutSearchResults];
 
             fieldsWithoutResults.Should().BeEmpty(because: "searching by each of these fields should return the Import Record");
+        }
+
+        private async Task AssertCreatedImportRecordAsync(string column, Action<defraimp_importapplication> assertion)
+        {
+            var importRecordId = (Guid)this.ctx[ScenarioContextKeys.ImportRecordId];
+            var client = await this.clientFactory.GetClientAsync(Persona.Caseworker);
+
+            // The create workflow may still be setting values, so re-read the record until the assertion holds.
+            await RetryExtensions.RetryUntilSucceedsAsync(
+                async () =>
+                {
+                    var importRecord = (defraimp_importapplication)await client.RetrieveAsync(
+                        defraimp_importapplication.EntityLogicalName,
+                        importRecordId,
+                        new ColumnSet(column));
+
+                    assertion(importRecord);
+                },
+                this.loggerProvider.CreateLogger(nameof(ImportRecordSteps)),
+                retryCount: 5,
+                delay: TimeSpan.FromSeconds(3));
+        }
+
+        private async Task ClearSearchResultsAsync(defraimp_importapplication importRecord)
+        {
+            // A search that matches nothing proves the grid has refreshed, so a later hit cannot be a row left by the previous search.
+            await this.EntityListPage.DataSet.SearchAsync(Guid.NewGuid().ToString("N"));
+
+            await RetryExtensions.RetryUntilSucceedsAsync(
+                async () =>
+                {
+                    await this.EntityListPage.Page.WaitForAppIdleAsync();
+                    var rows = await this.EntityListPage.DataSet.GetControl<IReadOnlyGrid>().GetRowDataAsync();
+
+                    if (rows.Any(r => r.Values.Contains(importRecord.defraimp_name)))
+                    {
+                        throw new InvalidOperationException($"The grid still shows {importRecord.defraimp_name} after a search that matches nothing.");
+                    }
+                },
+                this.loggerProvider.CreateLogger(nameof(ImportRecordSteps)),
+                retryCount: 5,
+                delay: TimeSpan.FromSeconds(3));
         }
 
         private async Task<Guid> CreateImportRecordAsync(Action<LogicAppSubmitsImporterNotificationEvent.Builder> notification = null, Action<CaseworkerCreatesImportRecordFromNotificationEvent.Builder> importRecord = null)
