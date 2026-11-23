@@ -43,7 +43,11 @@ const bundles = [
     'MatchRecord',
     ['onAppendItahc', 'onAppendImporterNotification', 'onCreateImportRecordFromITAHC'],
   ],
-  ['postimportcheck.form.js', 'PostImportCheck', ['onLoad', 'onChangeSamplingRequired']],
+  [
+    'postimportcheck.form.js',
+    'PostImportCheck',
+    ['onLoad', 'onLoadQuickCreate', 'onChangeSamplingRequired'],
+  ],
 ] as const;
 
 test('bundles expose every Dynamics handler on DefraImports', () => {
