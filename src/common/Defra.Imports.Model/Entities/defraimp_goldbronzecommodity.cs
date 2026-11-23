@@ -80,6 +80,7 @@ namespace Defra.Imports.Model
 			public const string lk_defraimp_goldbronzecommodity_createdonbehalfby = "lk_defraimp_goldbronzecommodity_createdonbehalfby";
 			public const string lk_defraimp_goldbronzecommodity_modifiedby = "lk_defraimp_goldbronzecommodity_modifiedby";
 			public const string lk_defraimp_goldbronzecommodity_modifiedonbehalfby = "lk_defraimp_goldbronzecommodity_modifiedonbehalfby";
+			public const string team_defraimp_goldbronzecommodity = "team_defraimp_goldbronzecommodity";
 			public const string user_defraimp_goldbronzecommodity = "user_defraimp_goldbronzecommodity";
 		}
 		
@@ -502,6 +503,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_defraimp_goldbronzecommodity_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_defraimp_goldbronzecommodity
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_defraimp_goldbronzecommodity")]
+		public Defra.Imports.Model.Team team_defraimp_goldbronzecommodity
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_defraimp_goldbronzecommodity", null);
 			}
 		}
 		

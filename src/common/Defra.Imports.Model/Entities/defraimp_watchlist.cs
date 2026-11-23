@@ -93,6 +93,7 @@ namespace Defra.Imports.Model
 			public const string lk_defraimp_watchlist_createdonbehalfby = "lk_defraimp_watchlist_createdonbehalfby";
 			public const string lk_defraimp_watchlist_modifiedby = "lk_defraimp_watchlist_modifiedby";
 			public const string lk_defraimp_watchlist_modifiedonbehalfby = "lk_defraimp_watchlist_modifiedonbehalfby";
+			public const string team_defraimp_watchlist = "team_defraimp_watchlist";
 			public const string user_defraimp_watchlist = "user_defraimp_watchlist";
 		}
 		
@@ -729,6 +730,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_defraimp_watchlist_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_defraimp_watchlist
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_defraimp_watchlist")]
+		public Defra.Imports.Model.Team team_defraimp_watchlist
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_defraimp_watchlist", null);
 			}
 		}
 		

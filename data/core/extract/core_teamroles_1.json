@@ -1,9 +1,261 @@
 {
-  "RecordsCount": 3,
+  "RecordsCount": 8,
   "ExportedEntities": [
     {
       "LogicalName": "teamroles",
-      "Id": "71ea4832-9f16-ea11-a811-000d3ab4de89",
+      "Id": "e9bad625-0fdd-f111-84ea-000d3a69786d",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "map.teamid.team.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "team",
+            "Value": "EU Imports"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "map.roleid.role.businessunitid",
+          "AttributeValue": {
+            "AttributeLogicalName": "businessunitid",
+            "EntityLogicalName": "role",
+            "Value": {
+              "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+              "LogicalName": "businessunit",
+              "Name": "defra-custmstr-eue-dev-imp",
+              "KeyAttributes": []
+            }
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "map.teamid.team.businessunitid",
+          "AttributeValue": {
+            "AttributeLogicalName": "businessunitid",
+            "EntityLogicalName": "team",
+            "Value": {
+              "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+              "LogicalName": "businessunit",
+              "Name": "defra-custmstr-eue-dev-imp",
+              "KeyAttributes": []
+            }
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+		{
+          "AttributeName": "teamid",
+          "AttributeValue": "9cb51eb0-f1c7-4e8a-8bb3-dc6979733c5c",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "roleid",
+          "AttributeValue": "b1d76a5b-c7da-e911-a863-000d3ab0da57",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "map.roleid.role.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "role",
+            "Value": "EU Imports Caseworker"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "teamroles",
+      "Id": "e81114d6-11dd-f111-84ea-000d3a697f24",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "map.teamid.team.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "team",
+            "Value": "AIS Reject Enter"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "map.roleid.role.businessunitid",
+          "AttributeValue": {
+            "AttributeLogicalName": "businessunitid",
+            "EntityLogicalName": "role",
+            "Value": {
+              "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+              "LogicalName": "businessunit",
+              "Name": "defra-custmstr-eue-dev-imp",
+              "KeyAttributes": []
+            }
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "map.teamid.team.businessunitid",
+          "AttributeValue": {
+            "AttributeLogicalName": "businessunitid",
+            "EntityLogicalName": "team",
+            "Value": {
+              "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+              "LogicalName": "businessunit",
+              "Name": "defra-custmstr-eue-dev-imp",
+              "KeyAttributes": []
+            }
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+		{
+          "AttributeName": "teamid",
+          "AttributeValue": "a350ff93-3eff-ed11-8f6e-002248993591",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "roleid",
+          "AttributeValue": "b1d76a5b-c7da-e911-a863-000d3ab0da57",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "map.roleid.role.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "role",
+            "Value": "EU Imports Caseworker"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "teamroles",
+      "Id": "73d8d7de-11dd-f111-84e8-000d3add7a39",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "map.teamid.team.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "team",
+            "Value": "AIS Reject Travel"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "map.roleid.role.businessunitid",
+          "AttributeValue": {
+            "AttributeLogicalName": "businessunitid",
+            "EntityLogicalName": "role",
+            "Value": {
+              "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+              "LogicalName": "businessunit",
+              "Name": "defra-custmstr-eue-dev-imp",
+              "KeyAttributes": []
+            }
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "map.teamid.team.businessunitid",
+          "AttributeValue": {
+            "AttributeLogicalName": "businessunitid",
+            "EntityLogicalName": "team",
+            "Value": {
+              "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+              "LogicalName": "businessunit",
+              "Name": "defra-custmstr-eue-dev-imp",
+              "KeyAttributes": []
+            }
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+		{
+          "AttributeName": "teamid",
+          "AttributeValue": "6a6a5b04-3eff-ed11-8f6e-002248993591",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "roleid",
+          "AttributeValue": "b1d76a5b-c7da-e911-a863-000d3ab0da57",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "map.roleid.role.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "role",
+            "Value": "EU Imports Caseworker"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "teamroles",
+      "Id": "e98d5dca-11dd-f111-84ea-002248a1b5a7",
+      "IsManyToMany": true,
+      "Attributes": [
+        {
+          "AttributeName": "map.teamid.team.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "team",
+            "Value": "AIS Approved Travel"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "map.roleid.role.businessunitid",
+          "AttributeValue": {
+            "AttributeLogicalName": "businessunitid",
+            "EntityLogicalName": "role",
+            "Value": {
+              "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+              "LogicalName": "businessunit",
+              "Name": "defra-custmstr-eue-dev-imp",
+              "KeyAttributes": []
+            }
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "map.teamid.team.businessunitid",
+          "AttributeValue": {
+            "AttributeLogicalName": "businessunitid",
+            "EntityLogicalName": "team",
+            "Value": {
+              "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+              "LogicalName": "businessunit",
+              "Name": "defra-custmstr-eue-dev-imp",
+              "KeyAttributes": []
+            }
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+		{
+          "AttributeName": "teamid",
+          "AttributeValue": "9a29b7c6-8d7b-ed11-81ad-0022489934c8",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "roleid",
+          "AttributeValue": "b1d76a5b-c7da-e911-a863-000d3ab0da57",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "map.roleid.role.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "role",
+            "Value": "EU Imports Caseworker"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "teamroles",
+      "Id": "bd6e75ca-ded9-f111-a05d-002248a1b9d9",
       "IsManyToMany": true,
       "Attributes": [
         {
@@ -43,14 +295,14 @@
           },
           "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
         },
-        {
-          "AttributeName": "roleid",
-          "AttributeValue": "b1d76a5b-c7da-e911-a863-000d3ab0da57",
+		{
+          "AttributeName": "teamid",
+          "AttributeValue": "a8e19bee-0106-ea11-a811-000d3ab5d511",
           "AttributeType": "System.Guid"
         },
         {
-          "AttributeName": "teamid",
-          "AttributeValue": "a8e19bee-0106-ea11-a811-000d3ab5d511",
+          "AttributeName": "roleid",
+          "AttributeValue": "b1d76a5b-c7da-e911-a863-000d3ab0da57",
           "AttributeType": "System.Guid"
         },
         {
@@ -66,7 +318,7 @@
     },
     {
       "LogicalName": "teamroles",
-      "Id": "8dc498b6-7a17-ea11-a811-000d3ab4de89",
+      "Id": "c36e75ca-ded9-f111-a05d-002248a1b9d9",
       "IsManyToMany": true,
       "Attributes": [
         {
@@ -106,14 +358,14 @@
           },
           "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
         },
-        {
-          "AttributeName": "roleid",
-          "AttributeValue": "b1d76a5b-c7da-e911-a863-000d3ab0da57",
+		{
+          "AttributeName": "teamid",
+          "AttributeValue": "6bdc7830-0206-ea11-a811-000d3ab5d511",
           "AttributeType": "System.Guid"
         },
         {
-          "AttributeName": "teamid",
-          "AttributeValue": "6bdc7830-0206-ea11-a811-000d3ab5d511",
+          "AttributeName": "roleid",
+          "AttributeValue": "b1d76a5b-c7da-e911-a863-000d3ab0da57",
           "AttributeType": "System.Guid"
         },
         {
@@ -129,7 +381,7 @@
     },
     {
       "LogicalName": "teamroles",
-      "Id": "84c598b6-7a17-ea11-a811-000d3ab4de89",
+      "Id": "c76e75ca-ded9-f111-a05d-002248a1b9d9",
       "IsManyToMany": true,
       "Attributes": [
         {
@@ -169,14 +421,77 @@
           },
           "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
         },
+		{
+          "AttributeName": "teamid",
+          "AttributeValue": "d2e55f54-0206-ea11-a811-000d3ab5d511",
+          "AttributeType": "System.Guid"
+        },
         {
           "AttributeName": "roleid",
           "AttributeValue": "b1d76a5b-c7da-e911-a863-000d3ab0da57",
           "AttributeType": "System.Guid"
         },
         {
+          "AttributeName": "map.roleid.role.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "role",
+            "Value": "EU Imports Caseworker"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        }
+      ]
+    },
+    {
+      "LogicalName": "teamroles",
+      "Id": "a9edd3c6-11dd-f111-84e8-70a8a581cd56",
+      "IsManyToMany": true,
+      "Attributes": [
+	    {
+          "AttributeName": "map.teamid.team.name",
+          "AttributeValue": {
+            "AttributeLogicalName": "name",
+            "EntityLogicalName": "team",
+            "Value": "AIS Approved Enter"
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "map.roleid.role.businessunitid",
+          "AttributeValue": {
+            "AttributeLogicalName": "businessunitid",
+            "EntityLogicalName": "role",
+            "Value": {
+              "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+              "LogicalName": "businessunit",
+              "Name": "defra-custmstr-eue-dev-imp",
+              "KeyAttributes": []
+            }
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
+          "AttributeName": "map.teamid.team.businessunitid",
+          "AttributeValue": {
+            "AttributeLogicalName": "businessunitid",
+            "EntityLogicalName": "team",
+            "Value": {
+              "Id": "dea3493b-79c0-e911-a9ab-000d3ab20be2",
+              "LogicalName": "businessunit",
+              "Name": "defra-custmstr-eue-dev-imp",
+              "KeyAttributes": []
+            }
+          },
+          "AttributeType": "Microsoft.Xrm.Sdk.AliasedValue"
+        },
+        {
           "AttributeName": "teamid",
-          "AttributeValue": "d2e55f54-0206-ea11-a811-000d3ab5d511",
+          "AttributeValue": "05b2dc79-3eff-ed11-8f6e-002248993591",
+          "AttributeType": "System.Guid"
+        },
+        {
+          "AttributeName": "roleid",
+          "AttributeValue": "b1d76a5b-c7da-e911-a863-000d3ab0da57",
           "AttributeType": "System.Guid"
         },
         {

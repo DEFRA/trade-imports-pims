@@ -42,14 +42,12 @@
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_commoditycomplement.EntityLogicalName)))
                 .Returns(new EntityCollection());
 
-            // Default: schema version environment variable definition has no override/default value configured,
-            // which resolves to a null schema version. Since none of the test-built messages set
-            // metadata.schemaVersion (also null), IsSchemaVersionCurrent compares null to null and passes,
-            // allowing existing tests to exercise the create/update logic as before. Tests that specifically
-            // target IsSchemaVersionCurrent configure their own override via SetupEnvironmentVariableQuery.
+            // Default: schema version environment variable default value is 1.0, matching the
+            // metadata.schemaVersion set on test-built messages, so existing tests exercise the create/update logic.
+            // Tests that specifically target IsSchemaVersionCurrent configure their own values.
             this.orgSvcMock
                 .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == EnvironmentVariableDefinition.EntityLogicalName)))
-                .Returns(new EntityCollection(new List<Entity> { new EnvironmentVariableDefinition { Id = Guid.NewGuid() } }));
+                .Returns(new EntityCollection(new List<Entity> { new EnvironmentVariableDefinition { Id = Guid.NewGuid(), DefaultValue = "1.0" } }));
         }
 
         /// <summary>
@@ -282,6 +280,174 @@
 
             // Assert
             Assert.False(isCurrent);
+        }
+
+        /// <summary>
+        /// Tests that IsSchemaVersionCurrent queries the environment variable definition using the INS version schema name.
+        /// </summary>
+        [Fact]
+        public void IsSchemaVersionCurrent_QueriesInsVersionEnvironmentVariable()
+        {
+            // Arrange
+            this.SetupEnvironmentVariable("defraimp_INSVersionNumber", "1.0", null);
+            var insObject = BuildInsObjectWithSchemaVersion("INS-SCHEMA-005", "1.0");
+
+            // Act
+            var isCurrent = this.sut.IsSchemaVersionCurrent(insObject);
+
+            // Assert
+            Assert.True(isCurrent);
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => IsEnvironmentVariableQuery(qe, "defraimp_INSVersionNumber"))),
+                Times.Once);
+        }
+
+        /// <summary>
+        /// Tests that a newly created record is owned by the EU Imports team when the environment variable
+        /// holds the id of an existing team.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenEuImportsTeamExists_SetsOwnerToTeamOnCreate()
+        {
+            // Arrange
+            var teamId = Guid.NewGuid();
+            this.SetupNoExistingNotification();
+            this.SetupEnvironmentVariable("defraimp_EUImportsTeam", teamId.ToString(), null);
+            this.SetupTeam(teamId);
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-001", 1, "SUBMITTED"));
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(
+                o => o.Create(It.Is<Entity>(e =>
+                    e.LogicalName == defraimp_ImporterNotification.EntityLogicalName
+                    && e.GetAttributeValue<EntityReference>("ownerid") != null
+                    && e.GetAttributeValue<EntityReference>("ownerid").LogicalName == Team.EntityLogicalName
+                    && e.GetAttributeValue<EntityReference>("ownerid").Id == teamId)),
+                Times.Once);
+        }
+
+        /// <summary>
+        /// Tests that the environment variable override value is used in preference to the default value
+        /// when resolving the EU Imports team.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenEuImportsTeamOverrideExists_UsesOverrideTeamId()
+        {
+            // Arrange
+            var defaultTeamId = Guid.NewGuid();
+            var overrideTeamId = Guid.NewGuid();
+            this.SetupNoExistingNotification();
+            this.SetupEnvironmentVariable("defraimp_EUImportsTeam", defaultTeamId.ToString(), overrideTeamId.ToString());
+            this.SetupTeam(overrideTeamId);
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-002", 1, "SUBMITTED"));
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(
+                o => o.Create(It.Is<Entity>(e =>
+                    e.GetAttributeValue<EntityReference>("ownerid") != null
+                    && e.GetAttributeValue<EntityReference>("ownerid").Id == overrideTeamId)),
+                Times.Once);
+        }
+
+        /// <summary>
+        /// Tests that the owner is not set when the EU Imports team environment variable definition does not exist.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenEuImportsTeamDefinitionMissing_DoesNotSetOwner()
+        {
+            // Arrange
+            this.SetupNoExistingNotification();
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => IsEnvironmentVariableQuery(qe, "defraimp_EUImportsTeam"))))
+                .Returns(new EntityCollection());
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-003", 1, "SUBMITTED"));
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(
+                o => o.Create(It.Is<Entity>(e => e.GetAttributeValue<EntityReference>("ownerid") == null)),
+                Times.Once);
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == Team.EntityLogicalName)),
+                Times.Never);
+        }
+
+        /// <summary>
+        /// Tests that the owner is not set when the EU Imports team environment variable is not a valid GUID.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenEuImportsTeamValueIsNotGuid_DoesNotSetOwner()
+        {
+            // Arrange
+            this.SetupNoExistingNotification();
+            this.SetupEnvironmentVariable("defraimp_EUImportsTeam", "not-a-guid", null);
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-004", 1, "SUBMITTED"));
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(
+                o => o.Create(It.Is<Entity>(e => e.GetAttributeValue<EntityReference>("ownerid") == null)),
+                Times.Once);
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == Team.EntityLogicalName)),
+                Times.Never);
+        }
+
+        /// <summary>
+        /// Tests that the owner is not set when no team matches the id held in the environment variable.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenEuImportsTeamNotFound_DoesNotSetOwner()
+        {
+            // Arrange
+            this.SetupNoExistingNotification();
+            this.SetupEnvironmentVariable("defraimp_EUImportsTeam", Guid.NewGuid().ToString(), null);
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == Team.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-005", 1, "SUBMITTED"));
+
+            // Assert
+            Assert.True(result.Item1);
+            this.orgSvcMock.Verify(
+                o => o.Create(It.Is<Entity>(e => e.GetAttributeValue<EntityReference>("ownerid") == null)),
+                Times.Once);
+        }
+
+        /// <summary>
+        /// Tests that the EU Imports team is not looked up when the notification is in Draft status and is not created.
+        /// </summary>
+        [Fact]
+        public void UpsertImporterNotification_WhenStatusDraft_DoesNotLookUpEuImportsTeam()
+        {
+            // Arrange
+            this.SetupNoExistingNotification();
+            this.SetupEnvironmentVariable("defraimp_EUImportsTeam", Guid.NewGuid().ToString(), null);
+
+            // Act
+            var result = this.sut.UpsertImporterNotification(BuildMessage("INS-OWNER-006", 1, "DRAFT"));
+
+            // Assert
+            Assert.False(result.Item1);
+            Assert.Equal("draft", result.Item2);
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => IsEnvironmentVariableQuery(qe, "defraimp_EUImportsTeam"))),
+                Times.Never);
+            this.orgSvcMock.Verify(
+                o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == Team.EntityLogicalName)),
+                Times.Never);
         }
 
         /// <summary>
@@ -1778,6 +1944,7 @@
 
             var message = $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""INS-CC-005"",
@@ -1853,6 +2020,7 @@
 
             var message = $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{""exchangedDocument"": {{ ""identifier"": ""INS-CC-006"",
                 ""notificationStatusCode"": ""SUBMITTED"",
                 ""versionId"": 1 }},
@@ -1900,6 +2068,7 @@
 
             var message = $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-007"",
                 ""notificationStatusCode"": ""SUBMITTED"",
@@ -1942,6 +2111,7 @@
 
             const string message = @"{
               ""aggregateVersion"": 1,
+              ""metadata"": { ""schemaVersion"": ""1.0"" },
               ""data"": {
                 ""exchangedDocument"": { ""identifier"": ""INS-CC-010"",
                 ""notificationStatusCode"": ""SUBMITTED"",
@@ -1984,6 +2154,7 @@
 
             var message = $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-008"",
                 ""notificationStatusCode"": ""SUBMITTED"",
@@ -2032,6 +2203,7 @@
 
             var message = $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""INS-CC-009"",
                 ""notificationStatusCode"": ""SUBMITTED"",
@@ -2077,6 +2249,7 @@
 
             const string message = @"{
               ""aggregateVersion"": 1,
+              ""metadata"": { ""schemaVersion"": ""1.0"" },
               ""data"": {
                 ""exchangedDocument"": {
                   ""identifier"": ""INS-CC-007"",
@@ -2117,6 +2290,7 @@
 
             const string message = @"{
               ""aggregateVersion"": 1,
+              ""metadata"": { ""schemaVersion"": ""1.0"" },
               ""data"": {
                 ""exchangedDocument"": {
                   ""identifier"": ""INS-CC-009"",
@@ -2534,7 +2708,7 @@
                 .Setup(o => o.Create(It.IsAny<Entity>()))
                 .Returns(Guid.NewGuid());
 
-            var message = @"{ ""aggregateVersion"": 1, ""data"": {
+            var message = @"{ ""aggregateVersion"": 1, ""metadata"": { ""schemaVersion"": ""1.0"" }, ""data"": {
                 ""exchangedDocument"": { ""identifier"": ""INS-282"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 },
                 ""specifiedConsignment"": { ""carrier"": { ""name"": ""Lough Neagh"", ""postalAddress"": { ""lineOne"": ""4 Shore Road"", ""cityName"": ""Antrim"" } } } } }";
 
@@ -2808,6 +2982,15 @@
         }
 
         // ── Private helpers ───────────────────────────────────────────────────
+        private static bool IsEnvironmentVariableQuery(QueryExpression query, string schemaName)
+        {
+            return query.EntityName == EnvironmentVariableDefinition.EntityLogicalName
+                && query.Criteria.Conditions.Any(c =>
+                    c.AttributeName == EnvironmentVariableDefinition.Fields.SchemaName
+                    && c.Values.Count == 1
+                    && string.Equals(c.Values[0] as string, schemaName, StringComparison.Ordinal));
+        }
+
         private static INSObject BuildInsObject(string identifier, int aggregateVersion, string statusCode)
         {
             return BuildMessage(identifier, aggregateVersion, statusCode).FromJSON<INSObject>();
@@ -2865,6 +3048,7 @@
 
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -2889,6 +3073,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -2907,6 +3092,7 @@
 
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""{statusCode}"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -2933,6 +3119,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -2967,6 +3154,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -2994,6 +3182,7 @@
 
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -3012,6 +3201,7 @@
         {
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3026,6 +3216,7 @@
         {
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""{statusCode}"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{}}
@@ -3037,6 +3228,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{ ""identifier"": ""{identifier}"", ""notificationStatusCode"": ""SUBMITTED"", ""versionId"": 1 }},
                 ""specifiedConsignment"": {{
@@ -3072,6 +3264,7 @@
         {
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3092,6 +3285,7 @@
         {
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3151,6 +3345,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 2,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3191,6 +3386,7 @@
         {
             return $@"{{
               ""aggregateVersion"": 1,
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3217,6 +3413,7 @@
         {
             return $@"{{
               ""aggregateVersion"": {aggregateVersion},
+              ""metadata"": {{ ""schemaVersion"": ""1.0"" }},
               ""data"": {{
                 ""exchangedDocument"": {{
                   ""identifier"": ""{identifier}"",
@@ -3291,6 +3488,43 @@
 
             Assert.NotNull(created);
             return created;
+        }
+
+        private void SetupNoExistingNotification()
+        {
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == defraimp_ImporterNotification.EntityLogicalName)))
+                .Returns(new EntityCollection());
+
+            this.orgSvcMock
+                .Setup(o => o.Create(It.IsAny<Entity>()))
+                .Returns(Guid.NewGuid());
+        }
+
+        private void SetupEnvironmentVariable(string schemaName, string defaultValue, string overrideValue)
+        {
+            var definition = new EnvironmentVariableDefinition
+            {
+                Id = Guid.NewGuid(),
+                DefaultValue = defaultValue,
+            };
+
+            if (overrideValue != null)
+            {
+                definition["envvarvalue." + EnvironmentVariableValue.Fields.Value] =
+                    new AliasedValue(EnvironmentVariableValue.EntityLogicalName, EnvironmentVariableValue.Fields.Value, overrideValue);
+            }
+
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => IsEnvironmentVariableQuery(qe, schemaName))))
+                .Returns(new EntityCollection(new List<Entity> { definition }));
+        }
+
+        private void SetupTeam(Guid teamId)
+        {
+            this.orgSvcMock
+                .Setup(o => o.RetrieveMultiple(It.Is<QueryExpression>(qe => qe.EntityName == Team.EntityLogicalName)))
+                .Returns(new EntityCollection(new List<Entity> { new Team { Id = teamId } }));
         }
     }
 }

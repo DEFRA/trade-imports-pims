@@ -19,22 +19,25 @@ namespace Defra.Imports.Model
 	{
 		
 		/// <summary>
-		/// Connect with customers via Facebook channel option
+		/// Connect with customers via voice call channel option
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Facebook = 192330000,
+		Voicecall = 192440000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EntityRecords = 192350000,
+		
+		/// <summary>
+		/// Connect with customers via SMS channel option
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SMS = 192340000,
 		
 		/// <summary>
 		/// Connect with customers via Teams channel option
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MicrosoftTeams = 19241000,
-		
-		/// <summary>
-		/// Connect with customers via voice call channel option
-		/// </summary>
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Voicecall = 192440000,
 		
 		/// <summary>
 		/// Connect with customers via Live chat channel option
@@ -105,14 +108,23 @@ namespace Defra.Imports.Model
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		GooglesBusinessMessages = 192450001,
 		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityRecords = 192350000,
-		
 		/// <summary>
-		/// Connect with customers via SMS channel option
+		/// Connect with customers via Facebook channel option
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SMS = 192340000,
+		Facebook = 192330000,
+		
+		/// <summary>
+		/// Connect with customers via Microsoft 365 Copilot channel option
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Microsoft365Copilot = 192460000,
+		
+		/// <summary>
+		/// Connect with customers via ChatGPT channel option
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChatGPT = 192470000,
 	}
 }
 #pragma warning restore CS1591

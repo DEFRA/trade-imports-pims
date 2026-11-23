@@ -82,6 +82,7 @@ namespace Defra.Imports.Model
 			public const string lk_defraimp_inspectioncoveragerule_createdonbehalfby = "lk_defraimp_inspectioncoveragerule_createdonbehalfby";
 			public const string lk_defraimp_inspectioncoveragerule_modifiedby = "lk_defraimp_inspectioncoveragerule_modifiedby";
 			public const string lk_defraimp_inspectioncoveragerule_modifiedonbehalfby = "lk_defraimp_inspectioncoveragerule_modifiedonbehalfby";
+			public const string team_defraimp_inspectioncoveragerule = "team_defraimp_inspectioncoveragerule";
 			public const string user_defraimp_inspectioncoveragerule = "user_defraimp_inspectioncoveragerule";
 		}
 		
@@ -535,6 +536,19 @@ namespace Defra.Imports.Model
 			get
 			{
 				return this.GetRelatedEntity<Defra.Imports.Model.SystemUser>("lk_defraimp_inspectioncoveragerule_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 team_defraimp_inspectioncoveragerule
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_defraimp_inspectioncoveragerule")]
+		public Defra.Imports.Model.Team team_defraimp_inspectioncoveragerule
+		{
+			get
+			{
+				return this.GetRelatedEntity<Defra.Imports.Model.Team>("team_defraimp_inspectioncoveragerule", null);
 			}
 		}
 		

@@ -679,12 +679,6 @@ namespace Defra.Imports.Model
 		Callfailedcouldnotbecompleted = 192380012,
 		
 		/// <summary>
-		/// Message to agent when conversation is rerouted
-		/// </summary>
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Conversationrerouted = 192370012,
-		
-		/// <summary>
 		/// Message to agent when conversation reroute succeeds
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -887,6 +881,12 @@ namespace Defra.Imports.Model
 		/// </summary>
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		OutboundCSRBridgedTransfertoExternalNumberwithTranscriptionEnabledCustomeronHold = 192380043,
+		
+		/// <summary>
+		/// Message to agent when conversation is rerouted
+		/// </summary>
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Conversationrerouted = 192370012,
 	}
 }
 #pragma warning restore CS1591

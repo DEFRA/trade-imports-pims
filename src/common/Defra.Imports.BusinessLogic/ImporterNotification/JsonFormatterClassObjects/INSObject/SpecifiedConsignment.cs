@@ -42,7 +42,7 @@ namespace Defra.Imports.BusinessLogic.ImporterNotification.JsonFormatterClassObj
         /// Gets carrier.
         /// </summary>
         [DataMember(Name = "carrier")]
-        public Carrier Carrier { get; internal set; }
+        public Party Carrier { get; internal set; }
 
         /// <summary>
         /// Gets origin country.
