@@ -52,41 +52,30 @@ describe('onLoad', () => {
 });
 
 // ---------------------------------------------------------------------------
-// Save validation on create (related importer notification / related import record)
+// Save validation (related importer notification / related import record)
 // ---------------------------------------------------------------------------
 
-describe('related record validation on save', () => {
+describe('onSave - related record validation', () => {
   const MESSAGE =
     "Please complete either the 'Related Importer Notification' or 'Related Import Record' field";
   const lookup = [{ id: '1', name: 'x', entityType: 'e' }];
 
-  function buildCreateCtx(notification: unknown, importRecord: unknown, formType = 1) {
+  function buildSaveCtx(notification: unknown, importRecord: unknown) {
     const fc = makeFormContext(
       {
         defraimp_samplingrequired: makeAttr(false),
         defraimp_relatedimporternotification: makeAttr(notification),
         defraimp_relatedimportapplication: makeAttr(importRecord),
       },
-      { SamplesTestsRequired: makeControl() },
-      {},
-      { formType }
+      { SamplesTestsRequired: makeControl() }
     );
-    subject.onLoad(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
-    const handler = fc.data.entity.addOnSave.mock.calls[0]?.[0] as
-      | ((ctx: unknown) => void)
-      | undefined;
-    return { fc, handler };
+    return { fc };
   }
 
-  test('does not register a save handler when the form is not in create mode', () => {
-    const { handler } = buildCreateCtx(null, null, 2);
-    expect(handler).toBeUndefined();
-  });
-
   test('prevents save and shows error when both lookups are blank', () => {
-    const { fc, handler } = buildCreateCtx(null, null);
+    const { fc } = buildSaveCtx(null, null);
     const saveCtx = makeExecutionContext(fc);
-    handler!(saveCtx);
+    subject.onSave(saveCtx as unknown as Xrm.Events.SaveEventContext);
     expect(saveCtx.getEventArgs().preventDefault).toHaveBeenCalled();
     expect(fc.ui.setFormNotification).toHaveBeenCalledWith(
       MESSAGE,
@@ -96,24 +85,10 @@ describe('related record validation on save', () => {
   });
 
   test('prevents save when lookups are empty arrays', () => {
-    const { fc, handler } = buildCreateCtx([], []);
+    const { fc } = buildSaveCtx([], []);
     const saveCtx = makeExecutionContext(fc);
-    handler!(saveCtx);
+    subject.onSave(saveCtx as unknown as Xrm.Events.SaveEventContext);
     expect(saveCtx.getEventArgs().preventDefault).toHaveBeenCalled();
-  });
-
-  test('onLoadQuickCreate registers the save handler without needing the samples grid', () => {
-    const fc = makeFormContext(
-      {
-        defraimp_relatedimporternotification: makeAttr(null),
-        defraimp_relatedimportapplication: makeAttr(null),
-      },
-      {},
-      {},
-      { formType: 1 }
-    );
-    subject.onLoadQuickCreate(makeExecutionContext(fc) as unknown as Xrm.Events.EventContext);
-    expect(fc.data.entity.addOnSave).toHaveBeenCalledTimes(1);
   });
 
   test.each([
@@ -121,9 +96,9 @@ describe('related record validation on save', () => {
     ['import record only', null, lookup],
     ['both', lookup, lookup],
   ])('allows save when %s is populated', (_name, notification, importRecord) => {
-    const { fc, handler } = buildCreateCtx(notification, importRecord);
+    const { fc } = buildSaveCtx(notification, importRecord);
     const saveCtx = makeExecutionContext(fc);
-    handler!(saveCtx);
+    subject.onSave(saveCtx as unknown as Xrm.Events.SaveEventContext);
     expect(saveCtx.getEventArgs().preventDefault).not.toHaveBeenCalled();
     expect(fc.ui.setFormNotification).not.toHaveBeenCalled();
     expect(fc.ui.clearFormNotification).toHaveBeenCalledWith('missingRelatedRecordError');

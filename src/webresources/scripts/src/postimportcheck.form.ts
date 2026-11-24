@@ -10,21 +10,13 @@ let currentFormContext: Xrm.FormContext | undefined;
 export function onLoad(executionContext: Xrm.Events.EventContext): void {
   currentFormContext = executionContext.getFormContext();
   showHideSampleTestsBasedOnSamplingRequired(currentFormContext);
-  registerRelatedRecordValidation(currentFormContext);
 }
 
-// Quick create forms cannot host the samples grid, so they register only the save validation.
-export function onLoadQuickCreate(executionContext: Xrm.Events.EventContext): void {
-  registerRelatedRecordValidation(executionContext.getFormContext());
+export function onSave(executionContext: Xrm.Events.SaveEventContext): void {
+  validateRelatedRecord(executionContext);
 }
 
-function registerRelatedRecordValidation(formContext: Xrm.FormContext): void {
-  if (formContext.ui.getFormType() === FORM_TYPE_CREATE) {
-    formContext.data.entity.addOnSave(onSaveRequireRelatedRecord);
-  }
-}
-
-function onSaveRequireRelatedRecord(executionContext: Xrm.Events.SaveEventContext): void {
+function validateRelatedRecord(executionContext: Xrm.Events.SaveEventContext): void {
   const formContext = executionContext.getFormContext();
   const hasImporterNotification = hasLookupValue(formContext, RELATED_IMPORTER_NOTIFICATION_ATTRIBUTE);
   const hasImportRecord = hasLookupValue(formContext, RELATED_IMPORT_RECORD_ATTRIBUTE);

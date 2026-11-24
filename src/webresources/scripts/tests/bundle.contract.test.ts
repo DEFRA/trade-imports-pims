@@ -46,7 +46,7 @@ const bundles = [
   [
     'postimportcheck.form.js',
     'PostImportCheck',
-    ['onLoad', 'onLoadQuickCreate', 'onChangeSamplingRequired'],
+    ['onLoad', 'onSave', 'onChangeSamplingRequired'],
   ],
 ] as const;
 
