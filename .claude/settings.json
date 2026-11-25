@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "power-platform-agent-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "DEFRA/power-platform-agent-marketplace"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "power-platform-delivery@power-platform-agent-marketplace": true
+  }
+}
