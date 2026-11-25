@@ -218,15 +218,9 @@ The two files must always declare the same marketplace and plug-in. When changin
 
 Do not copy or fork plug-in agents or skills into this repository, as local copies would drift from, or conflict with, the plug-in versions. Project-specific agents and skills should extend the plug-in's capabilities, and should use distinct names so that they do not shadow plug-in definitions.
 
-## Installation
+Do not change the behaviour of core agents or skills from within this repository. Where a core agent or skill appears to be wrong or missing a capability, highlight this to the user so that a change can be raised in the marketplace repository. Prefer contributing a general improvement to the plug-in over creating a project-specific variant. Repository-specific rules, including the standards in this document, remain here.
 
-Anyone working in the repository needs access to the marketplace repository in GitHub. With that access, a client that honours its settings file (see the table above) registers the marketplace and enables the plug-in when the repository is opened. Claude Code asks you to trust the folder and then to install the marketplace and plug-in. If the plug-in is not offered, check your access to `DEFRA/power-platform-agent-marketplace` and consult the marketplace repository's README for client-specific installation steps.
-
-## Raising changes
-
-Changes to the behaviour of core agents or skills are made in the marketplace repository, not here. Raise an issue or pull request in [DEFRA/power-platform-agent-marketplace](https://github.com/DEFRA/power-platform-agent-marketplace). Where a change would benefit other DEFRA Power Platform projects, prefer contributing it to the plug-in over creating a project-specific variant.
-
-Changes to the plug-in configuration (for example, enabling a different plug-in) and to project-specific agents and skills are made in this repository. Repository-specific rules, including the standards in this document, also remain here.
+Setup instructions for developers are in [CONTRIBUTING.md](CONTRIBUTING.md#ai-agents-and-skills).
 
 ---
 

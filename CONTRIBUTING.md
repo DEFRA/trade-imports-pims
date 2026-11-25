@@ -25,6 +25,9 @@ Please ensure that you've read this document before contributing to this reposit
     - [Solution versioning](#solution-versioning)
       - [Commit message](#commit-message)
       - [Git tag](#git-tag)
+    - [AI agents and skills](#ai-agents-and-skills)
+      - [Installing the plug-in](#installing-the-plug-in)
+      - [Changing agents and skills](#changing-agents-and-skills)
   - [Deployments](#deployments)
     - [Updates and upgrades](#updates-and-upgrades)
   - [Testing](#testing)
@@ -164,6 +167,27 @@ It's possible to overide the version that will be calculated at build time by us
 For example:
 
 `defra_Imports/1.1.0`
+
+### AI agents and skills
+
+The core agents and skills that support delivery are supplied by the `power-platform-delivery` plug-in from the [DEFRA/power-platform-agent-marketplace](https://github.com/DEFRA/power-platform-agent-marketplace) marketplace, rather than being stored in this repository. Project-specific agents and skills may also be added to this repository, under `.github/agents` and `.github/skills`. The rules that agents follow are in [AGENTS.md](AGENTS.md#agents-and-skills).
+
+#### Installing the plug-in
+
+The marketplace and plug-in are declared in a settings file for each supported client, and these must always match:
+
+| Client         | Settings file                                                  |
+| -------------- | -------------------------------------------------------------- |
+| GitHub Copilot | [.github/copilot/settings.json](.github/copilot/settings.json) |
+| Claude Code    | [.claude/settings.json](.claude/settings.json)                 |
+
+The client registers the marketplace and enables the plug-in when you open the repository. Claude Code asks you to trust the folder and then to install the marketplace and plug-in. If the plug-in is not offered, check your access to the marketplace repository and refer to its README for client-specific installation steps.
+
+#### Changing agents and skills
+
+- To change the behaviour of a core agent or skill, raise an issue or pull request in the marketplace repository. Where a change would benefit other DEFRA Power Platform projects, prefer contributing it there over creating a project-specific variant.
+- To change which plug-in is used, update both settings files in the same commit.
+- Do not copy or fork plug-in agents or skills into this repository. Give project-specific agents and skills distinct names so that they do not shadow the plug-in's.
 
 ## Deployments
 
