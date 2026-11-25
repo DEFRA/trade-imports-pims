@@ -85,6 +85,18 @@
         }
 
         /// <summary>
+        /// Creates a new record from the specified command button on the entity list page.
+        /// </summary>
+        /// <param name="buttonText">The command button text.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [When("I click the {string} button to create a new Import Record manually")]
+        public async Task WhenIClickTheButtonToCreateANewImportRecordManually(string buttonText)
+        {
+            this.powerPlaywrightCtx.ActivePage = await this.EntityListPage.DataSet.CommandBar
+                .ClickCommandAsync<IEntityRecordPage>(buttonText);
+        }
+
+        /// <summary>
         /// Switches to the specified view on the entity list page.
         /// </summary>
         /// <param name="viewName">The name of the view to switch to.</param>

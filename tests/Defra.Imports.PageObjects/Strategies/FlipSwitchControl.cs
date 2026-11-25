@@ -28,7 +28,8 @@ namespace Defra.Imports.PageObjects.Strategies
         public FlipSwitchControl(string name, IAppPage appPage, IEnvironmentInfoProvider infoProvider, IControl parent = null)
             : base(name, appPage, infoProvider, parent)
         {
-            this.flipSwitch = this.Container.GetByRole(AriaRole.Checkbox);
+            // The classic rendering also contains a 1x1 checkbox input after the switch.
+            this.flipSwitch = this.Container.GetByRole(AriaRole.Checkbox).First;
         }
 
         /// <inheritdoc/>
@@ -61,6 +62,13 @@ namespace Defra.Imports.PageObjects.Strategies
             await this.flipSwitch.ClickAsync();
 
             await this.Container.Page.WaitForAppIdleAsync();
+        }
+
+        /// <inheritdoc/>
+        protected override ILocator GetRoot(ILocator context)
+        {
+            // Remove this override when the classic flip switch (no data-lp-id, e.g. on the Import Record form) renders as the PCF control.
+            return base.GetRoot(context).Or(context.Locator("div[class~='MscrmControls.FlipSwitch.FlipSwitchControl']"));
         }
 
         private async Task CheckVisibility()
