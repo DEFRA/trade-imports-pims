@@ -195,7 +195,32 @@ Place new content in the most appropriate location.
 
 Avoid creating new top-level folders without clear justification.
 
-A script used primarily to support a specific skill (e.g. building an index or metadata report the skill's procedure depends on) belongs under that skill's own `.github/skills/<skill-name>/scripts/` folder instead of the top-level `/scripts` — keep it discoverable alongside the skill that owns it rather than in the general-purpose utilities folder. Reserve `/scripts` for utilities that are not tied to a single skill's procedure.
+A script used primarily to support a specific skill (e.g. building an index or metadata report the skill's procedure depends on) belongs with the skill that owns it, rather than in the top-level `/scripts` folder. For core skills, this is the plug-in (see [Agents and Skills](#agents-and-skills)); for project-specific skills, it is the skill's own `.github/skills/<skill-name>/scripts/` folder. Reserve `/scripts` for utilities that are not tied to a single skill's procedure.
+
+---
+
+# Agents and Skills
+
+The core agents and skills that support the end-to-end delivery workflow for DEFRA Power Platform projects are supplied by the `power-platform-delivery` plug-in from the [DEFRA/power-platform-agent-marketplace](https://github.com/DEFRA/power-platform-agent-marketplace) marketplace. They are deliberately not copied into this repository, so that every Power Platform repository uses the same, centrally maintained definitions.
+
+Project-specific agents and skills may also be created in this repository (under `.github/agents` and `.github/skills`) where a need is specific to this project and is not suited to the shared plug-in.
+
+## How the plug-in is configured
+
+The marketplace and the plug-in are declared under `extraKnownMarketplaces` and `enabledPlugins` in a settings file for each supported client:
+
+| Client         | Settings file                                                  |
+| -------------- | -------------------------------------------------------------- |
+| GitHub Copilot | [.github/copilot/settings.json](.github/copilot/settings.json) |
+| Claude Code    | [.claude/settings.json](.claude/settings.json)                 |
+
+The two files must always declare the same marketplace and plug-in. When changing one, change the other in the same commit.
+
+Do not copy or fork plug-in agents or skills into this repository, as local copies would drift from, or conflict with, the plug-in versions. Project-specific agents and skills should extend the plug-in's capabilities, and should use distinct names so that they do not shadow plug-in definitions.
+
+Do not change the behaviour of core agents or skills from within this repository. Where a core agent or skill appears to be wrong or missing a capability, highlight this to the user so that a change can be raised in the marketplace repository. Prefer contributing a general improvement to the plug-in over creating a project-specific variant. Repository-specific rules, including the standards in this document, remain here.
+
+Setup instructions for developers are in [CONTRIBUTING.md](CONTRIBUTING.md#ai-agents-and-skills).
 
 ---
 
