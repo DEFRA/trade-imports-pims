@@ -28,6 +28,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{12fab6d2-178e-4ac7-b0b3-0246dcb6e501}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_relatedimporternotification" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_relatedimporternotification" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{d5a241e9-33b6-de02-3814-1a5422cba2c7}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Related ITAHC" languagecode="1033" />
@@ -131,6 +139,16 @@
         <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
         <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
       </DisplayConditions>
+      <formLibraries>
+        <Library name="defraimp_/js/postimportcheck.form.js" libraryUniqueId="{48dd9ba1-2c34-4f7b-a14b-4deb83818e37}" />
+      </formLibraries>
+      <events>
+        <event name="onsave" application="false" active="false">
+          <Handlers>
+            <Handler functionName="DefraImports.PostImportCheck.onSave" libraryName="defraimp_/js/postimportcheck.form.js" handlerUniqueId="{2d4ffb51-2a61-40c2-9875-9da80044c6d4}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
