@@ -1457,6 +1457,59 @@
         }
 
         /// <summary>
+        /// Tests that ApplyTransporterDetails sets the transporter type to a comma delimited list when several party type codes are received.
+        /// </summary>
+        [Fact]
+        public void ApplyTransporterDetails_WithMultiplePartyTypeCodes_SetsCommaDelimitedTransporterType()
+        {
+            // Arrange
+            var message = BuildMessageWithCarrier(
+                "INS-282",
+                name: "FastFreight",
+                carrierIdentifier: "FF-99",
+                line1: "6 Carrier Way",
+                city: "Dover",
+                postcode: "CT16 1AA",
+                country: "GB",
+                partyTypeCode: "CT1")
+                .Replace("[{ \"value\": \"CT1\" }]", "[{ \"value\": \"CT1\" }, { \"value\": \"CT2\" }, { \"value\": \"CT3\" }]");
+
+            // Act
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal("CT1,CT2,CT3", created.defraimp_transportertype);
+        }
+
+        /// <summary>
+        /// Tests that ApplyTransporterDetails truncates the transporter type to 100 characters when the delimited party type codes are longer.
+        /// </summary>
+        [Fact]
+        public void ApplyTransporterDetails_WithPartyTypeCodesExceeding100Characters_TruncatesTransporterTypeTo100Characters()
+        {
+            // Arrange
+            var codes = Enumerable.Range(100, 30).Select(i => "CT" + i).ToArray();
+            var values = string.Join(", ", codes.Select(c => "{ \"value\": \"" + c + "\" }"));
+            var message = BuildMessageWithCarrier(
+                "INS-283",
+                name: "FastFreight",
+                carrierIdentifier: "FF-99",
+                line1: "6 Carrier Way",
+                city: "Dover",
+                postcode: "CT16 1AA",
+                country: "GB",
+                partyTypeCode: "CT1")
+                .Replace("[{ \"value\": \"CT1\" }]", "[" + values + "]");
+
+            // Act
+            var created = this.CaptureCreatedEntity(message);
+
+            // Assert
+            Assert.Equal(100, created.defraimp_transportertype.Length);
+            Assert.Equal(string.Join(",", codes).Substring(0, 100), created.defraimp_transportertype);
+        }
+
+        /// <summary>
         /// Tests that ApplyTransporterDetails does not set any fields when Carrier is absent.
         /// </summary>
         [Fact]
