@@ -167,7 +167,7 @@ Scenario: A caseworker views an Importer Notification's importer details
 		# | International Telephone |
 		# | Other Identifier        |
 
-@acceptance-criteria:us-003-1 @issue:US-044 @acceptance-criteria:us-044-1 @61845
+@acceptance-criteria:us-003-1 @issue:US-044 @acceptance-criteria:us-044-1 @issue:61845
 Scenario: A caseworker views an Importer Notification's consignor details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification
@@ -272,7 +272,7 @@ Scenario: A caseworker views an Importer Notification's transporter details
 	And I see a 'Countries Of Transit <subgrid_countries_of_transit>' subgrid with the following columns
 		| Common Country Name |
 
-@issue61845
+@issue:61845
 Scenario: A caseworker views an Importer Notification's place of origin details
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification of type 'GBNAG'
@@ -288,9 +288,16 @@ Scenario: A caseworker views an Importer Notification's place of origin details
 		| Postcode        |
 		| Country         |
 
-@issue61845
+@issue:61845
 Scenario: A caseworker does not see the place of origin details for an Importer Notification not of type GBNAG
 	Given I am logged in to the 'EU Imports' app as 'a caseworker'
 	And I have opened an Importer Notification not of type 'GBNAG'
 	Then I do not see the following tabs
 		| Place of Origin |
+
+@issue:62439 @acceptance-criteria:62439-2 @acceptance-criteria:62439-3
+Scenario: A caseworker views an Importer Notification's Post Import Checks
+	Given I am logged in to the 'EU Imports' app as 'a caseworker'
+	And I have opened an Importer Notification
+	When I select the 'Post Import Checks' tab
+	Then I see a 'Post Import Checks' subgrid
