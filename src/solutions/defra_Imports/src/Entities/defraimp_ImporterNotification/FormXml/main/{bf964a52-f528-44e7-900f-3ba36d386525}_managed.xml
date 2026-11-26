@@ -1641,50 +1641,6 @@
             </column>
           </columns>
         </tab>
-        <tab name="tab_17" id="537ff092-a999-457a-a6f1-901da2c17efe" IsUserDefined="0" locklevel="0" showlabel="true">
-          <labels>
-            <label description="Post Import Checks" languagecode="1033" />
-          </labels>
-          <columns>
-            <column width="100%">
-              <sections>
-                <section name="tab_17_section_1" id="8dc0ecd5-162b-4c5c-b174-801006f93821" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
-                  <labels>
-                    <label description="Related Post Import Checks" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row />
-                    <row>
-                      <cell locklevel="0" id="{04076327-a0fd-4330-a924-7a6b6b1d354e}" rowspan="4" colspan="1" auto="false">
-                        <labels>
-                          <label description="Post Import Checks for This Importer Notification" languagecode="1033" />
-                        </labels>
-                        <control indicationOfSubgrid="true" id="RelatedNotification" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
-                          <parameters>
-                            <RecordsPerPage>4</RecordsPerPage>
-                            <AutoExpand>Fixed</AutoExpand>
-                            <EnableQuickFind>false</EnableQuickFind>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <EnableChartPicker>true</EnableChartPicker>
-                            <ChartGridMode>All</ChartGridMode>
-                            <RelationshipName>defraimp_importinspection_RelatedImporterNotification_defraimp_importernotification</RelationshipName>
-                            <TargetEntityType>defraimp_importinspection</TargetEntityType>
-                            <ViewId>{78BB5E9F-A5F1-E911-A812-000D3AB5D511}</ViewId>
-                            <ViewIds>{68FA7E47-59DD-F111-84E8-0022489F1501},{78BB5E9F-A5F1-E911-A812-000D3AB5D511}</ViewIds>
-                            <VisualizationId>{D26A167F-6310-EA11-A811-000D3AB55801}</VisualizationId>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                  </rows>
-                </section>
-              </sections>
-            </column>
-          </columns>
-        </tab>
         <tab name="transporter_tab" id="1a04ebb2-9cb5-404e-aba4-fbab9fa79281" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
           <labels>
             <label description="Transporter" languagecode="1033" />
@@ -2015,6 +1971,50 @@
                     </row>
                     <row />
                     <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_17" id="537ff092-a999-457a-a6f1-901da2c17efe" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Post Import Checks" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_17_section_1" id="8dc0ecd5-162b-4c5c-b174-801006f93821" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Related Post Import Checks" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{04076327-a0fd-4330-a924-7a6b6b1d354e}" rowspan="4" colspan="1" auto="false">
+                        <labels>
+                          <label description="Post Import Checks for This Importer Notification" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="RelatedNotification" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>defraimp_importinspection_RelatedImporterNotification_defraimp_importernotification</RelationshipName>
+                            <TargetEntityType>defraimp_importinspection</TargetEntityType>
+                            <ViewId>{78BB5E9F-A5F1-E911-A812-000D3AB5D511}</ViewId>
+                            <ViewIds>{68FA7E47-59DD-F111-84E8-0022489F1501},{78BB5E9F-A5F1-E911-A812-000D3AB5D511}</ViewIds>
+                            <VisualizationId>{D26A167F-6310-EA11-A811-000D3AB55801}</VisualizationId>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
                     <row />
                     <row />
                     <row />
