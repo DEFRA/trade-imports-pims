@@ -36,6 +36,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{2903c966-af19-463b-80b0-99822e01467b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Related Importer Notification" languagecode="1033" />
+                        </labels>
+                        <control id="defraimp_relatedimporternotification" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defraimp_relatedimporternotification" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{58ba351a-abab-2297-7d04-031a48916c72}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Related ITAHC" languagecode="1033" />
@@ -969,14 +977,19 @@
         <Library name="defraimp_/js/postimportcheck.form.js" libraryUniqueId="{6694496a-1ded-c146-04ca-06b535432826}" />
       </formLibraries>
       <events>
+        <event name="onchange" application="false" active="false" attribute="defraimp_samplingrequired">
+          <Handlers>
+            <Handler functionName="DefraImports.PostImportCheck.onChangeSamplingRequired" libraryName="defraimp_/js/postimportcheck.form.js" handlerUniqueId="{d95924b8-e0ee-2007-2cac-4cba860a2e4a}" enabled="true" parameters="" passExecutionContext="false" />
+          </Handlers>
+        </event>
         <event name="onload" application="false" active="false">
           <Handlers>
             <Handler functionName="DefraImports.PostImportCheck.onLoad" libraryName="defraimp_/js/postimportcheck.form.js" handlerUniqueId="{7156199b-12a6-2122-d871-a4566de33d2a}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
-        <event name="onchange" application="false" active="false" attribute="defraimp_samplingrequired">
+        <event name="onsave" application="false" active="false">
           <Handlers>
-            <Handler functionName="DefraImports.PostImportCheck.onChangeSamplingRequired" libraryName="defraimp_/js/postimportcheck.form.js" handlerUniqueId="{d95924b8-e0ee-2007-2cac-4cba860a2e4a}" enabled="true" parameters="" passExecutionContext="false" />
+            <Handler functionName="DefraImports.PostImportCheck.onSave" libraryName="defraimp_/js/postimportcheck.form.js" handlerUniqueId="{0b01b4c5-92d7-4f87-bfa3-8af25d8f8094}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

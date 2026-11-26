@@ -260,6 +260,7 @@
   <EntityRelationship Name="defraimp_importernotification_PlaceofOriginCountryId_defra_country" />
   <EntityRelationship Name="defraimp_importernotification_ProcessSession" />
   <EntityRelationship Name="defraimp_importinspection_ProcessSession" />
+  <EntityRelationship Name="defraimp_importinspection_RelatedImporterNotification_defraimp_importernotification" />
   <EntityRelationship Name="defraimp_importquery_businessunit_owningbusinessunit" />
   <EntityRelationship Name="defraimp_importquery_mailbox_sendermailboxid" />
   <EntityRelationship Name="defraimp_importquery_owner_ownerid" />
